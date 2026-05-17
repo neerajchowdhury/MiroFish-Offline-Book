@@ -21,10 +21,23 @@
 - Current answer: No Swarmbook route/view in `frontend/src/router/index.js`.
 
 7. Does graph persistence exist for Swarmbook evidence/simulation artifacts?
-- Current answer: Not as a dedicated wired Swarmbook graph path; only legacy graph services are currently exposed.
+- Current answer: Yes at module level (`backend/app/book_sim/graph_persistence.py`), but not wired through Flask runtime routes.
 
 ## Scope/Design Clarifications
 8. Should Swarmbook phases continue with standalone API namespace (`/api/book-sim/*`) or extend existing simulation endpoints?
 9. What is the minimum enforceable redaction policy for `hybrid_safe` before any cloud call?
 10. What artifacts should be persisted to Neo4j versus file-based JSON only in early phases?
 11. Which quality bar gates Phase 7 (hardening): unit tests only, or also local integration test plus manual UI walkthrough?
+
+## Consolidation Follow-ups
+12. Should phase status distinguish "module complete" vs "runtime wired" explicitly in every phase row?
+- Current answer: Yes. Consolidation now uses that convention for phases 8-12.
+
+13. Do Swarmbook JSON/Markdown report generators exist?
+- Current answer: No. `backend/app/book_sim/reports/` is still missing.
+
+14. Is Phase 13 safe to start?
+- Current answer: Yes at module level, because dependencies from phases 8-12 are present and tested; runtime/API integration remains out of scope.
+
+15. Are any phase docs currently stale?
+- Current answer: Handoff prompts required correction (done). Continue checking that fresh-thread prompts always target the next unfinished phase.

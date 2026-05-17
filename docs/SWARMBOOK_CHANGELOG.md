@@ -231,6 +231,38 @@
 - One shared scoring suite covering each score function plus deterministic same-input replay.
 ### Known gaps
 - Scoring is implemented but still not wired into any Flask route or report generator.
+
+## Phase 12 Audit Refresh
+### Files
+- `docs/SWARMBOOK_PHASE_STATUS.md`
+- `docs/SWARMBOOK_HANDOFF_LATEST.md`
+### Behavior changed
+- Confirmed the scoring layer is complete at the module level and remains deterministic, explainable, and config-driven.
+- Confirmed score outputs include confidence bands and evidence references across the scoring package.
+- Corrected the handoff resume point so the next fresh thread starts at Phase 13 rather than the already-complete Phase 12.
+### Tests added
+- None. Audit relied on existing scoring tests and code inspection.
+### Known gaps
+- Report generation and API/runtime wiring are still pending.
+
+## Deep Consolidation (Post-Phase 12)
+### Files
+- `docs/SWARMBOOK_CONTEXT.md`
+- `docs/SWARMBOOK_PHASE_STATUS.md`
+- `docs/SWARMBOOK_CHANGELOG.md`
+- `docs/SWARMBOOK_DECISIONS.md`
+- `docs/SWARMBOOK_OPEN_QUESTIONS.md`
+- `docs/SWARMBOOK_HANDOFF_LATEST.md`
+### Behavior changed
+- No runtime behavior change. This was a continuity and wiring audit pass only.
+- Corrected stale assumptions by confirming that phases 8-12 are module-complete while phase 7 API wiring is still not started.
+- Confirmed no report-generation package exists yet under `backend/app/book_sim/reports/`, so JSON/Markdown report outputs are not available.
+- Confirmed Swarmbook unit suites currently pass (`28` run, `1` skipped) in this environment.
+### Tests added
+- None. Consolidation reused existing test suites.
+### Known gaps
+- End-to-end Swarmbook runtime remains unwired in Flask and frontend.
+- Privacy guarantees are still router-scoped and not yet enforced through global policy middleware.
 ## Phase 10 Audit Refresh
 - Audited the bounded Swarmbook simulation engine after implementation.
 - Confirmed the private-reading -> platform-reaction -> cross-reaction flow, deterministic seed behavior, content-hash caching, structured JSON outputs, and low-resource defaults (`cross_reaction_posts=8`, `max_reaction_rounds=2`, `max_parallel_jobs=1`).

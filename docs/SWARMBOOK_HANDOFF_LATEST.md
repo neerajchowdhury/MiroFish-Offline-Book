@@ -11,7 +11,7 @@ Stabilize continuity and project memory after scoring landed, while documenting 
 
 ## 3) Current Repository State
 - Branch: `feature/swarmbook-phase6-recovery`
-- Working tree status at start of this pass: clean.
+- Working tree status at start of this pass: dirty (docs-only continuity edits pending commit).
 - Swarmbook modules/config/tests now include platform adapters and simulation passes, but no Swarmbook API/UI runtime wiring yet.
 
 ## 4) Files/Modules Implemented So Far
@@ -56,6 +56,25 @@ Stabilize continuity and project memory after scoring landed, while documenting 
 - End-to-end manuscript->book_sim->report runtime path is not exposed.
 - Privacy enforcement is not yet system-wide beyond router selection logic.
 - Report synthesis is not yet implemented.
+
+## 13) True Phase State (7-12)
+- Phase 7: not started (no additive Flask route wiring for book_sim modules).
+- Phase 8: done at module level (graph persistence implemented + tested).
+- Phase 9: done at module level (persona generation implemented + tested).
+- Phase 10: done at module level (platform adapters implemented + tested).
+- Phase 11: done at module level (bounded simulation engine implemented + tested).
+- Phase 12: done at module level (scoring engine implemented + tested).
+
+## 14) Unsafe Assumptions Found
+- Assuming module completion means runtime availability is unsafe; Flask and frontend are still unwired.
+- Assuming report generation exists is unsafe; `backend/app/book_sim/reports/` does not exist yet.
+- Assuming privacy enforcement is global is unsafe; enforcement is router-scoped and not middleware-wide.
+
+## 15) Repair Tasks Before/Alongside Phase 13
+1. Keep status language strict: "module complete" vs "runtime wired".
+2. Add `backend/app/book_sim/reports/*` with tests before claiming report capability.
+3. Preserve `local_only` guarantees by forcing route selection through `BookSimProviderRouter`.
+4. Defer Flask/API wiring to the dedicated API phase; do not silently mix scopes.
 
 ## 8) Exact Next Safe Phase
 Phase 13 is safe at the module level.
@@ -113,14 +132,14 @@ Read these files first and follow them strictly:
 6) docs/SWARMBOOK_OPEN_QUESTIONS.md
 7) docs/SWARMBOOK_HANDOFF_LATEST.md
 
-Task: Start Phase 12 by creating the additive scoring layer only.
+Task: Start Phase 13 by creating the additive report synthesis layer only.
 Requirements:
 - Preserve existing MiroFish-Offline behavior.
 - Use additive architecture under backend/app/book_sim.
 - Do not delete files.
-- Use the existing simulation outputs and keep scoring deterministic.
+- Use the existing simulation and scoring outputs and keep report generation deterministic.
 - Do not call real platform APIs or scraping services.
-- Add tests for scoring inputs and outputs.
+- Add tests for report inputs and outputs.
 - Report changed files, commands run, tests passed/failed, and known gaps.
 ```
 

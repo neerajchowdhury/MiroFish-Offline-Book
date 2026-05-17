@@ -12,12 +12,12 @@ Status values: `not_started`, `in_progress`, `done`, `blocked`, `partially_done`
 | 4. Provider router foundation | partially_done | `backend/app/book_sim/provider_router.py`, `config_loader.py`, providers, router tests. | Router is additive and tested, but not yet wired into app-wide runtime entry points. |
 | 5. Typed schemas/models | done | `backend/app/book_sim/models.py`; serialization tests in `backend/tests/test_book_sim_models.py`. | N/A |
 | 6. Manuscript ingest + evidence pack builder | partially_done | `evidence_pack_builder.py`, chunker/extractors/analyzers/cache modules; fixture tests. | Module-level implementation exists, but API exposure and end-to-end app integration are not wired. |
-| 7. Book-sim API routes | not_started | No `book_sim` blueprint under `backend/app/api` registration path. | Pending additive route layer. |
-| 8. Book graph persistence integration | done | `backend/app/book_sim/graph_persistence.py` adds namespace-isolated Neo4j persistence with dry-run fallback and tests. | API/UI wiring is still pending, but persistence itself is in place. |
-| 9. Reader cohort/persona generator runtime | done | `backend/app/book_sim/reader_archetype_loader.py` and `reader_persona_generator.py` load weighted archetypes and generate deterministic personas with privacy-mode-aware counts. | Runtime exists but is not yet wired into API/simulation orchestration. |
-| 10. Platform-style reaction generator | done | `backend/app/book_sim/platform_adapters/*` generates structured synthetic platform posts from personas, evidence packs, and private reactions. | Runtime exists but is not yet wired into Flask/API routes. |
-| 11. Cross-reader reaction loop | done | `backend/app/book_sim/simulation/cross_reaction_pass.py` bounds reactions to top-signal posts and updates reaction state without many-to-many explosion. | Runtime exists but is not yet wired into Flask/API routes. |
-| 12. Scoring engine | done | `backend/app/book_sim/scoring/*` implements deterministic rating, DNF, viral, controversy, quoteability, polarization, and revision priority scoring with tests. | API/UI wiring is still pending, but the scoring layer itself is in place. |
+| 7. Book-sim API routes | not_started | No `book_sim` blueprint under `backend/app/api` registration path and no registration in `backend/app/__init__.py`. | Pending additive route layer. |
+| 8. Book graph persistence integration | done | `backend/app/book_sim/graph_persistence.py` adds namespace-isolated Neo4j persistence with dry-run fallback and tests. | Module complete; still unwired from Flask/API runtime. |
+| 9. Reader cohort/persona generator runtime | done | `backend/app/book_sim/reader_archetype_loader.py` and `reader_persona_generator.py` load weighted archetypes and generate deterministic personas with privacy-mode-aware counts. | Module complete; orchestration exists, API/runtime wiring is pending. |
+| 10. Platform-style reaction generator | done | `backend/app/book_sim/platform_adapters/*` generates structured synthetic platform posts from personas, evidence packs, and private reactions. | Module complete; not exposed through Flask/API routes. |
+| 11. Cross-reader reaction loop | done | `backend/app/book_sim/simulation/cross_reaction_pass.py` and `simulation_orchestrator.py` implement bounded cross-reactions and deterministic orchestration. | Module complete; not exposed through Flask/API routes. |
+| 12. Scoring engine | done | `backend/app/book_sim/scoring/*` implements deterministic rating, DNF, viral, controversy, quoteability, polarization, and revision priority scoring with tests. | Module complete; report and API wiring are pending. |
 | 13. Prediction report (book_sim path) | not_started | `BookPredictionReport` model exists only. | Existing `/api/report` is legacy simulation path, not Swarmbook-specific flow. |
 | 14. Persona interrogation (book_sim path) | not_started | Legacy simulation interview endpoints exist. | No Swarmbook interrogation wiring. |
 | 15. Draft comparison (book_sim path) | not_started | `DraftComparisonReport` model exists only. | No comparison service/pipeline wiring. |
@@ -70,3 +70,17 @@ Status values: `not_started`, `in_progress`, `done`, `blocked`, `partially_done`
 - Each score includes explainable component breakdowns, confidence bands, and evidence references.
 - Tests cover every score function in `backend/tests/test_book_sim_scoring.py`.
 - Phase 13 is the next safe module-level phase, but report/API wiring is still pending.
+
+## Phase 12 Audit Result
+- Verified rating distribution, DNF risk, DNF chapter points, viral potential, controversy radar, quoteability, polarization, and revision priority all exist under `backend/app/book_sim/scoring/`.
+- Verified scoring reads `configs/book_sim/scoring_weights.yaml` through the shared scoring loader.
+- Verified score outputs are deterministic, explainable, and include confidence bands plus evidence references.
+- Verified test coverage exists in `backend/tests/test_book_sim_scoring.py`.
+- Phase 13 remains the next safe module-level phase.
+
+## Consolidation Audit (After Phase 12)
+- Phase 7 remains not started (no Swarmbook API route registration).
+- Phases 8-12 are truly done at module level and tested.
+- No `backend/app/book_sim/reports/` package exists yet, so JSON/Markdown report generation is not implemented.
+- `local_only` route enforcement is present in `BookSimProviderRouter.select_route`, but enforcement is still router-scoped rather than app-wide policy middleware.
+- Evidence references are preserved through evidence pack, simulation artifacts, and scoring outputs; report-stage evidence propagation is not yet implemented because Phase 13 is absent.

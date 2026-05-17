@@ -102,7 +102,8 @@ Transform MiroFish-Offline into a personal, local-first "simulate any book" tool
 ## Current Missing Modules / Wiring
 - No `book_sim` API blueprint is registered in Flask app routing.
 - No frontend Swarmbook route/view wiring detected.
-- No Swarmbook report generator, interrogation API, or draft-comparison service wired end-to-end.
+- No Swarmbook report generator modules exist yet under `backend/app/book_sim/reports/`.
+- No Swarmbook interrogation API or draft-comparison service is wired end-to-end.
 - Privacy mode is partially enforced in router selection but not system-wide policy enforcement.
 
 ## Known Limitations (Current State)
@@ -111,3 +112,4 @@ Transform MiroFish-Offline into a personal, local-first "simulate any book" tool
 - Cache exists (`LocalArtifactCache`) but replay policy/version invalidation is minimal.
 - External provider usage policy is not centrally audited across future stages.
 - This system remains a synthetic stress-test approach, not market prediction certainty.
+- Report artifacts (JSON/Markdown) are not generated yet because Phase 13 modules are absent.

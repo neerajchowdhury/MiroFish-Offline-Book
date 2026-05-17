@@ -83,3 +83,17 @@
 - Rationale: Keeps platform output and cross-reader dynamics additive, deterministic, local-first, and tractable on a 16 GB Windows workstation.
 - Trade-off: The system uses heuristic synthesis and bounded sampling instead of exhaustive many-to-many interactions.
 - Files affected: `backend/app/book_sim/platform_adapters/*`, `backend/app/book_sim/simulation/*`, `backend/app/book_sim/models.py`, `backend/tests/test_book_sim_platform_adapters.py`, `backend/tests/test_book_sim_simulation_engine.py`
+
+## D-013
+- Date: `2026-05-17`
+- Decision: Treat phases 8-12 as module-complete but keep phase 7 marked not-started until additive `book_sim` Flask routes are actually registered.
+- Rationale: Prevent false readiness signals; module existence is not equivalent to runtime accessibility.
+- Trade-off: Status reporting is stricter and may appear conservative versus implementation progress.
+- Files affected: `docs/SWARMBOOK_PHASE_STATUS.md`, `backend/app/__init__.py` (absence of book_sim wiring)
+
+## D-014
+- Date: `2026-05-17`
+- Decision: Block phase-13 readiness claims until `backend/app/book_sim/reports/` exists with both JSON and Markdown exports.
+- Rationale: Report generation is a hard deliverable and currently absent; placeholders in models are insufficient.
+- Trade-off: Requires explicit report module implementation and tests before claiming report-path functionality.
+- Files affected: `backend/app/book_sim/models.py` (existing placeholders), missing `backend/app/book_sim/reports/*`
