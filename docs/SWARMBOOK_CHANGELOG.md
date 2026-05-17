@@ -209,6 +209,28 @@
 ### Known gaps
 - Simulation runtime is still not wired into Swarmbook Flask/API routes or frontend flows.
 - The simulation engine depends on synthetic heuristics today; no scoring engine or report synthesis layer is attached yet.
+
+## Phase 12 (Scoring Layer)
+### Files
+- `backend/app/book_sim/scoring/__init__.py`
+- `backend/app/book_sim/scoring/_shared.py`
+- `backend/app/book_sim/scoring/rating_distribution.py`
+- `backend/app/book_sim/scoring/dnf_score.py`
+- `backend/app/book_sim/scoring/viral_score.py`
+- `backend/app/book_sim/scoring/controversy_score.py`
+- `backend/app/book_sim/scoring/quoteability_score.py`
+- `backend/app/book_sim/scoring/polarization_score.py`
+- `backend/app/book_sim/scoring/revision_priority.py`
+- `backend/app/book_sim/__init__.py`
+- `backend/tests/test_book_sim_scoring.py`
+### Behavior changed
+- Added deterministic, explainable scoring for predicted rating distribution, DNF risk, DNF chapter pressure, viral potential, controversy, quoteability, polarization, and revision priority.
+- Added confidence bands and evidence references to every score result.
+- Added a local fallback parser for `scoring_weights.yaml` so scoring remains usable when `PyYAML` is unavailable.
+### Tests added
+- One shared scoring suite covering each score function plus deterministic same-input replay.
+### Known gaps
+- Scoring is implemented but still not wired into any Flask route or report generator.
 ## Phase 10 Audit Refresh
 - Audited the bounded Swarmbook simulation engine after implementation.
 - Confirmed the private-reading -> platform-reaction -> cross-reaction flow, deterministic seed behavior, content-hash caching, structured JSON outputs, and low-resource defaults (`cross_reaction_posts=8`, `max_reaction_rounds=2`, `max_parallel_jobs=1`).

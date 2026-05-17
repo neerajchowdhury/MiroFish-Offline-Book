@@ -17,7 +17,7 @@ Status values: `not_started`, `in_progress`, `done`, `blocked`, `partially_done`
 | 9. Reader cohort/persona generator runtime | done | `backend/app/book_sim/reader_archetype_loader.py` and `reader_persona_generator.py` load weighted archetypes and generate deterministic personas with privacy-mode-aware counts. | Runtime exists but is not yet wired into API/simulation orchestration. |
 | 10. Platform-style reaction generator | done | `backend/app/book_sim/platform_adapters/*` generates structured synthetic platform posts from personas, evidence packs, and private reactions. | Runtime exists but is not yet wired into Flask/API routes. |
 | 11. Cross-reader reaction loop | done | `backend/app/book_sim/simulation/cross_reaction_pass.py` bounds reactions to top-signal posts and updates reaction state without many-to-many explosion. | Runtime exists but is not yet wired into Flask/API routes. |
-| 12. Scoring engine | not_started | `scoring_weights.yaml` exists only. | Pending executable scoring module. |
+| 12. Scoring engine | done | `backend/app/book_sim/scoring/*` implements deterministic rating, DNF, viral, controversy, quoteability, polarization, and revision priority scoring with tests. | API/UI wiring is still pending, but the scoring layer itself is in place. |
 | 13. Prediction report (book_sim path) | not_started | `BookPredictionReport` model exists only. | Existing `/api/report` is legacy simulation path, not Swarmbook-specific flow. |
 | 14. Persona interrogation (book_sim path) | not_started | Legacy simulation interview endpoints exist. | No Swarmbook interrogation wiring. |
 | 15. Draft comparison (book_sim path) | not_started | `DraftComparisonReport` model exists only. | No comparison service/pipeline wiring. |
@@ -63,3 +63,10 @@ Status values: `not_started`, `in_progress`, `done`, `blocked`, `partially_done`
 - All simulation passes are cacheable by content hash through `LocalArtifactCache`.
 - Cross-reactions are bounded to a top-post shortlist and 3-7 sampled posts per persona to avoid many-to-many explosion.
 - Phase 12 is safe at the module level, but API/runtime wiring is still pending.
+
+## Phase 12 Implementation Result
+- Deterministic scoring now exists under `backend/app/book_sim/scoring/`.
+- Implemented scores include predicted star rating distribution, DNF risk, DNF chapter points, viral potential by platform, controversy radar, quoteability, polarization, and revision priority.
+- Each score includes explainable component breakdowns, confidence bands, and evidence references.
+- Tests cover every score function in `backend/tests/test_book_sim_scoring.py`.
+- Phase 13 is the next safe module-level phase, but report/API wiring is still pending.

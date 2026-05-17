@@ -80,6 +80,8 @@ Transform MiroFish-Offline into a personal, local-first "simulate any book" tool
   - `backend/app/book_sim/reader_persona_generator.py`
   - `backend/app/book_sim/platform_adapters/*`
   - `backend/app/book_sim/simulation/*`
+- Scoring:
+  - `backend/app/book_sim/scoring/*`
 
 ### Tests and fixtures
 - `backend/tests/test_book_sim_provider_router.py`
@@ -100,7 +102,6 @@ Transform MiroFish-Offline into a personal, local-first "simulate any book" tool
 ## Current Missing Modules / Wiring
 - No `book_sim` API blueprint is registered in Flask app routing.
 - No frontend Swarmbook route/view wiring detected.
-- No Swarmbook scoring engine is wired yet.
 - No Swarmbook report generator, interrogation API, or draft-comparison service wired end-to-end.
 - Privacy mode is partially enforced in router selection but not system-wide policy enforcement.
 
