@@ -1,0 +1,88 @@
+# Evidence-pack schema definitions for Swarmbook.
+# These are the core structured artifacts used to compress manuscript-scale text into reusable book intelligence.
+
+evidence_pack_schema:
+  # High-level identity and promise of the book.
+  book_dna:
+    description: Captures premise, genre, tone, reading difficulty, and the promise-to-reader.
+    fields:
+      premise: string
+      genre: string
+      subgenre: string
+      tone: string
+      emotional_promise: string
+      narrative_engine: string
+      reading_difficulty: string
+      comparable_titles: array[string]
+      target_reader: string
+
+  # Chapter-by-chapter structural map.
+  chapter_map:
+    description: Summarizes chapter purpose, beat structure, pacing, and friction.
+    fields:
+      chapter_id: string
+      chapter_title: string
+      purpose: string
+      beat_summary: string
+      pacing_estimate: string
+      confusion_hotspots: array[string]
+      revelation_points: array[string]
+      stop_reading_risk: number
+
+  # Fiction-focused character and relationship model.
+  character_map:
+    description: Tracks cast, goals, conflicts, transformations, and attachment potential.
+    fields:
+      character_id: string
+      name: string
+      role: string
+      goals: array[string]
+      conflicts: array[string]
+      transformation_arc: string
+      relationship_edges: array[string]
+      attachment_potential: number
+
+  # Non-fiction claim and evidence structure.
+  claim_map:
+    description: Captures claims, supporting evidence, and overreach risk for nonfiction manuscripts.
+    fields:
+      claim_id: string
+      claim_text: string
+      support_type: string
+      support_quality: string
+      contradiction_risk: string
+      reader_trust_sensitivity: number
+      evidence_notes: array[string]
+
+  # Cross-cutting failure, backlash, and comprehension risks.
+  risk_map:
+    description: Flags pacing, tone, ideology, factual, and packaging risks that may affect readers.
+    fields:
+      risk_id: string
+      risk_type: string
+      severity: string
+      affected_segments: array[string]
+      trigger_text: string
+      mitigation_hint: string
+
+  # Prose and style characteristics.
+  style_map:
+    description: Summarizes clarity, density, rhythm, voice consistency, and quoteability.
+    fields:
+      density: string
+      clarity: string
+      rhythm: string
+      voice_consistency: string
+      quoteability: string
+      accessibility: string
+
+  # Market-facing packaging and positioning surface.
+  market_surface:
+    description: Models how the book may be perceived in the market, including comps and audience fit.
+    fields:
+      target_segments: array[string]
+      comp_title_neighborhood: array[string]
+      packaging_expectations: array[string]
+      discoverability_hooks: array[string]
+      promise_gap: string
+      positioning_notes: array[string]

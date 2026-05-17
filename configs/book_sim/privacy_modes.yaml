@@ -1,0 +1,74 @@
+# Swarmbook privacy-mode policy.
+# Each mode defines what data may leave the local machine and how much redaction is required.
+
+privacy_modes:
+  # Strict offline mode. Nothing external is allowed.
+  local_only:
+    description: Keep all manuscript text, evidence packs, reactions, and reports local.
+    external_data_allowed:
+      - none
+    may_send:
+      - derived_embeddings: false
+      - manuscript_text: false
+      - chapter_summaries: false
+      - character_maps: false
+      - claim_maps: false
+      - scorecards: false
+      - report_text: false
+    redaction_policy: none
+    approved_providers:
+      - local_ollama
+
+  # Balanced mode. Send compact derived artifacts only.
+  hybrid_safe:
+    description: Keep raw manuscript text local while allowing compact derived artifacts to be sent externally.
+    external_data_allowed:
+      - book_dna
+      - chapter_map
+      - character_map
+      - claim_map
+      - risk_map
+      - style_map
+      - market_surface
+      - compact_scorecards
+    may_send:
+      - derived_embeddings: true
+      - manuscript_text: false
+      - chapter_summaries: true
+      - character_maps: true
+      - claim_maps: true
+      - scorecards: true
+      - report_text: partial
+    redaction_policy: remove_quotes_and_source_passages
+    approved_providers:
+      - local_ollama
+      - gemini_fast
+      - nvidia_fallback
+
+  # Highest-quality mode. Full evidence packs and long-context synthesis may be sent externally.
+  cloud_quality:
+    description: Allow cloud models to receive larger evidence payloads for higher-quality synthesis.
+    external_data_allowed:
+      - manuscript_excerpts
+      - evidence_packs
+      - chapter_summaries
+      - character_maps
+      - claim_maps
+      - risk_maps
+      - style_maps
+      - market_surface
+      - report_drafts
+    may_send:
+      - derived_embeddings: true
+      - manuscript_text: redacted_or_excerpted
+      - chapter_summaries: true
+      - character_maps: true
+      - claim_maps: true
+      - scorecards: true
+      - report_text: true
+    redaction_policy: configurable_excerpting
+    approved_providers:
+      - local_ollama
+      - gemini_fast
+      - gemini_deep
+      - nvidia_fallback

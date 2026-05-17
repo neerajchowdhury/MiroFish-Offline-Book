@@ -1,0 +1,9 @@
+CHAPTER 1
+This book argues that teams can reduce customer churn by treating onboarding as a measurable learning loop. The first principle is simple: every handoff should produce evidence. For example, a weekly survey can reveal where customers lose confidence before renewal.
+
+Research from subscription companies shows that unclear first-week milestones predict later churn. The framework in this chapter asks leaders to map promise, proof, and reinforcement for each onboarding step.
+
+CHAPTER 2
+The second principle is to turn support requests into product signals. You will improve retention when each recurring question is tagged, grouped, and reviewed with product and success leaders. A case study from a B2B platform showed a 14 percent retention lift after teams fixed the top three recurring setup blockers.
+
+This method can work quickly, but it fails when leaders promise certainty without evidence. By the end of the book, you will have a repeatable system for measuring trust, friction, and renewal risk.

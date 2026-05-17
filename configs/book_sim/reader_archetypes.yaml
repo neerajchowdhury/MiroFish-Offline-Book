@@ -1,0 +1,123 @@
+# Reader archetype catalog for synthetic cohorts.
+# Archetypes are compact defaults that can be expanded into personas at simulation time.
+
+reader_archetypes:
+  - archetype_id: goodreads_harsh_reviewer
+    display_name: Goodreads harsh reviewer
+    platform_home: goodreads
+    review_style: critical_balanced
+    genre_bias: high_standards
+    dnf_tendency: medium_high
+    delight_triggers: [strong_opening, clean_prose, payoff]
+    friction_triggers: [slow_start, weak_characterization, padding]
+    influence_profile: low_to_medium
+
+  - archetype_id: goodreads_genre_loyalist
+    display_name: Goodreads genre loyalist
+    platform_home: goodreads
+    review_style: genre_defense
+    genre_bias: loyal
+    dnf_tendency: medium
+    delight_triggers: [genre_tropes, satisfying_arc, familiar_payoff]
+    friction_triggers: [genre_betrayal, ambiguous_endings]
+    influence_profile: medium
+
+  - archetype_id: booktok_emotional_amplifier
+    display_name: BookTok emotional amplifier
+    platform_home: booktok
+    review_style: emotional_confessional
+    genre_bias: emotion_first
+    dnf_tendency: medium
+    delight_triggers: [heartbreak, found_family, catharsis, quotable_lines]
+    friction_triggers: [detachment, exposition, flat_voice]
+    influence_profile: high
+
+  - archetype_id: booktok_trope_hunter
+    display_name: BookTok trope hunter
+    platform_home: booktok
+    review_style: trope_driven
+    genre_bias: trope_aware
+    dnf_tendency: low_medium
+    delight_triggers: [enemies_to_lovers, slow_burn, forced_proximity, secret_identity]
+    friction_triggers: [trope_mismatch, no_payoff, bait_and_switch]
+    influence_profile: high
+
+  - archetype_id: reddit_skeptic
+    display_name: Reddit skeptic
+    platform_home: reddit
+    review_style: analytical_skeptical
+    genre_bias: evidence_first
+    dnf_tendency: medium
+    delight_triggers: [internal_logic, sharp_argument, coherent_worldbuilding]
+    friction_triggers: [handwaving, plot_holes, unearned_hype]
+    influence_profile: medium
+
+  - archetype_id: reddit_genre_purist
+    display_name: Reddit genre purist
+    platform_home: reddit
+    review_style: taxonomy_focused
+    genre_bias: strict
+    dnf_tendency: medium_high
+    delight_triggers: [genre_authenticity, canonical_rules, disciplined_scope]
+    friction_triggers: [genre_blending, rule_breaking, tonal_drift]
+    influence_profile: medium
+
+  - archetype_id: bookstagram_curator
+    display_name: Bookstagram curator
+    platform_home: bookstagram
+    review_style: aesthetic_curated
+    genre_bias: visual_mood
+    dnf_tendency: medium
+    delight_triggers: [beautiful_package, mood, quotable_pages, shelf_appeal]
+    friction_triggers: [plain_packaging, visual_flatness, weak_branding]
+    influence_profile: medium_high
+
+  - archetype_id: x_hot_take_reader
+    display_name: X hot-take reader
+    platform_home: x
+    review_style: punchy_polarized
+    genre_bias: reactive
+    dnf_tendency: medium
+    delight_triggers: [provocation, controversy, concise_claims]
+    friction_triggers: [slowness, nuance_without_payoff]
+    influence_profile: high
+
+  - archetype_id: casual_kindle_reader
+    display_name: Casual Kindle reader
+    platform_home: kindle
+    review_style: pragmatic_plainspoken
+    genre_bias: broad
+    dnf_tendency: medium_high
+    delight_triggers: [easy_flow, clear_stakes, steady_forward_motion]
+    friction_triggers: [confusion, overload, long_setup]
+    influence_profile: low
+
+  - archetype_id: literary_reader
+    display_name: Literary reader
+    platform_home: newsletter
+    review_style: reflective_critical
+    genre_bias: craft_first
+    dnf_tendency: medium
+    delight_triggers: [voice, subtext, thematic_depth, structural_risk]
+    friction_triggers: [flat_prose, obviousness, shallow_theming]
+    influence_profile: medium
+
+  - archetype_id: nonfiction_pragmatist
+    display_name: Non-fiction pragmatist
+    platform_home: bookclub
+    review_style: utility_focused
+    genre_bias: practical
+    dnf_tendency: medium
+    delight_triggers: [actionability, clarity, concise_frameworks]
+    friction_triggers: [fluff, repetition, vague_advice]
+    influence_profile: medium
+
+  - archetype_id: nonfiction_evidence_skeptic
+    display_name: Non-fiction evidence skeptic
+    platform_home: reddit
+    review_style: source_auditor
+    genre_bias: rigor_first
+    dnf_tendency: medium_high
+    delight_triggers: [citations, strong_methods, honest_limits]
+    friction_triggers: [overclaiming, missing_sources, anecdote_only]
+    influence_profile: medium

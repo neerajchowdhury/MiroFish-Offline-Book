@@ -1,0 +1,66 @@
+# Output-style definitions for simulated platform adapters.
+# These styles control the tone, length, and structure of synthetic reactions.
+
+platform_styles:
+  goodreads:
+    voice: review_first
+    length: medium
+    format:
+      - star_rating
+      - short_review
+      - shelf_tags
+    emphasis: [reader_judgment, pacing, character_attachment, payoff]
+
+  booktok:
+    voice: emotional_buzz
+    length: short
+    format:
+      - hook_line
+      - emotional_reaction
+      - trope_tags
+    emphasis: [feeling, hook, trope_alignment, shareability]
+
+  reddit:
+    voice: analytical_discussion
+    length: medium_long
+    format:
+      - thesis
+      - supporting_points
+      - counterpoints
+    emphasis: [logic, worldbuilding, internal_consistency, debate]
+
+  bookstagram:
+    voice: aesthetic_curated
+    length: short
+    format:
+      - visual_mood_caption
+      - shelf_presence_note
+      - quote_snippet
+    emphasis: [look_and_feel, imagery, display_value]
+
+  x:
+    voice: punchy_polarized
+    length: very_short
+    format:
+      - hot_take
+      - punchline
+      - optional_thread_seed
+    emphasis: [controversy, provocation, instant_reaction]
+
+  newsletter:
+    voice: reflective_essay
+    length: long
+    format:
+      - opening_thesis
+      - interpretive_paragraphs
+      - closing_takeaway
+    emphasis: [analysis, theme, context, nuance]
+
+  bookclub:
+    voice: discussion_prompt
+    length: medium
+    format:
+      - discussion_summary
+      - questions_for_group
+      - recommendation_note
+    emphasis: [conversation, shared_reading, question_generation]

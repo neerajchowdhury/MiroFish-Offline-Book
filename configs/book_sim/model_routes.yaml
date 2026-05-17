@@ -1,0 +1,65 @@
+# Swarmbook model routing configuration.
+# This file describes which model class should be used for each task category.
+# It is documentation-only for now and is not wired into runtime code.
+
+model_routes:
+  # Local default for offline-safe work.
+  local_ollama:
+    provider: ollama
+    model: qwen2.5:32b
+    purpose:
+      - embeddings
+      - chunk_summaries
+      - cheap_reactions
+      - persona_seed_expansion
+      - local_fallback
+    max_input_tokens: 8192
+    output_mode: structured_json
+    privacy_mode_allowlist:
+      - local_only
+      - hybrid_safe
+      - cloud_quality
+
+  # Fast cloud synthesis for long-context summarization and report drafting.
+  gemini_fast:
+    provider: gemini
+    model: gemini-2.5-flash
+    purpose:
+      - long_context_synthesis
+      - evidence_pack_consolidation
+      - report_drafting
+      - draft_delta_summaries
+    max_input_tokens: 65536
+    output_mode: structured_json
+    privacy_mode_allowlist:
+      - hybrid_safe
+      - cloud_quality
+
+  # Deeper cloud reasoning for hard synthesis and report-level analysis.
+  gemini_deep:
+    provider: gemini
+    model: gemini-2.5-pro
+    purpose:
+      - deep_manuscript_synthesis
+      - cross_chapter_reasoning
+      - adversarial_review
+      - final_report_generation
+    max_input_tokens: 131072
+    output_mode: structured_json
+    privacy_mode_allowlist:
+      - cloud_quality
+
+  # Optional fallback or disagreement pass using NVIDIA-hosted models.
+  nvidia_fallback:
+    provider: nvidia
+    model: nim-default
+    purpose:
+      - provider_fallback
+      - adversarial_review
+      - disagreement_check
+      - alternate_synthesis
+    max_input_tokens: 32768
+    output_mode: structured_json
+    privacy_mode_allowlist:
+      - hybrid_safe
+      - cloud_quality

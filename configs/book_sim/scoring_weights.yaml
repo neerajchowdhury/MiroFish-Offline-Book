@@ -1,0 +1,74 @@
+# Scoring weights for Swarmbook.
+# These formulas are descriptive defaults that can be tuned later against evaluation data.
+
+scoring_weights:
+  # Higher is better. Intended to approximate a blended reader approval score.
+  rating:
+    components:
+      comprehension: 0.20
+      emotional_payoff: 0.20
+      prose_quality: 0.15
+      pacing: 0.15
+      character_attachment: 0.15
+      packaging_fit: 0.15
+    formula: "rating = 1 + 4 * weighted_average(components)"
+    range: [1, 5]
+
+  # Higher is riskier. Predicts the probability of abandonment before completion.
+  dnf_risk:
+    components:
+      opening_drag: 0.25
+      confusion: 0.20
+      pacing_drag: 0.20
+      unmet_expectation: 0.15
+      voice_misalignment: 0.10
+      length_fatigue: 0.10
+    formula: "dnf_risk = clamp01(weighted_sum(components))"
+    range: [0, 1]
+
+  # Higher is riskier. Measures the chance of strong disagreement or backlash.
+  controversy_risk:
+    components:
+      ideological_tension: 0.25
+      claim_hazard: 0.20
+      moral_disagreement: 0.20
+      tonal_disruption: 0.15
+      character_behavior_challenge: 0.10
+      packaging_mismatch: 0.10
+    formula: "controversy_risk = clamp01(weighted_sum(components))"
+    range: [0, 1]
+
+  # Higher is better. Measures likelihood of generating discussion or sharing.
+  viral_potential:
+    components:
+      emotional_spike: 0.20
+      trope_visibility: 0.15
+      novelty: 0.15
+      controversy: 0.20
+      quoteability: 0.15
+      concise_explainability: 0.15
+    formula: "viral_potential = clamp01(weighted_sum(components))"
+    range: [0, 1]
+
+  # Higher is better. Measures whether the book produces reusable quotable lines or moments.
+  quoteability:
+    components:
+      line_density: 0.25
+      image_making_language: 0.20
+      emotional_clarity: 0.15
+      repetition_resonance: 0.10
+      scene_peak_strength: 0.15
+      excerpt_friendly_structure: 0.15
+    formula: "quoteability = clamp01(weighted_sum(components))"
+    range: [0, 1]
+
+  # Higher is stronger polarization in either direction, not simple negativity.
+  polarization:
+    components:
+      taste_split: 0.30
+      ideology_split: 0.20
+      prose_split: 0.15
+      ending_split: 0.15
+      genre_expectation_split: 0.20
+    formula: "polarization = clamp01(weighted_sum(components))"
+    range: [0, 1]
