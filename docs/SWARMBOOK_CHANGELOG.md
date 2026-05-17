@@ -171,3 +171,46 @@
 - None. Audit relied on repository inspection.
 ### Known gaps
 - Phase 10 remains not safe because the adapter layer does not exist yet.
+
+## Phase 10-11 (Platform Adapters + Simulation Engine)
+### Files
+- `backend/app/book_sim/models.py`
+- `backend/app/book_sim/platform_adapters/__init__.py`
+- `backend/app/book_sim/platform_adapters/base.py`
+- `backend/app/book_sim/platform_adapters/goodreads.py`
+- `backend/app/book_sim/platform_adapters/booktok.py`
+- `backend/app/book_sim/platform_adapters/reddit.py`
+- `backend/app/book_sim/platform_adapters/bookstagram.py`
+- `backend/app/book_sim/platform_adapters/x_platform.py`
+- `backend/app/book_sim/platform_adapters/newsletter.py`
+- `backend/app/book_sim/platform_adapters/bookclub.py`
+- `backend/app/book_sim/simulation/__init__.py`
+- `backend/app/book_sim/simulation/private_reading_pass.py`
+- `backend/app/book_sim/simulation/platform_reaction_pass.py`
+- `backend/app/book_sim/simulation/cross_reaction_pass.py`
+- `backend/app/book_sim/simulation/simulation_orchestrator.py`
+- `backend/app/book_sim/__init__.py`
+- `backend/tests/test_book_sim_models.py`
+- `backend/tests/test_book_sim_platform_adapters.py`
+- `backend/tests/test_book_sim_simulation_engine.py`
+- `docs/SWARMBOOK_PHASE_STATUS.md`
+- `docs/SWARMBOOK_CHANGELOG.md`
+- `docs/SWARMBOOK_DECISIONS.md`
+- `docs/SWARMBOOK_HANDOFF_LATEST.md`
+### Behavior changed
+- Added fully synthetic platform adapters driven by `platform_styles.yaml` with structured `PlatformPost` payloads and evidence references.
+- Added private-reading, platform-reaction, and bounded cross-reaction passes plus a simulation orchestrator that returns `SimulationRun`.
+- Added content-hash caching for every simulation stage, including the orchestrator result.
+- Kept the default execution single-threaded to avoid local CPU and memory overcommit.
+### Tests added
+- Shared adapter suite covering every required platform adapter.
+- Tiny end-to-end simulation test with five personas and deterministic seed.
+- Extended model round-trip coverage for structured post payloads and simulation artifact lists.
+### Known gaps
+- Simulation runtime is still not wired into Swarmbook Flask/API routes or frontend flows.
+- The simulation engine depends on synthetic heuristics today; no scoring engine or report synthesis layer is attached yet.
+## Phase 10 Audit Refresh
+- Audited the bounded Swarmbook simulation engine after implementation.
+- Confirmed the private-reading -> platform-reaction -> cross-reaction flow, deterministic seed behavior, content-hash caching, structured JSON outputs, and low-resource defaults (`cross_reaction_posts=8`, `max_reaction_rounds=2`, `max_parallel_jobs=1`).
+- Confirmed test coverage for a tiny evidence pack with a `5`-persona run in `backend/tests/test_book_sim_simulation_engine.py`.
+- Recorded that Phase 11 is safe at the module level, with API/UI runtime wiring still pending.

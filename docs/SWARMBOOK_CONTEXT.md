@@ -73,11 +73,22 @@ Transform MiroFish-Offline into a personal, local-first "simulate any book" tool
   - `backend/app/book_sim/character_mapper.py`
   - `backend/app/book_sim/evidence_pack_builder.py`
   - `backend/app/book_sim/local_cache.py`
+- Graph persistence:
+  - `backend/app/book_sim/graph_persistence.py`
+- Reader/runtime:
+  - `backend/app/book_sim/reader_archetype_loader.py`
+  - `backend/app/book_sim/reader_persona_generator.py`
+  - `backend/app/book_sim/platform_adapters/*`
+  - `backend/app/book_sim/simulation/*`
 
 ### Tests and fixtures
 - `backend/tests/test_book_sim_provider_router.py`
 - `backend/tests/test_book_sim_models.py`
 - `backend/tests/test_book_sim_evidence_pack_builder.py`
+- `backend/tests/test_book_sim_graph_persistence.py`
+- `backend/tests/test_book_sim_reader_persona_generator.py`
+- `backend/tests/test_book_sim_platform_adapters.py`
+- `backend/tests/test_book_sim_simulation_engine.py`
 - `backend/tests/fixtures/book_sim_fiction_sample.txt`
 - `backend/tests/fixtures/book_sim_nonfiction_sample.txt`
 - `backend/tests/smoke_check.py`
@@ -89,8 +100,7 @@ Transform MiroFish-Offline into a personal, local-first "simulate any book" tool
 ## Current Missing Modules / Wiring
 - No `book_sim` API blueprint is registered in Flask app routing.
 - No frontend Swarmbook route/view wiring detected.
-- No Swarmbook graph persistence service tied into existing graph build/report flow.
-- No Swarmbook simulation runner for personas/platform reactions/cross-reactions/scoring.
+- No Swarmbook scoring engine is wired yet.
 - No Swarmbook report generator, interrogation API, or draft-comparison service wired end-to-end.
 - Privacy mode is partially enforced in router selection but not system-wide policy enforcement.
 

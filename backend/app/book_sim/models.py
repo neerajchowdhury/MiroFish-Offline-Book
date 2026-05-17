@@ -450,6 +450,7 @@ class PrivateReaderReaction(JsonDataclassMixin):
     sentiment: Optional[str] = None
     attachment_score: Optional[float] = None
     confusion_score: Optional[float] = None
+    recommendation_probability: Optional[float] = None
     praise: List[str] = field(default_factory=list)
     friction: List[str] = field(default_factory=list)
     notable_quotes: List[str] = field(default_factory=list)
@@ -471,6 +472,7 @@ class PlatformPost(JsonDataclassMixin):
     rating: Optional[float] = None
     hashtags: List[str] = field(default_factory=list)
     shelf_tags: List[str] = field(default_factory=list)
+    payload: Dict[str, Any] = field(default_factory=dict)
     engagement_prediction: Optional[float] = None
     sentiment: Optional[str] = None
     evidence_refs: List[str] = field(default_factory=list)
@@ -487,10 +489,13 @@ class CrossReaction(JsonDataclassMixin):
     target_post_id: str
     persona_id: str
     platform: str
+    reacted_post_ids: List[str] = field(default_factory=list)
     stance_shift: Optional[str] = None
     agree_probability: Optional[float] = None
     disagree_probability: Optional[float] = None
     reply_likelihood: Optional[float] = None
+    rating_shift: Optional[float] = None
+    recommendation_shift: Optional[float] = None
     sentiment: Optional[str] = None
     evidence_refs: List[str] = field(default_factory=list)
     confidence: Optional[float] = None
@@ -516,6 +521,10 @@ class SimulationRun(JsonDataclassMixin):
     reactions_count: int = 0
     posts_count: int = 0
     report_id: Optional[str] = None
+    reader_personas: List[ReaderPersona] = field(default_factory=list)
+    private_reactions: List[PrivateReaderReaction] = field(default_factory=list)
+    platform_posts: List[PlatformPost] = field(default_factory=list)
+    cross_reactions: List[CrossReaction] = field(default_factory=list)
     evidence_refs: List[str] = field(default_factory=list)
     confidence: Optional[float] = None
     metadata: Dict[str, Any] = field(default_factory=dict)

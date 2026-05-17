@@ -15,8 +15,8 @@ Status values: `not_started`, `in_progress`, `done`, `blocked`, `partially_done`
 | 7. Book-sim API routes | not_started | No `book_sim` blueprint under `backend/app/api` registration path. | Pending additive route layer. |
 | 8. Book graph persistence integration | done | `backend/app/book_sim/graph_persistence.py` adds namespace-isolated Neo4j persistence with dry-run fallback and tests. | API/UI wiring is still pending, but persistence itself is in place. |
 | 9. Reader cohort/persona generator runtime | done | `backend/app/book_sim/reader_archetype_loader.py` and `reader_persona_generator.py` load weighted archetypes and generate deterministic personas with privacy-mode-aware counts. | Runtime exists but is not yet wired into API/simulation orchestration. |
-| 10. Platform-style reaction generator | not_started | `configs/book_sim/platform_styles.yaml` exists, but there is no `backend/app/book_sim/platform_adapters/` package yet. | Pending service implementation. |
-| 11. Cross-reader reaction loop | not_started | `CrossReaction` model exists only. | Pending service/runtime implementation. |
+| 10. Platform-style reaction generator | done | `backend/app/book_sim/platform_adapters/*` generates structured synthetic platform posts from personas, evidence packs, and private reactions. | Runtime exists but is not yet wired into Flask/API routes. |
+| 11. Cross-reader reaction loop | done | `backend/app/book_sim/simulation/cross_reaction_pass.py` bounds reactions to top-signal posts and updates reaction state without many-to-many explosion. | Runtime exists but is not yet wired into Flask/API routes. |
 | 12. Scoring engine | not_started | `scoring_weights.yaml` exists only. | Pending executable scoring module. |
 | 13. Prediction report (book_sim path) | not_started | `BookPredictionReport` model exists only. | Existing `/api/report` is legacy simulation path, not Swarmbook-specific flow. |
 | 14. Persona interrogation (book_sim path) | not_started | Legacy simulation interview endpoints exist. | No Swarmbook interrogation wiring. |
@@ -46,8 +46,20 @@ Status values: `not_started`, `in_progress`, `done`, `blocked`, `partially_done`
 - Phase 9 is safe at the module level, but Phase 10 is not yet safe as an integrated runtime phase because persona generation is still unwired from API/simulation orchestration.
 
 ## Phase 10 Audit Result
-- No platform adapter package exists yet under `backend/app/book_sim/platform_adapters/`.
-- `configs/book_sim/platform_styles.yaml` is present and can be used by the next implementation.
-- No real scraping or social-platform API calls were introduced in the current repository state.
-- There is no shared adapter test suite yet because there are no adapter modules to test.
-- Phase 10 is not safe.
+- The simulation flow is `private_reading_pass -> platform_reaction_pass -> cross_reaction_pass` in `backend/app/book_sim/simulation/simulation_orchestrator.py`.
+- Default persona counts still come from `ReaderPersonaGenerator`: `hybrid_safe=30`, `local_only=16`, `cloud_quality=36`.
+- `cross_reaction_posts` defaults to `8`, `max_reaction_rounds` defaults to `2`, and `max_parallel_jobs` defaults to `1`.
+- Cross-reactions are intentionally bounded to the top-signal shortlist and `3-7` sampled posts per persona, preventing many-to-many explosion.
+- Deterministic behavior is present where expected: persona generation, pass-level cache keys, simulation ids, and full-run replay are all keyed by `simulation_seed` plus content hashes.
+- Outputs remain structured JSON through the typed `SimulationRun`, `PrivateReaderReaction`, `PlatformPost`, and `CrossReaction` models.
+- `LocalArtifactCache` is used for private reading, platform reactions, cross reactions, and the full orchestrator replay path.
+- Tests cover a tiny evidence pack and `5` personas in `backend/tests/test_book_sim_simulation_engine.py`.
+- Phase 11 is safe at the module level, but API/runtime wiring is still pending.
+
+## Phase 11 Implementation Result
+- Synthetic platform adapters now exist for Goodreads, BookTok, Reddit, Bookstagram, X, newsletter, and bookclub under `backend/app/book_sim/platform_adapters/`.
+- The simulation engine now exists under `backend/app/book_sim/simulation/` with private-reading, platform-reaction, and bounded cross-reaction passes plus orchestration.
+- `local_only` can generate persona reactions and platform outputs without external providers.
+- All simulation passes are cacheable by content hash through `LocalArtifactCache`.
+- Cross-reactions are bounded to a top-post shortlist and 3-7 sampled posts per persona to avoid many-to-many explosion.
+- Phase 12 is safe at the module level, but API/runtime wiring is still pending.

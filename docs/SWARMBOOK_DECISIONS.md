@@ -76,3 +76,10 @@
 - Rationale: Keeps persona generation local-first, testable, and reproducible while preserving a later path for higher-fidelity enrichment through the existing provider abstraction.
 - Trade-off: The template-first runtime is deliberately synthetic and remains unwired from the broader simulation path until later phases.
 - Files affected: `backend/app/book_sim/reader_archetype_loader.py`, `backend/app/book_sim/reader_persona_generator.py`, `backend/app/book_sim/models.py`, `backend/tests/test_book_sim_reader_persona_generator.py`
+
+## D-012
+- Date: `2026-05-17`
+- Decision: Implement platform-native reaction generation through synthetic adapters plus a bounded multi-pass simulation engine.
+- Rationale: Keeps platform output and cross-reader dynamics additive, deterministic, local-first, and tractable on a 16 GB Windows workstation.
+- Trade-off: The system uses heuristic synthesis and bounded sampling instead of exhaustive many-to-many interactions.
+- Files affected: `backend/app/book_sim/platform_adapters/*`, `backend/app/book_sim/simulation/*`, `backend/app/book_sim/models.py`, `backend/tests/test_book_sim_platform_adapters.py`, `backend/tests/test_book_sim_simulation_engine.py`
