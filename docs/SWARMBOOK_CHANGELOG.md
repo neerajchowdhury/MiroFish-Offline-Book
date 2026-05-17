@@ -1,0 +1,93 @@
+# Swarmbook Changelog (Reconstructed)
+
+## Phase 2 (Architecture Documentation)
+### Files
+- `docs/SWARMBOOK_ARCHITECTURE.md`
+### Behavior changed
+- Added implementation blueprint only (no runtime code path change).
+### Tests added
+- None tied directly to architecture doc.
+### Known gaps
+- Architecture intent was documented, but continuity/status docs were not created at that time.
+
+## Phase 3 (Configuration Skeleton)
+### Files
+- `configs/book_sim/model_routes.yaml`
+- `configs/book_sim/privacy_modes.yaml`
+- `configs/book_sim/reader_archetypes.yaml`
+- `configs/book_sim/platform_styles.yaml`
+- `configs/book_sim/scoring_weights.yaml`
+- `configs/book_sim/evidence_pack_schema.yaml`
+### Behavior changed
+- Introduced declarative Swarmbook config surface for routes, privacy, archetypes, platform outputs, scoring, and schemas.
+### Tests added
+- Covered indirectly by router config-loading tests.
+### Known gaps
+- Configs are not yet consumed by a full end-to-end Swarmbook runtime pipeline.
+
+## Phase 4 (Provider Router Foundation)
+### Files
+- `backend/app/book_sim/config_loader.py`
+- `backend/app/book_sim/provider_router.py`
+- `backend/app/book_sim/providers/base.py`
+- `backend/app/book_sim/providers/ollama_provider.py`
+- `backend/app/book_sim/providers/gemini_provider.py`
+- `backend/app/book_sim/providers/nvidia_provider.py`
+- `backend/tests/test_book_sim_provider_router.py`
+- `.env.example` (optional provider env vars)
+- `backend/pyproject.toml`, `backend/requirements.txt` (PyYAML support)
+### Behavior changed
+- Added additive model-router path for Ollama/Gemini/NVIDIA with privacy-aware route selection and health checks.
+### Tests added
+- Config loading, route selection, missing-key fallback, `local_only` fallback behavior.
+### Known gaps
+- Router not yet wired into existing app simulation/report/graph entry points.
+
+## Phase 5 (Typed Schemas)
+### Files
+- `backend/app/book_sim/models.py`
+- `backend/tests/test_book_sim_models.py`
+### Behavior changed
+- Added typed Swarmbook data model layer with JSON serialization/deserialization.
+### Tests added
+- Round-trip serialization tests for all declared models.
+### Known gaps
+- Models are not yet fully exercised through API/UI end-to-end flow.
+
+## Phase 6 (Manuscript Ingest + Evidence Packs)
+### Files
+- `backend/app/book_sim/manuscript_chunker.py`
+- `backend/app/book_sim/book_dna_extractor.py`
+- `backend/app/book_sim/style_analyzer.py`
+- `backend/app/book_sim/risk_detector.py`
+- `backend/app/book_sim/nonfiction_claim_extractor.py`
+- `backend/app/book_sim/character_mapper.py`
+- `backend/app/book_sim/evidence_pack_builder.py`
+- `backend/app/book_sim/local_cache.py`
+- `backend/tests/test_book_sim_evidence_pack_builder.py`
+- `backend/tests/fixtures/book_sim_fiction_sample.txt`
+- `backend/tests/fixtures/book_sim_nonfiction_sample.txt`
+### Behavior changed
+- Added additive manuscript-to-evidence-pack pipeline with chapter detection, book type detection, optional router-backed synthesis, and content-hash caching.
+### Tests added
+- Fixture-based fiction/non-fiction evidence-pack generation tests with cache behavior checks.
+### Known gaps
+- No Swarmbook API endpoint or frontend route currently executes this pipeline.
+- Privacy enforcement is stage-local (router-level), not yet global policy enforcement.
+
+## Continuity Recovery Pass (Current)
+### Files
+- `AGENTS.md`
+- `docs/SWARMBOOK_CONTEXT.md`
+- `docs/SWARMBOOK_PHASE_STATUS.md`
+- `docs/SWARMBOOK_DECISIONS.md`
+- `docs/SWARMBOOK_CHANGELOG.md`
+- `docs/SWARMBOOK_OPEN_QUESTIONS.md`
+- `docs/SWARMBOOK_PROMPT_LOG.md`
+- `docs/SWARMBOOK_HANDOFF_LATEST.md`
+### Behavior changed
+- No production behavior changes; documentation-only continuity reconstruction.
+### Tests added
+- None (documentation pass).
+### Known gaps
+- Historical phase execution timestamps before commit `08a3a7e` remain partially reconstructed.

@@ -1,0 +1,30 @@
+# Swarmbook Open Questions
+
+## Wiring and Runtime
+1. Is the provider router fully wired into runtime flows?
+- Current answer: No. Router exists under `backend/app/book_sim`, but no Swarmbook API path is registered in Flask routing.
+
+2. Is `local_only` privacy mode fully enforced end-to-end?
+- Current answer: Partially. Router-level selection forces local route, but there is no global policy boundary across all future stages/APIs.
+
+3. Are evidence-pack outputs cached?
+- Current answer: Yes, via `LocalArtifactCache` keyed by content hash in `EvidencePackBuilder`.
+- Open point: cache invalidation/versioning strategy is minimal.
+
+4. Do tests actually pass in this environment?
+- Current answer: Requires explicit execution record per environment. See latest handoff/testing section.
+
+5. Are backend Swarmbook APIs exposed?
+- Current answer: No `book_sim` blueprint/route family currently exposed.
+
+6. Is UI wired for Swarmbook?
+- Current answer: No Swarmbook route/view in `frontend/src/router/index.js`.
+
+7. Does graph persistence exist for Swarmbook evidence/simulation artifacts?
+- Current answer: Not as a dedicated wired Swarmbook graph path; only legacy graph services are currently exposed.
+
+## Scope/Design Clarifications
+8. Should Swarmbook phases continue with standalone API namespace (`/api/book-sim/*`) or extend existing simulation endpoints?
+9. What is the minimum enforceable redaction policy for `hybrid_safe` before any cloud call?
+10. What artifacts should be persisted to Neo4j versus file-based JSON only in early phases?
+11. Which quality bar gates Phase 7 (hardening): unit tests only, or also local integration test plus manual UI walkthrough?
