@@ -1,5 +1,6 @@
 """Swarmbook additive modules."""
 
+from .comparison import DraftComparator, DraftComparisonExport, render_comparison_markdown
 from .config_loader import BookSimRoutingConfig
 from .evidence_pack_builder import EvidencePackBuilder
 from .graph_persistence import BookGraphPersistence, PersistenceResult
@@ -57,6 +58,9 @@ from .provider_router import BookSimProviderRouter, RouteSelection
 
 __all__ = [
     "BookSimRoutingConfig",
+    "DraftComparator",
+    "DraftComparisonExport",
+    "render_comparison_markdown",
     "LocalArtifactCache",
     "ManuscriptChunker",
     "EvidencePackBuilder",

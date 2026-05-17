@@ -82,6 +82,8 @@ Transform MiroFish-Offline into a personal, local-first "simulate any book" tool
   - `backend/app/book_sim/simulation/*`
 - Interrogation:
   - `backend/app/book_sim/interrogation/*`
+- Comparison:
+  - `backend/app/book_sim/comparison/*`
 - Scoring:
   - `backend/app/book_sim/scoring/*`
 
@@ -99,8 +101,11 @@ Transform MiroFish-Offline into a personal, local-first "simulate any book" tool
 - `backend/tests/test_book_sim_platform_adapters.py`
 - `backend/tests/test_book_sim_simulation_engine.py`
 - `backend/tests/test_book_sim_persona_chat.py`
+- `backend/tests/test_book_sim_draft_comparator.py`
 - `backend/tests/fixtures/book_sim_fiction_sample.txt`
 - `backend/tests/fixtures/book_sim_nonfiction_sample.txt`
+- `backend/tests/fixtures/book_sim_compare_draft_a.txt`
+- `backend/tests/fixtures/book_sim_compare_draft_b.txt`
 - `backend/tests/smoke_check.py`
 
 ### Environment/dependency support
@@ -110,13 +115,14 @@ Transform MiroFish-Offline into a personal, local-first "simulate any book" tool
 ## Current Missing Modules / Wiring
 - No frontend Swarmbook route/view wiring detected.
 - No Swarmbook report generator modules exist yet under `backend/app/book_sim/reports/`.
-- No Swarmbook draft-comparison service is wired end-to-end.
+- Swarmbook draft comparison exists as a bounded backend module, but it is not wired to persisted artifact lookup, Flask routes, or frontend flows.
 - Swarmbook interrogation exists as a bounded backend route, but it is not wired to persisted simulation lookup or frontend flows.
 - Privacy mode is partially enforced in router selection but not system-wide policy enforcement.
 
 ## Known Limitations (Current State)
 - Current evidence extraction is largely heuristic with selective router use.
 - Only a narrow Swarmbook interrogation API path is exposed; the full end-to-end runtime path is not.
+- Draft comparison exports JSON and Markdown at the module level, but no runtime delivery path exists yet.
 - Cache exists (`LocalArtifactCache`) but replay policy/version invalidation is minimal.
 - External provider usage policy is not centrally audited across future stages.
 - This system remains a synthetic stress-test approach, not market prediction certainty.

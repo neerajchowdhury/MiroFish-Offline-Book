@@ -565,10 +565,19 @@ class DraftComparisonReport(JsonDataclassMixin):
     compare_draft_id: Optional[str] = None
     compare_version: Optional[str] = None
     summary: Optional[str] = None
+    base_scores: Dict[str, Any] = field(default_factory=dict)
+    compare_scores: Dict[str, Any] = field(default_factory=dict)
     delta_scores: Dict[str, Any] = field(default_factory=dict)
+    book_dna_changes: List[Dict[str, Any]] = field(default_factory=list)
     chapter_deltas: List[Dict[str, Any]] = field(default_factory=list)
     character_deltas: List[Dict[str, Any]] = field(default_factory=list)
     claim_deltas: List[Dict[str, Any]] = field(default_factory=list)
+    reader_segment_movement: List[Dict[str, Any]] = field(default_factory=list)
+    revision_impact_summary: List[str] = field(default_factory=list)
     revision_priorities: List[str] = field(default_factory=list)
+    what_improved: List[str] = field(default_factory=list)
+    what_got_worse: List[str] = field(default_factory=list)
+    still_blocking: List[str] = field(default_factory=list)
     evidence_refs: List[str] = field(default_factory=list)
     confidence: Optional[float] = None
+    metadata: Dict[str, Any] = field(default_factory=dict)

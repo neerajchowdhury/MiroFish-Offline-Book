@@ -374,13 +374,22 @@ class TestBookSimModels(unittest.TestCase):
             compare_draft_id="draft_b",
             compare_version="v2",
             summary="Draft B improves pacing but slightly reduces tone consistency.",
+            base_scores={"rating_mean": 3.8},
+            compare_scores={"rating_mean": 4.0},
             delta_scores={"rating": 0.2, "dnf_risk": -0.08},
+            book_dna_changes=[{"field": "tone", "from": "melancholic", "to": "urgent"}],
             chapter_deltas=[{"chapter_id": "ch_03", "delta": "faster"}],
             character_deltas=[{"character_id": "char_01", "delta": "more attachment"}],
             claim_deltas=[{"claim_id": "claim_01", "delta": "better sourced"}],
+            reader_segment_movement=[{"segment": "book clubs", "rating_delta": 0.3}],
+            revision_impact_summary=["Middle chapters move faster."],
             revision_priorities=["keep pacing gains", "tighten tone"],
+            what_improved=["DNF risk fell."],
+            what_got_worse=["Tone consistency softened."],
+            still_blocking=["Pacing remains uneven."],
             evidence_refs=["comparison_manifest"],
             confidence=0.72,
+            metadata={"simulation_seed": 42},
         )
 
     def round_trip(self, obj):

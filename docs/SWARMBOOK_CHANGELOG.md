@@ -289,6 +289,36 @@
 - The route contract test remains environment-dependent because `flask` is unavailable in the active Python interpreter here.
 - Phase 14 is only safe at the bounded backend-module level, not as a fully wired runtime phase.
 
+## Phase 15 (Draft Comparison)
+### Files
+- `backend/app/book_sim/comparison/__init__.py`
+- `backend/app/book_sim/comparison/draft_comparator.py`
+- `backend/app/book_sim/comparison/comparison_report.py`
+- `backend/app/book_sim/models.py`
+- `backend/app/book_sim/__init__.py`
+- `backend/tests/test_book_sim_draft_comparator.py`
+- `backend/tests/test_book_sim_models.py`
+- `backend/tests/fixtures/book_sim_compare_draft_a.txt`
+- `backend/tests/fixtures/book_sim_compare_draft_b.txt`
+- `docs/SWARMBOOK_CONTEXT.md`
+- `docs/SWARMBOOK_PHASE_STATUS.md`
+- `docs/SWARMBOOK_CHANGELOG.md`
+- `docs/SWARMBOOK_DECISIONS.md`
+- `docs/SWARMBOOK_OPEN_QUESTIONS.md`
+- `docs/SWARMBOOK_HANDOFF_LATEST.md`
+### Behavior changed
+- Added an additive draft-comparison module that compares two evidence packs plus optional simulation runs and optional precomputed scorecards.
+- Added deterministic JSON and Markdown exports for comparison results.
+- Added comparison coverage for book DNA, chapters, characters, claims, DNF/rating/controversy/viral/quoteability movement, reader segment movement, revision impact, improvements, regressions, and remaining blockers.
+### Tests added
+- New draft comparator unit suite using two tiny draft fixtures.
+- Expanded model round-trip coverage for the richer `DraftComparisonReport`.
+### Known gaps
+- No Flask route exists for draft comparison yet.
+- No persisted artifact lookup path exists yet.
+- No frontend comparison flow exists yet.
+- Phase 13 report synthesis remains absent, so the clean sequential path is still unchanged.
+
 ## Deep Consolidation (Post-Phase 12)
 ### Files
 - `docs/SWARMBOOK_CONTEXT.md`

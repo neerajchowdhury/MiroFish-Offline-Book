@@ -20,7 +20,7 @@ Status values: `not_started`, `in_progress`, `done`, `blocked`, `partially_done`
 | 12. Scoring engine | done | `backend/app/book_sim/scoring/*` implements deterministic rating, DNF, viral, controversy, quoteability, polarization, and revision priority scoring with tests. | Module complete; report and API wiring are pending. |
 | 13. Prediction report (book_sim path) | not_started | `BookPredictionReport` model exists only. | Existing `/api/report` is legacy simulation path, not Swarmbook-specific flow. |
 | 14. Persona interrogation (book_sim path) | partially_done | `backend/app/book_sim/interrogation/persona_chat.py` plus `/api/book-sim/interrogate` answer grounded reader questions from serialized Swarmbook artifacts. | Backend slice is implemented and tested, but it is not yet wired to persisted simulation lookup or frontend flows. |
-| 15. Draft comparison (book_sim path) | not_started | `DraftComparisonReport` model exists only. | No comparison service/pipeline wiring. |
+| 15. Draft comparison (book_sim path) | partially_done | `backend/app/book_sim/comparison/*` compares evidence packs, optional simulations, and optional scores, exporting JSON and Markdown with tests. | Backend slice is implemented and tested, but it is not wired to persisted artifact lookup, Flask routes, or frontend flows. |
 | 16. Frontend Swarmbook UI/routes | not_started | No Swarmbook route in `frontend/src/router/index.js`. | Pending frontend slice. |
 | 17. Artifact persistence/replay hardening | partially_done | `LocalArtifactCache` exists with content-hash JSON caching; Swarmbook graph persistence now adds namespace-isolated upserts. | No versioned invalidation/replay controls yet. |
 | 18. Test coverage hardening | partially_done | Unit tests for router/models/evidence builder plus smoke script. | No CI proof here; runtime integration tests not present. |
@@ -95,6 +95,24 @@ Status values: `not_started`, `in_progress`, `done`, `blocked`, `partially_done`
 - Verified `/api/book-sim/interrogate` exists and is registered through the additive `book_sim` blueprint.
 - Verified tests exist with mock persona and reaction artifacts in `backend/tests/test_book_sim_persona_chat.py`.
 - Phase 14 is safe at the bounded backend-module level, but not safe to call fully complete because persisted lookup and frontend wiring are still absent.
+
+## Phase 15 Implementation Result
+- Added additive draft comparison under `backend/app/book_sim/comparison/`.
+- Added deterministic comparison across book DNA, chapter maps, character changes, claim changes, score movement, reader segment movement, revision impact, improvements, regressions, and remaining blockers.
+- Added fallback comparison behavior for unsimulated drafts by comparing evidence packs plus any available scorecards.
+- Added JSON export through `DraftComparisonReport` and Markdown export through the comparison report renderer.
+- Used a stable simulation seed when available for deterministic comparison metadata and ID generation.
+- Added tests with two tiny draft fixtures plus model round-trip coverage for the expanded `DraftComparisonReport`.
+- Phase 13 remains the next clean sequential phase, but Phase 15 now has a bounded backend implementation.
+
+## Phase 15 Audit Result
+- Verified the comparator consumes previous evidence packs, optional simulation outputs, and optional precomputed scores.
+- Verified the comparison remains deterministic across repeated runs with the same inputs and stable seed.
+- Verified score movement includes rating, DNF, controversy, viral, and quoteability movement when simulations or scores are available.
+- Verified JSON and Markdown exports are produced at the module level.
+- Verified the path is provider-free and preserves `local_only` by not calling Gemini, NVIDIA, Ollama generation, or any external provider.
+- Verified tests exist with tiny draft fixtures in `backend/tests/test_book_sim_draft_comparator.py`.
+- Phase 15 is safe at the bounded backend-module level, but not safe to call fully complete because persisted lookup, Flask routes, and frontend wiring are still absent.
 
 ## Consolidation Audit (After Phase 12)
 - Phase 7 is now partially done because a limited additive `book_sim` blueprint is registered for interrogation.

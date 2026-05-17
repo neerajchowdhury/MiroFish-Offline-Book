@@ -104,3 +104,10 @@
 - Rationale: Keeps `local_only` safe, prevents hallucinated manuscript detail, and avoids coupling interrogation to the still-incomplete report and persistence phases.
 - Trade-off: The current route requires the caller to provide serialized artifacts instead of resolving them from a stored simulation ID.
 - Files affected: `backend/app/book_sim/interrogation/*`, `backend/app/api/book_sim.py`, `backend/tests/test_book_sim_persona_chat.py`
+
+## D-016
+- Date: `2026-05-17`
+- Decision: Implement Swarmbook draft comparison as a deterministic backend module over evidence packs plus optional simulation runs and optional precomputed scores, with JSON and Markdown exports.
+- Rationale: This keeps comparison additive and usable before report/API wiring lands, while still supporting unsimulated drafts through evidence-only plus scorecard fallback.
+- Trade-off: The comparison slice is backend-only for now and does not resolve persisted artifacts or expose a route yet.
+- Files affected: `backend/app/book_sim/comparison/*`, `backend/app/book_sim/models.py`, `backend/tests/test_book_sim_draft_comparator.py`
