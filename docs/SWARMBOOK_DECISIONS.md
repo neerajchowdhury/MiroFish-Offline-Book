@@ -69,3 +69,10 @@
 - Rationale: Keeps Swarmbook writes isolated from legacy graph data and allows safe local validation when Neo4j is unavailable.
 - Trade-off: Adds another persistence layer to maintain alongside the legacy graph abstraction.
 - Files affected: `backend/app/book_sim/graph_persistence.py`, `backend/tests/test_book_sim_graph_persistence.py`
+
+## D-011
+- Date: `2026-05-17`
+- Decision: Generate reader personas from normalized YAML archetype templates with deterministic seeded sampling and optional router-backed enrichment.
+- Rationale: Keeps persona generation local-first, testable, and reproducible while preserving a later path for higher-fidelity enrichment through the existing provider abstraction.
+- Trade-off: The template-first runtime is deliberately synthetic and remains unwired from the broader simulation path until later phases.
+- Files affected: `backend/app/book_sim/reader_archetype_loader.py`, `backend/app/book_sim/reader_persona_generator.py`, `backend/app/book_sim/models.py`, `backend/tests/test_book_sim_reader_persona_generator.py`

@@ -122,3 +122,39 @@
 - None. Audit relied on existing Phase 7 tests and code inspection.
 ### Known gaps
 - Phase 8 is not safe yet because the persistence service is not wired into any runtime/API entry point.
+
+## Phase 9 (Reader Archetypes + Persona Generation)
+### Files
+- `backend/app/book_sim/models.py`
+- `backend/app/book_sim/reader_archetype_loader.py`
+- `backend/app/book_sim/reader_persona_generator.py`
+- `backend/app/book_sim/__init__.py`
+- `backend/tests/test_book_sim_reader_persona_generator.py`
+- `docs/SWARMBOOK_PHASE_STATUS.md`
+- `docs/SWARMBOOK_CHANGELOG.md`
+- `docs/SWARMBOOK_DECISIONS.md`
+### Behavior changed
+- Added archetype loading from `configs/book_sim/reader_archetypes.yaml` with normalized weights, book-type suitability, and privacy constraints.
+- Added deterministic persona generation with seed support, privacy-mode-aware default counts, and override support.
+- Kept persona creation template-first; optional LLM enrichment remains off by default and respects privacy mode routing.
+### Tests added
+- Archetype loader normalization test.
+- Deterministic same-seed persona generation test.
+- Local-only persona count/privacy constraint test.
+- Override and filtering test.
+- Optional LLM enrichment stays unused by default test.
+### Known gaps
+- Persona generation is not yet wired into the Swarmbook simulation runner or API routes.
+- Optional LLM enrichment is implemented but not yet covered by a route-selection-specific integration test.
+
+## Phase 9 Audit
+### Files
+- `docs/SWARMBOOK_PHASE_STATUS.md`
+### Behavior changed
+- Confirmed reader archetypes load from config and persona generation remains deterministic with a fixed seed.
+- Confirmed `local_only` uses a smaller default cohort than `hybrid_safe`.
+- Confirmed persona outputs include the required audience-shaping fields and remain simulation-only.
+### Tests added
+- None. Audit relied on existing unit tests and code inspection.
+### Known gaps
+- Persona generation is still not wired into a Swarmbook API route or simulation runner, so the next phase should not assume end-to-end runtime readiness.

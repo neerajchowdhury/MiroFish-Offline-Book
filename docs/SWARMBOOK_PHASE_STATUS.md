@@ -14,7 +14,7 @@ Status values: `not_started`, `in_progress`, `done`, `blocked`, `partially_done`
 | 6. Manuscript ingest + evidence pack builder | partially_done | `evidence_pack_builder.py`, chunker/extractors/analyzers/cache modules; fixture tests. | Module-level implementation exists, but API exposure and end-to-end app integration are not wired. |
 | 7. Book-sim API routes | not_started | No `book_sim` blueprint under `backend/app/api` registration path. | Pending additive route layer. |
 | 8. Book graph persistence integration | done | `backend/app/book_sim/graph_persistence.py` adds namespace-isolated Neo4j persistence with dry-run fallback and tests. | API/UI wiring is still pending, but persistence itself is in place. |
-| 9. Reader cohort/persona generator runtime | not_started | Models/config exist, but no runtime persona factory service exposed. | Pending implementation. |
+| 9. Reader cohort/persona generator runtime | done | `backend/app/book_sim/reader_archetype_loader.py` and `reader_persona_generator.py` load weighted archetypes and generate deterministic personas with privacy-mode-aware counts. | Runtime exists but is not yet wired into API/simulation orchestration. |
 | 10. Platform-style reaction generator | not_started | Platform style config exists only. | Pending service implementation. |
 | 11. Cross-reader reaction loop | not_started | `CrossReaction` model exists only. | Pending service/runtime implementation. |
 | 12. Scoring engine | not_started | `scoring_weights.yaml` exists only. | Pending executable scoring module. |
@@ -35,3 +35,12 @@ Status values: `not_started`, `in_progress`, `done`, `blocked`, `partially_done`
 - `local_only` privacy behavior is unchanged because provider routing was not modified.
 - Tests exist for dry-run, Neo4j write-shape, and simulation-artifact preparation.
 - Phase 8 is not safe yet because there is still no API/runtime wiring for the new persistence service.
+
+## Phase 9 Audit Result
+- Reader archetypes load from `configs/book_sim/reader_archetypes.yaml` through `backend/app/book_sim/reader_archetype_loader.py`.
+- Persona generation is deterministic when `simulation_seed` is provided.
+- `local_only` defaults to a smaller persona set (`16`) than `hybrid_safe` (`30`).
+- Generated personas include platform, cohort, favorite genres/taste, disliked patterns, DNF threshold, controversy sensitivity, influence weight, susceptibility to peer reaction, review style, and evidence focus.
+- No real social-platform API calls exist in the archetype loader or persona generator; platform handling remains simulated/template-based.
+- Tests cover same-seed deterministic output in `backend/tests/test_book_sim_reader_persona_generator.py`.
+- Phase 9 is safe at the module level, but Phase 10 is not yet safe as an integrated runtime phase because persona generation is still unwired from API/simulation orchestration.

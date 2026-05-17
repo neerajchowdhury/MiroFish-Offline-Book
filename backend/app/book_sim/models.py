@@ -355,6 +355,19 @@ class ReaderArchetype(JsonDataclassMixin):
     display_name: str
     platform_home: str
     review_style: str
+    cohort: Optional[str] = None
+    favorite_genres: List[str] = field(default_factory=list)
+    disliked_patterns: List[str] = field(default_factory=list)
+    dnf_threshold: float = 0.6
+    controversy_sensitivity: float = 0.5
+    rating_bias: float = 0.0
+    influence_weight: float = 0.5
+    susceptibility_to_peer_reaction: float = 0.5
+    quote_sharing_probability: float = 0.5
+    evidence_focus: float = 0.5
+    privacy_constraints: List[str] = field(default_factory=list)
+    book_type_suitability: List[str] = field(default_factory=lambda: ["fiction", "nonfiction"])
+    selection_weight: float = 1.0
     genre_bias: Optional[str] = None
     patience_level: Optional[str] = None
     dnf_triggers: List[str] = field(default_factory=list)
@@ -364,6 +377,12 @@ class ReaderArchetype(JsonDataclassMixin):
     reaction_tempo: Optional[str] = None
     evidence_refs: List[str] = field(default_factory=list)
     confidence: Optional[float] = None
+
+    def __post_init__(self) -> None:
+        if self.cohort is None:
+            self.cohort = self.platform_home
+        if not self.disliked_patterns and self.dnf_triggers:
+            self.disliked_patterns = list(self.dnf_triggers)
 
 
 @dataclass
@@ -375,6 +394,21 @@ class ReaderPersona(JsonDataclassMixin):
     display_name: str
     platform_home: str
     review_style: str
+    id: Optional[str] = None
+    name: Optional[str] = None
+    cohort: Optional[str] = None
+    platform: Optional[str] = None
+    favorite_genres: List[str] = field(default_factory=list)
+    disliked_patterns: List[str] = field(default_factory=list)
+    dnf_threshold: float = 0.6
+    controversy_sensitivity: float = 0.5
+    rating_bias: float = 0.0
+    influence_weight: float = 0.5
+    susceptibility_to_peer_reaction: float = 0.5
+    quote_sharing_probability: float = 0.5
+    evidence_focus: float = 0.5
+    privacy_constraints: List[str] = field(default_factory=list)
+    book_type_suitability: List[str] = field(default_factory=lambda: ["fiction", "nonfiction"])
     reading_preferences: List[str] = field(default_factory=list)
     dnf_triggers: List[str] = field(default_factory=list)
     delight_triggers: List[str] = field(default_factory=list)
@@ -383,6 +417,24 @@ class ReaderPersona(JsonDataclassMixin):
     spoiler_tolerance: Optional[str] = None
     evidence_refs: List[str] = field(default_factory=list)
     confidence: Optional[float] = None
+
+    def __post_init__(self) -> None:
+        if self.id is None:
+            self.id = self.persona_id
+        if self.name is None:
+            self.name = self.display_name
+        if self.cohort is None:
+            self.cohort = self.platform_home
+        if self.platform is None:
+            self.platform = self.platform_home
+        if not self.favorite_genres and self.reading_preferences:
+            self.favorite_genres = list(self.reading_preferences)
+        if not self.reading_preferences and self.favorite_genres:
+            self.reading_preferences = list(self.favorite_genres)
+        if not self.disliked_patterns and self.dnf_triggers:
+            self.disliked_patterns = list(self.dnf_triggers)
+        if self.influence_score == 0.0 and self.influence_weight:
+            self.influence_score = self.influence_weight
 
 
 @dataclass
