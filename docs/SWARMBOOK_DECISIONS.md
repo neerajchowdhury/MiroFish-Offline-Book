@@ -62,3 +62,10 @@
 - Rationale: Aligns with local-first safety and explicit non-scraping requirement.
 - Trade-off: Simulations depend on synthetic style assumptions.
 - Files affected: `configs/book_sim/platform_styles.yaml`, `configs/book_sim/reader_archetypes.yaml`
+
+## D-010
+- Date: `2026-05-17`
+- Decision: Persist Swarmbook graph artifacts through a namespace-scoped additive Neo4j service with dry-run fallback.
+- Rationale: Keeps Swarmbook writes isolated from legacy graph data and allows safe local validation when Neo4j is unavailable.
+- Trade-off: Adds another persistence layer to maintain alongside the legacy graph abstraction.
+- Files affected: `backend/app/book_sim/graph_persistence.py`, `backend/tests/test_book_sim_graph_persistence.py`

@@ -13,7 +13,7 @@ Status values: `not_started`, `in_progress`, `done`, `blocked`, `partially_done`
 | 5. Typed schemas/models | done | `backend/app/book_sim/models.py`; serialization tests in `backend/tests/test_book_sim_models.py`. | N/A |
 | 6. Manuscript ingest + evidence pack builder | partially_done | `evidence_pack_builder.py`, chunker/extractors/analyzers/cache modules; fixture tests. | Module-level implementation exists, but API exposure and end-to-end app integration are not wired. |
 | 7. Book-sim API routes | not_started | No `book_sim` blueprint under `backend/app/api` registration path. | Pending additive route layer. |
-| 8. Book graph persistence integration | not_started | No dedicated book graph service wired to existing graph storage path. | Pending graph integration stage. |
+| 8. Book graph persistence integration | done | `backend/app/book_sim/graph_persistence.py` adds namespace-isolated Neo4j persistence with dry-run fallback and tests. | API/UI wiring is still pending, but persistence itself is in place. |
 | 9. Reader cohort/persona generator runtime | not_started | Models/config exist, but no runtime persona factory service exposed. | Pending implementation. |
 | 10. Platform-style reaction generator | not_started | Platform style config exists only. | Pending service implementation. |
 | 11. Cross-reader reaction loop | not_started | `CrossReaction` model exists only. | Pending service/runtime implementation. |
@@ -22,7 +22,16 @@ Status values: `not_started`, `in_progress`, `done`, `blocked`, `partially_done`
 | 14. Persona interrogation (book_sim path) | not_started | Legacy simulation interview endpoints exist. | No Swarmbook interrogation wiring. |
 | 15. Draft comparison (book_sim path) | not_started | `DraftComparisonReport` model exists only. | No comparison service/pipeline wiring. |
 | 16. Frontend Swarmbook UI/routes | not_started | No Swarmbook route in `frontend/src/router/index.js`. | Pending frontend slice. |
-| 17. Artifact persistence/replay hardening | partially_done | `LocalArtifactCache` exists with content-hash JSON caching. | No versioned invalidation/replay controls yet. |
+| 17. Artifact persistence/replay hardening | partially_done | `LocalArtifactCache` exists with content-hash JSON caching; Swarmbook graph persistence now adds namespace-isolated upserts. | No versioned invalidation/replay controls yet. |
 | 18. Test coverage hardening | partially_done | Unit tests for router/models/evidence builder plus smoke script. | No CI proof here; runtime integration tests not present. |
 | 19. Privacy/compliance enforcement hardening | partially_done | Router forces local provider when `privacy_mode=local_only`. | No global policy enforcement across all future stages/API boundaries yet. |
-| 20. Release readiness for Swarmbook path | not_started | No end-to-end book_sim API/UI run path available yet. | Should follow Phases 7-19 completion. |
+| 20. Release readiness for Swarmbook path | not_started | No end-to-end book_sim API/UI run path available yet. | Should follow Phases 9-19 completion. |
+
+## Phase 7 Audit Result
+- Graph persistence is additive and lives only under `backend/app/book_sim`.
+- Legacy MiroFish graph behavior remains in `backend/app/storage/neo4j_storage.py` and `backend/app/api/graph.py`; nothing there was replaced.
+- Namespacing is enforced via `namespace` + `artifact_key` upserts, with namespace construction using `project_id`, `book_id`, and `draft_id`.
+- Dry-run fallback is present when no Neo4j driver is available.
+- `local_only` privacy behavior is unchanged because provider routing was not modified.
+- Tests exist for dry-run, Neo4j write-shape, and simulation-artifact preparation.
+- Phase 8 is not safe yet because there is still no API/runtime wiring for the new persistence service.

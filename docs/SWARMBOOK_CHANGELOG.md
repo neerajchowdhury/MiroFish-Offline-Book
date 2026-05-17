@@ -91,3 +91,34 @@
 - None (documentation pass).
 ### Known gaps
 - Historical phase execution timestamps before commit `08a3a7e` remain partially reconstructed.
+
+## Phase 7 (Book Graph Integration)
+### Files
+- `backend/app/book_sim/graph_persistence.py`
+- `backend/app/book_sim/__init__.py`
+- `backend/tests/test_book_sim_graph_persistence.py`
+- `docs/SWARMBOOK_PHASE_STATUS.md`
+- `docs/SWARMBOOK_DECISIONS.md`
+### Behavior changed
+- Added additive Swarmbook graph persistence with namespace-scoped, idempotent Neo4j upserts.
+- Added dry-run fallback when Neo4j is unavailable.
+- Persisted evidence-pack nodes for Book, Draft, Chapter, Character, Theme, Claim, Evidence, Risk, StyleSignal, and MarketSurface.
+- Prepared simulation-artifact persistence for ReaderPersona, PrivateReaction, PlatformPost, CrossReaction, and Report without enabling platform adapters.
+### Tests added
+- Dry-run namespace test.
+- Neo4j write-shape test using a fake driver/session.
+- Simulation artifact persistence test.
+### Known gaps
+- No Flask route wiring yet for the new persistence service.
+- No reader persona or platform adapter runtime was introduced in this phase.
+
+## Phase 7 Audit
+### Files
+- `docs/SWARMBOOK_PHASE_STATUS.md`
+### Behavior changed
+- Confirmed the Phase 7 persistence layer is additive, namespaced, idempotent, and dry-run capable.
+- Confirmed legacy MiroFish graph behavior remains in place.
+### Tests added
+- None. Audit relied on existing Phase 7 tests and code inspection.
+### Known gaps
+- Phase 8 is not safe yet because the persistence service is not wired into any runtime/API entry point.

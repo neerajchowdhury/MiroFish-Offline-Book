@@ -2,6 +2,7 @@
 
 from .config_loader import BookSimRoutingConfig
 from .evidence_pack_builder import EvidencePackBuilder
+from .graph_persistence import BookGraphPersistence, PersistenceResult
 from .local_cache import LocalArtifactCache
 from .manuscript_chunker import ManuscriptChunker
 from .models import (
@@ -35,6 +36,8 @@ __all__ = [
     "LocalArtifactCache",
     "ManuscriptChunker",
     "EvidencePackBuilder",
+    "BookGraphPersistence",
+    "PersistenceResult",
     "BookProject",
     "ManuscriptInput",
     "BookDNA",
