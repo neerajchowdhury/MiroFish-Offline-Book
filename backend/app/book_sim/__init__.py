@@ -3,6 +3,7 @@
 from .config_loader import BookSimRoutingConfig
 from .evidence_pack_builder import EvidencePackBuilder
 from .graph_persistence import BookGraphPersistence, PersistenceResult
+from .interrogation import PersonaInterrogationResult, PersonaInterrogator
 from .local_cache import LocalArtifactCache
 from .manuscript_chunker import ManuscriptChunker
 from .platform_adapters import PLATFORM_ADAPTERS
@@ -61,6 +62,8 @@ __all__ = [
     "EvidencePackBuilder",
     "BookGraphPersistence",
     "PersistenceResult",
+    "PersonaInterrogator",
+    "PersonaInterrogationResult",
     "PLATFORM_ADAPTERS",
     "ReaderArchetypeCatalog",
     "ReaderArchetypeLoader",

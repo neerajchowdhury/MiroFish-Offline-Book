@@ -245,6 +245,50 @@
 ### Known gaps
 - Report generation and API/runtime wiring are still pending.
 
+## Phase 14 (Reader Persona Interrogation)
+### Files
+- `backend/app/book_sim/interrogation/__init__.py`
+- `backend/app/book_sim/interrogation/persona_chat.py`
+- `backend/app/book_sim/__init__.py`
+- `backend/app/api/book_sim.py`
+- `backend/app/api/__init__.py`
+- `backend/app/__init__.py`
+- `backend/tests/test_book_sim_persona_chat.py`
+- `docs/SWARMBOOK_PHASE_STATUS.md`
+- `docs/SWARMBOOK_CHANGELOG.md`
+- `docs/SWARMBOOK_DECISIONS.md`
+- `docs/SWARMBOOK_OPEN_QUESTIONS.md`
+- `docs/SWARMBOOK_HANDOFF_LATEST.md`
+### Behavior changed
+- Added an additive reader-persona interrogation service that answers six grounded question shapes from serialized Swarmbook artifacts.
+- Kept interrogation template-first and deterministic so `local_only` never depends on Gemini, NVIDIA, or any external provider.
+- Added a narrow `/api/book-sim/interrogate` backend route that accepts `SimulationRun` plus `EvidencePack` payloads and returns structured JSON with `based_on` evidence refs.
+### Tests added
+- New unit suite for grounded persona interrogation behavior.
+- Route contract test added and conditionally skipped when Flask is unavailable in the active Python environment.
+### Known gaps
+- The interrogation endpoint does not yet load artifacts by simulation ID from persisted storage.
+- No frontend Swarmbook interrogation flow exists yet.
+- Report synthesis remains absent, so Phase 13 is still open.
+
+## Phase 14 Audit Refresh
+### Files
+- `docs/SWARMBOOK_CONTEXT.md`
+- `docs/SWARMBOOK_PHASE_STATUS.md`
+- `docs/SWARMBOOK_CHANGELOG.md`
+- `docs/SWARMBOOK_OPEN_QUESTIONS.md`
+- `docs/SWARMBOOK_HANDOFF_LATEST.md`
+### Behavior changed
+- No runtime behavior change. This was an audit and continuity-correction pass.
+- Confirmed the interrogation slice is grounded, additive, and provider-free in `local_only`.
+- Corrected stale continuity text that still claimed no `book_sim` blueprint or interrogation API existed.
+### Tests added
+- None. Audit reused the existing interrogation and router test suites.
+### Known gaps
+- The route still requires serialized `SimulationRun` and `EvidencePack` payloads.
+- The route contract test remains environment-dependent because `flask` is unavailable in the active Python interpreter here.
+- Phase 14 is only safe at the bounded backend-module level, not as a fully wired runtime phase.
+
 ## Deep Consolidation (Post-Phase 12)
 ### Files
 - `docs/SWARMBOOK_CONTEXT.md`

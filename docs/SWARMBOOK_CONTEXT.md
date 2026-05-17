@@ -80,8 +80,15 @@ Transform MiroFish-Offline into a personal, local-first "simulate any book" tool
   - `backend/app/book_sim/reader_persona_generator.py`
   - `backend/app/book_sim/platform_adapters/*`
   - `backend/app/book_sim/simulation/*`
+- Interrogation:
+  - `backend/app/book_sim/interrogation/*`
 - Scoring:
   - `backend/app/book_sim/scoring/*`
+
+### Backend API wiring
+- `backend/app/api/book_sim.py`
+- Registered in Flask through `backend/app/api/__init__.py` and `backend/app/__init__.py`
+- Current exposed route: `/api/book-sim/interrogate`
 
 ### Tests and fixtures
 - `backend/tests/test_book_sim_provider_router.py`
@@ -91,6 +98,7 @@ Transform MiroFish-Offline into a personal, local-first "simulate any book" tool
 - `backend/tests/test_book_sim_reader_persona_generator.py`
 - `backend/tests/test_book_sim_platform_adapters.py`
 - `backend/tests/test_book_sim_simulation_engine.py`
+- `backend/tests/test_book_sim_persona_chat.py`
 - `backend/tests/fixtures/book_sim_fiction_sample.txt`
 - `backend/tests/fixtures/book_sim_nonfiction_sample.txt`
 - `backend/tests/smoke_check.py`
@@ -100,15 +108,15 @@ Transform MiroFish-Offline into a personal, local-first "simulate any book" tool
 - `backend/pyproject.toml` and `backend/requirements.txt` include `PyYAML`.
 
 ## Current Missing Modules / Wiring
-- No `book_sim` API blueprint is registered in Flask app routing.
 - No frontend Swarmbook route/view wiring detected.
 - No Swarmbook report generator modules exist yet under `backend/app/book_sim/reports/`.
-- No Swarmbook interrogation API or draft-comparison service is wired end-to-end.
+- No Swarmbook draft-comparison service is wired end-to-end.
+- Swarmbook interrogation exists as a bounded backend route, but it is not wired to persisted simulation lookup or frontend flows.
 - Privacy mode is partially enforced in router selection but not system-wide policy enforcement.
 
 ## Known Limitations (Current State)
 - Current evidence extraction is largely heuristic with selective router use.
-- End-to-end Swarmbook runtime path is not exposed via API/UI yet.
+- Only a narrow Swarmbook interrogation API path is exposed; the full end-to-end runtime path is not.
 - Cache exists (`LocalArtifactCache`) but replay policy/version invalidation is minimal.
 - External provider usage policy is not centrally audited across future stages.
 - This system remains a synthetic stress-test approach, not market prediction certainty.

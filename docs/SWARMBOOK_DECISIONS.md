@@ -97,3 +97,10 @@
 - Rationale: Report generation is a hard deliverable and currently absent; placeholders in models are insufficient.
 - Trade-off: Requires explicit report module implementation and tests before claiming report-path functionality.
 - Files affected: `backend/app/book_sim/models.py` (existing placeholders), missing `backend/app/book_sim/reports/*`
+
+## D-015
+- Date: `2026-05-17`
+- Decision: Implement Swarmbook persona interrogation as a deterministic, template-first backend service over serialized `SimulationRun` and `EvidencePack` artifacts.
+- Rationale: Keeps `local_only` safe, prevents hallucinated manuscript detail, and avoids coupling interrogation to the still-incomplete report and persistence phases.
+- Trade-off: The current route requires the caller to provide serialized artifacts instead of resolving them from a stored simulation ID.
+- Files affected: `backend/app/book_sim/interrogation/*`, `backend/app/api/book_sim.py`, `backend/tests/test_book_sim_persona_chat.py`

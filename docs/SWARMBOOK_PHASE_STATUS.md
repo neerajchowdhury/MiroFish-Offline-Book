@@ -12,14 +12,14 @@ Status values: `not_started`, `in_progress`, `done`, `blocked`, `partially_done`
 | 4. Provider router foundation | partially_done | `backend/app/book_sim/provider_router.py`, `config_loader.py`, providers, router tests. | Router is additive and tested, but not yet wired into app-wide runtime entry points. |
 | 5. Typed schemas/models | done | `backend/app/book_sim/models.py`; serialization tests in `backend/tests/test_book_sim_models.py`. | N/A |
 | 6. Manuscript ingest + evidence pack builder | partially_done | `evidence_pack_builder.py`, chunker/extractors/analyzers/cache modules; fixture tests. | Module-level implementation exists, but API exposure and end-to-end app integration are not wired. |
-| 7. Book-sim API routes | not_started | No `book_sim` blueprint under `backend/app/api` registration path and no registration in `backend/app/__init__.py`. | Pending additive route layer. |
+| 7. Book-sim API routes | partially_done | `backend/app/api/book_sim.py` is registered through `backend/app/api/__init__.py` and `backend/app/__init__.py`, exposing `/api/book-sim/interrogate`. | Only a bounded interrogation route exists; manuscript ingest, report, and comparison API paths are still absent. |
 | 8. Book graph persistence integration | done | `backend/app/book_sim/graph_persistence.py` adds namespace-isolated Neo4j persistence with dry-run fallback and tests. | Module complete; still unwired from Flask/API runtime. |
 | 9. Reader cohort/persona generator runtime | done | `backend/app/book_sim/reader_archetype_loader.py` and `reader_persona_generator.py` load weighted archetypes and generate deterministic personas with privacy-mode-aware counts. | Module complete; orchestration exists, API/runtime wiring is pending. |
 | 10. Platform-style reaction generator | done | `backend/app/book_sim/platform_adapters/*` generates structured synthetic platform posts from personas, evidence packs, and private reactions. | Module complete; not exposed through Flask/API routes. |
 | 11. Cross-reader reaction loop | done | `backend/app/book_sim/simulation/cross_reaction_pass.py` and `simulation_orchestrator.py` implement bounded cross-reactions and deterministic orchestration. | Module complete; not exposed through Flask/API routes. |
 | 12. Scoring engine | done | `backend/app/book_sim/scoring/*` implements deterministic rating, DNF, viral, controversy, quoteability, polarization, and revision priority scoring with tests. | Module complete; report and API wiring are pending. |
 | 13. Prediction report (book_sim path) | not_started | `BookPredictionReport` model exists only. | Existing `/api/report` is legacy simulation path, not Swarmbook-specific flow. |
-| 14. Persona interrogation (book_sim path) | not_started | Legacy simulation interview endpoints exist. | No Swarmbook interrogation wiring. |
+| 14. Persona interrogation (book_sim path) | partially_done | `backend/app/book_sim/interrogation/persona_chat.py` plus `/api/book-sim/interrogate` answer grounded reader questions from serialized Swarmbook artifacts. | Backend slice is implemented and tested, but it is not yet wired to persisted simulation lookup or frontend flows. |
 | 15. Draft comparison (book_sim path) | not_started | `DraftComparisonReport` model exists only. | No comparison service/pipeline wiring. |
 | 16. Frontend Swarmbook UI/routes | not_started | No Swarmbook route in `frontend/src/router/index.js`. | Pending frontend slice. |
 | 17. Artifact persistence/replay hardening | partially_done | `LocalArtifactCache` exists with content-hash JSON caching; Swarmbook graph persistence now adds namespace-isolated upserts. | No versioned invalidation/replay controls yet. |
@@ -34,7 +34,7 @@ Status values: `not_started`, `in_progress`, `done`, `blocked`, `partially_done`
 - Dry-run fallback is present when no Neo4j driver is available.
 - `local_only` privacy behavior is unchanged because provider routing was not modified.
 - Tests exist for dry-run, Neo4j write-shape, and simulation-artifact preparation.
-- Phase 8 is not safe yet because there is still no API/runtime wiring for the new persistence service.
+- Phase 8 is still not runtime-wired to persistence endpoints, but Phase 7 is no longer fully blocked because a limited Swarmbook API route now exists for interrogation.
 
 ## Phase 9 Audit Result
 - Reader archetypes load from `configs/book_sim/reader_archetypes.yaml` through `backend/app/book_sim/reader_archetype_loader.py`.
@@ -78,9 +78,27 @@ Status values: `not_started`, `in_progress`, `done`, `blocked`, `partially_done`
 - Verified test coverage exists in `backend/tests/test_book_sim_scoring.py`.
 - Phase 13 remains the next safe module-level phase.
 
+## Phase 14 Implementation Result
+- Added additive reader-persona interrogation under `backend/app/book_sim/interrogation/`.
+- Added deterministic, template-first answers for rating rationale, DNF pressure, rating-lift suggestions, recommendation fit, audience fit, and exact trigger questions.
+- Answers load the persona, private reaction, platform posts, cross-reactions, and evidence-pack context from serialized Swarmbook artifacts.
+- Every reply returns structured JSON with `based_on` evidence refs, artifact IDs, and stored reaction signals.
+- The backend now exposes `/api/book-sim/interrogate` through an additive blueprint.
+- Tests cover grounded service behavior, audience-fit reasoning, and the route contract where Flask is available.
+- Phase 13 remains the next clean sequential phase, but Phase 14 now has a bounded backend implementation.
+
+## Phase 14 Audit Result
+- Verified the interrogation bundle loads the persona, private reaction, persona-specific platform posts, persona-specific cross-reactions, and evidence-pack context from serialized Swarmbook artifacts.
+- Verified replies are template-first and grounded in stored praise, friction, risk, market, post, and cross-reaction signals rather than provider-generated manuscript invention.
+- Verified output JSON includes `based_on` evidence refs plus artifact IDs and stored reaction signals.
+- Verified `local_only` privacy is preserved because the interrogation path does not import or call Gemini, NVIDIA, Ollama generation, or any external provider.
+- Verified `/api/book-sim/interrogate` exists and is registered through the additive `book_sim` blueprint.
+- Verified tests exist with mock persona and reaction artifacts in `backend/tests/test_book_sim_persona_chat.py`.
+- Phase 14 is safe at the bounded backend-module level, but not safe to call fully complete because persisted lookup and frontend wiring are still absent.
+
 ## Consolidation Audit (After Phase 12)
-- Phase 7 remains not started (no Swarmbook API route registration).
+- Phase 7 is now partially done because a limited additive `book_sim` blueprint is registered for interrogation.
 - Phases 8-12 are truly done at module level and tested.
 - No `backend/app/book_sim/reports/` package exists yet, so JSON/Markdown report generation is not implemented.
 - `local_only` route enforcement is present in `BookSimProviderRouter.select_route`, but enforcement is still router-scoped rather than app-wide policy middleware.
-- Evidence references are preserved through evidence pack, simulation artifacts, and scoring outputs; report-stage evidence propagation is not yet implemented because Phase 13 is absent.
+- Evidence references are preserved through evidence pack, simulation artifacts, scoring outputs, and interrogation responses; report-stage evidence propagation is not yet implemented because Phase 13 is absent.
