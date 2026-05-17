@@ -15,7 +15,7 @@ Status values: `not_started`, `in_progress`, `done`, `blocked`, `partially_done`
 | 7. Book-sim API routes | not_started | No `book_sim` blueprint under `backend/app/api` registration path. | Pending additive route layer. |
 | 8. Book graph persistence integration | done | `backend/app/book_sim/graph_persistence.py` adds namespace-isolated Neo4j persistence with dry-run fallback and tests. | API/UI wiring is still pending, but persistence itself is in place. |
 | 9. Reader cohort/persona generator runtime | done | `backend/app/book_sim/reader_archetype_loader.py` and `reader_persona_generator.py` load weighted archetypes and generate deterministic personas with privacy-mode-aware counts. | Runtime exists but is not yet wired into API/simulation orchestration. |
-| 10. Platform-style reaction generator | not_started | Platform style config exists only. | Pending service implementation. |
+| 10. Platform-style reaction generator | not_started | `configs/book_sim/platform_styles.yaml` exists, but there is no `backend/app/book_sim/platform_adapters/` package yet. | Pending service implementation. |
 | 11. Cross-reader reaction loop | not_started | `CrossReaction` model exists only. | Pending service/runtime implementation. |
 | 12. Scoring engine | not_started | `scoring_weights.yaml` exists only. | Pending executable scoring module. |
 | 13. Prediction report (book_sim path) | not_started | `BookPredictionReport` model exists only. | Existing `/api/report` is legacy simulation path, not Swarmbook-specific flow. |
@@ -44,3 +44,10 @@ Status values: `not_started`, `in_progress`, `done`, `blocked`, `partially_done`
 - No real social-platform API calls exist in the archetype loader or persona generator; platform handling remains simulated/template-based.
 - Tests cover same-seed deterministic output in `backend/tests/test_book_sim_reader_persona_generator.py`.
 - Phase 9 is safe at the module level, but Phase 10 is not yet safe as an integrated runtime phase because persona generation is still unwired from API/simulation orchestration.
+
+## Phase 10 Audit Result
+- No platform adapter package exists yet under `backend/app/book_sim/platform_adapters/`.
+- `configs/book_sim/platform_styles.yaml` is present and can be used by the next implementation.
+- No real scraping or social-platform API calls were introduced in the current repository state.
+- There is no shared adapter test suite yet because there are no adapter modules to test.
+- Phase 10 is not safe.

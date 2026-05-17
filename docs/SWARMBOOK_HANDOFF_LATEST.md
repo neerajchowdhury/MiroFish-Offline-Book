@@ -1,7 +1,7 @@
 # Swarmbook Handoff (Latest)
 
 ## 1) Current Objective
-Stabilize continuity and project memory before any Phase 7+ implementation by documenting what is actually implemented through Phase 6 and what remains unwired.
+Stabilize continuity and project memory before the Phase 10 platform-adapter phase by documenting what is actually implemented and what still remains unwired.
 
 ## 2) Last Completed / Partially Completed Phase
 - Last checkpoint commit: `08a3a7e` (`2026-05-17`) "swarmbook: checkpoint after phase 6 implementation".
@@ -12,7 +12,7 @@ Stabilize continuity and project memory before any Phase 7+ implementation by do
 ## 3) Current Repository State
 - Branch: `feature/swarmbook-phase6-recovery`
 - Working tree status at start of this pass: clean.
-- Swarmbook modules/config/tests exist, but no Swarmbook API/UI runtime wiring yet.
+- Swarmbook modules/config/tests exist, but no platform adapter package or Swarmbook API/UI runtime wiring yet.
 
 ## 4) Files/Modules Implemented So Far
 - Architecture: `docs/SWARMBOOK_ARCHITECTURE.md`
@@ -52,13 +52,11 @@ Stabilize continuity and project memory before any Phase 7+ implementation by do
 - Book-graph persistence and scoring/reaction engines are not yet implemented.
 
 ## 8) Exact Next Safe Phase
-Phase 6 repair/closure before Phase 7:
-1. Wire additive Swarmbook API endpoints (without touching legacy path behavior).
-2. Integrate evidence-pack builder into that API route family.
-3. Add integration tests for API-level ingestion/evidence endpoints.
-4. Add explicit privacy policy guardrails at API/service boundaries.
-
-Only then proceed to Phase 7 hardening.
+Phase 10 is not safe yet.
+1. Create the additive `backend/app/book_sim/platform_adapters/` package.
+2. Add a shared adapter base plus one synthetic adapter per platform.
+3. Keep output JSON structured and evidence-backed, with no real platform calls.
+4. Add adapter tests before any orchestration wiring.
 
 ## 9) Exact Prompt for a Fresh Codex Thread
 Use this prompt verbatim:
@@ -94,3 +92,29 @@ Requirements:
 - `docs/SWARMBOOK_OPEN_QUESTIONS.md`
 - `docs/SWARMBOOK_PROMPT_LOG.md`
 - `docs/SWARMBOOK_HANDOFF_LATEST.md`
+
+## 11) Clean Resume Point
+Use this prompt verbatim:
+
+```text
+You are working in my local clone of MiroFish-Offline.
+Read these files first and follow them strictly:
+1) AGENTS.md
+2) docs/SWARMBOOK_CONTEXT.md
+3) docs/SWARMBOOK_PHASE_STATUS.md
+4) docs/SWARMBOOK_DECISIONS.md
+5) docs/SWARMBOOK_CHANGELOG.md
+6) docs/SWARMBOOK_OPEN_QUESTIONS.md
+7) docs/SWARMBOOK_HANDOFF_LATEST.md
+
+Task: Start Phase 10 by creating the simulated platform adapter layer only.
+Requirements:
+- Preserve existing MiroFish-Offline behavior.
+- Use additive architecture under backend/app/book_sim/platform_adapters.
+- Do not delete files.
+- Do not call real platform APIs or scraping services.
+- Use platform_styles.yaml.
+- Return structured PlatformPost JSON with evidence_refs.
+- Add tests for each adapter or a shared adapter suite.
+- Report changed files, commands run, tests passed/failed, and known gaps.
+```
