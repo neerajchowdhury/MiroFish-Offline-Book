@@ -245,6 +245,31 @@
 ### Known gaps
 - Report generation and API/runtime wiring are still pending.
 
+## Phase 7 Runtime Wiring + Phase 13 Runtime Report Slice
+### Files
+- `backend/app/api/book_sim.py`
+- `backend/app/book_sim/runtime_store.py`
+- `backend/app/book_sim/report_builder.py`
+- `backend/app/book_sim/__init__.py`
+- `backend/tests/test_book_sim_api.py`
+- `docs/SWARMBOOK_CONTEXT.md`
+- `docs/SWARMBOOK_PHASE_STATUS.md`
+- `docs/SWARMBOOK_CHANGELOG.md`
+- `docs/SWARMBOOK_DECISIONS.md`
+- `docs/SWARMBOOK_OPEN_QUESTIONS.md`
+- `docs/SWARMBOOK_HANDOFF_LATEST.md`
+### Behavior changed
+- Added additive backend endpoints for `/api/book-sim/projects`, `/api/book-sim/evidence-packs`, `/api/book-sim/simulate`, `/api/book-sim/projects/{project_id}/report`, `/api/book-sim/personas/{persona_id}/chat`, `/api/book-sim/compare`, and `/api/book-sim/health`.
+- Added a file-backed Swarmbook runtime store so evidence packs, simulation runs, reports, and comparisons can be loaded by stored IDs instead of only oversized inline payloads.
+- Added deterministic runtime report synthesis on top of existing simulation and scoring outputs, while preserving the legacy `/api/report` flow.
+- Kept `/api/book-sim/interrogate` as a backward-compatible narrow route.
+### Tests added
+- New backend route suite in `backend/tests/test_book_sim_api.py`.
+### Known gaps
+- There is still no dedicated `backend/app/book_sim/reports/` package.
+- Frontend Swarmbook routes/views are still absent.
+- Privacy enforcement is still router-scoped rather than system-wide middleware.
+
 ## Phase 14 (Reader Persona Interrogation)
 ### Files
 - `backend/app/book_sim/interrogation/__init__.py`
@@ -267,7 +292,7 @@
 - New unit suite for grounded persona interrogation behavior.
 - Route contract test added and conditionally skipped when Flask is unavailable in the active Python environment.
 ### Known gaps
-- The interrogation endpoint does not yet load artifacts by simulation ID from persisted storage.
+- Frontend Swarmbook interrogation flow is still absent.
 - No frontend Swarmbook interrogation flow exists yet.
 - Report synthesis remains absent, so Phase 13 is still open.
 
@@ -285,9 +310,9 @@
 ### Tests added
 - None. Audit reused the existing interrogation and router test suites.
 ### Known gaps
-- The route still requires serialized `SimulationRun` and `EvidencePack` payloads.
+- The backward-compatible `/api/book-sim/interrogate` route still accepts oversized serialized payloads for older callers.
 - The route contract test remains environment-dependent because `flask` is unavailable in the active Python interpreter here.
-- Phase 14 is only safe at the bounded backend-module level, not as a fully wired runtime phase.
+- Phase 14 is only safe at the bounded backend-runtime level, not as a fully wired runtime phase.
 
 ## Phase 15 (Draft Comparison)
 ### Files
@@ -314,10 +339,8 @@
 - New draft comparator unit suite using two tiny draft fixtures.
 - Expanded model round-trip coverage for the richer `DraftComparisonReport`.
 ### Known gaps
-- No Flask route exists for draft comparison yet.
-- No persisted artifact lookup path exists yet.
 - No frontend comparison flow exists yet.
-- Phase 13 report synthesis remains absent, so the clean sequential path is still unchanged.
+- Phase 13 still lacks a dedicated report package, so the clean sequential path is now "finish and harden Phase 13" rather than "start from zero".
 
 ## Deep Consolidation (Post-Phase 12)
 ### Files
@@ -335,7 +358,7 @@
 ### Tests added
 - None. Consolidation reused existing test suites.
 ### Known gaps
-- End-to-end Swarmbook runtime remains unwired in Flask and frontend.
+- End-to-end Swarmbook runtime now exists at the backend route level, but the frontend remains unwired.
 - Privacy guarantees are still router-scoped and not yet enforced through global policy middleware.
 ## Phase 10 Audit Refresh
 - Audited the bounded Swarmbook simulation engine after implementation.

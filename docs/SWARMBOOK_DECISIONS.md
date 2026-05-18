@@ -111,3 +111,10 @@
 - Rationale: This keeps comparison additive and usable before report/API wiring lands, while still supporting unsimulated drafts through evidence-only plus scorecard fallback.
 - Trade-off: The comparison slice is backend-only for now and does not resolve persisted artifacts or expose a route yet.
 - Files affected: `backend/app/book_sim/comparison/*`, `backend/app/book_sim/models.py`, `backend/tests/test_book_sim_draft_comparator.py`
+
+## D-017
+- Date: `2026-05-18`
+- Decision: Expose Swarmbook through additive `/api/book-sim/*` backend routes backed by a local JSON runtime store and deterministic runtime report synthesis.
+- Rationale: This creates a bounded backend runtime path for project ingest, simulate-plus-report, persona chat, comparison, and health without disturbing legacy MiroFish routes or requiring a full frontend first.
+- Trade-off: Runtime artifacts are file-backed and lightweight for now, and report synthesis still lives in `report_builder.py` instead of a dedicated `reports/` package.
+- Files affected: `backend/app/api/book_sim.py`, `backend/app/book_sim/runtime_store.py`, `backend/app/book_sim/report_builder.py`, `backend/tests/test_book_sim_api.py`

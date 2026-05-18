@@ -2,7 +2,7 @@
 
 ## Wiring and Runtime
 1. Is the provider router fully wired into runtime flows?
-- Current answer: No. Router exists under `backend/app/book_sim`, and a narrow Swarmbook interrogation API path is registered, but the router is still not broadly wired into Swarmbook runtime flows.
+- Current answer: Partially. Router selection and provider health now participate in the additive `/api/book-sim/*` runtime path, but enforcement is still not global across every future API boundary.
 
 2. Is `local_only` privacy mode fully enforced end-to-end?
 - Current answer: Partially. Router-level selection forces local route, but there is no global policy boundary across all future stages/APIs.
@@ -15,16 +15,17 @@
 - Current answer: Requires explicit execution record per environment. See latest handoff/testing section.
 
 5. Are backend Swarmbook APIs exposed?
-- Current answer: Partially. `/api/book-sim/interrogate` exists, but the broader Swarmbook API surface is still absent.
+- Current answer: Yes at the bounded backend-runtime level. `/api/book-sim/*` now exposes project creation, evidence-pack ingest, simulate-plus-report, latest report retrieval, persona chat, draft comparison, health, and backward-compatible interrogation.
 
 6. Is UI wired for Swarmbook?
 - Current answer: No Swarmbook route/view in `frontend/src/router/index.js`.
+- Phase 16 safety: No, not yet. The backend runtime is wired, but the frontend surface is still absent.
 
 7. Does graph persistence exist for Swarmbook evidence/simulation artifacts?
-- Current answer: Yes at module level (`backend/app/book_sim/graph_persistence.py`), but not wired through Flask runtime routes.
+- Current answer: Yes. The additive graph-persistence layer exists and is now called from the backend evidence-pack and simulate runtime routes, with dry-run fallback when Neo4j is unavailable.
 
 8. Does draft comparison exist for Swarmbook?
-- Current answer: Yes at the backend-module level under `backend/app/book_sim/comparison`, but it is not wired to persisted artifact lookup, Flask routes, or frontend flows.
+- Current answer: Yes. It now exists as both a backend module and a backend route with stored-artifact lookup, but no frontend flow exists yet.
 
 ## Scope/Design Clarifications
 9. Should Swarmbook phases continue with standalone API namespace (`/api/book-sim/*`) or extend existing simulation endpoints?
@@ -37,10 +38,10 @@
 - Current answer: Yes. Consolidation now uses that convention for phases 8-12.
 
 14. Do Swarmbook JSON/Markdown report generators exist?
-- Current answer: No. `backend/app/book_sim/reports/` is still missing.
+- Current answer: Partially. Runtime report synthesis exists in `backend/app/book_sim/report_builder.py`, but a dedicated `backend/app/book_sim/reports/` package is still missing.
 
 15. Is Phase 13 safe to start?
-- Current answer: Yes at module level, and it remains the next clean sequential phase even though Phase 14 now has a bounded backend interrogation slice.
+- Current answer: Phase 13 is already partially in progress through the runtime report helper. The next safe work is to harden and package it cleanly rather than starting from zero.
 
 16. Are any phase docs currently stale?
-- Current answer: Yes. The context doc needed correction during the Phase 14 interrogation audit because it still claimed no `book_sim` blueprint or interrogation API existed.
+- Current answer: Not after this continuity pass, assuming the docs stay aligned with the new backend runtime routes.

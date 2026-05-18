@@ -12,16 +12,16 @@ Status values: `not_started`, `in_progress`, `done`, `blocked`, `partially_done`
 | 4. Provider router foundation | partially_done | `backend/app/book_sim/provider_router.py`, `config_loader.py`, providers, router tests. | Router is additive and tested, but not yet wired into app-wide runtime entry points. |
 | 5. Typed schemas/models | done | `backend/app/book_sim/models.py`; serialization tests in `backend/tests/test_book_sim_models.py`. | N/A |
 | 6. Manuscript ingest + evidence pack builder | partially_done | `evidence_pack_builder.py`, chunker/extractors/analyzers/cache modules; fixture tests. | Module-level implementation exists, but API exposure and end-to-end app integration are not wired. |
-| 7. Book-sim API routes | partially_done | `backend/app/api/book_sim.py` is registered through `backend/app/api/__init__.py` and `backend/app/__init__.py`, exposing `/api/book-sim/interrogate`. | Only a bounded interrogation route exists; manuscript ingest, report, and comparison API paths are still absent. |
+| 7. Book-sim API routes | done | `backend/app/api/book_sim.py` now exposes additive project, ingest, simulate, report, persona chat, comparison, health, and backward-compatible interrogation routes, with `backend/tests/test_book_sim_api.py` covering the runtime surface. | Frontend delivery is still absent, but the backend route surface now exists. |
 | 8. Book graph persistence integration | done | `backend/app/book_sim/graph_persistence.py` adds namespace-isolated Neo4j persistence with dry-run fallback and tests. | Module complete; still unwired from Flask/API runtime. |
 | 9. Reader cohort/persona generator runtime | done | `backend/app/book_sim/reader_archetype_loader.py` and `reader_persona_generator.py` load weighted archetypes and generate deterministic personas with privacy-mode-aware counts. | Module complete; orchestration exists, API/runtime wiring is pending. |
 | 10. Platform-style reaction generator | done | `backend/app/book_sim/platform_adapters/*` generates structured synthetic platform posts from personas, evidence packs, and private reactions. | Module complete; not exposed through Flask/API routes. |
 | 11. Cross-reader reaction loop | done | `backend/app/book_sim/simulation/cross_reaction_pass.py` and `simulation_orchestrator.py` implement bounded cross-reactions and deterministic orchestration. | Module complete; not exposed through Flask/API routes. |
 | 12. Scoring engine | done | `backend/app/book_sim/scoring/*` implements deterministic rating, DNF, viral, controversy, quoteability, polarization, and revision priority scoring with tests. | Module complete; report and API wiring are pending. |
-| 13. Prediction report (book_sim path) | not_started | `BookPredictionReport` model exists only. | Existing `/api/report` is legacy simulation path, not Swarmbook-specific flow. |
-| 14. Persona interrogation (book_sim path) | partially_done | `backend/app/book_sim/interrogation/persona_chat.py` plus `/api/book-sim/interrogate` answer grounded reader questions from serialized Swarmbook artifacts. | Backend slice is implemented and tested, but it is not yet wired to persisted simulation lookup or frontend flows. |
-| 15. Draft comparison (book_sim path) | partially_done | `backend/app/book_sim/comparison/*` compares evidence packs, optional simulations, and optional scores, exporting JSON and Markdown with tests. | Backend slice is implemented and tested, but it is not wired to persisted artifact lookup, Flask routes, or frontend flows. |
-| 16. Frontend Swarmbook UI/routes | not_started | No Swarmbook route in `frontend/src/router/index.js`. | Pending frontend slice. |
+| 13. Prediction report (book_sim path) | partially_done | `backend/app/book_sim/report_builder.py` now synthesizes deterministic `BookPredictionReport` output during `/api/book-sim/simulate`, and `/api/book-sim/projects/{project_id}/report` returns the latest stored report. | No dedicated `backend/app/book_sim/reports/` package exists yet, and report formatting is still lightweight. |
+| 14. Persona interrogation (book_sim path) | partially_done | `backend/app/book_sim/interrogation/persona_chat.py` plus `/api/book-sim/personas/{persona_id}/chat` and `/api/book-sim/interrogate` answer grounded reader questions from stored or explicit Swarmbook artifacts. | Backend slice is runtime-wired, but no frontend interrogation flow exists yet. |
+| 15. Draft comparison (book_sim path) | partially_done | `backend/app/book_sim/comparison/*` plus `/api/book-sim/compare` compare evidence packs, optional simulations, and optional scores, exporting JSON and Markdown with tests. | Backend slice is runtime-wired, but no frontend comparison flow exists yet. |
+| 16. Frontend Swarmbook UI/routes | not_started | No Swarmbook route in `frontend/src/router/index.js`. | Pending frontend slice. Not safe yet because the backend runtime exists but there is still no frontend delivery path. |
 | 17. Artifact persistence/replay hardening | partially_done | `LocalArtifactCache` exists with content-hash JSON caching; Swarmbook graph persistence now adds namespace-isolated upserts. | No versioned invalidation/replay controls yet. |
 | 18. Test coverage hardening | partially_done | Unit tests for router/models/evidence builder plus smoke script. | No CI proof here; runtime integration tests not present. |
 | 19. Privacy/compliance enforcement hardening | partially_done | Router forces local provider when `privacy_mode=local_only`. | No global policy enforcement across all future stages/API boundaries yet. |
@@ -34,7 +34,13 @@ Status values: `not_started`, `in_progress`, `done`, `blocked`, `partially_done`
 - Dry-run fallback is present when no Neo4j driver is available.
 - `local_only` privacy behavior is unchanged because provider routing was not modified.
 - Tests exist for dry-run, Neo4j write-shape, and simulation-artifact preparation.
-- Phase 8 is still not runtime-wired to persistence endpoints, but Phase 7 is no longer fully blocked because a limited Swarmbook API route now exists for interrogation.
+- Phase 7 is now backend-complete: additive Swarmbook routes exist for project metadata, evidence-pack ingest, simulate-plus-report, latest report retrieval, persona chat, draft comparison, health, and backward-compatible interrogation.
+
+## Phase 7 Runtime Result
+- Added a file-backed Swarmbook runtime store under `backend/app/book_sim/runtime_store.py`.
+- Added additive backend endpoints under `/api/book-sim/*` for project creation, evidence-pack ingest, simulate-plus-report, report retrieval, persona chat, draft comparison, and health.
+- Kept the legacy `/api/report`, `/api/simulation`, and `/api/graph` routes untouched.
+- Added `backend/tests/test_book_sim_api.py` for the bounded backend runtime flow.
 
 ## Phase 9 Audit Result
 - Reader archetypes load from `configs/book_sim/reader_archetypes.yaml` through `backend/app/book_sim/reader_archetype_loader.py`.
@@ -92,9 +98,15 @@ Status values: `not_started`, `in_progress`, `done`, `blocked`, `partially_done`
 - Verified replies are template-first and grounded in stored praise, friction, risk, market, post, and cross-reaction signals rather than provider-generated manuscript invention.
 - Verified output JSON includes `based_on` evidence refs plus artifact IDs and stored reaction signals.
 - Verified `local_only` privacy is preserved because the interrogation path does not import or call Gemini, NVIDIA, Ollama generation, or any external provider.
-- Verified `/api/book-sim/interrogate` exists and is registered through the additive `book_sim` blueprint.
+- Verified `/api/book-sim/personas/{persona_id}/chat` and `/api/book-sim/interrogate` exist and are registered through the additive `book_sim` blueprint.
 - Verified tests exist with mock persona and reaction artifacts in `backend/tests/test_book_sim_persona_chat.py`.
-- Phase 14 is safe at the bounded backend-module level, but not safe to call fully complete because persisted lookup and frontend wiring are still absent.
+- Phase 14 is safe at the bounded backend-runtime level, but not safe to call fully complete because frontend wiring is still absent.
+
+## Phase 13 Runtime Result
+- Added deterministic report synthesis under `backend/app/book_sim/report_builder.py` on top of the existing simulation and scoring outputs.
+- `/api/book-sim/simulate` now returns both `SimulationRun` and `BookPredictionReport`.
+- `/api/book-sim/projects/{project_id}/report` now returns the latest stored Swarmbook report.
+- Report persistence currently uses the local runtime store plus additive graph persistence, not a dedicated `reports/` package yet.
 
 ## Phase 15 Implementation Result
 - Added additive draft comparison under `backend/app/book_sim/comparison/`.
@@ -109,14 +121,14 @@ Status values: `not_started`, `in_progress`, `done`, `blocked`, `partially_done`
 - Verified the comparator consumes previous evidence packs, optional simulation outputs, and optional precomputed scores.
 - Verified the comparison remains deterministic across repeated runs with the same inputs and stable seed.
 - Verified score movement includes rating, DNF, controversy, viral, and quoteability movement when simulations or scores are available.
-- Verified JSON and Markdown exports are produced at the module level.
+- Verified JSON and Markdown exports are produced at the module level and exposed through `/api/book-sim/compare`.
 - Verified the path is provider-free and preserves `local_only` by not calling Gemini, NVIDIA, Ollama generation, or any external provider.
 - Verified tests exist with tiny draft fixtures in `backend/tests/test_book_sim_draft_comparator.py`.
-- Phase 15 is safe at the bounded backend-module level, but not safe to call fully complete because persisted lookup, Flask routes, and frontend wiring are still absent.
+- Phase 15 is safe at the bounded backend-runtime level, but not safe to call fully complete because frontend wiring is still absent.
 
 ## Consolidation Audit (After Phase 12)
-- Phase 7 is now partially done because a limited additive `book_sim` blueprint is registered for interrogation.
+- Phase 7 is now done at the backend-route level because the additive `book_sim` blueprint exposes the full runtime surface.
 - Phases 8-12 are truly done at module level and tested.
-- No `backend/app/book_sim/reports/` package exists yet, so JSON/Markdown report generation is not implemented.
+- No `backend/app/book_sim/reports/` package exists yet, so report synthesis currently lives in a runtime helper rather than a dedicated report package.
 - `local_only` route enforcement is present in `BookSimProviderRouter.select_route`, but enforcement is still router-scoped rather than app-wide policy middleware.
-- Evidence references are preserved through evidence pack, simulation artifacts, scoring outputs, and interrogation responses; report-stage evidence propagation is not yet implemented because Phase 13 is absent.
+- Evidence references are preserved through evidence pack, simulation artifacts, scoring outputs, report synthesis, and interrogation responses.

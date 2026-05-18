@@ -80,6 +80,9 @@ Transform MiroFish-Offline into a personal, local-first "simulate any book" tool
   - `backend/app/book_sim/reader_persona_generator.py`
   - `backend/app/book_sim/platform_adapters/*`
   - `backend/app/book_sim/simulation/*`
+- Runtime storage/reporting:
+  - `backend/app/book_sim/runtime_store.py`
+  - `backend/app/book_sim/report_builder.py`
 - Interrogation:
   - `backend/app/book_sim/interrogation/*`
 - Comparison:
@@ -90,7 +93,15 @@ Transform MiroFish-Offline into a personal, local-first "simulate any book" tool
 ### Backend API wiring
 - `backend/app/api/book_sim.py`
 - Registered in Flask through `backend/app/api/__init__.py` and `backend/app/__init__.py`
-- Current exposed route: `/api/book-sim/interrogate`
+- Current exposed routes:
+  - `/api/book-sim/projects`
+  - `/api/book-sim/evidence-packs`
+  - `/api/book-sim/simulate`
+  - `/api/book-sim/projects/<project_id>/report`
+  - `/api/book-sim/personas/<persona_id>/chat`
+  - `/api/book-sim/compare`
+  - `/api/book-sim/health`
+  - `/api/book-sim/interrogate` (backward-compatible narrow interrogation route)
 
 ### Tests and fixtures
 - `backend/tests/test_book_sim_provider_router.py`
@@ -102,6 +113,7 @@ Transform MiroFish-Offline into a personal, local-first "simulate any book" tool
 - `backend/tests/test_book_sim_simulation_engine.py`
 - `backend/tests/test_book_sim_persona_chat.py`
 - `backend/tests/test_book_sim_draft_comparator.py`
+- `backend/tests/test_book_sim_api.py`
 - `backend/tests/fixtures/book_sim_fiction_sample.txt`
 - `backend/tests/fixtures/book_sim_nonfiction_sample.txt`
 - `backend/tests/fixtures/book_sim_compare_draft_a.txt`
@@ -114,16 +126,16 @@ Transform MiroFish-Offline into a personal, local-first "simulate any book" tool
 
 ## Current Missing Modules / Wiring
 - No frontend Swarmbook route/view wiring detected.
-- No Swarmbook report generator modules exist yet under `backend/app/book_sim/reports/`.
-- Swarmbook draft comparison exists as a bounded backend module, but it is not wired to persisted artifact lookup, Flask routes, or frontend flows.
-- Swarmbook interrogation exists as a bounded backend route, but it is not wired to persisted simulation lookup or frontend flows.
+- No dedicated Swarmbook report package exists yet under `backend/app/book_sim/reports/`; runtime report synthesis currently lives in `backend/app/book_sim/report_builder.py`.
+- Swarmbook draft comparison is now wired to a backend route and file-based runtime artifact lookup, but no frontend flow exists yet.
+- Swarmbook interrogation is now wired to stored simulation/evidence lookup in the backend runtime store, but no frontend flow exists yet.
 - Privacy mode is partially enforced in router selection but not system-wide policy enforcement.
 
 ## Known Limitations (Current State)
 - Current evidence extraction is largely heuristic with selective router use.
-- Only a narrow Swarmbook interrogation API path is exposed; the full end-to-end runtime path is not.
-- Draft comparison exports JSON and Markdown at the module level, but no runtime delivery path exists yet.
+- Swarmbook now has a bounded backend runtime path for project creation, evidence-pack ingest, simulate-plus-report, persona chat, draft comparison, and health, but there is still no frontend delivery path.
+- Draft comparison exports JSON and Markdown through the backend API, but no frontend comparison view exists yet.
 - Cache exists (`LocalArtifactCache`) but replay policy/version invalidation is minimal.
 - External provider usage policy is not centrally audited across future stages.
 - This system remains a synthetic stress-test approach, not market prediction certainty.
-- Report artifacts (JSON/Markdown) are not generated yet because Phase 13 modules are absent.
+- Report artifacts are now generated through the runtime helper, but there is still no dedicated `backend/app/book_sim/reports/` package or richer report-synthesis layer.
