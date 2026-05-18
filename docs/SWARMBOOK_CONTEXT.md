@@ -125,16 +125,13 @@ Transform MiroFish-Offline into a personal, local-first "simulate any book" tool
 - `backend/pyproject.toml` and `backend/requirements.txt` include `PyYAML`.
 
 ## Current Missing Modules / Wiring
-- No frontend Swarmbook route/view wiring detected.
 - No dedicated Swarmbook report package exists yet under `backend/app/book_sim/reports/`; runtime report synthesis currently lives in `backend/app/book_sim/report_builder.py`.
-- Swarmbook draft comparison is now wired to a backend route and file-based runtime artifact lookup, but no frontend flow exists yet.
-- Swarmbook interrogation is now wired to stored simulation/evidence lookup in the backend runtime store, but no frontend flow exists yet.
+- Frontend Swarmbook routing exists under `frontend/src/router/index.js`; build validation now passes through bundled runtime Node + direct Vite invocation, while `npm run build` still fails due to a broken machine-level npm shim path.
 - Privacy mode is partially enforced in router selection but not system-wide policy enforcement.
 
 ## Known Limitations (Current State)
 - Current evidence extraction is largely heuristic with selective router use.
-- Swarmbook now has a bounded backend runtime path for project creation, evidence-pack ingest, simulate-plus-report, persona chat, draft comparison, and health, but there is still no frontend delivery path.
-- Draft comparison exports JSON and Markdown through the backend API, but no frontend comparison view exists yet.
+- Swarmbook now has a bounded backend runtime path plus an additive frontend flow under `/swarmbook/*`; frontend build validates through direct Vite execution, but normal `npm run build` remains broken by the local npm shim.
 - Cache exists (`LocalArtifactCache`) but replay policy/version invalidation is minimal.
 - External provider usage policy is not centrally audited across future stages.
 - This system remains a synthetic stress-test approach, not market prediction certainty.

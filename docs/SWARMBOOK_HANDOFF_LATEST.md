@@ -1,18 +1,19 @@
 # Swarmbook Handoff (Latest)
 
 ## 1) Current Objective
-Resume from the bounded backend runtime slice: additive Swarmbook API routes now exist, runtime report synthesis is partially real, and the next clean work is hardening that report layer plus any frontend follow-through.
+Resume from the additive frontend-and-backend runtime slice: Swarmbook has `/api/book-sim/*` backend routes plus `/swarmbook/*` Vue screens, and the next clean work is report-layer hardening into a dedicated package plus fixing the machine-level npm shim path.
 
 ## 2) Last Completed / Partially Completed Phase
 - Last checkpoint commit: `08a3a7e` (`2026-05-17`) "swarmbook: checkpoint after phase 6 implementation".
 - Practical status:
   - Done: Phase 2, Phase 3, Phase 5, Phase 7, Phase 8, Phase 9, Phase 10, Phase 11, Phase 12.
-  - Partially done: Phase 1, Phase 4, Phase 6, Phase 13, Phase 14, Phase 15, Phase 17, Phase 18, Phase 19.
+  - Partially done: Phase 1, Phase 4, Phase 6, Phase 13, Phase 14, Phase 15, Phase 16, Phase 17, Phase 18, Phase 19.
 
 ## 3) Current Repository State
 - Branch: `feature/swarmbook-phase6-recovery`
-- Working tree status at start of this pass: previously clean before the current API wiring pass; now dirty with additive backend/runtime/docs updates pending commit.
-- Swarmbook modules/config/tests now include bounded backend routes for project creation, evidence-pack ingest, simulate-plus-report, persona chat, draft comparison, health, and the legacy-compatible interrogation route. There is still no Swarmbook frontend flow.
+- Working tree status at start of this pass: dirty with additive Swarmbook backend, frontend, and continuity-doc updates pending commit.
+- Swarmbook modules/config/tests now include bounded backend routes for project creation, evidence-pack ingest, simulate-plus-report, persona chat, draft comparison, health, and the legacy-compatible interrogation route.
+- Swarmbook frontend flow now exists under `/swarmbook/*` with landing, upload, metadata, evidence preview, simulation, report, persona, and comparison screens.
 
 ## 4) Files/Modules Implemented So Far
 - Architecture: `docs/SWARMBOOK_ARCHITECTURE.md`
@@ -29,6 +30,14 @@ Resume from the bounded backend runtime slice: additive Swarmbook API routes now
 - Interrogation: `backend/app/book_sim/interrogation/*`
 - Comparison: `backend/app/book_sim/comparison/*`
 - Swarmbook API slice: `backend/app/api/book_sim.py`
+- Swarmbook frontend API/store/layout:
+  - `frontend/src/api/bookSim.js`
+  - `frontend/src/store/swarmbookSession.js`
+  - `frontend/src/components/swarmbook/SwarmbookLayout.vue`
+- Swarmbook frontend screens:
+  - `frontend/src/views/swarmbook/*`
+  - `frontend/src/router/index.js`
+  - `frontend/src/views/Home.vue` (entry link only)
 - Tests/fixtures: `backend/tests/test_book_sim_provider_router.py`, `backend/tests/test_book_sim_models.py`, `backend/tests/test_book_sim_evidence_pack_builder.py`, `backend/tests/fixtures/book_sim_*`
 - Swarmbook tests: `backend/tests/test_book_sim_graph_persistence.py`, `backend/tests/test_book_sim_reader_persona_generator.py`, `backend/tests/test_book_sim_platform_adapters.py`, `backend/tests/test_book_sim_simulation_engine.py`
 - Interrogation tests: `backend/tests/test_book_sim_persona_chat.py`
@@ -49,6 +58,8 @@ Resume from the bounded backend runtime slice: additive Swarmbook API routes now
 
 ## 6) Tests Run and Status
 - Executed in this pass:
+  - `npm run build` -> failed because the global `npm` shim points to a missing `npm-cli.js`
+  - `C:\Users\neera\.cache\codex-runtimes\codex-primary-runtime\dependencies\node\bin\node.exe .\node_modules\vite\bin\vite.js build` -> pass
   - `python -m py_compile backend/app/api/book_sim.py backend/app/book_sim/runtime_store.py backend/app/book_sim/report_builder.py backend/app/book_sim/__init__.py` -> pass
   - `python -m unittest backend.tests.test_book_sim_api backend.tests.test_book_sim_persona_chat backend.tests.test_book_sim_draft_comparator backend.tests.test_book_sim_scoring backend.tests.test_book_sim_simulation_engine backend.tests.test_book_sim_models backend.tests.test_book_sim_provider_router` -> pass (`25` tests, `4` skipped)
   - `python -m unittest backend.tests.test_book_sim_platform_adapters backend.tests.test_book_sim_simulation_engine` -> pass (`2` tests)
@@ -67,7 +78,7 @@ Resume from the bounded backend runtime slice: additive Swarmbook API routes now
   - `python -m py_compile ... backend/tests/test_book_sim_draft_comparator.py ...` hit the same Windows `__pycache__` rename permission problem for test `.pyc` output; app-module compiles still pass cleanly.
 
 ## 7) Known Broken/Incomplete Areas
-- Frontend has no Swarmbook routes/views.
+- Frontend default package-manager invocation remains broken because the machine-level npm shim points to a missing `npm-cli.js`.
 - The backend report layer exists only as `backend/app/book_sim/report_builder.py`; there is still no dedicated `backend/app/book_sim/reports/` package.
 - Runtime artifacts are currently file-backed through the local cache tree rather than a stronger persistence/replay layer.
 - Privacy enforcement is not yet system-wide beyond router selection logic.
@@ -81,8 +92,9 @@ Resume from the bounded backend runtime slice: additive Swarmbook API routes now
 - Phase 11: done at module level (bounded simulation engine implemented + tested).
 - Phase 12: done at module level (scoring engine implemented + tested).
 - Phase 13: partially done (runtime report synthesis and latest-report route exist, but no dedicated report package yet).
-- Phase 14: partially done (grounded interrogation service + stored-artifact route path + tests exist, but no frontend path).
-- Phase 15: partially done (deterministic comparison module + backend route + stored-artifact lookup + tests exist, but no frontend path).
+- Phase 14: partially done (grounded interrogation service + stored-artifact route path + frontend screen now exist, but frontend dependency validation is still blocked here).
+- Phase 15: partially done (deterministic comparison module + backend route + stored-artifact lookup + tests exist; frontend screen now exists but has not been build-validated here).
+- Phase 16: partially done (frontend Swarmbook route family and screens now exist, but dependency validation is blocked in this environment).
 
 ## 14) Unsafe Assumptions Found
 - Assuming frontend availability is unsafe; only the backend runtime path is wired.
@@ -98,11 +110,11 @@ Resume from the bounded backend runtime slice: additive Swarmbook API routes now
 5. Decide whether the file-backed runtime store should remain the primary early-phase persistence path or be replaced with a stronger artifact registry.
 
 ## 8) Exact Next Safe Phase
-Phase 13 hardening is the next clean sequential phase and remains safe.
+Phase 13 hardening is still the next clean sequential phase and remains safe.
 1. Move the current runtime report synthesis into a dedicated `backend/app/book_sim/reports/*` package.
 2. Keep using the existing simulation and scoring outputs without changing legacy simulation.
 3. Preserve deterministic, local-first report generation and evidence propagation.
-4. Add unit tests around the report builder/package boundary before any frontend work.
+4. Add unit tests around the report builder/package boundary, then return to frontend build validation once dependencies are available.
 
 ## 9) Exact Prompt for a Fresh Codex Thread
 Use this prompt verbatim:

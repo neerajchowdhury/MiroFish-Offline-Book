@@ -118,3 +118,10 @@
 - Rationale: This creates a bounded backend runtime path for project ingest, simulate-plus-report, persona chat, comparison, and health without disturbing legacy MiroFish routes or requiring a full frontend first.
 - Trade-off: Runtime artifacts are file-backed and lightweight for now, and report synthesis still lives in `report_builder.py` instead of a dedicated `reports/` package.
 - Files affected: `backend/app/api/book_sim.py`, `backend/app/book_sim/runtime_store.py`, `backend/app/book_sim/report_builder.py`, `backend/tests/test_book_sim_api.py`
+
+## D-018
+- Date: `2026-05-18`
+- Decision: Add Swarmbook frontend delivery as a separate `/swarmbook/*` Vue route family backed by a lightweight local session store instead of folding the new book workflow into the legacy process/simulation/report screens.
+- Rationale: This preserves the existing MiroFish UI, keeps the Swarmbook blast radius narrow, and lets the new frontend bind directly to the additive `/api/book-sim/*` backend runtime.
+- Trade-off: Some concepts now exist in both the legacy UI and the Swarmbook UI, and the frontend currently depends on local session state rather than a stronger client-side data layer.
+- Files affected: `frontend/src/router/index.js`, `frontend/src/api/bookSim.js`, `frontend/src/store/swarmbookSession.js`, `frontend/src/components/swarmbook/SwarmbookLayout.vue`, `frontend/src/views/swarmbook/*`, `frontend/src/views/Home.vue`

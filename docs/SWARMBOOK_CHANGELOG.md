@@ -342,6 +342,40 @@
 - No frontend comparison flow exists yet.
 - Phase 13 still lacks a dedicated report package, so the clean sequential path is now "finish and harden Phase 13" rather than "start from zero".
 
+## Phase 16 (Frontend Swarmbook UI)
+### Files
+- `frontend/src/api/bookSim.js`
+- `frontend/src/store/swarmbookSession.js`
+- `frontend/src/components/swarmbook/SwarmbookLayout.vue`
+- `frontend/src/router/index.js`
+- `frontend/src/views/Home.vue`
+- `frontend/src/views/swarmbook/SwarmbookHomeView.vue`
+- `frontend/src/views/swarmbook/SwarmbookUploadView.vue`
+- `frontend/src/views/swarmbook/SwarmbookMetadataView.vue`
+- `frontend/src/views/swarmbook/SwarmbookEvidenceView.vue`
+- `frontend/src/views/swarmbook/SwarmbookSimulationView.vue`
+- `frontend/src/views/swarmbook/SwarmbookReportView.vue`
+- `frontend/src/views/swarmbook/SwarmbookPersonasView.vue`
+- `frontend/src/views/swarmbook/SwarmbookCompareView.vue`
+- `docs/SWARMBOOK_PHASE_STATUS.md`
+- `docs/SWARMBOOK_CHANGELOG.md`
+- `docs/SWARMBOOK_DECISIONS.md`
+- `docs/SWARMBOOK_CONTEXT.md`
+- `docs/SWARMBOOK_OPEN_QUESTIONS.md`
+- `docs/SWARMBOOK_HANDOFF_LATEST.md`
+### Behavior changed
+- Added an additive Swarmbook frontend flow under `/swarmbook/*` for project setup, manuscript input, metadata capture, evidence preview, simulation controls, report review, persona interrogation, and draft comparison.
+- Kept the legacy MiroFish landing, process, simulation, report, and interaction routes intact.
+- Added simple loading and error handling states across the new Swarmbook screens.
+- Bound the new frontend flow to the existing additive `/api/book-sim/*` backend runtime surface.
+### Tests added
+- No frontend test framework exists in this repo today.
+- Attempted frontend validation through `npm run build`, but the machine-level `npm` shim is broken.
+- Verified frontend build succeeds through bundled runtime Node with direct Vite execution.
+### Known gaps
+- Frontend package-manager path is still broken for `npm run build`, so direct runtime-node Vite invocation remains the current workaround.
+- The backend report layer still lives in `backend/app/book_sim/report_builder.py`, not a dedicated `reports/` package.
+
 ## Deep Consolidation (Post-Phase 12)
 ### Files
 - `docs/SWARMBOOK_CONTEXT.md`

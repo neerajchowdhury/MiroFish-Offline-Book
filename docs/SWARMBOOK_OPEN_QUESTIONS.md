@@ -18,14 +18,14 @@
 - Current answer: Yes at the bounded backend-runtime level. `/api/book-sim/*` now exposes project creation, evidence-pack ingest, simulate-plus-report, latest report retrieval, persona chat, draft comparison, health, and backward-compatible interrogation.
 
 6. Is UI wired for Swarmbook?
-- Current answer: No Swarmbook route/view in `frontend/src/router/index.js`.
-- Phase 16 safety: No, not yet. The backend runtime is wired, but the frontend surface is still absent.
+- Current answer: Partially. Swarmbook routes/views now exist under `frontend/src/router/index.js` and `frontend/src/views/swarmbook/*`.
+- Phase 16 safety: Partially. The frontend flow exists and direct Vite build passes, but default `npm run build` still fails due to a broken machine-level npm shim.
 
 7. Does graph persistence exist for Swarmbook evidence/simulation artifacts?
 - Current answer: Yes. The additive graph-persistence layer exists and is now called from the backend evidence-pack and simulate runtime routes, with dry-run fallback when Neo4j is unavailable.
 
 8. Does draft comparison exist for Swarmbook?
-- Current answer: Yes. It now exists as both a backend module and a backend route with stored-artifact lookup, but no frontend flow exists yet.
+- Current answer: Yes. It now exists as a backend module, a backend route with stored-artifact lookup, and a frontend comparison screen, but the frontend has not been build-validated in this environment yet.
 
 ## Scope/Design Clarifications
 9. Should Swarmbook phases continue with standalone API namespace (`/api/book-sim/*`) or extend existing simulation endpoints?

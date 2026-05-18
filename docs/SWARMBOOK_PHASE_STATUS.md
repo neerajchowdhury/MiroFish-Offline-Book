@@ -19,9 +19,9 @@ Status values: `not_started`, `in_progress`, `done`, `blocked`, `partially_done`
 | 11. Cross-reader reaction loop | done | `backend/app/book_sim/simulation/cross_reaction_pass.py` and `simulation_orchestrator.py` implement bounded cross-reactions and deterministic orchestration. | Module complete; not exposed through Flask/API routes. |
 | 12. Scoring engine | done | `backend/app/book_sim/scoring/*` implements deterministic rating, DNF, viral, controversy, quoteability, polarization, and revision priority scoring with tests. | Module complete; report and API wiring are pending. |
 | 13. Prediction report (book_sim path) | partially_done | `backend/app/book_sim/report_builder.py` now synthesizes deterministic `BookPredictionReport` output during `/api/book-sim/simulate`, and `/api/book-sim/projects/{project_id}/report` returns the latest stored report. | No dedicated `backend/app/book_sim/reports/` package exists yet, and report formatting is still lightweight. |
-| 14. Persona interrogation (book_sim path) | partially_done | `backend/app/book_sim/interrogation/persona_chat.py` plus `/api/book-sim/personas/{persona_id}/chat` and `/api/book-sim/interrogate` answer grounded reader questions from stored or explicit Swarmbook artifacts. | Backend slice is runtime-wired, but no frontend interrogation flow exists yet. |
-| 15. Draft comparison (book_sim path) | partially_done | `backend/app/book_sim/comparison/*` plus `/api/book-sim/compare` compare evidence packs, optional simulations, and optional scores, exporting JSON and Markdown with tests. | Backend slice is runtime-wired, but no frontend comparison flow exists yet. |
-| 16. Frontend Swarmbook UI/routes | not_started | No Swarmbook route in `frontend/src/router/index.js`. | Pending frontend slice. Not safe yet because the backend runtime exists but there is still no frontend delivery path. |
+| 14. Persona interrogation (book_sim path) | partially_done | `backend/app/book_sim/interrogation/persona_chat.py` plus `/api/book-sim/personas/{persona_id}/chat`, `/api/book-sim/interrogate`, and `frontend/src/views/swarmbook/SwarmbookPersonasView.vue` provide grounded reader questioning from stored or explicit artifacts. | Backend and frontend slices both exist, but local frontend build validation is blocked in this environment. |
+| 15. Draft comparison (book_sim path) | partially_done | `backend/app/book_sim/comparison/*` plus `/api/book-sim/compare` and `frontend/src/views/swarmbook/SwarmbookCompareView.vue` compare evidence packs, optional simulations, and optional scores, exporting JSON and Markdown with tests. | Backend and frontend slices both exist, but local frontend build validation is blocked in this environment. |
+| 16. Frontend Swarmbook UI/routes | partially_done | `frontend/src/router/index.js`, `frontend/src/api/bookSim.js`, `frontend/src/store/swarmbookSession.js`, `frontend/src/components/swarmbook/SwarmbookLayout.vue`, `frontend/src/views/swarmbook/*` provide additive landing, upload, metadata, evidence, simulate, report, persona, and comparison screens. | Build is partially validated: `npm run build` fails due to a broken global npm shim, but direct Vite build via bundled Node passes in this environment. |
 | 17. Artifact persistence/replay hardening | partially_done | `LocalArtifactCache` exists with content-hash JSON caching; Swarmbook graph persistence now adds namespace-isolated upserts. | No versioned invalidation/replay controls yet. |
 | 18. Test coverage hardening | partially_done | Unit tests for router/models/evidence builder plus smoke script. | No CI proof here; runtime integration tests not present. |
 | 19. Privacy/compliance enforcement hardening | partially_done | Router forces local provider when `privacy_mode=local_only`. | No global policy enforcement across all future stages/API boundaries yet. |
@@ -100,7 +100,7 @@ Status values: `not_started`, `in_progress`, `done`, `blocked`, `partially_done`
 - Verified `local_only` privacy is preserved because the interrogation path does not import or call Gemini, NVIDIA, Ollama generation, or any external provider.
 - Verified `/api/book-sim/personas/{persona_id}/chat` and `/api/book-sim/interrogate` exist and are registered through the additive `book_sim` blueprint.
 - Verified tests exist with mock persona and reaction artifacts in `backend/tests/test_book_sim_persona_chat.py`.
-- Phase 14 is safe at the bounded backend-runtime level, but not safe to call fully complete because frontend wiring is still absent.
+- Phase 14 is safe at the bounded runtime level, but not safe to call fully complete because frontend dependency validation is still blocked in this environment.
 
 ## Phase 13 Runtime Result
 - Added deterministic report synthesis under `backend/app/book_sim/report_builder.py` on top of the existing simulation and scoring outputs.
@@ -124,7 +124,43 @@ Status values: `not_started`, `in_progress`, `done`, `blocked`, `partially_done`
 - Verified JSON and Markdown exports are produced at the module level and exposed through `/api/book-sim/compare`.
 - Verified the path is provider-free and preserves `local_only` by not calling Gemini, NVIDIA, Ollama generation, or any external provider.
 - Verified tests exist with tiny draft fixtures in `backend/tests/test_book_sim_draft_comparator.py`.
-- Phase 15 is safe at the bounded backend-runtime level, but not safe to call fully complete because frontend wiring is still absent.
+- Phase 15 is safe at the bounded runtime level, but not safe to call fully complete because frontend dependency validation is still blocked in this environment.
+
+## Phase 16 Implementation Result
+- Added additive Swarmbook Vue routes under `/swarmbook/*` without changing the legacy `/process`, `/simulation`, `/report`, or `/interaction` flows.
+- Added Swarmbook frontend API helpers in `frontend/src/api/bookSim.js`.
+- Added a local session store in `frontend/src/store/swarmbookSession.js` to carry project, manuscript, evidence, simulation, report, persona chat, and comparison state across the new screens.
+- Added a shared Swarmbook layout in `frontend/src/components/swarmbook/SwarmbookLayout.vue`.
+- Added the following screens under `frontend/src/views/swarmbook/`:
+  - `SwarmbookHomeView.vue`
+  - `SwarmbookUploadView.vue`
+  - `SwarmbookMetadataView.vue`
+  - `SwarmbookEvidenceView.vue`
+  - `SwarmbookSimulationView.vue`
+  - `SwarmbookReportView.vue`
+  - `SwarmbookPersonasView.vue`
+  - `SwarmbookCompareView.vue`
+- Added a small additive entry point from `frontend/src/views/Home.vue` into Swarmbook.
+- Validation is partially complete in this environment: `npm run build` fails due to a broken machine-level npm shim path, while direct Vite build via bundled Node succeeds.
+
+## Phase 16 Audit Result
+- Verified all required Swarmbook frontend screens exist under `frontend/src/views/swarmbook/*`:
+  - landing/project, upload/input, metadata form, evidence preview, simulation controls, report dashboard, persona interrogation, draft comparison.
+- Verified legacy MiroFish navigation remains intact in `frontend/src/router/index.js` (`/`, `/process/:projectId`, `/simulation/:simulationId`, `/simulation/:simulationId/start`, `/report/:reportId`, `/interaction/:reportId`) and the Swarmbook routes are additive under `/swarmbook/*`.
+- Verified loading and error states are wired through `SwarmbookLayout` plus per-screen request handling.
+- Verified frontend API calls map to the expected backend endpoints in `frontend/src/api/bookSim.js`:
+  - `/api/book-sim/projects`
+  - `/api/book-sim/evidence-packs`
+  - `/api/book-sim/simulate`
+  - `/api/book-sim/projects/{projectId}/report`
+  - `/api/book-sim/personas/{personaId}/chat`
+  - `/api/book-sim/compare`
+  - `/api/book-sim/health`
+- Verified privacy-mode selection is visible in landing, metadata, and simulation screens.
+- Verified local-profile warning is visible on the landing screen ("Missing Gemini or NVIDIA keys should not block local-first use...").
+- Build validation result:
+  - `npm run build` fails because the global npm shim points to a missing `npm-cli.js`.
+  - `node .\\node_modules\\vite\\bin\\vite.js build` with bundled runtime Node passes.
 
 ## Consolidation Audit (After Phase 12)
 - Phase 7 is now done at the backend-route level because the additive `book_sim` blueprint exposes the full runtime surface.

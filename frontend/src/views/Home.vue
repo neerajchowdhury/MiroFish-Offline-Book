@@ -31,6 +31,10 @@
             <p class="slogan-text" :style="s.sloganText">
               Your data never leaves your machine. The future is simulated locally<span :style="s.blinkingCursor">_</span>
             </p>
+            <div :style="s.secondaryCtaRow">
+              <button :style="s.secondaryCta" @click="openSwarmbook">Open Swarmbook</button>
+              <span :style="s.secondaryCtaText">Book-specific simulation workflow</span>
+            </div>
           </div>
 
           <div class="decoration-square" :style="s.decorationSquare"></div>
@@ -171,6 +175,9 @@ const s = reactive({
   highlightCode: { background: 'rgba(0,0,0,0.05)', padding: '2px 6px', borderRadius: '2px', fontFamily: mono, fontSize: '0.9em', color: '#000', fontWeight: '600' },
   sloganText: { fontSize: '1.2rem', fontWeight: '520', color: '#000', letterSpacing: '1px', borderLeft: '3px solid #FF4500', paddingLeft: '15px', marginTop: '20px' },
   blinkingCursor: { color: '#FF4500', fontWeight: '700' },
+  secondaryCtaRow: { display: 'flex', alignItems: 'center', gap: '14px', marginTop: '26px', flexWrap: 'wrap' },
+  secondaryCta: { background: '#fff', color: '#000', border: '1px solid #000', padding: '12px 18px', fontFamily: mono, fontWeight: '700', cursor: 'pointer' },
+  secondaryCtaText: { fontFamily: mono, fontSize: '0.78rem', color: '#666' },
   decorationSquare: { width: '16px', height: '16px', background: '#FF4500' },
   heroRight: { flex: '0.8', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', alignItems: 'flex-end' },
   logoContainer: { width: '100%', display: 'flex', justifyContent: 'flex-end', paddingRight: '40px' },
@@ -260,6 +267,10 @@ const startSimulation = () => {
     setPendingUpload(files.value, formData.value.simulationRequirement)
     router.push({ name: 'Process', params: { projectId: 'new' } })
   })
+}
+
+const openSwarmbook = () => {
+  router.push({ name: 'SwarmbookHome' })
 }
 </script>
 
