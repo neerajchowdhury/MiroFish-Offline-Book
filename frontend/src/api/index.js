@@ -1,5 +1,13 @@
 import axios from 'axios'
 
+function apiErrorMessage(payload) {
+  if (!payload || typeof payload !== 'object') return null
+  const errorText = payload.error || payload.message
+  if (!errorText) return null
+  const code = payload.error_code ? ` (${payload.error_code})` : ''
+  return `${errorText}${code}`
+}
+
 // Create axios instance
 const service = axios.create({
   baseURL: import.meta.env.VITE_API_BASE_URL || 'http://localhost:5001',
@@ -27,14 +35,27 @@ service.interceptors.response.use(
 
     // If the returned status code is not success, throw error
     if (!res.success && res.success !== undefined) {
-      console.error('API Error:', res.error || res.message || 'Unknown error')
-      return Promise.reject(new Error(res.error || res.message || 'Error'))
+      const message = apiErrorMessage(res) || 'Unknown API error'
+      console.error('API Error:', message, res.details || {})
+      const error = new Error(message)
+      error.details = res.details
+      error.errorCode = res.error_code
+      return Promise.reject(error)
     }
 
     return res
   },
   error => {
     console.error('Response error:', error)
+
+    const payload = error?.response?.data
+    const message = apiErrorMessage(payload)
+    if (message) {
+      const normalized = new Error(message)
+      normalized.details = payload.details
+      normalized.errorCode = payload.error_code
+      return Promise.reject(normalized)
+    }
 
     // Handle timeout
     if (error.code === 'ECONNABORTED' && error.message.includes('timeout')) {

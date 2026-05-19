@@ -23,6 +23,10 @@
           rows="18"
           placeholder="Paste manuscript text here or load a plain-text file."
         ></textarea>
+        <p class="hint">
+          {{ manuscript.text.length.toLocaleString() }} characters
+          <span v-if="tooLarge" class="hint-warn"> (Large paste: start with an excerpt for stable local runs.)</span>
+        </p>
       </label>
       <div class="field-grid">
         <label>
@@ -43,7 +47,7 @@
 </template>
 
 <script setup>
-import { onMounted, reactive, ref } from 'vue'
+import { computed, onMounted, reactive, ref } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import SwarmbookLayout from '../../components/swarmbook/SwarmbookLayout.vue'
 import { getSwarmbookSession, updateSwarmbookSession } from '../../store/swarmbookSession'
@@ -59,6 +63,7 @@ const error = ref('')
 const loadingMessage = ref('')
 const statusText = 'Draft pending'
 const statusTone = 'loading'
+const tooLarge = computed(() => manuscript.text && manuscript.text.length > 500000)
 
 function ensureProject() {
   if (!session.value.projectId || session.value.projectId !== route.params.projectId) {
@@ -155,6 +160,16 @@ input {
   border: 1px solid #d9d9d9;
   padding: 12px;
   font: inherit;
+}
+
+.hint {
+  margin-top: 8px;
+  color: #666666;
+  font-size: 0.85rem;
+}
+
+.hint-warn {
+  color: #8a5b00;
 }
 
 .field-grid {
