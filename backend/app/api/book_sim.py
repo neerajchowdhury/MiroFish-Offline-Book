@@ -14,6 +14,7 @@ from ..book_sim.evidence_pack_builder import EvidencePackBuilder
 from ..book_sim.graph_persistence import BookGraphPersistence
 from ..book_sim.interrogation import PersonaInterrogator
 from ..book_sim.local_cache import LocalArtifactCache
+from ..book_sim.local_profiles import LocalProfile, LocalProfileLoader
 from ..book_sim.models import (
     BookProject,
     EvidencePack,
@@ -125,6 +126,53 @@ def _maybe_router() -> Tuple[Optional[BookSimProviderRouter], Optional[str]]:
         return None, str(exc)
 
 
+def _profile_loader() -> LocalProfileLoader:
+    return LocalProfileLoader()
+
+
+def _profile_name_from_payload(payload: Dict[str, Any]) -> Optional[str]:
+    return _optional_text(payload, "profile_name") or _optional_text(payload, "local_profile")
+
+
+def _resolve_profile(
+    payload: Dict[str, Any],
+    project: Optional[BookProject] = None,
+    metadata: Optional[Dict[str, Any]] = None,
+) -> Tuple[LocalProfileLoader, LocalProfile]:
+    loader = _profile_loader()
+    profile_name = _profile_name_from_payload(payload)
+    if not profile_name and metadata:
+        profile_name = str(metadata.get("local_profile", "")).strip() or None
+    if not profile_name and project and isinstance(project.metadata, dict):
+        profile_name = str(project.metadata.get("local_profile", "")).strip() or None
+    if not profile_name:
+        profile_name = loader.get_default_profile().profile_name
+    profile = loader.get_profile(profile_name)
+    if profile is None:
+        raise ApiError(
+            f"Unknown local profile: {profile_name}",
+            details={
+                "profile_name": profile_name,
+                "available_profiles": sorted(loader.load().profiles.keys()),
+            },
+        )
+    return loader, profile
+
+
+def _profile_response_payload(
+    loader: LocalProfileLoader,
+    profile: LocalProfile,
+) -> Dict[str, Any]:
+    catalog = loader.load()
+    return {
+        "selected_profile": profile.profile_name,
+        "default_profile": catalog.default_profile,
+        "hardware_target": catalog.hardware_target.to_dict(),
+        "warnings": loader.get_profile_warnings(profile.profile_name),
+        "load_error": catalog.load_error,
+    }
+
+
 def _validate_privacy_mode(raw_value: Optional[str], default: str = "hybrid_safe") -> str:
     privacy_mode = (raw_value or default).strip() or default
     if privacy_mode not in ALLOWED_PRIVACY_MODES:
@@ -182,6 +230,22 @@ def _optional_int(payload: Dict[str, Any], field_name: str) -> Optional[int]:
         return int(value)
     except (TypeError, ValueError) as exc:
         raise ApiError(f"{field_name} must be an integer", details={"field": field_name}) from exc
+
+
+def _optional_positive_int(
+    payload: Dict[str, Any],
+    field_name: str,
+    minimum: int = 1,
+) -> Optional[int]:
+    value = _optional_int(payload, field_name)
+    if value is None:
+        return None
+    if value < minimum:
+        raise ApiError(
+            f"{field_name} must be >= {minimum}",
+            details={"field": field_name, "minimum": minimum},
+        )
+    return value
 
 
 def _optional_float(payload: Dict[str, Any], field_name: str) -> Optional[float]:
@@ -286,14 +350,23 @@ def _route_selection(router: Optional[BookSimProviderRouter], route_name: Option
     return router.select_route(route_name=route_name or "local_ollama", privacy_mode=privacy_mode)
 
 
-def _persona_overrides(payload: Dict[str, Any]) -> Optional[PersonaGenerationOverrides]:
-    overrides = _optional_dict(payload, "persona_overrides")
-    if overrides is None:
-        return None
+def _persona_overrides(payload: Dict[str, Any], profile: LocalProfile) -> PersonaGenerationOverrides:
+    overrides = _optional_dict(payload, "persona_overrides") or {}
+    persona_count = (
+        _optional_positive_int(payload, "persona_count")
+        or _optional_positive_int(overrides, "persona_count")
+        or _optional_positive_int(overrides, "cohort_size")
+        or profile.max_personas
+    )
+    allowed_platforms = [str(item).strip().lower() for item in _optional_list(overrides, "force_platforms") if str(item).strip()]
+    if not allowed_platforms:
+        allowed_platforms = [str(item).strip().lower() for item in _optional_list(payload, "platforms") if str(item).strip()]
+    if not allowed_platforms:
+        allowed_platforms = [platform.lower() for platform in profile.platforms]
+
     return PersonaGenerationOverrides(
-        cohort_size=_optional_int(overrides, "cohort_size"),
-        platform_mix=overrides.get("platform_mix") if isinstance(overrides.get("platform_mix"), dict) else None,
-        force_platforms=[str(item) for item in _optional_list(overrides, "force_platforms") if str(item).strip()],
+        persona_count=persona_count,
+        allowed_platforms=allowed_platforms,
     )
 
 
@@ -413,18 +486,33 @@ def create_project():
         draft_id=draft_id,
         version=version,
     )
+    store = _store()
+    existing_project = store.get_project(project_id)
+    incoming_metadata = _optional_dict(payload, "metadata") or {}
+    existing_metadata = existing_project.metadata if existing_project and isinstance(existing_project.metadata, dict) else {}
+    merged_metadata = {**existing_metadata, **incoming_metadata}
+    profile_loader, selected_profile = _resolve_profile(
+        payload=payload,
+        project=existing_project,
+        metadata=merged_metadata,
+    )
+    merged_metadata["local_profile"] = selected_profile.profile_name
+    merged_metadata["local_profile_warnings"] = profile_loader.get_profile_warnings(selected_profile.profile_name)
     project = BookProject(
         project_id=project_id,
         name=name,
-        privacy_mode=_validate_privacy_mode(_optional_text(payload, "privacy_mode"), default="hybrid_safe"),
+        privacy_mode=_validate_privacy_mode(
+            _optional_text(payload, "privacy_mode"),
+            default=selected_profile.privacy_mode,
+        ),
         draft_id=draft_id,
         version=version,
         title=_optional_text(payload, "title"),
         author_name=_optional_text(payload, "author_name"),
         source_files=[str(item) for item in _optional_list(payload, "source_files")],
-        metadata=_optional_dict(payload, "metadata") or {},
+        metadata=merged_metadata,
     )
-    _store().save_project(project)
+    store.save_project(project)
     return _success_response(project.to_dict(), status_code=201)
 
 
@@ -472,6 +560,7 @@ def simulate_book():
     project_id = _require_text(payload, "project_id")
     store = _store()
     project = _load_project(store, project_id)
+    profile_loader, selected_profile = _resolve_profile(payload=payload, project=project)
     evidence_pack = _resolve_evidence_pack(payload, store)
     if evidence_pack.project_id != project.project_id:
         raise ApiError(
@@ -480,24 +569,52 @@ def simulate_book():
         )
 
     router, _ = _maybe_router()
-    selection = _route_selection(router, _optional_text(payload, "route_name"), project.privacy_mode)
+    effective_privacy_mode = _validate_privacy_mode(
+        _optional_text(payload, "privacy_mode"),
+        default=project.privacy_mode or selected_profile.privacy_mode,
+    )
+    selection = _route_selection(router, _optional_text(payload, "route_name"), effective_privacy_mode)
+    reaction_rounds = _optional_positive_int(payload, "reaction_rounds") or selected_profile.reaction_rounds
+    cross_reaction_posts = _optional_positive_int(payload, "cross_reaction_posts") or selected_profile.cross_reaction_posts
+    local_parallel_jobs = _optional_positive_int(payload, "local_parallel_jobs") or selected_profile.local_parallel_jobs
     orchestrator = SimulationOrchestrator(
         cache=_cache(),
         graph_persistence=None,
         model_router=router,
+        cross_reaction_posts=cross_reaction_posts,
+        max_reaction_rounds=reaction_rounds,
+        max_parallel_jobs=local_parallel_jobs,
     )
     simulation_seed = _optional_int(payload, "simulation_seed")
+    persona_overrides = _persona_overrides(payload, selected_profile)
     simulation_run = orchestrator.run(
         project=project,
         evidence_pack=evidence_pack,
         simulation_seed=simulation_seed,
-        persona_overrides=_persona_overrides(payload),
+        persona_overrides=persona_overrides,
     )
     simulation_payload = simulation_run.to_dict()
     simulation_payload["provider_route"] = selection.selected_route
     simulation_payload["metadata"] = {
         **simulation_run.metadata,
         "seed": simulation_seed,
+        "local_profile": selected_profile.profile_name,
+        "profile_privacy_mode": selected_profile.privacy_mode,
+        "effective_privacy_mode": effective_privacy_mode,
+        "profile_defaults": {
+            "max_personas": selected_profile.max_personas,
+            "platforms": selected_profile.platforms,
+            "reaction_rounds": selected_profile.reaction_rounds,
+            "cross_reaction_posts": selected_profile.cross_reaction_posts,
+            "local_parallel_jobs": selected_profile.local_parallel_jobs,
+        },
+        "applied_settings": {
+            "persona_count": persona_overrides.persona_count,
+            "platforms": persona_overrides.allowed_platforms,
+            "reaction_rounds": reaction_rounds,
+            "cross_reaction_posts": cross_reaction_posts,
+            "local_parallel_jobs": local_parallel_jobs,
+        },
         "requested_route": selection.requested_route,
         "selected_route": selection.selected_route,
         "route_reason": selection.reason,
@@ -524,6 +641,7 @@ def simulate_book():
             "simulation_run": simulation_run.to_dict(),
             "report": report.to_dict(),
             "route_selection": selection.__dict__,
+            "profile": _profile_response_payload(profile_loader, selected_profile),
             "persistence": persistence.__dict__,
         },
         status_code=201,
@@ -632,6 +750,8 @@ def health():
     """Expose additive Swarmbook runtime health details."""
     router, router_error = _maybe_router()
     provider_health = router.health_check() if router else {}
+    profile_loader = _profile_loader()
+    profile_catalog = profile_loader.load()
     router_data: Dict[str, Any] = {
         "ok": router is not None,
         "configured_routes": sorted(router.routing_config.model_routes) if router else [],
@@ -645,6 +765,12 @@ def health():
             "providers": provider_health,
             "neo4j": _neo4j_health(),
             "ollama": provider_health.get("local_ollama", {}),
+            "profiles": {
+                "default_profile": profile_catalog.default_profile,
+                "hardware_target": profile_catalog.hardware_target.to_dict(),
+                "load_error": profile_catalog.load_error,
+                "items": profile_loader.list_profiles(),
+            },
         }
     )
 

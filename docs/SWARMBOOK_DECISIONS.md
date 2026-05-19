@@ -125,3 +125,17 @@
 - Rationale: This preserves the existing MiroFish UI, keeps the Swarmbook blast radius narrow, and lets the new frontend bind directly to the additive `/api/book-sim/*` backend runtime.
 - Trade-off: Some concepts now exist in both the legacy UI and the Swarmbook UI, and the frontend currently depends on local session state rather than a stronger client-side data layer.
 - Files affected: `frontend/src/router/index.js`, `frontend/src/api/bookSim.js`, `frontend/src/store/swarmbookSession.js`, `frontend/src/components/swarmbook/SwarmbookLayout.vue`, `frontend/src/views/swarmbook/*`, `frontend/src/views/Home.vue`
+
+## D-019
+- Date: `2026-05-19`
+- Decision: Mark Phase 17 as blocked/incomplete and block Phase 18 start until local-profile config and setup docs exist.
+- Rationale: The required low-resource profile artifacts are missing (`configs/book_sim/local_profiles.yaml`, `docs/SWARMBOOK_LOCAL_SETUP.md`), so Phase 17 verification criteria cannot be met.
+- Trade-off: Delivery sequencing remains strict and prevents premature progression to Phase 18.
+- Files affected: `docs/SWARMBOOK_PHASE_STATUS.md`, `docs/SWARMBOOK_CHANGELOG.md`, `docs/SWARMBOOK_DECISIONS.md`, `docs/SWARMBOOK_HANDOFF_LATEST.md`
+
+## D-020
+- Date: `2026-05-19`
+- Decision: Centralize Swarmbook low-resource defaults in `configs/book_sim/local_profiles.yaml` and enforce them through an additive local profile loader used by project creation, simulation defaults, and health reporting.
+- Rationale: Phase 17 required explicit, auditable defaults for 16 GB RAM / 6 GB VRAM local usage with structured warnings and preserved `local_only` privacy behavior.
+- Trade-off: Adds one more config surface and loader maintenance path, but keeps profile behavior deterministic and testable.
+- Files affected: `configs/book_sim/local_profiles.yaml`, `backend/app/book_sim/local_profiles.py`, `backend/app/api/book_sim.py`, `backend/tests/test_book_sim_local_profiles.py`, `backend/tests/test_book_sim_api.py`, `docs/SWARMBOOK_LOCAL_SETUP.md`

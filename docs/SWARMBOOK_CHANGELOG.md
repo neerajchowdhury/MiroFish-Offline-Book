@@ -399,3 +399,53 @@
 - Confirmed the private-reading -> platform-reaction -> cross-reaction flow, deterministic seed behavior, content-hash caching, structured JSON outputs, and low-resource defaults (`cross_reaction_posts=8`, `max_reaction_rounds=2`, `max_parallel_jobs=1`).
 - Confirmed test coverage for a tiny evidence pack with a `5`-persona run in `backend/tests/test_book_sim_simulation_engine.py`.
 - Recorded that Phase 11 is safe at the module level, with API/UI runtime wiring still pending.
+
+## Phase 17 Audit (Local Low-Resource Profile)
+### Files
+- `docs/SWARMBOOK_PHASE_STATUS.md`
+- `docs/SWARMBOOK_CHANGELOG.md`
+- `docs/SWARMBOOK_DECISIONS.md`
+- `docs/SWARMBOOK_HANDOFF_LATEST.md`
+### Behavior changed
+- No runtime behavior change. This was an audit-only continuity update.
+- Confirmed required Phase 17 artifacts are currently missing: `configs/book_sim/local_profiles.yaml` and `docs/SWARMBOOK_LOCAL_SETUP.md`.
+- Confirmed profile requirements cannot be satisfied until those files are implemented (`local_tiny`, `hybrid_safe_default` default selection, `cloud_quality`, profile-level `local_parallel_jobs`, and heavy-profile warnings).
+- Confirmed `local_only` still enforces local provider routing and does not call external providers via the existing router guard.
+### Tests added
+- None. Audit relied on repository inspection.
+### Known gaps
+- Phase 17 deliverables are incomplete.
+- Phase 18 is not safe until Phase 17 profile config and setup documentation are implemented and verified.
+
+## Phase 17 Repair (Local Low-Resource Profile)
+### Files
+- `configs/book_sim/local_profiles.yaml`
+- `backend/app/book_sim/local_profiles.py`
+- `backend/app/book_sim/__init__.py`
+- `backend/app/api/book_sim.py`
+- `backend/tests/test_book_sim_local_profiles.py`
+- `backend/tests/test_book_sim_api.py`
+- `frontend/src/store/swarmbookSession.js`
+- `frontend/src/views/swarmbook/SwarmbookHomeView.vue`
+- `frontend/src/views/swarmbook/SwarmbookMetadataView.vue`
+- `frontend/src/views/swarmbook/SwarmbookSimulationView.vue`
+- `docs/SWARMBOOK_LOCAL_SETUP.md`
+- `docs/SWARMBOOK_PHASE_STATUS.md`
+- `docs/SWARMBOOK_CHANGELOG.md`
+- `docs/SWARMBOOK_DECISIONS.md`
+- `docs/SWARMBOOK_OPEN_QUESTIONS.md`
+- `docs/SWARMBOOK_HANDOFF_LATEST.md`
+- `docs/SWARMBOOK_PROMPT_LOG.md`
+### Behavior changed
+- Added explicit local profile config with `local_tiny`, `hybrid_safe_default` (default), and `cloud_quality`.
+- Added additive local profile loader with required-field validation and graceful fallback behavior.
+- Wired profile defaults into additive `/api/book-sim/projects`, `/api/book-sim/simulate`, and `/api/book-sim/health`.
+- Added structured heavy/privacy warnings for profile selection in backend health/profile payloads.
+- Kept `local_only` provider guard unchanged; it still forces local route selection.
+- Added frontend profile selection/warning visibility in existing Swarmbook home/simulation screens without changing legacy MiroFish routes.
+### Tests added
+- New loader/config tests in `backend/tests/test_book_sim_local_profiles.py`.
+- Extended API health/default-profile assertions in `backend/tests/test_book_sim_api.py`.
+### Known gaps
+- `pytest` command is unavailable in the current environment (`pytest` CLI missing).
+- `npm run build` remains blocked by machine-level npm shim; direct Vite build passes.

@@ -22,10 +22,48 @@ Status values: `not_started`, `in_progress`, `done`, `blocked`, `partially_done`
 | 14. Persona interrogation (book_sim path) | partially_done | `backend/app/book_sim/interrogation/persona_chat.py` plus `/api/book-sim/personas/{persona_id}/chat`, `/api/book-sim/interrogate`, and `frontend/src/views/swarmbook/SwarmbookPersonasView.vue` provide grounded reader questioning from stored or explicit artifacts. | Backend and frontend slices both exist, but local frontend build validation is blocked in this environment. |
 | 15. Draft comparison (book_sim path) | partially_done | `backend/app/book_sim/comparison/*` plus `/api/book-sim/compare` and `frontend/src/views/swarmbook/SwarmbookCompareView.vue` compare evidence packs, optional simulations, and optional scores, exporting JSON and Markdown with tests. | Backend and frontend slices both exist, but local frontend build validation is blocked in this environment. |
 | 16. Frontend Swarmbook UI/routes | partially_done | `frontend/src/router/index.js`, `frontend/src/api/bookSim.js`, `frontend/src/store/swarmbookSession.js`, `frontend/src/components/swarmbook/SwarmbookLayout.vue`, `frontend/src/views/swarmbook/*` provide additive landing, upload, metadata, evidence, simulate, report, persona, and comparison screens. | Build is partially validated: `npm run build` fails due to a broken global npm shim, but direct Vite build via bundled Node passes in this environment. |
-| 17. Artifact persistence/replay hardening | partially_done | `LocalArtifactCache` exists with content-hash JSON caching; Swarmbook graph persistence now adds namespace-isolated upserts. | No versioned invalidation/replay controls yet. |
+| 17. Local low-resource profile | done | `configs/book_sim/local_profiles.yaml`, `backend/app/book_sim/local_profiles.py`, `docs/SWARMBOOK_LOCAL_SETUP.md`, profile-aware API wiring, and local profile tests now exist. | `pytest` CLI is unavailable in this environment; `unittest` coverage is used. |
 | 18. Test coverage hardening | partially_done | Unit tests for router/models/evidence builder plus smoke script. | No CI proof here; runtime integration tests not present. |
 | 19. Privacy/compliance enforcement hardening | partially_done | Router forces local provider when `privacy_mode=local_only`. | No global policy enforcement across all future stages/API boundaries yet. |
 | 20. Release readiness for Swarmbook path | not_started | No end-to-end book_sim API/UI run path available yet. | Should follow Phases 9-19 completion. |
+
+## Phase 17 Audit Result (Local Low-Resource Profile)
+- Verified `configs/book_sim/local_profiles.yaml` is missing.
+- Verified `docs/SWARMBOOK_LOCAL_SETUP.md` is missing.
+- Verified `local_tiny`, `hybrid_safe_default`, and `cloud_quality` profile definitions do not exist because the profile file is absent.
+- Verified no profile-level default marker exists; therefore `hybrid_safe_default` cannot be confirmed as default.
+- Verified no profile-level `local_parallel_jobs` key exists; only simulation orchestrator fallback `max_parallel_jobs=1` is present in code.
+- Verified no explicit heavy-profile warning path tied to local profile selection is present.
+- Verified `local_only` provider safety still holds at router level (`local_only` forces the local Ollama route).
+- Phase 18 is not safe yet because required Phase 17 configuration and setup documentation artifacts are missing.
+
+## Phase 17 Repair Result (Local Low-Resource Profile)
+- Added `configs/book_sim/local_profiles.yaml` with:
+  - `default_profile: hybrid_safe_default`
+  - hardware target (`Windows 11`, `16 GB RAM`, `NVIDIA`, `6 GB VRAM`)
+  - profiles: `local_tiny`, `hybrid_safe_default`, `cloud_quality`
+- Added additive loader `backend/app/book_sim/local_profiles.py` with:
+  - `list_profiles()`
+  - `get_profile(profile_name)`
+  - `get_default_profile()`
+  - `get_profile_warnings(profile_name, detected_or_configured_hardware=None)`
+  - graceful fallback behavior when YAML is missing/unreadable
+- Wired profiles into additive backend runtime:
+  - `/api/book-sim/projects` now resolves default profile and default privacy mode from profile when not explicitly provided.
+  - `/api/book-sim/simulate` now applies profile defaults for persona count, platforms, reaction rounds, cross-reaction posts, and local parallel jobs unless explicitly overridden.
+  - `/api/book-sim/health` now returns profile catalog, default profile, hardware target, and structured warnings.
+- Added heavy-profile warnings:
+  - `cloud_quality` warns for heavy/costly usage on 16 GB RAM / 6 GB VRAM.
+  - profiles with `max_personas > 30` warn for hardware load.
+  - profiles allowing full manuscript cloud upload warn for privacy.
+  - `local_tiny` warns about quality tradeoff.
+  - `hybrid_safe_default` is marked recommended.
+- Added docs: `docs/SWARMBOOK_LOCAL_SETUP.md` with placeholder-only env examples and PowerShell validation commands.
+- Added tests:
+  - `backend/tests/test_book_sim_local_profiles.py`
+  - updated `backend/tests/test_book_sim_api.py` for profile health/default assertions.
+- `local_only` provider guard remains preserved in router selection tests.
+- Phase 18 is now safe to start from a Phase 17 profile baseline.
 
 ## Phase 7 Audit Result
 - Graph persistence is additive and lives only under `backend/app/book_sim`.

@@ -45,3 +45,7 @@
 
 16. Are any phase docs currently stale?
 - Current answer: Not after this continuity pass, assuming the docs stay aligned with the new backend runtime routes.
+
+17. Is Phase 17 local low-resource profile implementation complete?
+- Current answer: Yes. `configs/book_sim/local_profiles.yaml`, `backend/app/book_sim/local_profiles.py`, profile-aware API wiring, warnings, tests, and `docs/SWARMBOOK_LOCAL_SETUP.md` now exist.
+- Caveat: `pytest` CLI is unavailable and `npm run build` remains blocked by the machine npm shim in this environment; validation used `unittest` plus direct Vite build.

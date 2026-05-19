@@ -112,6 +112,7 @@ async function generateEvidence() {
       name: metadata.projectName || metadata.title,
       title: metadata.title,
       author_name: metadata.authorName,
+      profile_name: metadata.localProfile || session.value.simulationConfig.profileName || 'hybrid_safe_default',
       privacy_mode: metadata.privacyMode,
       metadata: {
         book_type: metadata.bookType,
@@ -121,6 +122,7 @@ async function generateEvidence() {
         blurb: metadata.blurb,
         comp_titles: metadata.compTitles,
         cover_brief: metadata.coverBrief,
+        local_profile: metadata.localProfile || session.value.simulationConfig.profileName || 'hybrid_safe_default',
       },
     })
 

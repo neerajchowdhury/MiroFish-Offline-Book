@@ -26,6 +26,14 @@
             <input v-model="form.authorName" type="text" placeholder="Author name" />
           </label>
           <label>
+            <span>Local profile</span>
+            <select v-model="form.localProfile" @change="applyProfileDefaults(form.localProfile)">
+              <option v-for="profile in profileOptions" :key="profile.profile_name" :value="profile.profile_name">
+                {{ profile.profile_name }}
+              </option>
+            </select>
+          </label>
+          <label>
             <span>Privacy mode</span>
             <select v-model="form.privacyMode">
               <option value="local_only">local_only</option>
@@ -33,6 +41,14 @@
               <option value="cloud_quality">cloud_quality</option>
             </select>
           </label>
+        </div>
+        <div v-if="selectedProfileWarnings.length" class="warning-block">
+          <h3>Profile warnings</h3>
+          <ul>
+            <li v-for="warning in selectedProfileWarnings" :key="warning.code + warning.message">
+              {{ warning.message }}
+            </li>
+          </ul>
         </div>
         <div class="action-row">
           <button class="primary-btn" :disabled="submitting || !canCreate" @click="createProject">
@@ -106,7 +122,8 @@ const form = reactive({
   projectName: session.value.metadata.projectName,
   title: session.value.metadata.title,
   authorName: session.value.metadata.authorName,
-  privacyMode: session.value.metadata.privacyMode || 'local_only',
+  localProfile: session.value.metadata.localProfile || session.value.simulationConfig.profileName || 'hybrid_safe_default',
+  privacyMode: session.value.metadata.privacyMode || 'hybrid_safe',
 })
 const health = ref(null)
 const error = ref('')
@@ -138,12 +155,60 @@ const healthSummary = computed(() => {
   }
 })
 
+const profileOptions = computed(() => {
+  const items = health.value?.profiles?.items || []
+  if (items.length) {
+    return items
+  }
+  return [
+    { profile_name: 'local_tiny', privacy_mode: 'local_only', max_personas: 12, platforms: ['goodreads', 'reddit', 'x'], reaction_rounds: 1, cross_reaction_posts: 4, local_parallel_jobs: 1, computed_warnings: [] },
+    { profile_name: 'hybrid_safe_default', privacy_mode: 'hybrid_safe', max_personas: 30, platforms: ['goodreads', 'reddit', 'booktok', 'bookstagram', 'x'], reaction_rounds: 2, cross_reaction_posts: 8, local_parallel_jobs: 1, computed_warnings: [] },
+    { profile_name: 'cloud_quality', privacy_mode: 'cloud_quality', max_personas: 60, platforms: ['goodreads', 'reddit', 'booktok', 'bookstagram', 'x', 'newsletter', 'bookclub'], reaction_rounds: 2, cross_reaction_posts: 12, local_parallel_jobs: 1, computed_warnings: [] },
+  ]
+})
+
+const selectedProfile = computed(() => {
+  return profileOptions.value.find((profile) => profile.profile_name === form.localProfile) || profileOptions.value[0] || null
+})
+
+const selectedProfileWarnings = computed(() => {
+  return selectedProfile.value?.computed_warnings || []
+})
+
+function applyProfileDefaults(profileName) {
+  const selected = profileOptions.value.find((profile) => profile.profile_name === profileName)
+  if (!selected) {
+    return
+  }
+  form.privacyMode = selected.privacy_mode || form.privacyMode
+  session.value = updateSwarmbookSession({
+    metadata: {
+      ...session.value.metadata,
+      localProfile: selected.profile_name,
+      privacyMode: selected.privacy_mode || form.privacyMode,
+    },
+    simulationConfig: {
+      ...session.value.simulationConfig,
+      profileName: selected.profile_name,
+      personaCount: selected.max_personas || session.value.simulationConfig.personaCount,
+      platforms: selected.platforms?.map((platform) => String(platform).toLowerCase()) || session.value.simulationConfig.platforms,
+      privacyMode: selected.privacy_mode || session.value.simulationConfig.privacyMode,
+      profileWarnings: selected.computed_warnings || [],
+    },
+  })
+}
+
 async function loadHealth() {
   loadingMessage.value = 'Loading backend health...'
   error.value = ''
   try {
     const response = await getBookSimHealth()
     health.value = response.data
+    const defaultProfile = response.data?.profiles?.default_profile
+    if (!form.localProfile && defaultProfile) {
+      form.localProfile = defaultProfile
+    }
+    applyProfileDefaults(form.localProfile || defaultProfile || 'hybrid_safe_default')
   } catch (requestError) {
     error.value = requestError.message
   } finally {
@@ -160,9 +225,11 @@ async function createProject() {
       name: form.projectName,
       title: form.title,
       author_name: form.authorName,
+      profile_name: form.localProfile,
       privacy_mode: form.privacyMode,
       metadata: {
         project_name: form.projectName,
+        local_profile: form.localProfile,
       },
     })
     session.value = updateSwarmbookSession({
@@ -173,7 +240,13 @@ async function createProject() {
         projectName: form.projectName,
         title: form.title,
         authorName: form.authorName,
+        localProfile: form.localProfile,
         privacyMode: form.privacyMode,
+      },
+      simulationConfig: {
+        ...session.value.simulationConfig,
+        profileName: form.localProfile,
+        profileWarnings: selectedProfileWarnings.value,
       },
     })
     router.push({ name: 'SwarmbookUpload', params: { projectId: response.data.project_id } })
@@ -190,7 +263,8 @@ function resetSession() {
   form.projectName = ''
   form.title = ''
   form.authorName = ''
-  form.privacyMode = 'local_only'
+  form.localProfile = 'hybrid_safe_default'
+  form.privacyMode = 'hybrid_safe'
   error.value = ''
 }
 
@@ -291,6 +365,24 @@ select {
   color: #666666;
   line-height: 1.6;
   margin-top: 16px;
+}
+
+.warning-block {
+  margin-top: 14px;
+  border: 1px solid #f0d9a8;
+  background: #fff9ea;
+  padding: 12px;
+}
+
+.warning-block h3 {
+  margin-bottom: 8px;
+  font-size: 0.95rem;
+}
+
+.warning-block ul {
+  margin: 0;
+  padding-left: 18px;
+  color: #5e4a1f;
 }
 
 .session-grid {

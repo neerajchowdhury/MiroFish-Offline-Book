@@ -14,8 +14,16 @@
         <h2>Run Settings</h2>
         <div class="field-grid">
           <label>
+            <span>Local profile</span>
+            <select v-model="form.profileName" @change="applyProfileDefaults(form.profileName)">
+              <option v-for="profile in profileOptions" :key="profile.profile_name" :value="profile.profile_name">
+                {{ profile.profile_name }}
+              </option>
+            </select>
+          </label>
+          <label>
             <span>Number of personas</span>
-            <input v-model.number="form.personaCount" type="number" min="2" max="48" />
+            <input v-model.number="form.personaCount" type="number" min="2" max="80" />
           </label>
           <label>
             <span>Simulation seed</span>
@@ -51,6 +59,15 @@
               {{ mode }}
             </button>
           </div>
+        </div>
+
+        <div v-if="selectedProfileWarnings.length" class="warning-block">
+          <h3>Profile warnings</h3>
+          <ul>
+            <li v-for="warning in selectedProfileWarnings" :key="warning.code + warning.message">
+              {{ warning.message }}
+            </li>
+          </ul>
         </div>
 
         <div class="action-row">
@@ -92,23 +109,39 @@
 import { computed, onMounted, reactive, ref } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import SwarmbookLayout from '../../components/swarmbook/SwarmbookLayout.vue'
-import { createBookSimProject, runBookSimulation } from '../../api/bookSim'
+import { createBookSimProject, getBookSimHealth, runBookSimulation } from '../../api/bookSim'
 import { getSwarmbookSession, updateSwarmbookSession } from '../../store/swarmbookSession'
 
 const route = useRoute()
 const router = useRouter()
 const session = ref(getSwarmbookSession())
 const form = reactive({
+  profileName: session.value.simulationConfig.profileName || session.value.metadata.localProfile || 'hybrid_safe_default',
   personaCount: session.value.simulationConfig.personaCount || 12,
   platforms: [...(session.value.simulationConfig.platforms || ['goodreads', 'reddit', 'booktok'])],
-  privacyMode: session.value.simulationConfig.privacyMode || session.value.metadata.privacyMode || 'local_only',
+  privacyMode: session.value.simulationConfig.privacyMode || session.value.metadata.privacyMode || 'hybrid_safe',
   simulationSeed: session.value.simulationConfig.simulationSeed ?? 17,
 })
 const error = ref('')
 const loadingMessage = ref('')
 const running = ref(false)
+const health = ref(null)
 
-const platformOptions = ['goodreads', 'reddit', 'booktok', 'bookstagram', 'x']
+const profileOptions = computed(() => {
+  return health.value?.profiles?.items || [
+    { profile_name: 'local_tiny', privacy_mode: 'local_only', max_personas: 12, platforms: ['goodreads', 'reddit', 'x'], computed_warnings: [] },
+    { profile_name: 'hybrid_safe_default', privacy_mode: 'hybrid_safe', max_personas: 30, platforms: ['goodreads', 'reddit', 'booktok', 'bookstagram', 'x'], computed_warnings: [] },
+    { profile_name: 'cloud_quality', privacy_mode: 'cloud_quality', max_personas: 60, platforms: ['goodreads', 'reddit', 'booktok', 'bookstagram', 'x', 'newsletter', 'bookclub'], computed_warnings: [] },
+  ]
+})
+
+const selectedProfile = computed(() => {
+  return profileOptions.value.find((profile) => profile.profile_name === form.profileName) || profileOptions.value[0] || null
+})
+
+const selectedProfileWarnings = computed(() => selectedProfile.value?.computed_warnings || [])
+
+const platformOptions = ['goodreads', 'reddit', 'booktok', 'bookstagram', 'x', 'newsletter', 'bookclub']
 const privacyModes = ['local_only', 'hybrid_safe', 'cloud_quality']
 
 const canRun = computed(() => {
@@ -122,6 +155,44 @@ const canRun = computed(() => {
 function ensureSession() {
   if (!session.value.projectId || session.value.projectId !== route.params.projectId || !session.value.evidencePack?.pack_id) {
     router.replace({ name: 'SwarmbookHome' })
+  }
+}
+
+function applyProfileDefaults(profileName) {
+  const selected = profileOptions.value.find((profile) => profile.profile_name === profileName)
+  if (!selected) {
+    return
+  }
+  form.privacyMode = selected.privacy_mode || form.privacyMode
+  form.personaCount = selected.max_personas || form.personaCount
+  form.platforms = (selected.platforms || []).map((platform) => String(platform).toLowerCase())
+  session.value = updateSwarmbookSession({
+    metadata: {
+      ...session.value.metadata,
+      localProfile: selected.profile_name,
+      privacyMode: selected.privacy_mode || form.privacyMode,
+    },
+    simulationConfig: {
+      ...session.value.simulationConfig,
+      profileName: selected.profile_name,
+      personaCount: form.personaCount,
+      platforms: [...form.platforms],
+      privacyMode: form.privacyMode,
+      profileWarnings: selected.computed_warnings || [],
+    },
+  })
+}
+
+async function loadProfiles() {
+  try {
+    const response = await getBookSimHealth()
+    health.value = response.data
+    if (!form.profileName && response.data?.profiles?.default_profile) {
+      form.profileName = response.data.profiles.default_profile
+    }
+    applyProfileDefaults(form.profileName || response.data?.profiles?.default_profile || 'hybrid_safe_default')
+  } catch (requestError) {
+    error.value = requestError.message
   }
 }
 
@@ -144,6 +215,7 @@ async function runSimulation() {
       name: metadata.projectName || metadata.title,
       title: metadata.title,
       author_name: metadata.authorName,
+      profile_name: form.profileName,
       privacy_mode: form.privacyMode,
       metadata: {
         book_type: metadata.bookType,
@@ -153,28 +225,33 @@ async function runSimulation() {
         blurb: metadata.blurb,
         comp_titles: metadata.compTitles,
         cover_brief: metadata.coverBrief,
+        local_profile: form.profileName,
       },
     })
 
     const response = await runBookSimulation({
       project_id: session.value.projectId,
       evidence_pack_id: session.value.evidencePack.pack_id,
+      profile_name: form.profileName,
       simulation_seed: form.simulationSeed,
       persona_overrides: {
-        cohort_size: form.personaCount,
+        persona_count: form.personaCount,
         force_platforms: form.platforms,
       },
     })
 
     session.value = updateSwarmbookSession({
       simulationConfig: {
+        profileName: form.profileName,
         personaCount: form.personaCount,
         platforms: [...form.platforms],
         privacyMode: form.privacyMode,
         simulationSeed: form.simulationSeed,
+        profileWarnings: selectedProfileWarnings.value,
       },
       metadata: {
         privacyMode: form.privacyMode,
+        localProfile: form.profileName,
       },
       simulationRun: response.data.simulation_run,
       report: response.data.report,
@@ -191,6 +268,7 @@ async function runSimulation() {
 
 onMounted(() => {
   ensureSession()
+  loadProfiles()
 })
 </script>
 
@@ -238,6 +316,14 @@ input {
   font: inherit;
 }
 
+select {
+  width: 100%;
+  border: 1px solid #d9d9d9;
+  padding: 12px;
+  font: inherit;
+  background: #ffffff;
+}
+
 .pill-row {
   display: flex;
   gap: 10px;
@@ -262,6 +348,24 @@ input {
   gap: 12px;
   margin-top: 20px;
   flex-wrap: wrap;
+}
+
+.warning-block {
+  margin-top: 16px;
+  border: 1px solid #f0d9a8;
+  background: #fff9ea;
+  padding: 12px;
+}
+
+.warning-block h3 {
+  margin-bottom: 8px;
+  font-size: 0.95rem;
+}
+
+.warning-block ul {
+  margin: 0;
+  padding-left: 18px;
+  color: #5e4a1f;
 }
 
 .primary-btn,

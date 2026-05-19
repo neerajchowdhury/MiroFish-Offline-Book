@@ -1,0 +1,92 @@
+default_profile: hybrid_safe_default
+hardware_target:
+  os: Windows 11
+  ram_gb: 16
+  gpu: NVIDIA
+  vram_gb: 6
+profiles:
+  local_tiny:
+    label: Local Tiny
+    description: Safest fully local profile for low-resource personal runs.
+    privacy_mode: local_only
+    recommended_for:
+      - first local validation
+      - quick iteration on constrained hardware
+    max_personas: 12
+    platforms:
+      - Goodreads
+      - Reddit
+      - X
+    reaction_rounds: 1
+    cross_reaction_posts: 4
+    local_parallel_jobs: 1
+    use_local_embeddings: true
+    use_local_chunk_summaries: true
+    allow_external_models: false
+    allow_full_manuscript_to_cloud: false
+    allow_evidence_packs_to_cloud: false
+    preferred_tasks:
+      - private reaction sanity checks
+      - low-cost manuscript smoke tests
+    warnings:
+      - Safest fully local mode; output quality can be lower than hybrid profiles.
+    estimated_resource_level: low
+  hybrid_safe_default:
+    label: Hybrid Safe Default
+    description: Recommended default profile for balanced quality on 16 GB RAM and 6 GB VRAM.
+    privacy_mode: hybrid_safe
+    recommended_for:
+      - normal draft evaluation
+      - iterative revision planning
+    max_personas: 30
+    platforms:
+      - Goodreads
+      - Reddit
+      - BookTok
+      - Bookstagram
+      - X
+    reaction_rounds: 2
+    cross_reaction_posts: 8
+    local_parallel_jobs: 1
+    use_local_embeddings: true
+    use_local_chunk_summaries: true
+    allow_external_models: true
+    allow_full_manuscript_to_cloud: false
+    allow_evidence_packs_to_cloud: true
+    preferred_tasks:
+      - full simulation on local workstation
+      - report generation with optional cloud synthesis
+    warnings:
+      - Default recommended profile for 16 GB RAM and 6 GB VRAM.
+    estimated_resource_level: medium
+  cloud_quality:
+    label: Cloud Quality
+    description: Highest quality profile with cloud-enabled manuscript and evidence processing.
+    privacy_mode: cloud_quality
+    recommended_for:
+      - high-fidelity market stress tests
+      - final validation passes
+    max_personas: 60
+    platforms:
+      - Goodreads
+      - Reddit
+      - BookTok
+      - Bookstagram
+      - X
+      - newsletter
+      - bookclub
+    reaction_rounds: 2
+    cross_reaction_posts: 12
+    local_parallel_jobs: 1
+    use_local_embeddings: true
+    use_local_chunk_summaries: false
+    allow_external_models: true
+    allow_full_manuscript_to_cloud: true
+    allow_evidence_packs_to_cloud: true
+    preferred_tasks:
+      - deep comparison across drafts
+      - high-context synthesis for final decisions
+    warnings:
+      - Heavier profile; may be slow or costly on 16 GB RAM and 6 GB VRAM.
+      - Not recommended as default on low-resource personal hardware.
+    estimated_resource_level: high

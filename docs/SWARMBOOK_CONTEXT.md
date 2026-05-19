@@ -52,10 +52,12 @@ Transform MiroFish-Offline into a personal, local-first "simulate any book" tool
 - `configs/book_sim/platform_styles.yaml`
 - `configs/book_sim/scoring_weights.yaml`
 - `configs/book_sim/evidence_pack_schema.yaml`
+- `configs/book_sim/local_profiles.yaml`
 
 ### Backend `book_sim` foundation
 - Routing/config:
   - `backend/app/book_sim/config_loader.py`
+  - `backend/app/book_sim/local_profiles.py`
   - `backend/app/book_sim/provider_router.py`
 - Providers:
   - `backend/app/book_sim/providers/base.py`

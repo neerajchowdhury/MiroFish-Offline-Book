@@ -154,6 +154,27 @@ class BookSimApiTests(unittest.TestCase):
         self.assertIn("providers", health_payload["data"])
         self.assertIn("neo4j", health_payload["data"])
         self.assertIn("ollama", health_payload["data"])
+        self.assertIn("profiles", health_payload["data"])
+        self.assertEqual(health_payload["data"]["profiles"]["default_profile"], "hybrid_safe_default")
+        self.assertTrue(health_payload["data"]["profiles"]["items"])
+        cloud_profile = next(
+            item for item in health_payload["data"]["profiles"]["items"] if item["profile_name"] == "cloud_quality"
+        )
+        cloud_warning_text = " ".join(warning["message"].lower() for warning in cloud_profile["computed_warnings"])
+        self.assertIn("cloud", cloud_warning_text)
+        self.assertIn("slower", cloud_warning_text)
+
+    def test_project_defaults_to_hybrid_safe_profile(self) -> None:
+        response = self.client.post(
+            "/api/book-sim/projects",
+            json={"name": "Profile Default Project"},
+        )
+        self.assertEqual(response.status_code, 201)
+        payload = response.get_json()
+        self.assertTrue(payload["success"])
+        self.assertEqual(payload["data"]["privacy_mode"], "hybrid_safe")
+        self.assertEqual(payload["data"]["metadata"]["local_profile"], "hybrid_safe_default")
+        self.assertTrue(payload["data"]["metadata"]["local_profile_warnings"])
 
     def _create_project(self, name: str, privacy_mode: str, draft_id: str, version: str) -> str:
         response = self.client.post(

@@ -1,13 +1,13 @@
 # Swarmbook Handoff (Latest)
 
 ## 1) Current Objective
-Resume from the additive frontend-and-backend runtime slice: Swarmbook has `/api/book-sim/*` backend routes plus `/swarmbook/*` Vue screens, and the next clean work is report-layer hardening into a dedicated package plus fixing the machine-level npm shim path.
+Phase 17 repair is complete: local profile config, loader, API wiring, warnings, tests, and setup docs now exist. The next clean work can proceed to Phase 18 scope once this state is accepted.
 
 ## 2) Last Completed / Partially Completed Phase
 - Last checkpoint commit: `08a3a7e` (`2026-05-17`) "swarmbook: checkpoint after phase 6 implementation".
 - Practical status:
-  - Done: Phase 2, Phase 3, Phase 5, Phase 7, Phase 8, Phase 9, Phase 10, Phase 11, Phase 12.
-  - Partially done: Phase 1, Phase 4, Phase 6, Phase 13, Phase 14, Phase 15, Phase 16, Phase 17, Phase 18, Phase 19.
+  - Done: Phase 2, Phase 3, Phase 5, Phase 7, Phase 8, Phase 9, Phase 10, Phase 11, Phase 12, Phase 17.
+  - Partially done: Phase 1, Phase 4, Phase 6, Phase 13, Phase 14, Phase 15, Phase 16, Phase 18, Phase 19.
 
 ## 3) Current Repository State
 - Branch: `feature/swarmbook-phase6-recovery`
@@ -188,3 +188,9 @@ Requirements:
 - Phase 15 comparison implementation and audit passed at the bounded backend-runtime level.
 - Verified the comparison slice uses previous evidence packs, optional simulation outputs, and optional precomputed scores; exports deterministic JSON and Markdown; supports stored-artifact lookup through `/api/book-sim/compare`; and preserves `local_only` by avoiding provider calls.
 - Phase 15 is safe only at that bounded backend-runtime level. It is not yet a fully wired runtime phase because frontend integration is still absent.
+- Phase 17 local low-resource profile repair is complete.
+- Added required artifacts: `configs/book_sim/local_profiles.yaml`, `backend/app/book_sim/local_profiles.py`, and `docs/SWARMBOOK_LOCAL_SETUP.md`.
+- Verified `local_tiny`, `hybrid_safe_default` (default), and `cloud_quality` are configured with `local_parallel_jobs=1` and structured warnings.
+- Verified `local_only` external-provider protection remains intact at router level.
+- Added and passed local profile tests (`backend.tests.test_book_sim_local_profiles`) plus API/default-profile assertions.
+- Phase 18 is now safe to start from this repaired baseline.

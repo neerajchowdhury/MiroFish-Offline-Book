@@ -33,3 +33,12 @@ This file captures concise summaries of the major Swarmbook build prompts alread
 ## Continuity Recovery (Current)
 - Prompt summary: reconstruct project memory from actual repo state and create continuity docs before proceeding to next phase.
 - Evidence in repo: `AGENTS.md` and `docs/SWARMBOOK_*` continuity files in this pass.
+
+## Phase 17 Repair (Local Low-Resource Profile)
+- Prompt summary: implement missing local profile config + loader + warnings + docs + tests, wire defaults into additive backend/API/frontend without starting Phase 18 features.
+- Evidence in repo:
+  - `configs/book_sim/local_profiles.yaml`
+  - `backend/app/book_sim/local_profiles.py`
+  - `docs/SWARMBOOK_LOCAL_SETUP.md`
+  - `backend/tests/test_book_sim_local_profiles.py`
+  - profile-aware updates in `backend/app/api/book_sim.py`

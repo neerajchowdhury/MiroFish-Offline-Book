@@ -6,6 +6,16 @@ from .evidence_pack_builder import EvidencePackBuilder
 from .graph_persistence import BookGraphPersistence, PersistenceResult
 from .interrogation import PersonaInterrogationResult, PersonaInterrogator
 from .local_cache import LocalArtifactCache
+from .local_profiles import (
+    HardwareTarget,
+    LocalProfile,
+    LocalProfileCatalog,
+    LocalProfileLoader,
+    get_default_profile,
+    get_profile,
+    get_profile_warnings,
+    list_profiles,
+)
 from .manuscript_chunker import ManuscriptChunker
 from .platform_adapters import PLATFORM_ADAPTERS
 from .report_builder import build_prediction_report
@@ -64,6 +74,14 @@ __all__ = [
     "DraftComparisonExport",
     "render_comparison_markdown",
     "LocalArtifactCache",
+    "HardwareTarget",
+    "LocalProfile",
+    "LocalProfileCatalog",
+    "LocalProfileLoader",
+    "list_profiles",
+    "get_profile",
+    "get_default_profile",
+    "get_profile_warnings",
     "BookSimRuntimeStore",
     "ProjectArtifactState",
     "ManuscriptChunker",
