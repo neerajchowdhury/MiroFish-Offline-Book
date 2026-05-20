@@ -12,7 +12,7 @@
 - Open point: cache invalidation/versioning strategy is minimal.
 
 4. Do tests actually pass in this environment?
-- Current answer: Requires explicit execution record per environment. See latest handoff/testing section.
+- Current answer: Yes for the validated local paths. `compileall`, Swarmbook `unittest` discovery, the tiny local-only E2E test, and direct Vite build pass; `pytest`, Flask API smoke, and npm remain blocked by missing/broken local tooling.
 
 5. Are backend Swarmbook APIs exposed?
 - Current answer: Yes at the bounded backend-runtime level. `/api/book-sim/*` now exposes project creation, evidence-pack ingest, simulate-plus-report, latest report retrieval, persona chat, draft comparison, health, and backward-compatible interrogation.
@@ -49,3 +49,10 @@
 17. Is Phase 17 local low-resource profile implementation complete?
 - Current answer: Yes. `configs/book_sim/local_profiles.yaml`, `backend/app/book_sim/local_profiles.py`, profile-aware API wiring, warnings, tests, and `docs/SWARMBOOK_LOCAL_SETUP.md` now exist.
 - Caveat: `pytest` CLI is unavailable and `npm run build` remains blocked by the machine npm shim in this environment; validation used `unittest` plus direct Vite build.
+
+18. Is Phase 19 safe?
+- Current answer: Partially. Tiny local-only E2E validation passes and no real social/API usage was found, but Swarmbook still relies on router-scoped `local_only` privacy enforcement; there is no global middleware-level boundary yet.
+- Related note: API smoke through Flask remains environment-blocked because Flask is unavailable in this interpreter.
+
+19. Is Phase 20 packaging safe?
+- Current answer: No. Direct Vite build passes, but npm is broken in this environment and privacy hardening is still router-scoped rather than a global policy.

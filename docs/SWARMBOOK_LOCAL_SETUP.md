@@ -32,6 +32,11 @@ Swarmbook local profiles provide safe defaults for local-first simulation on a p
   - fast local synthesis: a smaller instruct model
   - deeper local synthesis: a larger model only when needed
 
+Suggested Ollama models to try (pick one that fits your machine):
+- `llama3.1:8b-instruct` (general, mid-weight)
+- `qwen2.5:7b-instruct` (often strong for structured JSON)
+- For embeddings (non-Swarmbook legacy paths may use embeddings): `nomic-embed-text`
+
 ## Environment Variables (Placeholders Only)
 Use placeholders only. Do not place real secrets in committed files.
 
@@ -56,9 +61,30 @@ python -m compileall backend
 # Run Swarmbook profile tests
 python -m unittest backend.tests.test_book_sim_local_profiles backend.tests.test_book_sim_provider_router backend.tests.test_book_sim_api
 
-# Optional frontend build (if frontend dependencies are available)
+# Optional frontend build (if npm is functional in your environment)
+npm ci
 npm run build
 ```
+
+## Run Locally (PowerShell)
+These are local-first defaults; they do not call external providers unless you choose a profile that allows it and set API keys locally.
+
+```powershell
+# Backend (Flask)
+cd .\backend
+python -m flask --app app run --port 5001
+
+# Frontend (Vite dev server)
+cd ..\frontend
+npm ci
+npm run dev
+```
+
+Then open `http://localhost:5173` (or the port Vite prints) and navigate to Swarmbook.
+
+## Manuscript Size Notes
+- The evidence-pack endpoint rejects extremely large pasted text by default to keep local runs stable.
+- If you need to ingest more, pass `max_manuscript_chars` in the `/api/book-sim/evidence-packs` request.
 
 ## Troubleshooting
 

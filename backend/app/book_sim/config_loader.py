@@ -19,15 +19,109 @@ DEFAULT_PRIVACY_MODES_PATH = REPO_ROOT / "configs" / "book_sim" / "privacy_modes
 
 def _load_yaml_dict(path: Path) -> Dict[str, Any]:
     """Load a YAML file as dict and validate shape."""
-    if yaml is None:
-        raise RuntimeError("PyYAML is required to load Swarmbook YAML config files")
     if not path.exists():
         raise FileNotFoundError(f"Missing config file: {path}")
+    if yaml is None:
+        return _load_known_config_without_pyyaml(path)
     with path.open("r", encoding="utf-8") as handle:
         data = yaml.safe_load(handle) or {}
     if not isinstance(data, dict):
         raise ValueError(f"Config file must contain a mapping object: {path}")
     return data
+
+
+def _clean_scalar(value: str) -> Any:
+    value = value.strip()
+    if value.lower() == "true":
+        return True
+    if value.lower() == "false":
+        return False
+    try:
+        return int(value)
+    except ValueError:
+        return value
+
+
+def _load_known_config_without_pyyaml(path: Path) -> Dict[str, Any]:
+    """Parse the constrained Swarmbook route/privacy YAML when PyYAML is absent."""
+    if path.name == "model_routes.yaml":
+        return _load_model_routes_without_pyyaml(path)
+    if path.name == "privacy_modes.yaml":
+        return _load_privacy_modes_without_pyyaml(path)
+    raise RuntimeError("PyYAML is required to load Swarmbook YAML config files")
+
+
+def _load_model_routes_without_pyyaml(path: Path) -> Dict[str, Any]:
+    routes: Dict[str, Dict[str, Any]] = {}
+    current_route: Optional[str] = None
+    current_list_key: Optional[str] = None
+    with path.open("r", encoding="utf-8") as handle:
+        for raw_line in handle:
+            line = raw_line.split("#", 1)[0].rstrip()
+            if not line.strip() or line.strip() == "model_routes:":
+                continue
+            if line.startswith("  ") and not line.startswith("    ") and line.strip().endswith(":"):
+                current_route = line.strip()[:-1]
+                routes[current_route] = {}
+                current_list_key = None
+                continue
+            if not current_route or not line.startswith("    "):
+                continue
+            stripped = line.strip()
+            if stripped.startswith("- ") and current_list_key:
+                routes[current_route].setdefault(current_list_key, []).append(_clean_scalar(stripped[2:]))
+                continue
+            if ":" not in stripped:
+                continue
+            key, value = stripped.split(":", 1)
+            key = key.strip()
+            value = value.strip()
+            if not value:
+                routes[current_route][key] = []
+                current_list_key = key
+            else:
+                routes[current_route][key] = _clean_scalar(value)
+                current_list_key = None
+    return {"model_routes": routes}
+
+
+def _load_privacy_modes_without_pyyaml(path: Path) -> Dict[str, Any]:
+    modes: Dict[str, Dict[str, Any]] = {}
+    current_mode: Optional[str] = None
+    current_list_key: Optional[str] = None
+    with path.open("r", encoding="utf-8") as handle:
+        for raw_line in handle:
+            line = raw_line.split("#", 1)[0].rstrip()
+            if not line.strip() or line.strip() == "privacy_modes:":
+                continue
+            if line.startswith("  ") and not line.startswith("    ") and line.strip().endswith(":"):
+                current_mode = line.strip()[:-1]
+                modes[current_mode] = {}
+                current_list_key = None
+                continue
+            if not current_mode or not line.startswith("    "):
+                continue
+            stripped = line.strip()
+            if stripped.startswith("- ") and current_list_key:
+                item = stripped[2:].strip()
+                if ":" in item:
+                    key, value = item.split(":", 1)
+                    modes[current_mode].setdefault(current_list_key, []).append({key.strip(): _clean_scalar(value)})
+                else:
+                    modes[current_mode].setdefault(current_list_key, []).append(_clean_scalar(item))
+                continue
+            if ":" not in stripped:
+                continue
+            key, value = stripped.split(":", 1)
+            key = key.strip()
+            value = value.strip()
+            if not value:
+                modes[current_mode][key] = []
+                current_list_key = key
+            else:
+                modes[current_mode][key] = _clean_scalar(value)
+                current_list_key = None
+    return {"privacy_modes": modes}
 
 
 @dataclass(frozen=True)

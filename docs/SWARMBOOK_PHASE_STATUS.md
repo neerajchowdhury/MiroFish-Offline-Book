@@ -24,8 +24,43 @@ Status values: `not_started`, `in_progress`, `done`, `blocked`, `partially_done`
 | 16. Frontend Swarmbook UI/routes | partially_done | `frontend/src/router/index.js`, `frontend/src/api/bookSim.js`, `frontend/src/store/swarmbookSession.js`, `frontend/src/components/swarmbook/SwarmbookLayout.vue`, `frontend/src/views/swarmbook/*` provide additive landing, upload, metadata, evidence, simulate, report, persona, and comparison screens. | Build is partially validated: `npm run build` fails due to a broken global npm shim, but direct Vite build via bundled Node passes in this environment. |
 | 17. Local low-resource profile | done | `configs/book_sim/local_profiles.yaml`, `backend/app/book_sim/local_profiles.py`, `docs/SWARMBOOK_LOCAL_SETUP.md`, profile-aware API wiring, and local profile tests now exist. | `pytest` CLI is unavailable in this environment; `unittest` coverage is used. |
 | 18. Test coverage hardening | partially_done | Unit tests for router/models/evidence builder plus smoke script. | No CI proof here; runtime integration tests not present. |
-| 19. Privacy/compliance enforcement hardening | partially_done | Router forces local provider when `privacy_mode=local_only`. | No global policy enforcement across all future stages/API boundaries yet. |
-| 20. Release readiness for Swarmbook path | not_started | No end-to-end book_sim API/UI run path available yet. | Should follow Phases 9-19 completion. |
+| 19. Final hardening (local personal build) | partially_done | Added clearer structured API errors, large manuscript guard, partial-failure recovery for report synthesis, Markdown export, and a tiny local-only E2E smoke test. | Local-only E2E passes, but Flask API smoke is skipped/unavailable in this interpreter and global privacy enforcement remains router-scoped. |
+| 20. Release readiness for Swarmbook path | partially_done | Windows local release package assets exist: install doc, env template, and conservative start/stop/smoke/prereq scripts under `scripts/windows`. | Packaging is not fully safe yet: npm shim remains broken in this environment, install doc has one mojibake apostrophe, and `local_only` privacy is still router-scoped rather than app-wide. |
+
+## Phase 18 Quality Gate Result
+- Backend Swarmbook test suite passes in this environment: `python -m unittest discover -s backend/tests -p "test_book_sim_*.py"` ran `46` tests with `5` skipped.
+- Additional backend quality slices pass: `test_book_sim_api`, `test_book_sim_report_builder`, `test_book_sim_persona_chat`, and `test_book_sim_draft_comparator` all pass under `unittest`.
+- Frontend production build passes through direct Vite execution: `node .\\node_modules\\vite\\bin\\vite.js build`.
+- `npm run build` still fails because the local npm shim points to a missing `npm-cli.js`.
+- `pytest` CLI is unavailable in this environment, so `unittest` is the validated backend test runner here.
+- Flask is unavailable in the active Python environment, so runtime route execution against a live app factory could not be exercised here.
+- Phase 20 packaging is not safe yet until frontend production build is validated in a normal Node/npm environment and privacy enforcement moves beyond router-scoped selection to an app-wide policy boundary.
+
+## Phase 19 E2E Validation Result
+- Added tiny fixtures for fiction, revised fiction, nonfiction, and metadata under `backend/tests/fixtures/`.
+- Added `backend/tests/test_book_sim_e2e.py` covering local profile loading, provider-router health, `local_only` route guard, ingestion, evidence packs, dry-run graph persistence, persona generation, platform posts, simulation orchestration, scoring, JSON/Markdown report export, persona interrogation, and draft comparison.
+- Applied a minimal `backend/app/book_sim/config_loader.py` fallback parser for `model_routes.yaml` and `privacy_modes.yaml` when PyYAML is absent.
+- Validation in this environment: `python -m unittest discover -s backend/tests -p "test_book_sim_*.py"` passes (`48` tests, `5` skipped); direct Vite build passes; `pytest`, Flask API smoke, and npm commands remain blocked by missing local tooling.
+- Validation repair: `python backend/tests/smoke_check.py` now executes without import-time crash and reports service availability directly.
+- Forbidden social/API string scan found only the explicit prohibition text in `docs/SWARMBOOK_LIMITATIONS.md`.
+- Phase 19 remains partially complete because privacy enforcement is still router-scoped rather than a global policy boundary.
+
+## Phase 20 Local Release Audit Result
+- Verified file presence:
+  - `scripts/windows/check_prereqs.ps1`
+  - `scripts/windows/start_swarmbook.ps1`
+  - `scripts/windows/stop_swarmbook.ps1`
+  - `scripts/windows/smoke_test_swarmbook.ps1`
+  - `.env.swarmbook.example`
+  - `docs/SWARMBOOK_INSTALL_WINDOWS.md`
+- Verified install doc coverage: prerequisites, Docker Desktop option, manual dev option, Ollama setup, Neo4j setup, optional Gemini/NVIDIA keys, low-resource profile, and troubleshooting.
+- Verified scripts are conservative and commented (check-only or local start/stop/smoke actions; no destructive operations).
+- Verified no real secrets in `.env.swarmbook.example`; provider keys are placeholders only.
+- Verified no Swarmbook product behavior changes were introduced by packaging assets.
+- Remaining blockers for calling Phase 20 "safe" in this environment:
+  - npm toolchain shim is broken (`npm` resolves to missing global `npm-cli.js`).
+  - `docs/SWARMBOOK_INSTALL_WINDOWS.md` still has one encoding artifact in the troubleshooting section (`wonâ€™t`).
+  - `local_only` privacy enforcement remains router-scoped, not app-wide policy middleware.
 
 ## Phase 17 Audit Result (Local Low-Resource Profile)
 - Verified `configs/book_sim/local_profiles.yaml` is missing.

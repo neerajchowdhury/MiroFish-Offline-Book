@@ -138,3 +138,4 @@ Transform MiroFish-Offline into a personal, local-first "simulate any book" tool
 - External provider usage policy is not centrally audited across future stages.
 - This system remains a synthetic stress-test approach, not market prediction certainty.
 - Report artifacts are now generated through the runtime helper, but there is still no dedicated `backend/app/book_sim/reports/` package or richer report-synthesis layer.
+- The active Python environment used for this gate does not have Flask installed, so live app-factory route execution could not be exercised here.

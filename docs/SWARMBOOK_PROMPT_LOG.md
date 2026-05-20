@@ -42,3 +42,13 @@ This file captures concise summaries of the major Swarmbook build prompts alread
   - `docs/SWARMBOOK_LOCAL_SETUP.md`
   - `backend/tests/test_book_sim_local_profiles.py`
   - profile-aware updates in `backend/app/api/book_sim.py`
+
+## Phase 18 Quality Gate
+- Prompt summary: run a full quality pass over Swarmbook, validate tests/builds/critical paths, and consolidate documentation without starting Phase 19.
+- Evidence in repo:
+  - `backend/tests/test_book_sim_report_builder.py`
+  - `docs/SWARMBOOK_PHASE_STATUS.md`
+  - `docs/SWARMBOOK_CHANGELOG.md`
+  - `docs/SWARMBOOK_DECISIONS.md`
+  - `docs/SWARMBOOK_OPEN_QUESTIONS.md`
+  - `docs/SWARMBOOK_HANDOFF_LATEST.md`

@@ -1,7 +1,7 @@
 # Swarmbook Handoff (Latest)
 
 ## 1) Current Objective
-Phase 17 repair is complete: local profile config, loader, API wiring, warnings, tests, and setup docs now exist. The next clean work can proceed to Phase 18 scope once this state is accepted.
+Audit Phase 20 personal Windows release package and decide whether local packaging is safe.
 
 ## 2) Last Completed / Partially Completed Phase
 - Last checkpoint commit: `08a3a7e` (`2026-05-17`) "swarmbook: checkpoint after phase 6 implementation".
@@ -58,8 +58,14 @@ Phase 17 repair is complete: local profile config, loader, API wiring, warnings,
 
 ## 6) Tests Run and Status
 - Executed in this pass:
+  - `python -m compileall backend` -> pass
+  - `python -m unittest backend.tests.test_book_sim_e2e` -> pass (`2` tests)
+  - `python -m unittest discover -s backend/tests -p "test_book_sim_*.py"` -> pass (`48` tests, `5` skipped)
+  - `python -m pytest backend/tests -q` -> failed: `No module named pytest`
+  - `npm run build --if-present`, `npm test --if-present`, `npm --prefix frontend run build --if-present`, `npm --prefix frontend test --if-present` -> failed before project execution because the global npm shim points to a missing `npm-cli.js`
   - `npm run build` -> failed because the global `npm` shim points to a missing `npm-cli.js`
-  - `C:\Users\neera\.cache\codex-runtimes\codex-primary-runtime\dependencies\node\bin\node.exe .\node_modules\vite\bin\vite.js build` -> pass
+  - `node .\node_modules\vite\bin\vite.js build` from `frontend` -> pass
+  - `python backend\tests\smoke_check.py` -> runs without import-time crash; currently reports local service failures when backend/frontend/Neo4j/Ollama are unavailable
   - `python -m py_compile backend/app/api/book_sim.py backend/app/book_sim/runtime_store.py backend/app/book_sim/report_builder.py backend/app/book_sim/__init__.py` -> pass
   - `python -m unittest backend.tests.test_book_sim_api backend.tests.test_book_sim_persona_chat backend.tests.test_book_sim_draft_comparator backend.tests.test_book_sim_scoring backend.tests.test_book_sim_simulation_engine backend.tests.test_book_sim_models backend.tests.test_book_sim_provider_router` -> pass (`25` tests, `4` skipped)
   - `python -m unittest backend.tests.test_book_sim_platform_adapters backend.tests.test_book_sim_simulation_engine` -> pass (`2` tests)
@@ -193,4 +199,54 @@ Requirements:
 - Verified `local_tiny`, `hybrid_safe_default` (default), and `cloud_quality` are configured with `local_parallel_jobs=1` and structured warnings.
 - Verified `local_only` external-provider protection remains intact at router level.
 - Added and passed local profile tests (`backend.tests.test_book_sim_local_profiles`) plus API/default-profile assertions.
-- Phase 18 is now safe to start from this repaired baseline.
+- Phase 18 quality gate passed in this environment.
+- Backend Swarmbook tests passed (`46` discovered, `5` skipped), including report-builder coverage.
+- Direct Vite frontend build passed; `npm run build` still fails because the machine npm shim is broken.
+- Flask is unavailable in the active Python environment, so live app-factory route execution could not be exercised here.
+- Phase 19 local E2E validation now passes on tiny fixtures, but Phase 19 remains partially complete because privacy/compliance enforcement remains router-scoped.
+  - Phase 19 hardening improvements landed:
+    - clearer structured Swarmbook API errors (`runtime_unavailable`, `partial_failure`)
+    - large manuscript guard (`max_manuscript_chars`, default 500k)
+    - report Markdown export returned as `report_markdown` from `/api/book-sim/simulate`
+    - improved frontend error surface (includes backend `error_code`)
+    - added `docs/SWARMBOOK_USAGE_GUIDE.md` and `docs/SWARMBOOK_LIMITATIONS.md`
+  - Phase 20 packaging is still not safe in this environment because frontend production build cannot be proven without installed dependencies and a working npm toolchain.
+
+## 16) Latest E2E Validation
+- Added tiny fiction, revised fiction, nonfiction, and metadata fixtures under `backend/tests/fixtures/`.
+- Added `backend/tests/test_book_sim_e2e.py`, covering the full local-only pipeline with 4 personas, Goodreads/Reddit/X only, 1 reaction round, and 2 cross-reaction posts.
+- The test writes report/comparison JSON and Markdown into a temporary test output directory, then cleans it up with the test temp directory.
+- Forbidden social/API string scan found only the explicit prohibition line in `docs/SWARMBOOK_LIMITATIONS.md`.
+- Small repair applied: `backend/app/book_sim/config_loader.py` can now parse the existing route/privacy configs without PyYAML.
+
+## 17) Next Recommended Prompt
+```text
+You are working in my local MiroFish-Offline repo after Phase 20 Windows release-package audit.
+Read AGENTS.md and the SWARMBOOK continuity docs first.
+Task: Keep packaging scope only. Do not add product features.
+1) Fix Windows install doc text encoding artifacts.
+2) Validate scripts/windows start/stop/smoke flow on a clean Windows 11 machine with working npm.
+3) Verify `.env.swarmbook.example` remains placeholder-only.
+4) Re-run local release checklist and update Phase 20 status.
+Requirements:
+- Preserve original MiroFish behavior.
+- Keep changes additive and conservative.
+- Do not commit real secrets.
+- Keep output concise and update continuity docs after validation.
+```
+
+## 18) Phase 20 Audit Summary
+- Windows release-package assets are present:
+  - `scripts/windows/check_prereqs.ps1`
+  - `scripts/windows/start_swarmbook.ps1`
+  - `scripts/windows/stop_swarmbook.ps1`
+  - `scripts/windows/smoke_test_swarmbook.ps1`
+  - `.env.swarmbook.example`
+  - `docs/SWARMBOOK_INSTALL_WINDOWS.md`
+- Install doc coverage is complete for prerequisites, Docker/manual options, Ollama, Neo4j, optional Gemini/NVIDIA keys, low-resource profile, and troubleshooting.
+- Scripts are conservative and commented.
+- `.env.swarmbook.example` uses placeholders for provider keys (no real secrets).
+- Phase 20 is still not safe to mark complete in this environment:
+  - npm shim remains broken locally.
+  - install doc has one mojibake apostrophe in troubleshooting.
+  - `local_only` privacy boundary is still router-scoped, not app-wide.

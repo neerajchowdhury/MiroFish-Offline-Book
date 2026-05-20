@@ -13,6 +13,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import importlib.util
 import os
 import sys
 from dataclasses import dataclass
@@ -24,7 +25,32 @@ BACKEND_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 if BACKEND_ROOT not in sys.path:
     sys.path.insert(0, BACKEND_ROOT)
 
-from app.config import Config  # noqa: E402
+
+def _load_config_class():
+    """Load Config without importing app package (which requires Flask)."""
+    config_path = os.path.join(BACKEND_ROOT, "app", "config.py")
+    spec = importlib.util.spec_from_file_location("mirofish_backend_config", config_path)
+    if spec is None or spec.loader is None:
+        raise RuntimeError(f"Unable to load config module from: {config_path}")
+    module = importlib.util.module_from_spec(spec)
+    try:
+        spec.loader.exec_module(module)
+        return module.Config
+    except Exception:
+        class _FallbackConfig:
+            EMBEDDING_BASE_URL = os.environ.get("OLLAMA_BASE_URL", "http://127.0.0.1:11434")
+            NEO4J_URI = os.environ.get("NEO4J_URI", "bolt://127.0.0.1:7687")
+            NEO4J_USER = os.environ.get("NEO4J_USER", "neo4j")
+            NEO4J_PASSWORD = os.environ.get("NEO4J_PASSWORD", "password")
+
+            @staticmethod
+            def validate():
+                return []
+
+        return _FallbackConfig
+
+
+Config = _load_config_class()
 
 
 @dataclass

@@ -24,6 +24,7 @@ from ..book_sim.models import (
 from ..book_sim.provider_router import BookSimProviderRouter, RouteSelection
 from ..book_sim.reader_persona_generator import PersonaGenerationOverrides
 from ..book_sim.report_builder import build_prediction_report
+from ..book_sim.report_markdown import render_prediction_report_markdown
 from ..book_sim.runtime_store import BookSimRuntimeStore
 from ..book_sim.scoring._shared import stable_digest
 from ..book_sim.simulation import SimulationOrchestrator
@@ -32,6 +33,7 @@ from ..utils.logger import get_logger
 
 logger = get_logger("mirofish.api.book_sim")
 ALLOWED_PRIVACY_MODES = {"local_only", "hybrid_safe", "cloud_quality"}
+MAX_MANUSCRIPT_CHARS_DEFAULT = 500_000
 F = TypeVar("F", bound=Callable[..., Any])
 
 
@@ -68,6 +70,9 @@ def _api_route(handler: F) -> F:
             )
         except ValueError as exc:
             return _error_response(str(exc), status_code=400, error_code="validation_error")
+        except RuntimeError as exc:
+            # Providers raise RuntimeError for missing keys, missing deps, or unavailable runtimes.
+            return _error_response(str(exc), status_code=503, error_code="runtime_unavailable")
         except Exception as exc:  # pragma: no cover - defensive API guard
             logger.error("Book-sim endpoint failed: %s", exc, exc_info=True)
             return _error_response(str(exc), status_code=500, error_code="internal_error")
@@ -428,6 +433,16 @@ def _project_id(name: str, title: Optional[str], draft_id: Optional[str], versio
 def _manuscript_input(project: BookProject, payload: Dict[str, Any]) -> ManuscriptInput:
     title = _optional_text(payload, "title") or project.title or project.name
     text = _require_text(payload, "text")
+    max_chars = _optional_positive_int(payload, "max_manuscript_chars", minimum=10_000) or MAX_MANUSCRIPT_CHARS_DEFAULT
+    if len(text) > max_chars:
+        raise ApiError(
+            "Manuscript is too large for a local-first run. Provide a smaller excerpt or raise max_manuscript_chars.",
+            details={
+                "text_chars": len(text),
+                "max_manuscript_chars": max_chars,
+                "suggestion": "Try 1-3 chapters or 30-80k characters for local_tiny / hybrid_safe_default.",
+            },
+        )
     input_id = f"input_{stable_digest(project.project_id, title, text, project.draft_id or '', project.version or '')[:12]}"
     return ManuscriptInput(
         input_id=input_id,
@@ -621,12 +636,26 @@ def simulate_book():
     }
     simulation_run = SimulationRun.from_dict(simulation_payload)
 
-    report_payload = _resolve_report_payload(project=project, evidence_pack=evidence_pack, simulation_run=simulation_run)
-    report = report_payload["report"]
-    simulation_run = report_payload["simulation_run"]
-
+    # Persist the simulation payload even if report synthesis fails, so callers can recover.
     store.save_simulation_run(simulation_run)
-    store.save_report(report)
+
+    try:
+        report_payload = _resolve_report_payload(project=project, evidence_pack=evidence_pack, simulation_run=simulation_run)
+        report = report_payload["report"]
+        simulation_run = report_payload["simulation_run"]
+        store.save_simulation_run(simulation_run)
+        store.save_report(report)
+    except Exception as exc:
+        raise ApiError(
+            "Simulation ran but report synthesis failed. You can retry report generation using the stored simulation_id.",
+            status_code=502,
+            error_code="partial_failure",
+            details={
+                "project_id": project.project_id,
+                "simulation_id": simulation_run.run_id,
+                "error": str(exc),
+            },
+        ) from exc
     persistence = _graph_persistence().persist_simulation_artifacts(
         project=project,
         simulation_run=simulation_run,
@@ -640,6 +669,7 @@ def simulate_book():
         {
             "simulation_run": simulation_run.to_dict(),
             "report": report.to_dict(),
+            "report_markdown": render_prediction_report_markdown(report),
             "route_selection": selection.__dict__,
             "profile": _profile_response_payload(profile_loader, selected_profile),
             "persistence": persistence.__dict__,

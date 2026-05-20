@@ -139,3 +139,24 @@
 - Rationale: Phase 17 required explicit, auditable defaults for 16 GB RAM / 6 GB VRAM local usage with structured warnings and preserved `local_only` privacy behavior.
 - Trade-off: Adds one more config surface and loader maintenance path, but keeps profile behavior deterministic and testable.
 - Files affected: `configs/book_sim/local_profiles.yaml`, `backend/app/book_sim/local_profiles.py`, `backend/app/api/book_sim.py`, `backend/tests/test_book_sim_local_profiles.py`, `backend/tests/test_book_sim_api.py`, `docs/SWARMBOOK_LOCAL_SETUP.md`
+
+## D-021
+- Date: `2026-05-19`
+- Decision: Treat the Phase 18 quality gate as passable in the current environment but keep Phase 19 blocked until privacy/compliance enforcement moves beyond router-scoped guards.
+- Rationale: Backend Swarmbook tests pass, the report-builder path is covered, and the frontend bundle builds via direct Vite, but router-scoped `local_only` is still the only privacy boundary.
+- Trade-off: Consolidation stays honest about the remaining risk instead of declaring release readiness prematurely.
+- Files affected: `docs/SWARMBOOK_PHASE_STATUS.md`, `docs/SWARMBOOK_CHANGELOG.md`, `docs/SWARMBOOK_DECISIONS.md`, `docs/SWARMBOOK_OPEN_QUESTIONS.md`, `docs/SWARMBOOK_HANDOFF_LATEST.md`
+
+## D-022
+- Date: `2026-05-19`
+- Decision: Add Phase 19 local hardening improvements without expanding product scope (error surfaces, size guards, partial-failure recovery, and Markdown export), and document limitations explicitly.
+- Rationale: Local-first usage needs clearer failure modes (missing keys, missing runtimes), predictable ingestion limits for low-resource machines, and stable exports for sharing/review.
+- Trade-off: Phase 19 improves UX and reliability but does not resolve the remaining architectural risk: privacy enforcement is still router-scoped and frontend packaging is not proven in this environment.
+- Files affected: `backend/app/api/book_sim.py`, `backend/app/book_sim/report_markdown.py`, `frontend/src/api/index.js`, `docs/SWARMBOOK_LOCAL_SETUP.md`, `docs/SWARMBOOK_USAGE_GUIDE.md`, `docs/SWARMBOOK_LIMITATIONS.md`
+
+## D-023
+- Date: `2026-05-20`
+- Decision: Add a constrained fallback parser for Swarmbook route/privacy YAML when PyYAML is absent.
+- Rationale: The active local Python environment lacks PyYAML, but E2E validation still needs deterministic config/profile loading without installing dependencies.
+- Trade-off: The fallback only supports the existing `model_routes.yaml` and `privacy_modes.yaml` shapes; PyYAML remains preferred when installed.
+- Files affected: `backend/app/book_sim/config_loader.py`, `backend/tests/test_book_sim_e2e.py`

@@ -118,6 +118,29 @@
 ### Behavior changed
 - Confirmed the Phase 7 persistence layer is additive, namespaced, idempotent, and dry-run capable.
 - Confirmed legacy MiroFish graph behavior remains in place.
+
+## Phase 19 (Final Hardening Pass: Local Personal Build)
+### Files
+- `backend/app/api/book_sim.py`
+- `backend/app/book_sim/report_markdown.py`
+- `frontend/src/api/index.js`
+- `frontend/src/views/swarmbook/SwarmbookUploadView.vue`
+- `docs/SWARMBOOK_LOCAL_SETUP.md`
+- `docs/SWARMBOOK_USAGE_GUIDE.md`
+- `docs/SWARMBOOK_LIMITATIONS.md`
+- `backend/tests/test_book_sim_api.py`
+### Behavior changed
+- Improved Swarmbook API error clarity by returning structured JSON errors with stable `error_code` and optional `details` for runtime/provider failures.
+- Guarded large manuscript ingestion (`max_manuscript_chars`, default `500000`) to keep low-resource local runs stable.
+- Added partial-failure recovery: simulation artifacts are saved even if report synthesis fails, returning `error_code=partial_failure` with the stored `simulation_id`.
+- Added Markdown export for prediction reports and returned it as `report_markdown` from `/api/book-sim/simulate`.
+- Improved frontend error surfacing by carrying backend `error_code/details` through the Axios layer.
+- Added a visible character-count warning on the Swarmbook upload screen for very large pastes.
+### Tests added/updated
+- Updated API test expectations to assert `report_markdown` is returned when Flask is available (`backend/tests/test_book_sim_api.py`).
+### Known gaps
+- Frontend production build is not provable in this environment (missing `node_modules` / npm shim issues).
+- Privacy enforcement remains router-scoped (`local_only` forces `local_ollama`), not an app-wide policy boundary.
 ### Tests added
 - None. Audit relied on existing Phase 7 tests and code inspection.
 ### Known gaps
@@ -449,3 +472,79 @@
 ### Known gaps
 - `pytest` command is unavailable in the current environment (`pytest` CLI missing).
 - `npm run build` remains blocked by machine-level npm shim; direct Vite build passes.
+
+## Phase 18 Quality Gate
+### Files
+- `backend/tests/test_book_sim_report_builder.py`
+- `docs/SWARMBOOK_PHASE_STATUS.md`
+- `docs/SWARMBOOK_CHANGELOG.md`
+- `docs/SWARMBOOK_DECISIONS.md`
+- `docs/SWARMBOOK_OPEN_QUESTIONS.md`
+- `docs/SWARMBOOK_HANDOFF_LATEST.md`
+### Behavior changed
+- No runtime behavior change. This was a validation and continuity-consolidation pass.
+- Verified the Swarmbook backend test suite passes in this environment, including the new report-builder coverage.
+- Verified the frontend Swarmbook bundle still builds successfully through direct Vite execution.
+- Confirmed `npm run build` remains blocked by the local npm shim and `pytest` is unavailable here.
+- Confirmed `Flask` is unavailable in the active Python environment, so live app-factory route execution remains unverified in this shell.
+### Tests added
+- `backend/tests/test_book_sim_report_builder.py`
+### Known gaps
+- Phase 19 is not safe yet because privacy/compliance hardening still lacks a global policy boundary beyond router-level enforcement.
+- The repo still depends on direct Vite build as the frontend validation workaround in this environment.
+
+## Phase 19 E2E Validation
+### Files
+- `backend/app/book_sim/config_loader.py`
+- `backend/tests/test_book_sim_e2e.py`
+- `backend/tests/fixtures/tiny_fiction_manuscript.txt`
+- `backend/tests/fixtures/tiny_fiction_manuscript_revised.txt`
+- `backend/tests/fixtures/tiny_nonfiction_manuscript.txt`
+- `backend/tests/fixtures/tiny_metadata.json`
+- `backend/tests/fixtures/tiny_metadata_nonfiction.json`
+- `docs/SWARMBOOK_PHASE_STATUS.md`
+- `docs/SWARMBOOK_CHANGELOG.md`
+- `docs/SWARMBOOK_DECISIONS.md`
+- `docs/SWARMBOOK_OPEN_QUESTIONS.md`
+- `docs/SWARMBOOK_HANDOFF_LATEST.md`
+### Behavior changed
+- Added a narrow PyYAML-free fallback parser for existing route/privacy configs so Swarmbook can validate in the active local Python environment.
+- No product features were added; the new E2E test uses tiny synthetic fixtures and local-only deterministic runtime paths.
+### Tests added/updated
+- Added `backend/tests/test_book_sim_e2e.py` for tiny local-only pipeline and draft comparison validation.
+### Known gaps
+- Flask is unavailable in the active Python interpreter, so Flask test-client API smoke remains skipped.
+- `pytest` and npm commands are unavailable/broken in this environment; `unittest` and direct Vite are the validated paths.
+- Phase 19 remains partial until privacy enforcement is global rather than router-scoped.
+
+## Phase 19 E2E Validation Repair (Import/Smoke Path)
+### Files
+- `backend/tests/smoke_check.py`
+- `docs/SWARMBOOK_PHASE_STATUS.md`
+- `docs/SWARMBOOK_CHANGELOG.md`
+- `docs/SWARMBOOK_HANDOFF_LATEST.md`
+### Behavior changed
+- `backend/tests/smoke_check.py` now falls back when `flask`/`python-dotenv` app imports are unavailable, so the smoke command runs and reports actual backend/frontend/Neo4j/Ollama status.
+### Tests added/updated
+- No new tests; re-ran targeted E2E and smoke commands.
+### Known gaps
+- Smoke checks can still fail when local services are not running or dependencies like `neo4j` client are not installed; this is runtime/environment, not Swarmbook logic.
+
+## Phase 20 Local Release Audit (Windows Personal Package)
+### Files
+- `scripts/windows/check_prereqs.ps1`
+- `scripts/windows/start_swarmbook.ps1`
+- `scripts/windows/stop_swarmbook.ps1`
+- `scripts/windows/smoke_test_swarmbook.ps1`
+- `.env.swarmbook.example`
+- `docs/SWARMBOOK_INSTALL_WINDOWS.md`
+- `docs/SWARMBOOK_PHASE_STATUS.md`
+- `docs/SWARMBOOK_HANDOFF_LATEST.md`
+### Behavior changed
+- No product/runtime behavior changes. This was a packaging audit pass only.
+### Tests added/updated
+- No new tests. Verification was file/document/script audit plus conservative script checks.
+### Known gaps
+- npm remains broken in this environment due to global shim path.
+- Install doc still contains one mojibake apostrophe (`wonâ€™t`).
+- `local_only` privacy safety is still router-scoped, so Phase 20 cannot be marked fully safe.

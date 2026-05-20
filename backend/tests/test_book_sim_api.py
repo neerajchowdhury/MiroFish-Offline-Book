@@ -81,6 +81,8 @@ class BookSimApiTests(unittest.TestCase):
         self.assertTrue(simulate_payload["success"])
         self.assertEqual(simulate_payload["data"]["route_selection"]["selected_route"], "local_ollama")
         self.assertEqual(simulate_payload["data"]["simulation_run"]["metadata"]["seed"], 17)
+        self.assertIn("report_markdown", simulate_payload["data"])
+        self.assertIn("# Swarmbook Report", simulate_payload["data"]["report_markdown"])
         report_id = simulate_payload["data"]["report"]["report_id"]
         persona_id = simulate_payload["data"]["simulation_run"]["reader_personas"][0]["persona_id"]
 
