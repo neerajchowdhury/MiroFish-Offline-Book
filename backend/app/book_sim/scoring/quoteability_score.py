@@ -1,4 +1,44 @@
-"""Quoteability scoring."""
+"""Quoteability scoring.
+
+What this score measures
+------------------------
+How easily the book yields memorable, reusable lines, scenes, or passages
+that readers will quote, screenshot, share on social media, or highlight
+in their e-readers.  High quoteability correlates with organic word-of-mouth
+and social media virality.
+
+How it's calculated
+-------------------
+Six component scores are combined via YAML-configured weights:
+
+line_density             -- How "quotable" the prose is based on the style
+                            map's quoteability rating and the count of
+                            notable quotes extracted by reader reactions.
+image_making_language    -- Presence of vivid imagery signaled by tone
+                            metadata and high rhythm in the style map.
+emotional_clarity        -- Average reader attachment score plus the count
+                            of emotional beats mapped across chapters.
+repetition_resonance     -- Thematic repetition (number of distinct themes)
+                            and turning-point density across chapters.
+scene_peak_strength      -- Sum of key beats and turning points across
+                            chapters, plus reader praise count.
+excerpt_friendly_structure
+                         -- Shorter chapter counts (<=20) and presence of
+                            a spoilers-safe summary make excerpts easier
+                            to extract and share.
+
+Quote candidates are extracted from the book DNA summary, chapter summaries,
+and notable quotes in reader reactions, capped at six candidates.
+
+Score range meaning
+-------------------
+quoteability_score: 0.0 - 1.0
+  0.0-0.2  -- Very low; prose is functional but not memorable.
+  0.2-0.4  -- Low; occasional quotable lines but not a strength.
+  0.4-0.6  -- Moderate; some passages will resonate with readers.
+  0.6-0.8  -- High; many shareable lines and scenes.
+  0.8-1.0  -- Very high; the book is highly quotable and excerpt-friendly.
+"""
 
 from __future__ import annotations
 

@@ -1,4 +1,56 @@
-"""Deterministic report synthesis for Swarmbook runtime endpoints."""
+"""Deterministic report synthesis for Swarmbook runtime endpoints.
+
+The report builder is the final stage of the Swarmbook pipeline.  It takes the
+raw outputs of the simulation (reader persona reactions, platform posts, cross-
+reactions) and the seven scoring modules, then synthesizes them into a single
+``BookPredictionReport`` that a human author can read and act on.
+
+How scores are aggregated
+-------------------------
+Each scoring module (rating distribution, DNF risk, controversy, quoteability,
+polarization, viral potential, revision priority) returns a result object with
+a primary numeric score, component breakdown, confidence band, and evidence
+references.  The report builder calls all seven scorers with a shared
+``ScoringContext``, collects their ``.to_dict()`` serializations into a
+``scorecard``, and merges their evidence refs and uncertainty notes.
+
+What each section of the report represents
+------------------------------------------
+summary            -- A one-sentence headline: predicted mean rating, DNF risk,
+                      best platform for spread, and the dominant blocker.
+audience_response  -- Aggregate signals from simulated readers: persona count,
+                      post count, mean rating, recommendation probability, and
+                      top platforms for viral spread.
+scorecard          -- The full dictionary of all seven scoring results, each
+                      with its own score, components, and confidence band.
+segment_insights   -- Per-segment breakdown (e.g. "Goodreads:booktok") showing
+                      mean rating, recommendation rate, signal direction, and
+                      representative personas/sentiments.
+top_risks          -- A short list combining risk-map entries, chapter-level DNF
+                      pressure points, and controversy hotspots.
+top_strengths      -- Theme signals, reader praise excerpts, best platform fits,
+                      and quote candidates extracted from the manuscript.
+revision_priorities -- The top five ranked items (chapters, claims, style,
+                       market) that would benefit most from revision, with
+                       priority scores and reasons.
+uncertainty_notes  -- Caveats from every scorer plus a standard disclaimer that
+                      outputs are synthetic stress-test signals, not guarantees.
+evidence_refs      -- A deduplicated trail of every artifact that contributed to
+                      the report, enabling traceability back to source data.
+confidence         -- A simple arithmetic mean of project, evidence-pack, and
+                      simulation-run confidence values.
+
+Scoring aggregation logic
+-------------------------
+Scores are never re-computed here; the builder delegates to each scoring
+function.  The only aggregation performed is:
+- Deduplication of evidence refs and uncertainty notes across all scorers.
+- Averaging of confidence values from three pipeline stages.
+- Ranking of revision-priority items by their pre-computed priority_score.
+- Selection of top risks/strengths by fixed caps (first 3-5 items).
+This design keeps the report builder deterministic and auditable -- every
+number in the report traces back to a specific scorer or simulation artifact.
+"""
 
 from __future__ import annotations
 

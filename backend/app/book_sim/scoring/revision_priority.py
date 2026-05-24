@@ -1,4 +1,53 @@
-"""Revision priority ranking."""
+"""Revision priority ranking.
+
+What this score measures
+------------------------
+Which parts of the manuscript would benefit most from revision, ranked by
+a composite priority score.  Rather than measuring a single trait, this
+scorer synthesizes signals from all other scorers to identify the highest-
+impact revision targets across four categories: chapters, claims, style,
+and market positioning.
+
+How it's calculated
+-------------------
+The scorer first runs all six other scoring modules (rating, DNF, viral,
+controversy, quoteability, polarization) to gather their results.  Then it
+builds priority items in four categories:
+
+Chapter items    -- Each chapter gets a priority score from:
+                      DNF points (45%) + controversy risk (20%)
+                      + inverse quoteability (20%) + inverse rating (15%)
+                    Chapters with high abandonment risk, controversy, low
+                    quoteability, and low ratings rank highest.
+Claim items      -- Each claim gets a priority score from:
+                      controversy risk (35%) + polarization (30%)
+                      + Reddit viral score (15%) + factual risk flags (up to 20%)
+                    Claims that are controversial, polarizing, and weakly
+                    evidenced are flagged for revision.
+Style items      -- A single item scored from:
+                      inverse quoteability (45%) + inverse rating (25%)
+                    Poor prose quality that hurts both quoteability and
+                      ratings gets flagged.
+Market items     -- A single item scored from:
+                      inverse Goodreads viral score (40%) + controversy (30%)
+                    Market positioning issues that limit reach or create
+                    backlash risk are flagged.
+
+All items are merged and sorted by priority_score descending.  The top five
+are returned as revision priorities.
+
+Score range meaning
+-------------------
+priority_score: 0.0 - 1.0 (per item)
+  0.0-0.2  -- Low priority; acceptable as-is.
+  0.2-0.4  -- Minor improvement possible but not urgent.
+  0.4-0.6  -- Moderate priority; revision would meaningfully improve outcomes.
+  0.6-0.8  -- High priority; this item is a significant drag on performance.
+  0.8-1.0  -- Critical priority; revision strongly recommended.
+
+The confidence band reflects the spread of priority scores across all items:
+a wide spread means clear differentiation between high and low priority items.
+"""
 
 from __future__ import annotations
 

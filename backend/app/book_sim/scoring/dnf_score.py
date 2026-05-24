@@ -1,4 +1,47 @@
-"""DNF risk scoring."""
+"""DNF (Did Not Finish) risk scoring.
+
+What this score measures
+------------------------
+The probability that a reader will abandon the book before completing it.
+DNF risk is one of the strongest predictors of poor word-of-mouth and low
+sales velocity, since readers who don't finish rarely recommend the book.
+
+How it's calculated
+-------------------
+Six component scores are computed and combined via YAML-configured weights:
+
+opening_drag       -- How likely readers are to drop out in the first two
+                      chapters.  Based on early-chapter pacing, friction
+                      markers, and reader confusion scores.
+confusion          -- Average confusion score across all reader reactions.
+                      High confusion correlates strongly with abandonment.
+pacing_drag        -- Mean pacing penalty across all chapters.  Slow-paced
+                      chapters with friction markers increase drag.
+unmet_expectation  -- Gap between what the market surface promises and what
+                      the manuscript delivers.  Promise gaps and packaging
+                      mismatches drive this component up.
+voice_misalignment -- Mismatch between the prose style and reader expectations.
+                      Low accessibility and low clarity increase risk.
+length_fatigue     -- Simple function of chapter count.  Books with more than
+                      12 chapters get a higher baseline fatigue score.
+
+Additionally, detected risks from the risk_map add small penalties to
+opening_drag and pacing_drag, acknowledging that identified hazards compound
+abandonment pressure.
+
+Chapter-level pressure points are also computed: each chapter receives a
+DNF score based on its position (early chapters weighted higher), pacing,
+friction markers, and open questions.  These are returned sorted by severity.
+
+Score range meaning
+-------------------
+dnf_risk: 0.0 - 1.0
+  0.0-0.2  -- Very low abandonment risk; strong hook and pacing.
+  0.2-0.4  -- Low risk; minor friction points unlikely to cause drop-off.
+  0.4-0.6  -- Moderate risk; some readers may abandon mid-book.
+  0.6-0.8  -- High risk; significant pacing or clarity issues.
+  0.8-1.0  -- Very high risk; likely mass abandonment.
+"""
 
 from __future__ import annotations
 

@@ -9,8 +9,14 @@ Local graph storage replacing Zep Cloud:
 """
 
 from .graph_storage import GraphStorage
-from .neo4j_storage import Neo4jStorage
 from .embedding_service import EmbeddingService, EmbeddingError
+
+# Neo4jStorage is optional — only imported when neo4j driver is installed
+try:
+    from .neo4j_storage import Neo4jStorage
+except ImportError:
+    Neo4jStorage = None  # type: ignore[misc,assignment]
+
 from .ner_extractor import NERExtractor
 from .search_service import SearchService
 

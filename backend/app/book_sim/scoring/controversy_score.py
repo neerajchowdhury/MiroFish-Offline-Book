@@ -1,4 +1,44 @@
-"""Controversy radar scoring."""
+"""Controversy radar scoring.
+
+What this score measures
+------------------------
+The risk that the book will trigger ideological, moral, or cultural backlash
+from readers, critics, or online communities.  Controversy can be a double-
+edged sword: it drives engagement but can also alienate segments of the
+target audience and trigger review-bombing.
+
+How it's calculated
+-------------------
+A six-axis radar is computed, then combined via YAML-configured weights:
+
+ideological_tension   -- Density of claims with counterarguments, magnitude
+                         of rating shifts in cross-reactions, and average
+                         reader confusion.  More contested claims = higher.
+claim_hazard          -- Average evidence strength of claims (weakly evidenced
+                         claims are riskier) plus count of factual risk flags.
+moral_disagreement    -- Count of moral-type risks in the risk map plus
+                         negative stance shifts in cross-reactions.
+tonal_disruption      -- Low accessibility and clarity in the style map,
+                         combined with reader confusion scores.
+character_behavior_challenge
+                      -- Characters with many conflicts or contradictions,
+                         plus reader friction reactions.
+packaging_mismatch    -- Gap between the market surface's promise and the
+                         actual manuscript content, plus audience expectation
+                         gaps.
+
+Hotspots are extracted by flagging claims with factual risk flags or
+counterarguments, risks of specific types, and high packaging mismatch.
+
+Score range meaning
+-------------------
+controversy_risk: 0.0 - 1.0
+  0.0-0.2  -- Minimal controversy; unlikely to spark debate.
+  0.2-0.4  -- Low controversy; mild disagreement possible.
+  0.4-0.6  -- Moderate controversy; some polarizing elements present.
+  0.6-0.8  -- High controversy; likely to generate significant debate.
+  0.8-1.0  -- Very high controversy; strong backlash risk.
+"""
 
 from __future__ import annotations
 

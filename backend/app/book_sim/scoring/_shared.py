@@ -1,4 +1,41 @@
-"""Shared utilities for deterministic Swarmbook scoring."""
+"""Shared utilities for deterministic Swarmbook scoring.
+
+This module provides the foundational building blocks that every scoring
+function relies on.  It exists to avoid duplication and to ensure consistent
+behavior across all seven scorers.
+
+Key responsibilities
+--------------------
+ScoringContext     -- A thin wrapper that bundles the evidence pack and
+                      simulation run into a single object passed to every
+                      scorer.  Provides convenient property accessors for
+                      private reactions, platform posts, and cross-reactions.
+ConfidenceBand     -- A human-readable uncertainty range (low/mid/high) with
+                      a descriptive label like "moderate" or "high".
+load_scoring_weights / scoring_weights
+                   -- Load component weights from a YAML config file.  The
+                      LRU-cached ``scoring_weights()`` ensures the file is
+                      parsed only once per process.
+clamp              -- Constrains a value to [minimum, maximum].  Every scorer
+                      uses this to guarantee scores stay in [0.0, 1.0].
+weighted_average / weighted_sum / weighted_mean / weighted_stddev
+                   -- Standard statistical combinators.  Scorers use these to
+                      merge component sub-scores according to YAML-defined
+                      weights.
+confidence_band / confidence_band_from_sample
+                   -- Construct uncertainty bands.  The sample-based variant
+                      shrinks the spread as sample size grows (inverse square
+                      root law), reflecting greater certainty with more data.
+stable_digest      -- A deterministic SHA-256 hash used for generating stable
+                      IDs that don't change between runs with the same inputs.
+
+Why a fallback YAML parser?
+----------------------------
+The module includes a minimal YAML parser (``_load_scoring_weights_raw``) that
+activates when PyYAML is not installed.  This ensures the scoring system works
+in minimal environments without external dependencies, while still supporting
+the full YAML config format when available.
+"""
 
 from __future__ import annotations
 

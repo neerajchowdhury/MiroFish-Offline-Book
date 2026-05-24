@@ -1,4 +1,39 @@
-"""Predicted star rating distribution."""
+"""Predicted star rating distribution.
+
+What this score measures
+------------------------
+The likely distribution of star ratings (1-5) that real readers would assign
+to the book, summarized as a predicted mean rating.  This is the single most
+important aggregate signal in the report -- it answers "will readers like this
+book?" in one number.
+
+How it's calculated
+-------------------
+1. Collect all ratings from simulated reader reactions, each weighted by the
+   reaction's confidence score.
+2. Compute a weighted mean from the sample ratings (65% weight).
+3. Compute six component scores -- comprehension, emotional payoff, prose
+   quality, pacing, character attachment, and packaging fit -- each derived
+   from evidence-pack attributes and reaction signals.
+4. Blend the components via YAML-configured weights into a single "blended"
+   score, then convert to a 1-5 scale: ``1.0 + 4.0 * blended``.
+5. Combine the sample-based mean (65%) and the component-based estimate (35%)
+   for the final predicted mean rating.
+6. Build a histogram distribution from the sample ratings, or generate a
+   synthetic distribution centered on the predicted mean if no sample exists.
+
+Score range meaning
+-------------------
+predicted_mean_rating: 1.0 - 5.0 (star scale)
+  1.0-2.0  -- Strong negative reception; major revision needed.
+  2.0-3.0  -- Below average; significant friction or mismatch.
+  3.0-3.5  -- Mixed reception; polarizing or uneven.
+  3.5-4.2  -- Positive reception; solid reader satisfaction.
+  4.2-5.0  -- Strong positive reception; likely word-of-mouth driver.
+
+The confidence band indicates uncertainty: a wider band means fewer reactions
+or higher variance among them.
+"""
 
 from __future__ import annotations
 

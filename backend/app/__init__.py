@@ -39,8 +39,8 @@ def create_app(config_class=Config):
         logger.info("MiroFish-Offline Backend starting...")
         logger.info("=" * 50)
 
-    # Enable CORS
-    CORS(app, resources={r"/api/*": {"origins": "*"}})
+    # Enable CORS with configurable allowed origins (default: localhost dev servers)
+    CORS(app, resources={r"/api/*": {"origins": Config.ALLOWED_ORIGINS}})
 
     # --- Initialize Neo4jStorage singleton (DI via app.extensions) ---
     from .storage import Neo4jStorage
@@ -59,6 +59,17 @@ def create_app(config_class=Config):
     SimulationRunner.register_cleanup()
     if should_log_startup:
         logger.info("Simulation process cleanup function registered")
+
+    # Register Neo4j driver cleanup on app context teardown to prevent connection leaks
+    @app.teardown_appcontext
+    def close_neo4j_driver(exception=None):
+        """Close Neo4j driver connection when app context tears down."""
+        neo4j_storage = app.extensions.get('neo4j_storage')
+        if neo4j_storage is not None:
+            try:
+                neo4j_storage.close()
+            except Exception:
+                pass  # Driver may already be closed
 
     # Request logging middleware
     @app.before_request
@@ -85,6 +96,45 @@ def create_app(config_class=Config):
     @app.route('/health')
     def health():
         return {'status': 'ok', 'service': 'MiroFish-Offline Backend'}
+
+    # Legacy system health check with component status details
+    @app.route('/api/health')
+    def legacy_health():
+        """Health check for the legacy MiroFish system with component status."""
+        import platform
+        import shutil
+
+        neo4j_ok = False
+        neo4j_error = None
+        neo4j_storage = app.extensions.get('neo4j_storage')
+        if neo4j_storage:
+            try:
+                driver = getattr(neo4j_storage, '_driver', None)
+                if driver:
+                    driver.verify_connectivity()
+                    neo4j_ok = True
+            except Exception as e:
+                neo4j_error = str(e)
+
+        # Check disk space
+        backend_dir = os.path.dirname(__file__)
+        try:
+            disk = shutil.disk_usage(backend_dir)
+            disk_info = {
+                "total_gb": round(disk.total / (1024 ** 3), 1),
+                "free_gb": round(disk.free / (1024 ** 3), 1),
+                "used_percent": round(disk.used / disk.total * 100, 1),
+            }
+        except Exception:
+            disk_info = {"error": "Unable to determine disk usage"}
+
+        return jsonify({
+            "status": "ok" if neo4j_ok else "degraded",
+            "service": "MiroFish-Offline Backend",
+            "python_version": platform.python_version(),
+            "neo4j": {"ok": neo4j_ok, "error": neo4j_error},
+            "disk": disk_info,
+        })
 
     if should_log_startup:
         logger.info("MiroFish-Offline Backend startup complete")

@@ -57,6 +57,28 @@ class TestLocalProfilesLoader(unittest.TestCase):
         warnings = self.loader.get_profile_warnings("does_not_exist")
         self.assertEqual(warnings[0]["code"], "unknown_profile")
 
+    def test_yaml_free_parser_matches_yaml_parser(self) -> None:
+        from book_sim.local_profiles import _load_local_profiles_without_pyyaml, DEFAULT_LOCAL_PROFILES_PATH
+        import yaml
+        
+        with DEFAULT_LOCAL_PROFILES_PATH.open("r", encoding="utf-8") as handle:
+            expected = yaml.safe_load(handle)
+            
+        actual = _load_local_profiles_without_pyyaml(DEFAULT_LOCAL_PROFILES_PATH)
+        
+        self.assertEqual(actual["default_profile"], expected["default_profile"])
+        
+        self.assertEqual(actual["hardware_target"]["os"], expected["hardware_target"]["os"])
+        self.assertEqual(actual["hardware_target"]["ram_gb"], expected["hardware_target"]["ram_gb"])
+        self.assertEqual(actual["hardware_target"]["gpu"], expected["hardware_target"]["gpu"])
+        self.assertEqual(actual["hardware_target"]["vram_gb"], expected["hardware_target"]["vram_gb"])
+        
+        self.assertEqual(sorted(actual["profiles"].keys()), sorted(expected["profiles"].keys()))
+        for name, profile in expected["profiles"].items():
+            actual_profile = actual["profiles"][name]
+            for key, val in profile.items():
+                self.assertEqual(actual_profile[key], val, f"Mismatch in {name} attribute {key}")
+
 
 if __name__ == "__main__":
     unittest.main()

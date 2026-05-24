@@ -10,7 +10,7 @@
 
 [![GitHub Stars](https://img.shields.io/github/stars/nikmcfly/MiroFish-Offline?style=flat-square&color=DAA520)](https://github.com/nikmcfly/MiroFish-Offline/stargazers)
 [![GitHub Forks](https://img.shields.io/github/forks/nikmcfly/MiroFish-Offline?style=flat-square)](https://github.com/nikmcfly/MiroFish-Offline/network)
-[![Docker](https://img.shields.io/badge/Docker-Build-2496ED?style=flat-square&logo=docker&logoColor=white)](https://hub.docker.com/)
+[![Python 3.11+](https://img.shields.io/badge/Python-3.11+-3776AB?style=flat-square&logo=python)](https://www.python.org/)
 [![License: AGPL-3.0](https://img.shields.io/badge/License-AGPL--3.0-blue?style=flat-square)](./LICENSE)
 
 </div>
@@ -24,7 +24,7 @@ The [original MiroFish](https://github.com/666ghj/MiroFish) was built for the Ch
 | Original MiroFish | MiroFish-Offline |
 |---|---|
 | Chinese UI | **English UI** (1,000+ strings translated) |
-| Zep Cloud (graph memory) | **Neo4j Community Edition 5.15** |
+| Zep Cloud (graph memory) | **Neo4j Community Edition 5.18** |
 | DashScope / OpenAI API (LLM) | **Ollama** (qwen2.5, llama3, etc.) |
 | Zep Cloud embeddings | **nomic-embed-text** via Ollama |
 | Cloud API keys required | **Zero cloud dependencies** |
@@ -33,85 +33,82 @@ The [original MiroFish](https://github.com/666ghj/MiroFish) was built for the Ch
 
 1. **Graph Build** — Extracts entities (people, companies, events) and relationships from your document. Builds a knowledge graph with individual and group memory via Neo4j.
 2. **Env Setup** — Generates hundreds of agent personas, each with unique personality, opinion bias, reaction speed, influence level, and memory of past events.
-3. **Simulation** — Agents interact on simulated social platforms: posting, replying, arguing, shifting opinions. The system tracks sentiment evolution, topic propagation, and influence dynamics in real time.
+3. **Simulation** — Agents interact on simulated social platforms: posting, replying, arguing, shifting opinion. The system tracks sentiment evolution, topic propagation, and influence dynamics in real time.
 4. **Report** — A ReportAgent analyzes the post-simulation environment, interviews a focus group of agents, searches the knowledge graph for evidence, and generates a structured analysis.
 5. **Interaction** — Chat with any agent from the simulated world. Ask them why they posted what they posted. Full memory and personality persists.
 
-## Screenshot
+## Swarmbook
 
-<div align="center">
-<img src="./static/image/mirofish-offline-screenshot.jpg" alt="MiroFish Offline — English UI" width="100%"/>
-</div>
+An additive module that lets authors **stress-test manuscripts before publication**. Upload a draft, generate synthetic reader personas, simulate reactions across platforms (Goodreads, BookTok, Reddit), and get structured prediction reports with scoring, risk analysis, and draft comparison.
+
+See [INSTALL.md](./INSTALL.md) for complete installation, transfer, and configuration guides.
 
 ## Quick Start
 
-### Prerequisites
+### One-Command Install
 
-- Docker & Docker Compose (recommended), **or**
-- Python 3.11+, Node.js 18+, Neo4j 5.15+, Ollama
+**Windows:**
+```powershell
+powershell -ExecutionPolicy Bypass -File .\install\install.ps1
+```
 
-### Option A: Docker (easiest)
+**Linux/macOS:**
+```bash
+bash install/install.sh
+```
+
+This handles everything: prerequisites check, dependency installation, service setup (Neo4j + Ollama via Docker), model downloads, and verification smoke test.
+
+### Docker (Manual)
 
 ```bash
-git clone https://github.com/nikmcfly/MiroFish-Offline.git
-cd MiroFish-Offline
+git clone https://github.com/nikmcfly/MiroFish-Offline-Book.git
+cd MiroFish-Offline-Book
 cp .env.example .env
 
-# Start all services (Neo4j, Ollama, MiroFish)
-docker compose up -d
+# GPU mode (NVIDIA) or CPU mode
+docker compose --profile gpu up -d   # or --profile cpu
 
-# Pull the required models into Ollama
+# Pull models
 docker exec mirofish-ollama ollama pull qwen2.5:32b
 docker exec mirofish-ollama ollama pull nomic-embed-text
 ```
 
-Open `http://localhost:3000` — that's it.
+Open `http://localhost:5173` — that's it.
 
-### Option B: Manual
+### Start / Stop
 
-**1. Start Neo4j**
+```powershell
+# Windows
+.\scripts\windows\start_swarmbook.ps1
+.\scripts\windows\stop_swarmbook.ps1
 
-```bash
-docker run -d --name neo4j \
-  -p 7474:7474 -p 7687:7687 \
-  -e NEO4J_AUTH=neo4j/mirofish \
-  neo4j:5.15-community
+# Linux/macOS
+bash scripts/linux/start_swarmbook.sh
+bash scripts/linux/stop_swarmbook.sh
 ```
 
-**2. Start Ollama & pull models**
+## Hardware Requirements
 
-```bash
-ollama serve &
-ollama pull qwen2.5:32b      # LLM (or qwen2.5:14b for less VRAM)
-ollama pull nomic-embed-text  # Embeddings (768d)
-```
+| Component | Minimum | Recommended |
+|---|---|---|
+| RAM | 16 GB | 32 GB |
+| VRAM (GPU) | 10 GB (14b model) | 24 GB (32b model) |
+| Disk | 20 GB | 50 GB |
+| CPU | 4 cores | 8+ cores |
 
-**3. Configure & run backend**
-
-```bash
-cp .env.example .env
-# Edit .env if your Neo4j/Ollama are on non-default ports
-
-cd backend
-pip install -r requirements.txt
-python run.py
-```
-
-**4. Run frontend**
-
-```bash
-cd frontend
-npm install
-npm run dev
-```
-
-Open `http://localhost:3000`.
+CPU-only mode works but is significantly slower. Use `qwen2.5:14b` or `qwen2.5:7b` for lighter setups.
 
 ## Configuration
 
-All settings are in `.env` (copy from `.env.example`):
+All settings in `.env` (copy from `.env.example`):
 
 ```bash
+# Flask
+SECRET_KEY=<auto-generated>
+FLASK_DEBUG=True
+CORS_ORIGINS=http://localhost:5173,http://localhost:3000
+
 # LLM — points to local Ollama (OpenAI-compatible API)
 LLM_API_KEY=ollama
 LLM_BASE_URL=http://localhost:11434/v1
@@ -127,22 +124,22 @@ EMBEDDING_MODEL=nomic-embed-text
 EMBEDDING_BASE_URL=http://localhost:11434
 ```
 
-Works with any OpenAI-compatible API — swap Ollama for Claude, GPT, or any other provider by changing `LLM_BASE_URL` and `LLM_API_KEY`.
+Works with any OpenAI-compatible API — swap Ollama for any provider by changing `LLM_BASE_URL` and `LLM_API_KEY`.
 
 ## Architecture
-
-This fork introduces a clean abstraction layer between the application and the graph database:
 
 ```
 ┌─────────────────────────────────────────┐
 │              Flask API                   │
 │  graph.py  simulation.py  report.py     │
+│  book_sim.py (Swarmbook)                │
 └──────────────┬──────────────────────────┘
                │ app.extensions['neo4j_storage']
 ┌──────────────▼──────────────────────────┐
 │           Service Layer                  │
 │  EntityReader  GraphToolsService         │
 │  GraphMemoryUpdater  ReportAgent         │
+│  ProviderRouter  PrivacyGuard            │
 └──────────────┬──────────────────────────┘
                │ storage: GraphStorage
 ┌──────────────▼──────────────────────────┐
@@ -160,7 +157,7 @@ This fork introduces a clean abstraction layer between the application and the g
                │
         ┌──────▼──────┐
         │  Neo4j CE   │
-        │  5.15       │
+        │  5.18       │
         └─────────────┘
 ```
 
@@ -169,26 +166,30 @@ This fork introduces a clean abstraction layer between the application and the g
 - `GraphStorage` is an abstract interface — swap Neo4j for any other graph DB by implementing one class
 - Dependency injection via Flask `app.extensions` — no global singletons
 - Hybrid search: 0.7 × vector similarity + 0.3 × BM25 keyword search
-- Synchronous NER/RE extraction via local LLM (replaces Zep's async episodes)
-- All original dataclasses and LLM tools (InsightForge, Panorama, Agent Interviews) preserved
-
-## Hardware Requirements
-
-| Component | Minimum | Recommended |
-|---|---|---|
-| RAM | 16 GB | 32 GB |
-| VRAM (GPU) | 10 GB (14b model) | 24 GB (32b model) |
-| Disk | 20 GB | 50 GB |
-| CPU | 4 cores | 8+ cores |
-
-CPU-only mode works but is significantly slower for LLM inference. For lighter setups, use `qwen2.5:14b` or `qwen2.5:7b`.
+- Synchronous NER/RE extraction via local LLM
+- Swarmbook is additive — lives under `book_sim/` without modifying legacy code
+- PrivacyGuard enforces `local_only` mode system-wide
 
 ## Use Cases
 
 - **PR crisis testing** — simulate the public reaction to a press release before publishing
 - **Trading signal generation** — feed financial news and observe simulated market sentiment
 - **Policy impact analysis** — test draft regulations against simulated public response
+- **Manuscript pre-publication stress testing** — Swarmbook simulates reader reactions before you publish
 - **Creative experiments** — someone fed it a classical Chinese novel with a lost ending; the agents wrote a narratively consistent conclusion
+
+## Testing
+
+```bash
+cd backend
+pytest tests/ -v
+# 162+ tests covering models, scoring, providers, simulation passes,
+# privacy guard, runtime store, cache, validators, and more.
+```
+
+## Transfer to Another Laptop
+
+See [INSTALL.md → Transfer to Another Laptop](./INSTALL.md#transfer-to-another-laptop) for three methods: full reinstall with backup/restore, direct clone, and Docker image portability.
 
 ## License
 
@@ -199,7 +200,12 @@ AGPL-3.0 — same as the original MiroFish project. See [LICENSE](./LICENSE).
 This is a modified fork of [MiroFish](https://github.com/666ghj/MiroFish) by [666ghj](https://github.com/666ghj), originally supported by [Shanda Group](https://www.shanda.com/). The simulation engine is powered by [OASIS](https://github.com/camel-ai/oasis) from the CAMEL-AI team.
 
 **Modifications in this fork:**
-- Backend migrated from Zep Cloud to local Neo4j CE 5.15 + Ollama
+- Backend migrated from Zep Cloud to local Neo4j CE 5.18 + Ollama
 - Entire frontend translated from Chinese to English (20 files, 1,000+ strings)
 - All Zep references replaced with Neo4j across the UI
-- Rebranded to MiroFish Offline
+- Swarmbook module added for manuscript pre-publication stress testing
+- Comprehensive test suite (162+ tests)
+- One-command installers for Windows and Linux/macOS
+- Backup & restore utilities
+- System-wide privacy enforcement (PrivacyGuard)
+- Atomic file writes and thread-safe caching

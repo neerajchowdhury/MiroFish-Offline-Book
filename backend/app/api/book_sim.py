@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from datetime import datetime
+from datetime import datetime, timezone
 from functools import wraps
 from typing import Any, Callable, Dict, Optional, Tuple, TypeVar
 
@@ -426,7 +426,7 @@ def _neo4j_health() -> Dict[str, Any]:
 
 
 def _project_id(name: str, title: Optional[str], draft_id: Optional[str], version: Optional[str]) -> str:
-    digest = stable_digest(name, title or "", draft_id or "", version or "", datetime.now().isoformat())
+    digest = stable_digest(name, title or "", draft_id or "", version or "", datetime.now(timezone.utc).isoformat())
     return f"proj_{digest[:12]}"
 
 
@@ -484,6 +484,92 @@ def _interrogate_result(persona_id: str, payload: Dict[str, Any], store: BookSim
         question=question,
     )
     return result.to_dict()
+
+
+@book_sim_bp.before_request
+def enforce_privacy_policy():
+    """Blueprint-level middleware to enforce the privacy policy across all routes.
+
+    Inspects request args, URL parameters, and JSON payloads for privacy_mode,
+    project_id, evidence_pack_id, or simulation_id to resolve the active privacy
+    mode and update the global PrivacyGuard.
+    """
+    payload = {}
+    if request.is_json:
+        payload = request.get_json(silent=True) or {}
+        if not isinstance(payload, dict):
+            payload = {}
+
+    privacy_mode = payload.get("privacy_mode") or request.args.get("privacy_mode")
+    if privacy_mode:
+        try:
+            from ..book_sim.privacy_guard import PrivacyGuard
+            PrivacyGuard.get_instance().set_mode(privacy_mode)
+        except Exception:
+            pass
+        return
+
+    # Try resolving project_id from payload, view args, or query string
+    project_id = (
+        payload.get("project_id") or
+        payload.get("base_project_id") or
+        payload.get("compare_project_id") or
+        (request.view_args.get("project_id") if request.view_args else None) or
+        request.args.get("project_id")
+    )
+
+    store = None
+    try:
+        from ..book_sim.runtime_store import BookSimRuntimeStore
+        from ..book_sim.local_cache import LocalArtifactCache
+        cache = LocalArtifactCache(base_dir=current_app.config.get("BOOK_SIM_CACHE_DIR"))
+        store = BookSimRuntimeStore(cache=cache)
+    except Exception:
+        pass
+
+    if store and project_id:
+        try:
+            project = store.get_project(project_id)
+            if project and project.privacy_mode:
+                from ..book_sim.privacy_guard import PrivacyGuard
+                PrivacyGuard.get_instance().set_mode(project.privacy_mode)
+                return
+        except Exception:
+            pass
+
+    evidence_pack_id = (
+        payload.get("evidence_pack_id") or
+        payload.get("base_evidence_pack_id") or
+        payload.get("compare_evidence_pack_id") or
+        request.args.get("evidence_pack_id")
+    )
+    if store and evidence_pack_id:
+        try:
+            ep = store.get_evidence_pack(evidence_pack_id)
+            if ep and ep.privacy_mode:
+                from ..book_sim.privacy_guard import PrivacyGuard
+                PrivacyGuard.get_instance().set_mode(ep.privacy_mode)
+                return
+        except Exception:
+            pass
+
+    simulation_id = (
+        payload.get("simulation_id") or
+        payload.get("base_simulation_id") or
+        payload.get("compare_simulation_id") or
+        request.args.get("simulation_id")
+    )
+    if store and simulation_id:
+        try:
+            sr = store.get_simulation_run(simulation_id)
+            if sr and sr.metadata and isinstance(sr.metadata, dict):
+                mode = sr.metadata.get("effective_privacy_mode") or sr.metadata.get("profile_privacy_mode")
+                if mode:
+                    from ..book_sim.privacy_guard import PrivacyGuard
+                    PrivacyGuard.get_instance().set_mode(mode)
+                    return
+        except Exception:
+            pass
 
 
 # Create or update Swarmbook project metadata before ingestion starts.
@@ -549,7 +635,7 @@ def create_evidence_pack():
             "title": manuscript.title,
             "author_name": manuscript.author_name,
             "manuscript_input": manuscript.to_dict(),
-            "updated_at": datetime.now().isoformat(),
+            "updated_at": datetime.now(timezone.utc).isoformat(),
         }
     )
     evidence_pack = builder.build_from_manuscript(updated_project, manuscript)

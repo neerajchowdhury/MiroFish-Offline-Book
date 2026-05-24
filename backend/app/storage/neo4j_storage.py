@@ -6,6 +6,7 @@ Includes: CRUD, NER/RE-based text ingestion, hybrid search, retry logic.
 """
 
 import json
+import re
 import time
 import uuid
 import logging
@@ -278,18 +279,22 @@ class Neo4jStorage(GraphStorage):
                 actual_uuid = self._call_with_retry(session.execute_write, _merge_entity)
                 entity_uuid_map[ename.lower()] = actual_uuid
 
-                # Add entity type label
+                # Add entity type label (sanitized to prevent Cypher injection)
                 if etype and etype != "Entity":
-                    try:
-                        def _add_label(tx, _name_lower=ename.lower()):
-                            tx.run(
-                                f"MATCH (n:Entity {{graph_id: $gid, name_lower: $nl}}) SET n:`{etype}`",
-                                gid=graph_id,
-                                nl=_name_lower,
-                            )
-                        self._call_with_retry(session.execute_write, _add_label)
-                    except Exception as e:
-                        logger.warning(f"Failed to add label '{etype}' to '{ename}': {e}")
+                    safe_etype = re.sub(r'[^a-zA-Z0-9_]', '', etype)
+                    if not safe_etype:
+                        logger.warning("Skipping invalid entity type label: '%s'", etype)
+                    else:
+                        try:
+                            def _add_label(tx, _name_lower=ename.lower()):
+                                tx.run(
+                                    f"MATCH (n:Entity {{graph_id: $gid, name_lower: $nl}}) SET n:`{safe_etype}`",
+                                    gid=graph_id,
+                                    nl=_name_lower,
+                                )
+                            self._call_with_retry(session.execute_write, _add_label)
+                        except Exception as e:
+                            logger.warning("Failed to add label '%s' to '%s': %s", etype, ename, e)
 
             # Create relations
             for idx, relation in enumerate(relations):
@@ -438,10 +443,17 @@ class Neo4jStorage(GraphStorage):
             return self._call_with_retry(session.execute_read, _read)
 
     def get_nodes_by_label(self, graph_id: str, label: str) -> List[Dict[str, Any]]:
+        # Sanitize label to prevent Cypher injection via dynamic label interpolation
+        safe_label = re.sub(r'[^a-zA-Z0-9_]', '', label)
+        if not safe_label:
+            logger.warning("Invalid label '%s' sanitized to empty; returning empty result", label)
+            return []
+        if safe_label != label:
+            logger.warning("Label '%s' sanitized to '%s' for Cypher safety", label, safe_label)
+
         def _read(tx):
-            # Dynamic label in query (safe — label comes from ontology, not user input)
             query = f"""
-                MATCH (n:Entity:`{label}` {{graph_id: $gid}})
+                MATCH (n:Entity:`{safe_label}` {{graph_id: $gid}})
                 RETURN n, labels(n) AS labels
             """
             result = tx.run(query, gid=graph_id)

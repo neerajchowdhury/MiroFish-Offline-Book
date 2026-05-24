@@ -9,6 +9,7 @@ try:
 except ImportError:  # pragma: no cover - depends on local environment
     requests = None
 
+from ..privacy_guard import PrivacyGuard
 from .base import BaseProvider
 
 
@@ -35,13 +36,14 @@ class GeminiProvider(BaseProvider):
         temperature: float = 0.2,
         max_tokens: int = 2048,
     ) -> str:
+        PrivacyGuard.get_instance().assert_local_provider("gemini")
         self._require_key()
         if requests is None:
             raise RuntimeError("requests package is required for Gemini API calls")
         prompt_text = prompt if not system_prompt else f"System:\n{system_prompt}\n\nUser:\n{prompt}"
 
         url = f"{self.base_url}/v1beta/models/{self.route.model}:generateContent"
-        params = {"key": self.api_key}
+        headers = {"Authorization": f"Bearer {self.api_key}", "Content-Type": "application/json"}
         payload = {
             "contents": [
                 {
@@ -54,7 +56,7 @@ class GeminiProvider(BaseProvider):
                 "maxOutputTokens": max_tokens,
             },
         }
-        response = requests.post(url, params=params, json=payload, timeout=self.timeout_s)
+        response = requests.post(url, headers=headers, json=payload, timeout=self.timeout_s)
         response.raise_for_status()
         data = response.json()
 
@@ -72,6 +74,7 @@ class GeminiProvider(BaseProvider):
         temperature: float = 0.1,
         max_tokens: int = 2048,
     ) -> Dict[str, Any]:
+        PrivacyGuard.get_instance().assert_local_provider("gemini")
         merged_system = (system_prompt or "").strip()
         json_guard = "Return only a valid JSON object with no markdown code fences."
         raw = self.generate_text(
@@ -83,17 +86,18 @@ class GeminiProvider(BaseProvider):
         return self._parse_json_text(raw)
 
     def embed_text(self, text: str) -> list[float]:
+        PrivacyGuard.get_instance().assert_local_provider("gemini")
         self._require_key()
         if requests is None:
             raise RuntimeError("requests package is required for Gemini embedding calls")
         url = f"{self.base_url}/v1beta/models/text-embedding-004:embedContent"
-        params = {"key": self.api_key}
+        headers = {"Authorization": f"Bearer {self.api_key}", "Content-Type": "application/json"}
         payload = {
             "content": {
                 "parts": [{"text": text}],
             }
         }
-        response = requests.post(url, params=params, json=payload, timeout=self.timeout_s)
+        response = requests.post(url, headers=headers, json=payload, timeout=self.timeout_s)
         response.raise_for_status()
         data = response.json()
         values = data.get("embedding", {}).get("values", [])
@@ -121,7 +125,7 @@ class GeminiProvider(BaseProvider):
         try:
             response = requests.get(
                 f"{self.base_url}/v1beta/models/{self.route.model}",
-                params={"key": self.api_key},
+                headers={"Authorization": f"Bearer {self.api_key}"},
                 timeout=self.timeout_s,
             )
             return {

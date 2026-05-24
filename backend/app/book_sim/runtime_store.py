@@ -1,7 +1,13 @@
-"""Local artifact persistence for Swarmbook API endpoints."""
+"""Local artifact persistence for Swarmbook API endpoints.
+
+Provides a file-backed store for projects, evidence packs, simulation runs,
+reports, and comparisons. Supports transactional operations via the
+transaction() context manager for atomic multi-step saves.
+"""
 
 from __future__ import annotations
 
+from contextlib import contextmanager
 from dataclasses import dataclass, field
 from typing import Optional
 
@@ -136,3 +142,25 @@ class BookSimRuntimeStore:
         if item in values:
             return list(values)
         return list(values) + [item]
+
+    @contextmanager
+    def transaction(self, project_id: str):
+        """Context manager for atomic multi-step operations.
+
+        If an exception occurs within the context, the project state
+        is rolled back to its pre-transaction snapshot. Note that
+        individual artifact files (evidence packs, simulations, etc.)
+        are not rolled back — only the project state index is.
+
+        Usage:
+            with store.transaction(project_id) as txn:
+                txn.save_project(project)
+                txn.save_evidence_pack(pack)
+        """
+        state = self._load_state(project_id)
+        snapshot = state.to_dict()
+        try:
+            yield self
+        except Exception:
+            self._save_state(ProjectArtifactState.from_dict(snapshot))
+            raise

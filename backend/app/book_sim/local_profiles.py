@@ -15,6 +15,99 @@ except ImportError:  # pragma: no cover - exercised where PyYAML is unavailable
 REPO_ROOT = Path(__file__).resolve().parents[3]
 DEFAULT_LOCAL_PROFILES_PATH = REPO_ROOT / "configs" / "book_sim" / "local_profiles.yaml"
 
+
+def _clean_scalar(value: str) -> Any:
+    # Strip any leading/trailing quotes
+    val = value.strip()
+    if (val.startswith('"') and val.endswith('"')) or (val.startswith("'") and val.endswith("'")):
+        val = val[1:-1]
+    if val.lower() == "true":
+        return True
+    if val.lower() == "false":
+        return False
+    try:
+        return int(val)
+    except ValueError:
+        return val
+
+
+def _load_local_profiles_without_pyyaml(path: Path) -> Dict[str, Any]:
+    """Parse local_profiles.yaml when PyYAML is unavailable."""
+    data: Dict[str, Any] = {
+        "profiles": {}
+    }
+    current_section = None
+    current_profile = None
+    current_list_key = None
+
+    with path.open("r", encoding="utf-8") as handle:
+        for raw_line in handle:
+            # Strip comments and trailing space
+            line = raw_line.split("#", 1)[0].rstrip()
+            if not line.strip():
+                continue
+
+            # Level 0 (no leading spaces)
+            if not raw_line.startswith(" "):
+                if ":" in line:
+                    key, val = line.split(":", 1)
+                    key = key.strip()
+                    val = val.strip()
+                    if key == "default_profile":
+                        data["default_profile"] = val
+                    elif key in ("hardware_target", "profiles"):
+                        current_section = key
+                continue
+
+            # Level 1 (2 leading spaces, e.g. hardware_target attributes or profile keys)
+            if raw_line.startswith("  ") and not raw_line.startswith("    "):
+                stripped = line.strip()
+                if ":" in stripped:
+                    key, val = stripped.split(":", 1)
+                    key = key.strip()
+                    val = val.strip()
+                    if current_section == "hardware_target":
+                        data.setdefault("hardware_target", {})[key] = _clean_scalar(val)
+                    elif current_section == "profiles":
+                        current_profile = key
+                        data["profiles"][current_profile] = {}
+                        current_list_key = None
+                continue
+
+            # Level 2 (4 leading spaces, e.g. profile attributes)
+            if raw_line.startswith("    ") and not raw_line.startswith("      "):
+                if not current_profile:
+                    continue
+                stripped = line.strip()
+                if ":" in stripped:
+                    key, val = stripped.split(":", 1)
+                    key = key.strip()
+                    val = val.strip()
+                    if not val:
+                        # Start of a list
+                        data["profiles"][current_profile][key] = []
+                        current_list_key = key
+                    else:
+                        data["profiles"][current_profile][key] = _clean_scalar(val)
+                        current_list_key = None
+                continue
+
+            # Level 3 (6 leading spaces, e.g. list items)
+            if raw_line.startswith("      "):
+                if not current_profile or not current_list_key:
+                    continue
+                stripped = line.strip()
+                if stripped.startswith("- "):
+                    item = stripped[2:].strip()
+                    # Strip any surrounding quotes
+                    if (item.startswith('"') and item.endswith('"')) or (item.startswith("'") and item.endswith("'")):
+                        item = item[1:-1]
+                    data["profiles"][current_profile][current_list_key].append(_clean_scalar(item))
+                continue
+
+    return data
+
+
 _REQUIRED_PROFILE_FIELDS = {
     "label",
     "description",
@@ -233,12 +326,13 @@ class LocalProfileLoader:
         return deduped
 
     def _load_from_disk(self) -> LocalProfileCatalog:
-        if yaml is None:
-            raise RuntimeError("PyYAML is required to load local_profiles.yaml")
         if not self.config_path.exists():
             raise FileNotFoundError(f"Missing local profile config: {self.config_path}")
-        with self.config_path.open("r", encoding="utf-8") as handle:
-            payload = yaml.safe_load(handle) or {}
+        if yaml is None:
+            payload = _load_local_profiles_without_pyyaml(self.config_path)
+        else:
+            with self.config_path.open("r", encoding="utf-8") as handle:
+                payload = yaml.safe_load(handle) or {}
         if not isinstance(payload, dict):
             raise ValueError("local_profiles.yaml must contain a mapping at the top level")
 

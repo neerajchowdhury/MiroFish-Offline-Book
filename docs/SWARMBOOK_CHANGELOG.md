@@ -493,6 +493,28 @@
 - Phase 19 is not safe yet because privacy/compliance hardening still lacks a global policy boundary beyond router-level enforcement.
 - The repo still depends on direct Vite build as the frontend validation workaround in this environment.
 
+## Phase 20 Privacy Hardening & Config Fallback (Handoff H hardening)
+### Files
+- [book_sim.py](file:///d:/SW/MiroFish-Offline-Book/backend/app/api/book_sim.py)
+- [gemini_provider.py](file:///d:/SW/MiroFish-Offline-Book/backend/app/book_sim/providers/gemini_provider.py)
+- [nvidia_provider.py](file:///d:/SW/MiroFish-Offline-Book/backend/app/book_sim/providers/nvidia_provider.py)
+- [local_profiles.py](file:///d:/SW/MiroFish-Offline-Book/backend/app/book_sim/local_profiles.py)
+- [SWARMBOOK_INSTALL_WINDOWS.md](file:///d:/SW/MiroFish-Offline-Book/docs/SWARMBOOK_INSTALL_WINDOWS.md)
+- [test_book_sim_privacy_guard.py](file:///d:/SW/MiroFish-Offline-Book/backend/tests/test_book_sim_privacy_guard.py)
+- [test_book_sim_local_profiles.py](file:///d:/SW/MiroFish-Offline-Book/backend/tests/test_book_sim_local_profiles.py)
+- [SWARMBOOK_PHASE_STATUS.md](file:///d:/SW/MiroFish-Offline-Book/docs/SWARMBOOK_PHASE_STATUS.md)
+- [SWARMBOOK_CHANGELOG.md](file:///d:/SW/MiroFish-Offline-Book/docs/SWARMBOOK_CHANGELOG.md)
+- [SWARMBOOK_DECISIONS.md](file:///d:/SW/MiroFish-Offline-Book/docs/SWARMBOOK_DECISIONS.md)
+### Behavior changed
+- Implemented blueprint-level Flask `before_request` middleware to parse and set the global `PrivacyGuard` mode to `local_only` (or other active mode) on all API requests.
+- Added provider-level `PrivacyGuard` assertions to `GeminiProvider` and `NvidiaProvider` methods (`generate_text`, `generate_json`, `embed_text`) to raise `PrivacyViolationError` under `local_only` mode.
+- Implemented a custom YAML-free parser in `local_profiles.py` to support loading local profile configurations without PyYAML.
+- Fixed typo encoding artifacts (`wonâ€™t`) in `docs/SWARMBOOK_INSTALL_WINDOWS.md`.
+### Tests added
+- Added provider-level `PrivacyViolationError` tests in `test_book_sim_privacy_guard.py`.
+- Added `test_yaml_free_parser_matches_yaml_parser` in `test_book_sim_local_profiles.py` comparing output with PyYAML.
+
+
 ## Phase 19 E2E Validation
 ### Files
 - `backend/app/book_sim/config_loader.py`

@@ -9,16 +9,19 @@ from __future__ import annotations
 
 import json
 from dataclasses import dataclass, fields, is_dataclass, field
-from datetime import datetime
+from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any, Dict, List, Mapping, Optional, Type, TypeVar, Union, get_args, get_origin, get_type_hints
 
 
 T = TypeVar("T", bound="JsonDataclassMixin")
 
+# Default book types used across multiple dataclasses
+_DEFAULT_BOOK_TYPES = ["fiction", "nonfiction"]
+
 
 def _now_iso() -> str:
-    return datetime.now().isoformat()
+    return datetime.now(timezone.utc).isoformat()
 
 
 def _serialize_value(value: Any) -> Any:
@@ -366,7 +369,7 @@ class ReaderArchetype(JsonDataclassMixin):
     quote_sharing_probability: float = 0.5
     evidence_focus: float = 0.5
     privacy_constraints: List[str] = field(default_factory=list)
-    book_type_suitability: List[str] = field(default_factory=lambda: ["fiction", "nonfiction"])
+    book_type_suitability: List[str] = field(default_factory=lambda: list(_DEFAULT_BOOK_TYPES))
     selection_weight: float = 1.0
     genre_bias: Optional[str] = None
     patience_level: Optional[str] = None
@@ -387,13 +390,20 @@ class ReaderArchetype(JsonDataclassMixin):
 
 @dataclass
 class ReaderPersona(JsonDataclassMixin):
-    """Expanded reader persona used during simulation."""
+    """Expanded reader persona used during simulation.
+
+    The canonical fields are persona_id, display_name, and platform_home.
+    Legacy fields (id, name, cohort, platform) are kept as optional fields
+    for backward compatibility with callers that pass them as constructor kwargs.
+    They are synced from the canonical fields in __post_init__ if not provided.
+    """
 
     persona_id: str
     archetype_id: str
     display_name: str
     platform_home: str
     review_style: str
+    # Legacy fields kept for backward compatibility (synced in __post_init__)
     id: Optional[str] = None
     name: Optional[str] = None
     cohort: Optional[str] = None
@@ -408,7 +418,7 @@ class ReaderPersona(JsonDataclassMixin):
     quote_sharing_probability: float = 0.5
     evidence_focus: float = 0.5
     privacy_constraints: List[str] = field(default_factory=list)
-    book_type_suitability: List[str] = field(default_factory=lambda: ["fiction", "nonfiction"])
+    book_type_suitability: List[str] = field(default_factory=lambda: list(_DEFAULT_BOOK_TYPES))
     reading_preferences: List[str] = field(default_factory=list)
     dnf_triggers: List[str] = field(default_factory=list)
     delight_triggers: List[str] = field(default_factory=list)

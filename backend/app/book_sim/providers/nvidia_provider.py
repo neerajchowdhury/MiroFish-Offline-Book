@@ -9,6 +9,7 @@ try:
 except ImportError:  # pragma: no cover - depends on local environment
     OpenAI = None
 
+from ..privacy_guard import PrivacyGuard
 from .base import BaseProvider
 
 
@@ -48,6 +49,7 @@ class NvidiaProvider(BaseProvider):
         temperature: float = 0.2,
         max_tokens: int = 2048,
     ) -> str:
+        PrivacyGuard.get_instance().assert_local_provider("nvidia")
         self._require_key()
         messages = []
         if system_prompt:
@@ -69,6 +71,7 @@ class NvidiaProvider(BaseProvider):
         temperature: float = 0.1,
         max_tokens: int = 2048,
     ) -> Dict[str, Any]:
+        PrivacyGuard.get_instance().assert_local_provider("nvidia")
         merged_system = (system_prompt or "").strip()
         json_guard = "Return only a valid JSON object with no markdown code fences."
         raw = self.generate_text(
@@ -80,6 +83,7 @@ class NvidiaProvider(BaseProvider):
         return self._parse_json_text(raw)
 
     def embed_text(self, text: str) -> list[float]:
+        PrivacyGuard.get_instance().assert_local_provider("nvidia")
         self._require_key()
         response = self.client.embeddings.create(model=self.embedding_model, input=[text])
         vector = response.data[0].embedding

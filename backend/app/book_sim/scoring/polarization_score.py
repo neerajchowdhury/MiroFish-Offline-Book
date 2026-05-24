@@ -1,4 +1,45 @@
-"""Review polarization scoring."""
+"""Review polarization scoring.
+
+What this score measures
+------------------------
+The likelihood that reader reviews will split sharply in opposite directions
+-- some readers loving the book while others strongly dislike it.  High
+polarization is not inherently bad (it can drive engagement and discussion)
+but it signals that the book will not have universal appeal.
+
+How it's calculated
+-------------------
+Five component scores are combined via YAML-configured weights:
+
+taste_split              -- Range of ratings across all reader reactions.
+                            A wide spread (max - min >= 1.5) indicates
+                            divergent taste preferences.
+ideology_split           -- Count of counterarguments in claims and
+                            ideological-type risks in the risk map.
+                            More contested ideas = more polarization.
+prose_split              -- Low accessibility and low clarity in the style
+                            map.  Dense or unclear prose tends to polarize
+                            readers (some appreciate it, others reject it).
+ending_split             -- Number of unresolved questions in the final
+                            chapters and presence of an "ending" function.
+                            Ambiguous endings polarize readers.
+genre_expectation_split  -- Mixed/unknown book type and promise gaps in the
+                            market surface.  When readers can't categorize
+                            the book or feel misled, reviews split.
+
+Split signals are also detected: wide rating spread, mixed sentiment (both
+positive and negative reactions), and reaction backlash (cross-reactions
+shifting more negative).
+
+Score range meaning
+-------------------
+polarization_score: 0.0 - 1.0
+  0.0-0.2  -- Consensus; readers largely agree on quality.
+  0.2-0.4  -- Mild split; minor disagreements on specific aspects.
+  0.4-0.6  -- Moderate polarization; noticeable divide in reception.
+  0.6-0.8  -- Strong polarization; love-it-or-hate-it dynamic.
+  0.8-1.0  -- Extreme polarization; reviews will be sharply divided.
+"""
 
 from __future__ import annotations
 

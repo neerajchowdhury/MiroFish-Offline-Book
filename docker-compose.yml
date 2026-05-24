@@ -40,6 +40,8 @@ services:
       retries: 10
       start_period: 30s
 
+  # GPU-accelerated Ollama (requires NVIDIA GPU + NVIDIA Container Toolkit)
+  # Usage: docker compose --profile gpu up -d
   ollama:
     image: ollama/ollama:latest
     container_name: mirofish-ollama
@@ -48,6 +50,7 @@ services:
     volumes:
       - ollama_data:/root/.ollama
     restart: unless-stopped
+    profiles: ["gpu"]
     deploy:
       resources:
         reservations:
@@ -56,7 +59,21 @@ services:
               count: all
               capabilities: [gpu]
 
+  # CPU-only Ollama fallback (significantly slower but works everywhere)
+  # Usage: docker compose --profile cpu up -d
+  ollama-cpu:
+    image: ollama/ollama:latest
+    container_name: mirofish-ollama-cpu
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama_data_cpu:/root/.ollama
+    restart: unless-stopped
+    profiles: ["cpu"]
+    # Note: CPU mode is significantly slower. Use smaller models (e.g., qwen2.5:7b).
+
 volumes:
   neo4j_data:
   neo4j_logs:
   ollama_data:
+  ollama_data_cpu:

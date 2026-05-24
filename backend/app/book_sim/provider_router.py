@@ -1,4 +1,9 @@
-"""Provider router for Swarmbook model selection."""
+"""Provider router for Swarmbook model selection.
+
+Routes requests to configured model providers based on privacy mode
+and provider availability. Integrates with PrivacyGuard for system-wide
+enforcement of local_only restrictions.
+"""
 
 from __future__ import annotations
 
@@ -7,6 +12,7 @@ from dataclasses import dataclass
 from typing import Any, Dict, Mapping, Optional
 
 from .config_loader import BookSimRoutingConfig, ModelRouteEntry
+from .privacy_guard import PrivacyGuard, PrivacyViolationError
 from .providers import BaseProvider, GeminiProvider, NvidiaProvider, OllamaProvider
 
 
@@ -54,7 +60,11 @@ class BookSimProviderRouter:
         return self._providers[route_name]
 
     def select_route(self, route_name: str, privacy_mode: str = "hybrid_safe") -> RouteSelection:
-        """Select a safe route based on privacy mode and provider availability."""
+        """Select a safe route based on privacy mode and provider availability.
+
+        Integrates with the global PrivacyGuard to enforce local_only mode
+        system-wide, not just within the router.
+        """
         default_route = "local_ollama"
         requested_route = route_name or default_route
 
@@ -87,6 +97,11 @@ class BookSimProviderRouter:
                 chosen_entry = self.routing_config.model_routes[chosen_route]
                 chosen_provider = self._providers[chosen_route]
                 reason = "requested provider unavailable; using local_ollama"
+
+        # Enforce privacy guard system-wide
+        guard = PrivacyGuard.get_instance()
+        guard.set_mode(privacy_mode)
+        guard.assert_local_provider(chosen_entry.provider)
 
         return RouteSelection(
             requested_route=route_name,

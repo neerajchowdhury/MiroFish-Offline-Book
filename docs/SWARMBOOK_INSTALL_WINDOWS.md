@@ -135,14 +135,14 @@ powershell -ExecutionPolicy Bypass -File .\scripts\windows\smoke_test_swarmbook.
 
 ## Troubleshooting
 
-### Backend won’t start
+### Backend won't start
 - Ensure venv is activated (if using manual dev).
 - Run:
 ```powershell
 python -m compileall backend
 ```
 
-### Frontend won’t start
+### Frontend won't start
 - Ensure Node/npm are installed and `npm ci` completed in `frontend/`.
 - If port 5173 is in use, run:
 ```powershell

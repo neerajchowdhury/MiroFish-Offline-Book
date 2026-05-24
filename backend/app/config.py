@@ -4,6 +4,7 @@ Loads configuration from .env file in project root directory
 """
 
 import os
+import secrets
 from dotenv import load_dotenv
 
 # Load .env file from project root
@@ -17,15 +18,24 @@ else:
     load_dotenv(override=True)
 
 
+def _generate_secret_key() -> str:
+    """Generate a cryptographically random secret key if none is configured."""
+    return secrets.token_hex(32)
+
+
 class Config:
     """Flask configuration class"""
 
     # Flask configuration
-    SECRET_KEY = os.environ.get('SECRET_KEY', 'mirofish-secret-key')
+    SECRET_KEY = os.environ.get('SECRET_KEY') or _generate_secret_key()
     DEBUG = os.environ.get('FLASK_DEBUG', 'True').lower() == 'true'
 
     # JSON configuration - disable ASCII escaping to display Chinese directly (not as \uXXXX)
     JSON_AS_ASCII = False
+
+    # CORS configuration
+    CORS_ORIGINS = os.environ.get('CORS_ORIGINS', 'http://localhost:5173,http://localhost:3000')
+    ALLOWED_ORIGINS = [o.strip() for o in CORS_ORIGINS.split(',') if o.strip()]
 
     # LLM configuration (unified OpenAI format)
     LLM_API_KEY = os.environ.get('LLM_API_KEY')

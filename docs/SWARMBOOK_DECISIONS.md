@@ -160,3 +160,17 @@
 - Rationale: The active local Python environment lacks PyYAML, but E2E validation still needs deterministic config/profile loading without installing dependencies.
 - Trade-off: The fallback only supports the existing `model_routes.yaml` and `privacy_modes.yaml` shapes; PyYAML remains preferred when installed.
 - Files affected: `backend/app/book_sim/config_loader.py`, `backend/tests/test_book_sim_e2e.py`
+
+## D-024
+- Date: `2026-05-24`
+- Decision: Add app-wide `before_request` request filter hook on Flask blueprints to set system-wide `PrivacyGuard`, and enforce `local_only` checks inside `GeminiProvider` and `NvidiaProvider` generate/embed methods.
+- Rationale: Close the gap where privacy enforcement was only router-scoped, ensuring provider-level safety even if router selection is bypassed.
+- Trade-off: None. Ensures robust privacy compliance system-wide.
+- Files affected: `backend/app/api/book_sim.py`, `backend/app/book_sim/providers/gemini_provider.py`, `backend/app/book_sim/providers/nvidia_provider.py`, `backend/tests/test_book_sim_privacy_guard.py`
+
+## D-025
+- Date: `2026-05-24`
+- Decision: Implement custom YAML-free parser fallback in `local_profiles.py` for parsing `local_profiles.yaml` when PyYAML is missing.
+- Rationale: Ensures that local profile custom configurations are loaded successfully even in python environments missing PyYAML dependency, mirroring route config fallbacks.
+- Trade-off: None. Strengthens local-first fallback loading.
+- Files affected: `backend/app/book_sim/local_profiles.py`, `backend/tests/test_book_sim_local_profiles.py`

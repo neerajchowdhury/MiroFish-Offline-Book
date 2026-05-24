@@ -4,7 +4,7 @@ from __future__ import annotations
 
 import hashlib
 import json
-from datetime import datetime
+from datetime import datetime, timezone
 from typing import Optional
 
 from ..graph_persistence import BookGraphPersistence
@@ -58,7 +58,7 @@ class SimulationOrchestrator:
         if cached:
             return SimulationRun.from_dict(cached["simulation_run"])
 
-        started_at = datetime.now().isoformat()
+        started_at = datetime.now(timezone.utc).isoformat()
         personas = self.persona_generator.generate(
             book_type=evidence_pack.book_dna.book_type if evidence_pack.book_dna else "mixed_unknown",
             privacy_mode=evidence_pack.privacy_mode,
@@ -103,7 +103,7 @@ class SimulationOrchestrator:
             provider_route="local_ollama" if evidence_pack.privacy_mode == "local_only" else None,
             status="completed",
             started_at=started_at,
-            ended_at=datetime.now().isoformat(),
+            ended_at=datetime.now(timezone.utc).isoformat(),
             total_rounds=self.max_reaction_rounds,
             current_round=self.max_reaction_rounds,
             personas_count=len(personas),
@@ -156,9 +156,12 @@ class SimulationOrchestrator:
         simulation_seed: Optional[int],
         persona_overrides: Optional[PersonaGenerationOverrides],
     ) -> str:
+        # Use stable identifiers instead of full dict serialization
+        # to avoid cache invalidation from irrelevant metadata changes
         payload = {
-            "project": project.to_dict(),
-            "evidence_pack": evidence_pack.to_dict(),
+            "project_id": project.project_id,
+            "pack_id": evidence_pack.pack_id,
+            "pack_version": evidence_pack.version,
             "simulation_seed": simulation_seed,
             "persona_overrides": persona_overrides.__dict__ if persona_overrides else {},
             "cross_reaction_posts": self.cross_reaction_posts,

@@ -1,4 +1,54 @@
-"""Viral potential scoring by platform."""
+"""Viral potential scoring by platform.
+
+What this score measures
+------------------------
+How likely the book is to spread organically across different social and
+reading platforms.  Each platform has its own scoring function that weights
+viral drivers differently, reflecting the unique culture and mechanics of
+that platform.
+
+How it's calculated
+-------------------
+Six global component scores are computed first:
+
+emotional_spike       -- Average reader attachment score, measuring how
+                         strongly readers connect emotionally.
+trope_visibility      -- Count of discoverability hooks and themes that
+                         map to recognizable genre tropes.
+novelty               -- Diversity of chapter functions and character count,
+                         measuring how fresh the book feels.
+controversy           -- Proxy from reader confusion and cross-reaction
+                         rating shifts (see controversy_score for full logic).
+quoteability          -- Proxy from style map quoteability rating, summary
+                         presence, and quote card candidates in posts.
+concise_explainability -- Whether the premise can be stated in under 30
+                         words and whether claims are extractable.
+
+These components form a base score, which is then adjusted per platform:
+
+goodreads    -- Weighted toward sentiment and shelf signals (praise).
+booktok      -- Weighted toward emotional spike, quoteability, and video
+                signals (viral triggers, hook lines).
+reddit       -- Weighted toward controversy and concise explainability;
+                skepticism (confusion) is a factor.
+bookstagram  -- Weighted toward quoteability and aesthetic appeal.
+x            -- Weighted toward controversy and "hot take" signals.
+newsletter   -- Weighted toward recommendation probability and market fit.
+bookclub     -- Weighted toward controversy, open questions, and risks
+                (discussion fuel).
+
+Score range meaning
+-------------------
+platform_scores: 0.0 - 1.0 per platform
+  0.0-0.2  -- Unlikely to gain traction on this platform.
+  0.2-0.4  -- Low potential; may reach niche audiences.
+  0.4-0.6  -- Moderate potential; could see steady organic spread.
+  0.6-0.8  -- High potential; likely to trend in relevant communities.
+  0.8-1.0  -- Very high potential; strong viral trajectory expected.
+
+The top_platforms list ranks the three platforms with the highest scores,
+guiding where marketing efforts should focus.
+"""
 
 from __future__ import annotations
 
