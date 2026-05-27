@@ -8,8 +8,8 @@ export const createEvidencePack = (data) => {
   return requestWithRetry(() => service.post('/api/book-sim/evidence-packs', data), 2, 500)
 }
 
-export const runBookSimulation = (data) => {
-  return requestWithRetry(() => service.post('/api/book-sim/simulate', data), 2, 500)
+export const runBookSimulation = (data, config = {}) => {
+  return requestWithRetry(() => service.post('/api/book-sim/simulate', data, config), 2, 500)
 }
 
 export const getBookSimReport = (projectId) => {
@@ -26,4 +26,14 @@ export const compareBookDrafts = (data) => {
 
 export const getBookSimHealth = () => {
   return service.get('/api/book-sim/health')
+}
+
+export const parseManuscriptFile = (file) => {
+  const formData = new FormData()
+  formData.append('file', file)
+  return service.post('/api/book-sim/parse-file', formData, {
+    headers: {
+      'Content-Type': 'multipart/form-data',
+    },
+  })
 }

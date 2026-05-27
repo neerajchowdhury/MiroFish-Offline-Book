@@ -1,78 +1,661 @@
 <template>
-  <SwarmbookLayout
+  <SwarmbookAppShell
     active-route="SwarmbookCompare"
     :project-id="session.projectId"
     title="Draft Comparison"
-    subtitle="Compare the current Swarmbook project against another project using the backend comparison export without altering either draft."
-    :status-text="loading ? 'Comparing drafts' : 'Comparison ready'"
-    :status-tone="loading ? 'loading' : 'ready'"
+    subtitle="Compare the current Swarmbook project against another version using the comparison export to trace pacing shifts, rating changes, and character movement."
     :error-message="error"
     :loading-message="loadingMessage"
   >
-    <section class="grid">
-      <article class="card">
-        <h2>Compare Drafts</h2>
-        <div class="field-grid">
-          <label>
-            <span>Base project ID</span>
-            <input v-model="form.baseProjectId" type="text" />
-          </label>
-          <label>
-            <span>Compare project ID</span>
-            <input v-model="form.compareProjectId" type="text" placeholder="Second project id" />
-          </label>
-          <label>
-            <span>Simulation seed</span>
-            <input v-model.number="form.simulationSeed" type="number" min="0" />
-          </label>
-        </div>
-        <div class="action-row">
-          <button class="ghost-btn" @click="router.push({ name: 'SwarmbookReport', params: { projectId: session.projectId } })">
-            Back To Report
+    <!-- Top Control Bar: Draft Selector Panel -->
+    <section class="card select-card" aria-labelledby="selector-title">
+      <div class="card-header-row">
+        <h2 id="selector-title">Select Drafts to Compare</h2>
+        <div class="control-actions">
+          <button
+            class="text-link-btn"
+            @click="toggleManualInput"
+            @keydown.enter="toggleManualInput"
+            aria-label="Toggle between recent list and manual text input"
+          >
+            {{ manualInputMode ? '📂 Select from History' : '✏️ Enter IDs Manually' }}
           </button>
-          <button class="primary-btn" :disabled="loading || !canCompare" @click="runComparison">
-            {{ loading ? 'Comparing...' : 'Run Comparison' }}
+          <button
+            class="text-link-btn demo-btn"
+            @click="loadMockComparison"
+            @keydown.enter="loadMockComparison"
+            aria-label="Load premium demo comparison dataset"
+          >
+            🧪 Load Demo Comparison
           </button>
         </div>
-      </article>
+      </div>
 
-      <article class="card" v-if="comparison">
-        <h2>Comparison Summary</h2>
-        <p>{{ comparison.report.summary }}</p>
-        <p><strong>What improved:</strong> {{ joinList(comparison.report.what_improved) }}</p>
-        <p><strong>What got worse:</strong> {{ joinList(comparison.report.what_got_worse) }}</p>
-        <p><strong>Still blocks publishing:</strong> {{ joinList(comparison.report.still_blocking) }}</p>
-      </article>
+      <div class="field-grid">
+        <!-- Base Draft Selector -->
+        <div class="field-col">
+          <label id="base-draft-label" class="field-label">
+            <span>Base Draft (Reference)</span>
+            
+            <!-- Dropdown Selector -->
+            <select
+              v-if="!manualInputMode"
+              v-model="form.baseProjectId"
+              aria-labelledby="base-draft-label"
+            >
+              <option value="" disabled>-- Select Base Project --</option>
+              <option
+                v-for="proj in recentProjects"
+                :key="'base-' + proj.project_id"
+                :value="proj.project_id"
+              >
+                {{ proj.title || proj.name }} ({{ truncateId(proj.project_id) }})
+              </option>
+            </select>
+
+            <!-- Manual TextInput -->
+            <input
+              v-else
+              v-model="form.baseProjectId"
+              type="text"
+              placeholder="e.g. proj_4f9a3c..."
+              aria-labelledby="base-draft-label"
+            />
+          </label>
+        </div>
+
+        <!-- Compare Draft Selector -->
+        <div class="field-col">
+          <label id="compare-draft-label" class="field-label">
+            <span>Compare Draft (Revised Version)</span>
+
+            <!-- Dropdown Selector -->
+            <select
+              v-if="!manualInputMode"
+              v-model="form.compareProjectId"
+              aria-labelledby="compare-draft-label"
+            >
+              <option value="" disabled>-- Select Comparison Project --</option>
+              <option
+                v-for="proj in recentProjects"
+                :key="'compare-' + proj.project_id"
+                :value="proj.project_id"
+              >
+                {{ proj.title || proj.name }} ({{ truncateId(proj.project_id) }})
+              </option>
+            </select>
+
+            <!-- Manual TextInput -->
+            <input
+              v-else
+              v-model="form.compareProjectId"
+              type="text"
+              placeholder="Second project ID string"
+              aria-labelledby="compare-draft-label"
+            />
+          </label>
+        </div>
+
+        <!-- Simulation Seed (Optional alignment) -->
+        <div class="field-col seed-col">
+          <label id="seed-label" class="field-label">
+            <span>Align Sim Seed</span>
+            <input
+              v-model.number="form.simulationSeed"
+              type="number"
+              min="0"
+              placeholder="17"
+              aria-labelledby="seed-label"
+            />
+          </label>
+        </div>
+      </div>
+
+      <div class="action-row">
+        <button
+          class="ghost-btn"
+          @click="router.push({ name: 'SwarmbookReport', params: { projectId: session.projectId } })"
+          @keydown.enter="router.push({ name: 'SwarmbookReport', params: { projectId: session.projectId } })"
+        >
+          Back To Report
+        </button>
+        <button
+          class="primary-btn"
+          :disabled="loading || !canCompare"
+          @click="runComparison"
+          @keydown.enter="runComparison"
+        >
+          {{ loading ? 'Comparing Drafts...' : 'Run Draft Comparison' }}
+        </button>
+      </div>
     </section>
 
-    <section v-if="comparison" class="card markdown-card">
-      <h2>Markdown Export</h2>
-      <pre>{{ comparison.markdown }}</pre>
-    </section>
-  </SwarmbookLayout>
+    <!-- Main Comparison Workspace -->
+    <div v-if="comparisonData" class="comparison-workspace">
+      <!-- 1. Executive Summary & Verdict Delta -->
+      <section class="card verdict-card" aria-labelledby="summary-title">
+        <div class="meta-row">
+          <span class="comparison-badge">COMPARISON RUN: {{ comparisonData.report.comparison_id }}</span>
+          <span class="seed-badge">Seed Alignment: {{ comparisonData.report.metadata?.simulation_seed ?? 'N/A' }}</span>
+        </div>
+        <h2 id="summary-title">Executive Comparison Verdict</h2>
+        <p class="verdict-summary-text">{{ comparisonData.report.summary || 'No comparison summary provided.' }}</p>
+      </section>
+
+      <!-- 2. Side-by-Side Scorecard Matrix -->
+      <section class="scorecard-matrix" aria-label="Score movement dashboard">
+        <!-- Readiness Card -->
+        <article class="metric-box">
+          <span class="metric-title">Publishing Readiness</span>
+          <div class="comparison-numbers">
+            <span class="base-val">{{ baseReadiness }}%</span>
+            <span class="arrow-indicator">➡️</span>
+            <span class="compare-val" :class="getReadinessTone(compareReadiness)">{{ compareReadiness }}%</span>
+          </div>
+          <div class="delta-badge" :class="getDeltaClass(readinessDelta, true)">
+            {{ formatDelta(readinessDelta) }}%
+          </div>
+          <span class="metric-subtitle">Weighted stress readiness</span>
+        </article>
+
+        <!-- Rating Card -->
+        <article class="metric-box">
+          <span class="metric-title">Predicted Star Rating</span>
+          <div class="comparison-numbers">
+            <span class="base-val">{{ formatNumber(comparisonData.report.base_scores?.rating_mean, '1.00') }}</span>
+            <span class="arrow-indicator">➡️</span>
+            <span class="compare-val" :class="getRatingTone(comparisonData.report.compare_scores?.rating_mean)">
+              {{ formatNumber(comparisonData.report.compare_scores?.rating_mean, '1.00') }}
+            </span>
+          </div>
+          <div class="delta-badge" :class="getDeltaClass(comparisonData.report.delta_scores?.rating_mean?.delta, true)">
+            {{ formatDelta(comparisonData.report.delta_scores?.rating_mean?.delta) }}
+          </div>
+          <span class="metric-subtitle">Average synthetic rating</span>
+        </article>
+
+        <!-- DNF Abandonment Risk -->
+        <article class="metric-box">
+          <span class="metric-title">DNF Abandonment Risk</span>
+          <div class="comparison-numbers">
+            <span class="base-val">{{ formatPercent(comparisonData.report.base_scores?.dnf_risk) }}</span>
+            <span class="arrow-indicator">➡️</span>
+            <span class="compare-val" :class="getDnfTone(comparisonData.report.compare_scores?.dnf_risk)">
+              {{ formatPercent(comparisonData.report.compare_scores?.dnf_risk) }}
+            </span>
+          </div>
+          <div class="delta-badge" :class="getDeltaClass(comparisonData.report.delta_scores?.dnf_risk?.delta, false)">
+            {{ formatDeltaPercent(comparisonData.report.delta_scores?.dnf_risk?.delta) }}
+          </div>
+          <span class="metric-subtitle">Probability of early drop</span>
+        </article>
+
+        <!-- Controversy Radar -->
+        <article class="metric-box">
+          <span class="metric-title">Controversy Radar</span>
+          <div class="comparison-numbers">
+            <span class="base-val">{{ formatPercent(comparisonData.report.base_scores?.controversy_risk) }}</span>
+            <span class="arrow-indicator">➡️</span>
+            <span class="compare-val" :class="getControversyTone(comparisonData.report.compare_scores?.controversy_risk)">
+              {{ formatPercent(comparisonData.report.compare_scores?.controversy_risk) }}
+            </span>
+          </div>
+          <div class="delta-badge" :class="getDeltaClass(comparisonData.report.delta_scores?.controversy_risk?.delta, false)">
+            {{ formatDeltaPercent(comparisonData.report.delta_scores?.controversy_risk?.delta) }}
+          </div>
+          <span class="metric-subtitle">Moral/ideological drag</span>
+        </article>
+
+        <!-- Quoteability / Max Virality -->
+        <article class="metric-box">
+          <span class="metric-title">Quoteability & Virality</span>
+          <div class="comparison-numbers">
+            <span class="base-val">{{ formatNumber(comparisonData.report.base_scores?.quoteability_score, '1.0') }}</span>
+            <span class="arrow-indicator">➡️</span>
+            <span class="compare-val text-ready">
+              {{ formatNumber(comparisonData.report.compare_scores?.quoteability_score, '1.0') }}
+            </span>
+          </div>
+          <div class="delta-badge" :class="getDeltaClass(comparisonData.report.delta_scores?.quoteability_score?.delta, true)">
+            {{ formatDelta(comparisonData.report.delta_scores?.quoteability_score?.delta) }}
+          </div>
+          <span class="metric-subtitle">Pull-quote hook sharing</span>
+        </article>
+      </section>
+
+      <!-- 3. Detail Inspector Workbench -->
+      <section class="card workbench-card" aria-label="Comparison detail workbench">
+        <!-- Tabs Header Navigation -->
+        <div class="workbench-tabs" role="tablist" aria-label="Comparison Sections">
+          <button
+            v-for="tab in availableTabs"
+            :key="tab.id"
+            class="tab-btn"
+            :class="{ active: activeTab === tab.id }"
+            role="tab"
+            :aria-selected="activeTab === tab.id"
+            :aria-controls="'panel-' + tab.id"
+            :id="'tab-' + tab.id"
+            @click="activeTab = tab.id"
+            @keydown.enter="activeTab = tab.id"
+          >
+            <span class="icon">{{ tab.icon }}</span> {{ tab.label }}
+          </button>
+        </div>
+
+        <!-- Tab Panel Workspace -->
+        <div
+          v-for="tab in availableTabs"
+          v-show="activeTab === tab.id"
+          :key="'panel-' + tab.id"
+          :id="'panel-' + tab.id"
+          class="tab-panel"
+          role="tabpanel"
+          :aria-labelledby="'tab-' + tab.id"
+        >
+          <!-- TAB: PRIORITIES & CHECKLIST -->
+          <div v-if="tab.id === 'priorities'" class="priorities-container">
+            <div class="list-layout-grid">
+              <!-- What Improved -->
+              <section class="checklist-section positive">
+                <h3>🟢 What Improved</h3>
+                <div v-if="comparisonData.report.what_improved?.length === 0" class="no-items">
+                  No clear improvements detected.
+                </div>
+                <ul v-else class="checklist-items">
+                  <li v-for="(item, idx) in comparisonData.report.what_improved" :key="'imp-' + idx">
+                    <span class="icon">✨</span>
+                    <span class="text">{{ item }}</span>
+                  </li>
+                </ul>
+              </section>
+
+              <!-- What Got Worse -->
+              <section class="checklist-section negative">
+                <h3>🔴 What Got Worse</h3>
+                <div v-if="comparisonData.report.what_got_worse?.length === 0" class="no-items">
+                  No regressions or negative pacing shifts detected.
+                </div>
+                <ul v-else class="checklist-items">
+                  <li v-for="(item, idx) in comparisonData.report.what_got_worse" :key="'reg-' + idx">
+                    <span class="icon">⚠️</span>
+                    <span class="text">{{ item }}</span>
+                  </li>
+                </ul>
+              </section>
+
+              <!-- What Still Blocks Publishing -->
+              <section class="checklist-section blocking">
+                <h3>🟠 Still Blocks Publishing</h3>
+                <div v-if="comparisonData.report.still_blocking?.length === 0" class="no-items">
+                  No critical publishing blocks remain.
+                </div>
+                <ul v-else class="checklist-items">
+                  <li v-for="(item, idx) in comparisonData.report.still_blocking" :key="'blk-' + idx">
+                    <span class="icon">🔒</span>
+                    <span class="text">{{ item }}</span>
+                  </li>
+                </ul>
+              </section>
+
+              <!-- Recommended Next Revision Priorities -->
+              <section class="checklist-section priority">
+                <h3>✍️ Recommended Revision Checklist</h3>
+                <div v-if="comparisonData.report.revision_priorities?.length === 0" class="no-items">
+                  No targeted revision priorities generated.
+                </div>
+                <ul v-else class="checklist-items">
+                  <li v-for="(item, idx) in comparisonData.report.revision_priorities" :key="'rev-' + idx">
+                    <span class="checkbox-box"></span>
+                    <span class="text">{{ item }}</span>
+                  </li>
+                </ul>
+              </section>
+            </div>
+          </div>
+
+          <!-- TAB: DNA & SEGMENTS -->
+          <div v-if="tab.id === 'dna_segments'" class="dna-segments-container">
+            <!-- DNA Changes Table -->
+            <div class="sub-section">
+              <h3>Manuscript DNA Adaptations</h3>
+              <div v-if="comparisonData.report.book_dna_changes?.length === 0" class="no-items-banner">
+                No Book DNA shifts detected. Premises, tone markers, and comp titles are aligned.
+              </div>
+              <div v-else class="table-container">
+                <table class="styled-table">
+                  <thead>
+                    <tr>
+                      <th>Attribute</th>
+                      <th>From (Base)</th>
+                      <th>To (Compare)</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr v-for="(change, idx) in comparisonData.report.book_dna_changes" :key="'dna-ch-' + idx">
+                      <td class="attr-name">{{ formatFieldName(change.field) }}</td>
+                      <td class="old-val">{{ change.from || change.value || 'N/A' }}</td>
+                      <td class="new-val">{{ change.to || (change.change_type === 'added' ? 'Added' : 'Removed') }}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <!-- Segment Movement Grid -->
+            <div class="sub-section">
+              <h3>Reader Cohort Sentiment Shift</h3>
+              <div v-if="comparisonData.report.reader_segment_movement?.length === 0" class="no-items-banner">
+                No segment rating drift recorded.
+              </div>
+              <div v-else class="table-container">
+                <table class="styled-table">
+                  <thead>
+                    <tr>
+                      <th>Reader Segment / Platform</th>
+                      <th>Rating Shift</th>
+                      <th>Recommendation Delta</th>
+                      <th>Stance Shift</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr v-for="(move, idx) in comparisonData.report.reader_segment_movement" :key="'seg-' + idx">
+                      <td class="cohort-name">{{ formatSegmentLabel(move.segment) }}</td>
+                      <td class="shift-number" :class="getDeltaClass(move.rating_delta, true)">
+                        {{ formatDelta(move.rating_delta) || '0.00' }}
+                      </td>
+                      <td class="shift-number" :class="getDeltaClass(move.recommendation_delta, true)">
+                        {{ formatDeltaPercent(move.recommendation_delta) || '0%' }}
+                      </td>
+                      <td>
+                        <span v-if="move.from_signal && move.to_signal" class="stance-flow">
+                          <span class="stance-badge" :class="move.from_signal">{{ move.from_signal }}</span>
+                          ➡️
+                          <span class="stance-badge" :class="move.to_signal">{{ move.to_signal }}</span>
+                        </span>
+                        <span v-else class="stance-badge" :class="move.change_type || 'retained'">
+                          {{ move.change_type || 'Retained' }}
+                        </span>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <!-- TAB: PACING (CHAPTERS) -->
+          <div v-if="tab.id === 'pacing'" class="pacing-container">
+            <h3>Chapter Structural & Pacing Shifts</h3>
+            <div v-if="comparisonData.report.chapter_deltas?.length === 0" class="no-items-banner">
+              No chapter structure pacing shifts detected. Pacing notes and turning points are identical.
+            </div>
+            <div v-else class="chapter-deltas-list">
+              <article
+                v-for="chap in comparisonData.report.chapter_deltas"
+                :key="'chap-' + chap.chapter_id + chap.chapter_number"
+                class="chapter-delta-card"
+                :class="chap.change_type"
+              >
+                <div class="chap-badge-header">
+                  <span class="chapter-num">Chapter {{ chap.chapter_number }}</span>
+                  <span class="change-tag" :class="chap.change_type">{{ chap.change_type }}</span>
+                </div>
+                <h4 class="chap-title">{{ chap.title || 'Untitled Chapter' }}</h4>
+
+                <div class="chap-details-grid">
+                  <!-- Pacing change -->
+                  <div v-if="chap.pacing_from || chap.pacing_to" class="chap-detail-col">
+                    <span class="label">Pacing Shift</span>
+                    <span class="value pacing-flow">
+                      <span class="pacing-text" :class="chap.pacing_from">{{ chap.pacing_from || 'N/A' }}</span>
+                      ➡️
+                      <span class="pacing-text" :class="chap.pacing_to">{{ chap.pacing_to || 'N/A' }}</span>
+                    </span>
+                  </div>
+
+                  <!-- Friction change -->
+                  <div v-if="chap.friction_from?.length || chap.friction_to?.length" class="chap-detail-col">
+                    <span class="label">Friction Mitigation</span>
+                    <div class="friction-compare">
+                      <div class="friction-side old" v-if="chap.friction_from?.length">
+                        <span>Base friction:</span>
+                        <ul>
+                          <li v-for="f in chap.friction_from" :key="f">{{ f }}</li>
+                        </ul>
+                      </div>
+                      <div class="friction-side new" v-if="chap.friction_to?.length">
+                        <span>New friction:</span>
+                        <ul>
+                          <li v-for="f in chap.friction_to" :key="f">{{ f }}</li>
+                        </ul>
+                      </div>
+                      <div class="friction-side cleared" v-if="chap.friction_from?.length && !chap.friction_to?.length">
+                        <span>✅ Friction cleared completely.</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Summary length shift -->
+                  <div v-if="chap.summary_shift" class="chap-detail-col">
+                    <span class="label">Summary Shift</span>
+                    <span class="value summary-shift-val" :class="chap.summary_shift">{{ chap.summary_shift }}</span>
+                  </div>
+                </div>
+              </article>
+            </div>
+          </div>
+
+          <!-- TAB: CHARACTERS & CLAIMS -->
+          <div v-if="tab.id === 'characters_claims'" class="characters-claims-container">
+            <!-- Character Changes -->
+            <div class="sub-section">
+              <h3>Character Attachment & Cast Adjustments</h3>
+              <div v-if="comparisonData.report.character_deltas?.length === 0" class="no-items-banner">
+                No character changes or attachment potential movement detected.
+              </div>
+              <div v-else class="character-deltas-grid">
+                <article
+                  v-for="char in comparisonData.report.character_deltas"
+                  :key="char.character_id"
+                  class="character-delta-card"
+                  :class="char.change_type"
+                >
+                  <div class="chap-badge-header">
+                    <span class="char-name">👤 {{ char.name }}</span>
+                    <span class="change-tag" :class="char.change_type">{{ char.change_type }}</span>
+                  </div>
+                  <div class="char-details">
+                    <p v-if="char.role_from || char.role_to">
+                      <strong>Role:</strong>
+                      <span class="role-flow">
+                        {{ char.role_from || 'N/A' }} ➡️ {{ char.role_to || 'N/A' }}
+                      </span>
+                    </p>
+                    <p v-if="char.attachment_delta !== undefined">
+                      <strong>Attachment Shift:</strong>
+                      <span class="shift-number" :class="getDeltaClass(char.attachment_delta, true)">
+                        {{ formatDelta(char.attachment_delta) }}
+                      </span>
+                    </p>
+                    <div class="friction-compare" v-if="char.friction_from?.length || char.friction_to?.length">
+                      <div class="friction-side old" v-if="char.friction_from?.length">
+                        <span>Previous friction:</span>
+                        <ul>
+                          <li v-for="f in char.friction_from" :key="f">{{ f }}</li>
+                        </ul>
+                      </div>
+                      <div class="friction-side new" v-if="char.friction_to?.length">
+                        <span>Revised friction:</span>
+                        <ul>
+                          <li v-for="f in char.friction_to" :key="f">{{ f }}</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </article>
+              </div>
+            </div>
+
+            <!-- Claim Changes -->
+            <div class="sub-section">
+              <h3>Nonfiction Claim & Argument Strength Shifts</h3>
+              <div v-if="comparisonData.report.claim_deltas?.length === 0" class="no-items-banner">
+                No claim modifications or counterargument changes detected.
+              </div>
+              <div v-else class="table-container">
+                <table class="styled-table">
+                  <thead>
+                    <tr>
+                      <th>Claim / Argument Text</th>
+                      <th>Change</th>
+                      <th>Evidence Delta</th>
+                      <th>Risk / Counterarguments</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr v-for="claim in comparisonData.report.claim_deltas" :key="claim.claim_id">
+                      <td class="claim-text-col">{{ claim.claim_text }}...</td>
+                      <td>
+                        <span class="change-tag" :class="claim.change_type">{{ claim.change_type }}</span>
+                      </td>
+                      <td class="shift-number" :class="getDeltaClass(claim.evidence_strength_delta, true)">
+                        {{ formatDelta(claim.evidence_strength_delta) || '0.00' }}
+                      </td>
+                      <td>
+                        <div class="risk-cell-details">
+                          <span v-if="claim.risk_flags_from?.length || claim.risk_flags_to?.length" class="cell-block">
+                            <strong>Risks:</strong>
+                            {{ claim.risk_flags_from?.join(', ') || 'None' }} ➡️ {{ claim.risk_flags_to?.join(', ') || 'None' }}
+                          </span>
+                          <span v-if="claim.counterarguments_from?.length || claim.counterarguments_to?.length" class="cell-block">
+                            <strong>Counterarguments:</strong>
+                            {{ claim.counterarguments_from?.join(', ') || 'None' }} ➡️ {{ claim.counterarguments_to?.join(', ') || 'None' }}
+                          </span>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <!-- TAB: RAW EXPORT -->
+          <div v-if="tab.id === 'raw_export'" class="raw-export-container">
+            <div class="export-actions-row">
+              <button
+                class="ghost-btn sm"
+                @click="copyMarkdownToClipboard"
+                @keydown.enter="copyMarkdownToClipboard"
+              >
+                📋 Copy Markdown Report
+              </button>
+              <button
+                class="ghost-btn sm"
+                @click="downloadMarkdown"
+                @keydown.enter="downloadMarkdown"
+              >
+                📥 Download Markdown File
+              </button>
+              <button
+                class="ghost-btn sm"
+                @click="downloadJson"
+                @keydown.enter="downloadJson"
+              >
+                📥 Download JSON Export
+              </button>
+            </div>
+            <div class="markdown-preview-box">
+              <pre>{{ comparisonData.markdown }}</pre>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- Empty State: Load comparison first -->
+    <div v-else class="card empty-compare-state">
+      <div class="empty-icon">⚖️</div>
+      <h3>No active draft comparison loaded</h3>
+      <p>
+        Select a base project and a comparison project from your local history dropdowns above,
+        or select "Load Demo Comparison" to explore a preconfigured draft revision analysis.
+      </p>
+      <button class="primary-btn demo-btn" @click="loadMockComparison">
+        🧪 Load Demo Comparison
+      </button>
+    </div>
+  </SwarmbookAppShell>
 </template>
 
 <script setup>
 import { computed, onMounted, reactive, ref } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
-import SwarmbookLayout from '../../components/swarmbook/SwarmbookLayout.vue'
+import SwarmbookAppShell from '../../components/swarmbook/SwarmbookAppShell.vue'
 import { compareBookDrafts } from '../../api/bookSim'
 import { getSwarmbookSession, updateSwarmbookSession } from '../../store/swarmbookSession'
 
 const route = useRoute()
 const router = useRouter()
+
+const RECENT_PROJECTS_KEY = 'mirofish_swarmbook_projects'
+
 const session = ref(getSwarmbookSession())
+const recentProjects = ref([])
+
 const form = reactive({
   baseProjectId: session.value.projectId || '',
   compareProjectId: '',
-  simulationSeed: session.value.simulationConfig.simulationSeed ?? 17,
+  simulationSeed: session.value.simulationConfig?.simulationSeed ?? 17,
 })
+
 const loading = ref(false)
 const loadingMessage = ref('')
 const error = ref('')
-const comparison = computed(() => session.value.comparison)
+const manualInputMode = ref(false)
+const activeTab = ref('priorities')
 
-const canCompare = computed(() => Boolean(form.baseProjectId.trim() && form.compareProjectId.trim()))
+const comparisonData = computed(() => session.value.comparison)
+
+const canCompare = computed(() => Boolean(form.baseProjectId?.trim() && form.compareProjectId?.trim()))
+
+const availableTabs = [
+  { id: 'priorities', label: 'Priorities & Verdict', icon: '✍️' },
+  { id: 'dna_segments', label: 'DNA & Segments', icon: '🧬' },
+  { id: 'pacing', label: 'Pacing (Chapters)', icon: '📈' },
+  { id: 'characters_claims', label: 'Characters & Claims', icon: '👥' },
+  { id: 'raw_export', label: 'Raw Export & Preview', icon: '📋' },
+]
+
+// Calculate readiness score deltas
+const baseReadiness = computed(() => {
+  const baseScores = comparisonData.value?.report?.base_scores
+  if (!baseScores) return 0
+  return calculateReadinessScore(baseScores)
+})
+
+const compareReadiness = computed(() => {
+  const compareScores = comparisonData.value?.report?.compare_scores
+  if (!compareScores) return 0
+  return calculateReadinessScore(compareScores)
+})
+
+const readinessDelta = computed(() => {
+  return compareReadiness.value - baseReadiness.value
+})
+
+function calculateReadinessScore(scores) {
+  const rating = Number(scores.rating_mean) || 1
+  const dnf = Number(scores.dnf_risk) || 0
+  const controversy = Number(scores.controversy_risk) || 0
+
+  const part1 = ((rating - 1.0) / 4.0) * 50
+  const part2 = (1.0 - dnf) * 30
+  const part3 = (1.0 - controversy * 0.5) * 20
+
+  return Math.max(0, Math.min(100, Math.round(part1 + part2 + part3)))
+}
 
 function ensureSession() {
   if (!session.value.projectId || session.value.projectId !== route.params.projectId) {
@@ -80,9 +663,22 @@ function ensureSession() {
   }
 }
 
+function loadRecentProjectsList() {
+  try {
+    const raw = localStorage.getItem(RECENT_PROJECTS_KEY)
+    recentProjects.value = raw ? JSON.parse(raw) : []
+  } catch (err) {
+    console.warn('Failed to load recent Swarmbook projects for comparison:', err)
+  }
+}
+
+function toggleManualInput() {
+  manualInputMode.value = !manualInputMode.value
+}
+
 async function runComparison() {
   loading.value = true
-  loadingMessage.value = 'Comparing draft artifacts...'
+  loadingMessage.value = 'Analyzing difference between draft evidence packs and scores...'
   error.value = ''
   try {
     const response = await compareBookDrafts({
@@ -95,79 +691,416 @@ async function runComparison() {
       comparison: response.data,
     })
   } catch (requestError) {
-    error.value = requestError.message
+    error.value = requestError.message || 'Failed to compare book drafts. Verify that both projects exist.'
   } finally {
     loading.value = false
     loadingMessage.value = ''
   }
 }
 
-function joinList(value) {
-  return value && value.length ? value.join(', ') : 'N/A'
+// Formatters
+function truncateId(val) {
+  if (!val) return ''
+  return val.replace('proj_', '').slice(0, 8).toUpperCase()
+}
+
+function formatNumber(value, fallback = '0.00') {
+  if (value === undefined || value === null) return fallback
+  const num = Number(value)
+  return Number.isNaN(num) ? fallback : num.toFixed(2)
+}
+
+function formatPercent(value) {
+  if (value === undefined || value === null) return '0%'
+  return `${Math.round(Number(value) * 100)}%`
+}
+
+function formatDelta(value) {
+  if (value === undefined || value === null) return ''
+  const num = Number(value)
+  if (Number.isNaN(num)) return ''
+  return num >= 0 ? `+${num.toFixed(2)}` : `${num.toFixed(2)}`
+}
+
+function formatDeltaPercent(value) {
+  if (value === undefined || value === null) return ''
+  const num = Math.round(Number(value) * 100)
+  if (Number.isNaN(num)) return ''
+  return num >= 0 ? `+${num}%` : `${num}%`
+}
+
+function formatFieldName(field) {
+  if (!field) return ''
+  return field
+    .replace(/_/g, ' ')
+    .replace(/\b\w/g, (c) => c.toUpperCase())
+}
+
+function formatSegmentLabel(label) {
+  if (!label) return ''
+  const parts = label.split(':')
+  const platform = parts[1] || parts[0]
+  const mapping = {
+    goodreads: 'Goodreads',
+    booktok: 'BookTok',
+    reddit: 'Reddit',
+    bookstagram: 'Bookstagram',
+    x: 'X / Twitter',
+    newsletter: 'Newsletter Feed',
+    bookclub: 'Book Club'
+  }
+  return mapping[platform.toLowerCase()] || platform
+}
+
+// Tone/style helper classes
+function getDeltaClass(delta, higherIsBetter = true) {
+  if (delta === undefined || delta === null || delta === 0) return 'neutral'
+  const val = Number(delta)
+  if (higherIsBetter) {
+    return val > 0 ? 'positive-delta' : 'negative-delta'
+  } else {
+    return val < 0 ? 'positive-delta' : 'negative-delta' // Lowering DNF/Controversy is positive!
+  }
+}
+
+function getReadinessTone(score) {
+  if (score >= 75) return 'text-ready'
+  if (score >= 55) return 'text-mixed'
+  return 'text-offline'
+}
+
+function getRatingTone(rating) {
+  const val = Number(rating) || 0
+  if (val >= 3.8) return 'text-ready'
+  if (val >= 3.0) return 'text-mixed'
+  return 'text-offline'
+}
+
+function getDnfTone(dnf) {
+  const val = Number(dnf) || 0
+  if (val <= 0.25) return 'text-ready'
+  if (val <= 0.45) return 'text-mixed'
+  return 'text-offline'
+}
+
+function getControversyTone(risk) {
+  const val = Number(risk) || 0
+  if (val <= 0.35) return 'text-ready'
+  if (val <= 0.60) return 'text-mixed'
+  return 'text-offline'
+}
+
+// Clipboard copy helper
+function copyMarkdownToClipboard() {
+  if (!comparisonData.value?.markdown) return
+  navigator.clipboard.writeText(comparisonData.value.markdown)
+    .then(() => {
+      alert('Markdown report successfully copied to clipboard!')
+    })
+    .catch((err) => {
+      console.error('Failed to copy text: ', err)
+    })
+}
+
+// Exporters
+function downloadFile(content, filename, contentType) {
+  const blob = new Blob([content], { type: contentType })
+  const url = URL.createObjectURL(blob)
+  const a = document.createElement('a')
+  a.href = url
+  a.download = filename
+  document.body.appendChild(a)
+  a.click()
+  document.body.removeChild(a)
+  URL.revokeObjectURL(url)
+}
+
+function downloadMarkdown() {
+  if (!comparisonData.value?.markdown) return
+  downloadFile(
+    comparisonData.value.markdown,
+    `swarmbook_comparison_${comparisonData.value.report.comparison_id}.md`,
+    'text/markdown'
+  )
+}
+
+function downloadJson() {
+  if (!comparisonData.value?.report) return
+  downloadFile(
+    JSON.stringify(comparisonData.value.report, null, 2),
+    `swarmbook_comparison_${comparisonData.value.report.comparison_id}.json`,
+    'application/json'
+  )
+}
+
+// Offline high-fidelity mock data comparison loader
+function loadMockComparison() {
+  const mockReport = {
+    comparison_id: 'cmp_mock_123456',
+    project_id: 'proj_mock_comparison',
+    privacy_mode: 'hybrid_safe',
+    base_draft_id: 'draft_v1_original',
+    base_version: '1.0.0',
+    compare_draft_id: 'draft_v2_revised',
+    compare_version: '2.0.0',
+    summary: 'Compared with the original draft, the revised draft shows 4 major improvement signals and 1 regression signal, with 1 remaining blocker. Predicted rating increased from 3.35 to 3.82 (+0.47) and DNF abandonment risk dropped from 52% to 24% as exposition pacing in earlier chapters was tightened.',
+    base_scores: {
+      rating_mean: 3.35,
+      dnf_risk: 0.52,
+      controversy_risk: 0.45,
+      quoteability_score: 2.8,
+      viral_mean: 3.1,
+    },
+    compare_scores: {
+      rating_mean: 3.82,
+      dnf_risk: 0.24,
+      controversy_risk: 0.38,
+      quoteability_score: 3.9,
+      viral_mean: 4.2,
+    },
+    delta_scores: {
+      rating_mean: { from: 3.35, to: 3.82, delta: 0.47 },
+      dnf_risk: { from: 0.52, to: 0.24, delta: -0.28 },
+      controversy_risk: { from: 0.45, to: 0.38, delta: -0.07 },
+      quoteability_score: { from: 2.8, to: 3.9, delta: 1.1 },
+      viral_mean: { from: 3.1, to: 4.2, delta: 1.1 }
+    },
+    book_dna_changes: [
+      { field: 'tone', from: 'dark, expository', to: 'tense, suspenseful' },
+      { field: 'narrative_engine', from: 'slow-burn character study', to: 'fast-paced mystery thriller' },
+      { field: 'themes', change_type: 'added', value: 'secret histories' }
+    ],
+    chapter_deltas: [
+      { chapter_number: 1, chapter_id: 'ch_1', change_type: 'modified', title: 'The Arrival', pacing_from: 'slow', pacing_to: 'balanced', friction_from: ['excessive background exposition', 'unclear stakes'], friction_to: ['none'], summary_shift: 'compressed' },
+      { chapter_number: 2, chapter_id: 'ch_2', change_type: 'modified', title: 'First Contacts', pacing_from: 'slow', pacing_to: 'balanced', friction_from: ['repetitive dialogue'], friction_to: ['none'], summary_shift: 'rewritten' },
+      { chapter_number: 3, chapter_id: 'ch_3', change_type: 'added', title: 'The Warning Call', pacing_from: 'balanced', pacing_to: 'fast', friction_from: [], friction_to: [], summary_shift: 'expanded' }
+    ],
+    character_deltas: [
+      { character_id: 'char_john', name: 'John Miller', change_type: 'modified', role_from: 'passive protagonist', role_to: 'active investigator', attachment_delta: 0.28, friction_from: ['whiny attitude'], friction_to: ['none'] },
+      { character_id: 'char_sarah', name: 'Sarah Croft', change_type: 'modified', role_from: 'side character', role_to: 'key ally with secrets', attachment_delta: 0.15, friction_from: ['flat stereotype'], friction_to: ['none'] }
+    ],
+    claim_deltas: [
+      { claim_id: 'claim_security', claim_text: 'Public networks are fundamentally unsafe without local encryption keys.', change_type: 'modified', evidence_strength_delta: 0.35, risk_flags_from: ['unsupported assertion'], risk_flags_to: ['none'], counterarguments_from: ['commercial security handles this'], counterarguments_to: ['some corporate firewalls bypass this'] }
+    ],
+    reader_segment_movement: [
+      { segment: 'Goodreads:goodreads', rating_delta: 0.52, recommendation_delta: 0.35, from_signal: 'mixed', to_signal: 'positive' },
+      { segment: 'Reddit:reddit', rating_delta: 0.38, recommendation_delta: 0.25, from_signal: 'negative', to_signal: 'mixed' },
+      { segment: 'BookTok:booktok', rating_delta: 0.65, recommendation_delta: 0.45, from_signal: 'mixed', to_signal: 'positive' }
+    ],
+    what_improved: [
+      'Predicted average rating increased from 3.35 to 3.82 (+0.47).',
+      'DNF abandonment risk dropped by 28% (now 24%), removing early pacing blockages.',
+      'Protagonist John Miller gained significant reader attachment (+0.28).',
+      'Chapter 1 exposition was compressed, resolving early chapter drag.'
+    ],
+    what_got_worse: [
+      'Controversy risk remains slightly elevated on Reddit due to high-stakes political themes.'
+    ],
+    still_blocking: [
+      'Controversy risk requires minor review of the ending chapter to ease segment tension.'
+    ],
+    revision_priorities: [
+      'Address political controversy triggers in the final chapter.',
+      'Refine secondary dialogue in Chapter 3 to boost pace.'
+    ],
+    metadata: {
+      simulation_seed: 17,
+      used_base_simulation: true,
+      used_compare_simulation: true
+    }
+  }
+
+  const mockMarkdown = `# Draft Comparison: ${mockReport.base_draft_id} vs ${mockReport.compare_draft_id}
+
+## Summary
+${mockReport.summary}
+
+## Score Movement
+- **Rating Mean**: 3.35 ➡️ 3.82 (+0.47)
+- **DNF Risk**: 0.52 ➡️ 0.24 (-0.28)
+- **Controversy Risk**: 0.45 ➡️ 0.38 (-0.07)
+- **Quoteability**: 2.8 ➡️ 3.9 (+1.1)
+
+## Book DNA Changes
+- Field: Tone; From: dark, expository; To: tense, suspenseful
+- Field: Narrative Engine; From: slow-burn character study; To: fast-paced mystery thriller
+
+## Chapter Map Changes
+- Chapter 1: Pacing Shift slow ➡️ balanced; Friction Cleared
+- Chapter 2: Pacing Shift slow ➡️ balanced; Friction Cleared
+- Chapter 3: Added Chapter; Pacing: fast
+
+## What Improved
+- Predicted average rating increased from 3.35 to 3.82 (+0.47).
+- DNF abandonment risk dropped by 28% (now 24%), removing early pacing blockages.
+- Protagonist John Miller gained significant reader attachment (+0.28).
+
+## What Still Blocks Publishing
+- Controversy risk requires minor review of the ending chapter to ease segment tension.`
+
+  session.value = updateSwarmbookSession({
+    comparison: {
+      report: mockReport,
+      markdown: mockMarkdown
+    }
+  })
 }
 
 onMounted(() => {
   ensureSession()
+  loadRecentProjectsList()
 })
 </script>
 
 <style scoped>
-.grid {
-  display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
-  gap: 18px;
-  margin-bottom: 18px;
-}
-
-.card {
-  border: 1px solid #e5e5e5;
-  padding: 20px;
+/* Main selector card styles */
+.select-card {
   background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 24px;
+  margin-bottom: 24px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
 }
 
-.card h2 {
-  margin-bottom: 14px;
+.card-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #f1f5f9;
+  padding-bottom: 12px;
+  flex-wrap: wrap;
+  gap: 12px;
 }
 
-.field-grid {
-  display: grid;
-  gap: 14px;
+.card-header-row h2 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0;
 }
 
-label span {
-  display: block;
-  font-size: 0.8rem;
-  color: #666666;
-  margin-bottom: 6px;
+.control-actions {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.text-link-btn {
+  background: transparent;
+  border: none;
+  color: #ff4500;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 4px;
+  transition: all 0.2s;
+  outline: none;
   font-family: 'JetBrains Mono', monospace;
 }
 
+.text-link-btn:hover {
+  background: rgba(255, 69, 0, 0.08);
+}
+
+.text-link-btn:focus-visible {
+  outline: 2px solid #ff4500;
+}
+
+.text-link-btn.demo-btn {
+  color: #7c3aed;
+}
+
+.text-link-btn.demo-btn:hover {
+  background: rgba(124, 58, 237, 0.08);
+}
+
+.text-link-btn.demo-btn:focus-visible {
+  outline: 2px solid #7c3aed;
+}
+
+.field-grid {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.field-col {
+  flex: 1;
+  min-width: 250px;
+}
+
+.field-col.seed-col {
+  flex: 0 0 160px;
+  min-width: 120px;
+}
+
+.field-label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.field-label span {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #475569;
+  font-family: 'JetBrains Mono', monospace;
+  text-transform: uppercase;
+}
+
+select,
 input {
   width: 100%;
-  border: 1px solid #d9d9d9;
-  padding: 12px;
-  font: inherit;
+  padding: 10px 14px;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  font-family: inherit;
+  font-size: 0.9rem;
+  background: #ffffff;
+  color: #0f172a;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+select:focus,
+input:focus {
+  border-color: #ff4500;
+}
+
+select:focus-visible,
+input:focus-visible {
+  outline: 2px solid #ff4500;
+  outline-offset: 2px;
 }
 
 .action-row {
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  margin-top: 16px;
   gap: 12px;
-  margin-top: 18px;
   flex-wrap: wrap;
 }
 
-.primary-btn,
-.ghost-btn {
-  border: 1px solid #000000;
-  padding: 12px 16px;
+.primary-btn {
+  background: #ff4500;
+  color: #ffffff;
+  border: 1px solid #ff4500;
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-weight: 600;
   cursor: pointer;
-  font: inherit;
+  transition: all 0.2s;
+  outline: none;
 }
 
-.primary-btn {
-  background: #000000;
-  color: #ffffff;
+.primary-btn:hover:not(:disabled) {
+  background: #e03d00;
+  border-color: #e03d00;
 }
 
 .primary-btn:disabled {
@@ -175,22 +1108,742 @@ input {
   cursor: not-allowed;
 }
 
-.ghost-btn {
-  background: #ffffff;
+.primary-btn:focus-visible {
+  outline: 2px solid #ff4500;
+  outline-offset: 2px;
 }
 
-.markdown-card pre {
-  white-space: pre-wrap;
+.ghost-btn {
+  background: transparent;
+  border: 1px solid #cbd5e1;
+  color: #475569;
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  outline: none;
+}
+
+.ghost-btn:hover {
+  background: #f1f5f9;
+  border-color: #94a3b8;
+  color: #0f172a;
+}
+
+.ghost-btn:focus-visible {
+  outline: 2px solid #ff4500;
+  outline-offset: 2px;
+}
+
+/* Executive summary cards */
+.verdict-card {
+  border-left: 4px solid #ff4500;
+  padding: 20px 24px;
+  background: #ffffff;
+  border-radius: 8px;
+  margin-bottom: 24px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.meta-row {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 8px;
+  flex-wrap: wrap;
+}
+
+.comparison-badge,
+.seed-badge {
   font-family: 'JetBrains Mono', monospace;
-  background: #fafafa;
-  border: 1px solid #eeeeee;
-  padding: 14px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.comparison-badge {
+  background: #eff6ff;
+  color: #1e40af;
+}
+
+.seed-badge {
+  background: #f8fafc;
+  color: #64748b;
+  border: 1px solid #e2e8f0;
+}
+
+.verdict-card h2 {
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin: 0 0 10px 0;
+}
+
+.verdict-summary-text {
+  font-size: 0.98rem;
+  color: #334155;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Scorecard Delta Matrix Grid */
+.scorecard-matrix {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.metric-box {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  position: relative;
+}
+
+.metric-title {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #64748b;
+  font-family: 'JetBrains Mono', monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 8px;
+}
+
+.comparison-numbers {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+
+.base-val {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #94a3b8;
+}
+
+.arrow-indicator {
+  font-size: 0.9rem;
+  color: #cbd5e1;
+}
+
+.compare-val {
+  font-size: 1.4rem;
+  font-weight: 800;
+}
+
+.delta-badge {
+  display: inline-block;
+  align-self: flex-start;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 2px 6px;
+  border-radius: 4px;
+  margin-bottom: 8px;
+}
+
+.delta-badge.positive-delta {
+  background: #d1fae5;
+  color: #065f46;
+}
+
+.delta-badge.negative-delta {
+  background: #fef2f2;
+  color: #991b1b;
+}
+
+.delta-badge.neutral {
+  background: #f1f5f9;
+  color: #475569;
+}
+
+.metric-subtitle {
+  font-size: 0.75rem;
+  color: #64748b;
+  margin-top: auto;
+}
+
+/* Color codes */
+.text-ready {
+  color: #10b981;
+}
+
+.text-mixed {
+  color: #f59e0b;
+}
+
+.text-offline {
+  color: #ef4444;
+}
+
+/* Workbench tabs styles */
+.workbench-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 0;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+  margin-bottom: 24px;
+}
+
+.workbench-tabs {
+  display: flex;
+  background: #f8fafc;
+  border-bottom: 1px solid #e2e8f0;
   overflow-x: auto;
 }
 
-@media (max-width: 900px) {
-  .grid {
-    grid-template-columns: 1fr;
+.tab-btn {
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid transparent;
+  padding: 14px 20px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: #64748b;
+  cursor: pointer;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.2s;
+  outline: none;
+}
+
+.tab-btn:hover {
+  color: #0f172a;
+  background: rgba(0, 0, 0, 0.02);
+}
+
+.tab-btn.active {
+  color: #ff4500;
+  border-bottom-color: #ff4500;
+  background: #ffffff;
+}
+
+.tab-btn:focus-visible {
+  outline: 2px solid #ff4500;
+  outline-offset: -2px;
+}
+
+.tab-panel {
+  padding: 24px;
+}
+
+/* Priorities and Checklist Tab styles */
+.list-layout-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.checklist-section {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+}
+
+.checklist-section h3 {
+  font-size: 0.95rem;
+  font-weight: 700;
+  margin: 0 0 12px 0;
+  color: #0f172a;
+}
+
+.checklist-section.positive {
+  border-left: 4px solid #10b981;
+}
+
+.checklist-section.negative {
+  border-left: 4px solid #ef4444;
+}
+
+.checklist-section.blocking {
+  border-left: 4px solid #f59e0b;
+}
+
+.checklist-section.priority {
+  border-left: 4px solid #7c3aed;
+  background: #fcfaff;
+  border-color: #e9e3ff;
+}
+
+.checklist-section.priority h3 {
+  color: #5b21b6;
+}
+
+.no-items {
+  font-size: 0.82rem;
+  color: #94a3b8;
+  font-style: italic;
+  padding: 12px 0;
+}
+
+.checklist-items {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.checklist-items li {
+  display: flex;
+  gap: 10px;
+  font-size: 0.88rem;
+  color: #334155;
+  line-height: 1.4;
+}
+
+.checklist-items .icon {
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+
+.checkbox-box {
+  width: 14px;
+  height: 14px;
+  border: 2px solid #7c3aed;
+  border-radius: 3px;
+  margin-top: 2px;
+  flex-shrink: 0;
+  background: #ffffff;
+}
+
+/* DNA and Segments Tab styles */
+.sub-section {
+  margin-bottom: 24px;
+}
+
+.sub-section:last-child {
+  margin-bottom: 0;
+}
+
+.sub-section h3 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0 0 12px 0;
+}
+
+.no-items-banner {
+  background: #f8fafc;
+  border: 1px dashed #cbd5e1;
+  border-radius: 6px;
+  padding: 16px;
+  text-align: center;
+  font-size: 0.85rem;
+  color: #64748b;
+}
+
+.table-container {
+  overflow-x: auto;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+}
+
+.styled-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.88rem;
+  text-align: left;
+}
+
+.styled-table th {
+  background: #f8fafc;
+  color: #475569;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  padding: 10px 16px;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.styled-table td {
+  padding: 12px 16px;
+  border-bottom: 1px solid #f1f5f9;
+  vertical-align: top;
+  color: #334155;
+}
+
+.styled-table tr:last-child td {
+  border-bottom: none;
+}
+
+.attr-name {
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 700;
+  color: #475569;
+  font-size: 0.78rem;
+}
+
+.old-val {
+  color: #64748b;
+}
+
+.new-val {
+  font-weight: 600;
+  color: #0f172a;
+}
+
+.cohort-name {
+  font-weight: 600;
+  color: #0f172a;
+}
+
+.shift-number {
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 700;
+}
+
+.shift-number.positive-delta {
+  color: #047857;
+}
+
+.shift-number.negative-delta {
+  color: #b91c1c;
+}
+
+.shift-number.neutral {
+  color: #64748b;
+}
+
+.stance-flow {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.stance-badge {
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 2px 6px;
+  border-radius: 4px;
+  text-transform: uppercase;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.stance-badge.positive {
+  background: #d1fae5;
+  color: #065f46;
+}
+
+.stance-badge.mixed {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.stance-badge.negative {
+  background: #fef2f2;
+  color: #991b1b;
+}
+
+.stance-badge.added {
+  background: #eff6ff;
+  color: #1e40af;
+}
+
+.stance-badge.removed {
+  background: #f1f5f9;
+  color: #475569;
+}
+
+/* Chapter Pacing tab styles */
+.chapter-deltas-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.chapter-delta-card {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  padding: 16px;
+}
+
+.chapter-delta-card.added {
+  border-left: 4px solid #3b82f6;
+  background: #f8fafc;
+}
+
+.chapter-delta-card.modified {
+  border-left: 4px solid #f59e0b;
+}
+
+.chapter-delta-card.removed {
+  border-left: 4px solid #ef4444;
+  opacity: 0.7;
+}
+
+.chap-badge-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.chapter-num {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #64748b;
+  font-family: 'JetBrains Mono', monospace;
+  text-transform: uppercase;
+}
+
+.change-tag {
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 1px 6px;
+  border-radius: 4px;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.change-tag.added {
+  background: #dbeafe;
+  color: #1e40af;
+}
+
+.change-tag.modified {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.change-tag.removed {
+  background: #fef2f2;
+  color: #991b1b;
+}
+
+.chap-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0 0 12px 0;
+}
+
+.chap-details-grid {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.chap-detail-col {
+  flex: 1;
+  min-width: 180px;
+}
+
+.chap-detail-col .label {
+  display: block;
+  font-size: 0.68rem;
+  color: #64748b;
+  font-family: 'JetBrains Mono', monospace;
+  text-transform: uppercase;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.pacing-flow {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.88rem;
+}
+
+.pacing-text {
+  font-weight: 700;
+  text-transform: capitalize;
+}
+
+.pacing-text.slow {
+  color: #ef4444;
+}
+
+.pacing-text.balanced {
+  color: #10b981;
+}
+
+.pacing-text.fast {
+  color: #3b82f6;
+}
+
+.friction-compare {
+  font-size: 0.8rem;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.friction-side {
+  padding-left: 6px;
+  border-left: 2px solid transparent;
+}
+
+.friction-side.old {
+  border-color: #ef4444;
+  color: #991b1b;
+}
+
+.friction-side.new {
+  border-color: #10b981;
+  color: #065f46;
+}
+
+.friction-side.cleared {
+  color: #047857;
+  font-weight: 600;
+}
+
+.friction-compare ul {
+  padding-left: 14px;
+  margin: 2px 0 0 0;
+}
+
+.summary-shift-val {
+  font-size: 0.82rem;
+  font-weight: 700;
+  font-family: 'JetBrains Mono', monospace;
+  text-transform: uppercase;
+}
+
+.summary-shift-val.compressed {
+  color: #047857;
+}
+
+.summary-shift-val.expanded {
+  color: #1e40af;
+}
+
+.summary-shift-val.rewritten {
+  color: #b45309;
+}
+
+/* Character and claim styles */
+.character-deltas-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 16px;
+}
+
+.char-name {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.char-details {
+  font-size: 0.85rem;
+  color: #475569;
+}
+
+.char-details p {
+  margin: 6px 0;
+}
+
+.role-flow {
+  font-size: 0.82rem;
+  color: #334155;
+  font-weight: 500;
+}
+
+.claim-text-col {
+  max-width: 320px;
+  line-height: 1.4;
+  font-style: italic;
+}
+
+.risk-cell-details {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 0.78rem;
+}
+
+.cell-block {
+  display: block;
+}
+
+/* Raw export panel styles */
+.export-actions-row {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+
+.markdown-preview-box {
+  background: #fafafa;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  padding: 16px;
+}
+
+.markdown-preview-box pre {
+  margin: 0;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.82rem;
+  color: #334155;
+  white-space: pre-wrap;
+  word-break: break-all;
+  overflow-x: auto;
+}
+
+/* Empty state styles */
+.empty-compare-state {
+  text-align: center;
+  padding: 60px 40px;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.empty-icon {
+  font-size: 3rem;
+  margin-bottom: 16px;
+  color: #cbd5e1;
+}
+
+.empty-compare-state h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0 0 10px 0;
+}
+
+.empty-compare-state p {
+  font-size: 0.92rem;
+  color: #64748b;
+  max-width: 500px;
+  margin: 0 auto 24px;
+  line-height: 1.5;
+}
+
+.empty-compare-state .demo-btn {
+  margin: 0 auto;
+}
+
+/* Responsive adjustment */
+@media (max-width: 768px) {
+  .field-grid {
+    flex-direction: column;
+    gap: 12px;
+  }
+  .field-col.seed-col {
+    flex: 1;
   }
 }
 </style>

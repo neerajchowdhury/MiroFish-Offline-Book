@@ -369,9 +369,19 @@ def _persona_overrides(payload: Dict[str, Any], profile: LocalProfile) -> Person
     if not allowed_platforms:
         allowed_platforms = [platform.lower() for platform in profile.platforms]
 
+    include_archetypes = [str(item).strip() for item in _optional_list(overrides, "include_archetypes") if str(item).strip()]
+    if not include_archetypes:
+        include_archetypes = [str(item).strip() for item in _optional_list(payload, "include_archetypes") if str(item).strip()]
+
+    exclude_archetypes = [str(item).strip() for item in _optional_list(overrides, "exclude_archetypes") if str(item).strip()]
+    if not exclude_archetypes:
+        exclude_archetypes = [str(item).strip() for item in _optional_list(payload, "exclude_archetypes") if str(item).strip()]
+
     return PersonaGenerationOverrides(
         persona_count=persona_count,
         allowed_platforms=allowed_platforms,
+        include_archetypes=include_archetypes,
+        exclude_archetypes=exclude_archetypes,
     )
 
 
@@ -615,6 +625,117 @@ def create_project():
     )
     store.save_project(project)
     return _success_response(project.to_dict(), status_code=201)
+
+
+@book_sim_bp.route("/parse-file", methods=["POST"])
+@_api_route
+def parse_file():
+    """Extract text and metadata from an uploaded file (PDF, DOCX, TXT, MD)."""
+    if 'file' not in request.files:
+        raise ApiError("No file part in the request", status_code=400, error_code="validation_error")
+    
+    file = request.files['file']
+    if not file or not file.filename:
+        raise ApiError("No file selected", status_code=400, error_code="validation_error")
+
+    filename = file.filename
+    from ..utils.file_parser import FileParser
+    import os
+    import tempfile
+    import uuid
+
+    # Get file suffix
+    ext = os.path.splitext(filename)[1].lower()
+    if ext not in FileParser.SUPPORTED_EXTENSIONS:
+        raise ApiError(
+            f"Unsupported file format: {ext}",
+            status_code=400,
+            error_code="unsupported_file",
+            details={
+                "filename": filename,
+                "supported": sorted(list(FileParser.SUPPORTED_EXTENSIONS))
+            }
+        )
+
+    # Absolute raw file size limit is 10 MB to prevent server crash
+    max_file_size = 10 * 1024 * 1024  # 10 MB
+    raw_data = file.read()
+    file_size = len(raw_data)
+    
+    if file_size > max_file_size:
+        oversized_bytes = file_size - max_file_size
+        oversized_percent = (oversized_bytes / max_file_size) * 100
+        raise ApiError(
+            f"File too large: {filename} exceeds the limit of {max_file_size} bytes.",
+            status_code=400,
+            error_code="file_too_large",
+            details={
+                "filename": filename,
+                "max_size": max_file_size,
+                "actual_size": file_size,
+                "oversized_absolute": oversized_bytes,
+                "oversized_percentage": round(oversized_percent, 2)
+            }
+        )
+
+    # Save to workspace temporary directory
+    workspace_dir = os.path.abspath(os.path.dirname(os.path.dirname(os.path.dirname(__file__))))
+    temp_dir = os.path.join(workspace_dir, "temp_uploads")
+    os.makedirs(temp_dir, exist_ok=True)
+    temp_file_path = os.path.join(temp_dir, f"{uuid.uuid4().hex}{ext}")
+
+    try:
+        with open(temp_file_path, "wb") as temp_f:
+            temp_f.write(raw_data)
+        
+        try:
+            text = FileParser.extract_text(temp_file_path)
+        except Exception as exc:
+            raise ApiError(
+                f"Failed to parse file: {str(exc)}",
+                status_code=400,
+                error_code="parsing_failed",
+                details={
+                    "filename": filename,
+                    "error": str(exc)
+                }
+            )
+    finally:
+        if os.path.exists(temp_file_path):
+            try:
+                os.remove(temp_file_path)
+            except Exception:
+                pass
+
+    # Check parsed character limit (500,000 characters limit)
+    max_chars = MAX_MANUSCRIPT_CHARS_DEFAULT
+    if len(text) > max_chars:
+        oversized_chars = len(text) - max_chars
+        oversized_percent = (oversized_chars / max_chars) * 100
+        raise ApiError(
+            f"Manuscript text is too large: {len(text)} characters exceeds the limit of {max_chars}.",
+            status_code=400,
+            error_code="file_too_large",
+            details={
+                "filename": filename,
+                "max_size": max_chars,
+                "actual_size": len(text),
+                "oversized_absolute": oversized_chars,
+                "oversized_percentage": round(oversized_percent, 2),
+                "unit": "characters"
+            }
+        )
+
+    word_count = len(text.split())
+
+    return _success_response({
+        "filename": filename,
+        "size_bytes": file_size,
+        "character_count": len(text),
+        "word_count": word_count,
+        "text": text,
+        "mime_type": file.mimetype or "text/plain"
+    })
 
 
 # Ingest manuscript text and build a Swarmbook evidence pack.

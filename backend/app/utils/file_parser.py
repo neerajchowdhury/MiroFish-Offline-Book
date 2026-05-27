@@ -61,7 +61,7 @@ def _read_text_with_fallback(file_path: str) -> str:
 class FileParser:
     """File Parser"""
 
-    SUPPORTED_EXTENSIONS = {'.pdf', '.md', '.markdown', '.txt'}
+    SUPPORTED_EXTENSIONS = {'.pdf', '.md', '.markdown', '.txt', '.docx'}
 
     @classmethod
     def extract_text(cls, file_path: str) -> str:
@@ -86,6 +86,8 @@ class FileParser:
 
         if suffix == '.pdf':
             return cls._extract_from_pdf(file_path)
+        elif suffix == '.docx':
+            return cls._extract_from_docx(file_path)
         elif suffix in {'.md', '.markdown'}:
             return cls._extract_from_md(file_path)
         elif suffix == '.txt':
@@ -119,6 +121,30 @@ class FileParser:
     def _extract_from_txt(file_path: str) -> str:
         """Extract text from TXT with automatic encoding detection"""
         return _read_text_with_fallback(file_path)
+
+    @staticmethod
+    def _extract_from_docx(file_path: str) -> str:
+        """Extract text from DOCX using zipfile and xml (no external dependencies)"""
+        import zipfile
+        import xml.etree.ElementTree as ET
+
+        try:
+            with zipfile.ZipFile(file_path) as docx:
+                content = docx.read('word/document.xml')
+                root = ET.fromstring(content)
+                namespaces = {'w': 'http://schemas.openxmlformats.org/wordprocessingml/2006/main'}
+                
+                paragraphs = []
+                for p in root.findall('.//w:p', namespaces):
+                    text_parts = []
+                    for t in p.findall('.//w:t', namespaces):
+                        if t.text:
+                            text_parts.append(t.text)
+                    paragraphs.append("".join(text_parts))
+                
+                return "\n\n".join(paragraphs)
+        except Exception as e:
+            raise ValueError(f"Failed to parse DOCX file: {str(e)}")
 
     @classmethod
     def extract_from_multiple(cls, file_paths: List[str]) -> str:

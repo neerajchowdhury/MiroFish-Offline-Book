@@ -1,11 +1,9 @@
 <template>
-  <SwarmbookLayout
+  <SwarmbookAppShell
     active-route="SwarmbookMetadata"
     :project-id="session.projectId"
     title="Metadata Form"
     subtitle="Set the editorial context before generating the evidence pack. These fields are stored in the project metadata while the current evidence endpoint ingests manuscript text."
-    :status-text="submitting ? 'Generating evidence pack' : 'Metadata ready'"
-    :status-tone="submitting ? 'loading' : 'ready'"
     :error-message="error"
     :loading-message="loadingMessage"
   >
@@ -67,13 +65,13 @@
         </button>
       </div>
     </section>
-  </SwarmbookLayout>
+  </SwarmbookAppShell>
 </template>
 
 <script setup>
 import { computed, onMounted, reactive, ref } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
-import SwarmbookLayout from '../../components/swarmbook/SwarmbookLayout.vue'
+import SwarmbookAppShell from '../../components/swarmbook/SwarmbookAppShell.vue'
 import { createBookSimProject, createEvidencePack } from '../../api/bookSim'
 import { getSwarmbookSession, updateSwarmbookSession } from '../../store/swarmbookSession'
 

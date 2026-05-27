@@ -13,6 +13,9 @@ import SwarmbookSimulationView from '../views/swarmbook/SwarmbookSimulationView.
 import SwarmbookReportView from '../views/swarmbook/SwarmbookReportView.vue'
 import SwarmbookPersonasView from '../views/swarmbook/SwarmbookPersonasView.vue'
 import SwarmbookCompareView from '../views/swarmbook/SwarmbookCompareView.vue'
+import NewSimulationWizardView from '../views/swarmbook/NewSimulationWizardView.vue'
+import SwarmbookSimulationRunView from '../views/swarmbook/SwarmbookSimulationRunView.vue'
+import SwarmbookSettingsView from '../views/swarmbook/SwarmbookSettingsView.vue'
 
 const routes = [
   {
@@ -80,6 +83,12 @@ const routes = [
     props: true
   },
   {
+    path: '/swarmbook/project/:projectId/run',
+    name: 'SwarmbookSimulationRun',
+    component: SwarmbookSimulationRunView,
+    props: true
+  },
+  {
     path: '/swarmbook/project/:projectId/report',
     name: 'SwarmbookReport',
     component: SwarmbookReportView,
@@ -95,6 +104,18 @@ const routes = [
     path: '/swarmbook/project/:projectId/compare',
     name: 'SwarmbookCompare',
     component: SwarmbookCompareView,
+    props: true
+  },
+  {
+    path: '/swarmbook/wizard/:projectId?',
+    name: 'NewSimulationWizard',
+    component: NewSimulationWizardView,
+    props: true
+  },
+  {
+    path: '/swarmbook/settings/:projectId?',
+    name: 'SwarmbookSettings',
+    component: SwarmbookSettingsView,
     props: true
   }
 ]

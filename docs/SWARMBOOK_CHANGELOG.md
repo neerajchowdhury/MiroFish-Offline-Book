@@ -573,3 +573,278 @@
 - Verified 60 out of 60 unit tests pass.
 ### Known gaps
 - None. Prerequisite checking, installation, and system-wide privacy safety are verified.
+
+## Phase 21 (UI Audit and Redesign Plan)
+### Files
+- `docs/SWARMBOOK_UI_REDESIGN.md`
+- `docs/SWARMBOOK_PHASE_STATUS.md`
+- `docs/SWARMBOOK_CHANGELOG.md`
+- `docs/SWARMBOOK_DECISIONS.md`
+### Behavior changed
+- None. This is an audit and redesign documentation phase before making major changes.
+### Tests added
+- None.
+### Known gaps
+- Implementations of the redesign screens are scheduled for future phases.
+
+## Phase 22 (SaaS-grade App Shell and Navigation)
+### Files
+- `frontend/src/components/swarmbook/SwarmbookAppShell.vue`
+- `frontend/src/views/swarmbook/*.vue` (8 views updated to import and use the new shell)
+- `docs/SWARMBOOK_PHASE_STATUS.md`
+- `docs/SWARMBOOK_CHANGELOG.md`
+- `docs/SWARMBOOK_DECISIONS.md`
+### Behavior changed
+- Replaced the simple progress layout with a modern, SaaS-grade `SwarmbookAppShell` containing a top navigation header, exit pathway to the MiroFish landing page, responsive left workflow steps sidebar, persistent health status display for Ollama/Neo4j services, and interactive Settings modal overlay.
+- Maintained backwards compatibility and kept original MiroFish landing page and graph processing views unchanged.
+### Tests added
+- None (verified clean production compile via Vite build command).
+### Known gaps
+- Settings drawer content is static and profile attributes are loaded from session state.
+
+## Phase 23 (SaaS-grade Swarmbook Project Dashboard)
+### Files
+- `frontend/src/views/swarmbook/SwarmbookHomeView.vue`
+- `docs/SWARMBOOK_PHASE_STATUS.md`
+- `docs/SWARMBOOK_CHANGELOG.md`
+- `docs/SWARMBOOK_DECISIONS.md`
+### Behavior changed
+- Replaced the simple project creation form on the Swarmbook landing page with a comprehensive, premium, author-facing project dashboard.
+- Added an author-facing hero headline ("Predict reader reactions before you publish") and explanation subtext.
+- Added primary "New Simulation" and secondary "Open Existing Project" CTAs. Opening an existing project by ID attempts to resolve its latest report, routing directly to the report dashboard if ready, or to the manuscript upload flow as a fallback.
+- Implemented localStorage-backed recent project history tracker (`mirofish_swarmbook_projects`), listing details of recently run manuscript stress tests.
+- Formulated an author-focused local trust strip explaining privacy guarantees (Local-first, Private mode, No social scraping, Evidence-based reports).
+- Created a system readiness panel displaying Ollama, Neo4j, Gemini, and NVIDIA statuses.
+- Added quick action shortcuts, including an interactive "Test a Blurb" quick blurb stress test modal that creates a temporary project and routes directly to the evidence pack preview step.
+### Tests added
+- None (verified clean production compile via Vite build command).
+### Known gaps
+- "Compare Drafts" quick action shortcut relies on a project already being active in the session state.
+
+## Phase 24 Guided New Simulation Wizard
+### Files
+- `frontend/src/router/index.js`
+- `frontend/src/views/swarmbook/NewSimulationWizardView.vue`
+- `frontend/src/components/swarmbook/SwarmbookAppShell.vue`
+- `frontend/src/views/swarmbook/SwarmbookHomeView.vue`
+- `docs/SWARMBOOK_PHASE_STATUS.md`
+- `docs/SWARMBOOK_CHANGELOG.md`
+- `docs/SWARMBOOK_DECISIONS.md`
+### Behavior changed
+- Added `NewSimulationWizardView` implementing a unified 5-step wizard for manuscript stress testing: Basics, Ingest, Evidence pack preview, Cohort configuration, and Run.
+- Registered `/swarmbook/wizard/:projectId?` route mapped to the wizard component.
+- Updated "New Simulation" header and landing page hero CTA to redirect to the new wizard route.
+- Updated "Upload Manuscript" quick action to open the wizard, ensuring step-based setup.
+- Enforced low-resource profile safety, character limit banners, active form validations, and keyboard navigation.
+### Tests added/updated
+- Validated compile sanity via Vite production build.
+### Known gaps
+- None.
+
+## Phase 25 SaaS-grade Swarmbook Manuscript Upload
+### Files
+- `backend/app/utils/file_parser.py`
+- `backend/app/api/book_sim.py`
+- `backend/tests/test_book_sim_api.py`
+- `frontend/src/api/bookSim.js`
+- `frontend/src/views/swarmbook/SwarmbookUploadView.vue`
+- `frontend/src/views/swarmbook/NewSimulationWizardView.vue`
+- `docs/SWARMBOOK_PHASE_STATUS.md`
+- `docs/SWARMBOOK_CHANGELOG.md`
+- `docs/SWARMBOOK_DECISIONS.md`
+### Behavior changed
+- Added native Word (`.docx`) text extraction to `FileParser` using zipfile and xml parsing.
+- Exposed a new `/parse-file` API route for file uploads, returning size in bytes, character/word counts, MIME type, and extracted text.
+- Redesigned manuscript upload screen (`SwarmbookUploadView.vue`) and step 2 of the wizard (`NewSimulationWizardView.vue`) to use a premium drag-and-drop file uploader.
+- Replaced "Reality Seeds" naming with "Upload Manuscript" across the uploader interface.
+- Showed estimated processing time (~30-60s) and privacy warnings in the file card based on selected privacy modes.
+- Displayed detailed error messages (unsupported format, parsing failures, upload failures, and file/character limit oversized calculations).
+- Showed "Generate Evidence Packs" as the primary next action button instead of generic routing steps.
+### Tests added/updated
+- Added `test_parse_file_route` in `test_book_sim_api.py` covering TXT uploads, unsupported formats, and character size limits.
+- Verified 61 out of 61 unit tests pass.
+### Known gaps
+- None.
+
+## Phase 26 (SaaS-grade Swarmbook Evidence Pack Review)
+### Files
+- `frontend/src/views/swarmbook/SwarmbookEvidenceView.vue`
+- `docs/SWARMBOOK_PHASE_STATUS.md`
+- `docs/SWARMBOOK_DECISIONS.md`
+- `docs/SWARMBOOK_CHANGELOG.md`
+### Behavior changed
+- Redesigned the Swarmbook Evidence Pack Review view (`SwarmbookEvidenceView.vue`) into a premium, SaaS-grade split-pane dashboard workspace.
+- Added 7 narrative and analysis maps: Book DNA, Chapter Map, Character Map, Claim Map, Risk Map, Style Map, and Market Surface.
+- Showed card-level metadata for each map including status (pending / generated / needs review / accepted), custom confidence levels, and references counts.
+- Implemented card-level controls to view details, regenerate specific maps (triggering `/api/book-sim/evidence-packs` backend compilation), and accept/lock maps.
+- Implemented details column on the right showing structured map data (e.g. DNA fields, timeline for chapters, character grid, metric gauges for style, claims, and risks), a "Why This Matters" educational microcopy banner, and editorial annotations text field to record user overrides.
+- Supported accessible button labels, keyboard focus outline enhancements (`outline: 2px solid #ff4500` on focus-visible states), and responsive layout collapse.
+### Tests added/updated
+- Verified production compile of redesigned view through direct Vite compilation.
+### Known gaps
+- None.
+
+## Phase 27 (SaaS-grade Swarmbook Reader Swarm Setup)
+### Files
+- `backend/app/api/book_sim.py`
+- `backend/tests/test_book_sim_api.py`
+- `frontend/src/views/swarmbook/SwarmbookSimulationView.vue`
+- `frontend/src/views/swarmbook/NewSimulationWizardView.vue`
+- `docs/SWARMBOOK_PHASE_STATUS.md`
+- `docs/SWARMBOOK_DECISIONS.md`
+- `docs/SWARMBOOK_CHANGELOG.md`
+### Behavior changed
+- Redesigned the simulation setup screen (`SwarmbookSimulationView.vue`) and Step 4 of the guided wizard (`NewSimulationWizardView.vue`) into a premium, SaaS-grade Reader Swarm Setup dashboard.
+- Replaced developer/agent terminology with plain language reader metrics, platform toggles, and cohorts configurations.
+- Implemented Simulation Profile selector cards (Draft, Balanced, Deep) with recommendation and hardware warning banners.
+- Implemented Reader Count range controller with recommended scale indicators based on selected profile defaults.
+- Implemented Platform checklist pill-buttons supporting Goodreads, BookTok, Reddit, Bookstagram, X, Newsletter, and Book Club.
+- Implemented interactive Reader Cohorts checklist to toggle Harsh reviewers, Genre loyalists, Emotional amplifiers, Skeptics, Casual readers, Literary readers, and Non-fiction evidence skeptics, mapping unselected cohorts to under-the-hood exclusions.
+- Implemented dynamic runtime time estimation and provider connection status matrix (Ollama, Neo4j, Gemini, NVIDIA).
+- Extended backend `_persona_overrides` API helper to parse and enforce `exclude_archetypes` and `include_archetypes` parameters from request payload.
+### Tests added/updated
+- Added `test_simulate_with_cohort_exclusions` in `test_book_sim_api.py` verifying that excluded archetypes are successfully filtered out from generated reader persona swarms.
+- Verified 62 out of 62 unit tests pass successfully.
+### Known gaps
+- None.
+
+## Phase 28 (SaaS-grade Swarmbook Simulation Run Screen)
+### Files
+- `frontend/src/api/bookSim.js`
+- `frontend/src/router/index.js`
+- `frontend/src/views/swarmbook/SwarmbookSimulationRunView.vue`
+- `frontend/src/views/swarmbook/SwarmbookSimulationView.vue`
+- `frontend/src/views/swarmbook/NewSimulationWizardView.vue`
+- `docs/SWARMBOOK_PHASE_STATUS.md`
+- `docs/SWARMBOOK_DECISIONS.md`
+- `docs/SWARMBOOK_CHANGELOG.md`
+### Behavior changed
+- Created a dedicated simulation run view screen (`SwarmbookSimulationRunView.vue`) at route `/swarmbook/project/:projectId/run` with a visual, multi-step progress stepper (7 steps), dynamic progress bar meter, and total run timer.
+- Integrated a live terminal console logs feed displaying dynamic simulated milestones representing active pipeline tasks to prevent blank screen stare.
+- Equipped control ribbon supporting Cancel action triggers bound to Axios `AbortController` request cancellation and disabled/mock pause and resume buttons.
+- Handled error states, displaying a detailed failure message and providing immediate recovery buttons ("Retry Simulation Run" and "Adjust Settings").
+- Updated standalone setup screen run button and wizard step 5 run button to redirect to the new runner screen.
+- Modified `runBookSimulation` helper inside `bookSim.js` to accept Axios config parameter for Abort signals.
+### Tests added/updated
+- Verified client environment compile of new views using Vite build.
+### Known gaps
+- None.
+
+## Phase 29 (SaaS-grade Swarmbook Report Dashboard)
+### Files
+- `frontend/src/views/swarmbook/SwarmbookReportView.vue`
+- `docs/SWARMBOOK_PHASE_STATUS.md`
+- `docs/SWARMBOOK_CHANGELOG.md`
+- `docs/SWARMBOOK_DECISIONS.md`
+### Behavior changed
+- Redesigned and rewrote `SwarmbookReportView.vue` as a premium SaaS-grade report dashboard.
+- Implemented 6 top summary cards (Readiness percentage, Star predicted rating, DNF risk, Controversy risk, Max viral platform, and Top priority target).
+- Implemented client-side Publishing Readiness score calculation formula blending rating distribution, DNF, and controversy risk.
+- Implemented 13 detailed main sections including interactive CSS progress bars/histograms, a reader segments table, timeline DNF chapter timeline, platform virality scores, pull quotes quoteability highlights, tabbed simulated platform posts feed (Goodreads, BookTok, Reddit, X), marketing hooks, risks, caveats, and disclaimers.
+- Added fully client-side local JSON and Markdown report export file downloading utilities.
+- Implemented mock fallback data loader directly in empty state card to enable offline visual dashboard verification.
+- Enforced WCAG 2.2 AA standards with explicit keyboard focus outlines (`2px solid #FF4500`) and aria-labels/roles.
+### Tests added/updated
+- Verified Vite production build checks run successfully with zero compile warnings.
+- Confirmed all 62 python backend unit tests Discover green passes.
+### Known gaps
+- None.
+
+## Phase 30 (SaaS-grade Swarmbook Persona Interview Screen)
+### Files
+- `frontend/src/views/swarmbook/SwarmbookPersonasView.vue`
+- `docs/SWARMBOOK_PHASE_STATUS.md`
+- `docs/SWARMBOOK_CHANGELOG.md`
+- `docs/SWARMBOOK_DECISIONS.md`
+### Behavior changed
+- Redesigned and rewrote `SwarmbookPersonasView.vue` as a master-detail Persona Interview screen.
+- Implemented Left Sidebar directory listing active personas with platform branding, cohort name, predicted rating, and DNF probability statistics.
+- Implemented Right Header profile card showing genres, DNF triggers, review style, and influence score.
+- Implemented Interactive Chat Workbench displaying a rolling message history with user/persona styles, quick question triggers, and loading state indicators.
+- Implemented Grounded Evidence panel cross-referencing active `evidencePack` to lookup and display detailed pacing timelines or claim text.
+- Added fully offline fallback roster with 5 mock personas and a local query responder matching the 6 trigger shapes (Rating, DNF, Recommend, Raise, Audience, Triggers) to answer questions when backend or Neo4j/Ollama services are unavailable.
+- Enforced WCAG 2.2 AA standards with clear focus outlines (`outline: 2px solid #FF4500`) and aria-labels/roles.
+### Tests added/updated
+- Verified Vite production build check and confirmed all 62 python backend unit tests Discover green passes.
+- None.
+
+## Phase 31 (SaaS-grade Swarmbook Draft Comparison Screen)
+### Files
+- `frontend/src/views/swarmbook/SwarmbookCompareView.vue`
+### Behavior changed
+- Redesigned and rewrote `SwarmbookCompareView.vue` as a premium SaaS-grade draft comparison workbench.
+- Implemented recent project dropdown lists reading `mirofish_swarmbook_projects` from `localStorage` project history, alongside a toggle to manually enter project IDs.
+- Implemented an Executive Delta Scorecard matrix comparing Publishing Readiness scores, predicted mean ratings, DNF abandonment risks, controversy risks, and quoteability metrics side-by-side with color-coded deltas.
+- Implemented a 5-tab workspace panel:
+  - **Priorities & Verdict**: Executive verdict summary, plus lists of improvements, regressions, publishing blockers, and a recommended revision checklist.
+  - **DNA & Segments**: Table of Book DNA adaptations and a cohort rating/stance shift matrix.
+  - **Pacing (Chapters)**: Detailed timeline/list of chapter deltas showing title, pacing changes (slow->balanced/fast), friction clearances, and summary shifts.
+  - **Characters & Claims**: Fiction cast attachment/role adjustments and nonfiction claim/evidence deltas.
+  - **Raw Export & Preview**: File downloaders for comparison JSON/Markdown, with preview area and copy-to-clipboard.
+- Added a high-fidelity offline mock dataset comparing original and revised drafts to support offline Visual verify.
+- Enforced WCAG 2.2 AA standards with clear focus outlines (`outline: 2px solid #FF4500`) and aria-labels/roles.
+### Tests added/updated
+- Verified Vite client production build check passes successfully.
+- Verified all 62 python backend unit tests remain green.
+### Known gaps
+- None.
+
+## Phase 32 (SaaS-grade Swarmbook Settings Screen)
+### Files
+- `frontend/src/views/swarmbook/SwarmbookSettingsView.vue`
+- `frontend/src/router/index.js`
+- `frontend/src/components/swarmbook/SwarmbookAppShell.vue`
+### Behavior changed
+- Created a dedicated `SwarmbookSettingsView.vue` component at `/swarmbook/settings/:projectId?`.
+- Refactored `SwarmbookAppShell.vue` settings navigation trigger to navigate to the new Settings view, and removed the old settings modal overlay markup.
+- Implemented interactive Privacy Mode selection cards (enforcing `local_only`, `hybrid_safe`, `cloud_quality`) with safety warning and data flow explanations.
+- Implemented local profile configurations (max personas count, platforms list, reaction loops).
+- Implemented model provider key configuration status checks (exposing configured/missing labels with key secret obfuscation).
+- Implemented on-demand health diagnostics sweep showing timeline checks and troubleshooting suggestions for Ollama and Neo4j socket connectivity.
+- Wired configurations directly to localStorage session store updates.
+- Added WCAG 2.2 AA compliant focus states (`outline: 2px solid #FF4500`) and ARIA roles.
+### Tests added/updated
+- Verified Vite client production build check compiles successfully.
+- Verified all 62 python backend unit tests remain green.
+### Known gaps
+- None.
+
+## Phase 33 (Swarmbook UI Visual Polish Pass)
+### Files
+- `frontend/src/App.vue`
+### Behavior changed
+- Injected global theme CSS variables and styling overrides into `App.vue`.
+- Standardised typography hierarchy (Space Grotesk headers and JetBrains Mono fonts) across Swarmbook Studio.
+- Standardised card layout styling (padding, borders, shadow accents, and hover transitions).
+- Refined primary/ghost button sizing, margins, and hover colors.
+- Polished table layouts with border-spacing, borders, headers background, and cells padding.
+- Refined scrollbars and empty states for comparison views, dashboard listings, and reports.
+- Enforced keyboard focus rings (`outline: 2px solid #FF4500; outline-offset: 2px`) globally on all interactive settings, uploader cards, selection tags, wizard steps, and input text areas.
+### Tests added/updated
+- Verified Vite client production build check compiles successfully.
+- Verified all 62 python backend unit tests remain green.
+### Known gaps
+- None.
+
+## Phase 34 (Swarmbook UI Accessibility and Responsive QA Pass)
+### Files
+- `frontend/src/App.vue`
+- `frontend/src/views/swarmbook/SwarmbookUploadView.vue`
+- `frontend/src/views/swarmbook/NewSimulationWizardView.vue`
+- `frontend/src/views/swarmbook/SwarmbookSimulationView.vue`
+- `frontend/src/views/swarmbook/SwarmbookEvidenceView.vue`
+- `docs/SWARMBOOK_LIMITATIONS.md`
+### Behavior changed
+- Added spacebar keydown selection listeners to custom interactive cards/elements (drag-and-drop zone, step buttons, simulation profile select cards, evidence map cards) to supplement standard enter keydown behaviors for keyboard/screenreader users.
+- Added `aria-live="polite"` attributes to form validation alerts in the guided wizard.
+- Scaled primary and ghost buttons to ensure touch target sizes satisfy a minimum of 44px in height.
+- Overrode light grey `#94a3b8` text styles globally with the high-contrast slate `--sb-text-muted` (`#64748b`) variable inside the Swarmbook namespace, satisfying WCAG 2.2 AA text contrast compatibility.
+- Appended accessibility limitations notes (drag-and-drop keyboard limits, scrolling console live log verbosity, structural tables/lists charts, and small screen boundaries) to `docs/SWARMBOOK_LIMITATIONS.md`.
+- Added media query rules and `prefers-reduced-motion: reduce` styling rules to disable transitions and animation behaviors when system motion reduction preferences are active.
+### Tests added/updated
+- Verified Vite client production build compiles successfully with zero compile warnings.
+- Verified all 62 python backend unit tests run successfully.
+### Known gaps
+- Drag-and-drop file upload actions are not keyboard navigable natively, though fully accessible keyboard browsing fallback is supported.
+- Scrolling simulation log feeds can be verbose for screen readers when live alerts are active.
+

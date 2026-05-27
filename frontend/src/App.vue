@@ -596,4 +596,233 @@ button {
     margin-bottom: 20px;
   }
 }
+
+/* ========== SWARMBOOK PREMIUM REDESIGN THEME VARIABLES & OVERRIDES ========== */
+:root {
+  --sb-bg-base: #f8fafc;
+  --sb-bg-card: #ffffff;
+  --sb-border-color: #e2e8f0;
+  --sb-border-hover: #cbd5e1;
+  --sb-text-main: #0f172a;
+  --sb-text-muted: #64748b;
+  --sb-focus-outline: 2px solid #ff4500;
+  
+  /* Signal tones */
+  --sb-color-ready: #10b981;
+  --sb-color-mixed: #f59e0b;
+  --sb-color-offline: #ef4444;
+  --sb-color-brand: #ff4500;
+}
+
+/* Global inputs focus rings */
+.swarmbook-shell select:focus-visible,
+.swarmbook-shell input:focus-visible,
+.swarmbook-shell textarea:focus-visible,
+.swarmbook-shell button:focus-visible,
+.new-wizard-container select:focus-visible,
+.new-wizard-container input:focus-visible,
+.new-wizard-container textarea:focus-visible,
+.new-wizard-container button:focus-visible {
+  outline: var(--sb-focus-outline) !important;
+  outline-offset: 2px !important;
+}
+
+/* Premium Card Styles */
+.swarmbook-shell .card,
+.new-wizard-container .card,
+.swarmbook-shell .dashboard-card {
+  background: var(--sb-bg-card) !important;
+  border: 1px solid var(--sb-border-color) !important;
+  border-radius: 8px !important;
+  padding: 24px !important;
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.05) !important;
+  transition: all 0.2s ease-in-out !important;
+}
+
+.swarmbook-shell .card:hover,
+.new-wizard-container .card:hover,
+.swarmbook-shell .dashboard-card:hover {
+  border-color: var(--sb-border-hover) !important;
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.06) !important;
+}
+
+/* Typography polish */
+.swarmbook-shell h1, .new-wizard-container h1 {
+  font-family: 'Space Grotesk', system-ui, sans-serif !important;
+  font-weight: 800 !important;
+  letter-spacing: -0.5px !important;
+  color: var(--sb-text-main) !important;
+}
+
+.swarmbook-shell h2, .new-wizard-container h2 {
+  font-family: 'Space Grotesk', system-ui, sans-serif !important;
+  font-weight: 700 !important;
+  letter-spacing: -0.3px !important;
+  color: var(--sb-text-main) !important;
+  margin-top: 0;
+}
+
+.swarmbook-shell h3, .new-wizard-container h3 {
+  font-family: 'Space Grotesk', system-ui, sans-serif !important;
+  font-weight: 600 !important;
+  color: var(--sb-text-main) !important;
+}
+
+/* Swarmbook buttons premium polish */
+.swarmbook-shell .primary-btn,
+.new-wizard-container .primary-btn {
+  background: var(--sb-text-main) !important;
+  color: #ffffff !important;
+  border: 1px solid var(--sb-text-main) !important;
+  padding: 12px 24px !important;
+  min-height: 44px !important;
+  border-radius: 6px !important;
+  font-weight: 600 !important;
+  transition: all 0.2s ease !important;
+  font-family: 'Space Grotesk', system-ui, sans-serif !important;
+  letter-spacing: 0.2px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.swarmbook-shell .primary-btn:hover:not(:disabled),
+.new-wizard-container .primary-btn:hover:not(:disabled) {
+  background: var(--sb-color-brand) !important;
+  border-color: var(--sb-color-brand) !important;
+}
+
+.swarmbook-shell .ghost-btn,
+.new-wizard-container .ghost-btn {
+  background: transparent !important;
+  color: var(--sb-text-muted) !important;
+  border: 1px solid var(--sb-border-color) !important;
+  padding: 12px 24px !important;
+  min-height: 44px !important;
+  border-radius: 6px !important;
+  font-weight: 600 !important;
+  transition: all 0.2s ease !important;
+  font-family: 'Space Grotesk', system-ui, sans-serif !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.swarmbook-shell .ghost-btn:hover:not(:disabled),
+.new-wizard-container .ghost-btn:hover:not(:disabled) {
+  background: #f1f5f9 !important;
+  border-color: var(--sb-border-hover) !important;
+  color: var(--sb-text-main) !important;
+}
+
+/* Styled Table resets for premium visual look */
+.swarmbook-shell table.styled-table,
+.new-wizard-container table.styled-table {
+  width: 100% !important;
+  border-collapse: separate !important;
+  border-spacing: 0 !important;
+  border: 1px solid var(--sb-border-color) !important;
+  border-radius: 6px !important;
+  overflow: hidden !important;
+}
+
+.swarmbook-shell table.styled-table th,
+.new-wizard-container table.styled-table th {
+  background: #f8fafc !important;
+  color: var(--sb-text-muted) !important;
+  font-family: 'JetBrains Mono', monospace !important;
+  font-size: 0.7rem !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.5px !important;
+  padding: 12px 16px !important;
+  border-bottom: 1px solid var(--sb-border-color) !important;
+  font-weight: 700 !important;
+}
+
+.swarmbook-shell table.styled-table td,
+.new-wizard-container table.styled-table td {
+  padding: 14px 16px !important;
+  border-bottom: 1px solid var(--sb-border-color) !important;
+  font-size: 0.85rem !important;
+  color: #334155 !important;
+}
+
+.swarmbook-shell table.styled-table tr:last-child td,
+.new-wizard-container table.styled-table tr:last-child td {
+  border-bottom: none !important;
+}
+
+/* Empty states layout polish */
+.swarmbook-shell .empty-compare-state,
+.swarmbook-shell .empty-projects-state,
+.swarmbook-shell .empty-report-state {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 48px 24px !important;
+  text-align: center !important;
+  border: 1px dashed var(--sb-border-hover) !important;
+  border-radius: 8px !important;
+  background: #f8fafc !important;
+}
+
+/* Scrollbar styling overrides specifically inside Swarmbook UI */
+.swarmbook-shell ::-webkit-scrollbar-thumb,
+.new-wizard-container ::-webkit-scrollbar-thumb {
+  background: #cbd5e1 !important;
+  border-radius: 4px !important;
+}
+
+.swarmbook-shell ::-webkit-scrollbar-thumb:hover,
+.new-wizard-container ::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8 !important;
+}
+
+/* Accessibility contrast overrides for secondary and hint text to satisfy WCAG 2.2 AA (4.5:1 ratio) */
+.swarmbook-shell .microcopy,
+.new-wizard-container .microcopy,
+.swarmbook-shell .formats-label,
+.new-wizard-container .formats-label,
+.swarmbook-shell .slider-marks span,
+.new-wizard-container .slider-marks span,
+.swarmbook-shell .step-hint,
+.new-wizard-container .step-hint,
+.swarmbook-shell .section-hint,
+.new-wizard-container .section-hint,
+.swarmbook-shell .seed-hint-text,
+.new-wizard-container .seed-hint-text,
+.swarmbook-shell .action-desc,
+.new-wizard-container .action-desc,
+.swarmbook-shell .settings-hint,
+.swarmbook-shell .persona-meta,
+.swarmbook-shell .persona-chat-timestamp,
+.swarmbook-shell .suggested-question-hint,
+.swarmbook-shell .evidence-citation-meta,
+.swarmbook-shell .project-meta,
+.new-wizard-container .stepper-item:not(.active),
+.swarmbook-shell .badge.hybrid_safe,
+.swarmbook-shell .spec-label {
+  color: var(--sb-text-muted) !important;
+}
+
+/* Enforce high-contrast dark color for other minor text roles */
+.swarmbook-shell .formats-label {
+  color: var(--sb-text-muted) !important;
+}
+
+/* Reduced motion preference support */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation-delay: -1ms !important;
+    animation-duration: 1ms !important;
+    animation-iteration-count: 1 !important;
+    background-attachment: scroll !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0s !important;
+    transition-delay: 0s !important;
+  }
+}
 </style>

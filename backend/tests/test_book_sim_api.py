@@ -178,6 +178,94 @@ class BookSimApiTests(unittest.TestCase):
         self.assertEqual(payload["data"]["metadata"]["local_profile"], "hybrid_safe_default")
         self.assertTrue(payload["data"]["metadata"]["local_profile_warnings"])
 
+    def test_parse_file_route(self) -> None:
+        import io
+        # Test valid TXT file parse
+        data = {
+            'file': (io.BytesIO(b"Mara arrives at the town hall carrying a secret.\nParagraph 2 text here."), "draft.txt")
+        }
+        response = self.client.post(
+            "/api/book-sim/parse-file",
+            data=data,
+            content_type="multipart/form-data"
+        )
+        self.assertEqual(response.status_code, 200)
+        payload = response.get_json()
+        self.assertTrue(payload["success"])
+        self.assertEqual(payload["data"]["filename"], "draft.txt")
+        self.assertEqual(payload["data"]["word_count"], 13)
+        self.assertIn("Mara arrives", payload["data"]["text"])
+
+        # Test unsupported file type
+        data_unsupported = {
+            'file': (io.BytesIO(b"some content"), "draft.invalid")
+        }
+        response = self.client.post(
+            "/api/book-sim/parse-file",
+            data=data_unsupported,
+            content_type="multipart/form-data"
+        )
+        self.assertEqual(response.status_code, 400)
+        payload_unsupported = response.get_json()
+        self.assertFalse(payload_unsupported["success"])
+        self.assertEqual(payload_unsupported["error_code"], "unsupported_file")
+
+        # Test oversized text content
+        large_content = b"a" * 500005
+        data_too_large = {
+            'file': (io.BytesIO(large_content), "draft.txt")
+        }
+        response = self.client.post(
+            "/api/book-sim/parse-file",
+            data=data_too_large,
+            content_type="multipart/form-data"
+        )
+        self.assertEqual(response.status_code, 400)
+        payload_too_large = response.get_json()
+        self.assertFalse(payload_too_large["success"])
+        self.assertEqual(payload_too_large["error_code"], "file_too_large")
+        self.assertIn("oversized_absolute", payload_too_large["details"])
+
+    def test_simulate_with_cohort_exclusions(self) -> None:
+        project_id = self._create_project(
+            name="Exclude Cohort Project",
+            privacy_mode="local_only",
+            draft_id="draft_exclude",
+            version="v1",
+        )
+        ingest = self.client.post(
+            "/api/book-sim/evidence-packs",
+            json={
+                "project_id": project_id,
+                "title": "Exclude Cohort Book",
+                "author_name": "A. Writer",
+                "text": _draft_text("Some text to ingest."),
+            },
+        )
+        self.assertEqual(ingest.status_code, 201)
+
+        # In configs/book_sim/reader_archetypes.yaml, we have goodreads_harsh_reviewer.
+        # Let's exclude goodreads_harsh_reviewer and see if it's successfully filtered.
+        simulate = self.client.post(
+            "/api/book-sim/simulate",
+            json={
+                "project_id": project_id,
+                "simulation_seed": 17,
+                "persona_overrides": {
+                    "exclude_archetypes": ["goodreads_harsh_reviewer"]
+                }
+            },
+        )
+        self.assertEqual(simulate.status_code, 201)
+        simulate_payload = simulate.get_json()
+        self.assertTrue(simulate_payload["success"])
+        
+        # Verify that none of the generated personas have goodreads_harsh_reviewer as their archetype_id
+        personas = simulate_payload["data"]["simulation_run"]["reader_personas"]
+        self.assertTrue(len(personas) > 0)
+        for p in personas:
+            self.assertNotEqual(p["archetype_id"], "goodreads_harsh_reviewer")
+
     def _create_project(self, name: str, privacy_mode: str, draft_id: str, version: str) -> str:
         response = self.client.post(
             "/api/book-sim/projects",

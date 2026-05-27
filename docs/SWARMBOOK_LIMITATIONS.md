@@ -28,3 +28,11 @@ Swarmbook outputs depend on:
 - `hybrid_safe` and `cloud_quality` can allow external routing only when explicitly selected and configured.
 - Never commit real API keys to the repository; keep secrets in local environment variables only.
 
+## Accessibility & Responsive UI Notes
+While the Swarmbook UI is built to target WCAG 2.2 AA standards where practical, the following limitations remain:
+- **Interactive Drag-and-Drop Limitations**: Drag-and-drop actions themselves are not fully accessible via keyboard-only interactions. To ensure full compatibility, keyboard and screen reader users can trigger the native file explorer dialog by focusing on the zone and pressing Enter or Spacebar.
+- **Dynamic Terminal Log Feed Verbosity**: The scrolling log terminal (`SwarmbookSimulationRunView.vue`) appends live status updates dynamically. Continuous console output can lead to high screen reader verbosity when `aria-live` is active. High-contrast static details are provided for a final success/failure verdict to mitigate this.
+- **Complex Analytical charts**: Rating histograms and platform virality charts are built using accessible HTML structures (styled tables, lists, and semantic tags) rather than SVGs, ensuring they can be read sequentially. However, complex screen layout density may still pose challenges for non-visual navigation.
+- **Mobile/Tablet View Scale**: While all layouts collapse into single-column responsive grids on mobile breakpoint widths (< 950px), tables and density metrics require horizontal scrolling on screens under 360px wide to preserve data structure integrity.
+
+

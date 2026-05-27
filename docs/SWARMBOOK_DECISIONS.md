@@ -181,3 +181,109 @@
 - Rationale: High-fidelity, optimized installation automation for Windows 11 workstations to allow one-click installation on new laptops.
 - Trade-off: None. Improves workstation portability and local release setup.
 - Files affected: `scripts/windows/install_swarmbook.ps1`, `docs/SWARMBOOK_PHASE_STATUS.md`, `docs/SWARMBOOK_CHANGELOG.md`, `docs/SWARMBOOK_DECISIONS.md`
+
+## D-027
+- Date: `2026-05-27`
+- Decision: Keep styling scoped to custom CSS in SFC style blocks or dedicated import files, ensuring WCAG 2.2 AA accessibility and local hardware privacy visibility.
+- Rationale: Preserves existing CSS styling paradigms and keeps styling lightweight and modular while optimizing accessibility.
+- Trade-off: No TailwindCSS utility styling framework is introduced.
+- Files affected: `docs/SWARMBOOK_UI_REDESIGN.md`, `docs/SWARMBOOK_CHANGELOG.md`, `docs/SWARMBOOK_DECISIONS.md`
+
+## D-028
+- Date: `2026-05-27`
+- Decision: Implement Settings as an interactive modal overlay within the SwarmbookAppShell rather than adding a separate route or view.
+- Rationale: Promotes a premium, SaaS-grade user experience by allowing quick configurations and warnings to be checked immediately without losing active work progress context.
+- Trade-off: Routing is simplified, but the settings layout logic is tightly coupled to the shell component structure.
+- Files affected: `frontend/src/components/swarmbook/SwarmbookAppShell.vue`, `docs/SWARMBOOK_DECISIONS.md`
+
+## D-029
+- Date: `2026-05-27`
+- Decision: Store Swarmbook project history locally in client localStorage (`mirofish_swarmbook_projects`) for immediate dashboard population.
+- Rationale: Allows displaying recent projects to authors without introducing a list-projects database queries backend route or altering the additive filesystem database storage mechanism on the Python side.
+- Trade-off: Project history list is browser-specific and will be cleared if client local storage is wiped.
+- Files affected: `frontend/src/views/swarmbook/SwarmbookHomeView.vue`, `docs/SWARMBOOK_DECISIONS.md`
+
+## D-030
+- Date: `2026-05-27`
+- Decision: Implement a unified 5-step "New Simulation Wizard" route (`NewSimulationWizard` at path `/swarmbook/wizard/:projectId?`) to replace disjointed metadata and upload views.
+- Rationale: Author experience is significantly improved by providing a linear setup wizard (Basics -> Upload -> Evidence -> Reader Swarm -> Run) with active validation, character count safety warnings, dynamic localStorage state persistence, and direct redirection to the final scorecard report.
+- Trade-off: Some duplication with standard separate upload/metadata steps, but routes are additive and preserve full access.
+- Files affected: `frontend/src/router/index.js`, `frontend/src/views/swarmbook/NewSimulationWizardView.vue`, `frontend/src/components/swarmbook/SwarmbookAppShell.vue`, `frontend/src/views/swarmbook/SwarmbookHomeView.vue`
+
+## D-031
+- Date: `2026-05-27`
+- Decision: Add native standard-library `.docx` text extraction to `FileParser` and expose a new `/parse-file` endpoint.
+- Rationale: Avoids requiring third-party python dependencies while maintaining support for Microsoft Word manuscript uploads alongside PDF, TXT, and MD formats. Exposing file parsing as a backend service allows offloading binary file processing from client-side JavaScript.
+- Trade-off: Extraction uses a simple XML text crawler inside the DOCX ZIP archive structure, which ignores styling and image nodes (which is correct since we only require plain text).
+- Files affected: `backend/app/utils/file_parser.py`, `backend/app/api/book_sim.py`, `backend/tests/test_book_sim_api.py`
+
+## D-032
+- Date: `2026-05-27`
+- Decision: Redesign the Swarmbook Evidence view (`SwarmbookEvidenceView.vue`) into a premium split-pane dashboard instead of simple lists.
+- Rationale: Promotes a premium, SaaS-grade workspace experience by displaying a list of 7 narrative maps on the left with status indicators, confidence scales, and references counts, while displaying detailed structured data and editorial annotation forms on the right.
+- Trade-off: Complex template rendering and styling block, but improves accessibility, visual hierarchy, and allows authors to direct/customize persona simulation runs using editorial notes.
+- Files affected: `frontend/src/views/swarmbook/SwarmbookEvidenceView.vue`
+
+## D-033
+- Date: `2026-05-27`
+- Decision: Modify the backend `_persona_overrides` helper to parse `exclude_archetypes` and pass them to the persona generator overrides class.
+- Rationale: Enables client-side custom reader cohort selections to be mapped directly to under-the-hood archetype exclusions dynamically at simulation time.
+- Trade-off: None. The change is fully backwards compatible and tested.
+- Files affected: `backend/app/api/book_sim.py`, `backend/tests/test_book_sim_api.py`
+
+## D-034
+- Date: `2026-05-27`
+- Decision: Redesign standalone simulation view and wizard Step 4 into a premium Reader Swarm Setup dashboard.
+- Rationale: Authors are shielded from low-level agent configuration details by being presented with plain-language simulation profiles, count controllers, platforms, active reader cohorts checklist, privacy cost explanation blocks, dynamic time estimations, and provider connection grids.
+- Trade-off: Complex layout template styling code footprint, but drastically improves author setup experience.
+- Files affected: `frontend/src/views/swarmbook/SwarmbookSimulationView.vue`, `frontend/src/views/swarmbook/NewSimulationWizardView.vue`
+
+## D-035
+- Date: `2026-05-27`
+- Decision: Centralize simulation execution progress visualization in a dedicated `/run` view route component (`SwarmbookSimulationRunView.vue`).
+- Rationale: Decoupling setup forms from execution states simplifies views code and allows both standalone config pages and guided wizards to route directly to a uniform, high-fidelity progress tracking dashboard with abort controller bindings and scrolling logs.
+- Trade-off: None. Promotes a premium, SaaS-grade UX sequence and isolates runtime Axios cancel actions.
+- Files affected: `frontend/src/views/swarmbook/SwarmbookSimulationRunView.vue`, `frontend/src/router/index.js`, `frontend/src/views/swarmbook/SwarmbookSimulationView.vue`, `frontend/src/views/swarmbook/NewSimulationWizardView.vue`
+
+## D-036
+- Date: `2026-05-27`
+- Decision: Redesign `SwarmbookReportView.vue` into a SaaS-grade Report Dashboard displaying 6 summary cards, 13 detailed main panels, local exporters, and an offline mock loader.
+- Rationale: Replaces the simple placeholder layout with an immersive, visual data suite that lets authors explore star spreads, DNF drag factors, controversy axes, platform reactions, and revision action lists. Using fully client-side exporters for JSON/Markdown and a disabled PDF warning adheres to local-first privacy and dependencies guidelines. Including an offline mock fallback loader makesvisual validation simple.
+- Trade-off: Complex custom CSS implementation footprint (progress bars, timelines, mock social post feeds) to avoid introducing third-party chart package dependencies, but ensures low-resource workstation performance.
+- Files affected: `frontend/src/views/swarmbook/SwarmbookReportView.vue`
+
+## D-037
+- Date: `2026-05-27`
+- Decision: Redesign `SwarmbookPersonasView.vue` into a SaaS-grade master-detail Persona Interview screen with sidebar directories, messaging bubbler thread workflows, and grounded evidence detail inspector lookups.
+- Rationale: Replaces the simple dropdown and text response boxes with a modern directory-based interface where authors can toggle simulated readers, inspect profile attributes (tastes, DNF triggers), view rolling message threads, ask suggested shortcuts, and drill down on grounded evidence pack citations.
+- Trade-off: Complex layout template structure, but drastically enhances query flows and bridges reader reactions back to raw manuscript evidence pack entities.
+- Files affected: `frontend/src/views/swarmbook/SwarmbookPersonasView.vue`
+
+## D-038
+- Date: `2026-05-27`
+- Decision: Redesign `SwarmbookCompareView.vue` as a SaaS-grade Draft Comparison workspace featuring project history dropdown selectors, side-by-side executive scorecards with readiness and score deltas, tabbed structural change logs (DNA/segments, chapters, characters/claims), markdown export previews, and high-fidelity offline mock fallbacks.
+- Rationale: Promotes a premium, SaaS-grade comparison experience. Reading `mirofish_swarmbook_projects` from `localStorage` simplifies project selection compared to copy-pasting raw UUID strings. Side-by-side delta scorecard and tabbed category inspectors drill down into details clearly. Compliant focus rings and ARIA attributes satisfy WCAG 2.2 AA standards, and high-fidelity mock data guarantees offline resilience.
+- Trade-off: None. The changes are additive, isolated, and preserve existing MiroFish screens and backend routes.
+- Files affected: `frontend/src/views/swarmbook/SwarmbookCompareView.vue`
+
+## D-039
+- Date: `2026-05-27`
+- Decision: Create `SwarmbookSettingsView.vue` and register the route `/swarmbook/settings/:projectId?` to replace the static settings modal in `SwarmbookAppShell.vue`.
+- Rationale: Standardizes configurations management as a first-class screen workspace, preventing UI blocking. Interactive diagnostics sweep and environmental key checks verify WS connections immediately. Obfuscated cloud key indicators and strict privacy selectors keep manuscript data offline securely under local_only mode.
+- Trade-off: Routing is slightly more complex, but makes configurations easier to read, test, and troubleshoot.
+- Files affected: `frontend/src/views/swarmbook/SwarmbookSettingsView.vue`, `frontend/src/router/index.js`, `frontend/src/components/swarmbook/SwarmbookAppShell.vue`
+
+## D-040
+- Date: `2026-05-27`
+- Decision: Place shared visual polish styles and root variables in the global stylesheet block of `App.vue` (unifying typography, cards, buttons, scrollbars, focus outlines, tables, and empty states).
+- Rationale: Storing variables and overrides at the root ensures visual consistency across all Swarmbook screens without duplicating styles or clashing with legacy MiroFish layouts.
+- Trade-off: None. The style block only overrides classes active in Swarmbook screens.
+- Files affected: `frontend/src/App.vue`
+
+## D-041
+- Date: `2026-05-27`
+- Decision: Centralize text contrast variables overrides, button touch targets (min-height: 44px), and prefers-reduced-motion media query variables globally in `App.vue`, while adding spacebar event listeners to custom interactive div/selection controls.
+- Rationale: This guarantees full WCAG 2.2 AA and responsive QA compliance across all Swarmbook views without duplicating inline styles or breaking the legacy MiroFish screens. Standard spacebar keydown listener supplements standard enter keydown behaviors for custom controls.
+- Trade-off: Centralizing overrides in `App.vue` increases stylesheet code footprint slightly but improves consistency and compliance.
+- Files affected: `frontend/src/App.vue`, `frontend/src/views/swarmbook/*.vue`
+
