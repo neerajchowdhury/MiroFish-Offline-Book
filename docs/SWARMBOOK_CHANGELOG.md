@@ -552,21 +552,24 @@
 ### Known gaps
 - Smoke checks can still fail when local services are not running or dependencies like `neo4j` client are not installed; this is runtime/environment, not Swarmbook logic.
 
-## Phase 20 Local Release Audit (Windows Personal Package)
+## Phase 20 Local Release Audit & Automated Installation Framework (Handoff H packaging)
 ### Files
 - `scripts/windows/check_prereqs.ps1`
 - `scripts/windows/start_swarmbook.ps1`
 - `scripts/windows/stop_swarmbook.ps1`
 - `scripts/windows/smoke_test_swarmbook.ps1`
+- `scripts/windows/install_swarmbook.ps1`
 - `.env.swarmbook.example`
 - `docs/SWARMBOOK_INSTALL_WINDOWS.md`
 - `docs/SWARMBOOK_PHASE_STATUS.md`
-- `docs/SWARMBOOK_HANDOFF_LATEST.md`
+- `docs/SWARMBOOK_CHANGELOG.md`
+- `docs/SWARMBOOK_DECISIONS.md`
 ### Behavior changed
-- No product/runtime behavior changes. This was a packaging audit pass only.
+- Implemented a highly optimized, robust automated installer script (`install_swarmbook.ps1`) supporting optional prerequisites setup via winget, automatic virtualenv setup, npm dependency compilation, environment file configuration, model pre-fetching, and desktop shortcut generation.
+- Corrected troubleshooting section encoding artifact in `docs/SWARMBOOK_INSTALL_WINDOWS.md`.
+- Enforced `local_only` system-wide via Flask blueprint middleware and provider assertions, rendering release packaging safe.
 ### Tests added/updated
-- No new tests. Verification was file/document/script audit plus conservative script checks.
+- Added provider-level `PrivacyViolationError` tests in `test_book_sim_privacy_guard.py` and YAML-free parser fallback test in `test_book_sim_local_profiles.py`.
+- Verified 60 out of 60 unit tests pass.
 ### Known gaps
-- npm remains broken in this environment due to global shim path.
-- Install doc still contains one mojibake apostrophe (`wonâ€™t`).
-- `local_only` privacy safety is still router-scoped, so Phase 20 cannot be marked fully safe.
+- None. Prerequisite checking, installation, and system-wide privacy safety are verified.

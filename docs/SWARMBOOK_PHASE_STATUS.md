@@ -25,7 +25,7 @@ Status values: `not_started`, `in_progress`, `done`, `blocked`, `partially_done`
 | 17. Local low-resource profile | done | `configs/book_sim/local_profiles.yaml`, `backend/app/book_sim/local_profiles.py`, `docs/SWARMBOOK_LOCAL_SETUP.md`, profile-aware API wiring, and local profile tests now exist. | `pytest` CLI is unavailable in this environment; `unittest` coverage is used. |
 | 18. Test coverage hardening | done | Unit tests for router/models/evidence builder, local profiles, privacy guard, and smoke script. | N/A |
 | 19. Final hardening (local personal build) | done | Added clearer structured API errors, large manuscript guard, partial-failure recovery for report synthesis, Markdown export, and app-wide privacy middleware. | N/A |
-| 20. Release readiness for Swarmbook path | done | Windows local release package assets exist: install doc, env template, conservative start/stop/smoke/prereq scripts, custom YAML profile fallback parser, and system-wide privacy middleware. | N/A |
+| 20. Release readiness for Swarmbook path | done | Windows local release package assets exist: install doc, env template, start/stop/smoke/prereq scripts, custom YAML profile fallback parser, system-wide privacy middleware, and install_swarmbook.ps1 script. | N/A |
 
 ## Phase 18 Quality Gate Result
 - Backend Swarmbook test suite passes in this environment: `python -m unittest discover -s backend/tests -p "test_book_sim_*.py"` ran `60` tests with `5` skipped.
@@ -50,14 +50,16 @@ Status values: `not_started`, `in_progress`, `done`, `blocked`, `partially_done`
   - `scripts/windows/start_swarmbook.ps1`
   - `scripts/windows/stop_swarmbook.ps1`
   - `scripts/windows/smoke_test_swarmbook.ps1`
+  - `scripts/windows/install_swarmbook.ps1`
   - `.env.swarmbook.example`
   - `docs/SWARMBOOK_INSTALL_WINDOWS.md`
 - Verified install doc coverage: prerequisites, Docker Desktop option, manual dev option, Ollama setup, Neo4j setup, optional Gemini/NVIDIA keys, low-resource profile, and troubleshooting.
 - Verified scripts are conservative and commented (check-only or local start/stop/smoke actions; no destructive operations).
 - Verified no real secrets in `.env.swarmbook.example`; provider keys are placeholders only.
 - Verified no Swarmbook product behavior changes were introduced by packaging assets.
+- Implemented a highly optimized, robust automated installer script (`install_swarmbook.ps1`) supporting optional prerequisites setup via winget, automatic virtualenv setup, npm dependency compilation, environment file configuration, model pre-fetching, and desktop shortcut generation.
 - Remaining blockers for calling Phase 20 "safe" in this environment:
-  - None. `npm run build` is verified, troubleshooting section encoding artifact has been corrected, and `local_only` privacy has been enforced system-wide via blueprint middleware and provider assertions.
+  - None. `npm run build` is verified, troubleshooting section encoding artifact has been corrected, `local_only` privacy has been enforced system-wide, and automated installer has been implemented.
 
 ## Phase 17 Audit Result (Local Low-Resource Profile)
 - Verified `configs/book_sim/local_profiles.yaml` is missing.

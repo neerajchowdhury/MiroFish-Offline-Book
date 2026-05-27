@@ -174,3 +174,10 @@
 - Rationale: Ensures that local profile custom configurations are loaded successfully even in python environments missing PyYAML dependency, mirroring route config fallbacks.
 - Trade-off: None. Strengthens local-first fallback loading.
 - Files affected: `backend/app/book_sim/local_profiles.py`, `backend/tests/test_book_sim_local_profiles.py`
+
+## D-026
+- Date: `2026-05-27`
+- Decision: Create an automated Windows installation tool (`install_swarmbook.ps1`) under `scripts/windows/` incorporating dynamic PATH reloading, winget dependency installation, venv provisioning, npm packaging, configuration creation, model pre-fetching, and desktop shortcut generation.
+- Rationale: High-fidelity, optimized installation automation for Windows 11 workstations to allow one-click installation on new laptops.
+- Trade-off: None. Improves workstation portability and local release setup.
+- Files affected: `scripts/windows/install_swarmbook.ps1`, `docs/SWARMBOOK_PHASE_STATUS.md`, `docs/SWARMBOOK_CHANGELOG.md`, `docs/SWARMBOOK_DECISIONS.md`
