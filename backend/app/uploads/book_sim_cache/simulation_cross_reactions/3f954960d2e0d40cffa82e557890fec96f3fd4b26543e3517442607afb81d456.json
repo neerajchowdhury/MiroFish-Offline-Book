@@ -1,0 +1,4204 @@
+{
+  "cross_reactions": [
+    {
+      "reaction_id": "cross_ae6a37e24ad1",
+      "simulation_id": "sim_44b2f2e74318",
+      "source_post_id": "booktok_2439edc383e2",
+      "target_post_id": "x_c35b951e1f7e",
+      "persona_id": "reddit_skeptic_01_5745",
+      "platform": "reddit",
+      "reacted_post_ids": [
+        "booktok_2439edc383e2",
+        "x_dd50de1d1f0e",
+        "booktok_b7596829ec13",
+        "bookstagram_9e30d82891ac",
+        "booktok_fc3538d1405f",
+        "booktok_5bc6881507c8",
+        "x_c35b951e1f7e"
+      ],
+      "stance_shift": "more_positive",
+      "agree_probability": 0.818,
+      "disagree_probability": 0.182,
+      "reply_likelihood": 0.577,
+      "rating_shift": 0.089,
+      "recommendation_shift": 0.206,
+      "sentiment": "positive",
+      "evidence_refs": [
+        "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+        "book_dna:heuristic",
+        "chapter_001",
+        "chapter:chapter_001",
+        "chapter:chapter_007",
+        "platform_style:booktok",
+        "platform_style:x",
+        "platform_style:bookstagram"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "cross_c2faf79a67e2",
+      "simulation_id": "sim_44b2f2e74318",
+      "source_post_id": "booktok_2439edc383e2",
+      "target_post_id": "x_1fa7ae81ccaf",
+      "persona_id": "bookstagram_curator_02_3291",
+      "platform": "bookstagram",
+      "reacted_post_ids": [
+        "booktok_2439edc383e2",
+        "x_dd50de1d1f0e",
+        "booktok_fc3538d1405f",
+        "x_1fa7ae81ccaf"
+      ],
+      "stance_shift": "more_positive",
+      "agree_probability": 0.904,
+      "disagree_probability": 0.096,
+      "reply_likelihood": 0.46,
+      "rating_shift": 0.098,
+      "recommendation_shift": 0.207,
+      "sentiment": "positive",
+      "evidence_refs": [
+        "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+        "book_dna:heuristic",
+        "chapter_001",
+        "chapter:chapter_001",
+        "chapter:chapter_007",
+        "platform_style:booktok",
+        "platform_style:x"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "cross_9e8434b55867",
+      "simulation_id": "sim_44b2f2e74318",
+      "source_post_id": "booktok_650d58ec76df",
+      "target_post_id": "booktok_5bc6881507c8",
+      "persona_id": "goodreads_genre_loyalist_03_1292",
+      "platform": "goodreads",
+      "reacted_post_ids": [
+        "booktok_650d58ec76df",
+        "booktok_0eb11f0d537d",
+        "x_1fa7ae81ccaf",
+        "booktok_5bc6881507c8"
+      ],
+      "stance_shift": "more_positive",
+      "agree_probability": 0.79,
+      "disagree_probability": 0.21,
+      "reply_likelihood": 0.46,
+      "rating_shift": 0.086,
+      "recommendation_shift": 0.208,
+      "sentiment": "positive",
+      "evidence_refs": [
+        "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+        "book_dna:heuristic",
+        "chapter_001",
+        "chapter:chapter_001",
+        "chapter:chapter_007",
+        "platform_style:booktok",
+        "platform_style:x"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "cross_b675d7ade89d",
+      "simulation_id": "sim_44b2f2e74318",
+      "source_post_id": "booktok_fc3538d1405f",
+      "target_post_id": "x_89dece172e78",
+      "persona_id": "booktok_emotional_amplifier_04_5377",
+      "platform": "booktok",
+      "reacted_post_ids": [
+        "booktok_fc3538d1405f",
+        "x_1fa7ae81ccaf",
+        "booktok_0eb11f0d537d",
+        "booktok_2439edc383e2",
+        "x_89dece172e78"
+      ],
+      "stance_shift": "more_positive",
+      "agree_probability": 0.897,
+      "disagree_probability": 0.103,
+      "reply_likelihood": 0.6,
+      "rating_shift": 0.093,
+      "recommendation_shift": 0.206,
+      "sentiment": "positive",
+      "evidence_refs": [
+        "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+        "book_dna:heuristic",
+        "chapter_001",
+        "chapter:chapter_001",
+        "chapter:chapter_007",
+        "platform_style:booktok",
+        "platform_style:x"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "cross_c4267e011147",
+      "simulation_id": "sim_44b2f2e74318",
+      "source_post_id": "booktok_650d58ec76df",
+      "target_post_id": "x_dd50de1d1f0e",
+      "persona_id": "booktok_trope_hunter_05_1314",
+      "platform": "booktok",
+      "reacted_post_ids": [
+        "booktok_650d58ec76df",
+        "x_1fa7ae81ccaf",
+        "booktok_fc3538d1405f",
+        "booktok_2439edc383e2",
+        "x_dd50de1d1f0e"
+      ],
+      "stance_shift": "more_positive",
+      "agree_probability": 0.942,
+      "disagree_probability": 0.058,
+      "reply_likelihood": 0.614,
+      "rating_shift": 0.092,
+      "recommendation_shift": 0.209,
+      "sentiment": "positive",
+      "evidence_refs": [
+        "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+        "book_dna:heuristic",
+        "chapter_001",
+        "chapter:chapter_001",
+        "chapter:chapter_007",
+        "platform_style:booktok",
+        "platform_style:x"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "cross_56f3ebb20405",
+      "simulation_id": "sim_44b2f2e74318",
+      "source_post_id": "booktok_b7596829ec13",
+      "target_post_id": "booktok_5bc6881507c8",
+      "persona_id": "bookstagram_curator_06_7415",
+      "platform": "bookstagram",
+      "reacted_post_ids": [
+        "booktok_b7596829ec13",
+        "bookstagram_9e30d82891ac",
+        "x_80ed423c7865",
+        "x_dd50de1d1f0e",
+        "x_89dece172e78",
+        "booktok_650d58ec76df",
+        "booktok_5bc6881507c8"
+      ],
+      "stance_shift": "more_positive",
+      "agree_probability": 0.886,
+      "disagree_probability": 0.114,
+      "reply_likelihood": 0.396,
+      "rating_shift": 0.083,
+      "recommendation_shift": 0.205,
+      "sentiment": "positive",
+      "evidence_refs": [
+        "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+        "book_dna:heuristic",
+        "chapter_001",
+        "chapter:chapter_001",
+        "chapter:chapter_007",
+        "platform_style:booktok",
+        "platform_style:bookstagram",
+        "platform_style:x"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "cross_0086ea289723",
+      "simulation_id": "sim_44b2f2e74318",
+      "source_post_id": "x_c35b951e1f7e",
+      "target_post_id": "x_1fa7ae81ccaf",
+      "persona_id": "goodreads_genre_loyalist_07_6109",
+      "platform": "goodreads",
+      "reacted_post_ids": [
+        "x_c35b951e1f7e",
+        "booktok_b7596829ec13",
+        "x_dd50de1d1f0e",
+        "booktok_fc3538d1405f",
+        "x_1fa7ae81ccaf"
+      ],
+      "stance_shift": "more_positive",
+      "agree_probability": 0.802,
+      "disagree_probability": 0.198,
+      "reply_likelihood": 0.514,
+      "rating_shift": 0.087,
+      "recommendation_shift": 0.211,
+      "sentiment": "positive",
+      "evidence_refs": [
+        "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+        "book_dna:heuristic",
+        "chapter_001",
+        "chapter:chapter_001",
+        "chapter:chapter_007",
+        "platform_style:x",
+        "platform_style:booktok"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "cross_6afc7dd78c81",
+      "simulation_id": "sim_44b2f2e74318",
+      "source_post_id": "bookstagram_9e30d82891ac",
+      "target_post_id": "x_dd50de1d1f0e",
+      "persona_id": "x_hot_take_reader_08_8970",
+      "platform": "x",
+      "reacted_post_ids": [
+        "bookstagram_9e30d82891ac",
+        "x_89dece172e78",
+        "booktok_2439edc383e2",
+        "x_1fa7ae81ccaf",
+        "x_dd50de1d1f0e"
+      ],
+      "stance_shift": "more_positive",
+      "agree_probability": 0.947,
+      "disagree_probability": 0.053,
+      "reply_likelihood": 0.73,
+      "rating_shift": 0.097,
+      "recommendation_shift": 0.202,
+      "sentiment": "positive",
+      "evidence_refs": [
+        "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+        "book_dna:heuristic",
+        "chapter_001",
+        "chapter:chapter_001",
+        "chapter:chapter_007",
+        "platform_style:bookstagram",
+        "platform_style:x",
+        "platform_style:booktok"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "cross_8b46e33cec7d",
+      "simulation_id": "sim_44b2f2e74318",
+      "source_post_id": "x_1fa7ae81ccaf",
+      "target_post_id": "booktok_fc3538d1405f",
+      "persona_id": "literary_reader_09_1879",
+      "platform": "newsletter",
+      "reacted_post_ids": [
+        "x_1fa7ae81ccaf",
+        "booktok_2439edc383e2",
+        "x_89dece172e78",
+        "booktok_5bc6881507c8",
+        "booktok_fc3538d1405f"
+      ],
+      "stance_shift": "more_positive",
+      "agree_probability": 0.787,
+      "disagree_probability": 0.213,
+      "reply_likelihood": 0.423,
+      "rating_shift": 0.089,
+      "recommendation_shift": 0.205,
+      "sentiment": "positive",
+      "evidence_refs": [
+        "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+        "book_dna:heuristic",
+        "chapter_001",
+        "chapter:chapter_001",
+        "chapter:chapter_007",
+        "platform_style:x",
+        "platform_style:booktok"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "cross_1b13898e4251",
+      "simulation_id": "sim_44b2f2e74318",
+      "source_post_id": "booktok_5bc6881507c8",
+      "target_post_id": "x_c35b951e1f7e",
+      "persona_id": "reddit_skeptic_10_4147",
+      "platform": "reddit",
+      "reacted_post_ids": [
+        "booktok_5bc6881507c8",
+        "x_89dece172e78",
+        "x_c35b951e1f7e"
+      ],
+      "stance_shift": "more_positive",
+      "agree_probability": 0.76,
+      "disagree_probability": 0.24,
+      "reply_likelihood": 0.528,
+      "rating_shift": 0.081,
+      "recommendation_shift": 0.202,
+      "sentiment": "positive",
+      "evidence_refs": [
+        "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+        "book_dna:heuristic",
+        "chapter_001",
+        "chapter:chapter_001",
+        "chapter:chapter_007",
+        "platform_style:booktok",
+        "platform_style:x"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "cross_e5828113f825",
+      "simulation_id": "sim_44b2f2e74318",
+      "source_post_id": "booktok_fc3538d1405f",
+      "target_post_id": "booktok_0eb11f0d537d",
+      "persona_id": "x_hot_take_reader_11_6386",
+      "platform": "x",
+      "reacted_post_ids": [
+        "booktok_fc3538d1405f",
+        "booktok_650d58ec76df",
+        "booktok_5bc6881507c8",
+        "x_80ed423c7865",
+        "bookstagram_9e30d82891ac",
+        "x_1fa7ae81ccaf",
+        "booktok_0eb11f0d537d"
+      ],
+      "stance_shift": "more_positive",
+      "agree_probability": 0.941,
+      "disagree_probability": 0.059,
+      "reply_likelihood": 0.729,
+      "rating_shift": 0.091,
+      "recommendation_shift": 0.207,
+      "sentiment": "positive",
+      "evidence_refs": [
+        "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+        "book_dna:heuristic",
+        "chapter_001",
+        "chapter:chapter_001",
+        "chapter:chapter_007",
+        "platform_style:booktok",
+        "platform_style:x",
+        "platform_style:bookstagram"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "cross_22bf2abc0721",
+      "simulation_id": "sim_44b2f2e74318",
+      "source_post_id": "booktok_fc3538d1405f",
+      "target_post_id": "booktok_5bc6881507c8",
+      "persona_id": "x_hot_take_reader_12_9791",
+      "platform": "x",
+      "reacted_post_ids": [
+        "booktok_fc3538d1405f",
+        "x_c35b951e1f7e",
+        "x_dd50de1d1f0e",
+        "booktok_b7596829ec13",
+        "booktok_5bc6881507c8"
+      ],
+      "stance_shift": "more_positive",
+      "agree_probability": 0.899,
+      "disagree_probability": 0.101,
+      "reply_likelihood": 0.744,
+      "rating_shift": 0.084,
+      "recommendation_shift": 0.209,
+      "sentiment": "positive",
+      "evidence_refs": [
+        "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+        "book_dna:heuristic",
+        "chapter_001",
+        "chapter:chapter_001",
+        "chapter:chapter_007",
+        "platform_style:booktok",
+        "platform_style:x"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "cross_29ba5e3f9ca7",
+      "simulation_id": "sim_44b2f2e74318",
+      "source_post_id": "booktok_650d58ec76df",
+      "target_post_id": "booktok_0eb11f0d537d",
+      "persona_id": "reddit_genre_purist_13_1122",
+      "platform": "reddit",
+      "reacted_post_ids": [
+        "booktok_650d58ec76df",
+        "booktok_5bc6881507c8",
+        "booktok_fc3538d1405f",
+        "booktok_2439edc383e2",
+        "booktok_b7596829ec13",
+        "booktok_0eb11f0d537d"
+      ],
+      "stance_shift": "more_positive",
+      "agree_probability": 0.767,
+      "disagree_probability": 0.233,
+      "reply_likelihood": 0.567,
+      "rating_shift": 0.081,
+      "recommendation_shift": 0.209,
+      "sentiment": "positive",
+      "evidence_refs": [
+        "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+        "book_dna:heuristic",
+        "chapter_001",
+        "chapter:chapter_001",
+        "chapter:chapter_007",
+        "platform_style:booktok"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "cross_8e2f88b4de44",
+      "simulation_id": "sim_44b2f2e74318",
+      "source_post_id": "x_1fa7ae81ccaf",
+      "target_post_id": "booktok_fc3538d1405f",
+      "persona_id": "x_hot_take_reader_14_5177",
+      "platform": "x",
+      "reacted_post_ids": [
+        "x_1fa7ae81ccaf",
+        "booktok_2439edc383e2",
+        "x_80ed423c7865",
+        "booktok_b7596829ec13",
+        "bookstagram_9e30d82891ac",
+        "booktok_fc3538d1405f"
+      ],
+      "stance_shift": "more_positive",
+      "agree_probability": 0.924,
+      "disagree_probability": 0.076,
+      "reply_likelihood": 0.69,
+      "rating_shift": 0.089,
+      "recommendation_shift": 0.207,
+      "sentiment": "positive",
+      "evidence_refs": [
+        "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+        "book_dna:heuristic",
+        "chapter_001",
+        "chapter:chapter_001",
+        "chapter:chapter_007",
+        "platform_style:x",
+        "platform_style:booktok",
+        "platform_style:bookstagram"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "cross_f93667c5bb67",
+      "simulation_id": "sim_44b2f2e74318",
+      "source_post_id": "bookstagram_9e30d82891ac",
+      "target_post_id": "booktok_fc3538d1405f",
+      "persona_id": "booktok_trope_hunter_15_3337",
+      "platform": "booktok",
+      "reacted_post_ids": [
+        "bookstagram_9e30d82891ac",
+        "booktok_650d58ec76df",
+        "x_c35b951e1f7e",
+        "x_1fa7ae81ccaf",
+        "x_dd50de1d1f0e",
+        "booktok_5bc6881507c8",
+        "booktok_fc3538d1405f"
+      ],
+      "stance_shift": "more_positive",
+      "agree_probability": 0.935,
+      "disagree_probability": 0.065,
+      "reply_likelihood": 0.621,
+      "rating_shift": 0.091,
+      "recommendation_shift": 0.207,
+      "sentiment": "positive",
+      "evidence_refs": [
+        "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+        "book_dna:heuristic",
+        "chapter_001",
+        "chapter:chapter_001",
+        "chapter:chapter_007",
+        "platform_style:bookstagram",
+        "platform_style:booktok",
+        "platform_style:x"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "cross_e320bb2d6597",
+      "simulation_id": "sim_44b2f2e74318",
+      "source_post_id": "x_1fa7ae81ccaf",
+      "target_post_id": "x_80ed423c7865",
+      "persona_id": "booktok_trope_hunter_16_5729",
+      "platform": "booktok",
+      "reacted_post_ids": [
+        "x_1fa7ae81ccaf",
+        "booktok_0eb11f0d537d",
+        "booktok_fc3538d1405f",
+        "booktok_5bc6881507c8",
+        "x_dd50de1d1f0e",
+        "x_80ed423c7865"
+      ],
+      "stance_shift": "more_positive",
+      "agree_probability": 0.899,
+      "disagree_probability": 0.101,
+      "reply_likelihood": 0.633,
+      "rating_shift": 0.095,
+      "recommendation_shift": 0.206,
+      "sentiment": "positive",
+      "evidence_refs": [
+        "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+        "book_dna:heuristic",
+        "chapter_001",
+        "chapter:chapter_001",
+        "chapter:chapter_007",
+        "platform_style:x",
+        "platform_style:booktok"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "cross_529f6d9ad518",
+      "simulation_id": "sim_44b2f2e74318",
+      "source_post_id": "bookstagram_9e30d82891ac",
+      "target_post_id": "booktok_2439edc383e2",
+      "persona_id": "goodreads_harsh_reviewer_17_5726",
+      "platform": "goodreads",
+      "reacted_post_ids": [
+        "bookstagram_9e30d82891ac",
+        "x_89dece172e78",
+        "booktok_2439edc383e2"
+      ],
+      "stance_shift": "more_positive",
+      "agree_probability": 0.725,
+      "disagree_probability": 0.275,
+      "reply_likelihood": 0.423,
+      "rating_shift": 0.094,
+      "recommendation_shift": 0.199,
+      "sentiment": "positive",
+      "evidence_refs": [
+        "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+        "book_dna:heuristic",
+        "chapter_001",
+        "chapter:chapter_001",
+        "chapter:chapter_007",
+        "platform_style:bookstagram",
+        "platform_style:x",
+        "platform_style:booktok"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "cross_667b4c2a3252",
+      "simulation_id": "sim_44b2f2e74318",
+      "source_post_id": "booktok_5bc6881507c8",
+      "target_post_id": "booktok_fc3538d1405f",
+      "persona_id": "x_hot_take_reader_18_4885",
+      "platform": "x",
+      "reacted_post_ids": [
+        "booktok_5bc6881507c8",
+        "x_dd50de1d1f0e",
+        "booktok_fc3538d1405f"
+      ],
+      "stance_shift": "more_positive",
+      "agree_probability": 0.932,
+      "disagree_probability": 0.068,
+      "reply_likelihood": 0.774,
+      "rating_shift": 0.093,
+      "recommendation_shift": 0.206,
+      "sentiment": "positive",
+      "evidence_refs": [
+        "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+        "book_dna:heuristic",
+        "chapter_001",
+        "chapter:chapter_001",
+        "chapter:chapter_007",
+        "platform_style:booktok",
+        "platform_style:x"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "cross_1ec1a00f3b1f",
+      "simulation_id": "sim_44b2f2e74318",
+      "source_post_id": "booktok_fc3538d1405f",
+      "target_post_id": "x_c35b951e1f7e",
+      "persona_id": "x_hot_take_reader_19_6767",
+      "platform": "x",
+      "reacted_post_ids": [
+        "booktok_fc3538d1405f",
+        "booktok_0eb11f0d537d",
+        "x_c35b951e1f7e"
+      ],
+      "stance_shift": "more_positive",
+      "agree_probability": 0.919,
+      "disagree_probability": 0.081,
+      "reply_likelihood": 0.721,
+      "rating_shift": 0.095,
+      "recommendation_shift": 0.21,
+      "sentiment": "positive",
+      "evidence_refs": [
+        "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+        "book_dna:heuristic",
+        "chapter_001",
+        "chapter:chapter_001",
+        "chapter:chapter_007",
+        "platform_style:booktok",
+        "platform_style:x"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "cross_4d844fc3ce2f",
+      "simulation_id": "sim_44b2f2e74318",
+      "source_post_id": "x_c35b951e1f7e",
+      "target_post_id": "bookstagram_9e30d82891ac",
+      "persona_id": "bookstagram_curator_20_4768",
+      "platform": "bookstagram",
+      "reacted_post_ids": [
+        "x_c35b951e1f7e",
+        "booktok_0eb11f0d537d",
+        "bookstagram_9e30d82891ac"
+      ],
+      "stance_shift": "more_positive",
+      "agree_probability": 0.892,
+      "disagree_probability": 0.108,
+      "reply_likelihood": 0.443,
+      "rating_shift": 0.099,
+      "recommendation_shift": 0.204,
+      "sentiment": "positive",
+      "evidence_refs": [
+        "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+        "book_dna:heuristic",
+        "chapter_001",
+        "chapter:chapter_001",
+        "chapter:chapter_007",
+        "platform_style:x",
+        "platform_style:booktok",
+        "platform_style:bookstagram"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "cross_72ff64532c66",
+      "simulation_id": "sim_44b2f2e74318",
+      "source_post_id": "booktok_5bc6881507c8",
+      "target_post_id": "bookstagram_9e30d82891ac",
+      "persona_id": "booktok_emotional_amplifier_21_4731",
+      "platform": "booktok",
+      "reacted_post_ids": [
+        "booktok_5bc6881507c8",
+        "x_1fa7ae81ccaf",
+        "booktok_650d58ec76df",
+        "booktok_0eb11f0d537d",
+        "bookstagram_9e30d82891ac"
+      ],
+      "stance_shift": "more_positive",
+      "agree_probability": 0.94,
+      "disagree_probability": 0.06,
+      "reply_likelihood": 0.651,
+      "rating_shift": 0.09,
+      "recommendation_shift": 0.206,
+      "sentiment": "positive",
+      "evidence_refs": [
+        "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+        "book_dna:heuristic",
+        "chapter_001",
+        "chapter:chapter_001",
+        "chapter:chapter_007",
+        "platform_style:booktok",
+        "platform_style:x",
+        "platform_style:bookstagram"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "cross_0fdf9fa54097",
+      "simulation_id": "sim_44b2f2e74318",
+      "source_post_id": "booktok_b7596829ec13",
+      "target_post_id": "x_80ed423c7865",
+      "persona_id": "reddit_skeptic_22_2629",
+      "platform": "reddit",
+      "reacted_post_ids": [
+        "booktok_b7596829ec13",
+        "x_dd50de1d1f0e",
+        "x_80ed423c7865"
+      ],
+      "stance_shift": "more_positive",
+      "agree_probability": 0.78,
+      "disagree_probability": 0.22,
+      "reply_likelihood": 0.499,
+      "rating_shift": 0.083,
+      "recommendation_shift": 0.208,
+      "sentiment": "positive",
+      "evidence_refs": [
+        "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+        "book_dna:heuristic",
+        "chapter_001",
+        "chapter:chapter_001",
+        "chapter:chapter_007",
+        "platform_style:booktok",
+        "platform_style:x"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "cross_77c14d8e6d63",
+      "simulation_id": "sim_44b2f2e74318",
+      "source_post_id": "x_c35b951e1f7e",
+      "target_post_id": "x_1fa7ae81ccaf",
+      "persona_id": "x_hot_take_reader_23_9705",
+      "platform": "x",
+      "reacted_post_ids": [
+        "x_c35b951e1f7e",
+        "bookstagram_9e30d82891ac",
+        "x_1fa7ae81ccaf"
+      ],
+      "stance_shift": "more_positive",
+      "agree_probability": 0.947,
+      "disagree_probability": 0.053,
+      "reply_likelihood": 0.687,
+      "rating_shift": 0.097,
+      "recommendation_shift": 0.205,
+      "sentiment": "positive",
+      "evidence_refs": [
+        "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+        "book_dna:heuristic",
+        "chapter_001",
+        "chapter:chapter_001",
+        "chapter:chapter_007",
+        "platform_style:x",
+        "platform_style:bookstagram"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "cross_2444acbf605b",
+      "simulation_id": "sim_44b2f2e74318",
+      "source_post_id": "x_80ed423c7865",
+      "target_post_id": "booktok_650d58ec76df",
+      "persona_id": "reddit_genre_purist_24_9213",
+      "platform": "reddit",
+      "reacted_post_ids": [
+        "x_80ed423c7865",
+        "x_1fa7ae81ccaf",
+        "x_dd50de1d1f0e",
+        "booktok_0eb11f0d537d",
+        "booktok_650d58ec76df"
+      ],
+      "stance_shift": "more_positive",
+      "agree_probability": 0.785,
+      "disagree_probability": 0.215,
+      "reply_likelihood": 0.566,
+      "rating_shift": 0.093,
+      "recommendation_shift": 0.207,
+      "sentiment": "positive",
+      "evidence_refs": [
+        "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+        "book_dna:heuristic",
+        "chapter_001",
+        "chapter:chapter_001",
+        "chapter:chapter_007",
+        "platform_style:x",
+        "platform_style:booktok"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "cross_49c07d913d52",
+      "simulation_id": "sim_44b2f2e74318",
+      "source_post_id": "booktok_fc3538d1405f",
+      "target_post_id": "x_80ed423c7865",
+      "persona_id": "booktok_trope_hunter_25_2887",
+      "platform": "booktok",
+      "reacted_post_ids": [
+        "booktok_fc3538d1405f",
+        "x_1fa7ae81ccaf",
+        "x_80ed423c7865"
+      ],
+      "stance_shift": "more_positive",
+      "agree_probability": 0.927,
+      "disagree_probability": 0.073,
+      "reply_likelihood": 0.646,
+      "rating_shift": 0.094,
+      "recommendation_shift": 0.209,
+      "sentiment": "positive",
+      "evidence_refs": [
+        "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+        "book_dna:heuristic",
+        "chapter_001",
+        "chapter:chapter_001",
+        "chapter:chapter_007",
+        "platform_style:booktok",
+        "platform_style:x"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "cross_3d057597d52a",
+      "simulation_id": "sim_44b2f2e74318",
+      "source_post_id": "booktok_0eb11f0d537d",
+      "target_post_id": "booktok_5bc6881507c8",
+      "persona_id": "x_hot_take_reader_26_2575",
+      "platform": "x",
+      "reacted_post_ids": [
+        "booktok_0eb11f0d537d",
+        "x_c35b951e1f7e",
+        "booktok_5bc6881507c8"
+      ],
+      "stance_shift": "more_positive",
+      "agree_probability": 0.887,
+      "disagree_probability": 0.113,
+      "reply_likelihood": 0.699,
+      "rating_shift": 0.089,
+      "recommendation_shift": 0.204,
+      "sentiment": "positive",
+      "evidence_refs": [
+        "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+        "book_dna:heuristic",
+        "chapter_001",
+        "chapter:chapter_001",
+        "chapter:chapter_007",
+        "platform_style:booktok",
+        "platform_style:x"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "cross_1e6637268c89",
+      "simulation_id": "sim_44b2f2e74318",
+      "source_post_id": "booktok_2439edc383e2",
+      "target_post_id": "x_80ed423c7865",
+      "persona_id": "reddit_skeptic_27_1937",
+      "platform": "reddit",
+      "reacted_post_ids": [
+        "booktok_2439edc383e2",
+        "x_c35b951e1f7e",
+        "booktok_fc3538d1405f",
+        "booktok_0eb11f0d537d",
+        "x_80ed423c7865"
+      ],
+      "stance_shift": "more_positive",
+      "agree_probability": 0.776,
+      "disagree_probability": 0.224,
+      "reply_likelihood": 0.542,
+      "rating_shift": 0.094,
+      "recommendation_shift": 0.206,
+      "sentiment": "positive",
+      "evidence_refs": [
+        "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+        "book_dna:heuristic",
+        "chapter_001",
+        "chapter:chapter_001",
+        "chapter:chapter_007",
+        "platform_style:booktok",
+        "platform_style:x"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "cross_ee2b1cad281a",
+      "simulation_id": "sim_44b2f2e74318",
+      "source_post_id": "booktok_b7596829ec13",
+      "target_post_id": "booktok_0eb11f0d537d",
+      "persona_id": "goodreads_genre_loyalist_28_5833",
+      "platform": "goodreads",
+      "reacted_post_ids": [
+        "booktok_b7596829ec13",
+        "booktok_2439edc383e2",
+        "booktok_0eb11f0d537d"
+      ],
+      "stance_shift": "more_positive",
+      "agree_probability": 0.804,
+      "disagree_probability": 0.196,
+      "reply_likelihood": 0.465,
+      "rating_shift": 0.083,
+      "recommendation_shift": 0.207,
+      "sentiment": "positive",
+      "evidence_refs": [
+        "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+        "book_dna:heuristic",
+        "chapter_001",
+        "chapter:chapter_001",
+        "chapter:chapter_007",
+        "platform_style:booktok"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "cross_7bea4b5403c0",
+      "simulation_id": "sim_44b2f2e74318",
+      "source_post_id": "x_dd50de1d1f0e",
+      "target_post_id": "booktok_5bc6881507c8",
+      "persona_id": "bookstagram_curator_29_4637",
+      "platform": "bookstagram",
+      "reacted_post_ids": [
+        "x_dd50de1d1f0e",
+        "bookstagram_9e30d82891ac",
+        "booktok_650d58ec76df",
+        "booktok_fc3538d1405f",
+        "booktok_2439edc383e2",
+        "booktok_5bc6881507c8"
+      ],
+      "stance_shift": "more_positive",
+      "agree_probability": 0.872,
+      "disagree_probability": 0.128,
+      "reply_likelihood": 0.408,
+      "rating_shift": 0.092,
+      "recommendation_shift": 0.205,
+      "sentiment": "positive",
+      "evidence_refs": [
+        "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+        "book_dna:heuristic",
+        "chapter_001",
+        "chapter:chapter_001",
+        "chapter:chapter_007",
+        "platform_style:x",
+        "platform_style:bookstagram",
+        "platform_style:booktok"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "cross_11e171e6871f",
+      "simulation_id": "sim_44b2f2e74318",
+      "source_post_id": "x_c35b951e1f7e",
+      "target_post_id": "booktok_b7596829ec13",
+      "persona_id": "x_hot_take_reader_30_4259",
+      "platform": "x",
+      "reacted_post_ids": [
+        "x_c35b951e1f7e",
+        "booktok_0eb11f0d537d",
+        "x_89dece172e78",
+        "booktok_fc3538d1405f",
+        "bookstagram_9e30d82891ac",
+        "booktok_b7596829ec13"
+      ],
+      "stance_shift": "more_positive",
+      "agree_probability": 0.93,
+      "disagree_probability": 0.07,
+      "reply_likelihood": 0.766,
+      "rating_shift": 0.087,
+      "recommendation_shift": 0.208,
+      "sentiment": "positive",
+      "evidence_refs": [
+        "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+        "book_dna:heuristic",
+        "chapter_001",
+        "chapter:chapter_001",
+        "chapter:chapter_007",
+        "platform_style:x",
+        "platform_style:booktok",
+        "platform_style:bookstagram"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "cross_65751e11e59a",
+      "simulation_id": "sim_44b2f2e74318",
+      "source_post_id": "booktok_0eb11f0d537d",
+      "target_post_id": "booktok_b7596829ec13",
+      "persona_id": "x_hot_take_reader_31_6264",
+      "platform": "x",
+      "reacted_post_ids": [
+        "booktok_0eb11f0d537d",
+        "booktok_2439edc383e2",
+        "booktok_fc3538d1405f",
+        "bookstagram_9e30d82891ac",
+        "x_dd50de1d1f0e",
+        "x_1fa7ae81ccaf",
+        "booktok_b7596829ec13"
+      ],
+      "stance_shift": "more_positive",
+      "agree_probability": 0.898,
+      "disagree_probability": 0.102,
+      "reply_likelihood": 0.752,
+      "rating_shift": 0.093,
+      "recommendation_shift": 0.207,
+      "sentiment": "positive",
+      "evidence_refs": [
+        "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+        "book_dna:heuristic",
+        "chapter_001",
+        "chapter:chapter_001",
+        "chapter:chapter_007",
+        "platform_style:booktok",
+        "platform_style:bookstagram",
+        "platform_style:x"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "cross_738707f2981a",
+      "simulation_id": "sim_44b2f2e74318",
+      "source_post_id": "x_1fa7ae81ccaf",
+      "target_post_id": "booktok_2439edc383e2",
+      "persona_id": "reddit_skeptic_32_1119",
+      "platform": "reddit",
+      "reacted_post_ids": [
+        "x_1fa7ae81ccaf",
+        "booktok_b7596829ec13",
+        "booktok_2439edc383e2"
+      ],
+      "stance_shift": "more_positive",
+      "agree_probability": 0.819,
+      "disagree_probability": 0.181,
+      "reply_likelihood": 0.515,
+      "rating_shift": 0.081,
+      "recommendation_shift": 0.209,
+      "sentiment": "positive",
+      "evidence_refs": [
+        "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+        "book_dna:heuristic",
+        "chapter_001",
+        "chapter:chapter_001",
+        "chapter:chapter_007",
+        "platform_style:x",
+        "platform_style:booktok"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "cross_94b3f096e1c9",
+      "simulation_id": "sim_44b2f2e74318",
+      "source_post_id": "x_c35b951e1f7e",
+      "target_post_id": "booktok_650d58ec76df",
+      "persona_id": "booktok_emotional_amplifier_33_5282",
+      "platform": "booktok",
+      "reacted_post_ids": [
+        "x_c35b951e1f7e",
+        "x_80ed423c7865",
+        "booktok_2439edc383e2",
+        "booktok_0eb11f0d537d",
+        "x_89dece172e78",
+        "booktok_b7596829ec13",
+        "booktok_650d58ec76df"
+      ],
+      "stance_shift": "more_positive",
+      "agree_probability": 0.926,
+      "disagree_probability": 0.074,
+      "reply_likelihood": 0.628,
+      "rating_shift": 0.082,
+      "recommendation_shift": 0.207,
+      "sentiment": "positive",
+      "evidence_refs": [
+        "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+        "book_dna:heuristic",
+        "chapter_001",
+        "chapter:chapter_001",
+        "chapter:chapter_007",
+        "platform_style:x",
+        "platform_style:booktok"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "cross_b9bdc64cae0a",
+      "simulation_id": "sim_44b2f2e74318",
+      "source_post_id": "x_dd50de1d1f0e",
+      "target_post_id": "booktok_650d58ec76df",
+      "persona_id": "reddit_skeptic_34_5385",
+      "platform": "reddit",
+      "reacted_post_ids": [
+        "x_dd50de1d1f0e",
+        "booktok_b7596829ec13",
+        "x_80ed423c7865",
+        "x_89dece172e78",
+        "booktok_2439edc383e2",
+        "booktok_650d58ec76df"
+      ],
+      "stance_shift": "more_positive",
+      "agree_probability": 0.781,
+      "disagree_probability": 0.219,
+      "reply_likelihood": 0.496,
+      "rating_shift": 0.082,
+      "recommendation_shift": 0.206,
+      "sentiment": "positive",
+      "evidence_refs": [
+        "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+        "book_dna:heuristic",
+        "chapter_001",
+        "chapter:chapter_001",
+        "chapter:chapter_007",
+        "platform_style:x",
+        "platform_style:booktok"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "cross_7491eb37f648",
+      "simulation_id": "sim_44b2f2e74318",
+      "source_post_id": "bookstagram_9e30d82891ac",
+      "target_post_id": "booktok_5bc6881507c8",
+      "persona_id": "x_hot_take_reader_35_9002",
+      "platform": "x",
+      "reacted_post_ids": [
+        "bookstagram_9e30d82891ac",
+        "x_89dece172e78",
+        "x_c35b951e1f7e",
+        "booktok_5bc6881507c8"
+      ],
+      "stance_shift": "more_positive",
+      "agree_probability": 0.888,
+      "disagree_probability": 0.112,
+      "reply_likelihood": 0.713,
+      "rating_shift": 0.088,
+      "recommendation_shift": 0.201,
+      "sentiment": "positive",
+      "evidence_refs": [
+        "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+        "book_dna:heuristic",
+        "chapter_001",
+        "chapter:chapter_001",
+        "chapter:chapter_007",
+        "platform_style:bookstagram",
+        "platform_style:x",
+        "platform_style:booktok"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "cross_6340ae358d14",
+      "simulation_id": "sim_44b2f2e74318",
+      "source_post_id": "booktok_650d58ec76df",
+      "target_post_id": "bookstagram_9e30d82891ac",
+      "persona_id": "x_hot_take_reader_36_3549",
+      "platform": "x",
+      "reacted_post_ids": [
+        "booktok_650d58ec76df",
+        "x_89dece172e78",
+        "x_1fa7ae81ccaf",
+        "bookstagram_9e30d82891ac"
+      ],
+      "stance_shift": "more_positive",
+      "agree_probability": 0.9,
+      "disagree_probability": 0.1,
+      "reply_likelihood": 0.756,
+      "rating_shift": 0.087,
+      "recommendation_shift": 0.206,
+      "sentiment": "positive",
+      "evidence_refs": [
+        "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+        "book_dna:heuristic",
+        "chapter_001",
+        "chapter:chapter_001",
+        "chapter:chapter_007",
+        "platform_style:booktok",
+        "platform_style:x",
+        "platform_style:bookstagram"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "cross_4e53ad8b532a",
+      "simulation_id": "sim_44b2f2e74318",
+      "source_post_id": "booktok_650d58ec76df",
+      "target_post_id": "booktok_5bc6881507c8",
+      "persona_id": "bookstagram_curator_37_4537",
+      "platform": "bookstagram",
+      "reacted_post_ids": [
+        "booktok_650d58ec76df",
+        "x_dd50de1d1f0e",
+        "booktok_2439edc383e2",
+        "x_80ed423c7865",
+        "x_1fa7ae81ccaf",
+        "x_89dece172e78",
+        "booktok_5bc6881507c8"
+      ],
+      "stance_shift": "more_positive",
+      "agree_probability": 0.882,
+      "disagree_probability": 0.118,
+      "reply_likelihood": 0.453,
+      "rating_shift": 0.088,
+      "recommendation_shift": 0.204,
+      "sentiment": "positive",
+      "evidence_refs": [
+        "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+        "book_dna:heuristic",
+        "chapter_001",
+        "chapter:chapter_001",
+        "chapter:chapter_007",
+        "platform_style:booktok",
+        "platform_style:x"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "cross_c30e8d3f079d",
+      "simulation_id": "sim_44b2f2e74318",
+      "source_post_id": "booktok_0eb11f0d537d",
+      "target_post_id": "booktok_650d58ec76df",
+      "persona_id": "goodreads_harsh_reviewer_38_2647",
+      "platform": "goodreads",
+      "reacted_post_ids": [
+        "booktok_0eb11f0d537d",
+        "x_c35b951e1f7e",
+        "booktok_fc3538d1405f",
+        "booktok_650d58ec76df"
+      ],
+      "stance_shift": "more_positive",
+      "agree_probability": 0.74,
+      "disagree_probability": 0.26,
+      "reply_likelihood": 0.405,
+      "rating_shift": 0.088,
+      "recommendation_shift": 0.211,
+      "sentiment": "positive",
+      "evidence_refs": [
+        "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+        "book_dna:heuristic",
+        "chapter_001",
+        "chapter:chapter_001",
+        "chapter:chapter_007",
+        "platform_style:booktok",
+        "platform_style:x"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "cross_376a73a3512f",
+      "simulation_id": "sim_44b2f2e74318",
+      "source_post_id": "x_80ed423c7865",
+      "target_post_id": "x_c35b951e1f7e",
+      "persona_id": "x_hot_take_reader_39_4709",
+      "platform": "x",
+      "reacted_post_ids": [
+        "x_80ed423c7865",
+        "bookstagram_9e30d82891ac",
+        "x_c35b951e1f7e"
+      ],
+      "stance_shift": "more_positive",
+      "agree_probability": 0.911,
+      "disagree_probability": 0.089,
+      "reply_likelihood": 0.737,
+      "rating_shift": 0.095,
+      "recommendation_shift": 0.203,
+      "sentiment": "positive",
+      "evidence_refs": [
+        "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+        "book_dna:heuristic",
+        "chapter_001",
+        "chapter:chapter_001",
+        "chapter:chapter_007",
+        "platform_style:x",
+        "platform_style:bookstagram"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "cross_5152a56ef624",
+      "simulation_id": "sim_44b2f2e74318",
+      "source_post_id": "x_89dece172e78",
+      "target_post_id": "x_1fa7ae81ccaf",
+      "persona_id": "booktok_trope_hunter_40_5342",
+      "platform": "booktok",
+      "reacted_post_ids": [
+        "x_89dece172e78",
+        "booktok_0eb11f0d537d",
+        "x_1fa7ae81ccaf"
+      ],
+      "stance_shift": "more_positive",
+      "agree_probability": 0.942,
+      "disagree_probability": 0.058,
+      "reply_likelihood": 0.65,
+      "rating_shift": 0.092,
+      "recommendation_shift": 0.205,
+      "sentiment": "positive",
+      "evidence_refs": [
+        "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+        "book_dna:heuristic",
+        "chapter_001",
+        "chapter:chapter_001",
+        "chapter:chapter_007",
+        "platform_style:x",
+        "platform_style:booktok"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "cross_bf804d6573ff",
+      "simulation_id": "sim_44b2f2e74318",
+      "source_post_id": "x_1fa7ae81ccaf",
+      "target_post_id": "booktok_5bc6881507c8",
+      "persona_id": "bookstagram_curator_41_2998",
+      "platform": "bookstagram",
+      "reacted_post_ids": [
+        "x_1fa7ae81ccaf",
+        "booktok_fc3538d1405f",
+        "x_dd50de1d1f0e",
+        "x_c35b951e1f7e",
+        "booktok_5bc6881507c8"
+      ],
+      "stance_shift": "more_positive",
+      "agree_probability": 0.843,
+      "disagree_probability": 0.157,
+      "reply_likelihood": 0.447,
+      "rating_shift": 0.093,
+      "recommendation_shift": 0.207,
+      "sentiment": "positive",
+      "evidence_refs": [
+        "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+        "book_dna:heuristic",
+        "chapter_001",
+        "chapter:chapter_001",
+        "chapter:chapter_007",
+        "platform_style:x",
+        "platform_style:booktok"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "cross_da498740d669",
+      "simulation_id": "sim_44b2f2e74318",
+      "source_post_id": "booktok_650d58ec76df",
+      "target_post_id": "x_1fa7ae81ccaf",
+      "persona_id": "bookstagram_curator_42_4611",
+      "platform": "bookstagram",
+      "reacted_post_ids": [
+        "booktok_650d58ec76df",
+        "x_89dece172e78",
+        "bookstagram_9e30d82891ac",
+        "booktok_fc3538d1405f",
+        "x_c35b951e1f7e",
+        "booktok_0eb11f0d537d",
+        "x_1fa7ae81ccaf"
+      ],
+      "stance_shift": "more_positive",
+      "agree_probability": 0.877,
+      "disagree_probability": 0.123,
+      "reply_likelihood": 0.442,
+      "rating_shift": 0.091,
+      "recommendation_shift": 0.208,
+      "sentiment": "positive",
+      "evidence_refs": [
+        "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+        "book_dna:heuristic",
+        "chapter_001",
+        "chapter:chapter_001",
+        "chapter:chapter_007",
+        "platform_style:booktok",
+        "platform_style:x",
+        "platform_style:bookstagram"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "cross_a38060c721c0",
+      "simulation_id": "sim_44b2f2e74318",
+      "source_post_id": "x_1fa7ae81ccaf",
+      "target_post_id": "x_c35b951e1f7e",
+      "persona_id": "bookstagram_curator_43_8312",
+      "platform": "bookstagram",
+      "reacted_post_ids": [
+        "x_1fa7ae81ccaf",
+        "bookstagram_9e30d82891ac",
+        "x_dd50de1d1f0e",
+        "x_c35b951e1f7e"
+      ],
+      "stance_shift": "more_positive",
+      "agree_probability": 0.893,
+      "disagree_probability": 0.107,
+      "reply_likelihood": 0.423,
+      "rating_shift": 0.1,
+      "recommendation_shift": 0.205,
+      "sentiment": "positive",
+      "evidence_refs": [
+        "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+        "book_dna:heuristic",
+        "chapter_001",
+        "chapter:chapter_001",
+        "chapter:chapter_007",
+        "platform_style:x",
+        "platform_style:bookstagram"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "cross_609589a21bd6",
+      "simulation_id": "sim_44b2f2e74318",
+      "source_post_id": "x_80ed423c7865",
+      "target_post_id": "x_dd50de1d1f0e",
+      "persona_id": "goodreads_genre_loyalist_44_9261",
+      "platform": "goodreads",
+      "reacted_post_ids": [
+        "x_80ed423c7865",
+        "x_1fa7ae81ccaf",
+        "x_dd50de1d1f0e"
+      ],
+      "stance_shift": "more_positive",
+      "agree_probability": 0.815,
+      "disagree_probability": 0.185,
+      "reply_likelihood": 0.476,
+      "rating_shift": 0.098,
+      "recommendation_shift": 0.205,
+      "sentiment": "positive",
+      "evidence_refs": [
+        "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+        "book_dna:heuristic",
+        "chapter_001",
+        "chapter:chapter_001",
+        "chapter:chapter_007",
+        "platform_style:x"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "cross_27a8c549e076",
+      "simulation_id": "sim_44b2f2e74318",
+      "source_post_id": "x_dd50de1d1f0e",
+      "target_post_id": "booktok_5bc6881507c8",
+      "persona_id": "goodreads_genre_loyalist_45_4315",
+      "platform": "goodreads",
+      "reacted_post_ids": [
+        "x_dd50de1d1f0e",
+        "x_80ed423c7865",
+        "booktok_650d58ec76df",
+        "x_89dece172e78",
+        "booktok_0eb11f0d537d",
+        "booktok_5bc6881507c8"
+      ],
+      "stance_shift": "more_positive",
+      "agree_probability": 0.81,
+      "disagree_probability": 0.19,
+      "reply_likelihood": 0.461,
+      "rating_shift": 0.087,
+      "recommendation_shift": 0.204,
+      "sentiment": "positive",
+      "evidence_refs": [
+        "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+        "book_dna:heuristic",
+        "chapter_001",
+        "chapter:chapter_001",
+        "chapter:chapter_007",
+        "platform_style:x",
+        "platform_style:booktok"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "cross_7c227456b33d",
+      "simulation_id": "sim_44b2f2e74318",
+      "source_post_id": "x_89dece172e78",
+      "target_post_id": "bookstagram_9e30d82891ac",
+      "persona_id": "booktok_trope_hunter_46_9481",
+      "platform": "booktok",
+      "reacted_post_ids": [
+        "x_89dece172e78",
+        "booktok_fc3538d1405f",
+        "bookstagram_9e30d82891ac"
+      ],
+      "stance_shift": "more_positive",
+      "agree_probability": 0.904,
+      "disagree_probability": 0.096,
+      "reply_likelihood": 0.598,
+      "rating_shift": 0.094,
+      "recommendation_shift": 0.205,
+      "sentiment": "positive",
+      "evidence_refs": [
+        "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+        "book_dna:heuristic",
+        "chapter_001",
+        "chapter:chapter_001",
+        "chapter:chapter_007",
+        "platform_style:x",
+        "platform_style:booktok",
+        "platform_style:bookstagram"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "cross_eb6479c38183",
+      "simulation_id": "sim_44b2f2e74318",
+      "source_post_id": "x_dd50de1d1f0e",
+      "target_post_id": "booktok_5bc6881507c8",
+      "persona_id": "booktok_emotional_amplifier_47_5386",
+      "platform": "booktok",
+      "reacted_post_ids": [
+        "x_dd50de1d1f0e",
+        "x_89dece172e78",
+        "booktok_650d58ec76df",
+        "x_c35b951e1f7e",
+        "bookstagram_9e30d82891ac",
+        "x_1fa7ae81ccaf",
+        "booktok_5bc6881507c8"
+      ],
+      "stance_shift": "more_positive",
+      "agree_probability": 0.907,
+      "disagree_probability": 0.093,
+      "reply_likelihood": 0.669,
+      "rating_shift": 0.089,
+      "recommendation_shift": 0.205,
+      "sentiment": "positive",
+      "evidence_refs": [
+        "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+        "book_dna:heuristic",
+        "chapter_001",
+        "chapter:chapter_001",
+        "chapter:chapter_007",
+        "platform_style:x",
+        "platform_style:booktok",
+        "platform_style:bookstagram"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "cross_9b313a4c9d1e",
+      "simulation_id": "sim_44b2f2e74318",
+      "source_post_id": "x_80ed423c7865",
+      "target_post_id": "booktok_fc3538d1405f",
+      "persona_id": "x_hot_take_reader_48_7887",
+      "platform": "x",
+      "reacted_post_ids": [
+        "x_80ed423c7865",
+        "x_c35b951e1f7e",
+        "x_1fa7ae81ccaf",
+        "booktok_fc3538d1405f"
+      ],
+      "stance_shift": "more_positive",
+      "agree_probability": 0.909,
+      "disagree_probability": 0.091,
+      "reply_likelihood": 0.7,
+      "rating_shift": 0.092,
+      "recommendation_shift": 0.209,
+      "sentiment": "positive",
+      "evidence_refs": [
+        "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+        "book_dna:heuristic",
+        "chapter_001",
+        "chapter:chapter_001",
+        "chapter:chapter_007",
+        "platform_style:x",
+        "platform_style:booktok"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "cross_f8920438d226",
+      "simulation_id": "sim_44b2f2e74318",
+      "source_post_id": "booktok_0eb11f0d537d",
+      "target_post_id": "booktok_5bc6881507c8",
+      "persona_id": "reddit_skeptic_49_1285",
+      "platform": "reddit",
+      "reacted_post_ids": [
+        "booktok_0eb11f0d537d",
+        "x_c35b951e1f7e",
+        "x_89dece172e78",
+        "x_dd50de1d1f0e",
+        "bookstagram_9e30d82891ac",
+        "booktok_5bc6881507c8"
+      ],
+      "stance_shift": "more_positive",
+      "agree_probability": 0.781,
+      "disagree_probability": 0.219,
+      "reply_likelihood": 0.524,
+      "rating_shift": 0.093,
+      "recommendation_shift": 0.203,
+      "sentiment": "positive",
+      "evidence_refs": [
+        "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+        "book_dna:heuristic",
+        "chapter_001",
+        "chapter:chapter_001",
+        "chapter:chapter_007",
+        "platform_style:booktok",
+        "platform_style:x",
+        "platform_style:bookstagram"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "cross_1e0549796bcf",
+      "simulation_id": "sim_44b2f2e74318",
+      "source_post_id": "x_89dece172e78",
+      "target_post_id": "x_dd50de1d1f0e",
+      "persona_id": "reddit_genre_purist_50_3671",
+      "platform": "reddit",
+      "reacted_post_ids": [
+        "x_89dece172e78",
+        "booktok_2439edc383e2",
+        "booktok_650d58ec76df",
+        "booktok_0eb11f0d537d",
+        "x_dd50de1d1f0e"
+      ],
+      "stance_shift": "more_positive",
+      "agree_probability": 0.824,
+      "disagree_probability": 0.176,
+      "reply_likelihood": 0.592,
+      "rating_shift": 0.09,
+      "recommendation_shift": 0.205,
+      "sentiment": "positive",
+      "evidence_refs": [
+        "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+        "book_dna:heuristic",
+        "chapter_001",
+        "chapter:chapter_001",
+        "chapter:chapter_007",
+        "platform_style:x",
+        "platform_style:booktok"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "cross_039fac819211",
+      "simulation_id": "sim_44b2f2e74318",
+      "source_post_id": "booktok_0eb11f0d537d",
+      "target_post_id": "x_89dece172e78",
+      "persona_id": "bookstagram_curator_51_3092",
+      "platform": "bookstagram",
+      "reacted_post_ids": [
+        "booktok_0eb11f0d537d",
+        "booktok_b7596829ec13",
+        "booktok_650d58ec76df",
+        "x_1fa7ae81ccaf",
+        "booktok_5bc6881507c8",
+        "x_89dece172e78"
+      ],
+      "stance_shift": "more_positive",
+      "agree_probability": 0.865,
+      "disagree_probability": 0.135,
+      "reply_likelihood": 0.419,
+      "rating_shift": 0.079,
+      "recommendation_shift": 0.208,
+      "sentiment": "positive",
+      "evidence_refs": [
+        "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+        "book_dna:heuristic",
+        "chapter_001",
+        "chapter:chapter_001",
+        "chapter:chapter_007",
+        "platform_style:booktok",
+        "platform_style:x"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "cross_88fbb0516bf5",
+      "simulation_id": "sim_44b2f2e74318",
+      "source_post_id": "booktok_5bc6881507c8",
+      "target_post_id": "x_1fa7ae81ccaf",
+      "persona_id": "booktok_trope_hunter_52_7085",
+      "platform": "booktok",
+      "reacted_post_ids": [
+        "booktok_5bc6881507c8",
+        "x_dd50de1d1f0e",
+        "x_c35b951e1f7e",
+        "booktok_b7596829ec13",
+        "booktok_fc3538d1405f",
+        "x_1fa7ae81ccaf"
+      ],
+      "stance_shift": "more_positive",
+      "agree_probability": 0.936,
+      "disagree_probability": 0.064,
+      "reply_likelihood": 0.586,
+      "rating_shift": 0.086,
+      "recommendation_shift": 0.209,
+      "sentiment": "positive",
+      "evidence_refs": [
+        "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+        "book_dna:heuristic",
+        "chapter_001",
+        "chapter:chapter_001",
+        "chapter:chapter_007",
+        "platform_style:booktok",
+        "platform_style:x"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "cross_e1579ab4f660",
+      "simulation_id": "sim_44b2f2e74318",
+      "source_post_id": "x_dd50de1d1f0e",
+      "target_post_id": "x_c35b951e1f7e",
+      "persona_id": "x_hot_take_reader_53_7046",
+      "platform": "x",
+      "reacted_post_ids": [
+        "x_dd50de1d1f0e",
+        "booktok_b7596829ec13",
+        "booktok_0eb11f0d537d",
+        "x_c35b951e1f7e"
+      ],
+      "stance_shift": "more_positive",
+      "agree_probability": 0.929,
+      "disagree_probability": 0.071,
+      "reply_likelihood": 0.744,
+      "rating_shift": 0.087,
+      "recommendation_shift": 0.209,
+      "sentiment": "positive",
+      "evidence_refs": [
+        "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+        "book_dna:heuristic",
+        "chapter_001",
+        "chapter:chapter_001",
+        "chapter:chapter_007",
+        "platform_style:x",
+        "platform_style:booktok"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "cross_4b22a110cbb7",
+      "simulation_id": "sim_44b2f2e74318",
+      "source_post_id": "booktok_2439edc383e2",
+      "target_post_id": "x_89dece172e78",
+      "persona_id": "booktok_emotional_amplifier_54_8035",
+      "platform": "booktok",
+      "reacted_post_ids": [
+        "booktok_2439edc383e2",
+        "booktok_5bc6881507c8",
+        "x_80ed423c7865",
+        "bookstagram_9e30d82891ac",
+        "x_89dece172e78"
+      ],
+      "stance_shift": "more_positive",
+      "agree_probability": 0.926,
+      "disagree_probability": 0.074,
+      "reply_likelihood": 0.58,
+      "rating_shift": 0.09,
+      "recommendation_shift": 0.2,
+      "sentiment": "positive",
+      "evidence_refs": [
+        "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+        "book_dna:heuristic",
+        "chapter_001",
+        "chapter:chapter_001",
+        "chapter:chapter_007",
+        "platform_style:booktok",
+        "platform_style:x",
+        "platform_style:bookstagram"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "cross_8e9b41b7c482",
+      "simulation_id": "sim_44b2f2e74318",
+      "source_post_id": "booktok_650d58ec76df",
+      "target_post_id": "booktok_2439edc383e2",
+      "persona_id": "booktok_emotional_amplifier_55_1963",
+      "platform": "booktok",
+      "reacted_post_ids": [
+        "booktok_650d58ec76df",
+        "x_80ed423c7865",
+        "bookstagram_9e30d82891ac",
+        "booktok_2439edc383e2"
+      ],
+      "stance_shift": "more_positive",
+      "agree_probability": 0.932,
+      "disagree_probability": 0.068,
+      "reply_likelihood": 0.622,
+      "rating_shift": 0.09,
+      "recommendation_shift": 0.204,
+      "sentiment": "positive",
+      "evidence_refs": [
+        "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+        "book_dna:heuristic",
+        "chapter_001",
+        "chapter:chapter_001",
+        "chapter:chapter_007",
+        "platform_style:booktok",
+        "platform_style:x",
+        "platform_style:bookstagram"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "cross_cd69a3280f2b",
+      "simulation_id": "sim_44b2f2e74318",
+      "source_post_id": "booktok_650d58ec76df",
+      "target_post_id": "x_80ed423c7865",
+      "persona_id": "booktok_emotional_amplifier_56_4123",
+      "platform": "booktok",
+      "reacted_post_ids": [
+        "booktok_650d58ec76df",
+        "booktok_2439edc383e2",
+        "booktok_0eb11f0d537d",
+        "x_80ed423c7865"
+      ],
+      "stance_shift": "more_positive",
+      "agree_probability": 0.931,
+      "disagree_probability": 0.069,
+      "reply_likelihood": 0.625,
+      "rating_shift": 0.089,
+      "recommendation_shift": 0.206,
+      "sentiment": "positive",
+      "evidence_refs": [
+        "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+        "book_dna:heuristic",
+        "chapter_001",
+        "chapter:chapter_001",
+        "chapter:chapter_007",
+        "platform_style:booktok",
+        "platform_style:x"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "cross_dc84ff7569e4",
+      "simulation_id": "sim_44b2f2e74318",
+      "source_post_id": "booktok_0eb11f0d537d",
+      "target_post_id": "booktok_2439edc383e2",
+      "persona_id": "bookstagram_curator_57_5781",
+      "platform": "bookstagram",
+      "reacted_post_ids": [
+        "booktok_0eb11f0d537d",
+        "booktok_650d58ec76df",
+        "booktok_5bc6881507c8",
+        "x_dd50de1d1f0e",
+        "booktok_b7596829ec13",
+        "booktok_2439edc383e2"
+      ],
+      "stance_shift": "more_positive",
+      "agree_probability": 0.884,
+      "disagree_probability": 0.116,
+      "reply_likelihood": 0.392,
+      "rating_shift": 0.083,
+      "recommendation_shift": 0.207,
+      "sentiment": "positive",
+      "evidence_refs": [
+        "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+        "book_dna:heuristic",
+        "chapter_001",
+        "chapter:chapter_001",
+        "chapter:chapter_007",
+        "platform_style:booktok",
+        "platform_style:x"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "cross_90cbe4d2f290",
+      "simulation_id": "sim_44b2f2e74318",
+      "source_post_id": "booktok_0eb11f0d537d",
+      "target_post_id": "booktok_b7596829ec13",
+      "persona_id": "booktok_trope_hunter_58_7341",
+      "platform": "booktok",
+      "reacted_post_ids": [
+        "booktok_0eb11f0d537d",
+        "x_80ed423c7865",
+        "booktok_2439edc383e2",
+        "booktok_5bc6881507c8",
+        "booktok_650d58ec76df",
+        "booktok_b7596829ec13"
+      ],
+      "stance_shift": "more_positive",
+      "agree_probability": 0.895,
+      "disagree_probability": 0.105,
+      "reply_likelihood": 0.599,
+      "rating_shift": 0.081,
+      "recommendation_shift": 0.206,
+      "sentiment": "positive",
+      "evidence_refs": [
+        "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+        "book_dna:heuristic",
+        "chapter_001",
+        "chapter:chapter_001",
+        "chapter:chapter_007",
+        "platform_style:booktok",
+        "platform_style:x"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "cross_48cb9fae7bd5",
+      "simulation_id": "sim_44b2f2e74318",
+      "source_post_id": "x_80ed423c7865",
+      "target_post_id": "x_89dece172e78",
+      "persona_id": "reddit_genre_purist_59_6876",
+      "platform": "reddit",
+      "reacted_post_ids": [
+        "x_80ed423c7865",
+        "x_dd50de1d1f0e",
+        "bookstagram_9e30d82891ac",
+        "booktok_0eb11f0d537d",
+        "booktok_fc3538d1405f",
+        "x_89dece172e78"
+      ],
+      "stance_shift": "more_positive",
+      "agree_probability": 0.792,
+      "disagree_probability": 0.208,
+      "reply_likelihood": 0.568,
+      "rating_shift": 0.097,
+      "recommendation_shift": 0.204,
+      "sentiment": "positive",
+      "evidence_refs": [
+        "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+        "book_dna:heuristic",
+        "chapter_001",
+        "chapter:chapter_001",
+        "chapter:chapter_007",
+        "platform_style:x",
+        "platform_style:bookstagram",
+        "platform_style:booktok"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "cross_505a31a296a2",
+      "simulation_id": "sim_44b2f2e74318",
+      "source_post_id": "x_1fa7ae81ccaf",
+      "target_post_id": "booktok_0eb11f0d537d",
+      "persona_id": "booktok_trope_hunter_60_1979",
+      "platform": "booktok",
+      "reacted_post_ids": [
+        "x_1fa7ae81ccaf",
+        "booktok_2439edc383e2",
+        "booktok_fc3538d1405f",
+        "booktok_0eb11f0d537d"
+      ],
+      "stance_shift": "more_positive",
+      "agree_probability": 0.917,
+      "disagree_probability": 0.083,
+      "reply_likelihood": 0.619,
+      "rating_shift": 0.097,
+      "recommendation_shift": 0.208,
+      "sentiment": "positive",
+      "evidence_refs": [
+        "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+        "book_dna:heuristic",
+        "chapter_001",
+        "chapter:chapter_001",
+        "chapter:chapter_007",
+        "platform_style:x",
+        "platform_style:booktok"
+      ],
+      "confidence": 0.74
+    }
+  ],
+  "updated_private_reactions": [
+    {
+      "reaction_id": "private_7c52d482e946",
+      "simulation_id": "sim_44b2f2e74318",
+      "persona_id": "reddit_skeptic_01_5745",
+      "chapter_id": null,
+      "rating": 3.68,
+      "dnf_probability": 0.497,
+      "sentiment": "positive",
+      "attachment_score": 0.749,
+      "confusion_score": 0.535,
+      "recommendation_probability": 0.858,
+      "praise": [
+        "internal_logic",
+        "sharp_argument",
+        "grief"
+      ],
+      "friction": [
+        "handwaving",
+        "plot_holes",
+        "pacing_drag"
+      ],
+      "notable_quotes": [
+        "I was at a child’s birthday party last Sunday. You know the kind."
+      ],
+      "evidence_refs": [
+        "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+        "book_dna:heuristic",
+        "chapter_001",
+        "chapter:chapter_001",
+        "chapter:chapter_007",
+        "booktok_2439edc383e2",
+        "x_dd50de1d1f0e",
+        "booktok_b7596829ec13",
+        "bookstagram_9e30d82891ac",
+        "booktok_fc3538d1405f",
+        "booktok_5bc6881507c8",
+        "x_c35b951e1f7e"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "private_e52add3b4c91",
+      "simulation_id": "sim_44b2f2e74318",
+      "persona_id": "bookstagram_curator_02_3291",
+      "chapter_id": null,
+      "rating": 4.12,
+      "dnf_probability": 0.458,
+      "sentiment": "positive",
+      "attachment_score": 0.805,
+      "confusion_score": 0.538,
+      "recommendation_probability": 0.931,
+      "praise": [
+        "beautiful_package",
+        "mood",
+        "grief"
+      ],
+      "friction": [
+        "plain_packaging",
+        "visual_flatness",
+        "pacing_drag"
+      ],
+      "notable_quotes": [
+        "I was at a child’s birthday party last Sunday. You know the kind."
+      ],
+      "evidence_refs": [
+        "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+        "book_dna:heuristic",
+        "chapter_001",
+        "chapter:chapter_001",
+        "chapter:chapter_007",
+        "booktok_2439edc383e2",
+        "x_dd50de1d1f0e",
+        "booktok_fc3538d1405f",
+        "x_1fa7ae81ccaf"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "private_6e6b98234e2c",
+      "simulation_id": "sim_44b2f2e74318",
+      "persona_id": "goodreads_genre_loyalist_03_1292",
+      "chapter_id": null,
+      "rating": 4.21,
+      "dnf_probability": 0.518,
+      "sentiment": "positive",
+      "attachment_score": 0.685,
+      "confusion_score": 0.548,
+      "recommendation_probability": 0.922,
+      "praise": [
+        "genre_tropes",
+        "satisfying_arc",
+        "grief"
+      ],
+      "friction": [
+        "genre_betrayal",
+        "ambiguous_endings",
+        "pacing_drag"
+      ],
+      "notable_quotes": [
+        "I was at a child’s birthday party last Sunday. You know the kind."
+      ],
+      "evidence_refs": [
+        "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+        "book_dna:heuristic",
+        "chapter_001",
+        "chapter:chapter_001",
+        "chapter:chapter_007",
+        "booktok_650d58ec76df",
+        "booktok_0eb11f0d537d",
+        "x_1fa7ae81ccaf",
+        "booktok_5bc6881507c8"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "private_37d8cd104cce",
+      "simulation_id": "sim_44b2f2e74318",
+      "persona_id": "booktok_emotional_amplifier_04_5377",
+      "chapter_id": null,
+      "rating": 3.59,
+      "dnf_probability": 0.456,
+      "sentiment": "positive",
+      "attachment_score": 0.704,
+      "confusion_score": 0.466,
+      "recommendation_probability": 0.837,
+      "praise": [
+        "heartbreak",
+        "found_family",
+        "grief"
+      ],
+      "friction": [
+        "detachment",
+        "exposition",
+        "pacing_drag"
+      ],
+      "notable_quotes": [
+        "I was at a child’s birthday party last Sunday. You know the kind."
+      ],
+      "evidence_refs": [
+        "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+        "book_dna:heuristic",
+        "chapter_001",
+        "chapter:chapter_001",
+        "chapter:chapter_007",
+        "booktok_fc3538d1405f",
+        "x_1fa7ae81ccaf",
+        "booktok_0eb11f0d537d",
+        "booktok_2439edc383e2",
+        "x_89dece172e78"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "private_27b487ad174c",
+      "simulation_id": "sim_44b2f2e74318",
+      "persona_id": "booktok_trope_hunter_05_1314",
+      "chapter_id": null,
+      "rating": 3.71,
+      "dnf_probability": 0.425,
+      "sentiment": "positive",
+      "attachment_score": 0.728,
+      "confusion_score": 0.547,
+      "recommendation_probability": 0.861,
+      "praise": [
+        "enemies_to_lovers",
+        "slow_burn",
+        "grief"
+      ],
+      "friction": [
+        "trope_mismatch",
+        "no_payoff",
+        "pacing_drag"
+      ],
+      "notable_quotes": [
+        "I was at a child’s birthday party last Sunday. You know the kind."
+      ],
+      "evidence_refs": [
+        "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+        "book_dna:heuristic",
+        "chapter_001",
+        "chapter:chapter_001",
+        "chapter:chapter_007",
+        "booktok_650d58ec76df",
+        "x_1fa7ae81ccaf",
+        "booktok_fc3538d1405f",
+        "booktok_2439edc383e2",
+        "x_dd50de1d1f0e"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "private_4bea40db82f5",
+      "simulation_id": "sim_44b2f2e74318",
+      "persona_id": "bookstagram_curator_06_7415",
+      "chapter_id": null,
+      "rating": 4.03,
+      "dnf_probability": 0.433,
+      "sentiment": "positive",
+      "attachment_score": 0.768,
+      "confusion_score": 0.498,
+      "recommendation_probability": 0.912,
+      "praise": [
+        "beautiful_package",
+        "mood",
+        "grief"
+      ],
+      "friction": [
+        "plain_packaging",
+        "visual_flatness",
+        "pacing_drag"
+      ],
+      "notable_quotes": [
+        "I was at a child’s birthday party last Sunday. You know the kind."
+      ],
+      "evidence_refs": [
+        "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+        "book_dna:heuristic",
+        "chapter_001",
+        "chapter:chapter_001",
+        "chapter:chapter_007",
+        "booktok_b7596829ec13",
+        "bookstagram_9e30d82891ac",
+        "x_80ed423c7865",
+        "x_dd50de1d1f0e",
+        "x_89dece172e78",
+        "booktok_650d58ec76df",
+        "booktok_5bc6881507c8"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "private_4a4ce9071ad4",
+      "simulation_id": "sim_44b2f2e74318",
+      "persona_id": "goodreads_genre_loyalist_07_6109",
+      "chapter_id": null,
+      "rating": 4.03,
+      "dnf_probability": 0.482,
+      "sentiment": "positive",
+      "attachment_score": 0.822,
+      "confusion_score": 0.541,
+      "recommendation_probability": 0.927,
+      "praise": [
+        "genre_tropes",
+        "satisfying_arc",
+        "grief"
+      ],
+      "friction": [
+        "genre_betrayal",
+        "ambiguous_endings",
+        "pacing_drag"
+      ],
+      "notable_quotes": [
+        "I was at a child’s birthday party last Sunday. You know the kind."
+      ],
+      "evidence_refs": [
+        "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+        "book_dna:heuristic",
+        "chapter_001",
+        "chapter:chapter_001",
+        "chapter:chapter_007",
+        "x_c35b951e1f7e",
+        "booktok_b7596829ec13",
+        "x_dd50de1d1f0e",
+        "booktok_fc3538d1405f",
+        "x_1fa7ae81ccaf"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "private_3217968dea96",
+      "simulation_id": "sim_44b2f2e74318",
+      "persona_id": "x_hot_take_reader_08_8970",
+      "chapter_id": null,
+      "rating": 3.8,
+      "dnf_probability": 0.496,
+      "sentiment": "positive",
+      "attachment_score": 0.77,
+      "confusion_score": 0.515,
+      "recommendation_probability": 0.874,
+      "praise": [
+        "provocation",
+        "controversy",
+        "grief"
+      ],
+      "friction": [
+        "slowness",
+        "nuance_without_payoff",
+        "pacing_drag"
+      ],
+      "notable_quotes": [
+        "I was at a child’s birthday party last Sunday. You know the kind."
+      ],
+      "evidence_refs": [
+        "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+        "book_dna:heuristic",
+        "chapter_001",
+        "chapter:chapter_001",
+        "chapter:chapter_007",
+        "bookstagram_9e30d82891ac",
+        "x_89dece172e78",
+        "booktok_2439edc383e2",
+        "x_1fa7ae81ccaf",
+        "x_dd50de1d1f0e"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "private_55413e29cfb4",
+      "simulation_id": "sim_44b2f2e74318",
+      "persona_id": "literary_reader_09_1879",
+      "chapter_id": null,
+      "rating": 3.54,
+      "dnf_probability": 0.485,
+      "sentiment": "positive",
+      "attachment_score": 0.708,
+      "confusion_score": 0.553,
+      "recommendation_probability": 0.83,
+      "praise": [
+        "voice",
+        "subtext",
+        "grief"
+      ],
+      "friction": [
+        "flat_prose",
+        "obviousness",
+        "pacing_drag"
+      ],
+      "notable_quotes": [
+        "I was at a child’s birthday party last Sunday. You know the kind."
+      ],
+      "evidence_refs": [
+        "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+        "book_dna:heuristic",
+        "chapter_001",
+        "chapter:chapter_001",
+        "chapter:chapter_007",
+        "x_1fa7ae81ccaf",
+        "booktok_2439edc383e2",
+        "x_89dece172e78",
+        "booktok_5bc6881507c8",
+        "booktok_fc3538d1405f"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "private_296c93d36f8b",
+      "simulation_id": "sim_44b2f2e74318",
+      "persona_id": "reddit_skeptic_10_4147",
+      "chapter_id": null,
+      "rating": 3.75,
+      "dnf_probability": 0.462,
+      "sentiment": "positive",
+      "attachment_score": 0.723,
+      "confusion_score": 0.497,
+      "recommendation_probability": 0.86,
+      "praise": [
+        "internal_logic",
+        "sharp_argument",
+        "grief"
+      ],
+      "friction": [
+        "handwaving",
+        "plot_holes",
+        "pacing_drag"
+      ],
+      "notable_quotes": [
+        "I was at a child’s birthday party last Sunday. You know the kind."
+      ],
+      "evidence_refs": [
+        "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+        "book_dna:heuristic",
+        "chapter_001",
+        "chapter:chapter_001",
+        "chapter:chapter_007",
+        "booktok_5bc6881507c8",
+        "x_89dece172e78",
+        "x_c35b951e1f7e"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "private_0df91a4fffdb",
+      "simulation_id": "sim_44b2f2e74318",
+      "persona_id": "x_hot_take_reader_11_6386",
+      "chapter_id": null,
+      "rating": 3.74,
+      "dnf_probability": 0.477,
+      "sentiment": "positive",
+      "attachment_score": 0.731,
+      "confusion_score": 0.478,
+      "recommendation_probability": 0.864,
+      "praise": [
+        "provocation",
+        "controversy",
+        "grief"
+      ],
+      "friction": [
+        "slowness",
+        "nuance_without_payoff",
+        "pacing_drag"
+      ],
+      "notable_quotes": [
+        "I was at a child’s birthday party last Sunday. You know the kind."
+      ],
+      "evidence_refs": [
+        "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+        "book_dna:heuristic",
+        "chapter_001",
+        "chapter:chapter_001",
+        "chapter:chapter_007",
+        "booktok_fc3538d1405f",
+        "booktok_650d58ec76df",
+        "booktok_5bc6881507c8",
+        "x_80ed423c7865",
+        "bookstagram_9e30d82891ac",
+        "x_1fa7ae81ccaf",
+        "booktok_0eb11f0d537d"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "private_36c5eacf0215",
+      "simulation_id": "sim_44b2f2e74318",
+      "persona_id": "x_hot_take_reader_12_9791",
+      "chapter_id": null,
+      "rating": 3.35,
+      "dnf_probability": 0.442,
+      "sentiment": "positive",
+      "attachment_score": 0.743,
+      "confusion_score": 0.519,
+      "recommendation_probability": 0.815,
+      "praise": [
+        "provocation",
+        "controversy",
+        "grief"
+      ],
+      "friction": [
+        "slowness",
+        "nuance_without_payoff",
+        "pacing_drag"
+      ],
+      "notable_quotes": [
+        "I was at a child’s birthday party last Sunday. You know the kind."
+      ],
+      "evidence_refs": [
+        "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+        "book_dna:heuristic",
+        "chapter_001",
+        "chapter:chapter_001",
+        "chapter:chapter_007",
+        "booktok_fc3538d1405f",
+        "x_c35b951e1f7e",
+        "x_dd50de1d1f0e",
+        "booktok_b7596829ec13",
+        "booktok_5bc6881507c8"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "private_d598cc622755",
+      "simulation_id": "sim_44b2f2e74318",
+      "persona_id": "reddit_genre_purist_13_1122",
+      "chapter_id": null,
+      "rating": 3.27,
+      "dnf_probability": 0.536,
+      "sentiment": "positive",
+      "attachment_score": 0.684,
+      "confusion_score": 0.54,
+      "recommendation_probability": 0.792,
+      "praise": [
+        "genre_authenticity",
+        "canonical_rules",
+        "grief"
+      ],
+      "friction": [
+        "genre_blending",
+        "rule_breaking",
+        "pacing_drag"
+      ],
+      "notable_quotes": [
+        "I was at a child’s birthday party last Sunday. You know the kind."
+      ],
+      "evidence_refs": [
+        "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+        "book_dna:heuristic",
+        "chapter_001",
+        "chapter:chapter_001",
+        "chapter:chapter_007",
+        "booktok_650d58ec76df",
+        "booktok_5bc6881507c8",
+        "booktok_fc3538d1405f",
+        "booktok_2439edc383e2",
+        "booktok_b7596829ec13",
+        "booktok_0eb11f0d537d"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "private_061975a6e4b9",
+      "simulation_id": "sim_44b2f2e74318",
+      "persona_id": "x_hot_take_reader_14_5177",
+      "chapter_id": null,
+      "rating": 3.96,
+      "dnf_probability": 0.474,
+      "sentiment": "positive",
+      "attachment_score": 0.757,
+      "confusion_score": 0.521,
+      "recommendation_probability": 0.9,
+      "praise": [
+        "provocation",
+        "controversy",
+        "grief"
+      ],
+      "friction": [
+        "slowness",
+        "nuance_without_payoff",
+        "pacing_drag"
+      ],
+      "notable_quotes": [
+        "I was at a child’s birthday party last Sunday. You know the kind."
+      ],
+      "evidence_refs": [
+        "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+        "book_dna:heuristic",
+        "chapter_001",
+        "chapter:chapter_001",
+        "chapter:chapter_007",
+        "x_1fa7ae81ccaf",
+        "booktok_2439edc383e2",
+        "x_80ed423c7865",
+        "booktok_b7596829ec13",
+        "bookstagram_9e30d82891ac",
+        "booktok_fc3538d1405f"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "private_6f81f3667941",
+      "simulation_id": "sim_44b2f2e74318",
+      "persona_id": "booktok_trope_hunter_15_3337",
+      "chapter_id": null,
+      "rating": 3.77,
+      "dnf_probability": 0.397,
+      "sentiment": "positive",
+      "attachment_score": 0.783,
+      "confusion_score": 0.524,
+      "recommendation_probability": 0.879,
+      "praise": [
+        "enemies_to_lovers",
+        "slow_burn",
+        "grief"
+      ],
+      "friction": [
+        "trope_mismatch",
+        "no_payoff",
+        "pacing_drag"
+      ],
+      "notable_quotes": [
+        "I was at a child’s birthday party last Sunday. You know the kind."
+      ],
+      "evidence_refs": [
+        "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+        "book_dna:heuristic",
+        "chapter_001",
+        "chapter:chapter_001",
+        "chapter:chapter_007",
+        "bookstagram_9e30d82891ac",
+        "booktok_650d58ec76df",
+        "x_c35b951e1f7e",
+        "x_1fa7ae81ccaf",
+        "x_dd50de1d1f0e",
+        "booktok_5bc6881507c8",
+        "booktok_fc3538d1405f"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "private_bda845305664",
+      "simulation_id": "sim_44b2f2e74318",
+      "persona_id": "booktok_trope_hunter_16_5729",
+      "chapter_id": null,
+      "rating": 3.67,
+      "dnf_probability": 0.427,
+      "sentiment": "positive",
+      "attachment_score": 0.718,
+      "confusion_score": 0.511,
+      "recommendation_probability": 0.849,
+      "praise": [
+        "enemies_to_lovers",
+        "slow_burn",
+        "grief"
+      ],
+      "friction": [
+        "trope_mismatch",
+        "no_payoff",
+        "pacing_drag"
+      ],
+      "notable_quotes": [
+        "I was at a child’s birthday party last Sunday. You know the kind."
+      ],
+      "evidence_refs": [
+        "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+        "book_dna:heuristic",
+        "chapter_001",
+        "chapter:chapter_001",
+        "chapter:chapter_007",
+        "x_1fa7ae81ccaf",
+        "booktok_0eb11f0d537d",
+        "booktok_fc3538d1405f",
+        "booktok_5bc6881507c8",
+        "x_dd50de1d1f0e",
+        "x_80ed423c7865"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "private_af6ef7dcad16",
+      "simulation_id": "sim_44b2f2e74318",
+      "persona_id": "goodreads_harsh_reviewer_17_5726",
+      "chapter_id": null,
+      "rating": 3.72,
+      "dnf_probability": 0.508,
+      "sentiment": "positive",
+      "attachment_score": 0.744,
+      "confusion_score": 0.506,
+      "recommendation_probability": 0.856,
+      "praise": [
+        "strong_opening",
+        "clean_prose",
+        "grief"
+      ],
+      "friction": [
+        "slow_start",
+        "weak_characterization",
+        "pacing_drag"
+      ],
+      "notable_quotes": [
+        "I was at a child’s birthday party last Sunday. You know the kind."
+      ],
+      "evidence_refs": [
+        "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+        "book_dna:heuristic",
+        "chapter_001",
+        "chapter:chapter_001",
+        "chapter:chapter_007",
+        "bookstagram_9e30d82891ac",
+        "x_89dece172e78",
+        "booktok_2439edc383e2"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "private_40af74d3720d",
+      "simulation_id": "sim_44b2f2e74318",
+      "persona_id": "x_hot_take_reader_18_4885",
+      "chapter_id": null,
+      "rating": 4.05,
+      "dnf_probability": 0.456,
+      "sentiment": "positive",
+      "attachment_score": 0.738,
+      "confusion_score": 0.48,
+      "recommendation_probability": 0.908,
+      "praise": [
+        "provocation",
+        "controversy",
+        "grief"
+      ],
+      "friction": [
+        "slowness",
+        "nuance_without_payoff",
+        "pacing_drag"
+      ],
+      "notable_quotes": [
+        "I was at a child’s birthday party last Sunday. You know the kind."
+      ],
+      "evidence_refs": [
+        "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+        "book_dna:heuristic",
+        "chapter_001",
+        "chapter:chapter_001",
+        "chapter:chapter_007",
+        "booktok_5bc6881507c8",
+        "x_dd50de1d1f0e",
+        "booktok_fc3538d1405f"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "private_2e7cb55cf13c",
+      "simulation_id": "sim_44b2f2e74318",
+      "persona_id": "x_hot_take_reader_19_6767",
+      "chapter_id": null,
+      "rating": 4.0,
+      "dnf_probability": 0.438,
+      "sentiment": "positive",
+      "attachment_score": 0.798,
+      "confusion_score": 0.483,
+      "recommendation_probability": 0.917,
+      "praise": [
+        "provocation",
+        "controversy",
+        "grief"
+      ],
+      "friction": [
+        "slowness",
+        "nuance_without_payoff",
+        "pacing_drag"
+      ],
+      "notable_quotes": [
+        "I was at a child’s birthday party last Sunday. You know the kind."
+      ],
+      "evidence_refs": [
+        "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+        "book_dna:heuristic",
+        "chapter_001",
+        "chapter:chapter_001",
+        "chapter:chapter_007",
+        "booktok_fc3538d1405f",
+        "booktok_0eb11f0d537d",
+        "x_c35b951e1f7e"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "private_47fd929a5657",
+      "simulation_id": "sim_44b2f2e74318",
+      "persona_id": "bookstagram_curator_20_4768",
+      "chapter_id": null,
+      "rating": 3.48,
+      "dnf_probability": 0.461,
+      "sentiment": "positive",
+      "attachment_score": 0.703,
+      "confusion_score": 0.486,
+      "recommendation_probability": 0.818,
+      "praise": [
+        "beautiful_package",
+        "mood",
+        "grief"
+      ],
+      "friction": [
+        "plain_packaging",
+        "visual_flatness",
+        "pacing_drag"
+      ],
+      "notable_quotes": [
+        "I was at a child’s birthday party last Sunday. You know the kind."
+      ],
+      "evidence_refs": [
+        "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+        "book_dna:heuristic",
+        "chapter_001",
+        "chapter:chapter_001",
+        "chapter:chapter_007",
+        "x_c35b951e1f7e",
+        "booktok_0eb11f0d537d",
+        "bookstagram_9e30d82891ac"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "private_84d6313237a1",
+      "simulation_id": "sim_44b2f2e74318",
+      "persona_id": "booktok_emotional_amplifier_21_4731",
+      "chapter_id": null,
+      "rating": 3.6,
+      "dnf_probability": 0.418,
+      "sentiment": "positive",
+      "attachment_score": 0.736,
+      "confusion_score": 0.468,
+      "recommendation_probability": 0.845,
+      "praise": [
+        "heartbreak",
+        "found_family",
+        "grief"
+      ],
+      "friction": [
+        "detachment",
+        "exposition",
+        "pacing_drag"
+      ],
+      "notable_quotes": [
+        "I was at a child’s birthday party last Sunday. You know the kind."
+      ],
+      "evidence_refs": [
+        "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+        "book_dna:heuristic",
+        "chapter_001",
+        "chapter:chapter_001",
+        "chapter:chapter_007",
+        "booktok_5bc6881507c8",
+        "x_1fa7ae81ccaf",
+        "booktok_650d58ec76df",
+        "booktok_0eb11f0d537d",
+        "bookstagram_9e30d82891ac"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "private_478ff4e49c32",
+      "simulation_id": "sim_44b2f2e74318",
+      "persona_id": "reddit_skeptic_22_2629",
+      "chapter_id": null,
+      "rating": 3.24,
+      "dnf_probability": 0.482,
+      "sentiment": "positive",
+      "attachment_score": 0.71,
+      "confusion_score": 0.497,
+      "recommendation_probability": 0.792,
+      "praise": [
+        "internal_logic",
+        "sharp_argument",
+        "grief"
+      ],
+      "friction": [
+        "handwaving",
+        "plot_holes",
+        "pacing_drag"
+      ],
+      "notable_quotes": [
+        "I was at a child’s birthday party last Sunday. You know the kind."
+      ],
+      "evidence_refs": [
+        "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+        "book_dna:heuristic",
+        "chapter_001",
+        "chapter:chapter_001",
+        "chapter:chapter_007",
+        "booktok_b7596829ec13",
+        "x_dd50de1d1f0e",
+        "x_80ed423c7865"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "private_fb1c4bddd8eb",
+      "simulation_id": "sim_44b2f2e74318",
+      "persona_id": "x_hot_take_reader_23_9705",
+      "chapter_id": null,
+      "rating": 3.68,
+      "dnf_probability": 0.447,
+      "sentiment": "positive",
+      "attachment_score": 0.759,
+      "confusion_score": 0.508,
+      "recommendation_probability": 0.858,
+      "praise": [
+        "provocation",
+        "controversy",
+        "grief"
+      ],
+      "friction": [
+        "slowness",
+        "nuance_without_payoff",
+        "pacing_drag"
+      ],
+      "notable_quotes": [
+        "I was at a child’s birthday party last Sunday. You know the kind."
+      ],
+      "evidence_refs": [
+        "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+        "book_dna:heuristic",
+        "chapter_001",
+        "chapter:chapter_001",
+        "chapter:chapter_007",
+        "x_c35b951e1f7e",
+        "bookstagram_9e30d82891ac",
+        "x_1fa7ae81ccaf"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "private_500ad9896d17",
+      "simulation_id": "sim_44b2f2e74318",
+      "persona_id": "reddit_genre_purist_24_9213",
+      "chapter_id": null,
+      "rating": 4.08,
+      "dnf_probability": 0.524,
+      "sentiment": "positive",
+      "attachment_score": 0.71,
+      "confusion_score": 0.5,
+      "recommendation_probability": 0.908,
+      "praise": [
+        "genre_authenticity",
+        "canonical_rules",
+        "grief"
+      ],
+      "friction": [
+        "genre_blending",
+        "rule_breaking",
+        "pacing_drag"
+      ],
+      "notable_quotes": [
+        "I was at a child’s birthday party last Sunday. You know the kind."
+      ],
+      "evidence_refs": [
+        "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+        "book_dna:heuristic",
+        "chapter_001",
+        "chapter:chapter_001",
+        "chapter:chapter_007",
+        "x_80ed423c7865",
+        "x_1fa7ae81ccaf",
+        "x_dd50de1d1f0e",
+        "booktok_0eb11f0d537d",
+        "booktok_650d58ec76df"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "private_ea8b05bfa8bf",
+      "simulation_id": "sim_44b2f2e74318",
+      "persona_id": "booktok_trope_hunter_25_2887",
+      "chapter_id": null,
+      "rating": 3.91,
+      "dnf_probability": 0.381,
+      "sentiment": "positive",
+      "attachment_score": 0.783,
+      "confusion_score": 0.495,
+      "recommendation_probability": 0.9,
+      "praise": [
+        "enemies_to_lovers",
+        "slow_burn",
+        "grief"
+      ],
+      "friction": [
+        "trope_mismatch",
+        "no_payoff",
+        "pacing_drag"
+      ],
+      "notable_quotes": [
+        "I was at a child’s birthday party last Sunday. You know the kind."
+      ],
+      "evidence_refs": [
+        "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+        "book_dna:heuristic",
+        "chapter_001",
+        "chapter:chapter_001",
+        "chapter:chapter_007",
+        "booktok_fc3538d1405f",
+        "x_1fa7ae81ccaf",
+        "x_80ed423c7865"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "private_a33ef6fc3e87",
+      "simulation_id": "sim_44b2f2e74318",
+      "persona_id": "x_hot_take_reader_26_2575",
+      "chapter_id": null,
+      "rating": 3.51,
+      "dnf_probability": 0.457,
+      "sentiment": "positive",
+      "attachment_score": 0.822,
+      "confusion_score": 0.474,
+      "recommendation_probability": 0.847,
+      "praise": [
+        "provocation",
+        "controversy",
+        "grief"
+      ],
+      "friction": [
+        "slowness",
+        "nuance_without_payoff",
+        "pacing_drag"
+      ],
+      "notable_quotes": [
+        "I was at a child’s birthday party last Sunday. You know the kind."
+      ],
+      "evidence_refs": [
+        "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+        "book_dna:heuristic",
+        "chapter_001",
+        "chapter:chapter_001",
+        "chapter:chapter_007",
+        "booktok_0eb11f0d537d",
+        "x_c35b951e1f7e",
+        "booktok_5bc6881507c8"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "private_92dad7eba98b",
+      "simulation_id": "sim_44b2f2e74318",
+      "persona_id": "reddit_skeptic_27_1937",
+      "chapter_id": null,
+      "rating": 3.89,
+      "dnf_probability": 0.445,
+      "sentiment": "positive",
+      "attachment_score": 0.791,
+      "confusion_score": 0.499,
+      "recommendation_probability": 0.896,
+      "praise": [
+        "internal_logic",
+        "sharp_argument",
+        "grief"
+      ],
+      "friction": [
+        "handwaving",
+        "plot_holes",
+        "pacing_drag"
+      ],
+      "notable_quotes": [
+        "I was at a child’s birthday party last Sunday. You know the kind."
+      ],
+      "evidence_refs": [
+        "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+        "book_dna:heuristic",
+        "chapter_001",
+        "chapter:chapter_001",
+        "chapter:chapter_007",
+        "booktok_2439edc383e2",
+        "x_c35b951e1f7e",
+        "booktok_fc3538d1405f",
+        "booktok_0eb11f0d537d",
+        "x_80ed423c7865"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "private_d3543a6b51ee",
+      "simulation_id": "sim_44b2f2e74318",
+      "persona_id": "goodreads_genre_loyalist_28_5833",
+      "chapter_id": null,
+      "rating": 3.87,
+      "dnf_probability": 0.434,
+      "sentiment": "positive",
+      "attachment_score": 0.8,
+      "confusion_score": 0.488,
+      "recommendation_probability": 0.898,
+      "praise": [
+        "genre_tropes",
+        "satisfying_arc",
+        "grief"
+      ],
+      "friction": [
+        "genre_betrayal",
+        "ambiguous_endings",
+        "pacing_drag"
+      ],
+      "notable_quotes": [
+        "I was at a child’s birthday party last Sunday. You know the kind."
+      ],
+      "evidence_refs": [
+        "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+        "book_dna:heuristic",
+        "chapter_001",
+        "chapter:chapter_001",
+        "chapter:chapter_007",
+        "booktok_b7596829ec13",
+        "booktok_2439edc383e2",
+        "booktok_0eb11f0d537d"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "private_5b7b443ac3af",
+      "simulation_id": "sim_44b2f2e74318",
+      "persona_id": "bookstagram_curator_29_4637",
+      "chapter_id": null,
+      "rating": 3.95,
+      "dnf_probability": 0.464,
+      "sentiment": "positive",
+      "attachment_score": 0.689,
+      "confusion_score": 0.537,
+      "recommendation_probability": 0.883,
+      "praise": [
+        "beautiful_package",
+        "mood",
+        "grief"
+      ],
+      "friction": [
+        "plain_packaging",
+        "visual_flatness",
+        "pacing_drag"
+      ],
+      "notable_quotes": [
+        "I was at a child’s birthday party last Sunday. You know the kind."
+      ],
+      "evidence_refs": [
+        "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+        "book_dna:heuristic",
+        "chapter_001",
+        "chapter:chapter_001",
+        "chapter:chapter_007",
+        "x_dd50de1d1f0e",
+        "bookstagram_9e30d82891ac",
+        "booktok_650d58ec76df",
+        "booktok_fc3538d1405f",
+        "booktok_2439edc383e2",
+        "booktok_5bc6881507c8"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "private_d2f23e99a85d",
+      "simulation_id": "sim_44b2f2e74318",
+      "persona_id": "x_hot_take_reader_30_4259",
+      "chapter_id": null,
+      "rating": 3.91,
+      "dnf_probability": 0.467,
+      "sentiment": "positive",
+      "attachment_score": 0.718,
+      "confusion_score": 0.553,
+      "recommendation_probability": 0.886,
+      "praise": [
+        "provocation",
+        "controversy",
+        "grief"
+      ],
+      "friction": [
+        "slowness",
+        "nuance_without_payoff",
+        "pacing_drag"
+      ],
+      "notable_quotes": [
+        "I was at a child’s birthday party last Sunday. You know the kind."
+      ],
+      "evidence_refs": [
+        "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+        "book_dna:heuristic",
+        "chapter_001",
+        "chapter:chapter_001",
+        "chapter:chapter_007",
+        "x_c35b951e1f7e",
+        "booktok_0eb11f0d537d",
+        "x_89dece172e78",
+        "booktok_fc3538d1405f",
+        "bookstagram_9e30d82891ac",
+        "booktok_b7596829ec13"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "private_7baa84c58a1b",
+      "simulation_id": "sim_44b2f2e74318",
+      "persona_id": "x_hot_take_reader_31_6264",
+      "chapter_id": null,
+      "rating": 3.67,
+      "dnf_probability": 0.431,
+      "sentiment": "positive",
+      "attachment_score": 0.688,
+      "confusion_score": 0.463,
+      "recommendation_probability": 0.846,
+      "praise": [
+        "provocation",
+        "controversy",
+        "grief"
+      ],
+      "friction": [
+        "slowness",
+        "nuance_without_payoff",
+        "pacing_drag"
+      ],
+      "notable_quotes": [
+        "I was at a child’s birthday party last Sunday. You know the kind."
+      ],
+      "evidence_refs": [
+        "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+        "book_dna:heuristic",
+        "chapter_001",
+        "chapter:chapter_001",
+        "chapter:chapter_007",
+        "booktok_0eb11f0d537d",
+        "booktok_2439edc383e2",
+        "booktok_fc3538d1405f",
+        "bookstagram_9e30d82891ac",
+        "x_dd50de1d1f0e",
+        "x_1fa7ae81ccaf",
+        "booktok_b7596829ec13"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "private_7ab80142c723",
+      "simulation_id": "sim_44b2f2e74318",
+      "persona_id": "reddit_skeptic_32_1119",
+      "chapter_id": null,
+      "rating": 3.47,
+      "dnf_probability": 0.486,
+      "sentiment": "positive",
+      "attachment_score": 0.725,
+      "confusion_score": 0.5,
+      "recommendation_probability": 0.829,
+      "praise": [
+        "internal_logic",
+        "sharp_argument",
+        "grief"
+      ],
+      "friction": [
+        "handwaving",
+        "plot_holes",
+        "pacing_drag"
+      ],
+      "notable_quotes": [
+        "I was at a child’s birthday party last Sunday. You know the kind."
+      ],
+      "evidence_refs": [
+        "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+        "book_dna:heuristic",
+        "chapter_001",
+        "chapter:chapter_001",
+        "chapter:chapter_007",
+        "x_1fa7ae81ccaf",
+        "booktok_b7596829ec13",
+        "booktok_2439edc383e2"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "private_e4a75cf4bb9a",
+      "simulation_id": "sim_44b2f2e74318",
+      "persona_id": "booktok_emotional_amplifier_33_5282",
+      "chapter_id": null,
+      "rating": 3.59,
+      "dnf_probability": 0.502,
+      "sentiment": "positive",
+      "attachment_score": 0.773,
+      "confusion_score": 0.528,
+      "recommendation_probability": 0.853,
+      "praise": [
+        "heartbreak",
+        "found_family",
+        "grief"
+      ],
+      "friction": [
+        "detachment",
+        "exposition",
+        "pacing_drag"
+      ],
+      "notable_quotes": [
+        "I was at a child’s birthday party last Sunday. You know the kind."
+      ],
+      "evidence_refs": [
+        "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+        "book_dna:heuristic",
+        "chapter_001",
+        "chapter:chapter_001",
+        "chapter:chapter_007",
+        "x_c35b951e1f7e",
+        "x_80ed423c7865",
+        "booktok_2439edc383e2",
+        "booktok_0eb11f0d537d",
+        "x_89dece172e78",
+        "booktok_b7596829ec13",
+        "booktok_650d58ec76df"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "private_3d411b236d71",
+      "simulation_id": "sim_44b2f2e74318",
+      "persona_id": "reddit_skeptic_34_5385",
+      "chapter_id": null,
+      "rating": 3.37,
+      "dnf_probability": 0.496,
+      "sentiment": "positive",
+      "attachment_score": 0.828,
+      "confusion_score": 0.51,
+      "recommendation_probability": 0.832,
+      "praise": [
+        "internal_logic",
+        "sharp_argument",
+        "grief"
+      ],
+      "friction": [
+        "handwaving",
+        "plot_holes",
+        "pacing_drag"
+      ],
+      "notable_quotes": [
+        "I was at a child’s birthday party last Sunday. You know the kind."
+      ],
+      "evidence_refs": [
+        "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+        "book_dna:heuristic",
+        "chapter_001",
+        "chapter:chapter_001",
+        "chapter:chapter_007",
+        "x_dd50de1d1f0e",
+        "booktok_b7596829ec13",
+        "x_80ed423c7865",
+        "x_89dece172e78",
+        "booktok_2439edc383e2",
+        "booktok_650d58ec76df"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "private_3132fe214a65",
+      "simulation_id": "sim_44b2f2e74318",
+      "persona_id": "x_hot_take_reader_35_9002",
+      "chapter_id": null,
+      "rating": 4.16,
+      "dnf_probability": 0.443,
+      "sentiment": "positive",
+      "attachment_score": 0.761,
+      "confusion_score": 0.473,
+      "recommendation_probability": 0.923,
+      "praise": [
+        "provocation",
+        "controversy",
+        "grief"
+      ],
+      "friction": [
+        "slowness",
+        "nuance_without_payoff",
+        "pacing_drag"
+      ],
+      "notable_quotes": [
+        "I was at a child’s birthday party last Sunday. You know the kind."
+      ],
+      "evidence_refs": [
+        "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+        "book_dna:heuristic",
+        "chapter_001",
+        "chapter:chapter_001",
+        "chapter:chapter_007",
+        "bookstagram_9e30d82891ac",
+        "x_89dece172e78",
+        "x_c35b951e1f7e",
+        "booktok_5bc6881507c8"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "private_eb2546255902",
+      "simulation_id": "sim_44b2f2e74318",
+      "persona_id": "x_hot_take_reader_36_3549",
+      "chapter_id": null,
+      "rating": 3.91,
+      "dnf_probability": 0.474,
+      "sentiment": "positive",
+      "attachment_score": 0.751,
+      "confusion_score": 0.567,
+      "recommendation_probability": 0.891,
+      "praise": [
+        "provocation",
+        "controversy",
+        "grief"
+      ],
+      "friction": [
+        "slowness",
+        "nuance_without_payoff",
+        "pacing_drag"
+      ],
+      "notable_quotes": [
+        "I was at a child’s birthday party last Sunday. You know the kind."
+      ],
+      "evidence_refs": [
+        "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+        "book_dna:heuristic",
+        "chapter_001",
+        "chapter:chapter_001",
+        "chapter:chapter_007",
+        "booktok_650d58ec76df",
+        "x_89dece172e78",
+        "x_1fa7ae81ccaf",
+        "bookstagram_9e30d82891ac"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "private_4be18f8cec24",
+      "simulation_id": "sim_44b2f2e74318",
+      "persona_id": "bookstagram_curator_37_4537",
+      "chapter_id": null,
+      "rating": 3.71,
+      "dnf_probability": 0.439,
+      "sentiment": "positive",
+      "attachment_score": 0.79,
+      "confusion_score": 0.469,
+      "recommendation_probability": 0.869,
+      "praise": [
+        "beautiful_package",
+        "mood",
+        "grief"
+      ],
+      "friction": [
+        "plain_packaging",
+        "visual_flatness",
+        "pacing_drag"
+      ],
+      "notable_quotes": [
+        "I was at a child’s birthday party last Sunday. You know the kind."
+      ],
+      "evidence_refs": [
+        "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+        "book_dna:heuristic",
+        "chapter_001",
+        "chapter:chapter_001",
+        "chapter:chapter_007",
+        "booktok_650d58ec76df",
+        "x_dd50de1d1f0e",
+        "booktok_2439edc383e2",
+        "x_80ed423c7865",
+        "x_1fa7ae81ccaf",
+        "x_89dece172e78",
+        "booktok_5bc6881507c8"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "private_ba3b65b03cfb",
+      "simulation_id": "sim_44b2f2e74318",
+      "persona_id": "goodreads_harsh_reviewer_38_2647",
+      "chapter_id": null,
+      "rating": 4.08,
+      "dnf_probability": 0.483,
+      "sentiment": "positive",
+      "attachment_score": 0.744,
+      "confusion_score": 0.483,
+      "recommendation_probability": 0.918,
+      "praise": [
+        "strong_opening",
+        "clean_prose",
+        "grief"
+      ],
+      "friction": [
+        "slow_start",
+        "weak_characterization",
+        "pacing_drag"
+      ],
+      "notable_quotes": [
+        "I was at a child’s birthday party last Sunday. You know the kind."
+      ],
+      "evidence_refs": [
+        "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+        "book_dna:heuristic",
+        "chapter_001",
+        "chapter:chapter_001",
+        "chapter:chapter_007",
+        "booktok_0eb11f0d537d",
+        "x_c35b951e1f7e",
+        "booktok_fc3538d1405f",
+        "booktok_650d58ec76df"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "private_f3d17195edf3",
+      "simulation_id": "sim_44b2f2e74318",
+      "persona_id": "x_hot_take_reader_39_4709",
+      "chapter_id": null,
+      "rating": 3.95,
+      "dnf_probability": 0.43,
+      "sentiment": "positive",
+      "attachment_score": 0.752,
+      "confusion_score": 0.478,
+      "recommendation_probability": 0.892,
+      "praise": [
+        "provocation",
+        "controversy",
+        "grief"
+      ],
+      "friction": [
+        "slowness",
+        "nuance_without_payoff",
+        "pacing_drag"
+      ],
+      "notable_quotes": [
+        "I was at a child’s birthday party last Sunday. You know the kind."
+      ],
+      "evidence_refs": [
+        "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+        "book_dna:heuristic",
+        "chapter_001",
+        "chapter:chapter_001",
+        "chapter:chapter_007",
+        "x_80ed423c7865",
+        "bookstagram_9e30d82891ac",
+        "x_c35b951e1f7e"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "private_d8cf4e8c885b",
+      "simulation_id": "sim_44b2f2e74318",
+      "persona_id": "booktok_trope_hunter_40_5342",
+      "chapter_id": null,
+      "rating": 3.9,
+      "dnf_probability": 0.451,
+      "sentiment": "positive",
+      "attachment_score": 0.817,
+      "confusion_score": 0.553,
+      "recommendation_probability": 0.902,
+      "praise": [
+        "enemies_to_lovers",
+        "slow_burn",
+        "grief"
+      ],
+      "friction": [
+        "trope_mismatch",
+        "no_payoff",
+        "pacing_drag"
+      ],
+      "notable_quotes": [
+        "I was at a child’s birthday party last Sunday. You know the kind."
+      ],
+      "evidence_refs": [
+        "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+        "book_dna:heuristic",
+        "chapter_001",
+        "chapter:chapter_001",
+        "chapter:chapter_007",
+        "x_89dece172e78",
+        "booktok_0eb11f0d537d",
+        "x_1fa7ae81ccaf"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "private_68a31425eceb",
+      "simulation_id": "sim_44b2f2e74318",
+      "persona_id": "bookstagram_curator_41_2998",
+      "chapter_id": null,
+      "rating": 3.75,
+      "dnf_probability": 0.419,
+      "sentiment": "positive",
+      "attachment_score": 0.727,
+      "confusion_score": 0.453,
+      "recommendation_probability": 0.865,
+      "praise": [
+        "beautiful_package",
+        "mood",
+        "grief"
+      ],
+      "friction": [
+        "plain_packaging",
+        "visual_flatness",
+        "pacing_drag"
+      ],
+      "notable_quotes": [
+        "I was at a child’s birthday party last Sunday. You know the kind."
+      ],
+      "evidence_refs": [
+        "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+        "book_dna:heuristic",
+        "chapter_001",
+        "chapter:chapter_001",
+        "chapter:chapter_007",
+        "x_1fa7ae81ccaf",
+        "booktok_fc3538d1405f",
+        "x_dd50de1d1f0e",
+        "x_c35b951e1f7e",
+        "booktok_5bc6881507c8"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "private_62736196bd56",
+      "simulation_id": "sim_44b2f2e74318",
+      "persona_id": "bookstagram_curator_42_4611",
+      "chapter_id": null,
+      "rating": 3.86,
+      "dnf_probability": 0.49,
+      "sentiment": "positive",
+      "attachment_score": 0.831,
+      "confusion_score": 0.557,
+      "recommendation_probability": 0.902,
+      "praise": [
+        "beautiful_package",
+        "mood",
+        "grief"
+      ],
+      "friction": [
+        "plain_packaging",
+        "visual_flatness",
+        "pacing_drag"
+      ],
+      "notable_quotes": [
+        "I was at a child’s birthday party last Sunday. You know the kind."
+      ],
+      "evidence_refs": [
+        "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+        "book_dna:heuristic",
+        "chapter_001",
+        "chapter:chapter_001",
+        "chapter:chapter_007",
+        "booktok_650d58ec76df",
+        "x_89dece172e78",
+        "bookstagram_9e30d82891ac",
+        "booktok_fc3538d1405f",
+        "x_c35b951e1f7e",
+        "booktok_0eb11f0d537d",
+        "x_1fa7ae81ccaf"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "private_257775a0ea01",
+      "simulation_id": "sim_44b2f2e74318",
+      "persona_id": "bookstagram_curator_43_8312",
+      "chapter_id": null,
+      "rating": 3.88,
+      "dnf_probability": 0.531,
+      "sentiment": "positive",
+      "attachment_score": 0.827,
+      "confusion_score": 0.569,
+      "recommendation_probability": 0.9,
+      "praise": [
+        "beautiful_package",
+        "mood",
+        "grief"
+      ],
+      "friction": [
+        "plain_packaging",
+        "visual_flatness",
+        "pacing_drag"
+      ],
+      "notable_quotes": [
+        "I was at a child’s birthday party last Sunday. You know the kind."
+      ],
+      "evidence_refs": [
+        "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+        "book_dna:heuristic",
+        "chapter_001",
+        "chapter:chapter_001",
+        "chapter:chapter_007",
+        "x_1fa7ae81ccaf",
+        "bookstagram_9e30d82891ac",
+        "x_dd50de1d1f0e",
+        "x_c35b951e1f7e"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "private_cec54c1834ca",
+      "simulation_id": "sim_44b2f2e74318",
+      "persona_id": "goodreads_genre_loyalist_44_9261",
+      "chapter_id": null,
+      "rating": 3.88,
+      "dnf_probability": 0.49,
+      "sentiment": "positive",
+      "attachment_score": 0.831,
+      "confusion_score": 0.528,
+      "recommendation_probability": 0.9,
+      "praise": [
+        "genre_tropes",
+        "satisfying_arc",
+        "grief"
+      ],
+      "friction": [
+        "genre_betrayal",
+        "ambiguous_endings",
+        "pacing_drag"
+      ],
+      "notable_quotes": [
+        "I was at a child’s birthday party last Sunday. You know the kind."
+      ],
+      "evidence_refs": [
+        "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+        "book_dna:heuristic",
+        "chapter_001",
+        "chapter:chapter_001",
+        "chapter:chapter_007",
+        "x_80ed423c7865",
+        "x_1fa7ae81ccaf",
+        "x_dd50de1d1f0e"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "private_3212a490460d",
+      "simulation_id": "sim_44b2f2e74318",
+      "persona_id": "goodreads_genre_loyalist_45_4315",
+      "chapter_id": null,
+      "rating": 4.2,
+      "dnf_probability": 0.513,
+      "sentiment": "positive",
+      "attachment_score": 0.751,
+      "confusion_score": 0.542,
+      "recommendation_probability": 0.93,
+      "praise": [
+        "genre_tropes",
+        "satisfying_arc",
+        "grief"
+      ],
+      "friction": [
+        "genre_betrayal",
+        "ambiguous_endings",
+        "pacing_drag"
+      ],
+      "notable_quotes": [
+        "I was at a child’s birthday party last Sunday. You know the kind."
+      ],
+      "evidence_refs": [
+        "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+        "book_dna:heuristic",
+        "chapter_001",
+        "chapter:chapter_001",
+        "chapter:chapter_007",
+        "x_dd50de1d1f0e",
+        "x_80ed423c7865",
+        "booktok_650d58ec76df",
+        "x_89dece172e78",
+        "booktok_0eb11f0d537d",
+        "booktok_5bc6881507c8"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "private_abd1d20b3ba6",
+      "simulation_id": "sim_44b2f2e74318",
+      "persona_id": "booktok_trope_hunter_46_9481",
+      "chapter_id": null,
+      "rating": 4.11,
+      "dnf_probability": 0.424,
+      "sentiment": "positive",
+      "attachment_score": 0.746,
+      "confusion_score": 0.479,
+      "recommendation_probability": 0.917,
+      "praise": [
+        "enemies_to_lovers",
+        "slow_burn",
+        "grief"
+      ],
+      "friction": [
+        "trope_mismatch",
+        "no_payoff",
+        "pacing_drag"
+      ],
+      "notable_quotes": [
+        "I was at a child’s birthday party last Sunday. You know the kind."
+      ],
+      "evidence_refs": [
+        "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+        "book_dna:heuristic",
+        "chapter_001",
+        "chapter:chapter_001",
+        "chapter:chapter_007",
+        "x_89dece172e78",
+        "booktok_fc3538d1405f",
+        "bookstagram_9e30d82891ac"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "private_b7a31b118edf",
+      "simulation_id": "sim_44b2f2e74318",
+      "persona_id": "booktok_emotional_amplifier_47_5386",
+      "chapter_id": null,
+      "rating": 4.04,
+      "dnf_probability": 0.471,
+      "sentiment": "positive",
+      "attachment_score": 0.824,
+      "confusion_score": 0.504,
+      "recommendation_probability": 0.923,
+      "praise": [
+        "heartbreak",
+        "found_family",
+        "grief"
+      ],
+      "friction": [
+        "detachment",
+        "exposition",
+        "pacing_drag"
+      ],
+      "notable_quotes": [
+        "I was at a child’s birthday party last Sunday. You know the kind."
+      ],
+      "evidence_refs": [
+        "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+        "book_dna:heuristic",
+        "chapter_001",
+        "chapter:chapter_001",
+        "chapter:chapter_007",
+        "x_dd50de1d1f0e",
+        "x_89dece172e78",
+        "booktok_650d58ec76df",
+        "x_c35b951e1f7e",
+        "bookstagram_9e30d82891ac",
+        "x_1fa7ae81ccaf",
+        "booktok_5bc6881507c8"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "private_dd7be10850ee",
+      "simulation_id": "sim_44b2f2e74318",
+      "persona_id": "x_hot_take_reader_48_7887",
+      "chapter_id": null,
+      "rating": 3.88,
+      "dnf_probability": 0.464,
+      "sentiment": "positive",
+      "attachment_score": 0.718,
+      "confusion_score": 0.479,
+      "recommendation_probability": 0.883,
+      "praise": [
+        "provocation",
+        "controversy",
+        "grief"
+      ],
+      "friction": [
+        "slowness",
+        "nuance_without_payoff",
+        "pacing_drag"
+      ],
+      "notable_quotes": [
+        "I was at a child’s birthday party last Sunday. You know the kind."
+      ],
+      "evidence_refs": [
+        "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+        "book_dna:heuristic",
+        "chapter_001",
+        "chapter:chapter_001",
+        "chapter:chapter_007",
+        "x_80ed423c7865",
+        "x_c35b951e1f7e",
+        "x_1fa7ae81ccaf",
+        "booktok_fc3538d1405f"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "private_07abf48c5989",
+      "simulation_id": "sim_44b2f2e74318",
+      "persona_id": "reddit_skeptic_49_1285",
+      "chapter_id": null,
+      "rating": 3.55,
+      "dnf_probability": 0.465,
+      "sentiment": "positive",
+      "attachment_score": 0.79,
+      "confusion_score": 0.504,
+      "recommendation_probability": 0.845,
+      "praise": [
+        "internal_logic",
+        "sharp_argument",
+        "grief"
+      ],
+      "friction": [
+        "handwaving",
+        "plot_holes",
+        "pacing_drag"
+      ],
+      "notable_quotes": [
+        "I was at a child’s birthday party last Sunday. You know the kind."
+      ],
+      "evidence_refs": [
+        "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+        "book_dna:heuristic",
+        "chapter_001",
+        "chapter:chapter_001",
+        "chapter:chapter_007",
+        "booktok_0eb11f0d537d",
+        "x_c35b951e1f7e",
+        "x_89dece172e78",
+        "x_dd50de1d1f0e",
+        "bookstagram_9e30d82891ac",
+        "booktok_5bc6881507c8"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "private_5ec9f3d066cd",
+      "simulation_id": "sim_44b2f2e74318",
+      "persona_id": "reddit_genre_purist_50_3671",
+      "chapter_id": null,
+      "rating": 4.03,
+      "dnf_probability": 0.544,
+      "sentiment": "positive",
+      "attachment_score": 0.826,
+      "confusion_score": 0.506,
+      "recommendation_probability": 0.922,
+      "praise": [
+        "genre_authenticity",
+        "canonical_rules",
+        "grief"
+      ],
+      "friction": [
+        "genre_blending",
+        "rule_breaking",
+        "pacing_drag"
+      ],
+      "notable_quotes": [
+        "I was at a child’s birthday party last Sunday. You know the kind."
+      ],
+      "evidence_refs": [
+        "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+        "book_dna:heuristic",
+        "chapter_001",
+        "chapter:chapter_001",
+        "chapter:chapter_007",
+        "x_89dece172e78",
+        "booktok_2439edc383e2",
+        "booktok_650d58ec76df",
+        "booktok_0eb11f0d537d",
+        "x_dd50de1d1f0e"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "private_c3c0b5281f20",
+      "simulation_id": "sim_44b2f2e74318",
+      "persona_id": "bookstagram_curator_51_3092",
+      "chapter_id": null,
+      "rating": 3.81,
+      "dnf_probability": 0.404,
+      "sentiment": "positive",
+      "attachment_score": 0.705,
+      "confusion_score": 0.453,
+      "recommendation_probability": 0.871,
+      "praise": [
+        "beautiful_package",
+        "mood",
+        "grief"
+      ],
+      "friction": [
+        "plain_packaging",
+        "visual_flatness",
+        "pacing_drag"
+      ],
+      "notable_quotes": [
+        "I was at a child’s birthday party last Sunday. You know the kind."
+      ],
+      "evidence_refs": [
+        "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+        "book_dna:heuristic",
+        "chapter_001",
+        "chapter:chapter_001",
+        "chapter:chapter_007",
+        "booktok_0eb11f0d537d",
+        "booktok_b7596829ec13",
+        "booktok_650d58ec76df",
+        "x_1fa7ae81ccaf",
+        "booktok_5bc6881507c8",
+        "x_89dece172e78"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "private_524b4dd08c85",
+      "simulation_id": "sim_44b2f2e74318",
+      "persona_id": "booktok_trope_hunter_52_7085",
+      "chapter_id": null,
+      "rating": 4.04,
+      "dnf_probability": 0.431,
+      "sentiment": "positive",
+      "attachment_score": 0.739,
+      "confusion_score": 0.525,
+      "recommendation_probability": 0.91,
+      "praise": [
+        "enemies_to_lovers",
+        "slow_burn",
+        "grief"
+      ],
+      "friction": [
+        "trope_mismatch",
+        "no_payoff",
+        "pacing_drag"
+      ],
+      "notable_quotes": [
+        "I was at a child’s birthday party last Sunday. You know the kind."
+      ],
+      "evidence_refs": [
+        "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+        "book_dna:heuristic",
+        "chapter_001",
+        "chapter:chapter_001",
+        "chapter:chapter_007",
+        "booktok_5bc6881507c8",
+        "x_dd50de1d1f0e",
+        "x_c35b951e1f7e",
+        "booktok_b7596829ec13",
+        "booktok_fc3538d1405f",
+        "x_1fa7ae81ccaf"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "private_c8cda3525e74",
+      "simulation_id": "sim_44b2f2e74318",
+      "persona_id": "x_hot_take_reader_53_7046",
+      "chapter_id": null,
+      "rating": 4.0,
+      "dnf_probability": 0.468,
+      "sentiment": "positive",
+      "attachment_score": 0.782,
+      "confusion_score": 0.513,
+      "recommendation_probability": 0.913,
+      "praise": [
+        "provocation",
+        "controversy",
+        "grief"
+      ],
+      "friction": [
+        "slowness",
+        "nuance_without_payoff",
+        "pacing_drag"
+      ],
+      "notable_quotes": [
+        "I was at a child’s birthday party last Sunday. You know the kind."
+      ],
+      "evidence_refs": [
+        "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+        "book_dna:heuristic",
+        "chapter_001",
+        "chapter:chapter_001",
+        "chapter:chapter_007",
+        "x_dd50de1d1f0e",
+        "booktok_b7596829ec13",
+        "booktok_0eb11f0d537d",
+        "x_c35b951e1f7e"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "private_6f1033e2aa06",
+      "simulation_id": "sim_44b2f2e74318",
+      "persona_id": "booktok_emotional_amplifier_54_8035",
+      "chapter_id": null,
+      "rating": 3.76,
+      "dnf_probability": 0.498,
+      "sentiment": "positive",
+      "attachment_score": 0.688,
+      "confusion_score": 0.518,
+      "recommendation_probability": 0.851,
+      "praise": [
+        "heartbreak",
+        "found_family",
+        "grief"
+      ],
+      "friction": [
+        "detachment",
+        "exposition",
+        "pacing_drag"
+      ],
+      "notable_quotes": [
+        "I was at a child’s birthday party last Sunday. You know the kind."
+      ],
+      "evidence_refs": [
+        "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+        "book_dna:heuristic",
+        "chapter_001",
+        "chapter:chapter_001",
+        "chapter:chapter_007",
+        "booktok_2439edc383e2",
+        "booktok_5bc6881507c8",
+        "x_80ed423c7865",
+        "bookstagram_9e30d82891ac",
+        "x_89dece172e78"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "private_3232bf321996",
+      "simulation_id": "sim_44b2f2e74318",
+      "persona_id": "booktok_emotional_amplifier_55_1963",
+      "chapter_id": null,
+      "rating": 3.87,
+      "dnf_probability": 0.473,
+      "sentiment": "positive",
+      "attachment_score": 0.803,
+      "confusion_score": 0.559,
+      "recommendation_probability": 0.894,
+      "praise": [
+        "heartbreak",
+        "found_family",
+        "grief"
+      ],
+      "friction": [
+        "detachment",
+        "exposition",
+        "pacing_drag"
+      ],
+      "notable_quotes": [
+        "I was at a child’s birthday party last Sunday. You know the kind."
+      ],
+      "evidence_refs": [
+        "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+        "book_dna:heuristic",
+        "chapter_001",
+        "chapter:chapter_001",
+        "chapter:chapter_007",
+        "booktok_650d58ec76df",
+        "x_80ed423c7865",
+        "bookstagram_9e30d82891ac",
+        "booktok_2439edc383e2"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "private_b18ebb70d94a",
+      "simulation_id": "sim_44b2f2e74318",
+      "persona_id": "booktok_emotional_amplifier_56_4123",
+      "chapter_id": null,
+      "rating": 3.99,
+      "dnf_probability": 0.476,
+      "sentiment": "positive",
+      "attachment_score": 0.741,
+      "confusion_score": 0.488,
+      "recommendation_probability": 0.9,
+      "praise": [
+        "heartbreak",
+        "found_family",
+        "grief"
+      ],
+      "friction": [
+        "detachment",
+        "exposition",
+        "pacing_drag"
+      ],
+      "notable_quotes": [
+        "I was at a child’s birthday party last Sunday. You know the kind."
+      ],
+      "evidence_refs": [
+        "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+        "book_dna:heuristic",
+        "chapter_001",
+        "chapter:chapter_001",
+        "chapter:chapter_007",
+        "booktok_650d58ec76df",
+        "booktok_2439edc383e2",
+        "booktok_0eb11f0d537d",
+        "x_80ed423c7865"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "private_5437fa4e013e",
+      "simulation_id": "sim_44b2f2e74318",
+      "persona_id": "bookstagram_curator_57_5781",
+      "chapter_id": null,
+      "rating": 4.16,
+      "dnf_probability": 0.475,
+      "sentiment": "positive",
+      "attachment_score": 0.828,
+      "confusion_score": 0.57,
+      "recommendation_probability": 0.944,
+      "praise": [
+        "beautiful_package",
+        "mood",
+        "grief"
+      ],
+      "friction": [
+        "plain_packaging",
+        "visual_flatness",
+        "pacing_drag"
+      ],
+      "notable_quotes": [
+        "I was at a child’s birthday party last Sunday. You know the kind."
+      ],
+      "evidence_refs": [
+        "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+        "book_dna:heuristic",
+        "chapter_001",
+        "chapter:chapter_001",
+        "chapter:chapter_007",
+        "booktok_0eb11f0d537d",
+        "booktok_650d58ec76df",
+        "booktok_5bc6881507c8",
+        "x_dd50de1d1f0e",
+        "booktok_b7596829ec13",
+        "booktok_2439edc383e2"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "private_20a9c0733f0e",
+      "simulation_id": "sim_44b2f2e74318",
+      "persona_id": "booktok_trope_hunter_58_7341",
+      "chapter_id": null,
+      "rating": 3.83,
+      "dnf_probability": 0.447,
+      "sentiment": "positive",
+      "attachment_score": 0.819,
+      "confusion_score": 0.566,
+      "recommendation_probability": 0.895,
+      "praise": [
+        "enemies_to_lovers",
+        "slow_burn",
+        "grief"
+      ],
+      "friction": [
+        "trope_mismatch",
+        "no_payoff",
+        "pacing_drag"
+      ],
+      "notable_quotes": [
+        "I was at a child’s birthday party last Sunday. You know the kind."
+      ],
+      "evidence_refs": [
+        "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+        "book_dna:heuristic",
+        "chapter_001",
+        "chapter:chapter_001",
+        "chapter:chapter_007",
+        "booktok_0eb11f0d537d",
+        "x_80ed423c7865",
+        "booktok_2439edc383e2",
+        "booktok_5bc6881507c8",
+        "booktok_650d58ec76df",
+        "booktok_b7596829ec13"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "private_3a698d8f1392",
+      "simulation_id": "sim_44b2f2e74318",
+      "persona_id": "reddit_genre_purist_59_6876",
+      "chapter_id": null,
+      "rating": 3.69,
+      "dnf_probability": 0.556,
+      "sentiment": "positive",
+      "attachment_score": 0.794,
+      "confusion_score": 0.512,
+      "recommendation_probability": 0.865,
+      "praise": [
+        "genre_authenticity",
+        "canonical_rules",
+        "grief"
+      ],
+      "friction": [
+        "genre_blending",
+        "rule_breaking",
+        "pacing_drag"
+      ],
+      "notable_quotes": [
+        "I was at a child’s birthday party last Sunday. You know the kind."
+      ],
+      "evidence_refs": [
+        "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+        "book_dna:heuristic",
+        "chapter_001",
+        "chapter:chapter_001",
+        "chapter:chapter_007",
+        "x_80ed423c7865",
+        "x_dd50de1d1f0e",
+        "bookstagram_9e30d82891ac",
+        "booktok_0eb11f0d537d",
+        "booktok_fc3538d1405f",
+        "x_89dece172e78"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "private_4232fbba07a4",
+      "simulation_id": "sim_44b2f2e74318",
+      "persona_id": "booktok_trope_hunter_60_1979",
+      "chapter_id": null,
+      "rating": 3.78,
+      "dnf_probability": 0.427,
+      "sentiment": "positive",
+      "attachment_score": 0.766,
+      "confusion_score": 0.527,
+      "recommendation_probability": 0.876,
+      "praise": [
+        "enemies_to_lovers",
+        "slow_burn",
+        "grief"
+      ],
+      "friction": [
+        "trope_mismatch",
+        "no_payoff",
+        "pacing_drag"
+      ],
+      "notable_quotes": [
+        "I was at a child’s birthday party last Sunday. You know the kind."
+      ],
+      "evidence_refs": [
+        "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+        "book_dna:heuristic",
+        "chapter_001",
+        "chapter:chapter_001",
+        "chapter:chapter_007",
+        "x_1fa7ae81ccaf",
+        "booktok_2439edc383e2",
+        "booktok_fc3538d1405f",
+        "booktok_0eb11f0d537d"
+      ],
+      "confidence": 0.74
+    }
+  ]
+}

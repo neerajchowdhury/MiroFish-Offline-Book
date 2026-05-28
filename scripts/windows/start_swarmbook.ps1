@@ -84,6 +84,10 @@ if (-not $SkipFrontend) {
 Write-Host ""
 Write-Host "Swarmbook started."
 Write-Host "Backend:  http://localhost:$BackendPort"
-if (-not $SkipFrontend) { Write-Host "Frontend: http://localhost:$FrontendPort" }
+if (-not $SkipFrontend) { 
+  Write-Host "Frontend: http://localhost:$FrontendPort/swarmbook" 
+  Write-Host "Launching web browser automatically..."
+  Start-Process "http://localhost:$FrontendPort/swarmbook"
+}
 Write-Host ""
 Write-Host "Next: .\\scripts\\windows\\smoke_test_swarmbook.ps1 -BackendPort $BackendPort"

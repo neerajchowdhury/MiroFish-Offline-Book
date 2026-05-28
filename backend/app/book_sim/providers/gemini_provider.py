@@ -42,8 +42,8 @@ class GeminiProvider(BaseProvider):
             raise RuntimeError("requests package is required for Gemini API calls")
         prompt_text = prompt if not system_prompt else f"System:\n{system_prompt}\n\nUser:\n{prompt}"
 
-        url = f"{self.base_url}/v1beta/models/{self.route.model}:generateContent"
-        headers = {"Authorization": f"Bearer {self.api_key}", "Content-Type": "application/json"}
+        url = f"{self.base_url}/v1beta/models/{self.route.model}:generateContent?key={self.api_key}"
+        headers = {"Content-Type": "application/json"}
         payload = {
             "contents": [
                 {
@@ -90,8 +90,8 @@ class GeminiProvider(BaseProvider):
         self._require_key()
         if requests is None:
             raise RuntimeError("requests package is required for Gemini embedding calls")
-        url = f"{self.base_url}/v1beta/models/text-embedding-004:embedContent"
-        headers = {"Authorization": f"Bearer {self.api_key}", "Content-Type": "application/json"}
+        url = f"{self.base_url}/v1beta/models/text-embedding-004:embedContent?key={self.api_key}"
+        headers = {"Content-Type": "application/json"}
         payload = {
             "content": {
                 "parts": [{"text": text}],
@@ -124,8 +124,7 @@ class GeminiProvider(BaseProvider):
             }
         try:
             response = requests.get(
-                f"{self.base_url}/v1beta/models/{self.route.model}",
-                headers={"Authorization": f"Bearer {self.api_key}"},
+                f"{self.base_url}/v1beta/models/{self.route.model}?key={self.api_key}",
                 timeout=self.timeout_s,
             )
             return {

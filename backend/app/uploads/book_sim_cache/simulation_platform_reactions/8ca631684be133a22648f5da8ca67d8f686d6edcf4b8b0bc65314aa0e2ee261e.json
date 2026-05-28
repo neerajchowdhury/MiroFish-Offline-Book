@@ -1,0 +1,462 @@
+{
+  "posts": [
+    {
+      "post_id": "reddit_f38ae6cc74c7",
+      "simulation_id": "sim_de75dfe68c62",
+      "persona_id": "reddit_genre_purist_01_5745",
+      "platform": "reddit",
+      "round_number": 1,
+      "title": "[Discussion] Smoke Test Draft works until genre_blending",
+      "body": "My thesis: the book succeeds because of genre_authenticity, canonical_rules, but it asks you to forgive genre_blending, rule_breaking.",
+      "rating": 3.96,
+      "hashtags": [],
+      "shelf_tags": [],
+      "payload": {
+        "thread_title": "[Discussion] Smoke Test Draft works until genre_blending",
+        "top_comment": "My thesis: the book succeeds because of genre_authenticity, canonical_rules, but it asks you to forgive genre_blending, rule_breaking.",
+        "skeptical_comment": "I still don't buy the framing around genre_blending.",
+        "debate_branch": [
+          "User A defends the mixed/unknown expectations.",
+          "User B says the payoff earns the setup.",
+          "User C argues the momentum collapses in the middle."
+        ],
+        "logic_framing_objection": "The sharpest objection is whether genre_blending is actually supported on the page.",
+        "evidence_refs": [
+          "78c1c051902cafd77246dea519f4d19fff0550fb64c3e45ff99eae50960f2893",
+          "book_dna:heuristic",
+          "chapter_001",
+          "platform_style:reddit"
+        ]
+      },
+      "engagement_prediction": 0.571,
+      "sentiment": "mixed",
+      "evidence_refs": [
+        "78c1c051902cafd77246dea519f4d19fff0550fb64c3e45ff99eae50960f2893",
+        "book_dna:heuristic",
+        "chapter_001",
+        "platform_style:reddit"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "post_id": "reddit_6abb37446792",
+      "simulation_id": "sim_de75dfe68c62",
+      "persona_id": "reddit_skeptic_02_7579",
+      "platform": "reddit",
+      "round_number": 1,
+      "title": "[Discussion] Smoke Test Draft works until handwaving",
+      "body": "My thesis: the book succeeds because of internal_logic, sharp_argument, but it asks you to forgive handwaving, plot_holes.",
+      "rating": 3.57,
+      "hashtags": [],
+      "shelf_tags": [],
+      "payload": {
+        "thread_title": "[Discussion] Smoke Test Draft works until handwaving",
+        "top_comment": "My thesis: the book succeeds because of internal_logic, sharp_argument, but it asks you to forgive handwaving, plot_holes.",
+        "skeptical_comment": "I still don't buy the framing around handwaving.",
+        "debate_branch": [
+          "User A defends the mixed/unknown expectations.",
+          "User B says the payoff earns the setup.",
+          "User C argues the momentum collapses in the middle."
+        ],
+        "logic_framing_objection": "The sharpest objection is whether handwaving is actually supported on the page.",
+        "evidence_refs": [
+          "78c1c051902cafd77246dea519f4d19fff0550fb64c3e45ff99eae50960f2893",
+          "book_dna:heuristic",
+          "chapter_001",
+          "chapter_002",
+          "platform_style:reddit"
+        ]
+      },
+      "engagement_prediction": 0.624,
+      "sentiment": "mixed",
+      "evidence_refs": [
+        "78c1c051902cafd77246dea519f4d19fff0550fb64c3e45ff99eae50960f2893",
+        "book_dna:heuristic",
+        "chapter_001",
+        "chapter_002",
+        "platform_style:reddit"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "post_id": "x_53a9f5672b6c",
+      "simulation_id": "sim_de75dfe68c62",
+      "persona_id": "x_hot_take_reader_03_6423",
+      "platform": "x",
+      "round_number": 1,
+      "title": "Smoke Test Draft is either a 5-star obsession or proof that slowness kills momentum.",
+      "body": "QT: the book absolutely delivers on provocation.",
+      "rating": 3.96,
+      "hashtags": [],
+      "shelf_tags": [],
+      "payload": {
+        "hot_take": "Smoke Test Draft is either a 5-star obsession or proof that slowness kills momentum.",
+        "quote_tweet": "QT: the book absolutely delivers on provocation.",
+        "controversy_compression": "Compressed discourse: slowness vs payoff.",
+        "author_brand_reaction": "helps author brand if they lean into the strong opinion traffic",
+        "evidence_refs": [
+          "78c1c051902cafd77246dea519f4d19fff0550fb64c3e45ff99eae50960f2893",
+          "book_dna:heuristic",
+          "chapter_001",
+          "platform_style:x"
+        ]
+      },
+      "engagement_prediction": 0.776,
+      "sentiment": "mixed",
+      "evidence_refs": [
+        "78c1c051902cafd77246dea519f4d19fff0550fb64c3e45ff99eae50960f2893",
+        "book_dna:heuristic",
+        "chapter_001",
+        "platform_style:x"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "post_id": "reddit_102fd91d16ab",
+      "simulation_id": "sim_de75dfe68c62",
+      "persona_id": "nonfiction_evidence_skeptic_04_9291",
+      "platform": "reddit",
+      "round_number": 1,
+      "title": "[Discussion] Smoke Test Draft works until overclaiming",
+      "body": "My thesis: the book succeeds because of citations, strong_methods, but it asks you to forgive overclaiming, missing_sources.",
+      "rating": 3.59,
+      "hashtags": [],
+      "shelf_tags": [],
+      "payload": {
+        "thread_title": "[Discussion] Smoke Test Draft works until overclaiming",
+        "top_comment": "My thesis: the book succeeds because of citations, strong_methods, but it asks you to forgive overclaiming, missing_sources.",
+        "skeptical_comment": "I still don't buy the framing around overclaiming.",
+        "debate_branch": [
+          "User A defends the mixed/unknown expectations.",
+          "User B says the payoff earns the setup.",
+          "User C argues the momentum collapses in the middle."
+        ],
+        "logic_framing_objection": "The sharpest objection is whether overclaiming is actually supported on the page.",
+        "evidence_refs": [
+          "78c1c051902cafd77246dea519f4d19fff0550fb64c3e45ff99eae50960f2893",
+          "book_dna:heuristic",
+          "chapter_001",
+          "chapter_002",
+          "platform_style:reddit"
+        ]
+      },
+      "engagement_prediction": 0.53,
+      "sentiment": "mixed",
+      "evidence_refs": [
+        "78c1c051902cafd77246dea519f4d19fff0550fb64c3e45ff99eae50960f2893",
+        "book_dna:heuristic",
+        "chapter_001",
+        "chapter_002",
+        "platform_style:reddit"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "post_id": "reddit_c89db788d469",
+      "simulation_id": "sim_de75dfe68c62",
+      "persona_id": "reddit_skeptic_05_4914",
+      "platform": "reddit",
+      "round_number": 1,
+      "title": "[Discussion] Smoke Test Draft works until handwaving",
+      "body": "My thesis: the book succeeds because of internal_logic, sharp_argument, but it asks you to forgive handwaving, plot_holes.",
+      "rating": 3.5,
+      "hashtags": [],
+      "shelf_tags": [],
+      "payload": {
+        "thread_title": "[Discussion] Smoke Test Draft works until handwaving",
+        "top_comment": "My thesis: the book succeeds because of internal_logic, sharp_argument, but it asks you to forgive handwaving, plot_holes.",
+        "skeptical_comment": "I still don't buy the framing around handwaving.",
+        "debate_branch": [
+          "User A defends the mixed/unknown expectations.",
+          "User B says the payoff earns the setup.",
+          "User C argues the momentum collapses in the middle."
+        ],
+        "logic_framing_objection": "The sharpest objection is whether handwaving is actually supported on the page.",
+        "evidence_refs": [
+          "78c1c051902cafd77246dea519f4d19fff0550fb64c3e45ff99eae50960f2893",
+          "book_dna:heuristic",
+          "chapter_001",
+          "chapter_002",
+          "platform_style:reddit"
+        ]
+      },
+      "engagement_prediction": 0.603,
+      "sentiment": "mixed",
+      "evidence_refs": [
+        "78c1c051902cafd77246dea519f4d19fff0550fb64c3e45ff99eae50960f2893",
+        "book_dna:heuristic",
+        "chapter_001",
+        "chapter_002",
+        "platform_style:reddit"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "post_id": "x_09bbc8959f2f",
+      "simulation_id": "sim_de75dfe68c62",
+      "persona_id": "x_hot_take_reader_06_5098",
+      "platform": "x",
+      "round_number": 1,
+      "title": "Smoke Test Draft is either a 5-star obsession or proof that slowness kills momentum.",
+      "body": "QT: the book absolutely delivers on provocation.",
+      "rating": 3.81,
+      "hashtags": [],
+      "shelf_tags": [],
+      "payload": {
+        "hot_take": "Smoke Test Draft is either a 5-star obsession or proof that slowness kills momentum.",
+        "quote_tweet": "QT: the book absolutely delivers on provocation.",
+        "controversy_compression": "Compressed discourse: slowness vs payoff.",
+        "author_brand_reaction": "helps author brand if they lean into the strong opinion traffic",
+        "evidence_refs": [
+          "78c1c051902cafd77246dea519f4d19fff0550fb64c3e45ff99eae50960f2893",
+          "book_dna:heuristic",
+          "chapter_001",
+          "platform_style:x"
+        ]
+      },
+      "engagement_prediction": 0.755,
+      "sentiment": "mixed",
+      "evidence_refs": [
+        "78c1c051902cafd77246dea519f4d19fff0550fb64c3e45ff99eae50960f2893",
+        "book_dna:heuristic",
+        "chapter_001",
+        "platform_style:x"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "post_id": "goodreads_731425a1b3c0",
+      "simulation_id": "sim_de75dfe68c62",
+      "persona_id": "goodreads_harsh_reviewer_07_8653",
+      "platform": "goodreads",
+      "round_number": 1,
+      "title": "Smoke Test Draft: strong Short sentences and quick paragraph turns suggest fast pacing. payoff",
+      "body": "I came for the mixed/unknown promise and stayed for strong_opening, clean_prose. My main friction was slow_start, weak_characterization.",
+      "rating": 3.32,
+      "hashtags": [],
+      "shelf_tags": [
+        "mixed/unknown",
+        "community_reviewers",
+        "swarmbook-simulated"
+      ],
+      "payload": {
+        "star_rating": 3,
+        "review_title": "Smoke Test Draft: strong Short sentences and quick paragraph turns suggest fast pacing. payoff",
+        "review_body": "I came for the mixed/unknown promise and stayed for strong_opening, clean_prose. My main friction was slow_start, weak_characterization.",
+        "shelf_tags": [
+          "mixed/unknown",
+          "community_reviewers",
+          "swarmbook-simulated"
+        ],
+        "dnf_note": "Finished the book",
+        "quote_highlights": [
+          "Mara gets a letter that threatens her promotion if she misses tonight's meeting."
+        ],
+        "evidence_refs": [
+          "78c1c051902cafd77246dea519f4d19fff0550fb64c3e45ff99eae50960f2893",
+          "book_dna:heuristic",
+          "chapter_001",
+          "platform_style:goodreads"
+        ]
+      },
+      "engagement_prediction": 0.444,
+      "sentiment": "mixed",
+      "evidence_refs": [
+        "78c1c051902cafd77246dea519f4d19fff0550fb64c3e45ff99eae50960f2893",
+        "book_dna:heuristic",
+        "chapter_001",
+        "platform_style:goodreads"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "post_id": "reddit_d2fb6f571a7e",
+      "simulation_id": "sim_de75dfe68c62",
+      "persona_id": "reddit_genre_purist_08_7602",
+      "platform": "reddit",
+      "round_number": 1,
+      "title": "[Discussion] Smoke Test Draft works until genre_blending",
+      "body": "My thesis: the book succeeds because of genre_authenticity, canonical_rules, but it asks you to forgive genre_blending, rule_breaking.",
+      "rating": 3.66,
+      "hashtags": [],
+      "shelf_tags": [],
+      "payload": {
+        "thread_title": "[Discussion] Smoke Test Draft works until genre_blending",
+        "top_comment": "My thesis: the book succeeds because of genre_authenticity, canonical_rules, but it asks you to forgive genre_blending, rule_breaking.",
+        "skeptical_comment": "I still don't buy the framing around genre_blending.",
+        "debate_branch": [
+          "User A defends the mixed/unknown expectations.",
+          "User B says the payoff earns the setup.",
+          "User C argues the momentum collapses in the middle."
+        ],
+        "logic_framing_objection": "The sharpest objection is whether genre_blending is actually supported on the page.",
+        "evidence_refs": [
+          "78c1c051902cafd77246dea519f4d19fff0550fb64c3e45ff99eae50960f2893",
+          "book_dna:heuristic",
+          "chapter_001",
+          "platform_style:reddit"
+        ]
+      },
+      "engagement_prediction": 0.636,
+      "sentiment": "mixed",
+      "evidence_refs": [
+        "78c1c051902cafd77246dea519f4d19fff0550fb64c3e45ff99eae50960f2893",
+        "book_dna:heuristic",
+        "chapter_001",
+        "platform_style:reddit"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "post_id": "x_a64f4b24c21d",
+      "simulation_id": "sim_de75dfe68c62",
+      "persona_id": "x_hot_take_reader_09_9797",
+      "platform": "x",
+      "round_number": 1,
+      "title": "Smoke Test Draft is either a 5-star obsession or proof that slowness kills momentum.",
+      "body": "QT: the book absolutely delivers on provocation.",
+      "rating": 3.68,
+      "hashtags": [],
+      "shelf_tags": [],
+      "payload": {
+        "hot_take": "Smoke Test Draft is either a 5-star obsession or proof that slowness kills momentum.",
+        "quote_tweet": "QT: the book absolutely delivers on provocation.",
+        "controversy_compression": "Compressed discourse: slowness vs payoff.",
+        "author_brand_reaction": "helps author brand if they lean into the strong opinion traffic",
+        "evidence_refs": [
+          "78c1c051902cafd77246dea519f4d19fff0550fb64c3e45ff99eae50960f2893",
+          "book_dna:heuristic",
+          "chapter_001",
+          "platform_style:x"
+        ]
+      },
+      "engagement_prediction": 0.739,
+      "sentiment": "mixed",
+      "evidence_refs": [
+        "78c1c051902cafd77246dea519f4d19fff0550fb64c3e45ff99eae50960f2893",
+        "book_dna:heuristic",
+        "chapter_001",
+        "platform_style:x"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "post_id": "reddit_b9d5bf41a144",
+      "simulation_id": "sim_de75dfe68c62",
+      "persona_id": "reddit_skeptic_10_8868",
+      "platform": "reddit",
+      "round_number": 1,
+      "title": "[Discussion] Smoke Test Draft works until handwaving",
+      "body": "My thesis: the book succeeds because of internal_logic, sharp_argument, but it asks you to forgive handwaving, plot_holes.",
+      "rating": 3.48,
+      "hashtags": [],
+      "shelf_tags": [],
+      "payload": {
+        "thread_title": "[Discussion] Smoke Test Draft works until handwaving",
+        "top_comment": "My thesis: the book succeeds because of internal_logic, sharp_argument, but it asks you to forgive handwaving, plot_holes.",
+        "skeptical_comment": "I still don't buy the framing around handwaving.",
+        "debate_branch": [
+          "User A defends the mixed/unknown expectations.",
+          "User B says the payoff earns the setup.",
+          "User C argues the momentum collapses in the middle."
+        ],
+        "logic_framing_objection": "The sharpest objection is whether handwaving is actually supported on the page.",
+        "evidence_refs": [
+          "78c1c051902cafd77246dea519f4d19fff0550fb64c3e45ff99eae50960f2893",
+          "book_dna:heuristic",
+          "chapter_001",
+          "chapter_002",
+          "platform_style:reddit"
+        ]
+      },
+      "engagement_prediction": 0.538,
+      "sentiment": "mixed",
+      "evidence_refs": [
+        "78c1c051902cafd77246dea519f4d19fff0550fb64c3e45ff99eae50960f2893",
+        "book_dna:heuristic",
+        "chapter_001",
+        "chapter_002",
+        "platform_style:reddit"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "post_id": "reddit_c781f5f4206e",
+      "simulation_id": "sim_de75dfe68c62",
+      "persona_id": "reddit_skeptic_11_7435",
+      "platform": "reddit",
+      "round_number": 1,
+      "title": "[Discussion] Smoke Test Draft works until handwaving",
+      "body": "My thesis: the book succeeds because of internal_logic, sharp_argument, but it asks you to forgive handwaving, plot_holes.",
+      "rating": 3.82,
+      "hashtags": [],
+      "shelf_tags": [],
+      "payload": {
+        "thread_title": "[Discussion] Smoke Test Draft works until handwaving",
+        "top_comment": "My thesis: the book succeeds because of internal_logic, sharp_argument, but it asks you to forgive handwaving, plot_holes.",
+        "skeptical_comment": "I still don't buy the framing around handwaving.",
+        "debate_branch": [
+          "User A defends the mixed/unknown expectations.",
+          "User B says the payoff earns the setup.",
+          "User C argues the momentum collapses in the middle."
+        ],
+        "logic_framing_objection": "The sharpest objection is whether handwaving is actually supported on the page.",
+        "evidence_refs": [
+          "78c1c051902cafd77246dea519f4d19fff0550fb64c3e45ff99eae50960f2893",
+          "book_dna:heuristic",
+          "chapter_001",
+          "chapter_002",
+          "platform_style:reddit"
+        ]
+      },
+      "engagement_prediction": 0.605,
+      "sentiment": "mixed",
+      "evidence_refs": [
+        "78c1c051902cafd77246dea519f4d19fff0550fb64c3e45ff99eae50960f2893",
+        "book_dna:heuristic",
+        "chapter_001",
+        "chapter_002",
+        "platform_style:reddit"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "post_id": "reddit_b7e8130449c3",
+      "simulation_id": "sim_de75dfe68c62",
+      "persona_id": "reddit_genre_purist_12_1464",
+      "platform": "reddit",
+      "round_number": 1,
+      "title": "[Discussion] Smoke Test Draft works until genre_blending",
+      "body": "My thesis: the book succeeds because of genre_authenticity, canonical_rules, but it asks you to forgive genre_blending, rule_breaking.",
+      "rating": 3.98,
+      "hashtags": [],
+      "shelf_tags": [],
+      "payload": {
+        "thread_title": "[Discussion] Smoke Test Draft works until genre_blending",
+        "top_comment": "My thesis: the book succeeds because of genre_authenticity, canonical_rules, but it asks you to forgive genre_blending, rule_breaking.",
+        "skeptical_comment": "I still don't buy the framing around genre_blending.",
+        "debate_branch": [
+          "User A defends the mixed/unknown expectations.",
+          "User B says the payoff earns the setup.",
+          "User C argues the momentum collapses in the middle."
+        ],
+        "logic_framing_objection": "The sharpest objection is whether genre_blending is actually supported on the page.",
+        "evidence_refs": [
+          "78c1c051902cafd77246dea519f4d19fff0550fb64c3e45ff99eae50960f2893",
+          "book_dna:heuristic",
+          "chapter_001",
+          "platform_style:reddit"
+        ]
+      },
+      "engagement_prediction": 0.578,
+      "sentiment": "mixed",
+      "evidence_refs": [
+        "78c1c051902cafd77246dea519f4d19fff0550fb64c3e45ff99eae50960f2893",
+        "book_dna:heuristic",
+        "chapter_001",
+        "platform_style:reddit"
+      ],
+      "confidence": 0.74
+    }
+  ]
+}

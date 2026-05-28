@@ -287,3 +287,10 @@
 - Trade-off: Centralizing overrides in `App.vue` increases stylesheet code footprint slightly but improves consistency and compliance.
 - Files affected: `frontend/src/App.vue`, `frontend/src/views/swarmbook/*.vue`
 
+## D-042
+- Date: `2026-05-27`
+- Decision: Implement a dedicated edge-case test suite (`test_book_sim_edge_cases.py`) and a comprehensive 360-degree testing plan (`SWARMBOOK_TESTING_PLAN.md`).
+- Rationale: Fully validates error boundaries, parameter validations, socket diagnostics, ingestion limits, and fallback strategies of the manuscript simulation engine and Flask blueprints without modifying or risking regressions in existing test structures.
+- Trade-off: None. The files are entirely additive and adhere to the Swarmbook continuity guardrails.
+- Files affected: `backend/tests/test_book_sim_edge_cases.py`, `docs/SWARMBOOK_TESTING_PLAN.md`, `docs/SWARMBOOK_DECISIONS.md`
+

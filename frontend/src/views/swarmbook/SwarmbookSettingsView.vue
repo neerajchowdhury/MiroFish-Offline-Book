@@ -354,11 +354,13 @@ const healthSummary = computed(() => {
   if (!health.value) {
     return { ollama: 'Checking...', neo4j: 'Checking...', gemini: 'Checking...', nvidia: 'Checking...' }
   }
+  const geminiOk = health.value.providers?.gemini_fast?.ok || health.value.providers?.gemini_deep?.ok
+  const nvidiaOk = health.value.providers?.nvidia_fallback?.ok
   return {
     ollama: health.value.ollama?.ok ? 'Connected' : 'Offline',
     neo4j: health.value.neo4j?.ok ? 'Connected' : 'Offline',
-    gemini: health.value.providers?.gemini_long_context?.ok ? 'Configured' : 'Optional',
-    nvidia: health.value.providers?.nvidia_nim?.ok ? 'Configured' : 'Optional',
+    gemini: geminiOk ? 'Configured' : 'Optional',
+    nvidia: nvidiaOk ? 'Configured' : 'Optional',
   }
 })
 
@@ -416,8 +418,8 @@ async function runDiagnostics() {
     diagnostics.neo4j.status = response.data.neo4j?.ok ? 'ok' : 'error'
     
     // Evaluate Cloud keys
-    const geminiOk = response.data.providers?.gemini_long_context?.ok
-    const nvidiaOk = response.data.providers?.nvidia_nim?.ok
+    const geminiOk = response.data.providers?.gemini_fast?.ok || response.data.providers?.gemini_deep?.ok
+    const nvidiaOk = response.data.providers?.nvidia_fallback?.ok
     diagnostics.cloud.status = (geminiOk || nvidiaOk) ? 'ok' : 'error'
   } catch (err) {
     diagnostics.backend.status = 'error'

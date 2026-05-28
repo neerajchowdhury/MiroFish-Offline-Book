@@ -1,0 +1,369 @@
+{
+  "reactions": [
+    {
+      "reaction_id": "private_9dbea63a4bbd",
+      "simulation_id": "sim_de75dfe68c62",
+      "persona_id": "reddit_genre_purist_01_5745",
+      "chapter_id": null,
+      "rating": 3.96,
+      "dnf_probability": 0.51,
+      "sentiment": "mixed",
+      "attachment_score": 0.696,
+      "confusion_score": 0.448,
+      "recommendation_probability": 0.694,
+      "praise": [
+        "genre_authenticity",
+        "canonical_rules",
+        "identity"
+      ],
+      "friction": [
+        "genre_blending",
+        "rule_breaking"
+      ],
+      "notable_quotes": [
+        "Mara gets a letter that threatens her promotion if she misses tonight's meeting."
+      ],
+      "evidence_refs": [
+        "78c1c051902cafd77246dea519f4d19fff0550fb64c3e45ff99eae50960f2893",
+        "book_dna:heuristic",
+        "chapter_001"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "private_8b792e9a1875",
+      "simulation_id": "sim_de75dfe68c62",
+      "persona_id": "reddit_skeptic_02_7579",
+      "chapter_id": null,
+      "rating": 3.57,
+      "dnf_probability": 0.448,
+      "sentiment": "mixed",
+      "attachment_score": 0.834,
+      "confusion_score": 0.442,
+      "recommendation_probability": 0.667,
+      "praise": [
+        "internal_logic",
+        "sharp_argument",
+        "identity"
+      ],
+      "friction": [
+        "handwaving",
+        "plot_holes"
+      ],
+      "notable_quotes": [
+        "Mara gets a letter that threatens her promotion if she misses tonight's meeting."
+      ],
+      "evidence_refs": [
+        "78c1c051902cafd77246dea519f4d19fff0550fb64c3e45ff99eae50960f2893",
+        "book_dna:heuristic",
+        "chapter_001",
+        "chapter_002"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "private_a880c570cfa3",
+      "simulation_id": "sim_de75dfe68c62",
+      "persona_id": "x_hot_take_reader_03_6423",
+      "chapter_id": null,
+      "rating": 3.96,
+      "dnf_probability": 0.376,
+      "sentiment": "mixed",
+      "attachment_score": 0.755,
+      "confusion_score": 0.364,
+      "recommendation_probability": 0.705,
+      "praise": [
+        "provocation",
+        "controversy",
+        "identity"
+      ],
+      "friction": [
+        "slowness",
+        "nuance_without_payoff"
+      ],
+      "notable_quotes": [
+        "Mara gets a letter that threatens her promotion if she misses tonight's meeting."
+      ],
+      "evidence_refs": [
+        "78c1c051902cafd77246dea519f4d19fff0550fb64c3e45ff99eae50960f2893",
+        "book_dna:heuristic",
+        "chapter_001"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "private_fade19dfb209",
+      "simulation_id": "sim_de75dfe68c62",
+      "persona_id": "nonfiction_evidence_skeptic_04_9291",
+      "chapter_id": null,
+      "rating": 3.59,
+      "dnf_probability": 0.463,
+      "sentiment": "mixed",
+      "attachment_score": 0.727,
+      "confusion_score": 0.45,
+      "recommendation_probability": 0.648,
+      "praise": [
+        "citations",
+        "strong_methods",
+        "identity"
+      ],
+      "friction": [
+        "overclaiming",
+        "missing_sources"
+      ],
+      "notable_quotes": [
+        "Mara gets a letter that threatens her promotion if she misses tonight's meeting."
+      ],
+      "evidence_refs": [
+        "78c1c051902cafd77246dea519f4d19fff0550fb64c3e45ff99eae50960f2893",
+        "book_dna:heuristic",
+        "chapter_001",
+        "chapter_002"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "private_a5dc49326cfe",
+      "simulation_id": "sim_de75dfe68c62",
+      "persona_id": "reddit_skeptic_05_4914",
+      "chapter_id": null,
+      "rating": 3.5,
+      "dnf_probability": 0.411,
+      "sentiment": "mixed",
+      "attachment_score": 0.75,
+      "confusion_score": 0.377,
+      "recommendation_probability": 0.64,
+      "praise": [
+        "internal_logic",
+        "sharp_argument",
+        "identity"
+      ],
+      "friction": [
+        "handwaving",
+        "plot_holes"
+      ],
+      "notable_quotes": [
+        "Mara gets a letter that threatens her promotion if she misses tonight's meeting."
+      ],
+      "evidence_refs": [
+        "78c1c051902cafd77246dea519f4d19fff0550fb64c3e45ff99eae50960f2893",
+        "book_dna:heuristic",
+        "chapter_001",
+        "chapter_002"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "private_1de44782246d",
+      "simulation_id": "sim_de75dfe68c62",
+      "persona_id": "x_hot_take_reader_06_5098",
+      "chapter_id": null,
+      "rating": 3.81,
+      "dnf_probability": 0.401,
+      "sentiment": "mixed",
+      "attachment_score": 0.816,
+      "confusion_score": 0.419,
+      "recommendation_probability": 0.697,
+      "praise": [
+        "provocation",
+        "controversy",
+        "identity"
+      ],
+      "friction": [
+        "slowness",
+        "nuance_without_payoff"
+      ],
+      "notable_quotes": [
+        "Mara gets a letter that threatens her promotion if she misses tonight's meeting."
+      ],
+      "evidence_refs": [
+        "78c1c051902cafd77246dea519f4d19fff0550fb64c3e45ff99eae50960f2893",
+        "book_dna:heuristic",
+        "chapter_001"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "private_b5713a8e7c2c",
+      "simulation_id": "sim_de75dfe68c62",
+      "persona_id": "goodreads_harsh_reviewer_07_8653",
+      "chapter_id": null,
+      "rating": 3.32,
+      "dnf_probability": 0.452,
+      "sentiment": "mixed",
+      "attachment_score": 0.753,
+      "confusion_score": 0.412,
+      "recommendation_probability": 0.615,
+      "praise": [
+        "strong_opening",
+        "clean_prose",
+        "identity"
+      ],
+      "friction": [
+        "slow_start",
+        "weak_characterization"
+      ],
+      "notable_quotes": [
+        "Mara gets a letter that threatens her promotion if she misses tonight's meeting."
+      ],
+      "evidence_refs": [
+        "78c1c051902cafd77246dea519f4d19fff0550fb64c3e45ff99eae50960f2893",
+        "book_dna:heuristic",
+        "chapter_001"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "private_c2d376b23385",
+      "simulation_id": "sim_de75dfe68c62",
+      "persona_id": "reddit_genre_purist_08_7602",
+      "chapter_id": null,
+      "rating": 3.66,
+      "dnf_probability": 0.463,
+      "sentiment": "mixed",
+      "attachment_score": 0.76,
+      "confusion_score": 0.404,
+      "recommendation_probability": 0.664,
+      "praise": [
+        "genre_authenticity",
+        "canonical_rules",
+        "identity"
+      ],
+      "friction": [
+        "genre_blending",
+        "rule_breaking"
+      ],
+      "notable_quotes": [
+        "Mara gets a letter that threatens her promotion if she misses tonight's meeting."
+      ],
+      "evidence_refs": [
+        "78c1c051902cafd77246dea519f4d19fff0550fb64c3e45ff99eae50960f2893",
+        "book_dna:heuristic",
+        "chapter_001"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "private_87b4cd7a7029",
+      "simulation_id": "sim_de75dfe68c62",
+      "persona_id": "x_hot_take_reader_09_9797",
+      "chapter_id": null,
+      "rating": 3.68,
+      "dnf_probability": 0.448,
+      "sentiment": "mixed",
+      "attachment_score": 0.785,
+      "confusion_score": 0.46,
+      "recommendation_probability": 0.672,
+      "praise": [
+        "provocation",
+        "controversy",
+        "identity"
+      ],
+      "friction": [
+        "slowness",
+        "nuance_without_payoff"
+      ],
+      "notable_quotes": [
+        "Mara gets a letter that threatens her promotion if she misses tonight's meeting."
+      ],
+      "evidence_refs": [
+        "78c1c051902cafd77246dea519f4d19fff0550fb64c3e45ff99eae50960f2893",
+        "book_dna:heuristic",
+        "chapter_001"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "private_ecf7c7e5d60e",
+      "simulation_id": "sim_de75dfe68c62",
+      "persona_id": "reddit_skeptic_10_8868",
+      "chapter_id": null,
+      "rating": 3.48,
+      "dnf_probability": 0.398,
+      "sentiment": "mixed",
+      "attachment_score": 0.724,
+      "confusion_score": 0.352,
+      "recommendation_probability": 0.632,
+      "praise": [
+        "internal_logic",
+        "sharp_argument",
+        "identity"
+      ],
+      "friction": [
+        "handwaving",
+        "plot_holes"
+      ],
+      "notable_quotes": [
+        "Mara gets a letter that threatens her promotion if she misses tonight's meeting."
+      ],
+      "evidence_refs": [
+        "78c1c051902cafd77246dea519f4d19fff0550fb64c3e45ff99eae50960f2893",
+        "book_dna:heuristic",
+        "chapter_001",
+        "chapter_002"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "private_49e4e42f6300",
+      "simulation_id": "sim_de75dfe68c62",
+      "persona_id": "reddit_skeptic_11_7435",
+      "chapter_id": null,
+      "rating": 3.82,
+      "dnf_probability": 0.366,
+      "sentiment": "mixed",
+      "attachment_score": 0.719,
+      "confusion_score": 0.378,
+      "recommendation_probability": 0.679,
+      "praise": [
+        "internal_logic",
+        "sharp_argument",
+        "identity"
+      ],
+      "friction": [
+        "handwaving",
+        "plot_holes"
+      ],
+      "notable_quotes": [
+        "Mara gets a letter that threatens her promotion if she misses tonight's meeting."
+      ],
+      "evidence_refs": [
+        "78c1c051902cafd77246dea519f4d19fff0550fb64c3e45ff99eae50960f2893",
+        "book_dna:heuristic",
+        "chapter_001",
+        "chapter_002"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "private_a5d9ba586f68",
+      "simulation_id": "sim_de75dfe68c62",
+      "persona_id": "reddit_genre_purist_12_1464",
+      "chapter_id": null,
+      "rating": 3.98,
+      "dnf_probability": 0.417,
+      "sentiment": "mixed",
+      "attachment_score": 0.791,
+      "confusion_score": 0.378,
+      "recommendation_probability": 0.715,
+      "praise": [
+        "genre_authenticity",
+        "canonical_rules",
+        "identity"
+      ],
+      "friction": [
+        "genre_blending",
+        "rule_breaking"
+      ],
+      "notable_quotes": [
+        "Mara gets a letter that threatens her promotion if she misses tonight's meeting."
+      ],
+      "evidence_refs": [
+        "78c1c051902cafd77246dea519f4d19fff0550fb64c3e45ff99eae50960f2893",
+        "book_dna:heuristic",
+        "chapter_001"
+      ],
+      "confidence": 0.74
+    }
+  ]
+}

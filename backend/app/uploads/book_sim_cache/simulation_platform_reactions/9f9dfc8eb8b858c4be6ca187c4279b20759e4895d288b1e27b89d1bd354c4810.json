@@ -1,0 +1,2672 @@
+{
+  "posts": [
+    {
+      "post_id": "reddit_b3ad00925a36",
+      "simulation_id": "sim_44b2f2e74318",
+      "persona_id": "reddit_skeptic_01_5745",
+      "platform": "reddit",
+      "round_number": 1,
+      "title": "[Discussion] Your Child's Struggle is Not Your Emergency works until handwaving",
+      "body": "My thesis: the book succeeds because of internal_logic, sharp_argument, but it asks you to forgive handwaving, plot_holes.",
+      "rating": 3.59,
+      "hashtags": [],
+      "shelf_tags": [],
+      "payload": {
+        "thread_title": "[Discussion] Your Child's Struggle is Not Your Emergency works until handwaving",
+        "top_comment": "My thesis: the book succeeds because of internal_logic, sharp_argument, but it asks you to forgive handwaving, plot_holes.",
+        "skeptical_comment": "I still don't buy the framing around handwaving.",
+        "debate_branch": [
+          "User A defends the romance expectations.",
+          "User B says the payoff earns the setup.",
+          "User C argues the momentum collapses in the middle."
+        ],
+        "logic_framing_objection": "The sharpest objection is whether handwaving is actually supported on the page.",
+        "evidence_refs": [
+          "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+          "book_dna:heuristic",
+          "chapter_001",
+          "chapter:chapter_001",
+          "chapter:chapter_007",
+          "platform_style:reddit"
+        ]
+      },
+      "engagement_prediction": 0.622,
+      "sentiment": "mixed",
+      "evidence_refs": [
+        "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+        "book_dna:heuristic",
+        "chapter_001",
+        "chapter:chapter_001",
+        "chapter:chapter_007",
+        "platform_style:reddit"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "post_id": "bookstagram_93c7cdcb848a",
+      "simulation_id": "sim_44b2f2e74318",
+      "persona_id": "bookstagram_curator_02_3291",
+      "platform": "bookstagram",
+      "round_number": 1,
+      "title": null,
+      "body": "Your Child's Struggle is Not Your Emergency looks like Short sentences and quick paragraph turns suggest fast pacing. and reads like beautiful_package, mood.",
+      "rating": 4.02,
+      "hashtags": [
+        "romance",
+        "annotated_copy",
+        "reading_night"
+      ],
+      "shelf_tags": [],
+      "payload": {
+        "caption": "Your Child's Struggle is Not Your Emergency looks like Short sentences and quick paragraph turns suggest fast pacing. and reads like beautiful_package, mood.",
+        "carousel_idea": [
+          "cover shot with tabs",
+          "quote slide featuring grief",
+          "final slide with shelf verdict"
+        ],
+        "aesthetic_tags": [
+          "romance",
+          "annotated_copy",
+          "reading_night"
+        ],
+        "quote_card_candidates": [
+          "I was at a child’s birthday party last Sunday. You know the kind."
+        ],
+        "save_share_reason": "save for vibes and share for the quote density",
+        "evidence_refs": [
+          "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+          "book_dna:heuristic",
+          "chapter_001",
+          "chapter:chapter_001",
+          "chapter:chapter_007",
+          "platform_style:bookstagram"
+        ]
+      },
+      "engagement_prediction": 0.708,
+      "sentiment": "mixed",
+      "evidence_refs": [
+        "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+        "book_dna:heuristic",
+        "chapter_001",
+        "chapter:chapter_001",
+        "chapter:chapter_007",
+        "platform_style:bookstagram"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "post_id": "goodreads_acfebbb7aa5d",
+      "simulation_id": "sim_44b2f2e74318",
+      "persona_id": "goodreads_genre_loyalist_03_1292",
+      "platform": "goodreads",
+      "round_number": 1,
+      "title": "Your Child's Struggle is Not Your Emergency: strong Short sentences and quick paragraph turns suggest fast pacing. payof",
+      "body": "I came for the romance promise and stayed for genre_tropes, satisfying_arc. My main friction was genre_betrayal, ambiguous_endings.",
+      "rating": 4.12,
+      "hashtags": [],
+      "shelf_tags": [
+        "romance",
+        "community_reviewers",
+        "swarmbook-simulated"
+      ],
+      "payload": {
+        "star_rating": 4,
+        "review_title": "Your Child's Struggle is Not Your Emergency: strong Short sentences and quick paragraph turns suggest fast pacing. payoff",
+        "review_body": "I came for the romance promise and stayed for genre_tropes, satisfying_arc. My main friction was genre_betrayal, ambiguous_endings.",
+        "shelf_tags": [
+          "romance",
+          "community_reviewers",
+          "swarmbook-simulated"
+        ],
+        "dnf_note": "Finished the book",
+        "quote_highlights": [
+          "I was at a child’s birthday party last Sunday. You know the kind."
+        ],
+        "evidence_refs": [
+          "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+          "book_dna:heuristic",
+          "chapter_001",
+          "chapter:chapter_001",
+          "chapter:chapter_007",
+          "platform_style:goodreads"
+        ]
+      },
+      "engagement_prediction": 0.547,
+      "sentiment": "mixed",
+      "evidence_refs": [
+        "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+        "book_dna:heuristic",
+        "chapter_001",
+        "chapter:chapter_001",
+        "chapter:chapter_007",
+        "platform_style:goodreads"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "post_id": "booktok_950a8343b364",
+      "simulation_id": "sim_44b2f2e74318",
+      "persona_id": "booktok_emotional_amplifier_04_5377",
+      "platform": "booktok",
+      "round_number": 1,
+      "title": "If Your Child's Struggle is Not Your Emergency broke me in 15 seconds, that's your warning.",
+      "body": "Stop scrolling if you want romance with Short sentences and quick paragraph turns suggest fast pacing.. Act one: I was at a child’s birthday party last Sunday. You know the kind.. Act two: why I couldn't stop thinking about heartbreak, found_family.",
+      "rating": 3.5,
+      "hashtags": [
+        "heartbreak",
+        "found_family",
+        "catharsis"
+      ],
+      "shelf_tags": [],
+      "payload": {
+        "video_script": "Stop scrolling if you want romance with Short sentences and quick paragraph turns suggest fast pacing.. Act one: I was at a child’s birthday party last Sunday. You know the kind.. Act two: why I couldn't stop thinking about heartbreak, found_family.",
+        "trope_tags": [
+          "heartbreak",
+          "found_family",
+          "catharsis"
+        ],
+        "hook_line": "If Your Child's Struggle is Not Your Emergency broke me in 15 seconds, that's your warning.",
+        "visual_motif": "Preface: The Gospel of the Scraped Knee, THE BURNOUT MACHINE",
+        "viral_trigger": "high",
+        "cringe_mockery_risk": "medium_low",
+        "evidence_refs": [
+          "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+          "book_dna:heuristic",
+          "chapter_001",
+          "chapter:chapter_001",
+          "chapter:chapter_007",
+          "platform_style:booktok"
+        ]
+      },
+      "engagement_prediction": 0.78,
+      "sentiment": "mixed",
+      "evidence_refs": [
+        "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+        "book_dna:heuristic",
+        "chapter_001",
+        "chapter:chapter_001",
+        "chapter:chapter_007",
+        "platform_style:booktok"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "post_id": "booktok_14872d76f4c2",
+      "simulation_id": "sim_44b2f2e74318",
+      "persona_id": "booktok_trope_hunter_05_1314",
+      "platform": "booktok",
+      "round_number": 1,
+      "title": "If Your Child's Struggle is Not Your Emergency broke me in 15 seconds, that's your warning.",
+      "body": "Stop scrolling if you want romance with Short sentences and quick paragraph turns suggest fast pacing.. Act one: I was at a child’s birthday party last Sunday. You know the kind.. Act two: why I couldn't stop thinking about enemies_to_lovers, slow_burn.",
+      "rating": 3.62,
+      "hashtags": [
+        "enemies_to_lovers",
+        "slow_burn",
+        "forced_proximity"
+      ],
+      "shelf_tags": [],
+      "payload": {
+        "video_script": "Stop scrolling if you want romance with Short sentences and quick paragraph turns suggest fast pacing.. Act one: I was at a child’s birthday party last Sunday. You know the kind.. Act two: why I couldn't stop thinking about enemies_to_lovers, slow_burn.",
+        "trope_tags": [
+          "enemies_to_lovers",
+          "slow_burn",
+          "forced_proximity"
+        ],
+        "hook_line": "If Your Child's Struggle is Not Your Emergency broke me in 15 seconds, that's your warning.",
+        "visual_motif": "Preface: The Gospel of the Scraped Knee, THE BURNOUT MACHINE",
+        "viral_trigger": "medium",
+        "cringe_mockery_risk": "medium_low",
+        "evidence_refs": [
+          "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+          "book_dna:heuristic",
+          "chapter_001",
+          "chapter:chapter_001",
+          "chapter:chapter_007",
+          "platform_style:booktok"
+        ]
+      },
+      "engagement_prediction": 0.786,
+      "sentiment": "mixed",
+      "evidence_refs": [
+        "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+        "book_dna:heuristic",
+        "chapter_001",
+        "chapter:chapter_001",
+        "chapter:chapter_007",
+        "platform_style:booktok"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "post_id": "bookstagram_8200dd9caa04",
+      "simulation_id": "sim_44b2f2e74318",
+      "persona_id": "bookstagram_curator_06_7415",
+      "platform": "bookstagram",
+      "round_number": 1,
+      "title": null,
+      "body": "Your Child's Struggle is Not Your Emergency looks like Short sentences and quick paragraph turns suggest fast pacing. and reads like beautiful_package, mood.",
+      "rating": 3.95,
+      "hashtags": [
+        "romance",
+        "annotated_copy",
+        "reading_night"
+      ],
+      "shelf_tags": [],
+      "payload": {
+        "caption": "Your Child's Struggle is Not Your Emergency looks like Short sentences and quick paragraph turns suggest fast pacing. and reads like beautiful_package, mood.",
+        "carousel_idea": [
+          "cover shot with tabs",
+          "quote slide featuring grief",
+          "final slide with shelf verdict"
+        ],
+        "aesthetic_tags": [
+          "romance",
+          "annotated_copy",
+          "reading_night"
+        ],
+        "quote_card_candidates": [
+          "I was at a child’s birthday party last Sunday. You know the kind."
+        ],
+        "save_share_reason": "save for vibes and share for the quote density",
+        "evidence_refs": [
+          "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+          "book_dna:heuristic",
+          "chapter_001",
+          "chapter:chapter_001",
+          "chapter:chapter_007",
+          "platform_style:bookstagram"
+        ]
+      },
+      "engagement_prediction": 0.72,
+      "sentiment": "mixed",
+      "evidence_refs": [
+        "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+        "book_dna:heuristic",
+        "chapter_001",
+        "chapter:chapter_001",
+        "chapter:chapter_007",
+        "platform_style:bookstagram"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "post_id": "goodreads_1edb9b4f9273",
+      "simulation_id": "sim_44b2f2e74318",
+      "persona_id": "goodreads_genre_loyalist_07_6109",
+      "platform": "goodreads",
+      "round_number": 1,
+      "title": "Your Child's Struggle is Not Your Emergency: strong Short sentences and quick paragraph turns suggest fast pacing. payof",
+      "body": "I came for the romance promise and stayed for genre_tropes, satisfying_arc. My main friction was genre_betrayal, ambiguous_endings.",
+      "rating": 3.94,
+      "hashtags": [],
+      "shelf_tags": [
+        "romance",
+        "community_reviewers",
+        "swarmbook-simulated"
+      ],
+      "payload": {
+        "star_rating": 4,
+        "review_title": "Your Child's Struggle is Not Your Emergency: strong Short sentences and quick paragraph turns suggest fast pacing. payoff",
+        "review_body": "I came for the romance promise and stayed for genre_tropes, satisfying_arc. My main friction was genre_betrayal, ambiguous_endings.",
+        "shelf_tags": [
+          "romance",
+          "community_reviewers",
+          "swarmbook-simulated"
+        ],
+        "dnf_note": "Finished the book",
+        "quote_highlights": [
+          "I was at a child’s birthday party last Sunday. You know the kind."
+        ],
+        "evidence_refs": [
+          "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+          "book_dna:heuristic",
+          "chapter_001",
+          "chapter:chapter_001",
+          "chapter:chapter_007",
+          "platform_style:goodreads"
+        ]
+      },
+      "engagement_prediction": 0.659,
+      "sentiment": "mixed",
+      "evidence_refs": [
+        "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+        "book_dna:heuristic",
+        "chapter_001",
+        "chapter:chapter_001",
+        "chapter:chapter_007",
+        "platform_style:goodreads"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "post_id": "x_471e260c7094",
+      "simulation_id": "sim_44b2f2e74318",
+      "persona_id": "x_hot_take_reader_08_8970",
+      "platform": "x",
+      "round_number": 1,
+      "title": "Your Child's Struggle is Not Your Emergency is either a 5-star obsession or proof that slowness kills momentum.",
+      "body": "QT: the book absolutely delivers on provocation.",
+      "rating": 3.7,
+      "hashtags": [],
+      "shelf_tags": [],
+      "payload": {
+        "hot_take": "Your Child's Struggle is Not Your Emergency is either a 5-star obsession or proof that slowness kills momentum.",
+        "quote_tweet": "QT: the book absolutely delivers on provocation.",
+        "controversy_compression": "Compressed discourse: slowness vs payoff.",
+        "author_brand_reaction": "helps author brand if they lean into the strong opinion traffic",
+        "evidence_refs": [
+          "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+          "book_dna:heuristic",
+          "chapter_001",
+          "chapter:chapter_001",
+          "chapter:chapter_007",
+          "platform_style:x"
+        ]
+      },
+      "engagement_prediction": 0.779,
+      "sentiment": "mixed",
+      "evidence_refs": [
+        "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+        "book_dna:heuristic",
+        "chapter_001",
+        "chapter:chapter_001",
+        "chapter:chapter_007",
+        "platform_style:x"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "post_id": "newsletter_ff645fdd327c",
+      "simulation_id": "sim_44b2f2e74318",
+      "persona_id": "literary_reader_09_1879",
+      "platform": "newsletter",
+      "round_number": 1,
+      "title": "If your subscribers respond to romance with a strong thematic center, Your Child's Struggle is Not Your Emergency is wor",
+      "body": "If your subscribers respond to romance with a strong thematic center, Your Child's Struggle is Not Your Emergency is worth a look for voice, subtext.",
+      "rating": 3.45,
+      "hashtags": [],
+      "shelf_tags": [],
+      "payload": {
+        "recommendation_blurb": "If your subscribers respond to romance with a strong thematic center, Your Child's Struggle is Not Your Emergency is worth a look for voice, subtext.",
+        "target_subscriber_type": "Goodreads genre loyalist, casual Kindle reader",
+        "referral_likelihood": "medium",
+        "evidence_refs": [
+          "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+          "book_dna:heuristic",
+          "chapter_001",
+          "chapter:chapter_001",
+          "chapter:chapter_007",
+          "platform_style:newsletter"
+        ]
+      },
+      "engagement_prediction": 0.592,
+      "sentiment": "mixed",
+      "evidence_refs": [
+        "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+        "book_dna:heuristic",
+        "chapter_001",
+        "chapter:chapter_001",
+        "chapter:chapter_007",
+        "platform_style:newsletter"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "post_id": "reddit_695318fc1f94",
+      "simulation_id": "sim_44b2f2e74318",
+      "persona_id": "reddit_skeptic_10_4147",
+      "platform": "reddit",
+      "round_number": 1,
+      "title": "[Discussion] Your Child's Struggle is Not Your Emergency works until handwaving",
+      "body": "My thesis: the book succeeds because of internal_logic, sharp_argument, but it asks you to forgive handwaving, plot_holes.",
+      "rating": 3.67,
+      "hashtags": [],
+      "shelf_tags": [],
+      "payload": {
+        "thread_title": "[Discussion] Your Child's Struggle is Not Your Emergency works until handwaving",
+        "top_comment": "My thesis: the book succeeds because of internal_logic, sharp_argument, but it asks you to forgive handwaving, plot_holes.",
+        "skeptical_comment": "I still don't buy the framing around handwaving.",
+        "debate_branch": [
+          "User A defends the romance expectations.",
+          "User B says the payoff earns the setup.",
+          "User C argues the momentum collapses in the middle."
+        ],
+        "logic_framing_objection": "The sharpest objection is whether handwaving is actually supported on the page.",
+        "evidence_refs": [
+          "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+          "book_dna:heuristic",
+          "chapter_001",
+          "chapter:chapter_001",
+          "chapter:chapter_007",
+          "platform_style:reddit"
+        ]
+      },
+      "engagement_prediction": 0.573,
+      "sentiment": "mixed",
+      "evidence_refs": [
+        "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+        "book_dna:heuristic",
+        "chapter_001",
+        "chapter:chapter_001",
+        "chapter:chapter_007",
+        "platform_style:reddit"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "post_id": "x_11d834a7f17e",
+      "simulation_id": "sim_44b2f2e74318",
+      "persona_id": "x_hot_take_reader_11_6386",
+      "platform": "x",
+      "round_number": 1,
+      "title": "Your Child's Struggle is Not Your Emergency is either a 5-star obsession or proof that slowness kills momentum.",
+      "body": "QT: the book absolutely delivers on provocation.",
+      "rating": 3.65,
+      "hashtags": [],
+      "shelf_tags": [],
+      "payload": {
+        "hot_take": "Your Child's Struggle is Not Your Emergency is either a 5-star obsession or proof that slowness kills momentum.",
+        "quote_tweet": "QT: the book absolutely delivers on provocation.",
+        "controversy_compression": "Compressed discourse: slowness vs payoff.",
+        "author_brand_reaction": "helps author brand if they lean into the strong opinion traffic",
+        "evidence_refs": [
+          "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+          "book_dna:heuristic",
+          "chapter_001",
+          "chapter:chapter_001",
+          "chapter:chapter_007",
+          "platform_style:x"
+        ]
+      },
+      "engagement_prediction": 0.754,
+      "sentiment": "mixed",
+      "evidence_refs": [
+        "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+        "book_dna:heuristic",
+        "chapter_001",
+        "chapter:chapter_001",
+        "chapter:chapter_007",
+        "platform_style:x"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "post_id": "x_67958c471f39",
+      "simulation_id": "sim_44b2f2e74318",
+      "persona_id": "x_hot_take_reader_12_9791",
+      "platform": "x",
+      "round_number": 1,
+      "title": "Your Child's Struggle is Not Your Emergency is either a 5-star obsession or proof that slowness kills momentum.",
+      "body": "QT: the book absolutely delivers on provocation.",
+      "rating": 3.27,
+      "hashtags": [],
+      "shelf_tags": [],
+      "payload": {
+        "hot_take": "Your Child's Struggle is Not Your Emergency is either a 5-star obsession or proof that slowness kills momentum.",
+        "quote_tweet": "QT: the book absolutely delivers on provocation.",
+        "controversy_compression": "Compressed discourse: slowness vs payoff.",
+        "author_brand_reaction": "helps author brand if they lean into the strong opinion traffic",
+        "evidence_refs": [
+          "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+          "book_dna:heuristic",
+          "chapter_001",
+          "chapter:chapter_001",
+          "chapter:chapter_007",
+          "platform_style:x"
+        ]
+      },
+      "engagement_prediction": 0.778,
+      "sentiment": "mixed",
+      "evidence_refs": [
+        "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+        "book_dna:heuristic",
+        "chapter_001",
+        "chapter:chapter_001",
+        "chapter:chapter_007",
+        "platform_style:x"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "post_id": "reddit_26541ec4952c",
+      "simulation_id": "sim_44b2f2e74318",
+      "persona_id": "reddit_genre_purist_13_1122",
+      "platform": "reddit",
+      "round_number": 1,
+      "title": "[Discussion] Your Child's Struggle is Not Your Emergency works until genre_blending",
+      "body": "My thesis: the book succeeds because of genre_authenticity, canonical_rules, but it asks you to forgive genre_blending, rule_breaking.",
+      "rating": 3.19,
+      "hashtags": [],
+      "shelf_tags": [],
+      "payload": {
+        "thread_title": "[Discussion] Your Child's Struggle is Not Your Emergency works until genre_blending",
+        "top_comment": "My thesis: the book succeeds because of genre_authenticity, canonical_rules, but it asks you to forgive genre_blending, rule_breaking.",
+        "skeptical_comment": "I still don't buy the framing around genre_blending.",
+        "debate_branch": [
+          "User A defends the romance expectations.",
+          "User B says the payoff earns the setup.",
+          "User C argues the momentum collapses in the middle."
+        ],
+        "logic_framing_objection": "The sharpest objection is whether genre_blending is actually supported on the page.",
+        "evidence_refs": [
+          "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+          "book_dna:heuristic",
+          "chapter_001",
+          "chapter:chapter_001",
+          "chapter:chapter_007",
+          "platform_style:reddit"
+        ]
+      },
+      "engagement_prediction": 0.531,
+      "sentiment": "mixed",
+      "evidence_refs": [
+        "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+        "book_dna:heuristic",
+        "chapter_001",
+        "chapter:chapter_001",
+        "chapter:chapter_007",
+        "platform_style:reddit"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "post_id": "x_c35b951e1f7e",
+      "simulation_id": "sim_44b2f2e74318",
+      "persona_id": "x_hot_take_reader_14_5177",
+      "platform": "x",
+      "round_number": 1,
+      "title": "Your Child's Struggle is Not Your Emergency is either a 5-star obsession or proof that slowness kills momentum.",
+      "body": "QT: the book absolutely delivers on provocation.",
+      "rating": 3.87,
+      "hashtags": [],
+      "shelf_tags": [],
+      "payload": {
+        "hot_take": "Your Child's Struggle is Not Your Emergency is either a 5-star obsession or proof that slowness kills momentum.",
+        "quote_tweet": "QT: the book absolutely delivers on provocation.",
+        "controversy_compression": "Compressed discourse: slowness vs payoff.",
+        "author_brand_reaction": "helps author brand if they lean into the strong opinion traffic",
+        "evidence_refs": [
+          "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+          "book_dna:heuristic",
+          "chapter_001",
+          "chapter:chapter_001",
+          "chapter:chapter_007",
+          "platform_style:x"
+        ]
+      },
+      "engagement_prediction": 0.831,
+      "sentiment": "mixed",
+      "evidence_refs": [
+        "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+        "book_dna:heuristic",
+        "chapter_001",
+        "chapter:chapter_001",
+        "chapter:chapter_007",
+        "platform_style:x"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "post_id": "booktok_d23dc9d762c3",
+      "simulation_id": "sim_44b2f2e74318",
+      "persona_id": "booktok_trope_hunter_15_3337",
+      "platform": "booktok",
+      "round_number": 1,
+      "title": "If Your Child's Struggle is Not Your Emergency broke me in 15 seconds, that's your warning.",
+      "body": "Stop scrolling if you want romance with Short sentences and quick paragraph turns suggest fast pacing.. Act one: I was at a child’s birthday party last Sunday. You know the kind.. Act two: why I couldn't stop thinking about enemies_to_lovers, slow_burn.",
+      "rating": 3.68,
+      "hashtags": [
+        "enemies_to_lovers",
+        "slow_burn",
+        "forced_proximity"
+      ],
+      "shelf_tags": [],
+      "payload": {
+        "video_script": "Stop scrolling if you want romance with Short sentences and quick paragraph turns suggest fast pacing.. Act one: I was at a child’s birthday party last Sunday. You know the kind.. Act two: why I couldn't stop thinking about enemies_to_lovers, slow_burn.",
+        "trope_tags": [
+          "enemies_to_lovers",
+          "slow_burn",
+          "forced_proximity"
+        ],
+        "hook_line": "If Your Child's Struggle is Not Your Emergency broke me in 15 seconds, that's your warning.",
+        "visual_motif": "Preface: The Gospel of the Scraped Knee, THE BURNOUT MACHINE",
+        "viral_trigger": "medium",
+        "cringe_mockery_risk": "medium_low",
+        "evidence_refs": [
+          "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+          "book_dna:heuristic",
+          "chapter_001",
+          "chapter:chapter_001",
+          "chapter:chapter_007",
+          "platform_style:booktok"
+        ]
+      },
+      "engagement_prediction": 0.739,
+      "sentiment": "mixed",
+      "evidence_refs": [
+        "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+        "book_dna:heuristic",
+        "chapter_001",
+        "chapter:chapter_001",
+        "chapter:chapter_007",
+        "platform_style:booktok"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "post_id": "booktok_ba9bee27e64e",
+      "simulation_id": "sim_44b2f2e74318",
+      "persona_id": "booktok_trope_hunter_16_5729",
+      "platform": "booktok",
+      "round_number": 1,
+      "title": "If Your Child's Struggle is Not Your Emergency broke me in 15 seconds, that's your warning.",
+      "body": "Stop scrolling if you want romance with Short sentences and quick paragraph turns suggest fast pacing.. Act one: I was at a child’s birthday party last Sunday. You know the kind.. Act two: why I couldn't stop thinking about enemies_to_lovers, slow_burn.",
+      "rating": 3.57,
+      "hashtags": [
+        "enemies_to_lovers",
+        "slow_burn",
+        "forced_proximity"
+      ],
+      "shelf_tags": [],
+      "payload": {
+        "video_script": "Stop scrolling if you want romance with Short sentences and quick paragraph turns suggest fast pacing.. Act one: I was at a child’s birthday party last Sunday. You know the kind.. Act two: why I couldn't stop thinking about enemies_to_lovers, slow_burn.",
+        "trope_tags": [
+          "enemies_to_lovers",
+          "slow_burn",
+          "forced_proximity"
+        ],
+        "hook_line": "If Your Child's Struggle is Not Your Emergency broke me in 15 seconds, that's your warning.",
+        "visual_motif": "Preface: The Gospel of the Scraped Knee, THE BURNOUT MACHINE",
+        "viral_trigger": "medium",
+        "cringe_mockery_risk": "high",
+        "evidence_refs": [
+          "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+          "book_dna:heuristic",
+          "chapter_001",
+          "chapter:chapter_001",
+          "chapter:chapter_007",
+          "platform_style:booktok"
+        ]
+      },
+      "engagement_prediction": 0.712,
+      "sentiment": "mixed",
+      "evidence_refs": [
+        "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+        "book_dna:heuristic",
+        "chapter_001",
+        "chapter:chapter_001",
+        "chapter:chapter_007",
+        "platform_style:booktok"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "post_id": "goodreads_9ea2251914ec",
+      "simulation_id": "sim_44b2f2e74318",
+      "persona_id": "goodreads_harsh_reviewer_17_5726",
+      "platform": "goodreads",
+      "round_number": 1,
+      "title": "Your Child's Struggle is Not Your Emergency: strong Short sentences and quick paragraph turns suggest fast pacing. payof",
+      "body": "I came for the romance promise and stayed for strong_opening, clean_prose. My main friction was slow_start, weak_characterization.",
+      "rating": 3.63,
+      "hashtags": [],
+      "shelf_tags": [
+        "romance",
+        "community_reviewers",
+        "swarmbook-simulated"
+      ],
+      "payload": {
+        "star_rating": 4,
+        "review_title": "Your Child's Struggle is Not Your Emergency: strong Short sentences and quick paragraph turns suggest fast pacing. payoff",
+        "review_body": "I came for the romance promise and stayed for strong_opening, clean_prose. My main friction was slow_start, weak_characterization.",
+        "shelf_tags": [
+          "romance",
+          "community_reviewers",
+          "swarmbook-simulated"
+        ],
+        "dnf_note": "Considered DNF",
+        "quote_highlights": [
+          "I was at a child’s birthday party last Sunday. You know the kind."
+        ],
+        "evidence_refs": [
+          "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+          "book_dna:heuristic",
+          "chapter_001",
+          "chapter:chapter_001",
+          "chapter:chapter_007",
+          "platform_style:goodreads"
+        ]
+      },
+      "engagement_prediction": 0.511,
+      "sentiment": "mixed",
+      "evidence_refs": [
+        "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+        "book_dna:heuristic",
+        "chapter_001",
+        "chapter:chapter_001",
+        "chapter:chapter_007",
+        "platform_style:goodreads"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "post_id": "x_1fa7ae81ccaf",
+      "simulation_id": "sim_44b2f2e74318",
+      "persona_id": "x_hot_take_reader_18_4885",
+      "platform": "x",
+      "round_number": 1,
+      "title": "Your Child's Struggle is Not Your Emergency is either a 5-star obsession or proof that slowness kills momentum.",
+      "body": "QT: the book absolutely delivers on provocation.",
+      "rating": 3.96,
+      "hashtags": [],
+      "shelf_tags": [],
+      "payload": {
+        "hot_take": "Your Child's Struggle is Not Your Emergency is either a 5-star obsession or proof that slowness kills momentum.",
+        "quote_tweet": "QT: the book absolutely delivers on provocation.",
+        "controversy_compression": "Compressed discourse: slowness vs payoff.",
+        "author_brand_reaction": "helps author brand if they lean into the strong opinion traffic",
+        "evidence_refs": [
+          "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+          "book_dna:heuristic",
+          "chapter_001",
+          "chapter:chapter_001",
+          "chapter:chapter_007",
+          "platform_style:x"
+        ]
+      },
+      "engagement_prediction": 0.84,
+      "sentiment": "mixed",
+      "evidence_refs": [
+        "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+        "book_dna:heuristic",
+        "chapter_001",
+        "chapter:chapter_001",
+        "chapter:chapter_007",
+        "platform_style:x"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "post_id": "x_d9141d873979",
+      "simulation_id": "sim_44b2f2e74318",
+      "persona_id": "x_hot_take_reader_19_6767",
+      "platform": "x",
+      "round_number": 1,
+      "title": "Your Child's Struggle is Not Your Emergency is either a 5-star obsession or proof that slowness kills momentum.",
+      "body": "QT: the book absolutely delivers on provocation.",
+      "rating": 3.91,
+      "hashtags": [],
+      "shelf_tags": [],
+      "payload": {
+        "hot_take": "Your Child's Struggle is Not Your Emergency is either a 5-star obsession or proof that slowness kills momentum.",
+        "quote_tweet": "QT: the book absolutely delivers on provocation.",
+        "controversy_compression": "Compressed discourse: slowness vs payoff.",
+        "author_brand_reaction": "helps author brand if they lean into the strong opinion traffic",
+        "evidence_refs": [
+          "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+          "book_dna:heuristic",
+          "chapter_001",
+          "chapter:chapter_001",
+          "chapter:chapter_007",
+          "platform_style:x"
+        ]
+      },
+      "engagement_prediction": 0.728,
+      "sentiment": "mixed",
+      "evidence_refs": [
+        "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+        "book_dna:heuristic",
+        "chapter_001",
+        "chapter:chapter_001",
+        "chapter:chapter_007",
+        "platform_style:x"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "post_id": "bookstagram_0b155522449b",
+      "simulation_id": "sim_44b2f2e74318",
+      "persona_id": "bookstagram_curator_20_4768",
+      "platform": "bookstagram",
+      "round_number": 1,
+      "title": null,
+      "body": "Your Child's Struggle is Not Your Emergency looks like Short sentences and quick paragraph turns suggest fast pacing. and reads like beautiful_package, mood.",
+      "rating": 3.38,
+      "hashtags": [
+        "romance",
+        "annotated_copy",
+        "reading_night"
+      ],
+      "shelf_tags": [],
+      "payload": {
+        "caption": "Your Child's Struggle is Not Your Emergency looks like Short sentences and quick paragraph turns suggest fast pacing. and reads like beautiful_package, mood.",
+        "carousel_idea": [
+          "cover shot with tabs",
+          "quote slide featuring grief",
+          "final slide with shelf verdict"
+        ],
+        "aesthetic_tags": [
+          "romance",
+          "annotated_copy",
+          "reading_night"
+        ],
+        "quote_card_candidates": [
+          "I was at a child’s birthday party last Sunday. You know the kind."
+        ],
+        "save_share_reason": "save for vibes and share for the quote density",
+        "evidence_refs": [
+          "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+          "book_dna:heuristic",
+          "chapter_001",
+          "chapter:chapter_001",
+          "chapter:chapter_007",
+          "platform_style:bookstagram"
+        ]
+      },
+      "engagement_prediction": 0.734,
+      "sentiment": "mixed",
+      "evidence_refs": [
+        "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+        "book_dna:heuristic",
+        "chapter_001",
+        "chapter:chapter_001",
+        "chapter:chapter_007",
+        "platform_style:bookstagram"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "post_id": "booktok_b7596829ec13",
+      "simulation_id": "sim_44b2f2e74318",
+      "persona_id": "booktok_emotional_amplifier_21_4731",
+      "platform": "booktok",
+      "round_number": 1,
+      "title": "If Your Child's Struggle is Not Your Emergency broke me in 15 seconds, that's your warning.",
+      "body": "Stop scrolling if you want romance with Short sentences and quick paragraph turns suggest fast pacing.. Act one: I was at a child’s birthday party last Sunday. You know the kind.. Act two: why I couldn't stop thinking about heartbreak, found_family.",
+      "rating": 3.51,
+      "hashtags": [
+        "heartbreak",
+        "found_family",
+        "catharsis"
+      ],
+      "shelf_tags": [],
+      "payload": {
+        "video_script": "Stop scrolling if you want romance with Short sentences and quick paragraph turns suggest fast pacing.. Act one: I was at a child’s birthday party last Sunday. You know the kind.. Act two: why I couldn't stop thinking about heartbreak, found_family.",
+        "trope_tags": [
+          "heartbreak",
+          "found_family",
+          "catharsis"
+        ],
+        "hook_line": "If Your Child's Struggle is Not Your Emergency broke me in 15 seconds, that's your warning.",
+        "visual_motif": "Preface: The Gospel of the Scraped Knee, THE BURNOUT MACHINE",
+        "viral_trigger": "high",
+        "cringe_mockery_risk": "high",
+        "evidence_refs": [
+          "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+          "book_dna:heuristic",
+          "chapter_001",
+          "chapter:chapter_001",
+          "chapter:chapter_007",
+          "platform_style:booktok"
+        ]
+      },
+      "engagement_prediction": 0.87,
+      "sentiment": "mixed",
+      "evidence_refs": [
+        "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+        "book_dna:heuristic",
+        "chapter_001",
+        "chapter:chapter_001",
+        "chapter:chapter_007",
+        "platform_style:booktok"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "post_id": "reddit_880872c53ea0",
+      "simulation_id": "sim_44b2f2e74318",
+      "persona_id": "reddit_skeptic_22_2629",
+      "platform": "reddit",
+      "round_number": 1,
+      "title": "[Discussion] Your Child's Struggle is Not Your Emergency works until handwaving",
+      "body": "My thesis: the book succeeds because of internal_logic, sharp_argument, but it asks you to forgive handwaving, plot_holes.",
+      "rating": 3.16,
+      "hashtags": [],
+      "shelf_tags": [],
+      "payload": {
+        "thread_title": "[Discussion] Your Child's Struggle is Not Your Emergency works until handwaving",
+        "top_comment": "My thesis: the book succeeds because of internal_logic, sharp_argument, but it asks you to forgive handwaving, plot_holes.",
+        "skeptical_comment": "I still don't buy the framing around handwaving.",
+        "debate_branch": [
+          "User A defends the romance expectations.",
+          "User B says the payoff earns the setup.",
+          "User C argues the momentum collapses in the middle."
+        ],
+        "logic_framing_objection": "The sharpest objection is whether handwaving is actually supported on the page.",
+        "evidence_refs": [
+          "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+          "book_dna:heuristic",
+          "chapter_001",
+          "chapter:chapter_001",
+          "chapter:chapter_007",
+          "platform_style:reddit"
+        ]
+      },
+      "engagement_prediction": 0.572,
+      "sentiment": "mixed",
+      "evidence_refs": [
+        "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+        "book_dna:heuristic",
+        "chapter_001",
+        "chapter:chapter_001",
+        "chapter:chapter_007",
+        "platform_style:reddit"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "post_id": "x_cb0085648490",
+      "simulation_id": "sim_44b2f2e74318",
+      "persona_id": "x_hot_take_reader_23_9705",
+      "platform": "x",
+      "round_number": 1,
+      "title": "Your Child's Struggle is Not Your Emergency is either a 5-star obsession or proof that slowness kills momentum.",
+      "body": "QT: the book absolutely delivers on provocation.",
+      "rating": 3.58,
+      "hashtags": [],
+      "shelf_tags": [],
+      "payload": {
+        "hot_take": "Your Child's Struggle is Not Your Emergency is either a 5-star obsession or proof that slowness kills momentum.",
+        "quote_tweet": "QT: the book absolutely delivers on provocation.",
+        "controversy_compression": "Compressed discourse: slowness vs payoff.",
+        "author_brand_reaction": "helps author brand if they lean into the strong opinion traffic",
+        "evidence_refs": [
+          "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+          "book_dna:heuristic",
+          "chapter_001",
+          "chapter:chapter_001",
+          "chapter:chapter_007",
+          "platform_style:x"
+        ]
+      },
+      "engagement_prediction": 0.767,
+      "sentiment": "mixed",
+      "evidence_refs": [
+        "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+        "book_dna:heuristic",
+        "chapter_001",
+        "chapter:chapter_001",
+        "chapter:chapter_007",
+        "platform_style:x"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "post_id": "reddit_c920faf2c077",
+      "simulation_id": "sim_44b2f2e74318",
+      "persona_id": "reddit_genre_purist_24_9213",
+      "platform": "reddit",
+      "round_number": 1,
+      "title": "[Discussion] Your Child's Struggle is Not Your Emergency works until genre_blending",
+      "body": "My thesis: the book succeeds because of genre_authenticity, canonical_rules, but it asks you to forgive genre_blending, rule_breaking.",
+      "rating": 3.99,
+      "hashtags": [],
+      "shelf_tags": [],
+      "payload": {
+        "thread_title": "[Discussion] Your Child's Struggle is Not Your Emergency works until genre_blending",
+        "top_comment": "My thesis: the book succeeds because of genre_authenticity, canonical_rules, but it asks you to forgive genre_blending, rule_breaking.",
+        "skeptical_comment": "I still don't buy the framing around genre_blending.",
+        "debate_branch": [
+          "User A defends the romance expectations.",
+          "User B says the payoff earns the setup.",
+          "User C argues the momentum collapses in the middle."
+        ],
+        "logic_framing_objection": "The sharpest objection is whether genre_blending is actually supported on the page.",
+        "evidence_refs": [
+          "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+          "book_dna:heuristic",
+          "chapter_001",
+          "chapter:chapter_001",
+          "chapter:chapter_007",
+          "platform_style:reddit"
+        ]
+      },
+      "engagement_prediction": 0.595,
+      "sentiment": "mixed",
+      "evidence_refs": [
+        "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+        "book_dna:heuristic",
+        "chapter_001",
+        "chapter:chapter_001",
+        "chapter:chapter_007",
+        "platform_style:reddit"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "post_id": "booktok_05e0544268a5",
+      "simulation_id": "sim_44b2f2e74318",
+      "persona_id": "booktok_trope_hunter_25_2887",
+      "platform": "booktok",
+      "round_number": 1,
+      "title": "If Your Child's Struggle is Not Your Emergency broke me in 15 seconds, that's your warning.",
+      "body": "Stop scrolling if you want romance with Short sentences and quick paragraph turns suggest fast pacing.. Act one: I was at a child’s birthday party last Sunday. You know the kind.. Act two: why I couldn't stop thinking about enemies_to_lovers, slow_burn.",
+      "rating": 3.82,
+      "hashtags": [
+        "enemies_to_lovers",
+        "slow_burn",
+        "forced_proximity"
+      ],
+      "shelf_tags": [],
+      "payload": {
+        "video_script": "Stop scrolling if you want romance with Short sentences and quick paragraph turns suggest fast pacing.. Act one: I was at a child’s birthday party last Sunday. You know the kind.. Act two: why I couldn't stop thinking about enemies_to_lovers, slow_burn.",
+        "trope_tags": [
+          "enemies_to_lovers",
+          "slow_burn",
+          "forced_proximity"
+        ],
+        "hook_line": "If Your Child's Struggle is Not Your Emergency broke me in 15 seconds, that's your warning.",
+        "visual_motif": "Preface: The Gospel of the Scraped Knee, THE BURNOUT MACHINE",
+        "viral_trigger": "medium",
+        "cringe_mockery_risk": "high",
+        "evidence_refs": [
+          "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+          "book_dna:heuristic",
+          "chapter_001",
+          "chapter:chapter_001",
+          "chapter:chapter_007",
+          "platform_style:booktok"
+        ]
+      },
+      "engagement_prediction": 0.782,
+      "sentiment": "mixed",
+      "evidence_refs": [
+        "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+        "book_dna:heuristic",
+        "chapter_001",
+        "chapter:chapter_001",
+        "chapter:chapter_007",
+        "platform_style:booktok"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "post_id": "x_b59933056910",
+      "simulation_id": "sim_44b2f2e74318",
+      "persona_id": "x_hot_take_reader_26_2575",
+      "platform": "x",
+      "round_number": 1,
+      "title": "Your Child's Struggle is Not Your Emergency is either a 5-star obsession or proof that slowness kills momentum.",
+      "body": "QT: the book absolutely delivers on provocation.",
+      "rating": 3.42,
+      "hashtags": [],
+      "shelf_tags": [],
+      "payload": {
+        "hot_take": "Your Child's Struggle is Not Your Emergency is either a 5-star obsession or proof that slowness kills momentum.",
+        "quote_tweet": "QT: the book absolutely delivers on provocation.",
+        "controversy_compression": "Compressed discourse: slowness vs payoff.",
+        "author_brand_reaction": "helps author brand if they lean into the strong opinion traffic",
+        "evidence_refs": [
+          "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+          "book_dna:heuristic",
+          "chapter_001",
+          "chapter:chapter_001",
+          "chapter:chapter_007",
+          "platform_style:x"
+        ]
+      },
+      "engagement_prediction": 0.703,
+      "sentiment": "mixed",
+      "evidence_refs": [
+        "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+        "book_dna:heuristic",
+        "chapter_001",
+        "chapter:chapter_001",
+        "chapter:chapter_007",
+        "platform_style:x"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "post_id": "reddit_e48b79d5f1e8",
+      "simulation_id": "sim_44b2f2e74318",
+      "persona_id": "reddit_skeptic_27_1937",
+      "platform": "reddit",
+      "round_number": 1,
+      "title": "[Discussion] Your Child's Struggle is Not Your Emergency works until handwaving",
+      "body": "My thesis: the book succeeds because of internal_logic, sharp_argument, but it asks you to forgive handwaving, plot_holes.",
+      "rating": 3.8,
+      "hashtags": [],
+      "shelf_tags": [],
+      "payload": {
+        "thread_title": "[Discussion] Your Child's Struggle is Not Your Emergency works until handwaving",
+        "top_comment": "My thesis: the book succeeds because of internal_logic, sharp_argument, but it asks you to forgive handwaving, plot_holes.",
+        "skeptical_comment": "I still don't buy the framing around handwaving.",
+        "debate_branch": [
+          "User A defends the romance expectations.",
+          "User B says the payoff earns the setup.",
+          "User C argues the momentum collapses in the middle."
+        ],
+        "logic_framing_objection": "The sharpest objection is whether handwaving is actually supported on the page.",
+        "evidence_refs": [
+          "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+          "book_dna:heuristic",
+          "chapter_001",
+          "chapter:chapter_001",
+          "chapter:chapter_007",
+          "platform_style:reddit"
+        ]
+      },
+      "engagement_prediction": 0.612,
+      "sentiment": "mixed",
+      "evidence_refs": [
+        "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+        "book_dna:heuristic",
+        "chapter_001",
+        "chapter:chapter_001",
+        "chapter:chapter_007",
+        "platform_style:reddit"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "post_id": "goodreads_d10f1e1376ed",
+      "simulation_id": "sim_44b2f2e74318",
+      "persona_id": "goodreads_genre_loyalist_28_5833",
+      "platform": "goodreads",
+      "round_number": 1,
+      "title": "Your Child's Struggle is Not Your Emergency: strong Short sentences and quick paragraph turns suggest fast pacing. payof",
+      "body": "I came for the romance promise and stayed for genre_tropes, satisfying_arc. My main friction was genre_betrayal, ambiguous_endings.",
+      "rating": 3.79,
+      "hashtags": [],
+      "shelf_tags": [
+        "romance",
+        "community_reviewers",
+        "swarmbook-simulated"
+      ],
+      "payload": {
+        "star_rating": 4,
+        "review_title": "Your Child's Struggle is Not Your Emergency: strong Short sentences and quick paragraph turns suggest fast pacing. payoff",
+        "review_body": "I came for the romance promise and stayed for genre_tropes, satisfying_arc. My main friction was genre_betrayal, ambiguous_endings.",
+        "shelf_tags": [
+          "romance",
+          "community_reviewers",
+          "swarmbook-simulated"
+        ],
+        "dnf_note": "Finished the book",
+        "quote_highlights": [
+          "I was at a child’s birthday party last Sunday. You know the kind."
+        ],
+        "evidence_refs": [
+          "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+          "book_dna:heuristic",
+          "chapter_001",
+          "chapter:chapter_001",
+          "chapter:chapter_007",
+          "platform_style:goodreads"
+        ]
+      },
+      "engagement_prediction": 0.625,
+      "sentiment": "mixed",
+      "evidence_refs": [
+        "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+        "book_dna:heuristic",
+        "chapter_001",
+        "chapter:chapter_001",
+        "chapter:chapter_007",
+        "platform_style:goodreads"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "post_id": "bookstagram_5ef24b069c14",
+      "simulation_id": "sim_44b2f2e74318",
+      "persona_id": "bookstagram_curator_29_4637",
+      "platform": "bookstagram",
+      "round_number": 1,
+      "title": null,
+      "body": "Your Child's Struggle is Not Your Emergency looks like Short sentences and quick paragraph turns suggest fast pacing. and reads like beautiful_package, mood.",
+      "rating": 3.86,
+      "hashtags": [
+        "romance",
+        "annotated_copy",
+        "reading_night"
+      ],
+      "shelf_tags": [],
+      "payload": {
+        "caption": "Your Child's Struggle is Not Your Emergency looks like Short sentences and quick paragraph turns suggest fast pacing. and reads like beautiful_package, mood.",
+        "carousel_idea": [
+          "cover shot with tabs",
+          "quote slide featuring grief",
+          "final slide with shelf verdict"
+        ],
+        "aesthetic_tags": [
+          "romance",
+          "annotated_copy",
+          "reading_night"
+        ],
+        "quote_card_candidates": [
+          "I was at a child’s birthday party last Sunday. You know the kind."
+        ],
+        "save_share_reason": "save for vibes and share for the quote density",
+        "evidence_refs": [
+          "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+          "book_dna:heuristic",
+          "chapter_001",
+          "chapter:chapter_001",
+          "chapter:chapter_007",
+          "platform_style:bookstagram"
+        ]
+      },
+      "engagement_prediction": 0.701,
+      "sentiment": "mixed",
+      "evidence_refs": [
+        "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+        "book_dna:heuristic",
+        "chapter_001",
+        "chapter:chapter_001",
+        "chapter:chapter_007",
+        "platform_style:bookstagram"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "post_id": "x_489f8f22eb63",
+      "simulation_id": "sim_44b2f2e74318",
+      "persona_id": "x_hot_take_reader_30_4259",
+      "platform": "x",
+      "round_number": 1,
+      "title": "Your Child's Struggle is Not Your Emergency is either a 5-star obsession or proof that slowness kills momentum.",
+      "body": "QT: the book absolutely delivers on provocation.",
+      "rating": 3.82,
+      "hashtags": [],
+      "shelf_tags": [],
+      "payload": {
+        "hot_take": "Your Child's Struggle is Not Your Emergency is either a 5-star obsession or proof that slowness kills momentum.",
+        "quote_tweet": "QT: the book absolutely delivers on provocation.",
+        "controversy_compression": "Compressed discourse: slowness vs payoff.",
+        "author_brand_reaction": "helps author brand if they lean into the strong opinion traffic",
+        "evidence_refs": [
+          "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+          "book_dna:heuristic",
+          "chapter_001",
+          "chapter:chapter_001",
+          "chapter:chapter_007",
+          "platform_style:x"
+        ]
+      },
+      "engagement_prediction": 0.764,
+      "sentiment": "mixed",
+      "evidence_refs": [
+        "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+        "book_dna:heuristic",
+        "chapter_001",
+        "chapter:chapter_001",
+        "chapter:chapter_007",
+        "platform_style:x"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "post_id": "x_3ff889bb8885",
+      "simulation_id": "sim_44b2f2e74318",
+      "persona_id": "x_hot_take_reader_31_6264",
+      "platform": "x",
+      "round_number": 1,
+      "title": "Your Child's Struggle is Not Your Emergency is either a 5-star obsession or proof that slowness kills momentum.",
+      "body": "QT: the book absolutely delivers on provocation.",
+      "rating": 3.58,
+      "hashtags": [],
+      "shelf_tags": [],
+      "payload": {
+        "hot_take": "Your Child's Struggle is Not Your Emergency is either a 5-star obsession or proof that slowness kills momentum.",
+        "quote_tweet": "QT: the book absolutely delivers on provocation.",
+        "controversy_compression": "Compressed discourse: slowness vs payoff.",
+        "author_brand_reaction": "helps author brand if they lean into the strong opinion traffic",
+        "evidence_refs": [
+          "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+          "book_dna:heuristic",
+          "chapter_001",
+          "chapter:chapter_001",
+          "chapter:chapter_007",
+          "platform_style:x"
+        ]
+      },
+      "engagement_prediction": 0.778,
+      "sentiment": "mixed",
+      "evidence_refs": [
+        "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+        "book_dna:heuristic",
+        "chapter_001",
+        "chapter:chapter_001",
+        "chapter:chapter_007",
+        "platform_style:x"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "post_id": "reddit_85285619c377",
+      "simulation_id": "sim_44b2f2e74318",
+      "persona_id": "reddit_skeptic_32_1119",
+      "platform": "reddit",
+      "round_number": 1,
+      "title": "[Discussion] Your Child's Struggle is Not Your Emergency works until handwaving",
+      "body": "My thesis: the book succeeds because of internal_logic, sharp_argument, but it asks you to forgive handwaving, plot_holes.",
+      "rating": 3.39,
+      "hashtags": [],
+      "shelf_tags": [],
+      "payload": {
+        "thread_title": "[Discussion] Your Child's Struggle is Not Your Emergency works until handwaving",
+        "top_comment": "My thesis: the book succeeds because of internal_logic, sharp_argument, but it asks you to forgive handwaving, plot_holes.",
+        "skeptical_comment": "I still don't buy the framing around handwaving.",
+        "debate_branch": [
+          "User A defends the romance expectations.",
+          "User B says the payoff earns the setup.",
+          "User C argues the momentum collapses in the middle."
+        ],
+        "logic_framing_objection": "The sharpest objection is whether handwaving is actually supported on the page.",
+        "evidence_refs": [
+          "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+          "book_dna:heuristic",
+          "chapter_001",
+          "chapter:chapter_001",
+          "chapter:chapter_007",
+          "platform_style:reddit"
+        ]
+      },
+      "engagement_prediction": 0.519,
+      "sentiment": "mixed",
+      "evidence_refs": [
+        "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+        "book_dna:heuristic",
+        "chapter_001",
+        "chapter:chapter_001",
+        "chapter:chapter_007",
+        "platform_style:reddit"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "post_id": "booktok_9f17db3b0959",
+      "simulation_id": "sim_44b2f2e74318",
+      "persona_id": "booktok_emotional_amplifier_33_5282",
+      "platform": "booktok",
+      "round_number": 1,
+      "title": "If Your Child's Struggle is Not Your Emergency broke me in 15 seconds, that's your warning.",
+      "body": "Stop scrolling if you want romance with Short sentences and quick paragraph turns suggest fast pacing.. Act one: I was at a child’s birthday party last Sunday. You know the kind.. Act two: why I couldn't stop thinking about heartbreak, found_family.",
+      "rating": 3.51,
+      "hashtags": [
+        "heartbreak",
+        "found_family",
+        "catharsis"
+      ],
+      "shelf_tags": [],
+      "payload": {
+        "video_script": "Stop scrolling if you want romance with Short sentences and quick paragraph turns suggest fast pacing.. Act one: I was at a child’s birthday party last Sunday. You know the kind.. Act two: why I couldn't stop thinking about heartbreak, found_family.",
+        "trope_tags": [
+          "heartbreak",
+          "found_family",
+          "catharsis"
+        ],
+        "hook_line": "If Your Child's Struggle is Not Your Emergency broke me in 15 seconds, that's your warning.",
+        "visual_motif": "Preface: The Gospel of the Scraped Knee, THE BURNOUT MACHINE",
+        "viral_trigger": "high",
+        "cringe_mockery_risk": "high",
+        "evidence_refs": [
+          "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+          "book_dna:heuristic",
+          "chapter_001",
+          "chapter:chapter_001",
+          "chapter:chapter_007",
+          "platform_style:booktok"
+        ]
+      },
+      "engagement_prediction": 0.777,
+      "sentiment": "mixed",
+      "evidence_refs": [
+        "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+        "book_dna:heuristic",
+        "chapter_001",
+        "chapter:chapter_001",
+        "chapter:chapter_007",
+        "platform_style:booktok"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "post_id": "reddit_53ac5526a950",
+      "simulation_id": "sim_44b2f2e74318",
+      "persona_id": "reddit_skeptic_34_5385",
+      "platform": "reddit",
+      "round_number": 1,
+      "title": "[Discussion] Your Child's Struggle is Not Your Emergency works until handwaving",
+      "body": "My thesis: the book succeeds because of internal_logic, sharp_argument, but it asks you to forgive handwaving, plot_holes.",
+      "rating": 3.29,
+      "hashtags": [],
+      "shelf_tags": [],
+      "payload": {
+        "thread_title": "[Discussion] Your Child's Struggle is Not Your Emergency works until handwaving",
+        "top_comment": "My thesis: the book succeeds because of internal_logic, sharp_argument, but it asks you to forgive handwaving, plot_holes.",
+        "skeptical_comment": "I still don't buy the framing around handwaving.",
+        "debate_branch": [
+          "User A defends the romance expectations.",
+          "User B says the payoff earns the setup.",
+          "User C argues the momentum collapses in the middle."
+        ],
+        "logic_framing_objection": "The sharpest objection is whether handwaving is actually supported on the page.",
+        "evidence_refs": [
+          "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+          "book_dna:heuristic",
+          "chapter_001",
+          "chapter:chapter_001",
+          "chapter:chapter_007",
+          "platform_style:reddit"
+        ]
+      },
+      "engagement_prediction": 0.536,
+      "sentiment": "mixed",
+      "evidence_refs": [
+        "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+        "book_dna:heuristic",
+        "chapter_001",
+        "chapter:chapter_001",
+        "chapter:chapter_007",
+        "platform_style:reddit"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "post_id": "x_dd50de1d1f0e",
+      "simulation_id": "sim_44b2f2e74318",
+      "persona_id": "x_hot_take_reader_35_9002",
+      "platform": "x",
+      "round_number": 1,
+      "title": "Your Child's Struggle is Not Your Emergency is either a 5-star obsession or proof that slowness kills momentum.",
+      "body": "QT: the book absolutely delivers on provocation.",
+      "rating": 4.07,
+      "hashtags": [],
+      "shelf_tags": [],
+      "payload": {
+        "hot_take": "Your Child's Struggle is Not Your Emergency is either a 5-star obsession or proof that slowness kills momentum.",
+        "quote_tweet": "QT: the book absolutely delivers on provocation.",
+        "controversy_compression": "Compressed discourse: slowness vs payoff.",
+        "author_brand_reaction": "helps author brand if they lean into the strong opinion traffic",
+        "evidence_refs": [
+          "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+          "book_dna:heuristic",
+          "chapter_001",
+          "chapter:chapter_001",
+          "chapter:chapter_007",
+          "platform_style:x"
+        ]
+      },
+      "engagement_prediction": 0.817,
+      "sentiment": "mixed",
+      "evidence_refs": [
+        "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+        "book_dna:heuristic",
+        "chapter_001",
+        "chapter:chapter_001",
+        "chapter:chapter_007",
+        "platform_style:x"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "post_id": "x_a777f3642b34",
+      "simulation_id": "sim_44b2f2e74318",
+      "persona_id": "x_hot_take_reader_36_3549",
+      "platform": "x",
+      "round_number": 1,
+      "title": "Your Child's Struggle is Not Your Emergency is either a 5-star obsession or proof that slowness kills momentum.",
+      "body": "QT: the book absolutely delivers on provocation.",
+      "rating": 3.82,
+      "hashtags": [],
+      "shelf_tags": [],
+      "payload": {
+        "hot_take": "Your Child's Struggle is Not Your Emergency is either a 5-star obsession or proof that slowness kills momentum.",
+        "quote_tweet": "QT: the book absolutely delivers on provocation.",
+        "controversy_compression": "Compressed discourse: slowness vs payoff.",
+        "author_brand_reaction": "helps author brand if they lean into the strong opinion traffic",
+        "evidence_refs": [
+          "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+          "book_dna:heuristic",
+          "chapter_001",
+          "chapter:chapter_001",
+          "chapter:chapter_007",
+          "platform_style:x"
+        ]
+      },
+      "engagement_prediction": 0.75,
+      "sentiment": "mixed",
+      "evidence_refs": [
+        "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+        "book_dna:heuristic",
+        "chapter_001",
+        "chapter:chapter_001",
+        "chapter:chapter_007",
+        "platform_style:x"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "post_id": "bookstagram_429c6b03f9ed",
+      "simulation_id": "sim_44b2f2e74318",
+      "persona_id": "bookstagram_curator_37_4537",
+      "platform": "bookstagram",
+      "round_number": 1,
+      "title": null,
+      "body": "Your Child's Struggle is Not Your Emergency looks like Short sentences and quick paragraph turns suggest fast pacing. and reads like beautiful_package, mood.",
+      "rating": 3.62,
+      "hashtags": [
+        "romance",
+        "annotated_copy",
+        "reading_night"
+      ],
+      "shelf_tags": [],
+      "payload": {
+        "caption": "Your Child's Struggle is Not Your Emergency looks like Short sentences and quick paragraph turns suggest fast pacing. and reads like beautiful_package, mood.",
+        "carousel_idea": [
+          "cover shot with tabs",
+          "quote slide featuring grief",
+          "final slide with shelf verdict"
+        ],
+        "aesthetic_tags": [
+          "romance",
+          "annotated_copy",
+          "reading_night"
+        ],
+        "quote_card_candidates": [
+          "I was at a child’s birthday party last Sunday. You know the kind."
+        ],
+        "save_share_reason": "save for vibes and share for the quote density",
+        "evidence_refs": [
+          "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+          "book_dna:heuristic",
+          "chapter_001",
+          "chapter:chapter_001",
+          "chapter:chapter_007",
+          "platform_style:bookstagram"
+        ]
+      },
+      "engagement_prediction": 0.741,
+      "sentiment": "mixed",
+      "evidence_refs": [
+        "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+        "book_dna:heuristic",
+        "chapter_001",
+        "chapter:chapter_001",
+        "chapter:chapter_007",
+        "platform_style:bookstagram"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "post_id": "goodreads_e11d4d4d8240",
+      "simulation_id": "sim_44b2f2e74318",
+      "persona_id": "goodreads_harsh_reviewer_38_2647",
+      "platform": "goodreads",
+      "round_number": 1,
+      "title": "Your Child's Struggle is Not Your Emergency: strong Short sentences and quick paragraph turns suggest fast pacing. payof",
+      "body": "I came for the romance promise and stayed for strong_opening, clean_prose. My main friction was slow_start, weak_characterization.",
+      "rating": 3.99,
+      "hashtags": [],
+      "shelf_tags": [
+        "romance",
+        "community_reviewers",
+        "swarmbook-simulated"
+      ],
+      "payload": {
+        "star_rating": 4,
+        "review_title": "Your Child's Struggle is Not Your Emergency: strong Short sentences and quick paragraph turns suggest fast pacing. payoff",
+        "review_body": "I came for the romance promise and stayed for strong_opening, clean_prose. My main friction was slow_start, weak_characterization.",
+        "shelf_tags": [
+          "romance",
+          "community_reviewers",
+          "swarmbook-simulated"
+        ],
+        "dnf_note": "Finished the book",
+        "quote_highlights": [
+          "I was at a child’s birthday party last Sunday. You know the kind."
+        ],
+        "evidence_refs": [
+          "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+          "book_dna:heuristic",
+          "chapter_001",
+          "chapter:chapter_001",
+          "chapter:chapter_007",
+          "platform_style:goodreads"
+        ]
+      },
+      "engagement_prediction": 0.469,
+      "sentiment": "mixed",
+      "evidence_refs": [
+        "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+        "book_dna:heuristic",
+        "chapter_001",
+        "chapter:chapter_001",
+        "chapter:chapter_007",
+        "platform_style:goodreads"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "post_id": "x_8153cdae5344",
+      "simulation_id": "sim_44b2f2e74318",
+      "persona_id": "x_hot_take_reader_39_4709",
+      "platform": "x",
+      "round_number": 1,
+      "title": "Your Child's Struggle is Not Your Emergency is either a 5-star obsession or proof that slowness kills momentum.",
+      "body": "QT: the book absolutely delivers on provocation.",
+      "rating": 3.85,
+      "hashtags": [],
+      "shelf_tags": [],
+      "payload": {
+        "hot_take": "Your Child's Struggle is Not Your Emergency is either a 5-star obsession or proof that slowness kills momentum.",
+        "quote_tweet": "QT: the book absolutely delivers on provocation.",
+        "controversy_compression": "Compressed discourse: slowness vs payoff.",
+        "author_brand_reaction": "helps author brand if they lean into the strong opinion traffic",
+        "evidence_refs": [
+          "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+          "book_dna:heuristic",
+          "chapter_001",
+          "chapter:chapter_001",
+          "chapter:chapter_007",
+          "platform_style:x"
+        ]
+      },
+      "engagement_prediction": 0.738,
+      "sentiment": "mixed",
+      "evidence_refs": [
+        "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+        "book_dna:heuristic",
+        "chapter_001",
+        "chapter:chapter_001",
+        "chapter:chapter_007",
+        "platform_style:x"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "post_id": "booktok_b389ee9c9135",
+      "simulation_id": "sim_44b2f2e74318",
+      "persona_id": "booktok_trope_hunter_40_5342",
+      "platform": "booktok",
+      "round_number": 1,
+      "title": "If Your Child's Struggle is Not Your Emergency broke me in 15 seconds, that's your warning.",
+      "body": "Stop scrolling if you want romance with Short sentences and quick paragraph turns suggest fast pacing.. Act one: I was at a child’s birthday party last Sunday. You know the kind.. Act two: why I couldn't stop thinking about enemies_to_lovers, slow_burn.",
+      "rating": 3.81,
+      "hashtags": [
+        "enemies_to_lovers",
+        "slow_burn",
+        "forced_proximity"
+      ],
+      "shelf_tags": [],
+      "payload": {
+        "video_script": "Stop scrolling if you want romance with Short sentences and quick paragraph turns suggest fast pacing.. Act one: I was at a child’s birthday party last Sunday. You know the kind.. Act two: why I couldn't stop thinking about enemies_to_lovers, slow_burn.",
+        "trope_tags": [
+          "enemies_to_lovers",
+          "slow_burn",
+          "forced_proximity"
+        ],
+        "hook_line": "If Your Child's Struggle is Not Your Emergency broke me in 15 seconds, that's your warning.",
+        "visual_motif": "Preface: The Gospel of the Scraped Knee, THE BURNOUT MACHINE",
+        "viral_trigger": "medium",
+        "cringe_mockery_risk": "high",
+        "evidence_refs": [
+          "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+          "book_dna:heuristic",
+          "chapter_001",
+          "chapter:chapter_001",
+          "chapter:chapter_007",
+          "platform_style:booktok"
+        ]
+      },
+      "engagement_prediction": 0.728,
+      "sentiment": "mixed",
+      "evidence_refs": [
+        "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+        "book_dna:heuristic",
+        "chapter_001",
+        "chapter:chapter_001",
+        "chapter:chapter_007",
+        "platform_style:booktok"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "post_id": "bookstagram_5a6cc591d182",
+      "simulation_id": "sim_44b2f2e74318",
+      "persona_id": "bookstagram_curator_41_2998",
+      "platform": "bookstagram",
+      "round_number": 1,
+      "title": null,
+      "body": "Your Child's Struggle is Not Your Emergency looks like Short sentences and quick paragraph turns suggest fast pacing. and reads like beautiful_package, mood.",
+      "rating": 3.66,
+      "hashtags": [
+        "romance",
+        "annotated_copy",
+        "reading_night"
+      ],
+      "shelf_tags": [],
+      "payload": {
+        "caption": "Your Child's Struggle is Not Your Emergency looks like Short sentences and quick paragraph turns suggest fast pacing. and reads like beautiful_package, mood.",
+        "carousel_idea": [
+          "cover shot with tabs",
+          "quote slide featuring grief",
+          "final slide with shelf verdict"
+        ],
+        "aesthetic_tags": [
+          "romance",
+          "annotated_copy",
+          "reading_night"
+        ],
+        "quote_card_candidates": [
+          "I was at a child’s birthday party last Sunday. You know the kind."
+        ],
+        "save_share_reason": "save for vibes and share for the quote density",
+        "evidence_refs": [
+          "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+          "book_dna:heuristic",
+          "chapter_001",
+          "chapter:chapter_001",
+          "chapter:chapter_007",
+          "platform_style:bookstagram"
+        ]
+      },
+      "engagement_prediction": 0.679,
+      "sentiment": "mixed",
+      "evidence_refs": [
+        "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+        "book_dna:heuristic",
+        "chapter_001",
+        "chapter:chapter_001",
+        "chapter:chapter_007",
+        "platform_style:bookstagram"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "post_id": "bookstagram_7d41d85d3271",
+      "simulation_id": "sim_44b2f2e74318",
+      "persona_id": "bookstagram_curator_42_4611",
+      "platform": "bookstagram",
+      "round_number": 1,
+      "title": null,
+      "body": "Your Child's Struggle is Not Your Emergency looks like Short sentences and quick paragraph turns suggest fast pacing. and reads like beautiful_package, mood.",
+      "rating": 3.77,
+      "hashtags": [
+        "romance",
+        "annotated_copy",
+        "reading_night"
+      ],
+      "shelf_tags": [],
+      "payload": {
+        "caption": "Your Child's Struggle is Not Your Emergency looks like Short sentences and quick paragraph turns suggest fast pacing. and reads like beautiful_package, mood.",
+        "carousel_idea": [
+          "cover shot with tabs",
+          "quote slide featuring grief",
+          "final slide with shelf verdict"
+        ],
+        "aesthetic_tags": [
+          "romance",
+          "annotated_copy",
+          "reading_night"
+        ],
+        "quote_card_candidates": [
+          "I was at a child’s birthday party last Sunday. You know the kind."
+        ],
+        "save_share_reason": "save for vibes and share for the quote density",
+        "evidence_refs": [
+          "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+          "book_dna:heuristic",
+          "chapter_001",
+          "chapter:chapter_001",
+          "chapter:chapter_007",
+          "platform_style:bookstagram"
+        ]
+      },
+      "engagement_prediction": 0.706,
+      "sentiment": "mixed",
+      "evidence_refs": [
+        "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+        "book_dna:heuristic",
+        "chapter_001",
+        "chapter:chapter_001",
+        "chapter:chapter_007",
+        "platform_style:bookstagram"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "post_id": "bookstagram_e31a070a0ac5",
+      "simulation_id": "sim_44b2f2e74318",
+      "persona_id": "bookstagram_curator_43_8312",
+      "platform": "bookstagram",
+      "round_number": 1,
+      "title": null,
+      "body": "Your Child's Struggle is Not Your Emergency looks like Short sentences and quick paragraph turns suggest fast pacing. and reads like beautiful_package, mood.",
+      "rating": 3.78,
+      "hashtags": [
+        "romance",
+        "annotated_copy",
+        "reading_night"
+      ],
+      "shelf_tags": [],
+      "payload": {
+        "caption": "Your Child's Struggle is Not Your Emergency looks like Short sentences and quick paragraph turns suggest fast pacing. and reads like beautiful_package, mood.",
+        "carousel_idea": [
+          "cover shot with tabs",
+          "quote slide featuring grief",
+          "final slide with shelf verdict"
+        ],
+        "aesthetic_tags": [
+          "romance",
+          "annotated_copy",
+          "reading_night"
+        ],
+        "quote_card_candidates": [
+          "I was at a child’s birthday party last Sunday. You know the kind."
+        ],
+        "save_share_reason": "save for vibes and share for the quote density",
+        "evidence_refs": [
+          "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+          "book_dna:heuristic",
+          "chapter_001",
+          "chapter:chapter_001",
+          "chapter:chapter_007",
+          "platform_style:bookstagram"
+        ]
+      },
+      "engagement_prediction": 0.713,
+      "sentiment": "mixed",
+      "evidence_refs": [
+        "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+        "book_dna:heuristic",
+        "chapter_001",
+        "chapter:chapter_001",
+        "chapter:chapter_007",
+        "platform_style:bookstagram"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "post_id": "goodreads_eb5d320fec98",
+      "simulation_id": "sim_44b2f2e74318",
+      "persona_id": "goodreads_genre_loyalist_44_9261",
+      "platform": "goodreads",
+      "round_number": 1,
+      "title": "Your Child's Struggle is Not Your Emergency: strong Short sentences and quick paragraph turns suggest fast pacing. payof",
+      "body": "I came for the romance promise and stayed for genre_tropes, satisfying_arc. My main friction was genre_betrayal, ambiguous_endings.",
+      "rating": 3.78,
+      "hashtags": [],
+      "shelf_tags": [
+        "romance",
+        "community_reviewers",
+        "swarmbook-simulated"
+      ],
+      "payload": {
+        "star_rating": 4,
+        "review_title": "Your Child's Struggle is Not Your Emergency: strong Short sentences and quick paragraph turns suggest fast pacing. payoff",
+        "review_body": "I came for the romance promise and stayed for genre_tropes, satisfying_arc. My main friction was genre_betrayal, ambiguous_endings.",
+        "shelf_tags": [
+          "romance",
+          "community_reviewers",
+          "swarmbook-simulated"
+        ],
+        "dnf_note": "Finished the book",
+        "quote_highlights": [
+          "I was at a child’s birthday party last Sunday. You know the kind."
+        ],
+        "evidence_refs": [
+          "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+          "book_dna:heuristic",
+          "chapter_001",
+          "chapter:chapter_001",
+          "chapter:chapter_007",
+          "platform_style:goodreads"
+        ]
+      },
+      "engagement_prediction": 0.602,
+      "sentiment": "mixed",
+      "evidence_refs": [
+        "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+        "book_dna:heuristic",
+        "chapter_001",
+        "chapter:chapter_001",
+        "chapter:chapter_007",
+        "platform_style:goodreads"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "post_id": "goodreads_fac59b76d888",
+      "simulation_id": "sim_44b2f2e74318",
+      "persona_id": "goodreads_genre_loyalist_45_4315",
+      "platform": "goodreads",
+      "round_number": 1,
+      "title": "Your Child's Struggle is Not Your Emergency: strong Short sentences and quick paragraph turns suggest fast pacing. payof",
+      "body": "I came for the romance promise and stayed for genre_tropes, satisfying_arc. My main friction was genre_betrayal, ambiguous_endings.",
+      "rating": 4.11,
+      "hashtags": [],
+      "shelf_tags": [
+        "romance",
+        "community_reviewers",
+        "swarmbook-simulated"
+      ],
+      "payload": {
+        "star_rating": 4,
+        "review_title": "Your Child's Struggle is Not Your Emergency: strong Short sentences and quick paragraph turns suggest fast pacing. payoff",
+        "review_body": "I came for the romance promise and stayed for genre_tropes, satisfying_arc. My main friction was genre_betrayal, ambiguous_endings.",
+        "shelf_tags": [
+          "romance",
+          "community_reviewers",
+          "swarmbook-simulated"
+        ],
+        "dnf_note": "Finished the book",
+        "quote_highlights": [
+          "I was at a child’s birthday party last Sunday. You know the kind."
+        ],
+        "evidence_refs": [
+          "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+          "book_dna:heuristic",
+          "chapter_001",
+          "chapter:chapter_001",
+          "chapter:chapter_007",
+          "platform_style:goodreads"
+        ]
+      },
+      "engagement_prediction": 0.606,
+      "sentiment": "mixed",
+      "evidence_refs": [
+        "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+        "book_dna:heuristic",
+        "chapter_001",
+        "chapter:chapter_001",
+        "chapter:chapter_007",
+        "platform_style:goodreads"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "post_id": "booktok_0eb11f0d537d",
+      "simulation_id": "sim_44b2f2e74318",
+      "persona_id": "booktok_trope_hunter_46_9481",
+      "platform": "booktok",
+      "round_number": 1,
+      "title": "If Your Child's Struggle is Not Your Emergency broke me in 15 seconds, that's your warning.",
+      "body": "Stop scrolling if you want romance with Short sentences and quick paragraph turns suggest fast pacing.. Act one: I was at a child’s birthday party last Sunday. You know the kind.. Act two: why I couldn't stop thinking about enemies_to_lovers, slow_burn.",
+      "rating": 4.02,
+      "hashtags": [
+        "enemies_to_lovers",
+        "slow_burn",
+        "forced_proximity"
+      ],
+      "shelf_tags": [],
+      "payload": {
+        "video_script": "Stop scrolling if you want romance with Short sentences and quick paragraph turns suggest fast pacing.. Act one: I was at a child’s birthday party last Sunday. You know the kind.. Act two: why I couldn't stop thinking about enemies_to_lovers, slow_burn.",
+        "trope_tags": [
+          "enemies_to_lovers",
+          "slow_burn",
+          "forced_proximity"
+        ],
+        "hook_line": "If Your Child's Struggle is Not Your Emergency broke me in 15 seconds, that's your warning.",
+        "visual_motif": "Preface: The Gospel of the Scraped Knee, THE BURNOUT MACHINE",
+        "viral_trigger": "medium",
+        "cringe_mockery_risk": "medium_low",
+        "evidence_refs": [
+          "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+          "book_dna:heuristic",
+          "chapter_001",
+          "chapter:chapter_001",
+          "chapter:chapter_007",
+          "platform_style:booktok"
+        ]
+      },
+      "engagement_prediction": 0.824,
+      "sentiment": "mixed",
+      "evidence_refs": [
+        "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+        "book_dna:heuristic",
+        "chapter_001",
+        "chapter:chapter_001",
+        "chapter:chapter_007",
+        "platform_style:booktok"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "post_id": "booktok_fc3538d1405f",
+      "simulation_id": "sim_44b2f2e74318",
+      "persona_id": "booktok_emotional_amplifier_47_5386",
+      "platform": "booktok",
+      "round_number": 1,
+      "title": "If Your Child's Struggle is Not Your Emergency broke me in 15 seconds, that's your warning.",
+      "body": "Stop scrolling if you want romance with Short sentences and quick paragraph turns suggest fast pacing.. Act one: I was at a child’s birthday party last Sunday. You know the kind.. Act two: why I couldn't stop thinking about heartbreak, found_family.",
+      "rating": 3.95,
+      "hashtags": [
+        "heartbreak",
+        "found_family",
+        "catharsis"
+      ],
+      "shelf_tags": [],
+      "payload": {
+        "video_script": "Stop scrolling if you want romance with Short sentences and quick paragraph turns suggest fast pacing.. Act one: I was at a child’s birthday party last Sunday. You know the kind.. Act two: why I couldn't stop thinking about heartbreak, found_family.",
+        "trope_tags": [
+          "heartbreak",
+          "found_family",
+          "catharsis"
+        ],
+        "hook_line": "If Your Child's Struggle is Not Your Emergency broke me in 15 seconds, that's your warning.",
+        "visual_motif": "Preface: The Gospel of the Scraped Knee, THE BURNOUT MACHINE",
+        "viral_trigger": "high",
+        "cringe_mockery_risk": "high",
+        "evidence_refs": [
+          "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+          "book_dna:heuristic",
+          "chapter_001",
+          "chapter:chapter_001",
+          "chapter:chapter_007",
+          "platform_style:booktok"
+        ]
+      },
+      "engagement_prediction": 0.862,
+      "sentiment": "mixed",
+      "evidence_refs": [
+        "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+        "book_dna:heuristic",
+        "chapter_001",
+        "chapter:chapter_001",
+        "chapter:chapter_007",
+        "platform_style:booktok"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "post_id": "x_89dece172e78",
+      "simulation_id": "sim_44b2f2e74318",
+      "persona_id": "x_hot_take_reader_48_7887",
+      "platform": "x",
+      "round_number": 1,
+      "title": "Your Child's Struggle is Not Your Emergency is either a 5-star obsession or proof that slowness kills momentum.",
+      "body": "QT: the book absolutely delivers on provocation.",
+      "rating": 3.79,
+      "hashtags": [],
+      "shelf_tags": [],
+      "payload": {
+        "hot_take": "Your Child's Struggle is Not Your Emergency is either a 5-star obsession or proof that slowness kills momentum.",
+        "quote_tweet": "QT: the book absolutely delivers on provocation.",
+        "controversy_compression": "Compressed discourse: slowness vs payoff.",
+        "author_brand_reaction": "helps author brand if they lean into the strong opinion traffic",
+        "evidence_refs": [
+          "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+          "book_dna:heuristic",
+          "chapter_001",
+          "chapter:chapter_001",
+          "chapter:chapter_007",
+          "platform_style:x"
+        ]
+      },
+      "engagement_prediction": 0.799,
+      "sentiment": "mixed",
+      "evidence_refs": [
+        "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+        "book_dna:heuristic",
+        "chapter_001",
+        "chapter:chapter_001",
+        "chapter:chapter_007",
+        "platform_style:x"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "post_id": "reddit_06559859aa14",
+      "simulation_id": "sim_44b2f2e74318",
+      "persona_id": "reddit_skeptic_49_1285",
+      "platform": "reddit",
+      "round_number": 1,
+      "title": "[Discussion] Your Child's Struggle is Not Your Emergency works until handwaving",
+      "body": "My thesis: the book succeeds because of internal_logic, sharp_argument, but it asks you to forgive handwaving, plot_holes.",
+      "rating": 3.46,
+      "hashtags": [],
+      "shelf_tags": [],
+      "payload": {
+        "thread_title": "[Discussion] Your Child's Struggle is Not Your Emergency works until handwaving",
+        "top_comment": "My thesis: the book succeeds because of internal_logic, sharp_argument, but it asks you to forgive handwaving, plot_holes.",
+        "skeptical_comment": "I still don't buy the framing around handwaving.",
+        "debate_branch": [
+          "User A defends the romance expectations.",
+          "User B says the payoff earns the setup.",
+          "User C argues the momentum collapses in the middle."
+        ],
+        "logic_framing_objection": "The sharpest objection is whether handwaving is actually supported on the page.",
+        "evidence_refs": [
+          "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+          "book_dna:heuristic",
+          "chapter_001",
+          "chapter:chapter_001",
+          "chapter:chapter_007",
+          "platform_style:reddit"
+        ]
+      },
+      "engagement_prediction": 0.567,
+      "sentiment": "mixed",
+      "evidence_refs": [
+        "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+        "book_dna:heuristic",
+        "chapter_001",
+        "chapter:chapter_001",
+        "chapter:chapter_007",
+        "platform_style:reddit"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "post_id": "reddit_251f9c62bd49",
+      "simulation_id": "sim_44b2f2e74318",
+      "persona_id": "reddit_genre_purist_50_3671",
+      "platform": "reddit",
+      "round_number": 1,
+      "title": "[Discussion] Your Child's Struggle is Not Your Emergency works until genre_blending",
+      "body": "My thesis: the book succeeds because of genre_authenticity, canonical_rules, but it asks you to forgive genre_blending, rule_breaking.",
+      "rating": 3.94,
+      "hashtags": [],
+      "shelf_tags": [],
+      "payload": {
+        "thread_title": "[Discussion] Your Child's Struggle is Not Your Emergency works until genre_blending",
+        "top_comment": "My thesis: the book succeeds because of genre_authenticity, canonical_rules, but it asks you to forgive genre_blending, rule_breaking.",
+        "skeptical_comment": "I still don't buy the framing around genre_blending.",
+        "debate_branch": [
+          "User A defends the romance expectations.",
+          "User B says the payoff earns the setup.",
+          "User C argues the momentum collapses in the middle."
+        ],
+        "logic_framing_objection": "The sharpest objection is whether genre_blending is actually supported on the page.",
+        "evidence_refs": [
+          "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+          "book_dna:heuristic",
+          "chapter_001",
+          "chapter:chapter_001",
+          "chapter:chapter_007",
+          "platform_style:reddit"
+        ]
+      },
+      "engagement_prediction": 0.558,
+      "sentiment": "mixed",
+      "evidence_refs": [
+        "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+        "book_dna:heuristic",
+        "chapter_001",
+        "chapter:chapter_001",
+        "chapter:chapter_007",
+        "platform_style:reddit"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "post_id": "bookstagram_01386e04dae5",
+      "simulation_id": "sim_44b2f2e74318",
+      "persona_id": "bookstagram_curator_51_3092",
+      "platform": "bookstagram",
+      "round_number": 1,
+      "title": null,
+      "body": "Your Child's Struggle is Not Your Emergency looks like Short sentences and quick paragraph turns suggest fast pacing. and reads like beautiful_package, mood.",
+      "rating": 3.73,
+      "hashtags": [
+        "romance",
+        "annotated_copy",
+        "reading_night"
+      ],
+      "shelf_tags": [],
+      "payload": {
+        "caption": "Your Child's Struggle is Not Your Emergency looks like Short sentences and quick paragraph turns suggest fast pacing. and reads like beautiful_package, mood.",
+        "carousel_idea": [
+          "cover shot with tabs",
+          "quote slide featuring grief",
+          "final slide with shelf verdict"
+        ],
+        "aesthetic_tags": [
+          "romance",
+          "annotated_copy",
+          "reading_night"
+        ],
+        "quote_card_candidates": [
+          "I was at a child’s birthday party last Sunday. You know the kind."
+        ],
+        "save_share_reason": "save for vibes and share for the quote density",
+        "evidence_refs": [
+          "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+          "book_dna:heuristic",
+          "chapter_001",
+          "chapter:chapter_001",
+          "chapter:chapter_007",
+          "platform_style:bookstagram"
+        ]
+      },
+      "engagement_prediction": 0.759,
+      "sentiment": "mixed",
+      "evidence_refs": [
+        "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+        "book_dna:heuristic",
+        "chapter_001",
+        "chapter:chapter_001",
+        "chapter:chapter_007",
+        "platform_style:bookstagram"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "post_id": "booktok_2439edc383e2",
+      "simulation_id": "sim_44b2f2e74318",
+      "persona_id": "booktok_trope_hunter_52_7085",
+      "platform": "booktok",
+      "round_number": 1,
+      "title": "If Your Child's Struggle is Not Your Emergency broke me in 15 seconds, that's your warning.",
+      "body": "Stop scrolling if you want romance with Short sentences and quick paragraph turns suggest fast pacing.. Act one: I was at a child’s birthday party last Sunday. You know the kind.. Act two: why I couldn't stop thinking about enemies_to_lovers, slow_burn.",
+      "rating": 3.95,
+      "hashtags": [
+        "enemies_to_lovers",
+        "slow_burn",
+        "forced_proximity"
+      ],
+      "shelf_tags": [],
+      "payload": {
+        "video_script": "Stop scrolling if you want romance with Short sentences and quick paragraph turns suggest fast pacing.. Act one: I was at a child’s birthday party last Sunday. You know the kind.. Act two: why I couldn't stop thinking about enemies_to_lovers, slow_burn.",
+        "trope_tags": [
+          "enemies_to_lovers",
+          "slow_burn",
+          "forced_proximity"
+        ],
+        "hook_line": "If Your Child's Struggle is Not Your Emergency broke me in 15 seconds, that's your warning.",
+        "visual_motif": "Preface: The Gospel of the Scraped Knee, THE BURNOUT MACHINE",
+        "viral_trigger": "medium",
+        "cringe_mockery_risk": "medium_low",
+        "evidence_refs": [
+          "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+          "book_dna:heuristic",
+          "chapter_001",
+          "chapter:chapter_001",
+          "chapter:chapter_007",
+          "platform_style:booktok"
+        ]
+      },
+      "engagement_prediction": 0.796,
+      "sentiment": "mixed",
+      "evidence_refs": [
+        "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+        "book_dna:heuristic",
+        "chapter_001",
+        "chapter:chapter_001",
+        "chapter:chapter_007",
+        "platform_style:booktok"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "post_id": "x_80ed423c7865",
+      "simulation_id": "sim_44b2f2e74318",
+      "persona_id": "x_hot_take_reader_53_7046",
+      "platform": "x",
+      "round_number": 1,
+      "title": "Your Child's Struggle is Not Your Emergency is either a 5-star obsession or proof that slowness kills momentum.",
+      "body": "QT: the book absolutely delivers on provocation.",
+      "rating": 3.91,
+      "hashtags": [],
+      "shelf_tags": [],
+      "payload": {
+        "hot_take": "Your Child's Struggle is Not Your Emergency is either a 5-star obsession or proof that slowness kills momentum.",
+        "quote_tweet": "QT: the book absolutely delivers on provocation.",
+        "controversy_compression": "Compressed discourse: slowness vs payoff.",
+        "author_brand_reaction": "helps author brand if they lean into the strong opinion traffic",
+        "evidence_refs": [
+          "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+          "book_dna:heuristic",
+          "chapter_001",
+          "chapter:chapter_001",
+          "chapter:chapter_007",
+          "platform_style:x"
+        ]
+      },
+      "engagement_prediction": 0.805,
+      "sentiment": "mixed",
+      "evidence_refs": [
+        "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+        "book_dna:heuristic",
+        "chapter_001",
+        "chapter:chapter_001",
+        "chapter:chapter_007",
+        "platform_style:x"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "post_id": "booktok_650d58ec76df",
+      "simulation_id": "sim_44b2f2e74318",
+      "persona_id": "booktok_emotional_amplifier_54_8035",
+      "platform": "booktok",
+      "round_number": 1,
+      "title": "If Your Child's Struggle is Not Your Emergency broke me in 15 seconds, that's your warning.",
+      "body": "Stop scrolling if you want romance with Short sentences and quick paragraph turns suggest fast pacing.. Act one: I was at a child’s birthday party last Sunday. You know the kind.. Act two: why I couldn't stop thinking about heartbreak, found_family.",
+      "rating": 3.67,
+      "hashtags": [
+        "heartbreak",
+        "found_family",
+        "catharsis"
+      ],
+      "shelf_tags": [],
+      "payload": {
+        "video_script": "Stop scrolling if you want romance with Short sentences and quick paragraph turns suggest fast pacing.. Act one: I was at a child’s birthday party last Sunday. You know the kind.. Act two: why I couldn't stop thinking about heartbreak, found_family.",
+        "trope_tags": [
+          "heartbreak",
+          "found_family",
+          "catharsis"
+        ],
+        "hook_line": "If Your Child's Struggle is Not Your Emergency broke me in 15 seconds, that's your warning.",
+        "visual_motif": "Preface: The Gospel of the Scraped Knee, THE BURNOUT MACHINE",
+        "viral_trigger": "high",
+        "cringe_mockery_risk": "medium_low",
+        "evidence_refs": [
+          "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+          "book_dna:heuristic",
+          "chapter_001",
+          "chapter:chapter_001",
+          "chapter:chapter_007",
+          "platform_style:booktok"
+        ]
+      },
+      "engagement_prediction": 0.864,
+      "sentiment": "mixed",
+      "evidence_refs": [
+        "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+        "book_dna:heuristic",
+        "chapter_001",
+        "chapter:chapter_001",
+        "chapter:chapter_007",
+        "platform_style:booktok"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "post_id": "booktok_5bc6881507c8",
+      "simulation_id": "sim_44b2f2e74318",
+      "persona_id": "booktok_emotional_amplifier_55_1963",
+      "platform": "booktok",
+      "round_number": 1,
+      "title": "If Your Child's Struggle is Not Your Emergency broke me in 15 seconds, that's your warning.",
+      "body": "Stop scrolling if you want romance with Short sentences and quick paragraph turns suggest fast pacing.. Act one: I was at a child’s birthday party last Sunday. You know the kind.. Act two: why I couldn't stop thinking about heartbreak, found_family.",
+      "rating": 3.78,
+      "hashtags": [
+        "heartbreak",
+        "found_family",
+        "catharsis"
+      ],
+      "shelf_tags": [],
+      "payload": {
+        "video_script": "Stop scrolling if you want romance with Short sentences and quick paragraph turns suggest fast pacing.. Act one: I was at a child’s birthday party last Sunday. You know the kind.. Act two: why I couldn't stop thinking about heartbreak, found_family.",
+        "trope_tags": [
+          "heartbreak",
+          "found_family",
+          "catharsis"
+        ],
+        "hook_line": "If Your Child's Struggle is Not Your Emergency broke me in 15 seconds, that's your warning.",
+        "visual_motif": "Preface: The Gospel of the Scraped Knee, THE BURNOUT MACHINE",
+        "viral_trigger": "high",
+        "cringe_mockery_risk": "medium_low",
+        "evidence_refs": [
+          "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+          "book_dna:heuristic",
+          "chapter_001",
+          "chapter:chapter_001",
+          "chapter:chapter_007",
+          "platform_style:booktok"
+        ]
+      },
+      "engagement_prediction": 0.795,
+      "sentiment": "mixed",
+      "evidence_refs": [
+        "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+        "book_dna:heuristic",
+        "chapter_001",
+        "chapter:chapter_001",
+        "chapter:chapter_007",
+        "platform_style:booktok"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "post_id": "booktok_2dc05d1706af",
+      "simulation_id": "sim_44b2f2e74318",
+      "persona_id": "booktok_emotional_amplifier_56_4123",
+      "platform": "booktok",
+      "round_number": 1,
+      "title": "If Your Child's Struggle is Not Your Emergency broke me in 15 seconds, that's your warning.",
+      "body": "Stop scrolling if you want romance with Short sentences and quick paragraph turns suggest fast pacing.. Act one: I was at a child’s birthday party last Sunday. You know the kind.. Act two: why I couldn't stop thinking about heartbreak, found_family.",
+      "rating": 3.9,
+      "hashtags": [
+        "heartbreak",
+        "found_family",
+        "catharsis"
+      ],
+      "shelf_tags": [],
+      "payload": {
+        "video_script": "Stop scrolling if you want romance with Short sentences and quick paragraph turns suggest fast pacing.. Act one: I was at a child’s birthday party last Sunday. You know the kind.. Act two: why I couldn't stop thinking about heartbreak, found_family.",
+        "trope_tags": [
+          "heartbreak",
+          "found_family",
+          "catharsis"
+        ],
+        "hook_line": "If Your Child's Struggle is Not Your Emergency broke me in 15 seconds, that's your warning.",
+        "visual_motif": "Preface: The Gospel of the Scraped Knee, THE BURNOUT MACHINE",
+        "viral_trigger": "high",
+        "cringe_mockery_risk": "medium_low",
+        "evidence_refs": [
+          "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+          "book_dna:heuristic",
+          "chapter_001",
+          "chapter:chapter_001",
+          "chapter:chapter_007",
+          "platform_style:booktok"
+        ]
+      },
+      "engagement_prediction": 0.778,
+      "sentiment": "mixed",
+      "evidence_refs": [
+        "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+        "book_dna:heuristic",
+        "chapter_001",
+        "chapter:chapter_001",
+        "chapter:chapter_007",
+        "platform_style:booktok"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "post_id": "bookstagram_9e30d82891ac",
+      "simulation_id": "sim_44b2f2e74318",
+      "persona_id": "bookstagram_curator_57_5781",
+      "platform": "bookstagram",
+      "round_number": 1,
+      "title": null,
+      "body": "Your Child's Struggle is Not Your Emergency looks like Short sentences and quick paragraph turns suggest fast pacing. and reads like beautiful_package, mood.",
+      "rating": 4.08,
+      "hashtags": [
+        "romance",
+        "annotated_copy",
+        "reading_night"
+      ],
+      "shelf_tags": [],
+      "payload": {
+        "caption": "Your Child's Struggle is Not Your Emergency looks like Short sentences and quick paragraph turns suggest fast pacing. and reads like beautiful_package, mood.",
+        "carousel_idea": [
+          "cover shot with tabs",
+          "quote slide featuring grief",
+          "final slide with shelf verdict"
+        ],
+        "aesthetic_tags": [
+          "romance",
+          "annotated_copy",
+          "reading_night"
+        ],
+        "quote_card_candidates": [
+          "I was at a child’s birthday party last Sunday. You know the kind."
+        ],
+        "save_share_reason": "save for vibes and share for the quote density",
+        "evidence_refs": [
+          "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+          "book_dna:heuristic",
+          "chapter_001",
+          "chapter:chapter_001",
+          "chapter:chapter_007",
+          "platform_style:bookstagram"
+        ]
+      },
+      "engagement_prediction": 0.795,
+      "sentiment": "mixed",
+      "evidence_refs": [
+        "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+        "book_dna:heuristic",
+        "chapter_001",
+        "chapter:chapter_001",
+        "chapter:chapter_007",
+        "platform_style:bookstagram"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "post_id": "booktok_4a86b0cf8074",
+      "simulation_id": "sim_44b2f2e74318",
+      "persona_id": "booktok_trope_hunter_58_7341",
+      "platform": "booktok",
+      "round_number": 1,
+      "title": "If Your Child's Struggle is Not Your Emergency broke me in 15 seconds, that's your warning.",
+      "body": "Stop scrolling if you want romance with Short sentences and quick paragraph turns suggest fast pacing.. Act one: I was at a child’s birthday party last Sunday. You know the kind.. Act two: why I couldn't stop thinking about enemies_to_lovers, slow_burn.",
+      "rating": 3.75,
+      "hashtags": [
+        "enemies_to_lovers",
+        "slow_burn",
+        "forced_proximity"
+      ],
+      "shelf_tags": [],
+      "payload": {
+        "video_script": "Stop scrolling if you want romance with Short sentences and quick paragraph turns suggest fast pacing.. Act one: I was at a child’s birthday party last Sunday. You know the kind.. Act two: why I couldn't stop thinking about enemies_to_lovers, slow_burn.",
+        "trope_tags": [
+          "enemies_to_lovers",
+          "slow_burn",
+          "forced_proximity"
+        ],
+        "hook_line": "If Your Child's Struggle is Not Your Emergency broke me in 15 seconds, that's your warning.",
+        "visual_motif": "Preface: The Gospel of the Scraped Knee, THE BURNOUT MACHINE",
+        "viral_trigger": "medium",
+        "cringe_mockery_risk": "medium_low",
+        "evidence_refs": [
+          "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+          "book_dna:heuristic",
+          "chapter_001",
+          "chapter:chapter_001",
+          "chapter:chapter_007",
+          "platform_style:booktok"
+        ]
+      },
+      "engagement_prediction": 0.769,
+      "sentiment": "mixed",
+      "evidence_refs": [
+        "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+        "book_dna:heuristic",
+        "chapter_001",
+        "chapter:chapter_001",
+        "chapter:chapter_007",
+        "platform_style:booktok"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "post_id": "reddit_181cd020c9dd",
+      "simulation_id": "sim_44b2f2e74318",
+      "persona_id": "reddit_genre_purist_59_6876",
+      "platform": "reddit",
+      "round_number": 1,
+      "title": "[Discussion] Your Child's Struggle is Not Your Emergency works until genre_blending",
+      "body": "My thesis: the book succeeds because of genre_authenticity, canonical_rules, but it asks you to forgive genre_blending, rule_breaking.",
+      "rating": 3.59,
+      "hashtags": [],
+      "shelf_tags": [],
+      "payload": {
+        "thread_title": "[Discussion] Your Child's Struggle is Not Your Emergency works until genre_blending",
+        "top_comment": "My thesis: the book succeeds because of genre_authenticity, canonical_rules, but it asks you to forgive genre_blending, rule_breaking.",
+        "skeptical_comment": "I still don't buy the framing around genre_blending.",
+        "debate_branch": [
+          "User A defends the romance expectations.",
+          "User B says the payoff earns the setup.",
+          "User C argues the momentum collapses in the middle."
+        ],
+        "logic_framing_objection": "The sharpest objection is whether genre_blending is actually supported on the page.",
+        "evidence_refs": [
+          "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+          "book_dna:heuristic",
+          "chapter_001",
+          "chapter:chapter_001",
+          "chapter:chapter_007",
+          "platform_style:reddit"
+        ]
+      },
+      "engagement_prediction": 0.518,
+      "sentiment": "mixed",
+      "evidence_refs": [
+        "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+        "book_dna:heuristic",
+        "chapter_001",
+        "chapter:chapter_001",
+        "chapter:chapter_007",
+        "platform_style:reddit"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "post_id": "booktok_6c28f8895f52",
+      "simulation_id": "sim_44b2f2e74318",
+      "persona_id": "booktok_trope_hunter_60_1979",
+      "platform": "booktok",
+      "round_number": 1,
+      "title": "If Your Child's Struggle is Not Your Emergency broke me in 15 seconds, that's your warning.",
+      "body": "Stop scrolling if you want romance with Short sentences and quick paragraph turns suggest fast pacing.. Act one: I was at a child’s birthday party last Sunday. You know the kind.. Act two: why I couldn't stop thinking about enemies_to_lovers, slow_burn.",
+      "rating": 3.68,
+      "hashtags": [
+        "enemies_to_lovers",
+        "slow_burn",
+        "forced_proximity"
+      ],
+      "shelf_tags": [],
+      "payload": {
+        "video_script": "Stop scrolling if you want romance with Short sentences and quick paragraph turns suggest fast pacing.. Act one: I was at a child’s birthday party last Sunday. You know the kind.. Act two: why I couldn't stop thinking about enemies_to_lovers, slow_burn.",
+        "trope_tags": [
+          "enemies_to_lovers",
+          "slow_burn",
+          "forced_proximity"
+        ],
+        "hook_line": "If Your Child's Struggle is Not Your Emergency broke me in 15 seconds, that's your warning.",
+        "visual_motif": "Preface: The Gospel of the Scraped Knee, THE BURNOUT MACHINE",
+        "viral_trigger": "medium",
+        "cringe_mockery_risk": "medium_low",
+        "evidence_refs": [
+          "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+          "book_dna:heuristic",
+          "chapter_001",
+          "chapter:chapter_001",
+          "chapter:chapter_007",
+          "platform_style:booktok"
+        ]
+      },
+      "engagement_prediction": 0.712,
+      "sentiment": "mixed",
+      "evidence_refs": [
+        "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+        "book_dna:heuristic",
+        "chapter_001",
+        "chapter:chapter_001",
+        "chapter:chapter_007",
+        "platform_style:booktok"
+      ],
+      "confidence": 0.74
+    }
+  ]
+}

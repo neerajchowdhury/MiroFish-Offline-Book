@@ -1,0 +1,69 @@
+{
+  "project_id": "proj_39957bf80f83",
+  "project": {
+    "project_id": "proj_39957bf80f83",
+    "name": "FAFO",
+    "privacy_mode": "cloud_quality",
+    "draft_id": null,
+    "version": null,
+    "title": "Your Child's Struggle is Not Your Emergency",
+    "author_name": "Neeraj Chowdhury",
+    "manuscript_input": null,
+    "source_files": [],
+    "metadata": {
+      "book_type": "non-fiction",
+      "genre": "Slf help Parenting",
+      "target_reader": "Urban Indian parents",
+      "subtitle": "The FAFO Guide to Resigning as Manager-in-Chief, Coaching Resilient Kids, and Reclaiming Your Sanity",
+      "blurb": "For the parent who is tired of reminding, rescuing, negotiating, and silently burning out.\n\nYour Child’s Struggle Is Not Your Emergency is a bold parenting guide for raising capable, resilient, self-trusting children without becoming the full-time manager of their lives.\n\nUsing the FAFO method, Facilitating Autonomy through Friction and Ownership, Neeraj Chowdhury shows parents how to step back without stepping away. With tools like the FAFO Dial, the 3 C’s, D.I.R.E., the Lecture Tax, and the Parent’s Echo, this book helps you handle homework panic, screen battles, exam pressure, money entitlement, family judgment, teenage risk, and everyday crap-shows with warmth, spine, and sanity.\n\nThis is not cold parenting.\nThis is not permissive parenting.\nThis is gentleness with bones.\n\nYour child will wobble. So will you.\n\nGood. Now again.",
+      "comp_titles": "Competitive Title\tAuthor(s)\tWhy It Competes Directly\tWhat It Owns in the Market How to Raise an Adult\tJulie Lythcott-Haims\tDirectly attacks overparenting and prepares children for adulthood. It is one of the closest conceptual comps for FAFO. (The Times of India)\tAnti-helicopter parenting, adult-readiness, parent stepping back. The Gift of Failure\tJessica Lahey\tFocuses on letting children experience failure so they become resilient, self-reliant adults. Harper describes it as centered on parents learning to let go. (Harper Academic)\tFailure as developmental fuel, school-age resilience, research-backed autonomy. The Self-Driven Child\tWilliam Stixrud, PhD & Ned Johnson\tCompetes on autonomy, stress, motivation, and giving children more control over their lives. Penguin positions it around giving kids a sense of control while preserving parental authority. (PenguinRandomhouse.com)\tScience-backed autonomy, stress/anxiety reduction, parent as consultant rather than controller. Parenting with Love and Logic\tFoster Cline & Jim Fay\tDirect overlap with logical/natural consequences, responsibility, boundaries, fewer power struggles, and reduced nagging. (NavPress)\tConsequences with empathy, responsibility, practical discipline scripts. Parenting in the Age of Anxiety: Raising Children in India in the 21st Century\tAbha Adams\tClosest Indian-context comp. It covers Indian children, anxiety, school expectations, social media, family structures, and modern parental pressure. (Aleph Book Company |)\tIndia-specific anxiety parenting, education pressure, child mental health.",
+      "cover_brief": "Cover Package Brief\nBook: Your Child’s Struggle Is Not Your Emergency\nSubtitle: The FAFO Guide to Resigning as Manager-in-Chief, Coaching Resilient Kids, and Reclaiming Your Sanity\nAuthor: Neeraj Chowdhury\nThe cover must signal one thing fast: this is not another soft parenting manual. It is a smart, warm, spine-backed rebellion against over-management, guilt-rescue, and performance parenting. The visual promise should match the book’s core transformation: Manager-in-Chief → Consultant-on-Call, with FAFO defined as Facilitating Autonomy through Friction and Ownership.\n",
+      "local_profile": "cloud_quality",
+      "local_profile_warnings": [
+        {
+          "code": "profile_warning",
+          "level": "info",
+          "message": "Heavier profile; may be slow or costly on 16 GB RAM and 6 GB VRAM."
+        },
+        {
+          "code": "profile_warning",
+          "level": "info",
+          "message": "Not recommended as default on low-resource personal hardware."
+        },
+        {
+          "code": "cloud_quality_heavy",
+          "level": "warning",
+          "message": "cloud_quality can be slower and more costly on 16 GB RAM / 6 GB VRAM systems."
+        },
+        {
+          "code": "high_persona_load",
+          "level": "warning",
+          "message": "Persona count above 30 may increase latency on the configured hardware target."
+        },
+        {
+          "code": "cloud_manuscript_privacy",
+          "level": "warning",
+          "message": "This profile allows full manuscript cloud upload. Review privacy policy before use."
+        }
+      ]
+    },
+    "evidence_refs": [],
+    "confidence": null,
+    "created_at": "2026-05-28T13:15:49.047174+00:00",
+    "updated_at": "2026-05-28T13:15:49.049959+00:00"
+  },
+  "latest_evidence_pack_id": "pack_b7282dc4abf9",
+  "latest_simulation_id": "sim_44b2f2e74318",
+  "latest_report_id": "report_004a4995aac7",
+  "latest_comparison_id": null,
+  "evidence_pack_ids": [
+    "pack_b7282dc4abf9"
+  ],
+  "simulation_ids": [
+    "sim_44b2f2e74318"
+  ],
+  "report_ids": [
+    "report_004a4995aac7"
+  ],
+  "comparison_ids": []
+}

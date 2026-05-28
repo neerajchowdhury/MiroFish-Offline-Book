@@ -1,172 +1,159 @@
-# Swarmbook Install (Windows 11)
+# Swarmbook Studio Clean Installation Guide (Windows 11)
 
-This guide prepares the repo for personal local installation on another Windows 11 laptop. It does not change app behavior; it documents conservative setup paths and uses local-first defaults.
+This guide documents the procedures for performing a clean, local installation of Swarmbook Studio on a new Windows 11 laptop. It covers both the **Automated Installer Path** and the **Manual Developer Path**.
 
-## Prerequisites
-- Windows 11
-- Git
-- Python 3.11+ (recommended) available as `python`
-- Node.js 18+ (recommended) available as `node`
-- npm available as `npm`
+---
 
-Optional but recommended for a smooth local-first experience:
-- Ollama (local LLM runtime)
-- Neo4j Desktop or Neo4j server (local graph persistence)
-- Docker Desktop (if you want containerized services)
+## 1. System Requirements & Prerequisites
 
-## Quick Checks
-From repo root:
+### Minimum Hardware Profile
+* **OS**: Windows 11 (64-bit)
+* **RAM**: 16 GB or higher
+* **GPU**: NVIDIA Graphics Card with at least 6 GB of VRAM (for local Ollama LLM execution)
+
+### Target Local Services
+* **Ollama**: Local LLM runner (hosting `qwen2.5:7b-instruct` and `nomic-embed-text`)
+* **Neo4j**: Graph database persistence (running locally on port `7687` or via Docker Compose)
+
+---
+
+## 2. Clean Installation Steps
+
+Follow these steps to download and set up the application from scratch.
+
+### Step 1: Clone the Repository
+Open a terminal (PowerShell or Command Prompt) and clone the codebase:
 ```powershell
-powershell -ExecutionPolicy Bypass -File .\scripts\windows\check_prereqs.ps1
+git clone <repository-url> MiroFish-Offline-Book
+cd MiroFish-Offline-Book
 ```
 
-## Option A: Docker Desktop (Services in Containers)
-Use Docker when you prefer not to install Neo4j manually.
+### Step 2: Run the Automated Installer (Recommended)
+Swarmbook includes an optimized PowerShell script that automates prerequisite installations, environment configurations, virtual environments, node package building, and model downloads.
 
-1. Install Docker Desktop and ensure it is running.
-2. From repo root, start docker services:
+Run the installer from the root workspace directory:
 ```powershell
-docker compose up -d
+powershell -ExecutionPolicy Bypass -File .\scripts\windows\install_swarmbook.ps1
 ```
-3. Confirm Neo4j is listening on `bolt://localhost:7687`.
 
-Notes:
-- Ollama is typically installed natively on Windows. You can still use Docker for Neo4j only.
-- Do not expose Neo4j to the public internet; keep it bound to localhost for personal use.
+> [!NOTE]
+> * **Administrative Privileges**: The installer will offer to relaunch itself as an Administrator if it detects missing prerequisites. Relaunching in admin mode allows `winget` to install core tools silently.
+> * **Interactive Configurations**: During installation, the script will prompt you if you want to configure database credentials or enter Gemini/NVIDIA API keys.
+> * **Ollama Model Preloading**: The script will check if the Ollama service is running. If active, it will automatically download both `qwen2.5:7b-instruct` and `nomic-embed-text` models.
+> * **Desktop Shortcuts**: The installer will offer to create "Start Swarmbook" and "Stop Swarmbook" shortcuts on your Desktop for easy service management.
 
-## Option B: Manual Dev (Recommended for Iteration)
+---
 
-### 1) Backend setup
+## 3. Alternative Path: Manual Installation
+
+If you prefer to set up your environment manually or do not want to use the automated installer script, follow these commands:
+
+### A. Install Core Tools
+Install the required runtimes using `winget` or manual downloads:
 ```powershell
-cd .\backend
-python -m venv .venv
-.\.venv\Scripts\Activate.ps1
-
-# Install python deps (choose one based on repo conventions)
-pip install -r requirements.txt
-
-# Optional (if present)
-# pip install -r requirements-dev.txt
+winget install --id Git.Git --silent --accept-source-agreements --accept-package-agreements
+winget install --id Python.Python.3.11 --silent --accept-source-agreements --accept-package-agreements
+winget install --id OpenJS.NodeJS.LTS --silent --accept-source-agreements --accept-package-agreements
+winget install --id Ollama.Ollama --silent --accept-source-agreements --accept-package-agreements
 ```
+*Restart your terminal afterwards to update the environment variables.*
 
-### 2) Frontend setup
+### B. Provision the Backend
+1. Navigate to the backend directory and create a virtualenv:
+   ```powershell
+   cd .\backend
+   python -m venv .venv
+   ```
+2. Activate the virtual environment and upgrade package utilities:
+   ```powershell
+   .\.venv\Scripts\Activate.ps1
+   python -m pip install --upgrade pip setuptools wheel
+   ```
+3. Install the python dependencies:
+   ```powershell
+   pip install -r requirements.txt
+   ```
+
+### C. Provision the Frontend
+1. Navigate to the frontend directory:
+   ```powershell
+   cd ..\frontend
+   ```
+2. Install NodeJS packages and compile the production bundle:
+   ```powershell
+   npm ci
+   npm run build
+   ```
+
+### D. Setup Environment Variables
+1. From the project root, copy the environment template file:
+   ```powershell
+   Copy-Item .env.swarmbook.example .env
+   Copy-Item .env.swarmbook.example backend\.env
+   ```
+2. Open the `.env` files in a text editor and update configuration keys:
+   * Set `NEO4J_PASSWORD` to your local Neo4j instance password.
+   * Add optional `GEMINI_API_KEY` or `NVIDIA_API_KEY` if you want cloud hybrid routes.
+
+### E. Preload Ollama Models
+Ensure Ollama is running, then pull the required models:
 ```powershell
-cd ..\frontend
-npm ci
+ollama pull qwen2.5:7b-instruct
+ollama pull nomic-embed-text
 ```
 
-### 3) Environment variables
-Use placeholders only in committed files:
-- `.env.swarmbook.example` is provided as a template.
+---
 
-Recommended approach:
-1. Copy `.env.swarmbook.example` to a local, uncommitted file and set values.
-2. Or set env vars in your PowerShell session before running.
+## 4. Running the Application
 
-Never commit real API keys.
+### Launching Services
+To launch the application backend server (Flask) and frontend dev server (Vite):
+* **Method A**: Double-click the **Start Swarmbook** shortcut on your Desktop.
+* **Method B**: From the workspace root, run the start script:
+  ```powershell
+  powershell -ExecutionPolicy Bypass -File .\scripts\windows\start_swarmbook.ps1
+  ```
+The servers run in background processes. Browse to:
+* **Frontend Dashboard**: [http://localhost:5173](http://localhost:5173)
+* **Backend API Console**: [http://localhost:5001](http://localhost:5001)
 
-## Ollama Setup (Local-First)
-1. Install Ollama for Windows.
-2. Start Ollama (it typically runs as a background service).
-3. Verify:
+### Stopping Services
+To terminate the background services:
+* **Method A**: Double-click the **Stop Swarmbook** shortcut on your Desktop.
+* **Method B**: From the workspace root, run:
+  ```powershell
+  powershell -ExecutionPolicy Bypass -File .\scripts\windows\stop_swarmbook.ps1
+  ```
+
+### Verifying Installation Integrity (Smoke Check)
+Run the automated verification suite to test service status:
 ```powershell
-Invoke-RestMethod http://localhost:11434/api/tags
+powershell -ExecutionPolicy Bypass -File .\scripts\windows\smoke_test_swarmbook.ps1
 ```
 
-Suggested models for low-resource local runs:
-- `llama3.1:8b-instruct`
-- `qwen2.5:7b-instruct`
+---
 
-If you use embeddings (some legacy paths): `nomic-embed-text`.
+## 5. Troubleshooting Guide
 
-## Neo4j Setup (Local)
-Swarmbook uses Neo4j additively; the app should still run if Neo4j is down, but you lose persistence/graph features.
-
-Default local config (see `.env.swarmbook.example`):
-- `NEO4J_URI=bolt://localhost:7687`
-- `NEO4J_USER=neo4j`
-- `NEO4J_PASSWORD=mirofish`
-
-Validation:
+### Port Conflicts (5001 or 5173 in use)
+If the default ports are already bound, you can override ports at start:
 ```powershell
-Test-NetConnection localhost -Port 7687
+powershell -ExecutionPolicy Bypass -File .\scripts\windows\start_swarmbook.ps1 -BackendPort 5002 -FrontendPort 5174
 ```
 
-## Optional Gemini/NVIDIA API Keys
-These are optional. `local_only` mode must never use them.
+### Ollama Connection Refused
+* Ensure the Ollama tray icon is running in your taskbar.
+* Verify model health by loading:
+  ```powershell
+  Invoke-RestMethod http://localhost:11434/api/tags
+  ```
 
-Placeholders (do not commit real secrets):
-```env
-GEMINI_API_KEY=your_gemini_key_here
-NVIDIA_API_KEY=your_nvidia_key_here
-NVIDIA_BASE_URL=your_nvidia_base_url_here
-```
+### Neo4j Graph Persistent Failures
+If Neo4j is offline or credentials are bad, Swarmbook runs in a **dry-run recovery mode**. Project data and reports will survive in the local cache, but graph relationship queries will be disabled. 
+* To start Neo4j in a local container, install Docker Desktop and run:
+  ```powershell
+  docker compose up -d
+  ```
 
-If keys are missing, Swarmbook should degrade gracefully and continue with local routes where allowed.
-
-## Recommended Low-Resource Profile
-For Windows 11, 16 GB RAM, 6 GB NVIDIA VRAM:
-- Default: `hybrid_safe_default`
-- Safest fully local: `local_tiny` (`privacy_mode=local_only`)
-
-Profile definitions live in:
-- `configs/book_sim/local_profiles.yaml`
-
-## Start / Stop (Scripts)
-From repo root:
-```powershell
-powershell -ExecutionPolicy Bypass -File .\scripts\windows\start_swarmbook.ps1
-```
-
-Notes:
-- The start script prefers `backend\.venv\Scripts\python.exe` when present.
-- Frontend start uses `npm.cmd` (Windows-safe process launch).
-
-Stop:
-```powershell
-powershell -ExecutionPolicy Bypass -File .\scripts\windows\stop_swarmbook.ps1
-```
-
-## Smoke Test (Scripts)
-After starting the backend:
-```powershell
-powershell -ExecutionPolicy Bypass -File .\scripts\windows\smoke_test_swarmbook.ps1 -BackendBaseUrl http://localhost:5001
-```
-
-## Troubleshooting
-
-### Backend won't start
-- Ensure venv is activated (if using manual dev).
-- Run:
-```powershell
-python -m compileall backend
-```
-
-### Frontend won't start
-- Ensure Node/npm are installed and `npm ci` completed in `frontend/`.
-- If port 5173 is in use, run:
-```powershell
-powershell -ExecutionPolicy Bypass -File .\scripts\windows\start_swarmbook.ps1 -FrontendPort 5174
-```
-
-### Ollama errors / not listening
-- Confirm `OLLAMA_BASE_URL=http://localhost:11434`.
-- Confirm:
-```powershell
-Invoke-RestMethod http://localhost:11434/api/tags
-```
-
-### Neo4j errors
-- If Neo4j is down, the backend should still start; health endpoints will report Neo4j not initialized/unavailable.
-- Start Neo4j and retry.
-
-### Missing API keys
-- Safe to ignore for `local_only` and `local_tiny`.
-- Health endpoint shows provider availability:
-```powershell
-Invoke-RestMethod http://localhost:5001/api/book-sim/health
-```
-
-### Large manuscript paste fails
-- The evidence endpoint guards very large text by default.
-- Start with an excerpt (1-3 chapters), or pass `max_manuscript_chars` in the `/api/book-sim/evidence-packs` request.
+### Large Manuscript Upload Failures
+The manuscript ingestion API has a safety guard capping uploads at 500,000 characters to prevent system overcommit on low-resource machines. If you upload a massive draft, you will see a safety warning. Consider segmenting the draft or increasing limits in `.env` settings.

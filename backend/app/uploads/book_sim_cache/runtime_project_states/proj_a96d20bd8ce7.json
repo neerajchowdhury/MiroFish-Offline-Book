@@ -1,0 +1,65 @@
+{
+  "project_id": "proj_a96d20bd8ce7",
+  "project": {
+    "project_id": "proj_a96d20bd8ce7",
+    "name": "Smoke Test Project",
+    "privacy_mode": "local_only",
+    "draft_id": "draft_smoke",
+    "version": "v1",
+    "title": "Smoke Test Draft",
+    "author_name": "Local Tester",
+    "manuscript_input": {
+      "input_id": "input_47e1dc688283",
+      "project_id": "proj_a96d20bd8ce7",
+      "title": "Smoke Test Draft",
+      "author_name": "Local Tester",
+      "filename": null,
+      "mime_type": "text/plain",
+      "text": "Chapter 1\nMara gets a letter that threatens her promotion if she misses tonight's meeting.\n\nChapter 2\nAt the town hall, she realizes her mentor has been hiding the truth about the budget.\n\nChapter 3\nShe must choose: protect the mentor or expose the truth and lose her job.",
+      "language": null,
+      "privacy_mode": "local_only",
+      "draft_id": "draft_smoke",
+      "version": "v1",
+      "chunk_size": 500,
+      "chunk_overlap": 50,
+      "metadata": {},
+      "evidence_refs": [],
+      "confidence": null,
+      "created_at": "2026-05-27T11:45:41.750900+00:00"
+    },
+    "source_files": [],
+    "metadata": {
+      "local_profile": "local_tiny",
+      "local_profile_warnings": [
+        {
+          "code": "profile_warning",
+          "level": "info",
+          "message": "Safest fully local mode; output quality can be lower than hybrid profiles."
+        },
+        {
+          "code": "local_tiny_quality_tradeoff",
+          "level": "info",
+          "message": "local_tiny prioritizes privacy and speed over quality depth."
+        }
+      ]
+    },
+    "evidence_refs": [],
+    "confidence": null,
+    "created_at": "2026-05-27T11:45:38.020764+00:00",
+    "updated_at": "2026-05-27T11:45:41.751053+00:00"
+  },
+  "latest_evidence_pack_id": "pack_78c1c051902c",
+  "latest_simulation_id": "sim_de75dfe68c62",
+  "latest_report_id": "report_3785f067e12b",
+  "latest_comparison_id": null,
+  "evidence_pack_ids": [
+    "pack_78c1c051902c"
+  ],
+  "simulation_ids": [
+    "sim_de75dfe68c62"
+  ],
+  "report_ids": [
+    "report_3785f067e12b"
+  ],
+  "comparison_ids": []
+}

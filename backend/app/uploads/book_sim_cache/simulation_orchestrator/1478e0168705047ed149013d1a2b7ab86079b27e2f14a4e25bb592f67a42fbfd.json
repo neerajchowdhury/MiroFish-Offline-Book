@@ -1,0 +1,1976 @@
+{
+  "simulation_run": {
+    "run_id": "sim_de75dfe68c62",
+    "project_id": "proj_a96d20bd8ce7",
+    "graph_id": null,
+    "privacy_mode": "local_only",
+    "draft_id": "draft_smoke",
+    "version": "v1",
+    "provider_route": "local_ollama",
+    "status": "completed",
+    "started_at": "2026-05-27T11:46:42.221140+00:00",
+    "ended_at": "2026-05-27T11:46:42.540287+00:00",
+    "total_rounds": 1,
+    "current_round": 1,
+    "personas_count": 12,
+    "reactions_count": 12,
+    "posts_count": 12,
+    "report_id": null,
+    "reader_personas": [
+      {
+        "persona_id": "reddit_genre_purist_01_5745",
+        "archetype_id": "reddit_genre_purist",
+        "display_name": "Elliot P.",
+        "platform_home": "reddit",
+        "review_style": "taxonomy_focused",
+        "id": "reddit_genre_purist_01_5745",
+        "name": "Elliot P.",
+        "cohort": "skeptical_forum_readers",
+        "platform": "reddit",
+        "favorite_genres": [
+          "science fiction",
+          "fantasy",
+          "crime"
+        ],
+        "disliked_patterns": [
+          "genre_blending",
+          "rule_breaking",
+          "tonal_drift"
+        ],
+        "dnf_threshold": 0.398,
+        "controversy_sensitivity": 0.641,
+        "rating_bias": -0.09,
+        "influence_weight": 0.506,
+        "susceptibility_to_peer_reaction": 0.717,
+        "quote_sharing_probability": 0.4,
+        "evidence_focus": 0.8,
+        "privacy_constraints": [
+          "synthetic_persona_only",
+          "simulated_platform_only",
+          "local_processing_only",
+          "no_external_enrichment"
+        ],
+        "book_type_suitability": [
+          "fiction"
+        ],
+        "reading_preferences": [
+          "science fiction",
+          "fantasy",
+          "crime"
+        ],
+        "dnf_triggers": [
+          "genre_blending",
+          "rule_breaking",
+          "tonal_drift"
+        ],
+        "delight_triggers": [
+          "genre_authenticity",
+          "canonical_rules",
+          "disciplined_scope"
+        ],
+        "private_bias": "strict",
+        "influence_score": 0.55,
+        "spoiler_tolerance": null,
+        "evidence_refs": [
+          "reader_archetype:reddit_genre_purist",
+          "privacy_mode:local_only",
+          "book_type:mixed_unknown"
+        ],
+        "confidence": 0.8
+      },
+      {
+        "persona_id": "reddit_skeptic_02_7579",
+        "archetype_id": "reddit_skeptic",
+        "display_name": "Shawn N.",
+        "platform_home": "reddit",
+        "review_style": "analytical_skeptical",
+        "id": "reddit_skeptic_02_7579",
+        "name": "Shawn N.",
+        "cohort": "skeptical_forum_readers",
+        "platform": "reddit",
+        "favorite_genres": [
+          "nonfiction",
+          "history",
+          "science"
+        ],
+        "disliked_patterns": [
+          "handwaving",
+          "plot_holes",
+          "unearned_hype"
+        ],
+        "dnf_threshold": 0.542,
+        "controversy_sensitivity": 0.61,
+        "rating_bias": -0.236,
+        "influence_weight": 0.608,
+        "susceptibility_to_peer_reaction": 0.601,
+        "quote_sharing_probability": 0.527,
+        "evidence_focus": 0.905,
+        "privacy_constraints": [
+          "synthetic_persona_only",
+          "simulated_platform_only",
+          "local_processing_only",
+          "no_external_enrichment"
+        ],
+        "book_type_suitability": [
+          "fiction",
+          "nonfiction"
+        ],
+        "reading_preferences": [
+          "nonfiction",
+          "history",
+          "science"
+        ],
+        "dnf_triggers": [
+          "handwaving",
+          "plot_holes",
+          "unearned_hype"
+        ],
+        "delight_triggers": [
+          "internal_logic",
+          "sharp_argument",
+          "coherent_worldbuilding"
+        ],
+        "private_bias": "evidence_first",
+        "influence_score": 0.55,
+        "spoiler_tolerance": null,
+        "evidence_refs": [
+          "reader_archetype:reddit_skeptic",
+          "privacy_mode:local_only",
+          "book_type:mixed_unknown"
+        ],
+        "confidence": 0.8
+      },
+      {
+        "persona_id": "x_hot_take_reader_03_6423",
+        "archetype_id": "x_hot_take_reader",
+        "display_name": "Tatum J.",
+        "platform_home": "x",
+        "review_style": "punchy_polarized",
+        "id": "x_hot_take_reader_03_6423",
+        "name": "Tatum J.",
+        "cohort": "hot_take_amplifiers",
+        "platform": "x",
+        "favorite_genres": [
+          "cultural criticism",
+          "literary fiction",
+          "memoir"
+        ],
+        "disliked_patterns": [
+          "slowness",
+          "nuance_without_payoff"
+        ],
+        "dnf_threshold": 0.606,
+        "controversy_sensitivity": 0.976,
+        "rating_bias": -0.017,
+        "influence_weight": 0.862,
+        "susceptibility_to_peer_reaction": 0.883,
+        "quote_sharing_probability": 0.538,
+        "evidence_focus": 0.196,
+        "privacy_constraints": [
+          "synthetic_persona_only",
+          "simulated_platform_only",
+          "local_processing_only",
+          "no_external_enrichment"
+        ],
+        "book_type_suitability": [
+          "fiction"
+        ],
+        "reading_preferences": [
+          "cultural criticism",
+          "literary fiction",
+          "memoir"
+        ],
+        "dnf_triggers": [
+          "slowness",
+          "nuance_without_payoff"
+        ],
+        "delight_triggers": [
+          "provocation",
+          "controversy",
+          "concise_claims"
+        ],
+        "private_bias": "reactive",
+        "influence_score": 0.9,
+        "spoiler_tolerance": null,
+        "evidence_refs": [
+          "reader_archetype:x_hot_take_reader",
+          "privacy_mode:local_only",
+          "book_type:mixed_unknown"
+        ],
+        "confidence": 0.8
+      },
+      {
+        "persona_id": "nonfiction_evidence_skeptic_04_9291",
+        "archetype_id": "nonfiction_evidence_skeptic",
+        "display_name": "Drew S.",
+        "platform_home": "reddit",
+        "review_style": "source_auditor",
+        "id": "nonfiction_evidence_skeptic_04_9291",
+        "name": "Drew S.",
+        "cohort": "skeptical_forum_readers",
+        "platform": "reddit",
+        "favorite_genres": [
+          "history",
+          "science",
+          "business"
+        ],
+        "disliked_patterns": [
+          "overclaiming",
+          "missing_sources",
+          "anecdote_only"
+        ],
+        "dnf_threshold": 0.517,
+        "controversy_sensitivity": 0.504,
+        "rating_bias": -0.231,
+        "influence_weight": 0.46,
+        "susceptibility_to_peer_reaction": 0.69,
+        "quote_sharing_probability": 0.421,
+        "evidence_focus": 1.0,
+        "privacy_constraints": [
+          "synthetic_persona_only",
+          "simulated_platform_only",
+          "local_processing_only",
+          "no_external_enrichment"
+        ],
+        "book_type_suitability": [
+          "nonfiction"
+        ],
+        "reading_preferences": [
+          "history",
+          "science",
+          "business"
+        ],
+        "dnf_triggers": [
+          "overclaiming",
+          "missing_sources",
+          "anecdote_only"
+        ],
+        "delight_triggers": [
+          "citations",
+          "strong_methods",
+          "honest_limits"
+        ],
+        "private_bias": "rigor_first",
+        "influence_score": 0.55,
+        "spoiler_tolerance": null,
+        "evidence_refs": [
+          "reader_archetype:nonfiction_evidence_skeptic",
+          "privacy_mode:local_only",
+          "book_type:mixed_unknown"
+        ],
+        "confidence": 0.8
+      },
+      {
+        "persona_id": "reddit_skeptic_05_4914",
+        "archetype_id": "reddit_skeptic",
+        "display_name": "Casey R.",
+        "platform_home": "reddit",
+        "review_style": "analytical_skeptical",
+        "id": "reddit_skeptic_05_4914",
+        "name": "Casey R.",
+        "cohort": "skeptical_forum_readers",
+        "platform": "reddit",
+        "favorite_genres": [
+          "nonfiction",
+          "history",
+          "science"
+        ],
+        "disliked_patterns": [
+          "handwaving",
+          "plot_holes",
+          "unearned_hype"
+        ],
+        "dnf_threshold": 0.539,
+        "controversy_sensitivity": 0.543,
+        "rating_bias": -0.21,
+        "influence_weight": 0.641,
+        "susceptibility_to_peer_reaction": 0.579,
+        "quote_sharing_probability": 0.363,
+        "evidence_focus": 0.864,
+        "privacy_constraints": [
+          "synthetic_persona_only",
+          "simulated_platform_only",
+          "local_processing_only",
+          "no_external_enrichment"
+        ],
+        "book_type_suitability": [
+          "fiction",
+          "nonfiction"
+        ],
+        "reading_preferences": [
+          "nonfiction",
+          "history",
+          "science"
+        ],
+        "dnf_triggers": [
+          "handwaving",
+          "plot_holes",
+          "unearned_hype"
+        ],
+        "delight_triggers": [
+          "internal_logic",
+          "sharp_argument",
+          "coherent_worldbuilding"
+        ],
+        "private_bias": "evidence_first",
+        "influence_score": 0.55,
+        "spoiler_tolerance": null,
+        "evidence_refs": [
+          "reader_archetype:reddit_skeptic",
+          "privacy_mode:local_only",
+          "book_type:mixed_unknown"
+        ],
+        "confidence": 0.8
+      },
+      {
+        "persona_id": "x_hot_take_reader_06_5098",
+        "archetype_id": "x_hot_take_reader",
+        "display_name": "Micah G.",
+        "platform_home": "x",
+        "review_style": "punchy_polarized",
+        "id": "x_hot_take_reader_06_5098",
+        "name": "Micah G.",
+        "cohort": "hot_take_amplifiers",
+        "platform": "x",
+        "favorite_genres": [
+          "cultural criticism",
+          "literary fiction",
+          "memoir"
+        ],
+        "disliked_patterns": [
+          "slowness",
+          "nuance_without_payoff"
+        ],
+        "dnf_threshold": 0.625,
+        "controversy_sensitivity": 0.983,
+        "rating_bias": -0.093,
+        "influence_weight": 0.866,
+        "susceptibility_to_peer_reaction": 1.0,
+        "quote_sharing_probability": 0.466,
+        "evidence_focus": 0.164,
+        "privacy_constraints": [
+          "synthetic_persona_only",
+          "simulated_platform_only",
+          "local_processing_only",
+          "no_external_enrichment"
+        ],
+        "book_type_suitability": [
+          "fiction"
+        ],
+        "reading_preferences": [
+          "cultural criticism",
+          "literary fiction",
+          "memoir"
+        ],
+        "dnf_triggers": [
+          "slowness",
+          "nuance_without_payoff"
+        ],
+        "delight_triggers": [
+          "provocation",
+          "controversy",
+          "concise_claims"
+        ],
+        "private_bias": "reactive",
+        "influence_score": 0.9,
+        "spoiler_tolerance": null,
+        "evidence_refs": [
+          "reader_archetype:x_hot_take_reader",
+          "privacy_mode:local_only",
+          "book_type:mixed_unknown"
+        ],
+        "confidence": 0.8
+      },
+      {
+        "persona_id": "goodreads_harsh_reviewer_07_8653",
+        "archetype_id": "goodreads_harsh_reviewer",
+        "display_name": "Parker B.",
+        "platform_home": "goodreads",
+        "review_style": "critical_balanced",
+        "id": "goodreads_harsh_reviewer_07_8653",
+        "name": "Parker B.",
+        "cohort": "community_reviewers",
+        "platform": "goodreads",
+        "favorite_genres": [
+          "literary fiction",
+          "upmarket fiction",
+          "mystery"
+        ],
+        "disliked_patterns": [
+          "slow_start",
+          "weak_characterization",
+          "padding"
+        ],
+        "dnf_threshold": 0.489,
+        "controversy_sensitivity": 0.445,
+        "rating_bias": -0.307,
+        "influence_weight": 0.29,
+        "susceptibility_to_peer_reaction": 0.411,
+        "quote_sharing_probability": 0.5,
+        "evidence_focus": 0.584,
+        "privacy_constraints": [
+          "synthetic_persona_only",
+          "simulated_platform_only",
+          "local_processing_only",
+          "no_external_enrichment"
+        ],
+        "book_type_suitability": [
+          "fiction"
+        ],
+        "reading_preferences": [
+          "literary fiction",
+          "upmarket fiction",
+          "mystery"
+        ],
+        "dnf_triggers": [
+          "slow_start",
+          "weak_characterization",
+          "padding"
+        ],
+        "delight_triggers": [
+          "strong_opening",
+          "clean_prose",
+          "payoff"
+        ],
+        "private_bias": "high_standards",
+        "influence_score": 0.35,
+        "spoiler_tolerance": null,
+        "evidence_refs": [
+          "reader_archetype:goodreads_harsh_reviewer",
+          "privacy_mode:local_only",
+          "book_type:mixed_unknown"
+        ],
+        "confidence": 0.8
+      },
+      {
+        "persona_id": "reddit_genre_purist_08_7602",
+        "archetype_id": "reddit_genre_purist",
+        "display_name": "Shawn G.",
+        "platform_home": "reddit",
+        "review_style": "taxonomy_focused",
+        "id": "reddit_genre_purist_08_7602",
+        "name": "Shawn G.",
+        "cohort": "skeptical_forum_readers",
+        "platform": "reddit",
+        "favorite_genres": [
+          "science fiction",
+          "fantasy",
+          "crime"
+        ],
+        "disliked_patterns": [
+          "genre_blending",
+          "rule_breaking",
+          "tonal_drift"
+        ],
+        "dnf_threshold": 0.448,
+        "controversy_sensitivity": 0.69,
+        "rating_bias": 0.015,
+        "influence_weight": 0.613,
+        "susceptibility_to_peer_reaction": 0.599,
+        "quote_sharing_probability": 0.549,
+        "evidence_focus": 0.824,
+        "privacy_constraints": [
+          "synthetic_persona_only",
+          "simulated_platform_only",
+          "local_processing_only",
+          "no_external_enrichment"
+        ],
+        "book_type_suitability": [
+          "fiction"
+        ],
+        "reading_preferences": [
+          "science fiction",
+          "fantasy",
+          "crime"
+        ],
+        "dnf_triggers": [
+          "genre_blending",
+          "rule_breaking",
+          "tonal_drift"
+        ],
+        "delight_triggers": [
+          "genre_authenticity",
+          "canonical_rules",
+          "disciplined_scope"
+        ],
+        "private_bias": "strict",
+        "influence_score": 0.55,
+        "spoiler_tolerance": null,
+        "evidence_refs": [
+          "reader_archetype:reddit_genre_purist",
+          "privacy_mode:local_only",
+          "book_type:mixed_unknown"
+        ],
+        "confidence": 0.8
+      },
+      {
+        "persona_id": "x_hot_take_reader_09_9797",
+        "archetype_id": "x_hot_take_reader",
+        "display_name": "Jules C.",
+        "platform_home": "x",
+        "review_style": "punchy_polarized",
+        "id": "x_hot_take_reader_09_9797",
+        "name": "Jules C.",
+        "cohort": "hot_take_amplifiers",
+        "platform": "x",
+        "favorite_genres": [
+          "cultural criticism",
+          "literary fiction",
+          "memoir"
+        ],
+        "disliked_patterns": [
+          "slowness",
+          "nuance_without_payoff"
+        ],
+        "dnf_threshold": 0.569,
+        "controversy_sensitivity": 0.978,
+        "rating_bias": -0.094,
+        "influence_weight": 0.863,
+        "susceptibility_to_peer_reaction": 0.896,
+        "quote_sharing_probability": 0.434,
+        "evidence_focus": 0.231,
+        "privacy_constraints": [
+          "synthetic_persona_only",
+          "simulated_platform_only",
+          "local_processing_only",
+          "no_external_enrichment"
+        ],
+        "book_type_suitability": [
+          "fiction"
+        ],
+        "reading_preferences": [
+          "cultural criticism",
+          "literary fiction",
+          "memoir"
+        ],
+        "dnf_triggers": [
+          "slowness",
+          "nuance_without_payoff"
+        ],
+        "delight_triggers": [
+          "provocation",
+          "controversy",
+          "concise_claims"
+        ],
+        "private_bias": "reactive",
+        "influence_score": 0.9,
+        "spoiler_tolerance": null,
+        "evidence_refs": [
+          "reader_archetype:x_hot_take_reader",
+          "privacy_mode:local_only",
+          "book_type:mixed_unknown"
+        ],
+        "confidence": 0.8
+      },
+      {
+        "persona_id": "reddit_skeptic_10_8868",
+        "archetype_id": "reddit_skeptic",
+        "display_name": "Elliot R.",
+        "platform_home": "reddit",
+        "review_style": "analytical_skeptical",
+        "id": "reddit_skeptic_10_8868",
+        "name": "Elliot R.",
+        "cohort": "skeptical_forum_readers",
+        "platform": "reddit",
+        "favorite_genres": [
+          "nonfiction",
+          "history",
+          "science"
+        ],
+        "disliked_patterns": [
+          "handwaving",
+          "plot_holes",
+          "unearned_hype"
+        ],
+        "dnf_threshold": 0.532,
+        "controversy_sensitivity": 0.517,
+        "rating_bias": -0.117,
+        "influence_weight": 0.498,
+        "susceptibility_to_peer_reaction": 0.655,
+        "quote_sharing_probability": 0.403,
+        "evidence_focus": 0.846,
+        "privacy_constraints": [
+          "synthetic_persona_only",
+          "simulated_platform_only",
+          "local_processing_only",
+          "no_external_enrichment"
+        ],
+        "book_type_suitability": [
+          "fiction",
+          "nonfiction"
+        ],
+        "reading_preferences": [
+          "nonfiction",
+          "history",
+          "science"
+        ],
+        "dnf_triggers": [
+          "handwaving",
+          "plot_holes",
+          "unearned_hype"
+        ],
+        "delight_triggers": [
+          "internal_logic",
+          "sharp_argument",
+          "coherent_worldbuilding"
+        ],
+        "private_bias": "evidence_first",
+        "influence_score": 0.55,
+        "spoiler_tolerance": null,
+        "evidence_refs": [
+          "reader_archetype:reddit_skeptic",
+          "privacy_mode:local_only",
+          "book_type:mixed_unknown"
+        ],
+        "confidence": 0.8
+      },
+      {
+        "persona_id": "reddit_skeptic_11_7435",
+        "archetype_id": "reddit_skeptic",
+        "display_name": "Taylor W.",
+        "platform_home": "reddit",
+        "review_style": "analytical_skeptical",
+        "id": "reddit_skeptic_11_7435",
+        "name": "Taylor W.",
+        "cohort": "skeptical_forum_readers",
+        "platform": "reddit",
+        "favorite_genres": [
+          "nonfiction",
+          "history",
+          "science"
+        ],
+        "disliked_patterns": [
+          "handwaving",
+          "plot_holes",
+          "unearned_hype"
+        ],
+        "dnf_threshold": 0.652,
+        "controversy_sensitivity": 0.544,
+        "rating_bias": -0.172,
+        "influence_weight": 0.575,
+        "susceptibility_to_peer_reaction": 0.582,
+        "quote_sharing_probability": 0.442,
+        "evidence_focus": 0.855,
+        "privacy_constraints": [
+          "synthetic_persona_only",
+          "simulated_platform_only",
+          "local_processing_only",
+          "no_external_enrichment"
+        ],
+        "book_type_suitability": [
+          "fiction",
+          "nonfiction"
+        ],
+        "reading_preferences": [
+          "nonfiction",
+          "history",
+          "science"
+        ],
+        "dnf_triggers": [
+          "handwaving",
+          "plot_holes",
+          "unearned_hype"
+        ],
+        "delight_triggers": [
+          "internal_logic",
+          "sharp_argument",
+          "coherent_worldbuilding"
+        ],
+        "private_bias": "evidence_first",
+        "influence_score": 0.55,
+        "spoiler_tolerance": null,
+        "evidence_refs": [
+          "reader_archetype:reddit_skeptic",
+          "privacy_mode:local_only",
+          "book_type:mixed_unknown"
+        ],
+        "confidence": 0.8
+      },
+      {
+        "persona_id": "reddit_genre_purist_12_1464",
+        "archetype_id": "reddit_genre_purist",
+        "display_name": "Drew P.",
+        "platform_home": "reddit",
+        "review_style": "taxonomy_focused",
+        "id": "reddit_genre_purist_12_1464",
+        "name": "Drew P.",
+        "cohort": "skeptical_forum_readers",
+        "platform": "reddit",
+        "favorite_genres": [
+          "science fiction",
+          "fantasy",
+          "crime"
+        ],
+        "disliked_patterns": [
+          "genre_blending",
+          "rule_breaking",
+          "tonal_drift"
+        ],
+        "dnf_threshold": 0.524,
+        "controversy_sensitivity": 0.616,
+        "rating_bias": -0.095,
+        "influence_weight": 0.461,
+        "susceptibility_to_peer_reaction": 0.703,
+        "quote_sharing_probability": 0.543,
+        "evidence_focus": 0.697,
+        "privacy_constraints": [
+          "synthetic_persona_only",
+          "simulated_platform_only",
+          "local_processing_only",
+          "no_external_enrichment"
+        ],
+        "book_type_suitability": [
+          "fiction"
+        ],
+        "reading_preferences": [
+          "science fiction",
+          "fantasy",
+          "crime"
+        ],
+        "dnf_triggers": [
+          "genre_blending",
+          "rule_breaking",
+          "tonal_drift"
+        ],
+        "delight_triggers": [
+          "genre_authenticity",
+          "canonical_rules",
+          "disciplined_scope"
+        ],
+        "private_bias": "strict",
+        "influence_score": 0.55,
+        "spoiler_tolerance": null,
+        "evidence_refs": [
+          "reader_archetype:reddit_genre_purist",
+          "privacy_mode:local_only",
+          "book_type:mixed_unknown"
+        ],
+        "confidence": 0.8
+      }
+    ],
+    "private_reactions": [
+      {
+        "reaction_id": "private_9dbea63a4bbd",
+        "simulation_id": "sim_de75dfe68c62",
+        "persona_id": "reddit_genre_purist_01_5745",
+        "chapter_id": null,
+        "rating": 4.04,
+        "dnf_probability": 0.51,
+        "sentiment": "positive",
+        "attachment_score": 0.696,
+        "confusion_score": 0.448,
+        "recommendation_probability": 0.876,
+        "praise": [
+          "genre_authenticity",
+          "canonical_rules",
+          "identity"
+        ],
+        "friction": [
+          "genre_blending",
+          "rule_breaking"
+        ],
+        "notable_quotes": [
+          "Mara gets a letter that threatens her promotion if she misses tonight's meeting."
+        ],
+        "evidence_refs": [
+          "78c1c051902cafd77246dea519f4d19fff0550fb64c3e45ff99eae50960f2893",
+          "book_dna:heuristic",
+          "chapter_001",
+          "x_09bbc8959f2f",
+          "x_53a9f5672b6c",
+          "x_a64f4b24c21d",
+          "reddit_d2fb6f571a7e"
+        ],
+        "confidence": 0.74
+      },
+      {
+        "reaction_id": "private_8b792e9a1875",
+        "simulation_id": "sim_de75dfe68c62",
+        "persona_id": "reddit_skeptic_02_7579",
+        "chapter_id": null,
+        "rating": 3.65,
+        "dnf_probability": 0.448,
+        "sentiment": "positive",
+        "attachment_score": 0.834,
+        "confusion_score": 0.442,
+        "recommendation_probability": 0.849,
+        "praise": [
+          "internal_logic",
+          "sharp_argument",
+          "identity"
+        ],
+        "friction": [
+          "handwaving",
+          "plot_holes"
+        ],
+        "notable_quotes": [
+          "Mara gets a letter that threatens her promotion if she misses tonight's meeting."
+        ],
+        "evidence_refs": [
+          "78c1c051902cafd77246dea519f4d19fff0550fb64c3e45ff99eae50960f2893",
+          "book_dna:heuristic",
+          "chapter_001",
+          "chapter_002",
+          "x_09bbc8959f2f",
+          "x_a64f4b24c21d",
+          "reddit_d2fb6f571a7e",
+          "x_53a9f5672b6c"
+        ],
+        "confidence": 0.74
+      },
+      {
+        "reaction_id": "private_a880c570cfa3",
+        "simulation_id": "sim_de75dfe68c62",
+        "persona_id": "x_hot_take_reader_03_6423",
+        "chapter_id": null,
+        "rating": 4.03,
+        "dnf_probability": 0.376,
+        "sentiment": "positive",
+        "attachment_score": 0.755,
+        "confusion_score": 0.364,
+        "recommendation_probability": 0.882,
+        "praise": [
+          "provocation",
+          "controversy",
+          "identity"
+        ],
+        "friction": [
+          "slowness",
+          "nuance_without_payoff"
+        ],
+        "notable_quotes": [
+          "Mara gets a letter that threatens her promotion if she misses tonight's meeting."
+        ],
+        "evidence_refs": [
+          "78c1c051902cafd77246dea519f4d19fff0550fb64c3e45ff99eae50960f2893",
+          "book_dna:heuristic",
+          "chapter_001",
+          "reddit_d2fb6f571a7e",
+          "x_a64f4b24c21d",
+          "x_09bbc8959f2f"
+        ],
+        "confidence": 0.74
+      },
+      {
+        "reaction_id": "private_fade19dfb209",
+        "simulation_id": "sim_de75dfe68c62",
+        "persona_id": "nonfiction_evidence_skeptic_04_9291",
+        "chapter_id": null,
+        "rating": 3.67,
+        "dnf_probability": 0.463,
+        "sentiment": "positive",
+        "attachment_score": 0.727,
+        "confusion_score": 0.45,
+        "recommendation_probability": 0.83,
+        "praise": [
+          "citations",
+          "strong_methods",
+          "identity"
+        ],
+        "friction": [
+          "overclaiming",
+          "missing_sources"
+        ],
+        "notable_quotes": [
+          "Mara gets a letter that threatens her promotion if she misses tonight's meeting."
+        ],
+        "evidence_refs": [
+          "78c1c051902cafd77246dea519f4d19fff0550fb64c3e45ff99eae50960f2893",
+          "book_dna:heuristic",
+          "chapter_001",
+          "chapter_002",
+          "x_a64f4b24c21d",
+          "x_53a9f5672b6c",
+          "x_09bbc8959f2f",
+          "reddit_d2fb6f571a7e"
+        ],
+        "confidence": 0.74
+      },
+      {
+        "reaction_id": "private_a5dc49326cfe",
+        "simulation_id": "sim_de75dfe68c62",
+        "persona_id": "reddit_skeptic_05_4914",
+        "chapter_id": null,
+        "rating": 3.58,
+        "dnf_probability": 0.411,
+        "sentiment": "positive",
+        "attachment_score": 0.75,
+        "confusion_score": 0.377,
+        "recommendation_probability": 0.822,
+        "praise": [
+          "internal_logic",
+          "sharp_argument",
+          "identity"
+        ],
+        "friction": [
+          "handwaving",
+          "plot_holes"
+        ],
+        "notable_quotes": [
+          "Mara gets a letter that threatens her promotion if she misses tonight's meeting."
+        ],
+        "evidence_refs": [
+          "78c1c051902cafd77246dea519f4d19fff0550fb64c3e45ff99eae50960f2893",
+          "book_dna:heuristic",
+          "chapter_001",
+          "chapter_002",
+          "reddit_d2fb6f571a7e",
+          "x_09bbc8959f2f",
+          "x_a64f4b24c21d",
+          "x_53a9f5672b6c"
+        ],
+        "confidence": 0.74
+      },
+      {
+        "reaction_id": "private_1de44782246d",
+        "simulation_id": "sim_de75dfe68c62",
+        "persona_id": "x_hot_take_reader_06_5098",
+        "chapter_id": null,
+        "rating": 3.89,
+        "dnf_probability": 0.401,
+        "sentiment": "positive",
+        "attachment_score": 0.816,
+        "confusion_score": 0.419,
+        "recommendation_probability": 0.876,
+        "praise": [
+          "provocation",
+          "controversy",
+          "identity"
+        ],
+        "friction": [
+          "slowness",
+          "nuance_without_payoff"
+        ],
+        "notable_quotes": [
+          "Mara gets a letter that threatens her promotion if she misses tonight's meeting."
+        ],
+        "evidence_refs": [
+          "78c1c051902cafd77246dea519f4d19fff0550fb64c3e45ff99eae50960f2893",
+          "book_dna:heuristic",
+          "chapter_001",
+          "x_a64f4b24c21d",
+          "x_53a9f5672b6c",
+          "reddit_d2fb6f571a7e"
+        ],
+        "confidence": 0.74
+      },
+      {
+        "reaction_id": "private_b5713a8e7c2c",
+        "simulation_id": "sim_de75dfe68c62",
+        "persona_id": "goodreads_harsh_reviewer_07_8653",
+        "chapter_id": null,
+        "rating": 3.4,
+        "dnf_probability": 0.452,
+        "sentiment": "positive",
+        "attachment_score": 0.753,
+        "confusion_score": 0.412,
+        "recommendation_probability": 0.794,
+        "praise": [
+          "strong_opening",
+          "clean_prose",
+          "identity"
+        ],
+        "friction": [
+          "slow_start",
+          "weak_characterization"
+        ],
+        "notable_quotes": [
+          "Mara gets a letter that threatens her promotion if she misses tonight's meeting."
+        ],
+        "evidence_refs": [
+          "78c1c051902cafd77246dea519f4d19fff0550fb64c3e45ff99eae50960f2893",
+          "book_dna:heuristic",
+          "chapter_001",
+          "x_a64f4b24c21d",
+          "reddit_d2fb6f571a7e",
+          "x_53a9f5672b6c"
+        ],
+        "confidence": 0.74
+      },
+      {
+        "reaction_id": "private_c2d376b23385",
+        "simulation_id": "sim_de75dfe68c62",
+        "persona_id": "reddit_genre_purist_08_7602",
+        "chapter_id": null,
+        "rating": 3.74,
+        "dnf_probability": 0.463,
+        "sentiment": "positive",
+        "attachment_score": 0.76,
+        "confusion_score": 0.404,
+        "recommendation_probability": 0.853,
+        "praise": [
+          "genre_authenticity",
+          "canonical_rules",
+          "identity"
+        ],
+        "friction": [
+          "genre_blending",
+          "rule_breaking"
+        ],
+        "notable_quotes": [
+          "Mara gets a letter that threatens her promotion if she misses tonight's meeting."
+        ],
+        "evidence_refs": [
+          "78c1c051902cafd77246dea519f4d19fff0550fb64c3e45ff99eae50960f2893",
+          "book_dna:heuristic",
+          "chapter_001",
+          "x_a64f4b24c21d",
+          "x_09bbc8959f2f",
+          "x_53a9f5672b6c"
+        ],
+        "confidence": 0.74
+      },
+      {
+        "reaction_id": "private_87b4cd7a7029",
+        "simulation_id": "sim_de75dfe68c62",
+        "persona_id": "x_hot_take_reader_09_9797",
+        "chapter_id": null,
+        "rating": 3.76,
+        "dnf_probability": 0.448,
+        "sentiment": "positive",
+        "attachment_score": 0.785,
+        "confusion_score": 0.46,
+        "recommendation_probability": 0.853,
+        "praise": [
+          "provocation",
+          "controversy",
+          "identity"
+        ],
+        "friction": [
+          "slowness",
+          "nuance_without_payoff"
+        ],
+        "notable_quotes": [
+          "Mara gets a letter that threatens her promotion if she misses tonight's meeting."
+        ],
+        "evidence_refs": [
+          "78c1c051902cafd77246dea519f4d19fff0550fb64c3e45ff99eae50960f2893",
+          "book_dna:heuristic",
+          "chapter_001",
+          "reddit_d2fb6f571a7e",
+          "x_09bbc8959f2f",
+          "x_53a9f5672b6c"
+        ],
+        "confidence": 0.74
+      },
+      {
+        "reaction_id": "private_ecf7c7e5d60e",
+        "simulation_id": "sim_de75dfe68c62",
+        "persona_id": "reddit_skeptic_10_8868",
+        "chapter_id": null,
+        "rating": 3.56,
+        "dnf_probability": 0.398,
+        "sentiment": "positive",
+        "attachment_score": 0.724,
+        "confusion_score": 0.352,
+        "recommendation_probability": 0.814,
+        "praise": [
+          "internal_logic",
+          "sharp_argument",
+          "identity"
+        ],
+        "friction": [
+          "handwaving",
+          "plot_holes"
+        ],
+        "notable_quotes": [
+          "Mara gets a letter that threatens her promotion if she misses tonight's meeting."
+        ],
+        "evidence_refs": [
+          "78c1c051902cafd77246dea519f4d19fff0550fb64c3e45ff99eae50960f2893",
+          "book_dna:heuristic",
+          "chapter_001",
+          "chapter_002",
+          "x_a64f4b24c21d",
+          "reddit_d2fb6f571a7e",
+          "x_09bbc8959f2f",
+          "x_53a9f5672b6c"
+        ],
+        "confidence": 0.74
+      },
+      {
+        "reaction_id": "private_49e4e42f6300",
+        "simulation_id": "sim_de75dfe68c62",
+        "persona_id": "reddit_skeptic_11_7435",
+        "chapter_id": null,
+        "rating": 3.89,
+        "dnf_probability": 0.366,
+        "sentiment": "positive",
+        "attachment_score": 0.719,
+        "confusion_score": 0.378,
+        "recommendation_probability": 0.856,
+        "praise": [
+          "internal_logic",
+          "sharp_argument",
+          "identity"
+        ],
+        "friction": [
+          "handwaving",
+          "plot_holes"
+        ],
+        "notable_quotes": [
+          "Mara gets a letter that threatens her promotion if she misses tonight's meeting."
+        ],
+        "evidence_refs": [
+          "78c1c051902cafd77246dea519f4d19fff0550fb64c3e45ff99eae50960f2893",
+          "book_dna:heuristic",
+          "chapter_001",
+          "chapter_002",
+          "x_a64f4b24c21d",
+          "reddit_d2fb6f571a7e",
+          "x_09bbc8959f2f"
+        ],
+        "confidence": 0.74
+      },
+      {
+        "reaction_id": "private_a5d9ba586f68",
+        "simulation_id": "sim_de75dfe68c62",
+        "persona_id": "reddit_genre_purist_12_1464",
+        "chapter_id": null,
+        "rating": 4.06,
+        "dnf_probability": 0.417,
+        "sentiment": "positive",
+        "attachment_score": 0.791,
+        "confusion_score": 0.378,
+        "recommendation_probability": 0.897,
+        "praise": [
+          "genre_authenticity",
+          "canonical_rules",
+          "identity"
+        ],
+        "friction": [
+          "genre_blending",
+          "rule_breaking"
+        ],
+        "notable_quotes": [
+          "Mara gets a letter that threatens her promotion if she misses tonight's meeting."
+        ],
+        "evidence_refs": [
+          "78c1c051902cafd77246dea519f4d19fff0550fb64c3e45ff99eae50960f2893",
+          "book_dna:heuristic",
+          "chapter_001",
+          "x_53a9f5672b6c",
+          "x_09bbc8959f2f",
+          "x_a64f4b24c21d",
+          "reddit_d2fb6f571a7e"
+        ],
+        "confidence": 0.74
+      }
+    ],
+    "platform_posts": [
+      {
+        "post_id": "reddit_f38ae6cc74c7",
+        "simulation_id": "sim_de75dfe68c62",
+        "persona_id": "reddit_genre_purist_01_5745",
+        "platform": "reddit",
+        "round_number": 1,
+        "title": "[Discussion] Smoke Test Draft works until genre_blending",
+        "body": "My thesis: the book succeeds because of genre_authenticity, canonical_rules, but it asks you to forgive genre_blending, rule_breaking.",
+        "rating": 3.96,
+        "hashtags": [],
+        "shelf_tags": [],
+        "payload": {
+          "thread_title": "[Discussion] Smoke Test Draft works until genre_blending",
+          "top_comment": "My thesis: the book succeeds because of genre_authenticity, canonical_rules, but it asks you to forgive genre_blending, rule_breaking.",
+          "skeptical_comment": "I still don't buy the framing around genre_blending.",
+          "debate_branch": [
+            "User A defends the mixed/unknown expectations.",
+            "User B says the payoff earns the setup.",
+            "User C argues the momentum collapses in the middle."
+          ],
+          "logic_framing_objection": "The sharpest objection is whether genre_blending is actually supported on the page.",
+          "evidence_refs": [
+            "78c1c051902cafd77246dea519f4d19fff0550fb64c3e45ff99eae50960f2893",
+            "book_dna:heuristic",
+            "chapter_001",
+            "platform_style:reddit"
+          ]
+        },
+        "engagement_prediction": 0.571,
+        "sentiment": "mixed",
+        "evidence_refs": [
+          "78c1c051902cafd77246dea519f4d19fff0550fb64c3e45ff99eae50960f2893",
+          "book_dna:heuristic",
+          "chapter_001",
+          "platform_style:reddit"
+        ],
+        "confidence": 0.74
+      },
+      {
+        "post_id": "reddit_6abb37446792",
+        "simulation_id": "sim_de75dfe68c62",
+        "persona_id": "reddit_skeptic_02_7579",
+        "platform": "reddit",
+        "round_number": 1,
+        "title": "[Discussion] Smoke Test Draft works until handwaving",
+        "body": "My thesis: the book succeeds because of internal_logic, sharp_argument, but it asks you to forgive handwaving, plot_holes.",
+        "rating": 3.57,
+        "hashtags": [],
+        "shelf_tags": [],
+        "payload": {
+          "thread_title": "[Discussion] Smoke Test Draft works until handwaving",
+          "top_comment": "My thesis: the book succeeds because of internal_logic, sharp_argument, but it asks you to forgive handwaving, plot_holes.",
+          "skeptical_comment": "I still don't buy the framing around handwaving.",
+          "debate_branch": [
+            "User A defends the mixed/unknown expectations.",
+            "User B says the payoff earns the setup.",
+            "User C argues the momentum collapses in the middle."
+          ],
+          "logic_framing_objection": "The sharpest objection is whether handwaving is actually supported on the page.",
+          "evidence_refs": [
+            "78c1c051902cafd77246dea519f4d19fff0550fb64c3e45ff99eae50960f2893",
+            "book_dna:heuristic",
+            "chapter_001",
+            "chapter_002",
+            "platform_style:reddit"
+          ]
+        },
+        "engagement_prediction": 0.624,
+        "sentiment": "mixed",
+        "evidence_refs": [
+          "78c1c051902cafd77246dea519f4d19fff0550fb64c3e45ff99eae50960f2893",
+          "book_dna:heuristic",
+          "chapter_001",
+          "chapter_002",
+          "platform_style:reddit"
+        ],
+        "confidence": 0.74
+      },
+      {
+        "post_id": "x_53a9f5672b6c",
+        "simulation_id": "sim_de75dfe68c62",
+        "persona_id": "x_hot_take_reader_03_6423",
+        "platform": "x",
+        "round_number": 1,
+        "title": "Smoke Test Draft is either a 5-star obsession or proof that slowness kills momentum.",
+        "body": "QT: the book absolutely delivers on provocation.",
+        "rating": 3.96,
+        "hashtags": [],
+        "shelf_tags": [],
+        "payload": {
+          "hot_take": "Smoke Test Draft is either a 5-star obsession or proof that slowness kills momentum.",
+          "quote_tweet": "QT: the book absolutely delivers on provocation.",
+          "controversy_compression": "Compressed discourse: slowness vs payoff.",
+          "author_brand_reaction": "helps author brand if they lean into the strong opinion traffic",
+          "evidence_refs": [
+            "78c1c051902cafd77246dea519f4d19fff0550fb64c3e45ff99eae50960f2893",
+            "book_dna:heuristic",
+            "chapter_001",
+            "platform_style:x"
+          ]
+        },
+        "engagement_prediction": 0.776,
+        "sentiment": "mixed",
+        "evidence_refs": [
+          "78c1c051902cafd77246dea519f4d19fff0550fb64c3e45ff99eae50960f2893",
+          "book_dna:heuristic",
+          "chapter_001",
+          "platform_style:x"
+        ],
+        "confidence": 0.74
+      },
+      {
+        "post_id": "reddit_102fd91d16ab",
+        "simulation_id": "sim_de75dfe68c62",
+        "persona_id": "nonfiction_evidence_skeptic_04_9291",
+        "platform": "reddit",
+        "round_number": 1,
+        "title": "[Discussion] Smoke Test Draft works until overclaiming",
+        "body": "My thesis: the book succeeds because of citations, strong_methods, but it asks you to forgive overclaiming, missing_sources.",
+        "rating": 3.59,
+        "hashtags": [],
+        "shelf_tags": [],
+        "payload": {
+          "thread_title": "[Discussion] Smoke Test Draft works until overclaiming",
+          "top_comment": "My thesis: the book succeeds because of citations, strong_methods, but it asks you to forgive overclaiming, missing_sources.",
+          "skeptical_comment": "I still don't buy the framing around overclaiming.",
+          "debate_branch": [
+            "User A defends the mixed/unknown expectations.",
+            "User B says the payoff earns the setup.",
+            "User C argues the momentum collapses in the middle."
+          ],
+          "logic_framing_objection": "The sharpest objection is whether overclaiming is actually supported on the page.",
+          "evidence_refs": [
+            "78c1c051902cafd77246dea519f4d19fff0550fb64c3e45ff99eae50960f2893",
+            "book_dna:heuristic",
+            "chapter_001",
+            "chapter_002",
+            "platform_style:reddit"
+          ]
+        },
+        "engagement_prediction": 0.53,
+        "sentiment": "mixed",
+        "evidence_refs": [
+          "78c1c051902cafd77246dea519f4d19fff0550fb64c3e45ff99eae50960f2893",
+          "book_dna:heuristic",
+          "chapter_001",
+          "chapter_002",
+          "platform_style:reddit"
+        ],
+        "confidence": 0.74
+      },
+      {
+        "post_id": "reddit_c89db788d469",
+        "simulation_id": "sim_de75dfe68c62",
+        "persona_id": "reddit_skeptic_05_4914",
+        "platform": "reddit",
+        "round_number": 1,
+        "title": "[Discussion] Smoke Test Draft works until handwaving",
+        "body": "My thesis: the book succeeds because of internal_logic, sharp_argument, but it asks you to forgive handwaving, plot_holes.",
+        "rating": 3.5,
+        "hashtags": [],
+        "shelf_tags": [],
+        "payload": {
+          "thread_title": "[Discussion] Smoke Test Draft works until handwaving",
+          "top_comment": "My thesis: the book succeeds because of internal_logic, sharp_argument, but it asks you to forgive handwaving, plot_holes.",
+          "skeptical_comment": "I still don't buy the framing around handwaving.",
+          "debate_branch": [
+            "User A defends the mixed/unknown expectations.",
+            "User B says the payoff earns the setup.",
+            "User C argues the momentum collapses in the middle."
+          ],
+          "logic_framing_objection": "The sharpest objection is whether handwaving is actually supported on the page.",
+          "evidence_refs": [
+            "78c1c051902cafd77246dea519f4d19fff0550fb64c3e45ff99eae50960f2893",
+            "book_dna:heuristic",
+            "chapter_001",
+            "chapter_002",
+            "platform_style:reddit"
+          ]
+        },
+        "engagement_prediction": 0.603,
+        "sentiment": "mixed",
+        "evidence_refs": [
+          "78c1c051902cafd77246dea519f4d19fff0550fb64c3e45ff99eae50960f2893",
+          "book_dna:heuristic",
+          "chapter_001",
+          "chapter_002",
+          "platform_style:reddit"
+        ],
+        "confidence": 0.74
+      },
+      {
+        "post_id": "x_09bbc8959f2f",
+        "simulation_id": "sim_de75dfe68c62",
+        "persona_id": "x_hot_take_reader_06_5098",
+        "platform": "x",
+        "round_number": 1,
+        "title": "Smoke Test Draft is either a 5-star obsession or proof that slowness kills momentum.",
+        "body": "QT: the book absolutely delivers on provocation.",
+        "rating": 3.81,
+        "hashtags": [],
+        "shelf_tags": [],
+        "payload": {
+          "hot_take": "Smoke Test Draft is either a 5-star obsession or proof that slowness kills momentum.",
+          "quote_tweet": "QT: the book absolutely delivers on provocation.",
+          "controversy_compression": "Compressed discourse: slowness vs payoff.",
+          "author_brand_reaction": "helps author brand if they lean into the strong opinion traffic",
+          "evidence_refs": [
+            "78c1c051902cafd77246dea519f4d19fff0550fb64c3e45ff99eae50960f2893",
+            "book_dna:heuristic",
+            "chapter_001",
+            "platform_style:x"
+          ]
+        },
+        "engagement_prediction": 0.755,
+        "sentiment": "mixed",
+        "evidence_refs": [
+          "78c1c051902cafd77246dea519f4d19fff0550fb64c3e45ff99eae50960f2893",
+          "book_dna:heuristic",
+          "chapter_001",
+          "platform_style:x"
+        ],
+        "confidence": 0.74
+      },
+      {
+        "post_id": "goodreads_731425a1b3c0",
+        "simulation_id": "sim_de75dfe68c62",
+        "persona_id": "goodreads_harsh_reviewer_07_8653",
+        "platform": "goodreads",
+        "round_number": 1,
+        "title": "Smoke Test Draft: strong Short sentences and quick paragraph turns suggest fast pacing. payoff",
+        "body": "I came for the mixed/unknown promise and stayed for strong_opening, clean_prose. My main friction was slow_start, weak_characterization.",
+        "rating": 3.32,
+        "hashtags": [],
+        "shelf_tags": [
+          "mixed/unknown",
+          "community_reviewers",
+          "swarmbook-simulated"
+        ],
+        "payload": {
+          "star_rating": 3,
+          "review_title": "Smoke Test Draft: strong Short sentences and quick paragraph turns suggest fast pacing. payoff",
+          "review_body": "I came for the mixed/unknown promise and stayed for strong_opening, clean_prose. My main friction was slow_start, weak_characterization.",
+          "shelf_tags": [
+            "mixed/unknown",
+            "community_reviewers",
+            "swarmbook-simulated"
+          ],
+          "dnf_note": "Finished the book",
+          "quote_highlights": [
+            "Mara gets a letter that threatens her promotion if she misses tonight's meeting."
+          ],
+          "evidence_refs": [
+            "78c1c051902cafd77246dea519f4d19fff0550fb64c3e45ff99eae50960f2893",
+            "book_dna:heuristic",
+            "chapter_001",
+            "platform_style:goodreads"
+          ]
+        },
+        "engagement_prediction": 0.444,
+        "sentiment": "mixed",
+        "evidence_refs": [
+          "78c1c051902cafd77246dea519f4d19fff0550fb64c3e45ff99eae50960f2893",
+          "book_dna:heuristic",
+          "chapter_001",
+          "platform_style:goodreads"
+        ],
+        "confidence": 0.74
+      },
+      {
+        "post_id": "reddit_d2fb6f571a7e",
+        "simulation_id": "sim_de75dfe68c62",
+        "persona_id": "reddit_genre_purist_08_7602",
+        "platform": "reddit",
+        "round_number": 1,
+        "title": "[Discussion] Smoke Test Draft works until genre_blending",
+        "body": "My thesis: the book succeeds because of genre_authenticity, canonical_rules, but it asks you to forgive genre_blending, rule_breaking.",
+        "rating": 3.66,
+        "hashtags": [],
+        "shelf_tags": [],
+        "payload": {
+          "thread_title": "[Discussion] Smoke Test Draft works until genre_blending",
+          "top_comment": "My thesis: the book succeeds because of genre_authenticity, canonical_rules, but it asks you to forgive genre_blending, rule_breaking.",
+          "skeptical_comment": "I still don't buy the framing around genre_blending.",
+          "debate_branch": [
+            "User A defends the mixed/unknown expectations.",
+            "User B says the payoff earns the setup.",
+            "User C argues the momentum collapses in the middle."
+          ],
+          "logic_framing_objection": "The sharpest objection is whether genre_blending is actually supported on the page.",
+          "evidence_refs": [
+            "78c1c051902cafd77246dea519f4d19fff0550fb64c3e45ff99eae50960f2893",
+            "book_dna:heuristic",
+            "chapter_001",
+            "platform_style:reddit"
+          ]
+        },
+        "engagement_prediction": 0.636,
+        "sentiment": "mixed",
+        "evidence_refs": [
+          "78c1c051902cafd77246dea519f4d19fff0550fb64c3e45ff99eae50960f2893",
+          "book_dna:heuristic",
+          "chapter_001",
+          "platform_style:reddit"
+        ],
+        "confidence": 0.74
+      },
+      {
+        "post_id": "x_a64f4b24c21d",
+        "simulation_id": "sim_de75dfe68c62",
+        "persona_id": "x_hot_take_reader_09_9797",
+        "platform": "x",
+        "round_number": 1,
+        "title": "Smoke Test Draft is either a 5-star obsession or proof that slowness kills momentum.",
+        "body": "QT: the book absolutely delivers on provocation.",
+        "rating": 3.68,
+        "hashtags": [],
+        "shelf_tags": [],
+        "payload": {
+          "hot_take": "Smoke Test Draft is either a 5-star obsession or proof that slowness kills momentum.",
+          "quote_tweet": "QT: the book absolutely delivers on provocation.",
+          "controversy_compression": "Compressed discourse: slowness vs payoff.",
+          "author_brand_reaction": "helps author brand if they lean into the strong opinion traffic",
+          "evidence_refs": [
+            "78c1c051902cafd77246dea519f4d19fff0550fb64c3e45ff99eae50960f2893",
+            "book_dna:heuristic",
+            "chapter_001",
+            "platform_style:x"
+          ]
+        },
+        "engagement_prediction": 0.739,
+        "sentiment": "mixed",
+        "evidence_refs": [
+          "78c1c051902cafd77246dea519f4d19fff0550fb64c3e45ff99eae50960f2893",
+          "book_dna:heuristic",
+          "chapter_001",
+          "platform_style:x"
+        ],
+        "confidence": 0.74
+      },
+      {
+        "post_id": "reddit_b9d5bf41a144",
+        "simulation_id": "sim_de75dfe68c62",
+        "persona_id": "reddit_skeptic_10_8868",
+        "platform": "reddit",
+        "round_number": 1,
+        "title": "[Discussion] Smoke Test Draft works until handwaving",
+        "body": "My thesis: the book succeeds because of internal_logic, sharp_argument, but it asks you to forgive handwaving, plot_holes.",
+        "rating": 3.48,
+        "hashtags": [],
+        "shelf_tags": [],
+        "payload": {
+          "thread_title": "[Discussion] Smoke Test Draft works until handwaving",
+          "top_comment": "My thesis: the book succeeds because of internal_logic, sharp_argument, but it asks you to forgive handwaving, plot_holes.",
+          "skeptical_comment": "I still don't buy the framing around handwaving.",
+          "debate_branch": [
+            "User A defends the mixed/unknown expectations.",
+            "User B says the payoff earns the setup.",
+            "User C argues the momentum collapses in the middle."
+          ],
+          "logic_framing_objection": "The sharpest objection is whether handwaving is actually supported on the page.",
+          "evidence_refs": [
+            "78c1c051902cafd77246dea519f4d19fff0550fb64c3e45ff99eae50960f2893",
+            "book_dna:heuristic",
+            "chapter_001",
+            "chapter_002",
+            "platform_style:reddit"
+          ]
+        },
+        "engagement_prediction": 0.538,
+        "sentiment": "mixed",
+        "evidence_refs": [
+          "78c1c051902cafd77246dea519f4d19fff0550fb64c3e45ff99eae50960f2893",
+          "book_dna:heuristic",
+          "chapter_001",
+          "chapter_002",
+          "platform_style:reddit"
+        ],
+        "confidence": 0.74
+      },
+      {
+        "post_id": "reddit_c781f5f4206e",
+        "simulation_id": "sim_de75dfe68c62",
+        "persona_id": "reddit_skeptic_11_7435",
+        "platform": "reddit",
+        "round_number": 1,
+        "title": "[Discussion] Smoke Test Draft works until handwaving",
+        "body": "My thesis: the book succeeds because of internal_logic, sharp_argument, but it asks you to forgive handwaving, plot_holes.",
+        "rating": 3.82,
+        "hashtags": [],
+        "shelf_tags": [],
+        "payload": {
+          "thread_title": "[Discussion] Smoke Test Draft works until handwaving",
+          "top_comment": "My thesis: the book succeeds because of internal_logic, sharp_argument, but it asks you to forgive handwaving, plot_holes.",
+          "skeptical_comment": "I still don't buy the framing around handwaving.",
+          "debate_branch": [
+            "User A defends the mixed/unknown expectations.",
+            "User B says the payoff earns the setup.",
+            "User C argues the momentum collapses in the middle."
+          ],
+          "logic_framing_objection": "The sharpest objection is whether handwaving is actually supported on the page.",
+          "evidence_refs": [
+            "78c1c051902cafd77246dea519f4d19fff0550fb64c3e45ff99eae50960f2893",
+            "book_dna:heuristic",
+            "chapter_001",
+            "chapter_002",
+            "platform_style:reddit"
+          ]
+        },
+        "engagement_prediction": 0.605,
+        "sentiment": "mixed",
+        "evidence_refs": [
+          "78c1c051902cafd77246dea519f4d19fff0550fb64c3e45ff99eae50960f2893",
+          "book_dna:heuristic",
+          "chapter_001",
+          "chapter_002",
+          "platform_style:reddit"
+        ],
+        "confidence": 0.74
+      },
+      {
+        "post_id": "reddit_b7e8130449c3",
+        "simulation_id": "sim_de75dfe68c62",
+        "persona_id": "reddit_genre_purist_12_1464",
+        "platform": "reddit",
+        "round_number": 1,
+        "title": "[Discussion] Smoke Test Draft works until genre_blending",
+        "body": "My thesis: the book succeeds because of genre_authenticity, canonical_rules, but it asks you to forgive genre_blending, rule_breaking.",
+        "rating": 3.98,
+        "hashtags": [],
+        "shelf_tags": [],
+        "payload": {
+          "thread_title": "[Discussion] Smoke Test Draft works until genre_blending",
+          "top_comment": "My thesis: the book succeeds because of genre_authenticity, canonical_rules, but it asks you to forgive genre_blending, rule_breaking.",
+          "skeptical_comment": "I still don't buy the framing around genre_blending.",
+          "debate_branch": [
+            "User A defends the mixed/unknown expectations.",
+            "User B says the payoff earns the setup.",
+            "User C argues the momentum collapses in the middle."
+          ],
+          "logic_framing_objection": "The sharpest objection is whether genre_blending is actually supported on the page.",
+          "evidence_refs": [
+            "78c1c051902cafd77246dea519f4d19fff0550fb64c3e45ff99eae50960f2893",
+            "book_dna:heuristic",
+            "chapter_001",
+            "platform_style:reddit"
+          ]
+        },
+        "engagement_prediction": 0.578,
+        "sentiment": "mixed",
+        "evidence_refs": [
+          "78c1c051902cafd77246dea519f4d19fff0550fb64c3e45ff99eae50960f2893",
+          "book_dna:heuristic",
+          "chapter_001",
+          "platform_style:reddit"
+        ],
+        "confidence": 0.74
+      }
+    ],
+    "cross_reactions": [
+      {
+        "reaction_id": "cross_e6c87b653657",
+        "simulation_id": "sim_de75dfe68c62",
+        "source_post_id": "x_09bbc8959f2f",
+        "target_post_id": "reddit_d2fb6f571a7e",
+        "persona_id": "reddit_genre_purist_01_5745",
+        "platform": "reddit",
+        "reacted_post_ids": [
+          "x_09bbc8959f2f",
+          "x_53a9f5672b6c",
+          "x_a64f4b24c21d",
+          "reddit_d2fb6f571a7e"
+        ],
+        "stance_shift": "more_positive",
+        "agree_probability": 0.815,
+        "disagree_probability": 0.185,
+        "reply_likelihood": 0.565,
+        "rating_shift": 0.078,
+        "recommendation_shift": 0.182,
+        "sentiment": "positive",
+        "evidence_refs": [
+          "78c1c051902cafd77246dea519f4d19fff0550fb64c3e45ff99eae50960f2893",
+          "book_dna:heuristic",
+          "chapter_001",
+          "platform_style:x",
+          "platform_style:reddit"
+        ],
+        "confidence": 0.74
+      },
+      {
+        "reaction_id": "cross_80f7c609d7f2",
+        "simulation_id": "sim_de75dfe68c62",
+        "source_post_id": "x_09bbc8959f2f",
+        "target_post_id": "x_53a9f5672b6c",
+        "persona_id": "reddit_skeptic_02_7579",
+        "platform": "reddit",
+        "reacted_post_ids": [
+          "x_09bbc8959f2f",
+          "x_a64f4b24c21d",
+          "reddit_d2fb6f571a7e",
+          "x_53a9f5672b6c"
+        ],
+        "stance_shift": "more_positive",
+        "agree_probability": 0.768,
+        "disagree_probability": 0.232,
+        "reply_likelihood": 0.535,
+        "rating_shift": 0.078,
+        "recommendation_shift": 0.182,
+        "sentiment": "positive",
+        "evidence_refs": [
+          "78c1c051902cafd77246dea519f4d19fff0550fb64c3e45ff99eae50960f2893",
+          "book_dna:heuristic",
+          "chapter_001",
+          "platform_style:x",
+          "platform_style:reddit"
+        ],
+        "confidence": 0.74
+      },
+      {
+        "reaction_id": "cross_db71aeabbc3e",
+        "simulation_id": "sim_de75dfe68c62",
+        "source_post_id": "reddit_d2fb6f571a7e",
+        "target_post_id": "x_09bbc8959f2f",
+        "persona_id": "x_hot_take_reader_03_6423",
+        "platform": "x",
+        "reacted_post_ids": [
+          "reddit_d2fb6f571a7e",
+          "x_a64f4b24c21d",
+          "x_09bbc8959f2f"
+        ],
+        "stance_shift": "more_positive",
+        "agree_probability": 0.875,
+        "disagree_probability": 0.125,
+        "reply_likelihood": 0.75,
+        "rating_shift": 0.072,
+        "recommendation_shift": 0.177,
+        "sentiment": "positive",
+        "evidence_refs": [
+          "78c1c051902cafd77246dea519f4d19fff0550fb64c3e45ff99eae50960f2893",
+          "book_dna:heuristic",
+          "chapter_001",
+          "platform_style:reddit",
+          "platform_style:x"
+        ],
+        "confidence": 0.74
+      },
+      {
+        "reaction_id": "cross_e6b3568ba5de",
+        "simulation_id": "sim_de75dfe68c62",
+        "source_post_id": "x_a64f4b24c21d",
+        "target_post_id": "reddit_d2fb6f571a7e",
+        "persona_id": "nonfiction_evidence_skeptic_04_9291",
+        "platform": "reddit",
+        "reacted_post_ids": [
+          "x_a64f4b24c21d",
+          "x_53a9f5672b6c",
+          "x_09bbc8959f2f",
+          "reddit_d2fb6f571a7e"
+        ],
+        "stance_shift": "more_positive",
+        "agree_probability": 0.804,
+        "disagree_probability": 0.196,
+        "reply_likelihood": 0.493,
+        "rating_shift": 0.078,
+        "recommendation_shift": 0.182,
+        "sentiment": "positive",
+        "evidence_refs": [
+          "78c1c051902cafd77246dea519f4d19fff0550fb64c3e45ff99eae50960f2893",
+          "book_dna:heuristic",
+          "chapter_001",
+          "platform_style:x",
+          "platform_style:reddit"
+        ],
+        "confidence": 0.74
+      },
+      {
+        "reaction_id": "cross_27a8a3e43fa0",
+        "simulation_id": "sim_de75dfe68c62",
+        "source_post_id": "reddit_d2fb6f571a7e",
+        "target_post_id": "x_53a9f5672b6c",
+        "persona_id": "reddit_skeptic_05_4914",
+        "platform": "reddit",
+        "reacted_post_ids": [
+          "reddit_d2fb6f571a7e",
+          "x_09bbc8959f2f",
+          "x_a64f4b24c21d",
+          "x_53a9f5672b6c"
+        ],
+        "stance_shift": "more_positive",
+        "agree_probability": 0.76,
+        "disagree_probability": 0.24,
+        "reply_likelihood": 0.499,
+        "rating_shift": 0.078,
+        "recommendation_shift": 0.182,
+        "sentiment": "positive",
+        "evidence_refs": [
+          "78c1c051902cafd77246dea519f4d19fff0550fb64c3e45ff99eae50960f2893",
+          "book_dna:heuristic",
+          "chapter_001",
+          "platform_style:reddit",
+          "platform_style:x"
+        ],
+        "confidence": 0.74
+      },
+      {
+        "reaction_id": "cross_a3b2b903f62a",
+        "simulation_id": "sim_de75dfe68c62",
+        "source_post_id": "x_a64f4b24c21d",
+        "target_post_id": "reddit_d2fb6f571a7e",
+        "persona_id": "x_hot_take_reader_06_5098",
+        "platform": "x",
+        "reacted_post_ids": [
+          "x_a64f4b24c21d",
+          "x_53a9f5672b6c",
+          "reddit_d2fb6f571a7e"
+        ],
+        "stance_shift": "more_positive",
+        "agree_probability": 0.927,
+        "disagree_probability": 0.073,
+        "reply_likelihood": 0.77,
+        "rating_shift": 0.077,
+        "recommendation_shift": 0.179,
+        "sentiment": "positive",
+        "evidence_refs": [
+          "78c1c051902cafd77246dea519f4d19fff0550fb64c3e45ff99eae50960f2893",
+          "book_dna:heuristic",
+          "chapter_001",
+          "platform_style:x",
+          "platform_style:reddit"
+        ],
+        "confidence": 0.74
+      },
+      {
+        "reaction_id": "cross_6125de6ec5ce",
+        "simulation_id": "sim_de75dfe68c62",
+        "source_post_id": "x_a64f4b24c21d",
+        "target_post_id": "x_53a9f5672b6c",
+        "persona_id": "goodreads_harsh_reviewer_07_8653",
+        "platform": "goodreads",
+        "reacted_post_ids": [
+          "x_a64f4b24c21d",
+          "reddit_d2fb6f571a7e",
+          "x_53a9f5672b6c"
+        ],
+        "stance_shift": "more_positive",
+        "agree_probability": 0.691,
+        "disagree_probability": 0.309,
+        "reply_likelihood": 0.43,
+        "rating_shift": 0.077,
+        "recommendation_shift": 0.179,
+        "sentiment": "positive",
+        "evidence_refs": [
+          "78c1c051902cafd77246dea519f4d19fff0550fb64c3e45ff99eae50960f2893",
+          "book_dna:heuristic",
+          "chapter_001",
+          "platform_style:x",
+          "platform_style:reddit"
+        ],
+        "confidence": 0.74
+      },
+      {
+        "reaction_id": "cross_c51c078ee35b",
+        "simulation_id": "sim_de75dfe68c62",
+        "source_post_id": "x_a64f4b24c21d",
+        "target_post_id": "x_53a9f5672b6c",
+        "persona_id": "reddit_genre_purist_08_7602",
+        "platform": "reddit",
+        "reacted_post_ids": [
+          "x_a64f4b24c21d",
+          "x_09bbc8959f2f",
+          "x_53a9f5672b6c"
+        ],
+        "stance_shift": "more_positive",
+        "agree_probability": 0.772,
+        "disagree_probability": 0.228,
+        "reply_likelihood": 0.577,
+        "rating_shift": 0.082,
+        "recommendation_shift": 0.189,
+        "sentiment": "positive",
+        "evidence_refs": [
+          "78c1c051902cafd77246dea519f4d19fff0550fb64c3e45ff99eae50960f2893",
+          "book_dna:heuristic",
+          "chapter_001",
+          "platform_style:x"
+        ],
+        "confidence": 0.74
+      },
+      {
+        "reaction_id": "cross_90b4a9400167",
+        "simulation_id": "sim_de75dfe68c62",
+        "source_post_id": "reddit_d2fb6f571a7e",
+        "target_post_id": "x_53a9f5672b6c",
+        "persona_id": "x_hot_take_reader_09_9797",
+        "platform": "x",
+        "reacted_post_ids": [
+          "reddit_d2fb6f571a7e",
+          "x_09bbc8959f2f",
+          "x_53a9f5672b6c"
+        ],
+        "stance_shift": "more_positive",
+        "agree_probability": 0.889,
+        "disagree_probability": 0.111,
+        "reply_likelihood": 0.756,
+        "rating_shift": 0.081,
+        "recommendation_shift": 0.181,
+        "sentiment": "positive",
+        "evidence_refs": [
+          "78c1c051902cafd77246dea519f4d19fff0550fb64c3e45ff99eae50960f2893",
+          "book_dna:heuristic",
+          "chapter_001",
+          "platform_style:reddit",
+          "platform_style:x"
+        ],
+        "confidence": 0.74
+      },
+      {
+        "reaction_id": "cross_38792844966d",
+        "simulation_id": "sim_de75dfe68c62",
+        "source_post_id": "x_a64f4b24c21d",
+        "target_post_id": "x_53a9f5672b6c",
+        "persona_id": "reddit_skeptic_10_8868",
+        "platform": "reddit",
+        "reacted_post_ids": [
+          "x_a64f4b24c21d",
+          "reddit_d2fb6f571a7e",
+          "x_09bbc8959f2f",
+          "x_53a9f5672b6c"
+        ],
+        "stance_shift": "more_positive",
+        "agree_probability": 0.79,
+        "disagree_probability": 0.21,
+        "reply_likelihood": 0.495,
+        "rating_shift": 0.078,
+        "recommendation_shift": 0.182,
+        "sentiment": "positive",
+        "evidence_refs": [
+          "78c1c051902cafd77246dea519f4d19fff0550fb64c3e45ff99eae50960f2893",
+          "book_dna:heuristic",
+          "chapter_001",
+          "platform_style:x",
+          "platform_style:reddit"
+        ],
+        "confidence": 0.74
+      },
+      {
+        "reaction_id": "cross_b5498feccedb",
+        "simulation_id": "sim_de75dfe68c62",
+        "source_post_id": "x_a64f4b24c21d",
+        "target_post_id": "x_09bbc8959f2f",
+        "persona_id": "reddit_skeptic_11_7435",
+        "platform": "reddit",
+        "reacted_post_ids": [
+          "x_a64f4b24c21d",
+          "reddit_d2fb6f571a7e",
+          "x_09bbc8959f2f"
+        ],
+        "stance_shift": "more_positive",
+        "agree_probability": 0.755,
+        "disagree_probability": 0.245,
+        "reply_likelihood": 0.498,
+        "rating_shift": 0.072,
+        "recommendation_shift": 0.177,
+        "sentiment": "positive",
+        "evidence_refs": [
+          "78c1c051902cafd77246dea519f4d19fff0550fb64c3e45ff99eae50960f2893",
+          "book_dna:heuristic",
+          "chapter_001",
+          "platform_style:x",
+          "platform_style:reddit"
+        ],
+        "confidence": 0.74
+      },
+      {
+        "reaction_id": "cross_1f79306d474a",
+        "simulation_id": "sim_de75dfe68c62",
+        "source_post_id": "x_53a9f5672b6c",
+        "target_post_id": "reddit_d2fb6f571a7e",
+        "persona_id": "reddit_genre_purist_12_1464",
+        "platform": "reddit",
+        "reacted_post_ids": [
+          "x_53a9f5672b6c",
+          "x_09bbc8959f2f",
+          "x_a64f4b24c21d",
+          "reddit_d2fb6f571a7e"
+        ],
+        "stance_shift": "more_positive",
+        "agree_probability": 0.809,
+        "disagree_probability": 0.191,
+        "reply_likelihood": 0.551,
+        "rating_shift": 0.078,
+        "recommendation_shift": 0.182,
+        "sentiment": "positive",
+        "evidence_refs": [
+          "78c1c051902cafd77246dea519f4d19fff0550fb64c3e45ff99eae50960f2893",
+          "book_dna:heuristic",
+          "chapter_001",
+          "platform_style:x",
+          "platform_style:reddit"
+        ],
+        "confidence": 0.74
+      }
+    ],
+    "evidence_refs": [
+      "78c1c051902cafd77246dea519f4d19fff0550fb64c3e45ff99eae50960f2893",
+      "book_dna:heuristic",
+      "chapter_001",
+      "pack_78c1c051902c"
+    ],
+    "confidence": 0.74,
+    "metadata": {
+      "cross_reaction_posts": 4,
+      "max_reaction_rounds": 1,
+      "max_parallel_jobs": 1
+    }
+  }
+}

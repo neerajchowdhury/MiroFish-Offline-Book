@@ -1,0 +1,714 @@
+{
+  "report_id": "report_004a4995aac7",
+  "project_id": "proj_39957bf80f83",
+  "simulation_id": "sim_44b2f2e74318",
+  "privacy_mode": "cloud_quality",
+  "draft_id": null,
+  "version": null,
+  "title": "Your Child's Struggle is Not Your Emergency",
+  "summary": "Predicted mean rating is 3.71 with DNF risk at 0.41. Best synthetic spread is on newsletter, booktok, while the main blocker is Preface: The Gospel of the Scraped Knee may create drag or confusion.",
+  "audience_response": {
+    "personas_count": 60,
+    "posts_count": 60,
+    "mean_rating": 3.711,
+    "recommendation_mean": 1.0,
+    "top_platforms": [
+      "newsletter",
+      "booktok",
+      "goodreads"
+    ]
+  },
+  "scorecard": {
+    "rating_distribution": {
+      "predicted_mean_rating": 3.711,
+      "distribution": {
+        "1_star": 0.004,
+        "2_star": 0.004,
+        "3_star": 0.069,
+        "4_star": 0.918,
+        "5_star": 0.004
+      },
+      "confidence_band": {
+        "low": 1.0,
+        "mid": 1.0,
+        "high": 1.0,
+        "label": "moderate"
+      },
+      "component_scores": {
+        "comprehension": 0.0,
+        "emotional_payoff": 1.0,
+        "prose_quality": 0.65,
+        "pacing": 0.562,
+        "character_attachment": 0.779,
+        "packaging_fit": 0.59
+      },
+      "evidence_refs": [
+        "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+        "book_dna:heuristic",
+        "chapter_001",
+        "chapter:chapter_001",
+        "chapter:chapter_007",
+        "booktok_2439edc383e2",
+        "x_dd50de1d1f0e",
+        "booktok_b7596829ec13",
+        "bookstagram_9e30d82891ac",
+        "booktok_fc3538d1405f",
+        "booktok_5bc6881507c8",
+        "x_c35b951e1f7e",
+        "booktok_0eb11f0d537d",
+        "x_80ed423c7865",
+        "x_1fa7ae81ccaf",
+        "booktok_650d58ec76df",
+        "x_89dece172e78"
+      ],
+      "notes": [
+        "Deterministic rating estimate derived from private reactions and config weights.",
+        "This is descriptive forecasting, not scientific certainty."
+      ]
+    },
+    "dnf": {
+      "dnf_risk": 0.412,
+      "confidence_band": {
+        "low": 0.35,
+        "mid": 0.412,
+        "high": 0.474,
+        "label": "moderate"
+      },
+      "component_scores": {
+        "opening_drag": 0.572,
+        "confusion": 0.511,
+        "pacing_drag": 0.248,
+        "unmet_expectation": 0.43,
+        "voice_misalignment": 0.28,
+        "length_fatigue": 0.25
+      },
+      "chapter_points": [
+        {
+          "section_id": "chapter_001",
+          "chapter_number": 1,
+          "dnf_points": 0.45,
+          "reason": "chapter 1; pacing=fast; friction=too_many_open_questions,limited_dialogue_relief"
+        },
+        {
+          "section_id": "chapter_007",
+          "chapter_number": 7,
+          "dnf_points": 0.35,
+          "reason": "chapter 7; pacing=fast; friction=too_many_open_questions,limited_dialogue_relief"
+        },
+        {
+          "section_id": "chapter_008",
+          "chapter_number": 8,
+          "dnf_points": 0.35,
+          "reason": "chapter 8; pacing=fast; friction=too_many_open_questions,limited_dialogue_relief"
+        },
+        {
+          "section_id": "chapter_009",
+          "chapter_number": 9,
+          "dnf_points": 0.35,
+          "reason": "chapter 9; pacing=fast; friction=too_many_open_questions,limited_dialogue_relief"
+        },
+        {
+          "section_id": "chapter_002",
+          "chapter_number": 2,
+          "dnf_points": 0.31,
+          "reason": "chapter 2; pacing=fast"
+        },
+        {
+          "section_id": "chapter_004",
+          "chapter_number": 4,
+          "dnf_points": 0.23,
+          "reason": "chapter 4; pacing=fast"
+        },
+        {
+          "section_id": "chapter_003",
+          "chapter_number": 3,
+          "dnf_points": 0.21,
+          "reason": "chapter 3; pacing=fast"
+        },
+        {
+          "section_id": "chapter_005",
+          "chapter_number": 5,
+          "dnf_points": 0.21,
+          "reason": "chapter 5; pacing=fast"
+        },
+        {
+          "section_id": "chapter_006",
+          "chapter_number": 6,
+          "dnf_points": 0.21,
+          "reason": "chapter 6; pacing=fast"
+        }
+      ],
+      "evidence_refs": [
+        "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+        "book_dna:heuristic",
+        "chapter_001",
+        "risk_001",
+        "risk_002",
+        "risk_003",
+        "risk_004",
+        "chapter:chapter_001",
+        "chapter:chapter_007",
+        "chapter:chapter_008",
+        "chapter:chapter_009"
+      ],
+      "notes": [
+        "Chapter points are descriptive hotspots, not predictive certainty.",
+        "Scores are deterministic and derived from the evidence pack plus private reactions."
+      ]
+    },
+    "controversy": {
+      "controversy_risk": 0.286,
+      "radar": {
+        "ideological_tension": 0.332,
+        "claim_hazard": 0.26,
+        "moral_disagreement": 0.2,
+        "tonal_disruption": 0.28,
+        "character_behavior_challenge": 0.4,
+        "packaging_mismatch": 0.29
+      },
+      "confidence_band": {
+        "low": 0.246,
+        "mid": 0.286,
+        "high": 0.326,
+        "label": "moderate"
+      },
+      "hotspots": [],
+      "evidence_refs": [
+        "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+        "book_dna:heuristic",
+        "chapter_001",
+        "risk_001",
+        "risk_002",
+        "risk_003",
+        "risk_004",
+        "chapter:chapter_001",
+        "chapter:chapter_007",
+        "chapter:chapter_008",
+        "chapter:chapter_009"
+      ],
+      "notes": [
+        "Controversy is a descriptive radar, not a scientific certainty."
+      ]
+    },
+    "quoteability": {
+      "quoteability_score": 0.523,
+      "component_scores": {
+        "line_density": 0.47,
+        "image_making_language": 0.42,
+        "emotional_clarity": 0.66,
+        "repetition_resonance": 0.49,
+        "scene_peak_strength": 0.62,
+        "excerpt_friendly_structure": 0.54
+      },
+      "confidence_band": {
+        "low": 0.478,
+        "mid": 0.523,
+        "high": 0.568,
+        "label": "moderate"
+      },
+      "quote_candidates": [
+        {
+          "text": "I was at a child’s birthday party last Sunday. You know the kind.",
+          "source": "book_dna"
+        },
+        {
+          "text": "I was at a child’s birthday party last Sunday. You know the kind.",
+          "source": "chapter_001"
+        },
+        {
+          "text": "Why love became logistics First, we name the trap.",
+          "source": "chapter_002"
+        },
+        {
+          "text": "How to step back without stepping away Then we build the new job description.",
+          "source": "chapter_003"
+        },
+        {
+          "text": "I was at a child’s birthday party last Sunday. You know the kind.",
+          "source": "private_7c52d482e946"
+        },
+        {
+          "text": "I was at a child’s birthday party last Sunday. You know the kind.",
+          "source": "private_e52add3b4c91"
+        }
+      ],
+      "evidence_refs": [
+        "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+        "book_dna:heuristic",
+        "chapter_001",
+        "style:global",
+        "chapter:chapter_001",
+        "chapter:chapter_007",
+        "booktok_2439edc383e2",
+        "x_dd50de1d1f0e",
+        "booktok_b7596829ec13",
+        "bookstagram_9e30d82891ac",
+        "booktok_fc3538d1405f",
+        "booktok_5bc6881507c8",
+        "x_c35b951e1f7e",
+        "booktok_0eb11f0d537d",
+        "x_80ed423c7865",
+        "x_1fa7ae81ccaf",
+        "booktok_650d58ec76df",
+        "x_89dece172e78"
+      ],
+      "notes": [
+        "Quoteability is a descriptive score and should not be treated as certainty."
+      ]
+    },
+    "polarization": {
+      "polarization_score": 0.302,
+      "component_scores": {
+        "taste_split": 0.442,
+        "ideology_split": 0.22,
+        "prose_split": 0.18,
+        "ending_split": 0.36,
+        "genre_expectation_split": 0.22
+      },
+      "confidence_band": {
+        "low": 0.247,
+        "mid": 0.302,
+        "high": 0.357,
+        "label": "moderate"
+      },
+      "split_signals": [],
+      "evidence_refs": [
+        "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+        "book_dna:heuristic",
+        "chapter_001",
+        "character_001",
+        "character_002",
+        "character_003",
+        "character_004",
+        "character_005",
+        "character_006",
+        "character_007",
+        "character_008",
+        "character_009",
+        "character_010",
+        "character_011",
+        "character_012",
+        "chapter:chapter_001",
+        "chapter:chapter_007",
+        "booktok_2439edc383e2",
+        "x_dd50de1d1f0e",
+        "booktok_b7596829ec13",
+        "bookstagram_9e30d82891ac",
+        "booktok_fc3538d1405f",
+        "booktok_5bc6881507c8",
+        "x_c35b951e1f7e",
+        "booktok_0eb11f0d537d",
+        "x_80ed423c7865",
+        "x_1fa7ae81ccaf",
+        "booktok_650d58ec76df",
+        "x_89dece172e78",
+        "platform_style:booktok",
+        "platform_style:x",
+        "platform_style:bookstagram"
+      ],
+      "notes": [
+        "Polarization is a descriptive split signal, not a certainty statement."
+      ]
+    },
+    "viral": {
+      "platform_scores": {
+        "goodreads": 0.713,
+        "booktok": 0.763,
+        "reddit": 0.554,
+        "bookstagram": 0.607,
+        "x": 0.687,
+        "newsletter": 0.769,
+        "bookclub": 0.619
+      },
+      "top_platforms": [
+        "newsletter",
+        "booktok",
+        "goodreads"
+      ],
+      "confidence_band": {
+        "low": 0.624,
+        "mid": 0.673,
+        "high": 0.722,
+        "label": "moderate"
+      },
+      "component_scores": {
+        "emotional_spike": 0.909,
+        "trope_visibility": 0.67,
+        "novelty": 0.67,
+        "controversy": 0.473,
+        "quoteability": 0.67,
+        "concise_explainability": 0.55
+      },
+      "evidence_refs": [
+        "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+        "book_dna:heuristic",
+        "chapter_001",
+        "chapter:chapter_001",
+        "chapter:chapter_007",
+        "platform_style:reddit",
+        "platform_style:bookstagram",
+        "platform_style:goodreads",
+        "platform_style:booktok",
+        "platform_style:x",
+        "platform_style:newsletter"
+      ],
+      "notes": [
+        "Platform scores are synthetic and should not be read as market certainty."
+      ]
+    },
+    "revision_priority": {
+      "ranked_items": [
+        {
+          "item_id": "chapter_001",
+          "item_type": "chapter",
+          "priority_score": 0.394,
+          "reasons": [
+            "dnf_points=0.45",
+            "quoteability=0.523",
+            "rating=3.711",
+            "friction=too_many_open_questions,limited_dialogue_relief"
+          ],
+          "evidence_refs": [
+            "chapter:chapter_001"
+          ]
+        },
+        {
+          "item_id": "chapter_009",
+          "item_type": "chapter",
+          "priority_score": 0.349,
+          "reasons": [
+            "dnf_points=0.35",
+            "quoteability=0.523",
+            "rating=3.711",
+            "friction=too_many_open_questions,limited_dialogue_relief"
+          ],
+          "evidence_refs": [
+            "chapter:chapter_009"
+          ]
+        },
+        {
+          "item_id": "chapter_008",
+          "item_type": "chapter",
+          "priority_score": 0.349,
+          "reasons": [
+            "dnf_points=0.35",
+            "quoteability=0.523",
+            "rating=3.711",
+            "friction=too_many_open_questions,limited_dialogue_relief"
+          ],
+          "evidence_refs": [
+            "chapter:chapter_008"
+          ]
+        },
+        {
+          "item_id": "chapter_007",
+          "item_type": "chapter",
+          "priority_score": 0.349,
+          "reasons": [
+            "dnf_points=0.35",
+            "quoteability=0.523",
+            "rating=3.711",
+            "friction=too_many_open_questions,limited_dialogue_relief"
+          ],
+          "evidence_refs": [
+            "chapter:chapter_007"
+          ]
+        },
+        {
+          "item_id": "chapter_002",
+          "item_type": "chapter",
+          "priority_score": 0.331,
+          "reasons": [
+            "dnf_points=0.31",
+            "quoteability=0.523",
+            "rating=3.711"
+          ],
+          "evidence_refs": [
+            "chapter:chapter_002"
+          ]
+        },
+        {
+          "item_id": "chapter_004",
+          "item_type": "chapter",
+          "priority_score": 0.295,
+          "reasons": [
+            "dnf_points=0.23",
+            "quoteability=0.523",
+            "rating=3.711"
+          ],
+          "evidence_refs": [
+            "chapter:chapter_004"
+          ]
+        },
+        {
+          "item_id": "chapter_006",
+          "item_type": "chapter",
+          "priority_score": 0.286,
+          "reasons": [
+            "dnf_points=0.21",
+            "quoteability=0.523",
+            "rating=3.711"
+          ],
+          "evidence_refs": [
+            "chapter:chapter_006"
+          ]
+        },
+        {
+          "item_id": "chapter_005",
+          "item_type": "chapter",
+          "priority_score": 0.286,
+          "reasons": [
+            "dnf_points=0.21",
+            "quoteability=0.523",
+            "rating=3.711"
+          ],
+          "evidence_refs": [
+            "chapter:chapter_005"
+          ]
+        },
+        {
+          "item_id": "chapter_003",
+          "item_type": "chapter",
+          "priority_score": 0.286,
+          "reasons": [
+            "dnf_points=0.21",
+            "quoteability=0.523",
+            "rating=3.711"
+          ],
+          "evidence_refs": [
+            "chapter:chapter_003"
+          ]
+        },
+        {
+          "item_id": "140c3d752ab7650ad75885919c1903615c3b52110f12798e05ad292e23735b70",
+          "item_type": "style",
+          "priority_score": 0.279,
+          "reasons": [
+            "quoteability=0.523",
+            "rating=3.711",
+            "clarity=high"
+          ],
+          "evidence_refs": [
+            "style:global"
+          ]
+        },
+        {
+          "item_id": "76585cabf6b5b8b94c3e78a0a184dd9900c53ee6e433f58d1030144b90fa2add",
+          "item_type": "market",
+          "priority_score": 0.201,
+          "reasons": [
+            "goodreads_viral=0.713",
+            "controversy=0.286"
+          ],
+          "evidence_refs": [
+            "book_dna:heuristic",
+            "chapter_001",
+            "style:global"
+          ]
+        }
+      ],
+      "confidence_band": {
+        "low": 0.317,
+        "mid": 0.394,
+        "high": 0.471,
+        "label": "moderate"
+      },
+      "evidence_refs": [
+        "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+        "book_dna:heuristic",
+        "chapter_001",
+        "chapter_002",
+        "chapter_003",
+        "chapter_004",
+        "chapter_005",
+        "chapter_006",
+        "chapter_007",
+        "chapter_008",
+        "chapter_009",
+        "risk_001",
+        "risk_002",
+        "risk_003",
+        "risk_004"
+      ],
+      "notes": [
+        "Revision priority is a deterministic ranking, not a prescriptive editorial verdict."
+      ]
+    }
+  },
+  "segment_insights": [
+    {
+      "segment": "aesthetic_curators:bookstagram",
+      "rating_mean": 3.964,
+      "recommendation_mean": 1.0,
+      "signal": "positive",
+      "sample_personas": [
+        "Celeste C.",
+        "June W.",
+        "Esme J."
+      ],
+      "sentiments": [
+        "positive"
+      ]
+    },
+    {
+      "segment": "community_reviewers:goodreads",
+      "rating_mean": 4.087,
+      "recommendation_mean": 1.0,
+      "signal": "positive",
+      "sample_personas": [
+        "Quinn N.",
+        "Quinn D.",
+        "Parker D."
+      ],
+      "sentiments": [
+        "positive"
+      ]
+    },
+    {
+      "segment": "craft_conscious_readers:newsletter",
+      "rating_mean": 3.62,
+      "recommendation_mean": 1.0,
+      "signal": "mixed",
+      "sample_personas": [
+        "Leah S."
+      ],
+      "sentiments": [
+        "positive"
+      ]
+    },
+    {
+      "segment": "hot_take_amplifiers:x",
+      "rating_mean": 3.927,
+      "recommendation_mean": 1.0,
+      "signal": "positive",
+      "sample_personas": [
+        "Micah R.",
+        "Kai N.",
+        "Blair T."
+      ],
+      "sentiments": [
+        "positive"
+      ]
+    },
+    {
+      "segment": "skeptical_forum_readers:reddit",
+      "rating_mean": 3.726,
+      "recommendation_mean": 1.0,
+      "signal": "mixed",
+      "sample_personas": [
+        "Elliot P.",
+        "Shawn B.",
+        "Robin R."
+      ],
+      "sentiments": [
+        "positive"
+      ]
+    },
+    {
+      "segment": "viral_emotion_seekers:booktok",
+      "rating_mean": 3.911,
+      "recommendation_mean": 1.0,
+      "signal": "positive",
+      "sample_personas": [
+        "Harper C.",
+        "Skye P.",
+        "Lena G."
+      ],
+      "sentiments": [
+        "positive"
+      ]
+    }
+  ],
+  "top_risks": [
+    "Preface: The Gospel of the Scraped Knee may create drag or confusion.",
+    "The Job Description That Broke Us may create drag or confusion.",
+    "The Resilience Gap may create drag or confusion.",
+    "chapter_001 carries DNF pressure at 0.45.",
+    "chapter_007 carries DNF pressure at 0.35."
+  ],
+  "top_strengths": [
+    "Theme signal: grief.",
+    "Theme signal: memory.",
+    "Reader praise: internal_logic.",
+    "Reader praise: sharp_argument.",
+    "Reader praise: beautiful_package.",
+    "Reader praise: mood.",
+    "Reader praise: genre_tropes.",
+    "Reader praise: satisfying_arc.",
+    "Best synthetic platform fit: newsletter.",
+    "Best synthetic platform fit: booktok.",
+    "Quote candidate: I was at a child’s birthday party last Sunday. You know the kind.."
+  ],
+  "revision_priorities": [
+    "chapter:chapter_001 (0.39)",
+    "chapter:chapter_009 (0.35)",
+    "chapter:chapter_008 (0.35)",
+    "chapter:chapter_007 (0.35)",
+    "chapter:chapter_002 (0.33)"
+  ],
+  "uncertainty_notes": [
+    "Deterministic rating estimate derived from private reactions and config weights.",
+    "This is descriptive forecasting, not scientific certainty.",
+    "Chapter points are descriptive hotspots, not predictive certainty.",
+    "Scores are deterministic and derived from the evidence pack plus private reactions.",
+    "Controversy is a descriptive radar, not a scientific certainty.",
+    "Quoteability is a descriptive score and should not be treated as certainty.",
+    "Polarization is a descriptive split signal, not a certainty statement.",
+    "Platform scores are synthetic and should not be read as market certainty.",
+    "Outputs are synthetic stress-test signals, not a guarantee of market behavior."
+  ],
+  "evidence_refs": [
+    "b7282dc4abf99e0eb54ad4d843f88eaa4041d908a3f402003e912de29f7dbdf7",
+    "book_dna:heuristic",
+    "chapter_001",
+    "pack_b7282dc4abf9",
+    "chapter:chapter_001",
+    "chapter:chapter_007",
+    "booktok_2439edc383e2",
+    "x_dd50de1d1f0e",
+    "booktok_b7596829ec13",
+    "bookstagram_9e30d82891ac",
+    "booktok_fc3538d1405f",
+    "booktok_5bc6881507c8",
+    "x_c35b951e1f7e",
+    "booktok_0eb11f0d537d",
+    "x_80ed423c7865",
+    "x_1fa7ae81ccaf",
+    "booktok_650d58ec76df",
+    "x_89dece172e78",
+    "risk_001",
+    "risk_002",
+    "risk_003",
+    "risk_004",
+    "chapter:chapter_008",
+    "chapter:chapter_009",
+    "style:global",
+    "character_001",
+    "character_002",
+    "character_003",
+    "character_004",
+    "character_005",
+    "character_006",
+    "character_007",
+    "character_008",
+    "character_009",
+    "character_010",
+    "character_011",
+    "character_012",
+    "platform_style:booktok",
+    "platform_style:x",
+    "platform_style:bookstagram",
+    "platform_style:reddit",
+    "platform_style:goodreads",
+    "platform_style:newsletter",
+    "chapter_002",
+    "chapter_003",
+    "chapter_004",
+    "chapter_005",
+    "chapter_006",
+    "chapter_007",
+    "chapter_008",
+    "chapter_009"
+  ],
+  "confidence": 0.74
+}

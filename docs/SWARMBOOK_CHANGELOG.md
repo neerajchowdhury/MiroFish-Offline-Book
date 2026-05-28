@@ -848,3 +848,19 @@
 - Drag-and-drop file upload actions are not keyboard navigable natively, though fully accessible keyboard browsing fallback is supported.
 - Scrolling simulation log feeds can be verbose for screen readers when live alerts are active.
 
+## Phase 35 (Complete 360-Degree Testing Suite Design & Implementation)
+### Files
+- `docs/SWARMBOOK_TESTING_PLAN.md`
+- `backend/tests/test_book_sim_edge_cases.py`
+### Behavior changed
+- Designed a comprehensive Swarmbook Studio testing strategy, logging automated test metrics and manual QA verification checklists under `docs/SWARMBOOK_TESTING_PLAN.md`.
+- Implemented edge-case unit and route integration tests in `backend/tests/test_book_sim_edge_cases.py`. Covered validator bounds (empty strings, out-of-range counts, bad privacy modes), manuscript ingestion boundaries (oversized pasted texts and empty inputs), and platform/interrogation model fallbacks.
+- Mocked connection socket failures for Ollama, Neo4j, and Python Flask in diagnostic test suites, asserting health diagnostic timeline endpoints correctly catch SocketErrors and format clean failure payloads instead of raising unhandled server-side crashes.
+### Tests added/updated
+- Added 11 new automated test scenarios under `backend/tests/test_book_sim_edge_cases.py`.
+- Verified all 73 backend unit tests pass successfully.
+- Verified client environment compiles cleanly under Vite.
+### Known gaps
+- None.
+
+

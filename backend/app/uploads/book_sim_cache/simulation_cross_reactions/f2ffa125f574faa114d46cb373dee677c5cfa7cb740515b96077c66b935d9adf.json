@@ -1,0 +1,754 @@
+{
+  "cross_reactions": [
+    {
+      "reaction_id": "cross_e6c87b653657",
+      "simulation_id": "sim_de75dfe68c62",
+      "source_post_id": "x_09bbc8959f2f",
+      "target_post_id": "reddit_d2fb6f571a7e",
+      "persona_id": "reddit_genre_purist_01_5745",
+      "platform": "reddit",
+      "reacted_post_ids": [
+        "x_09bbc8959f2f",
+        "x_53a9f5672b6c",
+        "x_a64f4b24c21d",
+        "reddit_d2fb6f571a7e"
+      ],
+      "stance_shift": "more_positive",
+      "agree_probability": 0.815,
+      "disagree_probability": 0.185,
+      "reply_likelihood": 0.565,
+      "rating_shift": 0.078,
+      "recommendation_shift": 0.182,
+      "sentiment": "positive",
+      "evidence_refs": [
+        "78c1c051902cafd77246dea519f4d19fff0550fb64c3e45ff99eae50960f2893",
+        "book_dna:heuristic",
+        "chapter_001",
+        "platform_style:x",
+        "platform_style:reddit"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "cross_80f7c609d7f2",
+      "simulation_id": "sim_de75dfe68c62",
+      "source_post_id": "x_09bbc8959f2f",
+      "target_post_id": "x_53a9f5672b6c",
+      "persona_id": "reddit_skeptic_02_7579",
+      "platform": "reddit",
+      "reacted_post_ids": [
+        "x_09bbc8959f2f",
+        "x_a64f4b24c21d",
+        "reddit_d2fb6f571a7e",
+        "x_53a9f5672b6c"
+      ],
+      "stance_shift": "more_positive",
+      "agree_probability": 0.768,
+      "disagree_probability": 0.232,
+      "reply_likelihood": 0.535,
+      "rating_shift": 0.078,
+      "recommendation_shift": 0.182,
+      "sentiment": "positive",
+      "evidence_refs": [
+        "78c1c051902cafd77246dea519f4d19fff0550fb64c3e45ff99eae50960f2893",
+        "book_dna:heuristic",
+        "chapter_001",
+        "platform_style:x",
+        "platform_style:reddit"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "cross_db71aeabbc3e",
+      "simulation_id": "sim_de75dfe68c62",
+      "source_post_id": "reddit_d2fb6f571a7e",
+      "target_post_id": "x_09bbc8959f2f",
+      "persona_id": "x_hot_take_reader_03_6423",
+      "platform": "x",
+      "reacted_post_ids": [
+        "reddit_d2fb6f571a7e",
+        "x_a64f4b24c21d",
+        "x_09bbc8959f2f"
+      ],
+      "stance_shift": "more_positive",
+      "agree_probability": 0.875,
+      "disagree_probability": 0.125,
+      "reply_likelihood": 0.75,
+      "rating_shift": 0.072,
+      "recommendation_shift": 0.177,
+      "sentiment": "positive",
+      "evidence_refs": [
+        "78c1c051902cafd77246dea519f4d19fff0550fb64c3e45ff99eae50960f2893",
+        "book_dna:heuristic",
+        "chapter_001",
+        "platform_style:reddit",
+        "platform_style:x"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "cross_e6b3568ba5de",
+      "simulation_id": "sim_de75dfe68c62",
+      "source_post_id": "x_a64f4b24c21d",
+      "target_post_id": "reddit_d2fb6f571a7e",
+      "persona_id": "nonfiction_evidence_skeptic_04_9291",
+      "platform": "reddit",
+      "reacted_post_ids": [
+        "x_a64f4b24c21d",
+        "x_53a9f5672b6c",
+        "x_09bbc8959f2f",
+        "reddit_d2fb6f571a7e"
+      ],
+      "stance_shift": "more_positive",
+      "agree_probability": 0.804,
+      "disagree_probability": 0.196,
+      "reply_likelihood": 0.493,
+      "rating_shift": 0.078,
+      "recommendation_shift": 0.182,
+      "sentiment": "positive",
+      "evidence_refs": [
+        "78c1c051902cafd77246dea519f4d19fff0550fb64c3e45ff99eae50960f2893",
+        "book_dna:heuristic",
+        "chapter_001",
+        "platform_style:x",
+        "platform_style:reddit"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "cross_27a8a3e43fa0",
+      "simulation_id": "sim_de75dfe68c62",
+      "source_post_id": "reddit_d2fb6f571a7e",
+      "target_post_id": "x_53a9f5672b6c",
+      "persona_id": "reddit_skeptic_05_4914",
+      "platform": "reddit",
+      "reacted_post_ids": [
+        "reddit_d2fb6f571a7e",
+        "x_09bbc8959f2f",
+        "x_a64f4b24c21d",
+        "x_53a9f5672b6c"
+      ],
+      "stance_shift": "more_positive",
+      "agree_probability": 0.76,
+      "disagree_probability": 0.24,
+      "reply_likelihood": 0.499,
+      "rating_shift": 0.078,
+      "recommendation_shift": 0.182,
+      "sentiment": "positive",
+      "evidence_refs": [
+        "78c1c051902cafd77246dea519f4d19fff0550fb64c3e45ff99eae50960f2893",
+        "book_dna:heuristic",
+        "chapter_001",
+        "platform_style:reddit",
+        "platform_style:x"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "cross_a3b2b903f62a",
+      "simulation_id": "sim_de75dfe68c62",
+      "source_post_id": "x_a64f4b24c21d",
+      "target_post_id": "reddit_d2fb6f571a7e",
+      "persona_id": "x_hot_take_reader_06_5098",
+      "platform": "x",
+      "reacted_post_ids": [
+        "x_a64f4b24c21d",
+        "x_53a9f5672b6c",
+        "reddit_d2fb6f571a7e"
+      ],
+      "stance_shift": "more_positive",
+      "agree_probability": 0.927,
+      "disagree_probability": 0.073,
+      "reply_likelihood": 0.77,
+      "rating_shift": 0.077,
+      "recommendation_shift": 0.179,
+      "sentiment": "positive",
+      "evidence_refs": [
+        "78c1c051902cafd77246dea519f4d19fff0550fb64c3e45ff99eae50960f2893",
+        "book_dna:heuristic",
+        "chapter_001",
+        "platform_style:x",
+        "platform_style:reddit"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "cross_6125de6ec5ce",
+      "simulation_id": "sim_de75dfe68c62",
+      "source_post_id": "x_a64f4b24c21d",
+      "target_post_id": "x_53a9f5672b6c",
+      "persona_id": "goodreads_harsh_reviewer_07_8653",
+      "platform": "goodreads",
+      "reacted_post_ids": [
+        "x_a64f4b24c21d",
+        "reddit_d2fb6f571a7e",
+        "x_53a9f5672b6c"
+      ],
+      "stance_shift": "more_positive",
+      "agree_probability": 0.691,
+      "disagree_probability": 0.309,
+      "reply_likelihood": 0.43,
+      "rating_shift": 0.077,
+      "recommendation_shift": 0.179,
+      "sentiment": "positive",
+      "evidence_refs": [
+        "78c1c051902cafd77246dea519f4d19fff0550fb64c3e45ff99eae50960f2893",
+        "book_dna:heuristic",
+        "chapter_001",
+        "platform_style:x",
+        "platform_style:reddit"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "cross_c51c078ee35b",
+      "simulation_id": "sim_de75dfe68c62",
+      "source_post_id": "x_a64f4b24c21d",
+      "target_post_id": "x_53a9f5672b6c",
+      "persona_id": "reddit_genre_purist_08_7602",
+      "platform": "reddit",
+      "reacted_post_ids": [
+        "x_a64f4b24c21d",
+        "x_09bbc8959f2f",
+        "x_53a9f5672b6c"
+      ],
+      "stance_shift": "more_positive",
+      "agree_probability": 0.772,
+      "disagree_probability": 0.228,
+      "reply_likelihood": 0.577,
+      "rating_shift": 0.082,
+      "recommendation_shift": 0.189,
+      "sentiment": "positive",
+      "evidence_refs": [
+        "78c1c051902cafd77246dea519f4d19fff0550fb64c3e45ff99eae50960f2893",
+        "book_dna:heuristic",
+        "chapter_001",
+        "platform_style:x"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "cross_90b4a9400167",
+      "simulation_id": "sim_de75dfe68c62",
+      "source_post_id": "reddit_d2fb6f571a7e",
+      "target_post_id": "x_53a9f5672b6c",
+      "persona_id": "x_hot_take_reader_09_9797",
+      "platform": "x",
+      "reacted_post_ids": [
+        "reddit_d2fb6f571a7e",
+        "x_09bbc8959f2f",
+        "x_53a9f5672b6c"
+      ],
+      "stance_shift": "more_positive",
+      "agree_probability": 0.889,
+      "disagree_probability": 0.111,
+      "reply_likelihood": 0.756,
+      "rating_shift": 0.081,
+      "recommendation_shift": 0.181,
+      "sentiment": "positive",
+      "evidence_refs": [
+        "78c1c051902cafd77246dea519f4d19fff0550fb64c3e45ff99eae50960f2893",
+        "book_dna:heuristic",
+        "chapter_001",
+        "platform_style:reddit",
+        "platform_style:x"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "cross_38792844966d",
+      "simulation_id": "sim_de75dfe68c62",
+      "source_post_id": "x_a64f4b24c21d",
+      "target_post_id": "x_53a9f5672b6c",
+      "persona_id": "reddit_skeptic_10_8868",
+      "platform": "reddit",
+      "reacted_post_ids": [
+        "x_a64f4b24c21d",
+        "reddit_d2fb6f571a7e",
+        "x_09bbc8959f2f",
+        "x_53a9f5672b6c"
+      ],
+      "stance_shift": "more_positive",
+      "agree_probability": 0.79,
+      "disagree_probability": 0.21,
+      "reply_likelihood": 0.495,
+      "rating_shift": 0.078,
+      "recommendation_shift": 0.182,
+      "sentiment": "positive",
+      "evidence_refs": [
+        "78c1c051902cafd77246dea519f4d19fff0550fb64c3e45ff99eae50960f2893",
+        "book_dna:heuristic",
+        "chapter_001",
+        "platform_style:x",
+        "platform_style:reddit"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "cross_b5498feccedb",
+      "simulation_id": "sim_de75dfe68c62",
+      "source_post_id": "x_a64f4b24c21d",
+      "target_post_id": "x_09bbc8959f2f",
+      "persona_id": "reddit_skeptic_11_7435",
+      "platform": "reddit",
+      "reacted_post_ids": [
+        "x_a64f4b24c21d",
+        "reddit_d2fb6f571a7e",
+        "x_09bbc8959f2f"
+      ],
+      "stance_shift": "more_positive",
+      "agree_probability": 0.755,
+      "disagree_probability": 0.245,
+      "reply_likelihood": 0.498,
+      "rating_shift": 0.072,
+      "recommendation_shift": 0.177,
+      "sentiment": "positive",
+      "evidence_refs": [
+        "78c1c051902cafd77246dea519f4d19fff0550fb64c3e45ff99eae50960f2893",
+        "book_dna:heuristic",
+        "chapter_001",
+        "platform_style:x",
+        "platform_style:reddit"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "cross_1f79306d474a",
+      "simulation_id": "sim_de75dfe68c62",
+      "source_post_id": "x_53a9f5672b6c",
+      "target_post_id": "reddit_d2fb6f571a7e",
+      "persona_id": "reddit_genre_purist_12_1464",
+      "platform": "reddit",
+      "reacted_post_ids": [
+        "x_53a9f5672b6c",
+        "x_09bbc8959f2f",
+        "x_a64f4b24c21d",
+        "reddit_d2fb6f571a7e"
+      ],
+      "stance_shift": "more_positive",
+      "agree_probability": 0.809,
+      "disagree_probability": 0.191,
+      "reply_likelihood": 0.551,
+      "rating_shift": 0.078,
+      "recommendation_shift": 0.182,
+      "sentiment": "positive",
+      "evidence_refs": [
+        "78c1c051902cafd77246dea519f4d19fff0550fb64c3e45ff99eae50960f2893",
+        "book_dna:heuristic",
+        "chapter_001",
+        "platform_style:x",
+        "platform_style:reddit"
+      ],
+      "confidence": 0.74
+    }
+  ],
+  "updated_private_reactions": [
+    {
+      "reaction_id": "private_9dbea63a4bbd",
+      "simulation_id": "sim_de75dfe68c62",
+      "persona_id": "reddit_genre_purist_01_5745",
+      "chapter_id": null,
+      "rating": 4.04,
+      "dnf_probability": 0.51,
+      "sentiment": "positive",
+      "attachment_score": 0.696,
+      "confusion_score": 0.448,
+      "recommendation_probability": 0.876,
+      "praise": [
+        "genre_authenticity",
+        "canonical_rules",
+        "identity"
+      ],
+      "friction": [
+        "genre_blending",
+        "rule_breaking"
+      ],
+      "notable_quotes": [
+        "Mara gets a letter that threatens her promotion if she misses tonight's meeting."
+      ],
+      "evidence_refs": [
+        "78c1c051902cafd77246dea519f4d19fff0550fb64c3e45ff99eae50960f2893",
+        "book_dna:heuristic",
+        "chapter_001",
+        "x_09bbc8959f2f",
+        "x_53a9f5672b6c",
+        "x_a64f4b24c21d",
+        "reddit_d2fb6f571a7e"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "private_8b792e9a1875",
+      "simulation_id": "sim_de75dfe68c62",
+      "persona_id": "reddit_skeptic_02_7579",
+      "chapter_id": null,
+      "rating": 3.65,
+      "dnf_probability": 0.448,
+      "sentiment": "positive",
+      "attachment_score": 0.834,
+      "confusion_score": 0.442,
+      "recommendation_probability": 0.849,
+      "praise": [
+        "internal_logic",
+        "sharp_argument",
+        "identity"
+      ],
+      "friction": [
+        "handwaving",
+        "plot_holes"
+      ],
+      "notable_quotes": [
+        "Mara gets a letter that threatens her promotion if she misses tonight's meeting."
+      ],
+      "evidence_refs": [
+        "78c1c051902cafd77246dea519f4d19fff0550fb64c3e45ff99eae50960f2893",
+        "book_dna:heuristic",
+        "chapter_001",
+        "chapter_002",
+        "x_09bbc8959f2f",
+        "x_a64f4b24c21d",
+        "reddit_d2fb6f571a7e",
+        "x_53a9f5672b6c"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "private_a880c570cfa3",
+      "simulation_id": "sim_de75dfe68c62",
+      "persona_id": "x_hot_take_reader_03_6423",
+      "chapter_id": null,
+      "rating": 4.03,
+      "dnf_probability": 0.376,
+      "sentiment": "positive",
+      "attachment_score": 0.755,
+      "confusion_score": 0.364,
+      "recommendation_probability": 0.882,
+      "praise": [
+        "provocation",
+        "controversy",
+        "identity"
+      ],
+      "friction": [
+        "slowness",
+        "nuance_without_payoff"
+      ],
+      "notable_quotes": [
+        "Mara gets a letter that threatens her promotion if she misses tonight's meeting."
+      ],
+      "evidence_refs": [
+        "78c1c051902cafd77246dea519f4d19fff0550fb64c3e45ff99eae50960f2893",
+        "book_dna:heuristic",
+        "chapter_001",
+        "reddit_d2fb6f571a7e",
+        "x_a64f4b24c21d",
+        "x_09bbc8959f2f"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "private_fade19dfb209",
+      "simulation_id": "sim_de75dfe68c62",
+      "persona_id": "nonfiction_evidence_skeptic_04_9291",
+      "chapter_id": null,
+      "rating": 3.67,
+      "dnf_probability": 0.463,
+      "sentiment": "positive",
+      "attachment_score": 0.727,
+      "confusion_score": 0.45,
+      "recommendation_probability": 0.83,
+      "praise": [
+        "citations",
+        "strong_methods",
+        "identity"
+      ],
+      "friction": [
+        "overclaiming",
+        "missing_sources"
+      ],
+      "notable_quotes": [
+        "Mara gets a letter that threatens her promotion if she misses tonight's meeting."
+      ],
+      "evidence_refs": [
+        "78c1c051902cafd77246dea519f4d19fff0550fb64c3e45ff99eae50960f2893",
+        "book_dna:heuristic",
+        "chapter_001",
+        "chapter_002",
+        "x_a64f4b24c21d",
+        "x_53a9f5672b6c",
+        "x_09bbc8959f2f",
+        "reddit_d2fb6f571a7e"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "private_a5dc49326cfe",
+      "simulation_id": "sim_de75dfe68c62",
+      "persona_id": "reddit_skeptic_05_4914",
+      "chapter_id": null,
+      "rating": 3.58,
+      "dnf_probability": 0.411,
+      "sentiment": "positive",
+      "attachment_score": 0.75,
+      "confusion_score": 0.377,
+      "recommendation_probability": 0.822,
+      "praise": [
+        "internal_logic",
+        "sharp_argument",
+        "identity"
+      ],
+      "friction": [
+        "handwaving",
+        "plot_holes"
+      ],
+      "notable_quotes": [
+        "Mara gets a letter that threatens her promotion if she misses tonight's meeting."
+      ],
+      "evidence_refs": [
+        "78c1c051902cafd77246dea519f4d19fff0550fb64c3e45ff99eae50960f2893",
+        "book_dna:heuristic",
+        "chapter_001",
+        "chapter_002",
+        "reddit_d2fb6f571a7e",
+        "x_09bbc8959f2f",
+        "x_a64f4b24c21d",
+        "x_53a9f5672b6c"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "private_1de44782246d",
+      "simulation_id": "sim_de75dfe68c62",
+      "persona_id": "x_hot_take_reader_06_5098",
+      "chapter_id": null,
+      "rating": 3.89,
+      "dnf_probability": 0.401,
+      "sentiment": "positive",
+      "attachment_score": 0.816,
+      "confusion_score": 0.419,
+      "recommendation_probability": 0.876,
+      "praise": [
+        "provocation",
+        "controversy",
+        "identity"
+      ],
+      "friction": [
+        "slowness",
+        "nuance_without_payoff"
+      ],
+      "notable_quotes": [
+        "Mara gets a letter that threatens her promotion if she misses tonight's meeting."
+      ],
+      "evidence_refs": [
+        "78c1c051902cafd77246dea519f4d19fff0550fb64c3e45ff99eae50960f2893",
+        "book_dna:heuristic",
+        "chapter_001",
+        "x_a64f4b24c21d",
+        "x_53a9f5672b6c",
+        "reddit_d2fb6f571a7e"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "private_b5713a8e7c2c",
+      "simulation_id": "sim_de75dfe68c62",
+      "persona_id": "goodreads_harsh_reviewer_07_8653",
+      "chapter_id": null,
+      "rating": 3.4,
+      "dnf_probability": 0.452,
+      "sentiment": "positive",
+      "attachment_score": 0.753,
+      "confusion_score": 0.412,
+      "recommendation_probability": 0.794,
+      "praise": [
+        "strong_opening",
+        "clean_prose",
+        "identity"
+      ],
+      "friction": [
+        "slow_start",
+        "weak_characterization"
+      ],
+      "notable_quotes": [
+        "Mara gets a letter that threatens her promotion if she misses tonight's meeting."
+      ],
+      "evidence_refs": [
+        "78c1c051902cafd77246dea519f4d19fff0550fb64c3e45ff99eae50960f2893",
+        "book_dna:heuristic",
+        "chapter_001",
+        "x_a64f4b24c21d",
+        "reddit_d2fb6f571a7e",
+        "x_53a9f5672b6c"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "private_c2d376b23385",
+      "simulation_id": "sim_de75dfe68c62",
+      "persona_id": "reddit_genre_purist_08_7602",
+      "chapter_id": null,
+      "rating": 3.74,
+      "dnf_probability": 0.463,
+      "sentiment": "positive",
+      "attachment_score": 0.76,
+      "confusion_score": 0.404,
+      "recommendation_probability": 0.853,
+      "praise": [
+        "genre_authenticity",
+        "canonical_rules",
+        "identity"
+      ],
+      "friction": [
+        "genre_blending",
+        "rule_breaking"
+      ],
+      "notable_quotes": [
+        "Mara gets a letter that threatens her promotion if she misses tonight's meeting."
+      ],
+      "evidence_refs": [
+        "78c1c051902cafd77246dea519f4d19fff0550fb64c3e45ff99eae50960f2893",
+        "book_dna:heuristic",
+        "chapter_001",
+        "x_a64f4b24c21d",
+        "x_09bbc8959f2f",
+        "x_53a9f5672b6c"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "private_87b4cd7a7029",
+      "simulation_id": "sim_de75dfe68c62",
+      "persona_id": "x_hot_take_reader_09_9797",
+      "chapter_id": null,
+      "rating": 3.76,
+      "dnf_probability": 0.448,
+      "sentiment": "positive",
+      "attachment_score": 0.785,
+      "confusion_score": 0.46,
+      "recommendation_probability": 0.853,
+      "praise": [
+        "provocation",
+        "controversy",
+        "identity"
+      ],
+      "friction": [
+        "slowness",
+        "nuance_without_payoff"
+      ],
+      "notable_quotes": [
+        "Mara gets a letter that threatens her promotion if she misses tonight's meeting."
+      ],
+      "evidence_refs": [
+        "78c1c051902cafd77246dea519f4d19fff0550fb64c3e45ff99eae50960f2893",
+        "book_dna:heuristic",
+        "chapter_001",
+        "reddit_d2fb6f571a7e",
+        "x_09bbc8959f2f",
+        "x_53a9f5672b6c"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "private_ecf7c7e5d60e",
+      "simulation_id": "sim_de75dfe68c62",
+      "persona_id": "reddit_skeptic_10_8868",
+      "chapter_id": null,
+      "rating": 3.56,
+      "dnf_probability": 0.398,
+      "sentiment": "positive",
+      "attachment_score": 0.724,
+      "confusion_score": 0.352,
+      "recommendation_probability": 0.814,
+      "praise": [
+        "internal_logic",
+        "sharp_argument",
+        "identity"
+      ],
+      "friction": [
+        "handwaving",
+        "plot_holes"
+      ],
+      "notable_quotes": [
+        "Mara gets a letter that threatens her promotion if she misses tonight's meeting."
+      ],
+      "evidence_refs": [
+        "78c1c051902cafd77246dea519f4d19fff0550fb64c3e45ff99eae50960f2893",
+        "book_dna:heuristic",
+        "chapter_001",
+        "chapter_002",
+        "x_a64f4b24c21d",
+        "reddit_d2fb6f571a7e",
+        "x_09bbc8959f2f",
+        "x_53a9f5672b6c"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "private_49e4e42f6300",
+      "simulation_id": "sim_de75dfe68c62",
+      "persona_id": "reddit_skeptic_11_7435",
+      "chapter_id": null,
+      "rating": 3.89,
+      "dnf_probability": 0.366,
+      "sentiment": "positive",
+      "attachment_score": 0.719,
+      "confusion_score": 0.378,
+      "recommendation_probability": 0.856,
+      "praise": [
+        "internal_logic",
+        "sharp_argument",
+        "identity"
+      ],
+      "friction": [
+        "handwaving",
+        "plot_holes"
+      ],
+      "notable_quotes": [
+        "Mara gets a letter that threatens her promotion if she misses tonight's meeting."
+      ],
+      "evidence_refs": [
+        "78c1c051902cafd77246dea519f4d19fff0550fb64c3e45ff99eae50960f2893",
+        "book_dna:heuristic",
+        "chapter_001",
+        "chapter_002",
+        "x_a64f4b24c21d",
+        "reddit_d2fb6f571a7e",
+        "x_09bbc8959f2f"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "private_a5d9ba586f68",
+      "simulation_id": "sim_de75dfe68c62",
+      "persona_id": "reddit_genre_purist_12_1464",
+      "chapter_id": null,
+      "rating": 4.06,
+      "dnf_probability": 0.417,
+      "sentiment": "positive",
+      "attachment_score": 0.791,
+      "confusion_score": 0.378,
+      "recommendation_probability": 0.897,
+      "praise": [
+        "genre_authenticity",
+        "canonical_rules",
+        "identity"
+      ],
+      "friction": [
+        "genre_blending",
+        "rule_breaking"
+      ],
+      "notable_quotes": [
+        "Mara gets a letter that threatens her promotion if she misses tonight's meeting."
+      ],
+      "evidence_refs": [
+        "78c1c051902cafd77246dea519f4d19fff0550fb64c3e45ff99eae50960f2893",
+        "book_dna:heuristic",
+        "chapter_001",
+        "x_53a9f5672b6c",
+        "x_09bbc8959f2f",
+        "x_a64f4b24c21d",
+        "reddit_d2fb6f571a7e"
+      ],
+      "confidence": 0.74
+    }
+  ]
+}

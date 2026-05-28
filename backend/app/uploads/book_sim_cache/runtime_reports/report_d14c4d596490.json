@@ -1,0 +1,461 @@
+{
+  "report_id": "report_d14c4d596490",
+  "project_id": "proj_db2a0f5f366f",
+  "simulation_id": "sim_8b7d0937fbf4",
+  "privacy_mode": "local_only",
+  "draft_id": "draft_smoke",
+  "version": "v1",
+  "title": "Smoke Test Draft",
+  "summary": "Predicted mean rating is 3.65 with DNF risk at 0.31. Best synthetic spread is on newsletter, goodreads, while the main blocker is chapter_002 carries DNF pressure at 0.35.",
+  "audience_response": {
+    "personas_count": 12,
+    "posts_count": 12,
+    "mean_rating": 3.652,
+    "recommendation_mean": 0.857,
+    "top_platforms": [
+      "newsletter",
+      "goodreads",
+      "x"
+    ]
+  },
+  "scorecard": {
+    "rating_distribution": {
+      "predicted_mean_rating": 3.652,
+      "distribution": {
+        "1_star": 0.019,
+        "2_star": 0.019,
+        "3_star": 0.094,
+        "4_star": 0.849,
+        "5_star": 0.019
+      },
+      "confidence_band": {
+        "low": 1.0,
+        "mid": 1.0,
+        "high": 1.0,
+        "label": "moderate"
+      },
+      "component_scores": {
+        "comprehension": 0.187,
+        "emotional_payoff": 1.0,
+        "prose_quality": 0.65,
+        "pacing": 0.521,
+        "character_attachment": 0.57,
+        "packaging_fit": 0.56
+      },
+      "evidence_refs": [
+        "e3f94891985b4e9819a21d9b3dcbabc45339a5931f4f68a5fc8b2216ba1247df",
+        "book_dna:heuristic",
+        "chapter_001",
+        "x_01e59caf616a",
+        "x_14e6f5914763",
+        "reddit_3ccfc8872d87",
+        "x_890fff0d7974",
+        "chapter_002"
+      ],
+      "notes": [
+        "Deterministic rating estimate derived from private reactions and config weights.",
+        "This is descriptive forecasting, not scientific certainty."
+      ]
+    },
+    "dnf": {
+      "dnf_risk": 0.314,
+      "confidence_band": {
+        "low": 0.226,
+        "mid": 0.314,
+        "high": 0.402,
+        "label": "moderate"
+      },
+      "component_scores": {
+        "opening_drag": 0.374,
+        "confusion": 0.417,
+        "pacing_drag": 0.183,
+        "unmet_expectation": 0.41,
+        "voice_misalignment": 0.27,
+        "length_fatigue": 0.12
+      },
+      "chapter_points": [
+        {
+          "section_id": "chapter_002",
+          "chapter_number": 2,
+          "dnf_points": 0.35,
+          "reason": "chapter 2; pacing=measured"
+        },
+        {
+          "section_id": "chapter_001",
+          "chapter_number": 1,
+          "dnf_points": 0.31,
+          "reason": "chapter 1; pacing=fast"
+        },
+        {
+          "section_id": "chapter_003",
+          "chapter_number": 3,
+          "dnf_points": 0.25,
+          "reason": "chapter 3; pacing=measured"
+        }
+      ],
+      "evidence_refs": [
+        "e3f94891985b4e9819a21d9b3dcbabc45339a5931f4f68a5fc8b2216ba1247df",
+        "book_dna:heuristic",
+        "chapter_001"
+      ],
+      "notes": [
+        "Chapter points are descriptive hotspots, not predictive certainty.",
+        "Scores are deterministic and derived from the evidence pack plus private reactions."
+      ]
+    },
+    "controversy": {
+      "controversy_risk": 0.263,
+      "radar": {
+        "ideological_tension": 0.342,
+        "claim_hazard": 0.206,
+        "moral_disagreement": 0.2,
+        "tonal_disruption": 0.264,
+        "character_behavior_challenge": 0.3,
+        "packaging_mismatch": 0.27
+      },
+      "confidence_band": {
+        "low": 0.194,
+        "mid": 0.263,
+        "high": 0.332,
+        "label": "moderate"
+      },
+      "hotspots": [],
+      "evidence_refs": [
+        "e3f94891985b4e9819a21d9b3dcbabc45339a5931f4f68a5fc8b2216ba1247df",
+        "book_dna:heuristic",
+        "chapter_001",
+        "claim_001",
+        "chapter_002"
+      ],
+      "notes": [
+        "Controversy is a descriptive radar, not a scientific certainty."
+      ]
+    },
+    "quoteability": {
+      "quoteability_score": 0.465,
+      "component_scores": {
+        "line_density": 0.47,
+        "image_making_language": 0.42,
+        "emotional_clarity": 0.539,
+        "repetition_resonance": 0.31,
+        "scene_peak_strength": 0.47,
+        "excerpt_friendly_structure": 0.54
+      },
+      "confidence_band": {
+        "low": 0.401,
+        "mid": 0.465,
+        "high": 0.529,
+        "label": "moderate"
+      },
+      "quote_candidates": [
+        {
+          "text": "Mara gets a letter that threatens her promotion if she misses tonight's meeting.",
+          "source": "book_dna"
+        },
+        {
+          "text": "Mara gets a letter that threatens her promotion if she misses tonight's meeting.",
+          "source": "chapter_001"
+        },
+        {
+          "text": "At the town hall, she realizes her mentor has been hiding the truth about the budget.",
+          "source": "chapter_002"
+        },
+        {
+          "text": "She must choose: protect the mentor or expose the truth and lose her job.",
+          "source": "chapter_003"
+        },
+        {
+          "text": "Mara gets a letter that threatens her promotion if she misses tonight's meeting.",
+          "source": "private_f95158932cf9"
+        },
+        {
+          "text": "Mara gets a letter that threatens her promotion if she misses tonight's meeting.",
+          "source": "private_54f3b06488f5"
+        }
+      ],
+      "evidence_refs": [
+        "e3f94891985b4e9819a21d9b3dcbabc45339a5931f4f68a5fc8b2216ba1247df",
+        "book_dna:heuristic",
+        "chapter_001",
+        "style:global",
+        "x_01e59caf616a",
+        "x_14e6f5914763",
+        "reddit_3ccfc8872d87",
+        "x_890fff0d7974",
+        "chapter_002"
+      ],
+      "notes": [
+        "Quoteability is a descriptive score and should not be treated as certainty."
+      ]
+    },
+    "polarization": {
+      "polarization_score": 0.276,
+      "component_scores": {
+        "taste_split": 0.362,
+        "ideology_split": 0.22,
+        "prose_split": 0.18,
+        "ending_split": 0.16,
+        "genre_expectation_split": 0.36
+      },
+      "confidence_band": {
+        "low": 0.2,
+        "mid": 0.276,
+        "high": 0.352,
+        "label": "moderate"
+      },
+      "split_signals": [],
+      "evidence_refs": [
+        "e3f94891985b4e9819a21d9b3dcbabc45339a5931f4f68a5fc8b2216ba1247df",
+        "book_dna:heuristic",
+        "chapter_001",
+        "x_01e59caf616a",
+        "x_14e6f5914763",
+        "reddit_3ccfc8872d87",
+        "x_890fff0d7974",
+        "chapter_002",
+        "platform_style:x",
+        "platform_style:reddit"
+      ],
+      "notes": [
+        "Polarization is a descriptive split signal, not a certainty statement."
+      ]
+    },
+    "viral": {
+      "platform_scores": {
+        "goodreads": 0.678,
+        "booktok": 0.65,
+        "reddit": 0.507,
+        "bookstagram": 0.551,
+        "x": 0.652,
+        "newsletter": 0.689,
+        "bookclub": 0.465
+      },
+      "top_platforms": [
+        "newsletter",
+        "goodreads",
+        "x"
+      ],
+      "confidence_band": {
+        "low": 0.52,
+        "mid": 0.599,
+        "high": 0.678,
+        "label": "moderate"
+      },
+      "component_scores": {
+        "emotional_spike": 0.906,
+        "trope_visibility": 0.51,
+        "novelty": 0.5,
+        "controversy": 0.433,
+        "quoteability": 0.55,
+        "concise_explainability": 0.63
+      },
+      "evidence_refs": [
+        "e3f94891985b4e9819a21d9b3dcbabc45339a5931f4f68a5fc8b2216ba1247df",
+        "book_dna:heuristic",
+        "chapter_001",
+        "platform_style:reddit",
+        "chapter_002",
+        "platform_style:x",
+        "platform_style:goodreads"
+      ],
+      "notes": [
+        "Platform scores are synthetic and should not be read as market certainty."
+      ]
+    },
+    "revision_priority": {
+      "ranked_items": [
+        {
+          "item_id": "chapter_002",
+          "item_type": "chapter",
+          "priority_score": 0.358,
+          "reasons": [
+            "dnf_points=0.35",
+            "quoteability=0.465",
+            "rating=3.652"
+          ],
+          "evidence_refs": [
+            "chapter:chapter_002"
+          ]
+        },
+        {
+          "item_id": "chapter_001",
+          "item_type": "chapter",
+          "priority_score": 0.34,
+          "reasons": [
+            "dnf_points=0.31",
+            "quoteability=0.465",
+            "rating=3.652"
+          ],
+          "evidence_refs": [
+            "chapter:chapter_001"
+          ]
+        },
+        {
+          "item_id": "chapter_003",
+          "item_type": "chapter",
+          "priority_score": 0.313,
+          "reasons": [
+            "dnf_points=0.25",
+            "quoteability=0.465",
+            "rating=3.652"
+          ],
+          "evidence_refs": [
+            "chapter:chapter_003"
+          ]
+        },
+        {
+          "item_id": "0e361eb5e8106d32594cad9d77805968623ff80299d1a22fce3a66a816c77f10",
+          "item_type": "style",
+          "priority_score": 0.308,
+          "reasons": [
+            "quoteability=0.465",
+            "rating=3.652",
+            "clarity=high"
+          ],
+          "evidence_refs": [
+            "style:global"
+          ]
+        },
+        {
+          "item_id": "claim_001",
+          "item_type": "claim",
+          "priority_score": 0.251,
+          "reasons": [
+            "controversy=0.263",
+            "polarization=0.276",
+            "reddit_viral=0.507"
+          ],
+          "evidence_refs": [
+            "chapter_001",
+            "chapter_002"
+          ]
+        },
+        {
+          "item_id": "8f79bd97bdc031cda4f2a5d903d4a9471376914fa364c3278892bbfacb0f0744",
+          "item_type": "market",
+          "priority_score": 0.208,
+          "reasons": [
+            "goodreads_viral=0.678",
+            "controversy=0.263"
+          ],
+          "evidence_refs": [
+            "book_dna:heuristic",
+            "chapter_001",
+            "style:global"
+          ]
+        }
+      ],
+      "confidence_band": {
+        "low": 0.267,
+        "mid": 0.358,
+        "high": 0.449,
+        "label": "moderate"
+      },
+      "evidence_refs": [
+        "e3f94891985b4e9819a21d9b3dcbabc45339a5931f4f68a5fc8b2216ba1247df",
+        "book_dna:heuristic",
+        "chapter_001",
+        "chapter_002",
+        "chapter_003",
+        "claim_001"
+      ],
+      "notes": [
+        "Revision priority is a deterministic ranking, not a prescriptive editorial verdict."
+      ]
+    }
+  },
+  "segment_insights": [
+    {
+      "segment": "community_reviewers:goodreads",
+      "rating_mean": 4.04,
+      "recommendation_mean": 0.904,
+      "signal": "positive",
+      "sample_personas": [
+        "Parker B."
+      ],
+      "sentiments": [
+        "positive"
+      ]
+    },
+    {
+      "segment": "hot_take_amplifiers:x",
+      "rating_mean": 3.843,
+      "recommendation_mean": 0.861,
+      "signal": "positive",
+      "sample_personas": [
+        "Tatum J.",
+        "Micah G.",
+        "Jules C."
+      ],
+      "sentiments": [
+        "positive"
+      ]
+    },
+    {
+      "segment": "skeptical_forum_readers:reddit",
+      "rating_mean": 3.792,
+      "recommendation_mean": 0.849,
+      "signal": "mixed",
+      "sample_personas": [
+        "Elliot P.",
+        "Shawn N.",
+        "Drew S."
+      ],
+      "sentiments": [
+        "positive"
+      ]
+    }
+  ],
+  "top_risks": [
+    "chapter_002 carries DNF pressure at 0.35.",
+    "chapter_001 carries DNF pressure at 0.31."
+  ],
+  "top_strengths": [
+    "Theme signal: identity.",
+    "Reader praise: genre_authenticity.",
+    "Reader praise: canonical_rules.",
+    "Reader praise: internal_logic.",
+    "Reader praise: sharp_argument.",
+    "Reader praise: provocation.",
+    "Reader praise: controversy.",
+    "Best synthetic platform fit: newsletter.",
+    "Best synthetic platform fit: goodreads.",
+    "Quote candidate: Mara gets a letter that threatens her promotion if she misses tonight's meeting.."
+  ],
+  "revision_priorities": [
+    "chapter:chapter_002 (0.36)",
+    "chapter:chapter_001 (0.34)",
+    "chapter:chapter_003 (0.31)",
+    "style:0e361eb5e8106d32594cad9d77805968623ff80299d1a22fce3a66a816c77f10 (0.31)",
+    "claim:claim_001 (0.25)"
+  ],
+  "uncertainty_notes": [
+    "Deterministic rating estimate derived from private reactions and config weights.",
+    "This is descriptive forecasting, not scientific certainty.",
+    "Chapter points are descriptive hotspots, not predictive certainty.",
+    "Scores are deterministic and derived from the evidence pack plus private reactions.",
+    "Controversy is a descriptive radar, not a scientific certainty.",
+    "Quoteability is a descriptive score and should not be treated as certainty.",
+    "Polarization is a descriptive split signal, not a certainty statement.",
+    "Platform scores are synthetic and should not be read as market certainty.",
+    "Outputs are synthetic stress-test signals, not a guarantee of market behavior."
+  ],
+  "evidence_refs": [
+    "e3f94891985b4e9819a21d9b3dcbabc45339a5931f4f68a5fc8b2216ba1247df",
+    "book_dna:heuristic",
+    "chapter_001",
+    "pack_e3f94891985b",
+    "x_01e59caf616a",
+    "x_14e6f5914763",
+    "reddit_3ccfc8872d87",
+    "x_890fff0d7974",
+    "chapter_002",
+    "claim_001",
+    "style:global",
+    "platform_style:x",
+    "platform_style:reddit",
+    "platform_style:goodreads",
+    "chapter_003"
+  ],
+  "confidence": 0.74
+}
