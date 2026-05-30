@@ -44,6 +44,9 @@ graph TD
 | **Persona Interrogation** | Query persona with missing stored reactions | Graceful fallback responder responds using standard template rationale. |
 | **Diagnostics Sockets** | Ollama / Neo4j services offline | Sockets check fails gracefully, returning `503 Service Unavailable` status and troubleshooting logs instead of crashing. |
 | **Comparison UUIDs** | Compare invalid project ids or empty items | API endpoint returns `404 Not Found` or empty checklist scorecard with warning. |
+| **Self Comparison** | Compare identical draft versions | DraftComparator handles this gracefully, computing exact zero deltas and empty qualitative logs. |
+| **Uniform Max Rating** | All reader personas rate manuscript 5.0 | Scoring algorithms correctly blend the sample with base metadata defaults. |
+| **Privacy Route Filtering** | Request cloud routes in local privacy mode | BookSimProviderRouter strictly forces local_ollama route selection. |
 
 ---
 

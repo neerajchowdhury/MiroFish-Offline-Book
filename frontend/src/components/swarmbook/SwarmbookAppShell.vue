@@ -1,982 +1,1145 @@
 <template>
   <div class="swarmbook-shell">
-    <!-- Top Brand & Navigation Header -->
-    <header class="shell-header">
+
+    <!-- ═══════════════════════════════════════════════
+         TOP HEADER: Brand + Global Nav + MiroFish exit
+         ═══════════════════════════════════════════════ -->
+    <header class="shell-header" role="banner">
       <div class="brand-zone">
-        <button class="menu-toggle" @click="toggleSidebar" aria-label="Toggle Navigation Menu">
-          <span class="bar"></span>
-          <span class="bar"></span>
-          <span class="bar"></span>
+        <!-- Mobile hamburger -->
+        <button
+          class="menu-toggle"
+          @click="toggleSidebar"
+          :aria-expanded="isSidebarOpen"
+          aria-controls="shell-sidebar"
+          aria-label="Toggle navigation"
+        >
+          <span class="bar" :class="{ open: isSidebarOpen }"></span>
+          <span class="bar" :class="{ open: isSidebarOpen }"></span>
+          <span class="bar" :class="{ open: isSidebarOpen }"></span>
         </button>
-        <div class="brand-group" @click="goToHome" role="button" tabindex="0" @keydown.enter="goToHome">
-          <span class="logo-icon">📖</span>
+
+        <!-- Brand -->
+        <button class="brand-group" @click="goToHome" aria-label="Go to Swarmbook home">
+          <span class="logo-icon" aria-hidden="true">📖</span>
           <div class="logo-text">
             <span class="brand-title">SWARMBOOK STUDIO</span>
             <span class="brand-tagline">Book Reaction Simulator</span>
           </div>
-        </div>
+        </button>
       </div>
 
-      <!-- Top Primary Navigation Links -->
-      <nav class="top-nav" aria-label="Main Navigation">
-        <button class="nav-btn" :class="{ active: activeRoute === 'SwarmbookHome' }" @click="goToProjects" @keydown.enter="goToProjects">
-          Projects
+      <!-- Global Navigation (desktop) -->
+      <nav class="top-nav" aria-label="Global navigation">
+        <button
+          id="nav-projects"
+          class="nav-btn"
+          :class="{ active: activeRoute === 'SwarmbookHome' }"
+          :aria-current="activeRoute === 'SwarmbookHome' ? 'page' : undefined"
+          @click="goToHome"
+        >Projects</button>
+
+        <button
+          id="nav-new-test"
+          class="nav-btn"
+          :class="{ active: activeRoute === 'NewSimulationWizard' }"
+          :aria-current="activeRoute === 'NewSimulationWizard' ? 'page' : undefined"
+          @click="startNewTest"
+        >New Test</button>
+
+        <button
+          id="nav-report"
+          class="nav-btn"
+          :class="{ active: activeRoute === 'SwarmbookReport' }"
+          :aria-current="activeRoute === 'SwarmbookReport' ? 'page' : undefined"
+          :disabled="!activeProjectId"
+          :aria-disabled="!activeProjectId"
+          @click="goToReport"
+        >Report</button>
+
+        <button
+          id="nav-ask-readers"
+          class="nav-btn"
+          :class="{ active: activeRoute === 'SwarmbookPersonas' }"
+          :aria-current="activeRoute === 'SwarmbookPersonas' ? 'page' : undefined"
+          :disabled="!activeProjectId || !hasSimulation"
+          :aria-disabled="!activeProjectId || !hasSimulation"
+          @click="goToPersonas"
+        >Ask Readers</button>
+
+        <button
+          id="nav-compare"
+          class="nav-btn"
+          :class="{ active: activeRoute === 'SwarmbookCompare' }"
+          :aria-current="activeRoute === 'SwarmbookCompare' ? 'page' : undefined"
+          :disabled="!activeProjectId"
+          :aria-disabled="!activeProjectId"
+          @click="goToCompare"
+        >Compare</button>
+
+        <button
+          id="nav-settings"
+          class="nav-btn nav-settings"
+          :class="{ active: activeRoute === 'SwarmbookSettings' }"
+          :aria-current="activeRoute === 'SwarmbookSettings' ? 'page' : undefined"
+          @click="goToSettings"
+        >
+          <svg class="nav-icon" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+            <path fill-rule="evenodd" d="M11.49 3.17c-.38-1.56-2.6-1.56-2.98 0a1.532 1.532 0 01-2.286.948c-1.372-.836-2.942.734-2.106 2.106.54.886.061 2.042-.947 2.287-1.561.379-1.561 2.6 0 2.978a1.532 1.532 0 01.947 2.287c-.836 1.372.734 2.942 2.106 2.106a1.532 1.532 0 012.287.947c.379 1.561 2.6 1.561 2.978 0a1.533 1.533 0 012.287-.947c1.372.836 2.942-.734 2.106-2.106a1.533 1.533 0 01.947-2.287c1.561-.379 1.561-2.6 0-2.978a1.532 1.532 0 01-.947-2.287c.836-1.372-.734-2.942-2.106-2.106a1.532 1.532 0 01-2.287-.947zM10 13a3 3 0 100-6 3 3 0 000 6z" clip-rule="evenodd"/>
+          </svg>
+          Settings
         </button>
-        <button class="nav-btn" :class="{ active: activeRoute === 'SwarmbookUpload' }" @click="startNewSimulation" @keydown.enter="startNewSimulation">
-          New Simulation
-        </button>
-        <button class="nav-btn" :class="{ active: isRouteActive('SwarmbookReport') }" :disabled="!projectId" @click="goToReport" @keydown.enter="goToReport">
-          Reports
-        </button>
-        <button class="nav-btn" :class="{ active: isRouteActive('SwarmbookPersonas') }" :disabled="!projectId || !hasSimulation" @click="goToPersonas" @keydown.enter="goToPersonas">
-          Personas
-        </button>
-        <button class="nav-btn" :class="{ active: isRouteActive('SwarmbookCompare') }" :disabled="!projectId" @click="goToCompare" @keydown.enter="goToCompare">
-          Compare Drafts
-        </button>
-        <button class="nav-btn settings-trigger" :class="{ active: isRouteActive('SwarmbookSettings') }" @click="goToSettings" @keydown.enter="goToSettings">
-          <span>⚙</span> Settings
+
+        <!-- Divider -->
+        <span class="nav-divider" aria-hidden="true"></span>
+
+        <!-- Original MiroFish — always visible, distinct styling -->
+        <button
+          id="nav-mirofish"
+          class="nav-btn nav-mirofish"
+          @click="exitToMiroFish"
+          aria-label="Go to Original MiroFish application"
+        >
+          Original MiroFish
+          <svg class="nav-icon-sm" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+            <path fill-rule="evenodd" d="M8.636 3.5a.5.5 0 00-.5-.5H1.5A1.5 1.5 0 000 4.5v10A1.5 1.5 0 001.5 16h10a1.5 1.5 0 001.5-1.5V7.864a.5.5 0 00-1 0V14.5a.5.5 0 01-.5.5h-10a.5.5 0 01-.5-.5v-10a.5.5 0 01.5-.5h6.636a.5.5 0 00.5-.5z" clip-rule="evenodd"/>
+            <path fill-rule="evenodd" d="M16 .5a.5.5 0 00-.5-.5h-5a.5.5 0 000 1h3.793L6.146 9.146a.5.5 0 10.708.708L15 1.707V5.5a.5.5 0 001 0v-5z" clip-rule="evenodd"/>
+          </svg>
         </button>
       </nav>
-
-      <!-- Return Pathway to MiroFish UI -->
-      <div class="header-actions">
-        <button class="exit-btn" @click="exitToMiroFish" @keydown.enter="exitToMiroFish">
-          Exit to MiroFish <span class="arrow">↗</span>
-        </button>
-      </div>
     </header>
 
+    <!-- ═══════════════════════════════════════════════
+         STATUS STRIP — single source of truth for system/privacy status.
+         Placed below header, above sidebar+content split.
+         ═══════════════════════════════════════════════ -->
+    <div class="status-strip" role="status" aria-label="System and privacy status">
+      <!-- Ollama -->
+      <div class="strip-item">
+        <span class="pulse-dot" :class="statusTone(healthSummary.ollama)" aria-hidden="true"></span>
+        <span class="strip-label">Ollama</span>
+        <span class="strip-val" :class="statusTone(healthSummary.ollama)">{{ healthSummary.ollama }}</span>
+      </div>
+      <span class="strip-sep" aria-hidden="true">·</span>
+      <!-- Neo4j -->
+      <div class="strip-item">
+        <span class="pulse-dot" :class="statusTone(healthSummary.neo4j)" aria-hidden="true"></span>
+        <span class="strip-label">Neo4j</span>
+        <span class="strip-val" :class="statusTone(healthSummary.neo4j)">{{ healthSummary.neo4j }}</span>
+      </div>
+      <span class="strip-sep" aria-hidden="true">·</span>
+      <!-- Privacy -->
+      <div class="strip-item">
+        <span class="strip-icon" aria-hidden="true">🔒</span>
+        <span class="strip-label">Privacy</span>
+        <span class="strip-badge" :class="session.metadata.privacyMode || 'local_only'">
+          {{ session.metadata.privacyMode || 'local_only' }}
+        </span>
+      </div>
+      <span class="strip-sep" aria-hidden="true">·</span>
+      <!-- Profile -->
+      <div class="strip-item">
+        <span class="strip-label">Profile</span>
+        <span class="strip-profile">{{ session.metadata.localProfile || 'default' }}</span>
+      </div>
+      <!-- Active project pill (only if set) -->
+      <template v-if="activeProjectId">
+        <span class="strip-sep" aria-hidden="true">·</span>
+        <div class="strip-item">
+          <span class="strip-label">Project</span>
+          <span class="strip-project-id">{{ truncateId(activeProjectId) }}</span>
+        </div>
+      </template>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════
+         BODY: Sidebar rail + Main content
+         ═══════════════════════════════════════════════ -->
     <div class="shell-container">
-      <!-- Left Sidebar: Progress Steps and System Status Area -->
-      <aside class="shell-sidebar" :class="{ 'sidebar-open': isSidebarOpen }">
-        <div class="sidebar-scroll">
-          <nav class="workflow-steps" aria-label="Workflow Steps">
-            <div class="nav-header">WORKFLOW SEQUENCE</div>
-            <router-link
-              v-for="step in steps"
-              :key="step.name"
-              class="step-link"
-              :class="{ active: activeRoute === step.name, disabled: step.disabled }"
-              :to="step.disabled ? '#' : step.to"
-              @click.native="step.disabled ? $event.preventDefault() : null"
-            >
-              <span class="step-num">{{ step.index }}</span>
-              <span class="step-label">{{ step.label }}</span>
-              <span v-if="activeRoute === step.name" class="active-dot"></span>
-            </router-link>
+
+      <!-- Sidebar backdrop (mobile) -->
+      <div
+        v-if="isSidebarOpen"
+        class="sidebar-backdrop"
+        @click="closeSidebar"
+        aria-hidden="true"
+      ></div>
+
+      <!-- ── SIDEBAR / WORKFLOW RAIL ───────────────── -->
+      <aside
+        id="shell-sidebar"
+        class="shell-sidebar"
+        :class="{ 'sidebar-open': isSidebarOpen }"
+        aria-label="Workflow navigation"
+      >
+        <div class="sidebar-inner">
+
+          <!-- Mobile-only: global nav items at top of drawer -->
+          <div class="sidebar-global-nav" aria-label="Global navigation (mobile)">
+            <button class="sidebar-global-btn" @click="goToHome; closeSidebar()">
+              <span class="sg-icon" aria-hidden="true">🏠</span> Projects
+            </button>
+            <button class="sidebar-global-btn" @click="startNewTest(); closeSidebar()">
+              <span class="sg-icon" aria-hidden="true">✨</span> New Test
+            </button>
+            <button class="sidebar-global-btn" :disabled="!activeProjectId" @click="goToReport(); closeSidebar()">
+              <span class="sg-icon" aria-hidden="true">📊</span> Report
+            </button>
+            <button class="sidebar-global-btn" :disabled="!activeProjectId || !hasSimulation" @click="goToPersonas(); closeSidebar()">
+              <span class="sg-icon" aria-hidden="true">💬</span> Ask Readers
+            </button>
+            <button class="sidebar-global-btn" :disabled="!activeProjectId" @click="goToCompare(); closeSidebar()">
+              <span class="sg-icon" aria-hidden="true">⚖️</span> Compare
+            </button>
+            <button class="sidebar-global-btn" @click="goToSettings(); closeSidebar()">
+              <span class="sg-icon" aria-hidden="true">⚙️</span> Settings
+            </button>
+            <div class="sidebar-divider" aria-hidden="true"></div>
+          </div>
+
+          <!-- Workflow sequence label -->
+          <div class="rail-section-label">WORKFLOW</div>
+
+          <!-- Workflow steps nav -->
+          <nav class="workflow-rail" aria-label="Workflow steps">
+            <template v-for="(step, index) in workflowSteps" :key="step.name">
+              <router-link
+                :id="`step-${step.name}`"
+                class="step-link"
+                :class="{
+                  'step-active': activeRoute === step.name,
+                  'step-disabled': step.disabled
+                }"
+                :to="step.disabled ? { name: 'SwarmbookHome' } : step.to"
+                :aria-current="activeRoute === step.name ? 'step' : undefined"
+                :aria-disabled="step.disabled ? 'true' : undefined"
+                :tabindex="step.disabled ? -1 : 0"
+                @click.prevent="handleStepClick(step)"
+              >
+                <span class="step-accent" aria-hidden="true"></span>
+                <span class="step-num" aria-hidden="true">{{ step.index }}</span>
+                <span class="step-label">{{ step.label }}</span>
+                <span v-if="step.badge" class="step-badge" aria-hidden="true">{{ step.badge }}</span>
+              </router-link>
+            </template>
           </nav>
 
-          <!-- Persistent System Status Indicator Area -->
-          <div class="system-status-panel">
-            <div class="panel-title">SYSTEM STATUS</div>
-            <ul class="status-list">
-              <li>
-                <span class="status-name">Ollama</span>
-                <div class="status-indicator">
-                  <span class="pulse-dot" :class="statusTone(healthSummary.ollama)"></span>
-                  <span class="status-val">{{ healthSummary.ollama }}</span>
-                </div>
-              </li>
-              <li>
-                <span class="status-name">Neo4j</span>
-                <div class="status-indicator">
-                  <span class="pulse-dot" :class="statusTone(healthSummary.neo4j)"></span>
-                  <span class="status-val">{{ healthSummary.neo4j }}</span>
-                </div>
-              </li>
-              <li>
-                <span class="status-name">Privacy Mode</span>
-                <div class="privacy-badge" :class="session.metadata.privacyMode">
-                  <span class="icon">🔒</span>
-                  <span class="mode-text">{{ session.metadata.privacyMode }}</span>
-                </div>
-              </li>
-              <li>
-                <span class="status-name">Active Profile</span>
-                <div class="profile-badge">
-                  <span class="profile-val">{{ session.metadata.localProfile || 'None' }}</span>
-                </div>
-              </li>
-            </ul>
+          <!-- Sidebar footer: Settings + Original MiroFish -->
+          <div class="sidebar-footer">
+            <div class="sidebar-divider" aria-hidden="true"></div>
+            <button
+              class="sidebar-footer-btn"
+              :class="{ 'footer-active': activeRoute === 'SwarmbookSettings' }"
+              @click="goToSettings(); closeSidebar()"
+              :aria-current="activeRoute === 'SwarmbookSettings' ? 'page' : undefined"
+            >
+              <svg class="footer-icon" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                <path fill-rule="evenodd" d="M11.49 3.17c-.38-1.56-2.6-1.56-2.98 0a1.532 1.532 0 01-2.286.948c-1.372-.836-2.942.734-2.106 2.106.54.886.061 2.042-.947 2.287-1.561.379-1.561 2.6 0 2.978a1.532 1.532 0 01.947 2.287c-.836 1.372.734 2.942 2.106 2.106a1.532 1.532 0 012.287.947c.379 1.561 2.6 1.561 2.978 0a1.533 1.533 0 012.287-.947c1.372.836 2.942-.734 2.106-2.106a1.533 1.533 0 01.947-2.287c1.561-.379 1.561-2.6 0-2.978a1.532 1.532 0 01-.947-2.287c.836-1.372-.734-2.942-2.106-2.106a1.532 1.532 0 01-2.287-.947zM10 13a3 3 0 100-6 3 3 0 000 6z" clip-rule="evenodd"/>
+              </svg>
+              Settings
+            </button>
+
+            <button
+              class="sidebar-footer-btn mirofish-link"
+              @click="exitToMiroFish"
+              aria-label="Open Original MiroFish application"
+            >
+              <svg class="footer-icon" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+                <path fill-rule="evenodd" d="M8.636 3.5a.5.5 0 00-.5-.5H1.5A1.5 1.5 0 000 4.5v10A1.5 1.5 0 001.5 16h10a1.5 1.5 0 001.5-1.5V7.864a.5.5 0 00-1 0V14.5a.5.5 0 01-.5.5h-10a.5.5 0 01-.5-.5v-10a.5.5 0 01.5-.5h6.636a.5.5 0 00.5-.5z" clip-rule="evenodd"/>
+                <path fill-rule="evenodd" d="M16 .5a.5.5 0 00-.5-.5h-5a.5.5 0 000 1h3.793L6.146 9.146a.5.5 0 10.708.708L15 1.707V5.5a.5.5 0 001 0v-5z" clip-rule="evenodd"/>
+              </svg>
+              Original MiroFish
+            </button>
           </div>
         </div>
       </aside>
 
-      <!-- Backdrop for mobile sidebar collapse -->
-      <div v-if="isSidebarOpen" class="sidebar-backdrop" @click="closeSidebar"></div>
+      <!-- ── MAIN WORKSPACE ──────────────────────── -->
+      <main class="shell-main" id="main-content" tabindex="-1">
 
-      <!-- Main Layout Workspace Area -->
-      <main class="shell-main" id="main-content">
+        <!-- Skip-to-content anchor -->
+        <a href="#main-content" class="skip-link">Skip to content</a>
+
+        <!-- Page header -->
         <header class="workspace-header">
           <p v-if="eyebrow" class="workspace-eyebrow">{{ eyebrow }}</p>
           <h1 class="workspace-title">{{ title }}</h1>
           <p v-if="subtitle" class="workspace-subtitle">{{ subtitle }}</p>
         </header>
 
-        <!-- Loading / Notification Banners -->
-        <div v-if="errorMessage" class="shell-banner error-banner" role="alert">
-          <span class="banner-title">Error</span>
-          <p>{{ errorMessage }}</p>
+        <!-- Error / Loading banners -->
+        <div v-if="errorMessage" class="shell-banner error-banner" role="alert" aria-live="assertive">
+          <span class="banner-icon" aria-hidden="true">⚠</span>
+          <div class="banner-body">
+            <span class="banner-title">Error</span>
+            <p>{{ errorMessage }}</p>
+          </div>
         </div>
-        <div v-if="loadingMessage" class="shell-banner loading-banner">
-          <span class="banner-title pulsing">Loading</span>
-          <p>{{ loadingMessage }}</p>
+        <div v-if="loadingMessage" class="shell-banner loading-banner" aria-live="polite">
+          <span class="banner-spinner" aria-hidden="true"></span>
+          <div class="banner-body">
+            <span class="banner-title">Loading</span>
+            <p>{{ loadingMessage }}</p>
+          </div>
         </div>
 
-        <!-- Render View Inner Contents -->
+        <!-- View content slot -->
         <div class="workspace-content">
           <slot />
         </div>
       </main>
     </div>
-
-    <!-- Settings Modal Removed: Redirected to SwarmbookSettingsView route -->
   </div>
 </template>
 
 <script setup>
-import { computed, onMounted, ref, watch } from 'vue'
+import { computed, onMounted, onBeforeUnmount, ref, watch } from 'vue'
 import { useRouter, useRoute } from 'vue-router'
 import { getBookSimHealth } from '../../api/bookSim'
 import { getSwarmbookSession, clearSwarmbookSession } from '../../store/swarmbookSession'
 
+// ── Props ──────────────────────────────────────────────────────────
 const props = defineProps({
-  activeRoute: {
-    type: String,
-    required: true,
-  },
-  title: {
-    type: String,
-    required: true,
-  },
-  subtitle: {
-    type: String,
-    default: '',
-  },
-  eyebrow: {
-    type: String,
-    default: 'Swarmbook Studio',
-  },
-  errorMessage: {
-    type: String,
-    default: '',
-  },
-  loadingMessage: {
-    type: String,
-    default: '',
-  },
-  projectId: {
-    type: String,
-    default: '',
-  },
+  activeRoute: { type: String, required: true },
+  title:       { type: String, required: true },
+  subtitle:    { type: String, default: '' },
+  eyebrow:     { type: String, default: 'Swarmbook Studio' },
+  errorMessage:   { type: String, default: '' },
+  loadingMessage: { type: String, default: '' },
+  projectId:   { type: String, default: '' },
 })
 
+// ── State ──────────────────────────────────────────────────────────
 const router = useRouter()
-const route = useRoute()
-
-const session = ref(getSwarmbookSession())
-const health = ref(null)
+const route  = useRoute()
+const session       = ref(getSwarmbookSession())
+const health        = ref(null)
 const isSidebarOpen = ref(false)
+let healthInterval  = null
 
-const hasSimulation = computed(() => {
-  return !!(session.value.simulationRun?.reader_personas?.length)
-})
+// ── Computed ───────────────────────────────────────────────────────
+const hasSimulation = computed(() =>
+  !!(session.value.simulationRun?.reader_personas?.length)
+)
 
-const activeProjectId = computed(() => {
-  return props.projectId || session.value.projectId || ''
-})
+const activeProjectId = computed(() =>
+  props.projectId || session.value.projectId || ''
+)
 
-// Watch route changes to keep session up to date
-watch(() => route.path, () => {
-  session.value = getSwarmbookSession()
-})
-
-const steps = computed(() => {
-  const pId = activeProjectId.value
-  const projectRoute = (name) => {
-    if (!pId) {
-      return { name: 'SwarmbookHome' }
-    }
-    return { name, params: { projectId: pId } }
+const healthSummary = computed(() => {
+  if (!health.value) return { ollama: 'Checking…', neo4j: 'Checking…' }
+  return {
+    ollama: health.value.ollama?.ok ? 'Connected' : 'Offline',
+    neo4j:  health.value.neo4j?.ok  ? 'Connected' : 'Offline',
   }
+})
+
+// Full workflow steps spec (11 items from the request)
+const workflowSteps = computed(() => {
+  const pId = activeProjectId.value
+  const projectRoute = (name) =>
+    pId ? { name, params: { projectId: pId } } : { name: 'SwarmbookHome' }
+
+  const hasManuscript  = !!(session.value.manuscript?.text)
+  const hasEvidence    = !!(session.value.evidencePack)
+  const hasReport      = !!(session.value.report)
+  const hasSimRun      = hasSimulation.value
 
   return [
-    { index: '01', label: 'Project Setup', name: 'SwarmbookHome', to: { name: 'SwarmbookHome' }, disabled: false },
-    { index: '02', label: 'Upload Manuscript', name: 'SwarmbookUpload', to: projectRoute('SwarmbookUpload'), disabled: !pId },
-    { index: '03', label: 'Editorial Metadata', name: 'SwarmbookMetadata', to: projectRoute('SwarmbookMetadata'), disabled: !pId || !session.value.manuscript?.text },
-    { index: '04', label: 'Evidence Pack', name: 'SwarmbookEvidence', to: projectRoute('SwarmbookEvidence'), disabled: !pId || !session.value.evidencePack },
-    { index: '05', label: 'Simulate Config', name: 'SwarmbookSimulation', to: projectRoute('SwarmbookSimulation'), disabled: !pId || !session.value.evidencePack },
-    { index: '06', label: 'Report Details', name: 'SwarmbookReport', to: projectRoute('SwarmbookReport'), disabled: !pId || !session.value.report },
-    { index: '07', label: 'Persona Chat', name: 'SwarmbookPersonas', to: projectRoute('SwarmbookPersonas'), disabled: !pId || !hasSimulation.value },
-    { index: '08', label: 'Compare Drafts', name: 'SwarmbookCompare', to: projectRoute('SwarmbookCompare'), disabled: !pId },
+    {
+      index: '01', label: 'Projects',      name: 'SwarmbookHome',
+      to: { name: 'SwarmbookHome' }, disabled: false,
+    },
+    {
+      index: '02', label: 'New Test',      name: 'NewSimulationWizard',
+      to: { name: 'NewSimulationWizard' }, disabled: false,
+    },
+    {
+      index: '03', label: 'Upload',        name: 'SwarmbookUpload',
+      to: projectRoute('SwarmbookUpload'), disabled: !pId,
+    },
+    {
+      index: '04', label: 'Evidence Packs', name: 'SwarmbookEvidence',
+      to: projectRoute('SwarmbookEvidence'), disabled: !pId || !hasEvidence,
+    },
+    {
+      index: '05', label: 'Reader Swarm',  name: 'SwarmbookSimulation',
+      to: projectRoute('SwarmbookSimulation'), disabled: !pId || !hasEvidence,
+    },
+    {
+      index: '06', label: 'Run',           name: 'SwarmbookSimulationRun',
+      to: projectRoute('SwarmbookSimulationRun'), disabled: !pId || !hasEvidence,
+    },
+    {
+      index: '07', label: 'Report',        name: 'SwarmbookReport',
+      to: projectRoute('SwarmbookReport'), disabled: !pId || !hasReport,
+    },
+    {
+      index: '08', label: 'Ask Readers',   name: 'SwarmbookPersonas',
+      to: projectRoute('SwarmbookPersonas'), disabled: !pId || !hasSimRun,
+    },
+    {
+      index: '09', label: 'Compare Drafts', name: 'SwarmbookCompare',
+      to: projectRoute('SwarmbookCompare'), disabled: !pId,
+    },
   ]
 })
 
-const healthSummary = computed(() => {
-  if (!health.value) {
-    return { ollama: 'Checking...', neo4j: 'Checking...' }
-  }
-  return {
-    ollama: health.value.ollama?.ok ? 'Connected' : 'Offline',
-    neo4j: health.value.neo4j?.ok ? 'Connected' : 'Offline',
-  }
+// ── Watchers ───────────────────────────────────────────────────────
+watch(() => route.path, () => {
+  session.value = getSwarmbookSession()
+  // Close mobile sidebar on navigation
+  closeSidebar()
 })
 
-function isRouteActive(name) {
-  return props.activeRoute === name
-}
-
+// ── Helpers ────────────────────────────────────────────────────────
 function statusTone(val) {
   if (val === 'Connected') return 'ready'
-  if (val === 'Checking...') return 'loading'
+  if (val === 'Checking…') return 'loading'
   return 'offline'
 }
 
-function toggleSidebar() {
-  isSidebarOpen.value = !isSidebarOpen.value
+function truncateId(val) {
+  if (!val) return ''
+  return val.replace('proj_', '').slice(0, 8).toUpperCase()
 }
 
-function closeSidebar() {
-  isSidebarOpen.value = false
+function handleStepClick(step) {
+  if (step.disabled) return
+  router.push(step.to)
 }
 
-function goToSettings() {
-  router.push({ name: 'SwarmbookSettings', params: { projectId: activeProjectId.value || undefined } })
-}
+// ── Navigation actions ─────────────────────────────────────────────
+function goToHome()      { router.push({ name: 'SwarmbookHome' }) }
+function goToSettings()  { router.push({ name: 'SwarmbookSettings', params: { projectId: activeProjectId.value || undefined } }) }
+function goToReport()    { if (activeProjectId.value) router.push({ name: 'SwarmbookReport',  params: { projectId: activeProjectId.value } }) }
+function goToPersonas()  { if (activeProjectId.value && hasSimulation.value) router.push({ name: 'SwarmbookPersonas', params: { projectId: activeProjectId.value } }) }
+function goToCompare()   { if (activeProjectId.value) router.push({ name: 'SwarmbookCompare', params: { projectId: activeProjectId.value } }) }
+function exitToMiroFish(){ router.push('/') }
 
-function goToHome() {
-  router.push({ name: 'SwarmbookHome' })
-}
-
-function goToProjects() {
-  router.push({ name: 'SwarmbookHome' })
-}
-
-function startNewSimulation() {
+function startNewTest() {
   clearSwarmbookSession()
   session.value = getSwarmbookSession()
   router.push({ name: 'NewSimulationWizard' })
 }
 
-function goToReport() {
-  if (activeProjectId.value) {
-    router.push({ name: 'SwarmbookReport', params: { projectId: activeProjectId.value } })
-  }
+// ── Sidebar ────────────────────────────────────────────────────────
+function toggleSidebar() { isSidebarOpen.value = !isSidebarOpen.value }
+function closeSidebar()  { isSidebarOpen.value = false }
+
+// Close sidebar on Escape
+function onKeydown(e) {
+  if (e.key === 'Escape' && isSidebarOpen.value) closeSidebar()
 }
 
-function goToPersonas() {
-  if (activeProjectId.value && hasSimulation.value) {
-    router.push({ name: 'SwarmbookPersonas', params: { projectId: activeProjectId.value } })
-  }
-}
-
-function goToCompare() {
-  if (activeProjectId.value) {
-    router.push({ name: 'SwarmbookCompare', params: { projectId: activeProjectId.value } })
-  }
-}
-
-function exitToMiroFish() {
-  router.push('/')
-}
-
+// ── Health polling ─────────────────────────────────────────────────
 async function loadHealth() {
   try {
-    const response = await getBookSimHealth()
-    health.value = response.data
-  } catch (err) {
-    console.warn('AppShell health load failed:', err)
+    const res = await getBookSimHealth()
+    health.value = res.data
+  } catch {
+    // silently degrade; status strip shows Offline
   }
 }
 
 onMounted(() => {
   loadHealth()
-  // Poll health status details every 30 seconds
-  const interval = setInterval(loadHealth, 30000)
-  return () => clearInterval(interval)
+  healthInterval = setInterval(loadHealth, 30000)
+  document.addEventListener('keydown', onKeydown)
+})
+
+onBeforeUnmount(() => {
+  clearInterval(healthInterval)
+  document.removeEventListener('keydown', onKeydown)
 })
 </script>
 
 <style scoped>
-/* Scoped custom styling targeting SaaS UX visual requirements */
-
+/* ═══════════════════════════════════════════════
+   SHELL ROOT
+   ═══════════════════════════════════════════════ */
 .swarmbook-shell {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  background: #f8fafc;
-  color: #0f172a;
-  font-family: 'Space Grotesk', 'Noto Sans SC', system-ui, -apple-system, sans-serif;
+  background: var(--sb-surface-primary);
+  color: var(--sb-text-main);
+  font-family: var(--sb-font-sans);
 }
 
-/* Header visual details */
+/* ── Skip Link (a11y) ─────────────────────────── */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: var(--sb-space-4);
+  background: var(--sb-color-brand);
+  color: #fff;
+  padding: var(--sb-space-2) var(--sb-space-4);
+  border-radius: var(--sb-radius-md);
+  font-weight: var(--sb-weight-semibold);
+  font-size: var(--sb-text-sm);
+  z-index: 9999;
+  text-decoration: none;
+  transition: top 0.1s;
+}
+.skip-link:focus { top: var(--sb-space-2); }
+
+/* ═══════════════════════════════════════════════
+   TOP HEADER
+   ═══════════════════════════════════════════════ */
 .shell-header {
-  height: 64px;
-  background: #0f172a;
-  color: #ffffff;
+  height: 60px;
+  background: var(--sb-surface-dark);
+  color: var(--sb-text-on-dark);
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 24px;
-  border-bottom: 1px solid #1e293b;
+  padding: 0 var(--sb-space-4);
+  border-bottom: 1px solid var(--sb-border-dark);
   position: sticky;
   top: 0;
-  z-index: 100;
+  z-index: 200;
+  gap: var(--sb-space-4);
+  flex-shrink: 0;
 }
 
+/* Brand zone */
 .brand-zone {
   display: flex;
   align-items: center;
-  gap: 12px;
-}
-
-.menu-toggle {
-  display: none;
-  flex-direction: column;
-  gap: 4px;
-  background: transparent;
-  border: none;
-  cursor: pointer;
-  padding: 4px;
-}
-
-.menu-toggle .bar {
-  display: block;
-  width: 20px;
-  height: 2px;
-  background: #ffffff;
-  transition: all 0.2s;
+  gap: var(--sb-space-3);
+  flex-shrink: 0;
 }
 
 .brand-group {
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  gap: 10px;
+  gap: var(--sb-space-2);
+  background: transparent;
+  border: none;
+  color: inherit;
   cursor: pointer;
+  padding: var(--sb-space-1) var(--sb-space-2);
+  border-radius: var(--sb-radius-md);
   outline: none;
 }
+.brand-group:focus-visible { outline: var(--sb-focus-ring); outline-offset: 2px; }
 
-.brand-group:focus-visible {
-  outline: 2px solid #ff4500;
-  outline-offset: 4px;
-}
-
-.logo-icon {
-  font-size: 1.5rem;
-}
+.logo-icon { font-size: 1.4rem; line-height: 1; }
 
 .logo-text {
   display: flex;
   flex-direction: column;
+  line-height: 1.1;
 }
 
 .brand-title {
-  font-family: 'JetBrains Mono', monospace;
-  font-weight: 800;
-  font-size: 0.95rem;
+  font-family: var(--sb-font-mono);
+  font-weight: var(--sb-weight-extrabold);
+  font-size: 0.88rem;
   letter-spacing: 1px;
 }
 
 .brand-tagline {
-  font-size: 0.7rem;
-  opacity: 0.7;
-  letter-spacing: 0.5px;
+  font-size: 0.62rem;
+  opacity: 0.65;
+  letter-spacing: 0.4px;
 }
 
+/* Hamburger */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: var(--sb-space-2);
+  border-radius: var(--sb-radius-sm);
+  outline: none;
+  flex-shrink: 0;
+}
+.menu-toggle:focus-visible { outline: var(--sb-focus-ring); }
+
+.bar {
+  display: block;
+  width: 18px;
+  height: 2px;
+  background: #ffffff;
+  border-radius: 2px;
+  transition: transform 0.22s ease, opacity 0.22s ease;
+  transform-origin: center;
+}
+.bar.open:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+.bar.open:nth-child(2) { opacity: 0; transform: scaleX(0); }
+.bar.open:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+
+/* Global top nav */
 .top-nav {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 2px;
+  flex: 1;
+  justify-content: flex-end;
+  flex-wrap: nowrap;
+  overflow: hidden;
 }
 
 .nav-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sb-space-1);
   background: transparent;
   border: none;
-  color: #94a3b8;
-  padding: 8px 14px;
-  font-size: 0.85rem;
-  font-weight: 600;
+  color: rgba(255,255,255,0.65);
+  padding: 6px 12px;
+  font-family: var(--sb-font-sans);
+  font-size: 0.82rem;
+  font-weight: var(--sb-weight-semibold);
   cursor: pointer;
-  transition: all 0.2s ease-in-out;
+  border-radius: var(--sb-radius-md);
+  transition: color 0.15s, background 0.15s;
   outline: none;
+  white-space: nowrap;
+  position: relative;
 }
 
 .nav-btn:hover:not(:disabled) {
   color: #ffffff;
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(255,255,255,0.06);
 }
 
 .nav-btn.active {
-  color: #ff4500;
-  background: rgba(255, 69, 0, 0.1);
+  color: var(--sb-color-brand);
+  background: rgba(255,69,0,0.12);
+}
+
+/* Active underline indicator */
+.nav-btn.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 12px;
+  right: 12px;
+  height: 2px;
+  background: var(--sb-color-brand);
+  border-radius: 2px 2px 0 0;
 }
 
 .nav-btn:disabled {
-  opacity: 0.4;
+  opacity: 0.35;
   cursor: not-allowed;
+  pointer-events: none;
 }
 
 .nav-btn:focus-visible {
-  outline: 2px solid #ff4500;
-  border-radius: 4px;
+  outline: var(--sb-focus-ring);
+  outline-offset: 2px;
 }
 
-.settings-trigger {
-  color: #cbd5e1;
+.nav-icon    { width: 14px; height: 14px; flex-shrink: 0; }
+.nav-icon-sm { width: 11px; height: 11px; flex-shrink: 0; opacity: 0.7; }
+
+.nav-settings { color: rgba(255,255,255,0.5); }
+.nav-settings:hover { color: #ffffff; }
+
+.nav-divider {
+  width: 1px;
+  height: 20px;
+  background: rgba(255,255,255,0.12);
+  margin: 0 4px;
+  flex-shrink: 0;
 }
 
-.exit-btn {
-  background: transparent;
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  color: #cbd5e1;
-  padding: 8px 14px;
-  font-size: 0.8rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.2s;
-  font-family: 'JetBrains Mono', monospace;
-  outline: none;
+/* Original MiroFish button — distinct from regular nav */
+.nav-mirofish {
+  color: rgba(255,255,255,0.5);
+  border: 1px solid rgba(255,255,255,0.14);
+  font-family: var(--sb-font-mono);
+  font-size: 0.75rem;
+}
+.nav-mirofish:hover {
+  color: var(--sb-color-brand);
+  border-color: var(--sb-color-brand);
+  background: rgba(255,69,0,0.08);
 }
 
-.exit-btn:hover {
-  background: #ffffff;
-  color: #0f172a;
-  border-color: #ffffff;
+/* ═══════════════════════════════════════════════
+   STATUS STRIP
+   ═══════════════════════════════════════════════ */
+.status-strip {
+  height: 30px;
+  background: var(--sb-surface-dark-2);
+  border-bottom: 1px solid #0d1929;
+  display: flex;
+  align-items: center;
+  gap: var(--sb-space-3);
+  padding: 0 var(--sb-space-4);
+  font-family: var(--sb-font-mono);
+  font-size: 0.68rem;
+  color: #94a3b8;
+  overflow-x: auto;
+  flex-shrink: 0;
+  scrollbar-width: none;
+}
+.status-strip::-webkit-scrollbar { display: none; }
+
+.strip-item {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  white-space: nowrap;
 }
 
-.exit-btn:focus-visible {
-  outline: 2px solid #ff4500;
+.strip-sep {
+  color: #334155;
+  font-size: 0.75rem;
+  flex-shrink: 0;
 }
 
-/* Sidebar and Main Container */
+.strip-label {
+  color: #475569;
+  font-weight: var(--sb-weight-medium);
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+
+.strip-val {
+  font-weight: var(--sb-weight-semibold);
+  font-size: 0.68rem;
+}
+.strip-val.ready   { color: var(--sb-color-ready); }
+.strip-val.loading { color: var(--sb-color-mixed); }
+.strip-val.offline { color: var(--sb-color-offline); }
+
+.strip-icon { font-size: 0.7rem; }
+
+.strip-badge {
+  font-size: 0.65rem;
+  font-weight: var(--sb-weight-bold);
+  padding: 1px 5px;
+  border-radius: var(--sb-radius-sm);
+  text-transform: lowercase;
+}
+.strip-badge.local_only  { background: var(--sb-privacy-local-bg);  color: var(--sb-privacy-local-text);  }
+.strip-badge.hybrid_safe { background: var(--sb-privacy-hybrid-bg); color: var(--sb-privacy-hybrid-text); }
+.strip-badge.cloud_quality { background: var(--sb-privacy-cloud-bg); color: var(--sb-privacy-cloud-text); }
+
+.strip-profile {
+  font-size: 0.68rem;
+  color: #64748b;
+  font-weight: var(--sb-weight-medium);
+}
+
+.strip-project-id {
+  font-size: 0.68rem;
+  font-weight: var(--sb-weight-bold);
+  color: var(--sb-color-brand);
+  letter-spacing: 0.5px;
+}
+
+/* Pulse dot (reused from tokens pattern) */
+.pulse-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #334155;
+  flex-shrink: 0;
+}
+.pulse-dot.ready {
+  background: var(--sb-color-ready);
+  box-shadow: 0 0 6px var(--sb-color-ready);
+  animation: sb-pulse 2s infinite;
+}
+.pulse-dot.loading {
+  background: var(--sb-color-mixed);
+  animation: sb-pulse 2s infinite;
+}
+.pulse-dot.offline { background: var(--sb-color-offline); }
+
+@keyframes sb-pulse {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.45; }
+}
+
+/* ═══════════════════════════════════════════════
+   BODY CONTAINER
+   ═══════════════════════════════════════════════ */
 .shell-container {
   display: flex;
   flex: 1;
+  min-height: 0; /* allow flex children to shrink */
   position: relative;
 }
 
+/* ─── Mobile backdrop ─────────────────────────── */
+.sidebar-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(15,23,42,0.45);
+  backdrop-filter: blur(2px);
+  z-index: 140;
+}
+
+/* ═══════════════════════════════════════════════
+   SIDEBAR / WORKFLOW RAIL
+   ═══════════════════════════════════════════════ */
 .shell-sidebar {
-  width: 260px;
-  background: #ffffff;
-  border-right: 1px solid #e2e8f0;
+  width: 240px;
+  background: var(--sb-bg-card);
+  border-right: 1px solid var(--sb-border-color);
   display: flex;
   flex-direction: column;
   position: sticky;
-  top: 64px;
-  height: calc(100vh - 64px);
-  z-index: 90;
-  transition: transform 0.3s ease;
+  top: 90px; /* 60px header + 30px status strip */
+  height: calc(100vh - 90px);
+  z-index: 150;
+  flex-shrink: 0;
+  transition: transform 0.28s ease;
+  overflow: hidden;
 }
 
-.sidebar-scroll {
+.sidebar-inner {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
   overflow-y: auto;
-  flex: 1;
-  padding: 24px 16px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  padding: var(--sb-space-4) var(--sb-space-2) var(--sb-space-4);
+  scrollbar-width: thin;
+  scrollbar-color: var(--sb-border-color) transparent;
 }
+.sidebar-inner::-webkit-scrollbar { width: 4px; }
+.sidebar-inner::-webkit-scrollbar-thumb { background: var(--sb-border-color); border-radius: 4px; }
 
-.workflow-steps {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
+/* Mobile-only global nav block (hidden on desktop) */
+.sidebar-global-nav { display: none; }
 
-.nav-header {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.7rem;
+/* Section labels */
+.rail-section-label {
+  font-family: var(--sb-font-mono);
+  font-size: 0.62rem;
   color: #94a3b8;
-  font-weight: 700;
-  letter-spacing: 1px;
-  margin-bottom: 12px;
-  padding-left: 8px;
+  font-weight: var(--sb-weight-bold);
+  letter-spacing: 1.2px;
+  padding: 0 var(--sb-space-2) var(--sb-space-2);
+  text-transform: uppercase;
+}
+
+/* ── Workflow step links ─────────────────────── */
+.workflow-rail {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  flex: 1;
 }
 
 .step-link {
   display: flex;
   align-items: center;
-  gap: 12px;
-  padding: 10px 12px;
-  border-radius: 6px;
+  gap: var(--sb-space-2);
+  padding: 9px var(--sb-space-3);
+  border-radius: var(--sb-radius-md);
   text-decoration: none;
-  color: #475569;
-  font-size: 0.85rem;
-  font-weight: 600;
-  transition: all 0.2s;
+  color: var(--sb-text-muted);
+  font-size: 0.83rem;
+  font-weight: var(--sb-weight-semibold);
+  transition: background 0.15s, color 0.15s;
   position: relative;
   outline: none;
+  cursor: pointer;
 }
 
-.step-link:hover:not(.disabled) {
-  background: #f1f5f9;
-  color: #0f172a;
+.step-link:hover:not(.step-disabled) {
+  background: var(--sb-surface-secondary);
+  color: var(--sb-text-main);
 }
 
-.step-link.active {
-  background: #faf5ff;
-  color: #7c3aed;
-  background: #fff5ef;
-  color: #ff4500;
+/* Active state: left accent bar */
+.step-link.step-active {
+  background: rgba(255,69,0,0.07);
+  color: var(--sb-color-brand);
 }
 
-.step-link.disabled {
-  opacity: 0.45;
+.step-accent {
+  position: absolute;
+  left: 0;
+  top: 6px;
+  bottom: 6px;
+  width: 3px;
+  border-radius: 0 2px 2px 0;
+  background: transparent;
+  transition: background 0.15s;
+}
+.step-link.step-active .step-accent { background: var(--sb-color-brand); }
+
+.step-link.step-disabled {
+  opacity: 0.38;
   cursor: not-allowed;
+  pointer-events: none;
 }
 
-.step-link:focus-visible {
-  outline: 2px solid #ff4500;
-}
+.step-link:focus-visible { outline: var(--sb-focus-ring); outline-offset: 1px; }
 
 .step-num {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.75rem;
+  font-family: var(--sb-font-mono);
+  font-size: 0.62rem;
   color: #94a3b8;
+  min-width: 20px;
+  flex-shrink: 0;
+}
+.step-link.step-active .step-num { color: var(--sb-color-brand); opacity: 0.8; }
+
+.step-label { flex: 1; line-height: 1.2; }
+
+.step-badge {
+  font-family: var(--sb-font-mono);
+  font-size: 0.58rem;
+  background: var(--sb-color-brand);
+  color: #fff;
+  padding: 1px 5px;
+  border-radius: var(--sb-radius-full);
 }
 
-.step-link.active .step-num {
-  color: #ff4500;
+/* ── Sidebar footer ────────────────────────── */
+.sidebar-footer {
+  margin-top: auto;
+  padding-top: var(--sb-space-2);
 }
 
-.active-dot {
-  position: absolute;
-  right: 12px;
-  width: 6px;
-  height: 6px;
-  background: #ff4500;
-  border-radius: 50%;
+.sidebar-divider {
+  height: 1px;
+  background: var(--sb-border-color);
+  margin: var(--sb-space-3) var(--sb-space-2);
 }
 
-/* System Status Details */
-.system-status-panel {
-  margin-top: 32px;
-  border-top: 1px solid #f1f5f9;
-  padding-top: 20px;
-}
-
-.panel-title {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.7rem;
-  color: #94a3b8;
-  font-weight: 700;
-  letter-spacing: 1px;
-  margin-bottom: 12px;
-  padding-left: 8px;
-}
-
-.status-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-.status-list li {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 0.78rem;
-  padding: 0 8px;
-}
-
-.status-name {
-  color: #64748b;
-  font-weight: 500;
-}
-
-.status-indicator {
+.sidebar-footer-btn {
   display: flex;
   align-items: center;
-  gap: 6px;
-  font-family: 'JetBrains Mono', monospace;
+  gap: var(--sb-space-2);
+  width: 100%;
+  background: transparent;
+  border: none;
+  color: var(--sb-text-muted);
+  padding: 9px var(--sb-space-3);
+  border-radius: var(--sb-radius-md);
+  font-family: var(--sb-font-sans);
+  font-size: 0.83rem;
+  font-weight: var(--sb-weight-semibold);
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+  outline: none;
+  text-align: left;
+}
+.sidebar-footer-btn:hover       { background: var(--sb-surface-secondary); color: var(--sb-text-main); }
+.sidebar-footer-btn:focus-visible { outline: var(--sb-focus-ring); outline-offset: 1px; }
+.sidebar-footer-btn.footer-active { color: var(--sb-color-brand); background: rgba(255,69,0,0.07); }
+
+/* MiroFish link — special styling */
+.mirofish-link { color: var(--sb-text-hint); }
+.mirofish-link:hover {
+  color: var(--sb-color-brand);
+  background: rgba(255,69,0,0.06);
 }
 
-.pulse-dot {
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background: #cbd5e1;
-}
+.footer-icon { width: 14px; height: 14px; flex-shrink: 0; }
 
-.pulse-dot.ready {
-  background: #10b981;
-  box-shadow: 0 0 8px #10b981;
-  animation: pulse 1.8s infinite;
-}
-
-.pulse-dot.loading {
-  background: #f59e0b;
-  box-shadow: 0 0 8px #f59e0b;
-  animation: pulse 1.8s infinite;
-}
-
-.pulse-dot.offline {
-  background: #ef4444;
-}
-
-@keyframes pulse {
-  0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.4); }
-  70% { transform: scale(1); box-shadow: 0 0 0 5px rgba(16, 185, 129, 0); }
-  100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
-}
-
-.status-val {
-  color: #334155;
-  font-weight: 600;
-}
-
-.privacy-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
-  padding: 2px 6px;
-  border-radius: 4px;
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.7rem;
-  font-weight: 700;
-}
-
-.privacy-badge.local_only {
-  background: #d1fae5;
-  color: #065f46;
-}
-
-.privacy-badge.hybrid_safe {
-  background: #fef3c7;
-  color: #92400e;
-}
-
-.privacy-badge.cloud_quality {
-  background: #dbeafe;
-  color: #1e40af;
-}
-
-.profile-badge {
-  font-family: 'JetBrains Mono', monospace;
-  font-weight: 600;
-  color: #475569;
-  background: #f1f5f9;
-  padding: 2px 6px;
-  border-radius: 4px;
-}
-
-/* Workspace Main Workspace Area */
+/* ═══════════════════════════════════════════════
+   MAIN WORKSPACE
+   ═══════════════════════════════════════════════ */
 .shell-main {
   flex: 1;
-  padding: 32px 40px 60px;
+  padding: var(--sb-space-8) 40px 60px;
   overflow-y: auto;
-  height: calc(100vh - 64px);
+  min-height: 0;
   max-width: 100%;
+  outline: none; /* for programmatic focus (skip link) */
 }
 
-.workspace-header {
-  margin-bottom: 28px;
-}
+.workspace-header { margin-bottom: var(--sb-space-8); }
 
 .workspace-eyebrow {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.75rem;
-  color: #ff4500;
+  font-family: var(--sb-font-mono);
+  font-size: var(--sb-text-xs);
+  color: var(--sb-color-brand);
   text-transform: uppercase;
   letter-spacing: 1px;
-  font-weight: 700;
-  margin-bottom: 6px;
+  font-weight: var(--sb-weight-bold);
+  margin: 0 0 var(--sb-space-2);
 }
 
 .workspace-title {
-  font-size: 2rem;
-  font-weight: 800;
-  color: #0f172a;
+  font-size: var(--sb-text-3xl);
+  font-weight: var(--sb-weight-extrabold);
+  color: var(--sb-text-heading);
   letter-spacing: -0.5px;
-  line-height: 1.15;
+  line-height: var(--sb-leading-tight);
   margin: 0;
 }
 
 .workspace-subtitle {
-  font-size: 0.95rem;
-  color: #64748b;
-  margin-top: 6px;
-  max-width: 800px;
-  line-height: 1.5;
+  font-size: var(--sb-text-md);
+  color: var(--sb-text-hint);
+  margin-top: var(--sb-space-2);
+  max-width: 780px;
+  line-height: var(--sb-leading-relaxed);
 }
 
-/* Banner details */
+/* ─── Banners ─────────────────────────────────── */
 .shell-banner {
-  border-left: 4px solid #ef4444;
-  background: #fef2f2;
-  padding: 16px;
-  margin-bottom: 24px;
-  border-radius: 4px;
   display: flex;
-  flex-direction: column;
-  gap: 4px;
+  align-items: flex-start;
+  gap: var(--sb-space-3);
+  padding: var(--sb-space-3) var(--sb-space-4);
+  margin-bottom: var(--sb-space-5);
+  border-radius: var(--sb-radius-lg);
+  border-left: 4px solid var(--sb-color-offline);
+  background: var(--sb-status-error-bg);
 }
 
 .shell-banner.loading-banner {
-  border-left-color: #3b82f6;
-  background: #eff6ff;
+  border-left-color: var(--sb-color-info);
+  background: var(--sb-status-info-bg);
 }
+
+.banner-icon {
+  font-size: 1.1rem;
+  line-height: 1;
+  margin-top: 2px;
+  flex-shrink: 0;
+}
+
+.banner-spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(59,130,246,0.3);
+  border-top-color: var(--sb-color-info);
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.banner-body { display: flex; flex-direction: column; gap: 2px; }
 
 .banner-title {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.75rem;
+  font-family: var(--sb-font-mono);
+  font-size: var(--sb-text-xs);
   text-transform: uppercase;
   letter-spacing: 0.5px;
-  font-weight: 700;
-  color: #991b1b;
+  font-weight: var(--sb-weight-bold);
+  color: var(--sb-status-error-text);
 }
-
-.loading-banner .banner-title {
-  color: #1e3a8a;
-}
-
-.pulsing {
-  animation: pulse-text 1.5s infinite;
-}
-
-@keyframes pulse-text {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.5; }
-}
+.loading-banner .banner-title { color: var(--sb-status-info-text); }
 
 .shell-banner p {
-  font-size: 0.88rem;
+  font-size: var(--sb-text-base);
   margin: 0;
   color: #7f1d1d;
 }
+.loading-banner p { color: var(--sb-status-info-text); }
 
-.loading-banner p {
-  color: #1e3a8a;
-}
+.workspace-content { margin-top: var(--sb-space-1); }
 
-.workspace-content {
-  margin-top: 10px;
-}
-
-/* Modal CSS details */
-.settings-modal {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 200;
-}
-
-.modal-backdrop {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background: rgba(15, 23, 42, 0.6);
-  backdrop-filter: blur(4px);
-}
-
-.modal-card {
-  position: relative;
-  background: #ffffff;
-  width: 100%;
-  max-width: 540px;
-  border-radius: 12px;
-  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
-  border: 1px solid #e2e8f0;
-}
-
-.modal-header {
-  padding: 20px 24px;
-  border-bottom: 1px solid #e2e8f0;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.modal-header h2 {
-  font-size: 1.25rem;
-  font-weight: 700;
-  color: #0f172a;
-  margin: 0;
-}
-
-.close-btn {
-  background: transparent;
-  border: none;
-  font-size: 1.5rem;
-  color: #64748b;
-  cursor: pointer;
-  padding: 4px;
-}
-
-.close-btn:hover {
-  color: #0f172a;
-}
-
-.modal-body {
-  padding: 24px;
-  overflow-y: auto;
-  max-height: 70vh;
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-}
-
-.settings-section h3 {
-  font-size: 0.85rem;
-  font-family: 'JetBrains Mono', monospace;
-  color: #ff4500;
-  letter-spacing: 0.5px;
-  margin: 0 0 12px 0;
-  text-transform: uppercase;
-}
-
-.details-grid {
-  background: #f8fafc;
-  border: 1px solid #e2e8f0;
-  border-radius: 6px;
-  padding: 14px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.detail-row {
-  display: flex;
-  justify-content: space-between;
-  font-size: 0.85rem;
-}
-
-.detail-row.flex-column {
-  flex-direction: column;
-  gap: 6px;
-}
-
-.detail-row .label {
-  color: #64748b;
-  font-weight: 500;
-}
-
-.detail-row .value {
-  font-weight: 600;
-  color: #0f172a;
-  font-family: 'JetBrains Mono', monospace;
-}
-
-.pill-row {
-  display: flex;
-  gap: 6px;
-  flex-wrap: wrap;
-}
-
-.platform-pill {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.72rem;
-  background: #ffffff;
-  border: 1px solid #e2e8f0;
-  padding: 2px 6px;
-  border-radius: 4px;
-  text-transform: lowercase;
-}
-
-.alert-block {
-  display: flex;
-  gap: 10px;
-  background: #fffbeb;
-  border: 1px solid #fef3c7;
-  color: #92400e;
-  padding: 12px;
-  border-radius: 6px;
-  font-size: 0.82rem;
-}
-
-.alert-block p {
-  margin: 0;
-  line-height: 1.4;
-}
-
-.code-log pre {
-  background: #0f172a;
-  color: #38bdf8;
-  padding: 14px;
-  border-radius: 6px;
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.75rem;
-  line-height: 1.5;
-  margin: 0;
-  overflow-x: auto;
-}
-
-.modal-footer {
-  padding: 16px 24px;
-  border-top: 1px solid #e2e8f0;
-  display: flex;
-  justify-content: flex-end;
-}
-
+/* ── Primary button (used inside AppShell portal) */
 .primary-btn {
-  background: #ff4500;
-  border: 1px solid #ff4500;
+  background: var(--sb-color-brand);
+  border: 1px solid var(--sb-color-brand);
   color: #ffffff;
-  padding: 10px 18px;
-  font-weight: 600;
-  font-size: 0.88rem;
+  padding: var(--sb-space-2) 18px;
+  font-weight: var(--sb-weight-semibold);
+  font-size: var(--sb-text-base);
   cursor: pointer;
-  border-radius: 6px;
+  border-radius: var(--sb-radius-md);
   transition: all 0.2s;
   outline: none;
 }
+.primary-btn:hover        { background: var(--sb-color-brand-hover); }
+.primary-btn:focus-visible { outline: var(--sb-focus-ring); outline-offset: var(--sb-focus-offset); }
 
-.primary-btn:hover {
-  background: #e03d00;
-}
-
-.primary-btn:focus-visible {
-  outline: 2px solid #ff4500;
-  outline-offset: 2px;
-}
-
-/* Mobile Responsive Adjustments */
+/* ═══════════════════════════════════════════════
+   RESPONSIVE — TABLET / MOBILE (≤900px)
+   ═══════════════════════════════════════════════ */
 @media (max-width: 900px) {
-  .menu-toggle {
-    display: flex;
-  }
+  /* Show hamburger */
+  .menu-toggle { display: flex; }
 
-  .top-nav {
-    display: none; /* Hide top nav links on tablet/mobile; moved inside collapsed rail */
-  }
+  /* Hide full top-nav on mobile */
+  .top-nav { display: none; }
 
+  /* Sidebar becomes an off-canvas drawer */
   .shell-sidebar {
     position: fixed;
-    top: 64px;
+    top: 0;
     left: 0;
+    bottom: 0;
+    height: 100dvh;
     transform: translateX(-100%);
-    box-shadow: 10px 0 15px -3px rgba(0, 0, 0, 0.05);
+    box-shadow: 4px 0 24px rgba(0,0,0,0.15);
+    z-index: 160;
   }
 
-  .shell-sidebar.sidebar-open {
-    transform: translateX(0);
+  .shell-sidebar.sidebar-open { transform: translateX(0); }
+
+  /* Show global nav buttons inside the drawer */
+  .sidebar-global-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    margin-bottom: var(--sb-space-2);
   }
 
-  .sidebar-backdrop {
-    position: fixed;
-    top: 64px;
-    left: 0;
+  .sidebar-global-btn {
+    display: flex;
+    align-items: center;
+    gap: var(--sb-space-2);
     width: 100%;
-    height: calc(100vh - 64px);
-    background: rgba(15, 23, 42, 0.4);
-    z-index: 85;
+    background: transparent;
+    border: none;
+    color: var(--sb-text-muted);
+    padding: 10px var(--sb-space-3);
+    border-radius: var(--sb-radius-md);
+    font-family: var(--sb-font-sans);
+    font-size: 0.9rem;
+    font-weight: var(--sb-weight-semibold);
+    cursor: pointer;
+    text-align: left;
+    outline: none;
   }
+  .sidebar-global-btn:hover:not(:disabled) {
+    background: var(--sb-surface-secondary);
+    color: var(--sb-text-main);
+  }
+  .sidebar-global-btn:disabled { opacity: 0.35; cursor: not-allowed; }
+  .sidebar-global-btn:focus-visible { outline: var(--sb-focus-ring); }
 
-  .shell-main {
-    padding: 24px 20px 48px;
-    height: calc(100vh - 64px);
+  .sg-icon { font-size: 1rem; width: 20px; text-align: center; }
+
+  /* Status strip: compact on mobile */
+  .status-strip {
+    font-size: 0.62rem;
+    padding: 0 var(--sb-space-3);
+    gap: var(--sb-space-2);
   }
+  .strip-label { display: none; }
+
+  /* Main content: full width, smaller padding */
+  .shell-main { padding: var(--sb-space-5) var(--sb-space-4) 60px; }
+
+  .workspace-title { font-size: var(--sb-text-2xl); }
+}
+
+@media (max-width: 480px) {
+  .shell-header { padding: 0 var(--sb-space-3); }
+  .brand-tagline { display: none; }
+  .status-strip { height: 26px; }
+}
+
+/* Reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  .bar, .step-link, .nav-btn, .sidebar-footer-btn, .shell-sidebar { transition: none; }
+  .banner-spinner, .pulse-dot.ready, .pulse-dot.loading { animation: none; }
 }
 </style>

@@ -1,5 +1,47 @@
 # Swarmbook Decisions (Reconstructed)
 
+## D-052
+- Date: `2026-05-29`
+- Decision: Add `test_book_sim_extra_edge_cases.py` unit tests testing DraftComparator self-comparison, extreme scoring boundaries, and privacy router filter constraint.
+- Rationale: Hardens the E2E verification loop, validating edge case values against theoretical baselines (e.g. empty maps vs max rating) and confirming local privacy policy routing holds securely.
+- Trade-off: None. The changes are purely additive.
+- Files affected: `backend/tests/test_book_sim_extra_edge_cases.py`
+
+## D-051
+- Date: `2026-05-29`
+- Decision: Refine the Draft Comparison screen to use directional text icons for deltas and display a Known Limitations banner.
+- Rationale: Ensures color is not the only signal for score movement, satisfying WCAG accessibility standards, and maintains transparency about synthetic simulation confidence levels.
+- Trade-off: None. The changes are purely additive.
+- Files affected: `frontend/src/views/swarmbook/SwarmbookCompareView.vue`
+
+## D-050
+- Date: `2026-05-29`
+- Decision: Refine the Persona Interview screen to use a slide-over Evidence Drawer overlay layout, mapping all 7 schemas dynamically, registering exact quick questions wording, and rendering a persistent Known Limitations sandbox warning.
+- Rationale: A sliding drawer saves horizontal workspace space on smaller desktop/tablet displays and provides a full-viewport sheet overlay on mobile for improved readability. Explicitly mapping all 7 schema maps ensures grounded references can be fully inspected, and a warning banner prevents users from mistaking synthetic signals for real platform scraper outputs.
+- Trade-off: Drawer transition CSS increases the stylesheet footprint, but drastically improves the master-detail flow and responsiveness of the screen.
+- Files affected: `frontend/src/views/swarmbook/SwarmbookPersonasView.vue`
+
+## D-049
+- Date: `2026-05-29`
+- Decision: Adopt structured document generation libraries (`pdfmake`, `docx`) for PDF and Word exports rather than capturing DOM snapshots (with the exception of a targeted PNG Shareable Summary Card via `html2canvas`).
+- Rationale: Structured generation guarantees professional text selection, pagination, formatting, and editability, which screenshot-to-PDF strategies fail to provide.
+- Trade-off: Adding new visualization components to the report dashboard requires manual mapping inside the `exportReport.js` utility, increasing maintenance overhead for the sake of higher export quality.
+- Files affected: `frontend/src/utils/exportReport.js`, `frontend/package.json`
+
+## D-048
+- Date: `2026-05-29`
+- Decision: Restructure the Report Dashboard to position Executive Verdict and Revision Priorities explicitly above the fold, while using jump-navigation to access deeper charts.
+- Rationale: A "decision-first" UX ensures authors can rapidly identify what needs fixing without scrolling past dense simulated social media reactions.
+- Trade-off: Requires manual CSS overrides for sticky navigation and slightly increases top-level information density.
+- Files affected: `frontend/src/views/swarmbook/SwarmbookReportView.vue`
+
+## D-047
+- Date: `2026-05-29`
+- Decision: Restructure the Simulation Run view using a 7-step stepper and terminal styling without implementing an active background polling architecture.
+- Rationale: The backend `/api/book-sim/simulate` endpoint is synchronous, meaning the client cannot legitimately pause/resume or fetch real-time progressive logs without a heavy architectural rewrite to use websockets or background jobs.
+- Trade-off: The UI must spoof progress or rely on the single synchronous response for now, rendering the "Pause" button functionally disabled.
+- Files affected: `frontend/src/views/swarmbook/SwarmbookSimulationRunView.vue`
+
 ## D-001
 - Date: `2026-05-17` (from checkpoint commit `08a3a7e`)
 - Decision: Build Swarmbook as additive modules under `backend/app/book_sim` instead of rewriting legacy simulation.
@@ -293,4 +335,32 @@
 - Rationale: Fully validates error boundaries, parameter validations, socket diagnostics, ingestion limits, and fallback strategies of the manuscript simulation engine and Flask blueprints without modifying or risking regressions in existing test structures.
 - Trade-off: None. The files are entirely additive and adhere to the Swarmbook continuity guardrails.
 - Files affected: `backend/tests/test_book_sim_edge_cases.py`, `docs/SWARMBOOK_TESTING_PLAN.md`, `docs/SWARMBOOK_DECISIONS.md`
+
+## D-043
+- Date: `2026-05-29`
+- Decision: Redesign Swarmbook Projects/Home page into a compact Launch Console. Remove oversized hero block, move project ID open into expandable toggle, remove duplicate Ollama/Neo4j status displays, and collapse profile warnings unless a non-default profile is selected.
+- Rationale: Optimizes desktop real estate to fit 1366x768 layouts without scrolling, removes redundant status indicators to keep UI clean, and improves empty states with clear CTA actions.
+- Trade-off: None. The changes remain fully additive and do not affect legacy MiroFish views.
+- Files affected: `frontend/src/views/swarmbook/SwarmbookHomeView.vue`, `docs/SWARMBOOK_DECISIONS.md`
+
+## D-044
+- Date: `2026-05-29`
+- Decision: Redesign the guided simulation wizard basics screen (Step 1). Add Content Type dropdown selector, Test Goal required field, collapsible optional metadata section, dynamic Live Accuracy Checklist card, and real-time autosave watch block.
+- Rationale: Multi-format support allows testing blurbs, essays, proposals, and novels with tailored accuracy expectations visible to authors instantly. Collapsing optional fields reduces vertical footprint to improve scrolling efficiency. Autosaving ensures state is kept on page refresh/crashes.
+- Trade-off: Incremental addition of schema metadata keys, but fully backwards-compatible and additive.
+- Files affected: `frontend/src/store/swarmbookSession.js`, `frontend/src/views/swarmbook/NewSimulationWizardView.vue`, `docs/SWARMBOOK_DECISIONS.md`
+
+## D-045
+- Date: `2026-05-29`
+- Decision: Redesign Swarmbook Evidence view (`SwarmbookEvidenceView.vue`) into a 7-card grid workspace. Replace split-pane with card grid, add slide-out Detail Drawer overlay, show collapsible raw JSON in Advanced View, flag low-confidence (< 75%) visually/textually, and block simulation progress until critical maps (DNA, chapters, characters/claims) are Accepted.
+- Rationale: Grid simplifies map scanning and tracking. Detail Drawer overlay organizes structured sub-attributes and editorial annotations cleanly without cluttering the screen. Custom badge visual style/warning label satisfies accessibility goals, and blocking button states ensure valid simulations.
+- Trade-off: None. The changes remain fully additive and do not affect legacy MiroFish views.
+- Files affected: `frontend/src/views/swarmbook/SwarmbookEvidenceView.vue`, `docs/SWARMBOOK_DECISIONS.md`
+
+## D-046
+- Date: `2026-05-29`
+- Decision: Redesign Swarmbook Simulation configuration screen (`SwarmbookSimulationView.vue`) into a premium Reader Swarm Setup screen. Add warning banner for offline sandbox, map model details per profile card, add load meter categorized scale for memory load, show cohort quotes/archetypes details, update privacy card details, and collapse advanced parameters.
+- Rationale: Promotes clear understanding that the simulation is an offline sandbox (no scraping/live posting). Adding model usage info, load categories, and cohort descriptions clarifies "who is simulated" and CPU/VRAM load limitations on standard workstations, while collapsing advanced configurations declutters the workspace.
+- Trade-off: None. The changes remain fully additive and do not affect legacy MiroFish views.
+- Files affected: `frontend/src/views/swarmbook/SwarmbookSimulationView.vue`, `docs/SWARMBOOK_DECISIONS.md`
 

@@ -22,6 +22,8 @@ export function createDefaultSwarmbookSession() {
       coverBrief: '',
       privacyMode: 'hybrid_safe',
       localProfile: 'hybrid_safe_default',
+      contentType: 'novel',
+      testGoal: '',
     },
     evidencePack: null,
     simulationConfig: {

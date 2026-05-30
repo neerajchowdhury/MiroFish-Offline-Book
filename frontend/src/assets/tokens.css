@@ -1,0 +1,462 @@
+/**
+ * Swarmbook Studio / Good Now Again — Design Token Layer
+ *
+ * Rules:
+ *  - All custom properties use the --sb- prefix.
+ *  - All utility classes use the .sb- prefix.
+ *  - This file scopes nothing to body or html — tokens are set on :root
+ *    so they inherit normally through the Vue component tree.
+ *  - Legacy MiroFish views (Home.vue, MainView.vue, ReportView.vue, etc.)
+ *    use entirely separate class names and are NOT affected by anything here.
+ *  - No Tailwind, no utility framework — plain CSS custom properties only.
+ */
+
+/* ============================================================
+   COLOR PALETTE
+   ============================================================ */
+:root {
+  /* Backgrounds / Surfaces */
+  --sb-surface-primary:   #f8fafc;   /* page background */
+  --sb-surface-secondary: #f1f5f9;   /* subtle inset / hover */
+  --sb-surface-dark:      #0f172a;   /* header, hero card */
+  --sb-surface-dark-2:    #1e293b;   /* dark border / secondary dark surface */
+  --sb-bg-base:           #f8fafc;   /* alias kept for backward compat */
+  --sb-bg-card:           #ffffff;   /* default card background */
+
+  /* Text */
+  --sb-text-main:    #0f172a;   /* primary body text — 16.75:1 on white (AAA) */
+  --sb-text-heading: #0f172a;   /* headings */
+  --sb-text-body:    #334155;   /* paragraph text — 9.82:1 on white (AAA) */
+  --sb-text-muted:   #475569;   /* secondary / hint text — 5.95:1 on white (AA) */
+  --sb-text-hint:    #64748b;   /* placeholder, timestamp — 4.54:1 on white (AA) */
+  --sb-text-on-dark: #ffffff;
+  --sb-text-on-dark-muted: #94a3b8;
+
+  /* Brand */
+  --sb-color-brand:        #ff4500;   /* orange accent */
+  --sb-color-brand-hover:  #e63d00;
+  --sb-color-brand-light:  rgba(255, 69, 0, 0.1);
+
+  /* Borders */
+  --sb-border-color:  #e2e8f0;   /* default border */
+  --sb-border-hover:  #cbd5e1;   /* border on hover / focus */
+  --sb-border-dark:   #1e293b;   /* border inside dark surfaces */
+
+  /* Status / Signal Colors */
+  --sb-color-ready:   #10b981;   /* online / success */
+  --sb-color-mixed:   #f59e0b;   /* warning / loading */
+  --sb-color-offline: #ef4444;   /* error / offline */
+  --sb-color-info:    #3b82f6;   /* informational */
+
+  /* Status semantic surfaces */
+  --sb-status-ok-bg:      #d1fae5;
+  --sb-status-ok-text:    #065f46;
+  --sb-status-warn-bg:    #fef3c7;
+  --sb-status-warn-text:  #92400e;
+  --sb-status-error-bg:   #fef2f2;
+  --sb-status-error-text: #991b1b;
+  --sb-status-info-bg:    #eff6ff;
+  --sb-status-info-text:  #1e3a8a;
+
+  /* Risk Colors (for report / evidence panels) */
+  --sb-risk-high:    #ef4444;
+  --sb-risk-high-bg: #fef2f2;
+  --sb-risk-medium:    #f59e0b;
+  --sb-risk-medium-bg: #fffbeb;
+  --sb-risk-low:    #10b981;
+  --sb-risk-low-bg: #ecfdf5;
+
+  /* Privacy Mode Colors */
+  --sb-privacy-local-bg:   #d1fae5;
+  --sb-privacy-local-text: #065f46;
+  --sb-privacy-hybrid-bg:   #fef3c7;
+  --sb-privacy-hybrid-text: #92400e;
+  --sb-privacy-cloud-bg:   #dbeafe;
+  --sb-privacy-cloud-text: #1e40af;
+}
+
+/* ============================================================
+   SPACING SCALE (4 px base unit)
+   ============================================================ */
+:root {
+  --sb-space-0:   0px;
+  --sb-space-1:   4px;
+  --sb-space-2:   8px;
+  --sb-space-3:   12px;
+  --sb-space-4:   16px;
+  --sb-space-5:   20px;
+  --sb-space-6:   24px;
+  --sb-space-8:   32px;
+  --sb-space-10:  40px;
+  --sb-space-12:  48px;
+  --sb-space-16:  64px;
+}
+
+/* ============================================================
+   TYPOGRAPHY
+   ============================================================ */
+:root {
+  /* Font stacks */
+  --sb-font-sans: 'Space Grotesk', 'Noto Sans SC', system-ui, -apple-system, sans-serif;
+  --sb-font-mono: 'JetBrains Mono', 'Courier New', monospace;
+
+  /* Size scale (rem) */
+  --sb-text-xs:   0.70rem;   /* 11.2px */
+  --sb-text-sm:   0.78rem;   /* 12.5px */
+  --sb-text-base: 0.88rem;   /* 14.1px */
+  --sb-text-md:   0.95rem;   /* 15.2px */
+  --sb-text-lg:   1.05rem;   /* 16.8px */
+  --sb-text-xl:   1.2rem;
+  --sb-text-2xl:  1.5rem;
+  --sb-text-3xl:  2.0rem;
+  --sb-text-4xl:  2.4rem;
+
+  /* Weights */
+  --sb-weight-regular:   400;
+  --sb-weight-medium:    500;
+  --sb-weight-semibold:  600;
+  --sb-weight-bold:      700;
+  --sb-weight-extrabold: 800;
+
+  /* Line heights */
+  --sb-leading-tight:   1.15;
+  --sb-leading-normal:  1.5;
+  --sb-leading-relaxed: 1.6;
+  --sb-leading-loose:   1.8;
+}
+
+/* ============================================================
+   BORDER RADIUS
+   ============================================================ */
+:root {
+  --sb-radius-xs:   2px;
+  --sb-radius-sm:   4px;
+  --sb-radius-md:   6px;
+  --sb-radius-lg:   8px;
+  --sb-radius-xl:   12px;
+  --sb-radius-full: 9999px;
+}
+
+/* ============================================================
+   SHADOWS
+   ============================================================ */
+:root {
+  --sb-shadow-sm:    0 1px 3px rgba(15, 23, 42, 0.05);
+  --sb-shadow-md:    0 4px 12px rgba(15, 23, 42, 0.06);
+  --sb-shadow-lg:    0 20px 25px -5px rgba(0, 0, 0, 0.10),
+                     0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  --sb-shadow-focus: 0 0 0 3px rgba(255, 69, 0, 0.15);
+}
+
+/* ============================================================
+   FOCUS STATES
+   ============================================================ */
+:root {
+  --sb-focus-ring:   2px solid var(--sb-color-brand);
+  --sb-focus-offset: 2px;
+}
+
+/* ============================================================
+   BREAKPOINTS (as custom media — reference only; use in @media)
+   --sb-bp-sm:  640px
+   --sb-bp-md:  768px
+   --sb-bp-lg:  1024px
+   --sb-bp-xl:  1280px
+   ============================================================ */
+
+
+/* ============================================================
+   UTILITY CLASSES — Card Styles
+   Scoped to avoid collision with legacy MiroFish rules.
+   ============================================================ */
+
+/* Standard surface card */
+.sb-card {
+  background: var(--sb-bg-card);
+  border: 1px solid var(--sb-border-color);
+  border-radius: var(--sb-radius-xl);
+  padding: var(--sb-space-6);
+  box-shadow: var(--sb-shadow-sm);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.sb-card:hover {
+  border-color: var(--sb-border-hover);
+  box-shadow: var(--sb-shadow-md);
+}
+
+/* Dark hero card (e.g. Swarmbook Home dashboard hero) */
+.sb-card-hero {
+  background: var(--sb-surface-dark);
+  border: 1px solid var(--sb-border-dark);
+  border-radius: var(--sb-radius-xl);
+  padding: var(--sb-space-10);
+  box-shadow: 0 4px 20px rgba(15, 23, 42, 0.15);
+  color: var(--sb-text-on-dark);
+}
+
+/* Inset / inner surface card */
+.sb-card-inset {
+  background: var(--sb-surface-primary);
+  border: 1px solid var(--sb-border-color);
+  border-radius: var(--sb-radius-lg);
+  padding: var(--sb-space-4);
+  box-shadow: none;
+}
+
+
+/* ============================================================
+   UTILITY CLASSES — Buttons
+   These are additive. Existing .primary-btn / .ghost-btn in
+   App.vue remain untouched; these provide canonical references.
+   ============================================================ */
+
+/* Primary button */
+.sb-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--sb-space-2);
+  background: var(--sb-text-main);
+  color: #ffffff;
+  border: 1px solid var(--sb-text-main);
+  padding: var(--sb-space-3) var(--sb-space-6);
+  min-height: 44px;
+  border-radius: var(--sb-radius-md);
+  font-family: var(--sb-font-sans);
+  font-weight: var(--sb-weight-semibold);
+  font-size: var(--sb-text-md);
+  letter-spacing: 0.2px;
+  cursor: pointer;
+  transition: background 0.2s ease, border-color 0.2s ease, transform 0.15s ease;
+  outline: none;
+}
+
+.sb-btn-primary:hover:not(:disabled) {
+  background: var(--sb-color-brand);
+  border-color: var(--sb-color-brand);
+}
+
+.sb-btn-primary:focus-visible {
+  outline: var(--sb-focus-ring);
+  outline-offset: var(--sb-focus-offset);
+}
+
+.sb-btn-primary:disabled {
+  background: var(--sb-surface-secondary);
+  border-color: var(--sb-border-color);
+  color: var(--sb-text-hint);
+  cursor: not-allowed;
+}
+
+/* Ghost / secondary button */
+.sb-btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--sb-space-2);
+  background: transparent;
+  color: var(--sb-text-muted);
+  border: 1px solid var(--sb-border-color);
+  padding: var(--sb-space-3) var(--sb-space-6);
+  min-height: 44px;
+  border-radius: var(--sb-radius-md);
+  font-family: var(--sb-font-sans);
+  font-weight: var(--sb-weight-semibold);
+  font-size: var(--sb-text-md);
+  cursor: pointer;
+  transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+  outline: none;
+}
+
+.sb-btn-ghost:hover:not(:disabled) {
+  background: var(--sb-surface-secondary);
+  border-color: var(--sb-border-hover);
+  color: var(--sb-text-main);
+}
+
+.sb-btn-ghost:focus-visible {
+  outline: var(--sb-focus-ring);
+  outline-offset: var(--sb-focus-offset);
+}
+
+.sb-btn-ghost:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+/* Danger button */
+.sb-btn-danger {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--sb-space-2);
+  background: var(--sb-status-error-bg);
+  color: var(--sb-status-error-text);
+  border: 1px solid var(--sb-risk-high);
+  padding: var(--sb-space-3) var(--sb-space-6);
+  min-height: 44px;
+  border-radius: var(--sb-radius-md);
+  font-family: var(--sb-font-sans);
+  font-weight: var(--sb-weight-semibold);
+  font-size: var(--sb-text-md);
+  cursor: pointer;
+  transition: background 0.2s ease;
+  outline: none;
+}
+
+.sb-btn-danger:hover:not(:disabled) {
+  background: var(--sb-risk-high);
+  color: #ffffff;
+}
+
+.sb-btn-danger:focus-visible {
+  outline: var(--sb-focus-ring);
+  outline-offset: var(--sb-focus-offset);
+}
+
+
+/* ============================================================
+   UTILITY CLASSES — Status Badges
+   ============================================================ */
+
+.sb-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sb-space-1);
+  font-family: var(--sb-font-mono);
+  font-size: var(--sb-text-xs);
+  font-weight: var(--sb-weight-bold);
+  padding: 2px 8px;
+  border-radius: var(--sb-radius-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+.sb-badge--ok      { background: var(--sb-status-ok-bg);    color: var(--sb-status-ok-text);    }
+.sb-badge--warn    { background: var(--sb-status-warn-bg);  color: var(--sb-status-warn-text);  }
+.sb-badge--error   { background: var(--sb-status-error-bg); color: var(--sb-status-error-text); }
+.sb-badge--info    { background: var(--sb-status-info-bg);  color: var(--sb-status-info-text);  }
+
+.sb-badge--risk-high   { background: var(--sb-risk-high-bg);   color: var(--sb-risk-high);   }
+.sb-badge--risk-medium { background: var(--sb-risk-medium-bg); color: var(--sb-risk-medium); }
+.sb-badge--risk-low    { background: var(--sb-risk-low-bg);    color: var(--sb-risk-low);    }
+
+.sb-badge--privacy-local  { background: var(--sb-privacy-local-bg);  color: var(--sb-privacy-local-text);  }
+.sb-badge--privacy-hybrid { background: var(--sb-privacy-hybrid-bg); color: var(--sb-privacy-hybrid-text); }
+.sb-badge--privacy-cloud  { background: var(--sb-privacy-cloud-bg);  color: var(--sb-privacy-cloud-text);  }
+
+
+/* ============================================================
+   UTILITY CLASSES — Form Inputs (Swarmbook scoped)
+   Applies only inside .swarmbook-shell or .new-wizard-container
+   to avoid disrupting legacy MiroFish form inputs.
+   ============================================================ */
+
+.swarmbook-shell input:not([type="range"]):not([type="checkbox"]):not([type="radio"]),
+.swarmbook-shell select,
+.swarmbook-shell textarea,
+.new-wizard-container input:not([type="range"]):not([type="checkbox"]):not([type="radio"]),
+.new-wizard-container select,
+.new-wizard-container textarea {
+  font-family: var(--sb-font-sans);
+  font-size: var(--sb-text-base);
+  color: var(--sb-text-main);
+  background: var(--sb-bg-card);
+  border: 1px solid var(--sb-border-hover);
+  border-radius: var(--sb-radius-md);
+  padding: var(--sb-space-2) var(--sb-space-3);
+  min-height: 40px;
+  width: 100%;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  outline: none;
+}
+
+.swarmbook-shell input:focus,
+.swarmbook-shell select:focus,
+.swarmbook-shell textarea:focus,
+.new-wizard-container input:focus,
+.new-wizard-container select:focus,
+.new-wizard-container textarea:focus {
+  border-color: var(--sb-color-brand);
+  box-shadow: var(--sb-shadow-focus);
+}
+
+.swarmbook-shell input:focus-visible,
+.swarmbook-shell select:focus-visible,
+.swarmbook-shell textarea:focus-visible,
+.swarmbook-shell button:focus-visible,
+.new-wizard-container input:focus-visible,
+.new-wizard-container select:focus-visible,
+.new-wizard-container textarea:focus-visible,
+.new-wizard-container button:focus-visible {
+  outline: var(--sb-focus-ring);
+  outline-offset: var(--sb-focus-offset);
+}
+
+
+/* ============================================================
+   UTILITY CLASSES — Typography helpers (Swarmbook only)
+   ============================================================ */
+
+.swarmbook-shell .sb-eyebrow,
+.new-wizard-container .sb-eyebrow {
+  font-family: var(--sb-font-mono);
+  font-size: var(--sb-text-xs);
+  font-weight: var(--sb-weight-bold);
+  color: var(--sb-color-brand);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: var(--sb-space-2);
+}
+
+.swarmbook-shell .sb-label,
+.new-wizard-container .sb-label {
+  font-size: var(--sb-text-sm);
+  font-weight: var(--sb-weight-semibold);
+  color: var(--sb-text-muted);
+}
+
+.swarmbook-shell .sb-hint,
+.new-wizard-container .sb-hint {
+  font-size: var(--sb-text-xs);
+  color: var(--sb-text-hint);
+  line-height: var(--sb-leading-relaxed);
+}
+
+
+/* ============================================================
+   UTILITY CLASSES — Layout helpers
+   ============================================================ */
+
+.sb-flex          { display: flex; }
+.sb-flex-col      { display: flex; flex-direction: column; }
+.sb-items-center  { align-items: center; }
+.sb-justify-between { justify-content: space-between; }
+.sb-gap-2         { gap: var(--sb-space-2); }
+.sb-gap-3         { gap: var(--sb-space-3); }
+.sb-gap-4         { gap: var(--sb-space-4); }
+.sb-gap-6         { gap: var(--sb-space-6); }
+.sb-mt-4          { margin-top: var(--sb-space-4); }
+.sb-mb-4          { margin-bottom: var(--sb-space-4); }
+.sb-w-full        { width: 100%; }
+
+
+/* ============================================================
+   RESPONSIVE BREAKPOINTS — Media query reference
+   Use these in component <style> blocks as needed:
+     @media (max-width: 640px)  → mobile (--sb-bp-sm)
+     @media (max-width: 768px)  → tablet (--sb-bp-md)
+     @media (max-width: 1024px) → small desktop (--sb-bp-lg)
+     @media (max-width: 1280px) → large desktop (--sb-bp-xl)
+   ============================================================ */
+
+/* Reduced-motion safety — tokens respect this automatically */
+@media (prefers-reduced-motion: reduce) {
+  .sb-btn-primary,
+  .sb-btn-ghost,
+  .sb-btn-danger,
+  .sb-card {
+    transition: none !important;
+  }
+}

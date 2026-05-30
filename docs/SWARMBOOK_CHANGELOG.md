@@ -1,5 +1,268 @@
 # Swarmbook Changelog (Reconstructed)
 
+## Phase 49 (E2E Testing & Verification)
+### Files
+- `backend/tests/test_book_sim_extra_edge_cases.py`
+- `docs/SWARMBOOK_TESTING_PLAN.md`
+- `docs/SWARMBOOK_PHASE_STATUS.md`
+- `docs/SWARMBOOK_CHANGELOG.md`
+- `docs/SWARMBOOK_DECISIONS.md`
+### Behavior changed
+- **E2E Hardened** — Designed and ran a 360-degree testing pass across the Swarmbook Studio ecosystem.
+- **Edge Case Tests** — Implemented additional automated test cases verifying DraftComparator self-comparison behavior, maximum/extreme rating distribution scoring baselines, and strict router filtering under local-only privacy mode constraint.
+- **Vite Build Verification** — Verified client production build completes with zero errors.
+### Tests added/updated
+- Added `backend/tests/test_book_sim_extra_edge_cases.py` containing 3 new unit tests. All 76 python backend unit tests pass successfully.
+- Run frontend Vite production build: SUCCESS (0 errors).
+### Known gaps
+- None.
+
+## Phase 48 (QA Pass & High-Priority Fixes)
+### Files
+- `frontend/src/views/swarmbook/SwarmbookHomeView.vue`
+- `frontend/src/views/swarmbook/SwarmbookEvidenceView.vue`
+- `frontend/src/views/swarmbook/SwarmbookCompareView.vue`
+- `frontend/src/views/swarmbook/SwarmbookReportView.vue`
+- `docs/SWARMBOOK_QA_REPORT.md`
+- `docs/SWARMBOOK_PHASE_STATUS.md`
+- `docs/SWARMBOOK_CHANGELOG.md`
+### Behavior changed
+- **Accessibility Fixes** — Added `aria-hidden="true"` to `.action-icon` and `.empty-icon` decorative elements across all Swarmbook views so screen readers do not misinterpret them.
+- **QA Pass** — Verified focus outlines, color contrast, error states, and responsive layouts.
+### Tests added/updated
+- Run frontend Vite production build: SUCCESS (0 errors).
+- Backend unit tests previously verified 73/73 PASS.
+### Known gaps
+- None.
+
+## Phase 47 (Draft Comparison Refinement)
+### Files
+- `frontend/src/views/swarmbook/SwarmbookCompareView.vue` — Added directional delta icons for score movements (replacing color-only signals) and injected a synthetic sandbox limitations warning banner.
+- `docs/SWARMBOOK_PHASE_STATUS.md` — Updated Phase 47 status row.
+- `docs/SWARMBOOK_CHANGELOG.md` — Prepended Phase 47 log details.
+- `docs/SWARMBOOK_DECISIONS.md` — Added D-051 regarding the addition of directional icons and sandbox banners.
+### Behavior changed
+- **Accessible Delta Signals** — Score deltas now display clear directional icons (`↗️`/`↘️`/`➖`) alongside colors so meaning is not lost for color-blind users.
+- **Persistent Limitations Info** — Added a warning alert banner at the workspace top highlighting sandbox simulated generation and confidence expectations.
+### Tests added/updated
+- Run frontend Vite production build: SUCCESS (0 errors).
+### Known gaps
+- None.
+
+## Phase 46 (Persona Interview Refinement)
+### Files
+- `frontend/src/views/swarmbook/SwarmbookPersonasView.vue` — Refined master-detail interview dashboard layout, implemented sliding responsive drawer overlay with Close button and backdrop overlay, rewrote computed evidence mapping lookup resolver to cover all 7 schema maps, registered exact quick questions, and added persistent limitations banner.
+- `docs/SWARMBOOK_PHASE_STATUS.md` — Updated Phase 46 status row.
+- `docs/SWARMBOOK_CHANGELOG.md` — Prepended Phase 46 log details.
+- `docs/SWARMBOOK_DECISIONS.md` — Added D-050 regarding sliding drawer layout and deep evidence parsing lookup.
+### Behavior changed
+- **Refined Quick Questions** — Registered the exact 6 trigger questions requested.
+- **Interactive Sliding Drawer** — Replaced the static column with an overlay drawer on desktop and mobile (occupying 100% width on mobile) to save screen space and improve chat readability.
+- **Persistent Limitations Info** — Bounded a warning alert banner at the workspace top highlighting sandbox and scraping limits.
+- **Deep Evidence References Mapping** — Maps all 7 structural evidence pack configurations seamlessly.
+### Tests added/updated
+- Run frontend Vite production build: SUCCESS (0 errors).
+- Run backend unit tests: 73/73 PASS.
+### Known gaps
+- None.
+
+## Phase 45 (Report Export System)
+### Files
+- `package.json` — Added `pdfmake`, `docx`, `html2canvas`, and `file-saver`.
+- `frontend/src/utils/exportReport.js` — [NEW] Added a dedicated utility module handling JSON, Markdown, DOCX, and PDF structured generation, and Clipboard actions.
+- `frontend/src/views/swarmbook/SwarmbookReportView.vue` — Replaced old export buttons with a complete export row. Added a hidden `#png-summary-card` for DOM capture. Wired up the handlers.
+- `docs/EXPORT_SYSTEM.md` — [NEW] Documented export system architecture.
+- `docs/SWARMBOOK_CHANGELOG.md` — Prepended Phase 45 log details.
+- `docs/SWARMBOOK_PHASE_STATUS.md` — Updated Phase 45 status row in status table.
+- `docs/SWARMBOOK_DECISIONS.md` — Added D-049 regarding export structured generation vs DOM snapshots.
+### Behavior changed
+- **Multiple Export Options** — Authors can export structured PDF and DOCX files without sacrificing UI performance.
+- **Copy to Clipboard** — Provides native copy-to-clipboard functionality with a success indicator.
+- **Shareable Summary** — Provides a beautiful, one-page PNG scorecard explicitly designed for social sharing via `html2canvas`.
+### Tests added/updated
+- Run frontend Vite production build: SUCCESS (0 errors).
+### Known gaps
+- None.
+
+## Phase 44 (Report Dashboard Decision-First Redesign)
+### Files
+- `frontend/src/views/swarmbook/SwarmbookReportView.vue` — Redesigned the Report Dashboard to operate as an editorial command center. Added sticky horizontal jump navigation inside the actions bar. Relocated the "Revision Priorities" block to sit immediately below the "Executive Verdict" above the fold. Appended Stage Confidence metric card into the top summary metrics grid. Constrained "Simulated Platform Posts" feed height and added explicitly captioned descriptions to visual charts.
+- `docs/SWARMBOOK_CHANGELOG.md` — Prepended Phase 44 log details.
+- `docs/SWARMBOOK_PHASE_STATUS.md` — Updated Phase 44 status row in status table.
+- `docs/SWARMBOOK_DECISIONS.md` — Added D-048 for Report Dashboard layout prioritization.
+### Behavior changed
+- **Decision-First UX** — Authors can now immediately see the most critical actions (Revision Priorities) without scrolling past lower-level risk analysis.
+- **Improved Navigation** — Jump links (`#section-verdict-priorities`, etc.) provide fast scanning.
+- **Constrained Content** — Long social media mock feeds no longer dominate vertical screen space.
+### Tests added/updated
+- Run frontend Vite production build: SUCCESS (0 errors).
+### Known gaps
+- None.
+
+## Phase 43 (Simulation Progress Screen)
+### Files
+- `frontend/src/views/swarmbook/SwarmbookSimulationRunView.vue` — Redesigned into a 7-step pipeline layout with a stepper map, active ETA calculations, un-stuck terminal logging display, and properly handled disabled state logic for pausing.
+- `docs/SWARMBOOK_CHANGELOG.md` — Prepended Phase 43 log details.
+- `docs/SWARMBOOK_PHASE_STATUS.md` — Updated Phase 43 status row in status table.
+- `docs/SWARMBOOK_DECISIONS.md` — Added D-047 for Progress Screen redesign decisions.
+### Behavior changed
+- **Timeline visibility** — Added structured visual markers for the 7 stages of simulation execution.
+- **Terminal output** — Improved raw streaming console logs styling.
+### Tests added/updated
+- Run frontend Vite production build: SUCCESS (0 errors).
+### Known gaps
+- None.
+
+## Phase 42 (Simulation Config Redesign to Reader Swarm Setup)
+### Files
+- `frontend/src/views/swarmbook/SwarmbookSimulationView.vue` — Redesigned simulation configuration screen into a premium Reader Swarm Setup dashboard. Added offline sandbox warning strip, profile model usage tags, workstation efficiency scale slider load meter, simulated-only platforms checklist, cohorts typical quotes, cost and leakage privacy cards, and a collapsible advanced settings block.
+- `docs/SWARMBOOK_CHANGELOG.md` — Prepended Phase 42 log details.
+- `docs/SWARMBOOK_PHASE_STATUS.md` — Updated Phase 42 status row in status table.
+- `docs/SWARMBOOK_DECISIONS.md` — Added D-046 for Reader Swarm setup redesign decision.
+### Behavior changed
+- **Simulated Sandbox Banner** — Placed a bold banner at the top detailing sandbox constraints (no social scraping, simulated platform reaction only).
+- **Profile Models Mapping** — Displays model engine details under each profile selection card.
+- **Workstation Load Meter** — Classifies reader agent scales dynamically (Safe, Standard, Heavy load) with tips for 16GB RAM local Ollama constraints.
+- **Visual Platform Notes** — Added sub-labels stating "Simulated Only" to the platform toggles.
+- **Archetype & Quote Details** — Added lists of internal archetypes and typical quotes showing review style under cohort cards.
+- **Privacy Forecasts** — Displays cost estimation ($0.00 vs API charges) and text leakage guarantees in the privacy block.
+- **Collapsed Advanced Settings** — Keeps seed, rounds, parallel workers, and posts feed cap collapsed inside a details tag by default.
+### Tests added/updated
+- Run backend unit tests: 73/73 PASS.
+- Run frontend Vite production build: SUCCESS (0 errors).
+### Known gaps
+- None.
+
+## Phase 41 (Evidence Pack Review Refinement)
+### Files
+- `frontend/src/views/swarmbook/SwarmbookEvidenceView.vue` — Redesigned layout to use a modern grid layout for the 7 maps. Built a side Detail Drawer overlay showing Why This Matters microcopy, structured data, source references list, corrections textarea, and collapsible raw JSON Advanced View. Computed critical maps based on project metadata and added warning banner + button disabled blocker if critical maps are unreviewed.
+- `docs/SWARMBOOK_CHANGELOG.md` — Prepended Phase 41 log details.
+- `docs/SWARMBOOK_PHASE_STATUS.md` — Updated Phase 41 row in status table.
+- `docs/SWARMBOOK_DECISIONS.md` — Added D-045 for grid layout/drawer architecture decision.
+### Behavior changed
+- **Grid Workspace** — Replaces split-pane with a visual grid of 7 evidence maps.
+- **Detail Drawer** — Opens slide-out drawer on right for deep data inspection and JSON view.
+- **Low Confidence Alert** — Visibly flags maps with confidence < 75% using icon and label.
+- **Critical Map Block** — Blocks simulation progress (disables button) until all critical maps (DNA, chapters, characters/claims) are Accepted.
+### Tests added/updated
+- Run backend unit tests: 73/73 PASS.
+- Run frontend Vite production build: SUCCESS (0 errors).
+### Known gaps
+- None.
+
+## Phase 40 (Upload Limit 4× Increase + Robust UX + Backend Security)
+### Files
+- `frontend/src/config/uploadLimits.js` — **[NEW]** Shared JS config with `MAX_FILE_BYTES = 40 MB`, `ALLOWED_EXTENSIONS`, `formatBytes()`, `estimateProcessingTime()`. Single source of truth for the frontend upload limit.
+- `frontend/src/views/swarmbook/SwarmbookUploadView.vue` — Full redesign: drag-drop dropzone, upload progress animation, format chips, file metadata panel (processing estimate, section count, privacy mode strip), replace/remove actions, 5 specific error states, responsive layout.
+- `frontend/src/views/swarmbook/NewSimulationWizardView.vue` — Import `MAX_FILE_BYTES` from shared config; replace hardcoded `10 * 1024 * 1024` with import alias.
+- `backend/app/api/book_sim.py` — Add `BOOK_SIM_MAX_FILE_BYTES = 40 MB` constant; add `_FILE_SIGNATURES` magic-byte dict; add `GET /limits` info route; add privacy_mode guard; add file-signature validation; add section-count detection to parse response; update error messages.
+- `backend/app/config.py` — `MAX_CONTENT_LENGTH` raised from 50 MB → 200 MB (Flask ceiling); added `docx` to `ALLOWED_EXTENSIONS`.
+- `docs/UPLOAD_LIMITS_AND_SECURITY.md` — **[NEW]** Security reference document.
+### Behavior changed
+- **Upload limit 4×** — 10 MB → 40 MB across all enforcement points simultaneously.
+- **Single source of truth** — `uploadLimits.js` (frontend) and `BOOK_SIM_MAX_FILE_BYTES` (backend); neither view hardcodes a size value.
+- **File-signature validation** — PDF (`%PDF-`) and DOCX (`PK\x03\x04`) magic bytes are checked; spoofed extensions return `HTTP 400 invalid_file_signature`.
+- **Never trust filename** — temp files use `uuid4().hex + ext`; original name is never used as a path component.
+- **Section count detection** — `parse_file` returns `section_count` (regex-based chapter heading heuristic); shown in upload UI.
+- **Upload progress UI** — animated progress bar with staged labels while parse API is in flight.
+- **Privacy mode strip** — colour-coded local/hybrid/cloud strip shown after successful upload.
+- **Processing estimate** — dynamic estimate shown based on file size.
+- **Specific error states** — 5 distinct upload error codes each show a tailored actionable message.
+- **local_only guard** — `parse_file` validates `privacy_mode` form field; extraction remains CPU-local in all modes.
+### Tests added/updated
+- No test changes. Backend: 73/73 tests pass. Frontend: Vite build compiles with 0 errors.
+### Known gaps
+- Section count is heuristic (regex); does not parse semantic headings inside PDF body text.
+- Upload progress bar is simulated (no XHR streaming); will show 100% only on completion.
+
+
+### Files
+- `frontend/src/store/swarmbookSession.js` — added `contentType` and `testGoal` to default metadata session store.
+- `frontend/src/views/swarmbook/NewSimulationWizardView.vue` — redesigned Basics screen (Step 1) template, added dynamic checklist, collapsible metadata, deep form watcher for autosaving, updated validation error message formatting, and updated Step 4 warning banners collapse check.
+- `docs/SWARMBOOK_PHASE_STATUS.md` — Phase 39 row added
+- `docs/SWARMBOOK_CHANGELOG.md` — this entry
+- `docs/SWARMBOOK_DECISIONS.md` — decision on basics screen layout and checklist recorded
+### Behavior changed
+- **Content Type support** — select dropdown mapping 10 formats (Full manuscript, Novel, Novella, Short story, Article / essay, Newsletter, Book proposal, Blurb / synopsis, Chapter sample, Research / evidence pack) added to Step 1.
+- **Re-labeling** — Book Title and Author Name re-labeled to Content Title and Author.
+- **Test Goal field** — required text field to describe simulation objectives.
+- **Live Accuracy-Impact Checklist** — a dynamic computed checklist on the right displays the simulation fidelity rating based on selected format depth, synopsis detail, cohort count, and cognitive reasoning levels. Displays a colorful fidelity rating progress bar.
+- **Collapsible optional fields** — Subtitle, Comps, and Cover package brief are collapsed under a toggle button to save vertical space.
+- **Autosave** — deep form watch saves session to localStorage in real time on any change.
+- **Technical warnings collapse** — Step 4 warnings are hidden by default unless profile or privacy changes from default values.
+- **Friendly validation errors** — camelCase field keys are mapped to human-readable names in the error list.
+### Tests added/updated
+- No test changes.
+- Backend: 73/73 tests pass.
+- Frontend: Vite build compiles successfully with 0 errors.
+### Known gaps
+- None.
+
+## Phase 38 (Projects/Home Redesign to Launch Console)
+### Files
+- `frontend/src/views/swarmbook/SwarmbookHomeView.vue` — complete layout & CSS redesign using design tokens
+- `docs/SWARMBOOK_PHASE_STATUS.md` — Phase 38 row added
+- `docs/SWARMBOOK_CHANGELOG.md` — this entry
+- `docs/SWARMBOOK_DECISIONS.md` — decision on warnings/status collapse recorded
+### Behavior changed
+- **Hero block removed** — the oversized dark `#0f172a` hero is gone, replaced with a compact actions console.
+- **Title and Value Line** — eyebrow "SWARMBOOK STUDIO", title "Launch Console", and subtitle "Predict reader reactions..." are rendered dynamically by `SwarmbookAppShell` above the fold.
+- **Side-by-side CTAs** — primary `Start New Test` and secondary `Open Existing Project ▾` are displayed side-by-side. The Project ID open input is collapsed into a secondary expandable control toggle.
+- **Recent projects panel** — redesigned as a compact list of recent active manuscripts with metadata badges and clear CTA in its empty state: `Start your first test →`.
+- **System status & Warnings collapse** — Ollama/Neo4j statuses are removed to prevent duplication. Gemini and NVIDIA are kept as "Optional Cloud Providers" in a compact panel. Profile/hardware warnings are collapsed by default and only display if the user changes the profile from default (`form.localProfile !== defaultProfile`).
+- **Mobile responsiveness** — CTAs stack, cards display in 1 column, and trust strip collapses to single column on mobile.
+- **Trust Strip** — moved to a quiet, compact footer at the bottom of the console workspace.
+### Tests added/updated
+- No test changes (CSS/template redesign only).
+- Backend: 73/73 tests pass.
+- Frontend: Vite build successfully compiles with 0 errors.
+### Known gaps
+- None.
+
+## Phase 37 (Dedicated Swarmbook App Shell)
+### Files
+- `frontend/src/components/swarmbook/SwarmbookAppShell.vue` — complete rewrite (template + script + style)
+- `docs/SWARMBOOK_PHASE_STATUS.md` — Phase 37 row added
+- `docs/SWARMBOOK_CHANGELOG.md` — this entry
+### Behavior changed
+- **Top navigation** now carries all 11 required labels: Projects, New Test, Report, Ask Readers, Compare, Settings, Original MiroFish. On desktop the header shows the global section labels; per-project workflow steps live exclusively in the sidebar rail.
+- **Workflow rail** updated to 9 sequential steps matching the spec: Projects → New Test → Upload → Evidence Packs → Reader Swarm → Run → Report → Ask Readers → Compare Drafts. Settings and Original MiroFish appear in the sidebar footer.
+- **Status strip** — new dedicated `<div class="status-strip">` row placed between the header and the sidebar/content split. Displays Ollama status, Neo4j status, Privacy mode badge, Active Profile, and Active Project ID (when set). This is now the **single source of truth** for system/privacy status; the old sidebar `system-status-panel` block has been removed, eliminating duplication.
+- **Mobile menu** — hamburger now animates to an × when open. Sidebar becomes a full-height `position:fixed` off-canvas drawer. A `sidebar-global-nav` block inside the drawer mirrors the top-nav items (Projects, New Test, Report, Ask Readers, Compare, Settings) so all navigation is reachable on mobile without the top bar.
+- **Active route states** — sidebar steps use a left orange accent bar + orange text + `aria-current="step"`. Top-nav buttons use an underline indicator + `aria-current="page"`. Disabled steps use `aria-disabled="true"` and `pointer-events:none`.
+- **Keyboard** — Escape key closes the mobile drawer. All interactive items are `<button>` or `<router-link>` (never `<div>`). Focus ring uses `var(--sb-focus-ring)` throughout. `Skip to content` skip link added for screen reader users.
+- **MiroFish access** — Original MiroFish is a named button in the top nav AND a footer link in the sidebar. Both push `router.push('/')`. No MiroFish route or component was modified.
+- **onBeforeUnmount** — health polling interval and `keydown` event listener are now properly torn down to prevent memory leaks.
+### Tests added/updated
+- No test changes (CSS/template only; no new API surface).
+- Backend: 73/73 tests pass.
+- Frontend: Vite build ✓ — 702 modules transformed, 0 compile errors. CSS 288.75 kB (gzip 44.67 kB).
+### Known gaps
+- Pre-existing chunk-size warning (`pendingUpload.js` dynamic/static import split in MiroFish legacy views) remains — unrelated to this phase.
+- `SwarmbookHomeView` still renders its own "System Readiness" card with Ollama/Neo4j/Gemini/NVIDIA status. That card shows more detail (Gemini, NVIDIA) than the strip, so it is preserved; users should be aware the strip and the home card show overlapping but not identical status info.
+
+## Phase 36 (Design Token Layer)
+### Files
+- `frontend/src/assets/tokens.css` [NEW] — canonical design token file
+- `frontend/src/main.js` — added `import './assets/tokens.css'`
+- `frontend/src/App.vue` — removed inline `:root` duplicate block (lines 600–615); replaced with a single backward-compatible alias and pointer comment
+- `frontend/src/components/swarmbook/SwarmbookAppShell.vue` — migrated ~60 hard-coded hex values to token `var()` references (backgrounds, text, status colors, focus ring, shadows, card borders, buttons, typography)
+- `docs/SWARMBOOK_UI_AUDIT.md` [NEW] — full pre-edit UI audit
+- `docs/SWARMBOOK_PHASE_STATUS.md` — added Phase 36 row
+- `docs/SWARMBOOK_CHANGELOG.md` — this entry
+### Behavior changed
+- No MiroFish (`/`, `/process/*`, `/simulation/*`, `/report/*`, `/interaction/*`) routes were touched; all token selectors are scoped to `.swarmbook-shell`, `.new-wizard-container`, or the `.sb-` prefix.
+- `:root` custom properties for colors, spacing, typography, radius, shadows, status, risk, privacy, and focus state are now defined once in `tokens.css`.
+- All existing `var(--sb-*)` references in `App.vue` and Swarmbook views continue to resolve correctly; the canonical values moved to `tokens.css` without any class or value renames.
+- `SwarmbookAppShell.vue` now uses token vars for all structural, semantic, and interactive properties.
+### Tests added/updated
+- No test changes required (tokens are CSS-only with no runtime behavior changes).
+- Backend: 73/73 tests pass (`python -m unittest discover -s backend/tests -p "test_book_sim_*.py"`).
+- Frontend: Vite build succeeds — 702 modules transformed, zero compile errors (`node .\node_modules\vite\bin\vite.js build`). CSS output grew from 275.90 kB to 285.85 kB (the +10 kB is the full token file, as expected).
+### Known gaps
+- `npm run build` (via the broken global npm shim) remains unavailable; direct Vite execution is the validated path.
+- Individual Swarmbook view files still use some raw hex values in their own `<style scoped>` blocks; those will be progressively migrated in future polish passes without affecting behaviour.
+
 ## Phase 2 (Architecture Documentation)
 ### Files
 - `docs/SWARMBOOK_ARCHITECTURE.md`

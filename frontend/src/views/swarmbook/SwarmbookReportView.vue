@@ -8,7 +8,14 @@
     :loading-message="loadingMessage"
   >
     <!-- Actions Bar (Exporters and Navigation) -->
-    <div class="actions-bar" v-if="report">
+    <div class="actions-bar sticky-nav" v-if="report">
+      <nav class="jump-nav">
+        <a href="#section-verdict-priorities">Verdict & Priorities</a>
+        <a href="#section-rating-segments">Ratings & Segments</a>
+        <a href="#section-risk-analysis">Risk Analysis</a>
+        <a href="#section-reactions">Reactions</a>
+      </nav>
+
       <div class="nav-links-row">
         <button 
           class="ghost-btn icon-btn" 
@@ -27,33 +34,19 @@
       </div>
 
       <div class="export-actions-row">
+        <button class="ghost-btn" @click="handleExport('pdf')" aria-label="Export structured PDF report">📄 PDF</button>
+        <button class="ghost-btn" @click="handleExport('docx')" aria-label="Export editable DOCX report">📝 DOCX</button>
+        <button class="ghost-btn" @click="handleExport('png')" aria-label="Export PNG summary card">🖼️ Summary Card</button>
+        <button class="ghost-btn" @click="handleExport('markdown')" aria-label="Export Markdown file">⬇️ MD</button>
         <button 
           class="ghost-btn" 
-          @click="exportJson"
-          aria-label="Export raw report data as JSON file"
+          @click="handleCopy" 
+          :class="{ 'text-ready': copySuccess }"
+          aria-label="Copy Markdown to Clipboard"
         >
-          📥 Export JSON
+          {{ copySuccess ? '✅ Copied!' : '📋 Copy MD' }}
         </button>
-        <button 
-          class="ghost-btn" 
-          @click="exportMarkdown"
-          aria-label="Export report document as Markdown file"
-        >
-          📝 Export Markdown
-        </button>
-        <div class="tooltip-container">
-          <button 
-            class="ghost-btn disabled-btn" 
-            disabled 
-            aria-describedby="pdf-disabled-desc"
-            aria-label="Export PDF (Unavailable)"
-          >
-            📄 Export PDF
-          </button>
-          <span id="pdf-disabled-desc" class="tooltip-text">
-            PDF export is unavailable because the local environment lacks a headless rendering library. Use Markdown export instead.
-          </span>
-        </div>
+        <button class="ghost-btn" @click="handleExport('json')" aria-label="Export raw JSON">📥 JSON</button>
       </div>
     </div>
 
@@ -134,10 +127,18 @@
           Priority: {{ Math.round(topPriorityScore * 100) }}% ({{ getPriorityLabel(topPriorityScore) }})
         </span>
       </article>
+      <!-- 7. Stage Confidence Card (New) -->
+      <article class="summary-card">
+        <span class="summary-label">Stage Confidence</span>
+        <div class="score-display">
+          <strong>{{ Math.round((report.confidence || 0) * 100) }}%</strong>
+        </div>
+        <span class="band-label">Reliability of the generated insights.</span>
+      </article>
     </section>
 
     <!-- Executive Verdict & Star Rating Spread Redesign -->
-    <div v-if="report" class="section-grid-double">
+    <div v-if="report" class="section-grid-double" id="section-verdict-priorities">
       <!-- 1. Executive Verdict -->
       <article class="premium-card verdict-card">
         <div class="card-eyebrow">SECTION 01</div>
@@ -165,6 +166,7 @@
           <p class="muted-p">Blended estimate from persona reactions (65%) and manuscript style indicators (35%).</p>
         </div>
 
+        <p class="chart-summary">Histogram showing predicted percentage of reader ratings across 1 to 5 stars.</p>
         <!-- Custom HTML/CSS Star Histogram -->
         <div class="star-histogram" role="img" aria-label="Star Rating Distribution Chart">
           <div class="histogram-row" v-for="star in [5, 4, 3, 2, 1]" :key="star">
@@ -197,8 +199,43 @@
       </article>
     </div>
 
-    <!-- Reader Segment Map Details Table -->
+    <!-- Revision priorities checklist (MOVED TO TOP FOR DECISION-FIRST UX) -->
     <section v-if="report" class="dashboard-block-section">
+      <div class="card-eyebrow">TOP FIXES</div>
+      <h2>Revision Priorities</h2>
+      <p class="section-desc">Ranked hotspots where content revisions would yield the highest predicted rating lift.</p>
+
+      <div class="priorities-checklist-container" v-if="report.scorecard?.revision_priority?.ranked_items?.length">
+        <div 
+          class="priority-checklist-item" 
+          v-for="item in report.scorecard.revision_priority.ranked_items" 
+          :key="item.item_id"
+          :class="'item-priority-' + getPriorityClass(item.priority_score)"
+        >
+          <div class="priority-item-side">
+            <span class="priority-label-pill" :class="getPriorityClass(item.priority_score)">
+              {{ getPriorityLabel(item.priority_score) }} ({{ item.priority_score }})
+            </span>
+            <span class="item-type-badge">{{ item.item_type }}</span>
+          </div>
+
+          <div class="priority-item-main">
+            <h3>Target ID: <code>{{ item.item_id }}</code></h3>
+            <ul class="reasons-bullet-list">
+              <li v-for="reason in item.reasons" :key="reason">{{ reason }}</li>
+            </ul>
+            <div class="item-evidence" v-if="item.evidence_refs?.length">
+              <strong>Evidence links:</strong>
+              <span v-for="ref in item.evidence_refs" :key="ref" class="evidence-pill">#{{ ref }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p v-else class="muted-note text-center">No revision priorities ranked.</p>
+    </section>
+
+    <!-- Reader Segment Map Details Table -->
+    <section v-if="report" class="dashboard-block-section" id="section-rating-segments">
       <div class="card-eyebrow">SECTION 03</div>
       <h2>Reader Segment Map</h2>
       <p class="section-desc">Performance of manuscript topics, tone, and pacing split by target platform demographics.</p>
@@ -241,7 +278,7 @@
     </section>
 
     <!-- DNF Analysis & Timeline Section -->
-    <div v-if="report" class="section-grid-double">
+    <div v-if="report" class="section-grid-double" id="section-risk-analysis">
       <!-- 4. DNF Analysis Drivers -->
       <article class="premium-card">
         <div class="card-eyebrow">SECTION 04</div>
@@ -275,6 +312,7 @@
         <h2>Chapter Pressure Points</h2>
         <p class="muted-p margin-bottom-lg">Chapters with the highest abandonment risk scores, sorted by DNF pressure.</p>
 
+        <p class="chart-summary">Timeline highlights chapters where readers exhibit high abandonment risk.</p>
         <div class="timeline" v-if="report.scorecard?.dnf?.chapter_points?.length">
           <div 
             class="timeline-item" 
@@ -379,7 +417,7 @@
     </div>
 
     <!-- Platform Reactions (Feed View Section) -->
-    <section v-if="report" class="dashboard-block-section">
+    <section v-if="report" class="dashboard-block-section" id="section-reactions">
       <div class="card-eyebrow">SECTION 07</div>
       <h2>Simulated Reader Reactions</h2>
       <p class="section-desc">Platform-specific posts generated by reader personas. Select a platform to filter the feed.</p>
@@ -406,7 +444,7 @@
       </div>
 
       <!-- Feed Container -->
-      <div class="feed-container" v-if="filteredPosts.length">
+      <div class="feed-container scrollable-feed" v-if="filteredPosts.length">
         <article 
           class="mock-post-card" 
           v-for="post in filteredPosts" 
@@ -539,40 +577,7 @@
       </article>
     </div>
 
-    <!-- Revision priorities checklist -->
-    <section v-if="report" class="dashboard-block-section">
-      <div class="card-eyebrow">SECTION 09</div>
-      <h2>Revision Priorities</h2>
-      <p class="section-desc">Ranked hotspots where content revisions would yield the highest predicted rating lift.</p>
-
-      <div class="priorities-checklist-container" v-if="report.scorecard?.revision_priority?.ranked_items?.length">
-        <div 
-          class="priority-checklist-item" 
-          v-for="item in report.scorecard.revision_priority.ranked_items" 
-          :key="item.item_id"
-          :class="'item-priority-' + getPriorityClass(item.priority_score)"
-        >
-          <div class="priority-item-side">
-            <span class="priority-label-pill" :class="getPriorityClass(item.priority_score)">
-              {{ getPriorityLabel(item.priority_score) }} ({{ item.priority_score }})
-            </span>
-            <span class="item-type-badge">{{ item.item_type }}</span>
-          </div>
-
-          <div class="priority-item-main">
-            <h3>Target ID: <code>{{ item.item_id }}</code></h3>
-            <ul class="reasons-bullet-list">
-              <li v-for="reason in item.reasons" :key="reason">{{ reason }}</li>
-            </ul>
-            <div class="item-evidence" v-if="item.evidence_refs?.length">
-              <strong>Evidence links:</strong>
-              <span v-for="ref in item.evidence_refs" :key="ref" class="evidence-pill">#{{ ref }}</span>
-            </div>
-          </div>
-        </div>
-      </div>
-      <p v-else class="muted-note text-center">No revision priorities ranked.</p>
-    </section>
+    <!-- Section moved up: Revision priorities checklist -->
 
     <!-- Marketing hooks, Author Risk Note & disclaimers -->
     <div v-if="report" class="section-grid-double">
@@ -640,7 +645,7 @@
 
     <!-- Empty State Fallback -->
     <section v-if="!report && !loading" class="empty-state-card">
-      <div class="empty-icon">📊</div>
+      <div class="empty-icon" aria-hidden="true">📊</div>
       <h2>No Swarmbook Report Available</h2>
       <p>
         You have not generated a report for this project yet. Start a reader simulation to run personas, calculate scorecard profiles, and generate revision guidelines.
@@ -663,15 +668,39 @@
         </button>
       </div>
     </section>
+    <!-- Hidden PNG Summary Card (For Export) -->
+    <div id="png-summary-card" class="png-summary-capture-card" v-if="report">
+      <div class="png-card-header">
+        <h1>{{ report.title || report.project_id }}</h1>
+        <p>Swarmbook Scorecard • {{ getFormatDate() }}</p>
+      </div>
+      <div class="png-card-verdict">
+        <h2>Verdict: {{ readinessLabel }}</h2>
+        <p>{{ report.summary }}</p>
+      </div>
+      <div class="png-card-metrics">
+        <div class="png-metric"><span>Ready</span><strong>{{ readinessScore }}%</strong></div>
+        <div class="png-metric"><span>Rating</span><strong>{{ formatNumber(report.scorecard?.rating_distribution?.predicted_mean_rating) }} ★</strong></div>
+        <div class="png-metric"><span>DNF Risk</span><strong>{{ Math.round(dnfRiskValue * 100) }}%</strong></div>
+        <div class="png-metric"><span>Confidence</span><strong>{{ Math.round((report.confidence || 0) * 100) }}%</strong></div>
+      </div>
+      <div class="png-card-priorities" v-if="report.scorecard?.revision_priority?.ranked_items?.length">
+        <h3>Top Revision Priority</h3>
+        <p><strong>{{ topPriorityItemName }}</strong>: {{ report.scorecard.revision_priority.ranked_items[0].reasons.join(', ') }}</p>
+      </div>
+    </div>
+
   </SwarmbookAppShell>
 </template>
 
 <script setup>
 import { computed, onMounted, ref, watch } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
+import html2canvas from 'html2canvas'
 import SwarmbookAppShell from '../../components/swarmbook/SwarmbookAppShell.vue'
 import { getBookSimReport } from '../../api/bookSim'
 import { getSwarmbookSession, updateSwarmbookSession } from '../../store/swarmbookSession'
+import { generateJson, generateMarkdown, generateDocx, generatePdf, copyToClipboard } from '../../utils/exportReport'
 
 const route = useRoute()
 const router = useRouter()
@@ -921,121 +950,55 @@ const getPriorityLabel = (score) => {
 // ----------------------------------------------------
 // Exporter workflows
 // ----------------------------------------------------
-function downloadFile(content, filename, contentType) {
-  const blob = new Blob([content], { type: contentType })
-  const url = URL.createObjectURL(blob)
-  const a = document.createElement('a')
-  a.href = url
-  a.download = filename
-  document.body.appendChild(a)
-  a.click()
-  document.body.removeChild(a)
-  URL.revokeObjectURL(url)
+const copySuccess = ref(false)
+
+function getFormatDate() {
+  return new Date().toISOString().replace(/T/, ' ').replace(/\..+/, '')
 }
 
-function exportJson() {
+async function handleExport(type) {
   if (!report.value) return
-  const dataStr = JSON.stringify(report.value, null, 2)
-  downloadFile(dataStr, `swarmbook_report_${session.value.projectId || 'demo'}.json`, 'application/json')
-}
-
-function exportMarkdown() {
-  if (!report.value) return
-  const r = report.value
-  const lines = []
-  lines.push(`# Swarmbook Report: ${r.title || r.project_id}`)
-  lines.push('')
-  lines.push(`- Report ID: \`${r.report_id}\``)
-  lines.push(`- Project ID: \`${r.project_id}\``)
-  if (r.simulation_id) lines.push(`- Simulation ID: \`${r.simulation_id}\``)
-  if (r.privacy_mode) lines.push(`- Privacy Mode: \`${r.privacy_mode}\``)
-  if (r.draft_id || r.version) {
-    lines.push(`- Draft: \`${r.draft_id || 'unknown'}\` / \`${r.version || 'unknown'}\``)
-  }
-  lines.push('')
-  lines.push('## Executive Summary')
-  lines.push(r.summary || 'No summary available.')
-  lines.push('')
-  lines.push(`Publishing Readiness: ${readinessScore.value}% (${readinessLabel.value})`)
-  lines.push('')
-  lines.push('## Scorecard Matrix')
-  const keys = ['rating_distribution', 'dnf', 'controversy', 'viral', 'quoteability', 'polarization']
-  for (const key of keys) {
-    const payload = (r.scorecard || {})[key] || {}
-    const score = payload.score
-    const risk = payload.risk || payload.dnf_risk || payload.controversy_risk || payload.polarization_score || payload.quoteability_score
-    const headline = score !== undefined ? score : risk
-    if (headline === undefined || headline === null) continue
-    const band = payload.confidence_band ? ` [Low: ${payload.confidence_band.low}, High: ${payload.confidence_band.high}]` : ''
-    lines.push(`- ${key.toUpperCase().replace(/_/g, ' ')}: ${headline}${band}`)
-  }
   
-  lines.push('')
-  lines.push('## Revision Priorities')
-  if (r.scorecard?.revision_priority?.ranked_items?.length) {
-    for (const item of r.scorecard.revision_priority.ranked_items) {
-      lines.push(`### ${item.item_type.toUpperCase()}: ${item.item_id} (Score: ${item.priority_score})`)
-      lines.push(`Reasons: ${item.reasons.join(', ')}`)
-      if (item.evidence_refs && item.evidence_refs.length) {
-        lines.push(`Evidence: ${item.evidence_refs.join(', ')}`)
+  try {
+    if (type === 'json') {
+      generateJson(report.value, session.value)
+    } else if (type === 'markdown') {
+      generateMarkdown(report.value, session.value)
+    } else if (type === 'docx') {
+      await generateDocx(report.value, session.value)
+    } else if (type === 'pdf') {
+      generatePdf(report.value, session.value)
+    } else if (type === 'png') {
+      const element = document.getElementById('png-summary-card')
+      if (element) {
+        // Temporarily make it visible for html2canvas
+        element.style.display = 'block'
+        const canvas = await html2canvas(element, { scale: 2, backgroundColor: '#ffffff' })
+        element.style.display = 'none'
+        
+        const dataUrl = canvas.toDataURL('image/png')
+        const a = document.createElement('a')
+        a.href = dataUrl
+        a.download = `swarmbook_summary_${session.value.projectId || 'demo'}.png`
+        a.click()
       }
-      lines.push('')
     }
-  } else if (r.revision_priorities && r.revision_priorities.length) {
-    for (const item of r.revision_priorities) {
-      lines.push(`- ${item}`)
-    }
-  } else {
-    lines.push('- No revision priorities were generated.')
+  } catch (err) {
+    console.error(`Export failed [${type}]:`, err)
+    alert(`Failed to export ${type.toUpperCase()}: ` + err.message)
   }
-  
-  lines.push('')
-  lines.push('## Top Risks')
-  if (r.top_risks && r.top_risks.length) {
-    for (const item of r.top_risks) {
-      lines.push(`- ${item}`)
-    }
-  } else {
-    lines.push('- No top risks were detected.')
-  }
-  
-  lines.push('')
-  lines.push('## Top Strengths')
-  if (r.top_strengths && r.top_strengths.length) {
-    for (const item of r.top_strengths) {
-      lines.push(`- ${item}`)
-    }
-  } else {
-    lines.push('- No top strengths were detected.')
-  }
-  
-  lines.push('')
-  lines.push('## Reader Segment Insights')
-  if (r.segment_insights && r.segment_insights.length) {
-    for (const seg of r.segment_insights) {
-      lines.push(`- **Segment ${seg.segment}**: Avg Rating ${seg.rating_mean || 'N/A'}, Rec Rate ${Math.round((seg.recommendation_mean || 0) * 100)}%, Signal: ${seg.signal}`)
-      lines.push(`  Personas: ${seg.sample_personas.join(', ')}`)
-      lines.push(`  Sentiments: ${seg.sentiments.join(', ')}`)
-    }
-  } else {
-    lines.push('- No segment insights recorded.')
-  }
-  
-  lines.push('')
-  lines.push('## Uncertainty & Disclaimers')
-  if (r.uncertainty_notes && r.uncertainty_notes.length) {
-    for (const item of r.uncertainty_notes) {
-      lines.push(`- ${item}`)
-    }
-  } else {
-    lines.push('- No uncertainty notes were recorded.')
-  }
-  lines.push('')
-  lines.push('---')
-  lines.push('Generated offline locally by Swarmbook Studio.')
+}
 
-  const text = lines.join('\n')
-  downloadFile(text, `swarmbook_report_${session.value.projectId || 'demo'}.md`, 'text/markdown')
+async function handleCopy() {
+  if (!report.value) return
+  try {
+    await copyToClipboard(report.value, session.value)
+    copySuccess.value = true
+    setTimeout(() => { copySuccess.value = false }, 2000)
+  } catch (err) {
+    console.error('Clipboard copy failed:', err)
+    alert('Failed to copy to clipboard: ' + err.message)
+  }
 }
 
 // ----------------------------------------------------
@@ -2750,4 +2713,71 @@ a:focus-visible,
 .padding-xl.text-center {
   text-align: center;
 }
+
+/* Sticky Nav & Jump Links */
+.sticky-nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(255, 255, 255, 0.95) !important;
+  backdrop-filter: blur(8px);
+}
+
+.jump-nav {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  padding-bottom: 4px;
+  flex: 1 1 100%;
+  border-bottom: 1px solid #e2e8f0;
+  margin-bottom: 8px;
+}
+
+.jump-nav a {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--sb-color-brand, #3b82f6);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.jump-nav a:hover {
+  text-decoration: underline;
+}
+
+.scrollable-feed {
+  max-height: 400px;
+  overflow-y: auto;
+  padding-right: 8px;
+}
+
+.chart-summary {
+  font-size: 0.75rem;
+  color: var(--sb-text-muted, #64748b);
+  text-align: center;
+  margin-top: 8px;
+  font-style: italic;
+}
+
+/* Hidden PNG Capture Card */
+.png-summary-capture-card {
+  display: none; /* hidden until capture */
+  width: 800px;
+  padding: 40px;
+  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+  border-radius: 12px;
+  border: 1px solid #cbd5e1;
+  color: #0f172a;
+}
+.png-card-header h1 { font-size: 2rem; font-weight: 800; margin-bottom: 8px; }
+.png-card-header p { font-size: 1rem; color: #64748b; border-bottom: 2px solid #e2e8f0; padding-bottom: 20px; }
+.png-card-verdict { margin: 24px 0; padding: 20px; background: #ffffff; border-radius: 8px; border-left: 4px solid #10b981; }
+.png-card-verdict h2 { font-size: 1.25rem; font-weight: 700; margin-bottom: 12px; color: #047857; }
+.png-card-metrics { display: flex; justify-content: space-between; margin-bottom: 24px; }
+.png-metric { background: #ffffff; padding: 16px; border-radius: 8px; text-align: center; flex: 1; margin: 0 8px; box-shadow: 0 1px 3px rgba(0,0,0,0.05); }
+.png-metric span { display: block; font-size: 0.85rem; color: #64748b; font-weight: 600; text-transform: uppercase; margin-bottom: 8px; }
+.png-metric strong { display: block; font-size: 1.5rem; font-weight: 800; }
+.png-card-priorities { padding: 20px; background: #fee2e2; border-radius: 8px; border-left: 4px solid #ef4444; }
+.png-card-priorities h3 { color: #b91c1c; font-size: 1.1rem; margin-bottom: 8px; }
+
 </style>

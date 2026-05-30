@@ -597,21 +597,14 @@ button {
   }
 }
 
-/* ========== SWARMBOOK PREMIUM REDESIGN THEME VARIABLES & OVERRIDES ========== */
+/* ========== SWARMBOOK DESIGN SYSTEM OVERRIDES ==========
+   Canonical tokens are defined in src/assets/tokens.css (imported in main.js).
+   The :root block below provides backward-compatible aliases only — do not
+   add new raw values here; add them to tokens.css instead.
+   ======================================================== */
 :root {
-  --sb-bg-base: #f8fafc;
-  --sb-bg-card: #ffffff;
-  --sb-border-color: #e2e8f0;
-  --sb-border-hover: #cbd5e1;
-  --sb-text-main: #0f172a;
-  --sb-text-muted: #64748b;
-  --sb-focus-outline: 2px solid #ff4500;
-  
-  /* Signal tones */
-  --sb-color-ready: #10b981;
-  --sb-color-mixed: #f59e0b;
-  --sb-color-offline: #ef4444;
-  --sb-color-brand: #ff4500;
+  /* Backward-compatible aliases — values now sourced from tokens.css */
+  --sb-focus-outline: var(--sb-focus-ring);
 }
 
 /* Global inputs focus rings */

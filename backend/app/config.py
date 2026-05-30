@@ -52,9 +52,11 @@ class Config:
     EMBEDDING_BASE_URL = os.environ.get('EMBEDDING_BASE_URL', 'http://localhost:11434')
 
     # File upload configuration
-    MAX_CONTENT_LENGTH = 50 * 1024 * 1024  # 50MB
+    # Flask hard ceiling — must stay well above BOOK_SIM_MAX_FILE_BYTES in book_sim.py
+    # so Flask never rejects the request before our handler can emit a friendly error.
+    MAX_CONTENT_LENGTH = 200 * 1024 * 1024  # 200 MB ceiling (app limit is 40 MB)
     UPLOAD_FOLDER = os.path.join(os.path.dirname(__file__), '../uploads')
-    ALLOWED_EXTENSIONS = {'pdf', 'md', 'txt', 'markdown'}
+    ALLOWED_EXTENSIONS = {'pdf', 'md', 'txt', 'markdown', 'docx'}
 
     # Text processing configuration
     DEFAULT_CHUNK_SIZE = 500  # Default chunk size

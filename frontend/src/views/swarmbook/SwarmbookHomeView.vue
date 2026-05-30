@@ -2,75 +2,39 @@
   <SwarmbookAppShell
     active-route="SwarmbookHome"
     :project-id="session.projectId"
-    title="Swarmbook Studio"
+    eyebrow="SWARMBOOK STUDIO"
+    title="Launch Console"
     subtitle="Predict reader reactions and identify manuscript pacing or style friction points before publication."
     :error-message="error"
     :loading-message="loadingMessage"
   >
-    <!-- Hero Section -->
-    <header class="dashboard-hero">
-      <div class="hero-content">
-        <h1>Predict reader reactions before you publish.</h1>
-        <p class="hero-subtext">
-          Upload your manuscript draft, configure a cohort of simulated reader personas, run platform reaction stress tests, and review detailed predicted scorecard spreads.
-        </p>
-        <div class="hero-ctas">
-          <button class="primary-btn lg" @click="startNewSimulationWizard" @keydown.enter="startNewSimulationWizard">
-            🚀 Start New Simulation
-          </button>
-          <button class="ghost-btn lg" @click="toggleOpenProjectForm" @keydown.enter="toggleOpenProjectForm">
-            📂 Open Existing Project
-          </button>
-        </div>
+    <!-- Console Actions Bar -->
+    <div class="console-actions-bar">
+      <div class="cta-row">
+        <button class="sb-btn-primary" @click="startNewSimulationWizard" @keydown.enter="startNewSimulationWizard">
+          🚀 Start New Test
+        </button>
+        <button class="sb-btn-ghost" @click="toggleOpenProjectForm" @keydown.enter="toggleOpenProjectForm" :aria-expanded="isOpenProjectFormOpen">
+          📂 Open Existing Project <span class="arrow">{{ isOpenProjectFormOpen ? '▲' : '▼' }}</span>
+        </button>
+      </div>
 
-        <!-- Inline Open Project Input Form -->
-        <transition name="fade">
-          <div v-if="isOpenProjectFormOpen" class="open-project-bar">
-            <input
-              v-model="openProjectIdInput"
-              type="text"
-              placeholder="Enter Project ID (e.g. proj_4f9a3c...)"
-              @keydown.enter="openProjectById(openProjectIdInput)"
-            />
-            <button class="primary-btn" :disabled="!openProjectIdInput.trim()" @click="openProjectById(openProjectIdInput)">
-              Open
-            </button>
-          </div>
-        </transition>
-      </div>
-    </header>
-
-    <!-- Local Trust Strip -->
-    <section class="trust-strip">
-      <div class="trust-item">
-        <span class="icon">🛡️</span>
-        <div class="text">
-          <h3>Local-First Ingest</h3>
-          <p>Runs directly on your workstation hardware target.</p>
+      <!-- Inline Open Project Input Form -->
+      <transition name="fade">
+        <div v-if="isOpenProjectFormOpen" class="open-project-bar">
+          <input
+            v-model="openProjectIdInput"
+            type="text"
+            placeholder="Enter Project ID (e.g. proj_4f9a3c...)"
+            @keydown.enter="openProjectById(openProjectIdInput)"
+            aria-label="Enter Project ID"
+          />
+          <button class="sb-btn-primary" :disabled="!openProjectIdInput.trim()" @click="openProjectById(openProjectIdInput)">
+            Open
+          </button>
         </div>
-      </div>
-      <div class="trust-item">
-        <span class="icon">🔒</span>
-        <div class="text">
-          <h3>Private Mode Enforced</h3>
-          <p>Data stays local under the system-wide local_only guard.</p>
-        </div>
-      </div>
-      <div class="trust-item">
-        <span class="icon">👥</span>
-        <div class="text">
-          <h3>Zero Social Scraping</h3>
-          <p>Structured reader cohorts are fully simulated.</p>
-        </div>
-      </div>
-      <div class="trust-item">
-        <span class="icon">📝</span>
-        <div class="text">
-          <h3>Evidence-Grounded</h3>
-          <p>Reactions reference specific chapters and claims.</p>
-        </div>
-      </div>
-    </section>
+      </transition>
+    </div>
 
     <!-- Main Dashboard Body Grid -->
     <div class="dashboard-grid">
@@ -83,28 +47,35 @@
             <button class="text-link-btn" v-if="recentProjects.length" @click="clearRecentProjects">Clear History</button>
           </header>
 
+          <!-- Empty State -->
           <div v-if="recentProjects.length === 0" class="empty-projects-state">
-            <div class="empty-icon">📁</div>
+            <div class="empty-icon" aria-hidden="true">📁</div>
             <h3>No manuscripts found in local history</h3>
-            <p>Fill out the project setup form on the right to start your first reader simulation.</p>
+            <p>Launch a new simulation test to begin stress-testing your manuscript draft.</p>
+            <button class="sb-btn-primary sb-mt-4" @click="startNewSimulationWizard">
+              Start your first test →
+            </button>
           </div>
 
+          <!-- Project List -->
           <div v-else class="projects-list-grid">
             <article v-for="project in recentProjects" :key="project.project_id" class="project-card-item">
               <div class="card-meta">
                 <span class="project-id-badge">{{ truncateId(project.project_id) }}</span>
                 <span class="date">{{ formatDate(project.created_at) }}</span>
               </div>
-              <h3 class="project-title">{{ project.title || project.name }}</h3>
+              <h3 class="project-title" :title="project.title || project.name">{{ project.title || project.name }}</h3>
               <p class="project-author">by {{ project.author_name || 'Unknown Author' }}</p>
               
               <div class="card-footer-tags">
-                <span class="tag-badge" :class="project.privacy_mode">{{ project.privacy_mode }}</span>
-                <span class="tag-badge profile">{{ project.profile_name }}</span>
+                <span class="sb-badge" :class="'sb-badge--privacy-' + (project.privacy_mode || 'local_only')">
+                  {{ project.privacy_mode }}
+                </span>
+                <span class="sb-badge sb-badge--info">{{ project.profile_name }}</span>
               </div>
 
               <div class="card-actions">
-                <button class="ghost-btn sm" @click="resumeProject(project)">
+                <button class="sb-btn-ghost sm sb-w-full" @click="resumeProject(project)">
                   Open Simulation
                 </button>
               </div>
@@ -117,21 +88,21 @@
           <h2>Quick Actions</h2>
           <div class="quick-actions-row">
             <button class="action-card" @click="openQuickBlurbModal">
-              <span class="action-icon">✍️</span>
+              <span class="action-icon" aria-hidden="true">✍️</span>
               <div class="action-desc">
-                <h4>Test a Blurb</h4>
-                <p>Run a quick stress-test with only a marketing blurb context.</p>
+                <h4>Test Blurb</h4>
+                <p>Run stress-test with only a marketing blurb context.</p>
               </div>
             </button>
             <button class="action-card" @click="triggerUploadShortcut">
-              <span class="action-icon">📂</span>
+              <span class="action-icon" aria-hidden="true">📂</span>
               <div class="action-desc">
                 <h4>Upload Manuscript</h4>
                 <p>Upload a plain text or Markdown draft file directly.</p>
               </div>
             </button>
             <button class="action-card" @click="triggerCompareShortcut">
-              <span class="action-icon">⚖️</span>
+              <span class="action-icon" aria-hidden="true">⚖️</span>
               <div class="action-desc">
                 <h4>Compare Drafts</h4>
                 <p>Compare two versions side-by-side.</p>
@@ -177,7 +148,8 @@
             </label>
           </div>
 
-          <div v-if="selectedProfileWarnings.length" class="warning-block">
+          <!-- ProfileWarnings - Collapsed/hidden if profile is default -->
+          <div v-if="selectedProfileWarnings.length && !isProfileDefault" class="warning-block">
             <h3>Profile resource warnings:</h3>
             <ul>
               <li v-for="warning in selectedProfileWarnings" :key="warning.code + warning.message">
@@ -187,45 +159,29 @@
           </div>
 
           <div class="action-row">
-            <button class="primary-btn block-btn" :disabled="submitting || !canCreate" @click="createProject">
-              {{ submitting ? 'Creating Project...' : 'Setup Simulation Project' }}
+            <button class="sb-btn-primary block-btn" :disabled="submitting || !canCreate" @click="createProject">
+              {{ submitting ? 'Creating...' : 'Setup Project' }}
             </button>
-            <button class="ghost-btn block-btn" @click="resetSession">Clear Form</button>
+            <button class="sb-btn-ghost block-btn" @click="resetSession">Clear</button>
           </div>
         </section>
 
-        <!-- System Readiness Panel Card -->
-        <section class="dashboard-card">
-          <h2>System Readiness</h2>
+        <!-- System Readiness Panel Card (Gemini & NVIDIA only to avoid duplicates) -->
+        <section class="dashboard-card status-card">
+          <h2>Optional Cloud Providers</h2>
           <ul class="readiness-list">
             <li>
               <div class="readiness-item">
-                <span class="name">Ollama (Local LLM)</span>
-                <span class="status-badge" :class="healthStatusTone(healthSummary.ollama)">
-                  {{ healthSummary.ollama }}
-                </span>
-              </div>
-            </li>
-            <li>
-              <div class="readiness-item">
-                <span class="name">Neo4j (Knowledge Graph)</span>
-                <span class="status-badge" :class="healthStatusTone(healthSummary.neo4j)">
-                  {{ healthSummary.neo4j }}
-                </span>
-              </div>
-            </li>
-            <li>
-              <div class="readiness-item">
-                <span class="name">Gemini (Optional Cloud)</span>
-                <span class="status-badge" :class="healthStatusTone(healthSummary.gemini)">
+                <span class="name">Gemini (Advanced long-context)</span>
+                <span class="sb-badge" :class="healthStatusTone(healthSummary.gemini) === 'ok' ? 'sb-badge--ok' : 'sb-badge--warn'">
                   {{ healthSummary.gemini }}
                 </span>
               </div>
             </li>
             <li>
               <div class="readiness-item">
-                <span class="name">NVIDIA (Optional Cloud)</span>
-                <span class="status-badge" :class="healthStatusTone(healthSummary.nvidia)">
+                <span class="name">NVIDIA (Secondary / Fallback)</span>
+                <span class="sb-badge" :class="healthStatusTone(healthSummary.nvidia) === 'ok' ? 'sb-badge--ok' : 'sb-badge--warn'">
                   {{ healthSummary.nvidia }}
                 </span>
               </div>
@@ -238,13 +194,21 @@
       </aside>
     </div>
 
+    <!-- Local Trust Strip (Compact at bottom) -->
+    <footer class="console-trust-footer">
+      <span class="trust-badge">🛡️ Local-First Ingest</span>
+      <span class="trust-badge">🔒 Private Mode Enforced</span>
+      <span class="trust-badge">👥 Zero Social Scraping</span>
+      <span class="trust-badge">📝 Evidence-Grounded</span>
+    </footer>
+
     <!-- Quick Blurb Test Modal -->
     <div v-if="isBlurbModalOpen" class="blurb-modal" role="dialog" aria-modal="true" aria-labelledby="blurb-title">
       <div class="modal-backdrop" @click="closeQuickBlurbModal"></div>
       <div class="modal-card">
         <header class="modal-header">
           <h2 id="blurb-title">Quick Blurb Stress Test</h2>
-          <button class="close-btn" @click="closeQuickBlurbModal">&times;</button>
+          <button class="close-btn" @click="closeQuickBlurbModal" aria-label="Close modal">&times;</button>
         </header>
         <div class="modal-body">
           <p class="hint-text">
@@ -268,9 +232,9 @@
           </label>
         </div>
         <footer class="modal-footer">
-          <button class="ghost-btn" @click="closeQuickBlurbModal">Cancel</button>
+          <button class="sb-btn-ghost" @click="closeQuickBlurbModal">Cancel</button>
           <button
-            class="primary-btn"
+            class="sb-btn-primary"
             :disabled="!blurbForm.title.trim() || !blurbForm.blurb.trim() || submitting"
             @click="submitQuickBlurb"
           >
@@ -361,6 +325,11 @@ const selectedProfile = computed(() => {
 
 const selectedProfileWarnings = computed(() => {
   return selectedProfile.value?.computed_warnings || []
+})
+
+const isProfileDefault = computed(() => {
+  const def = health.value?.profiles?.default_profile || 'hybrid_safe_default'
+  return form.localProfile === def
 })
 
 function applyProfileDefaults(profileName) {
@@ -538,12 +507,12 @@ function resumeProject(project) {
     metadata: {
       projectName: project.name,
       title: project.title,
-      authorName: project.author_name,
+      author_name: project.author_name,
       localProfile: project.profile_name,
       privacyMode: project.privacy_mode,
     },
   })
-  router.push({ name: 'SwarmbookUpload', params: { projectId: project.project_id } })
+  router.push({ name: 'SwarmbookUpload', params: { project_id: project.project_id } })
 }
 
 function resetSession() {
@@ -660,149 +629,64 @@ onMounted(() => {
 </script>
 
 <style scoped>
-/* Scoped premium dashboard layout css styles */
-
-.dashboard-hero {
-  background: #0f172a;
-  color: #ffffff;
-  padding: 40px;
-  border-radius: 12px;
-  margin-bottom: 24px;
-  border: 1px solid #1e293b;
-  box-shadow: 0 4px 20px rgba(15, 23, 42, 0.15);
+/* Scoped launch console styles */
+.console-actions-bar {
+  margin-bottom: var(--sb-space-4);
+  background: var(--sb-surface-secondary);
+  padding: var(--sb-space-3) var(--sb-space-4);
+  border-radius: var(--sb-radius-lg);
+  border: 1px solid var(--sb-border-color);
 }
-
-.hero-content h1 {
-  font-size: 2.2rem;
-  font-weight: 800;
-  line-height: 1.15;
-  margin: 0 0 12px 0;
-  letter-spacing: -0.75px;
-}
-
-.hero-subtext {
-  color: #94a3b8;
-  font-size: 1.05rem;
-  line-height: 1.6;
-  max-width: 780px;
-  margin: 0 0 24px 0;
-}
-
-.hero-ctas {
+.cta-row {
   display: flex;
-  gap: 12px;
+  gap: var(--sb-space-3);
   flex-wrap: wrap;
 }
-
-.primary-btn.lg,
-.ghost-btn.lg {
-  padding: 14px 24px;
-  font-size: 0.95rem;
-}
-
-.ghost-btn.lg {
-  border-color: rgba(255, 255, 255, 0.2);
-  color: #ffffff;
-}
-
-.ghost-btn.lg:hover {
-  background: rgba(255, 255, 255, 0.05);
-  border-color: #ffffff;
-}
-
 .open-project-bar {
   display: flex;
-  gap: 10px;
-  margin-top: 20px;
+  gap: var(--sb-space-2);
+  margin-top: var(--sb-space-3);
   max-width: 500px;
-  background: rgba(255, 255, 255, 0.05);
-  padding: 8px;
-  border-radius: 8px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
 }
-
 .open-project-bar input {
-  flex: 1;
-  background: transparent;
-  border: none;
-  color: #ffffff;
-  padding: 8px 12px;
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.85rem;
-  outline: none;
+  font-family: var(--sb-font-mono);
+  font-size: var(--sb-text-sm);
 }
 
-/* Trust Strip */
-.trust-strip {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 16px;
-  margin-bottom: 28px;
-}
-
-.trust-item {
-  display: flex;
-  gap: 12px;
-  background: #ffffff;
-  border: 1px solid #e2e8f0;
-  padding: 16px;
-  border-radius: 8px;
-}
-
-.trust-item .icon {
-  font-size: 1.5rem;
-  line-height: 1;
-}
-
-.trust-item h3 {
-  font-size: 0.85rem;
-  font-weight: 700;
-  margin: 0 0 4px 0;
-}
-
-.trust-item p {
-  font-size: 0.75rem;
-  color: #64748b;
-  margin: 0;
-  line-height: 1.4;
-}
-
-/* Main Grid Layout */
 .dashboard-grid {
   display: grid;
-  grid-template-columns: 1.4fr 1fr;
-  gap: 24px;
+  grid-template-columns: 1.3fr 1fr;
+  gap: var(--sb-space-4);
 }
 
 .dashboard-main-col,
 .dashboard-side-col {
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: var(--sb-space-4);
 }
 
 .dashboard-card {
-  background: #ffffff;
-  border: 1px solid #e2e8f0;
-  border-radius: 12px;
-  padding: 24px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  background: var(--sb-bg-card);
+  border: 1px solid var(--sb-border-color);
+  border-radius: var(--sb-radius-xl);
+  padding: var(--sb-space-4);
+  box-shadow: var(--sb-shadow-sm);
 }
 
 .dashboard-card h2 {
-  font-size: 1.1rem;
-  font-weight: 700;
-  margin: 0 0 18px 0;
-  color: #0f172a;
+  font-size: var(--sb-text-md);
+  font-weight: var(--sb-weight-bold);
+  color: var(--sb-text-heading);
+  margin: 0 0 var(--sb-space-3) 0;
 }
 
 .card-header-row {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 18px;
+  margin-bottom: var(--sb-space-3);
 }
-
 .card-header-row h2 {
   margin: 0;
 }
@@ -810,135 +694,125 @@ onMounted(() => {
 .text-link-btn {
   background: transparent;
   border: none;
-  color: #64748b;
-  font-size: 0.78rem;
-  font-weight: 600;
+  color: var(--sb-text-hint);
+  font-size: var(--sb-text-xs);
+  font-weight: var(--sb-weight-semibold);
   cursor: pointer;
+  padding: var(--sb-space-1);
 }
-
 .text-link-btn:hover {
-  color: #ff4500;
+  color: var(--sb-color-brand);
 }
 
 /* Empty Project State */
 .empty-projects-state {
   text-align: center;
-  padding: 40px 20px;
+  padding: var(--sb-space-6) var(--sb-space-4);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--sb-space-2);
 }
-
 .empty-icon {
-  font-size: 2.5rem;
-  margin-bottom: 14px;
+  font-size: var(--sb-text-3xl);
 }
-
 .empty-projects-state h3 {
-  font-size: 0.95rem;
-  font-weight: 700;
-  margin: 0 0 6px 0;
+  font-size: var(--sb-text-md);
+  font-weight: var(--sb-weight-bold);
+  margin: 0;
 }
-
 .empty-projects-state p {
-  font-size: 0.8rem;
-  color: #64748b;
+  font-size: var(--sb-text-sm);
+  color: var(--sb-text-hint);
   max-width: 320px;
-  margin: 0 auto;
+  margin: 0;
 }
 
 /* Projects grid list */
 .projects-list-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 16px;
+  gap: var(--sb-space-3);
+  max-height: 250px;
+  overflow-y: auto;
+  padding-right: var(--sb-space-1);
 }
 
 .project-card-item {
-  border: 1px solid #e2e8f0;
-  border-radius: 8px;
-  padding: 16px;
-  background: #f8fafc;
+  border: 1px solid var(--sb-border-color);
+  border-radius: var(--sb-radius-md);
+  padding: var(--sb-space-3);
+  background: var(--sb-surface-primary);
   display: flex;
   flex-direction: column;
+  transition: all 0.2s;
+}
+.project-card-item:hover {
+  border-color: var(--sb-border-hover);
+  background: var(--sb-bg-card);
 }
 
 .card-meta {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 10px;
+  margin-bottom: var(--sb-space-2);
+  align-items: center;
 }
-
 .project-id-badge {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.68rem;
-  font-weight: 700;
-  background: #e2e8f0;
-  color: #334155;
-  padding: 2px 6px;
-  border-radius: 4px;
+  font-family: var(--sb-font-mono);
+  font-size: var(--sb-text-xs);
+  font-weight: var(--sb-weight-bold);
+  background: var(--sb-surface-secondary);
+  color: var(--sb-text-body);
+  padding: 2px var(--sb-space-2);
+  border-radius: var(--sb-radius-sm);
 }
-
 .card-meta .date {
-  font-size: 0.72rem;
-  color: #94a3b8;
+  font-size: var(--sb-text-xs);
+  color: var(--sb-text-hint);
 }
-
 .project-title {
-  font-size: 0.95rem;
-  font-weight: 700;
-  color: #0f172a;
-  margin: 0 0 4px 0;
+  font-size: var(--sb-text-sm);
+  font-weight: var(--sb-weight-bold);
+  color: var(--sb-text-heading);
+  margin: 0 0 2px 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
-
 .project-author {
-  font-size: 0.8rem;
-  color: #64748b;
-  margin: 0 0 12px 0;
+  font-size: var(--sb-text-xs);
+  color: var(--sb-text-muted);
+  margin: 0 0 var(--sb-space-3) 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
-
 .card-footer-tags {
   display: flex;
-  gap: 6px;
-  margin-bottom: 14px;
+  gap: var(--sb-space-1);
+  margin-bottom: var(--sb-space-3);
   flex-wrap: wrap;
 }
-
-.tag-badge {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.65rem;
-  font-weight: 700;
-  padding: 2px 6px;
-  border-radius: 4px;
-}
-
-.tag-badge.local_only { background: #d1fae5; color: #065f46; }
-.tag-badge.hybrid_safe { background: #fef3c7; color: #92400e; }
-.tag-badge.cloud_quality { background: #dbeafe; color: #1e40af; }
-.tag-badge.profile { background: #f1f5f9; color: #475569; }
-
 .card-actions {
   margin-top: auto;
-}
-
-.ghost-btn.sm {
-  width: 100%;
-  padding: 8px 12px;
-  font-size: 0.78rem;
 }
 
 /* Quick Actions Cards */
 .quick-actions-row {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 16px;
+  gap: var(--sb-space-3);
 }
 
 .action-card {
   display: flex;
   align-items: flex-start;
-  gap: 12px;
-  padding: 16px;
-  background: #f8fafc;
-  border: 1px solid #e2e8f0;
-  border-radius: 8px;
+  gap: var(--sb-space-2);
+  padding: var(--sb-space-3);
+  background: var(--sb-surface-primary);
+  border: 1px solid var(--sb-border-color);
+  border-radius: var(--sb-radius-md);
   text-align: left;
   cursor: pointer;
   outline: none;
@@ -946,103 +820,83 @@ onMounted(() => {
 }
 
 .action-card:hover {
-  background: #fff5ef;
-  border-color: #ff4500;
+  background: var(--sb-color-brand-light);
+  border-color: var(--sb-color-brand);
 }
 
 .action-card:focus-visible {
-  outline: 2px solid #ff4500;
+  outline: var(--sb-focus-ring);
 }
 
 .action-icon {
-  font-size: 1.5rem;
+  font-size: var(--sb-text-xl);
   line-height: 1;
 }
 
 .action-desc h4 {
-  font-size: 0.85rem;
-  font-weight: 700;
-  margin: 0 0 4px 0;
-  color: #0f172a;
+  font-size: var(--sb-text-sm);
+  font-weight: var(--sb-weight-bold);
+  margin: 0 0 2px 0;
+  color: var(--sb-text-heading);
 }
 
 .action-desc p {
-  font-size: 0.72rem;
-  color: #64748b;
+  font-size: var(--sb-text-xs);
+  color: var(--sb-text-hint);
   margin: 0;
-  line-height: 1.4;
+  line-height: var(--sb-leading-tight);
 }
 
 /* Form Design Details */
 .form-grid {
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: var(--sb-space-3);
 }
 
 .field-label {
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: var(--sb-space-1);
 }
 
 .field-label span {
-  font-size: 0.8rem;
-  font-weight: 600;
-  color: #475569;
-}
-
-input,
-select,
-textarea {
-  width: 100%;
-  padding: 10px 12px;
-  border: 1px solid #cbd5e1;
-  border-radius: 6px;
-  background: #ffffff;
-  color: #0f172a;
-  font-family: inherit;
-  font-size: 0.88rem;
-  outline: none;
-}
-
-input:focus,
-select:focus,
-textarea:focus {
-  border-color: #ff4500;
-  box-shadow: 0 0 0 3px rgba(255, 69, 0, 0.1);
+  font-size: var(--sb-text-xs);
+  font-weight: var(--sb-weight-semibold);
+  color: var(--sb-text-muted);
 }
 
 .warning-block {
-  margin-top: 14px;
-  background: #fffbeb;
-  border: 1px solid #fef3c7;
-  padding: 12px;
-  border-radius: 6px;
+  margin-top: var(--sb-space-3);
+  background: var(--sb-status-warn-bg);
+  border: 1px solid var(--sb-border-hover);
+  padding: var(--sb-space-3);
+  border-radius: var(--sb-radius-md);
 }
 
 .warning-block h3 {
-  font-size: 0.78rem;
-  color: #92400e;
-  font-weight: 700;
-  margin: 0 0 6px 0;
+  font-size: var(--sb-text-xs);
+  color: var(--sb-status-warn-text);
+  font-weight: var(--sb-weight-bold);
+  margin: 0 0 var(--sb-space-2) 0;
 }
 
 .warning-block ul {
   margin: 0;
-  padding-left: 16px;
-  font-size: 0.75rem;
-  color: #b45309;
+  padding-left: var(--sb-space-4);
+  font-size: var(--sb-text-xs);
+  color: var(--sb-status-warn-text);
 }
 
 .action-row {
   display: flex;
-  gap: 10px;
-  margin-top: 18px;
+  gap: var(--sb-space-2);
+  margin-top: var(--sb-space-3);
 }
 
 .block-btn {
   flex: 1;
+  min-height: 38px;
 }
 
 /* Readiness List */
@@ -1052,39 +906,38 @@ textarea:focus {
   margin: 0;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: var(--sb-space-2);
 }
 
 .readiness-item {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-size: 0.82rem;
+  font-size: var(--sb-text-sm);
 }
 
 .readiness-item .name {
-  color: #475569;
-  font-weight: 500;
+  color: var(--sb-text-body);
+  font-weight: var(--sb-weight-medium);
 }
 
-.status-badge {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.7rem;
-  font-weight: 700;
-  padding: 2px 8px;
-  border-radius: 4px;
-  text-transform: uppercase;
+/* Trust footer at very bottom */
+.console-trust-footer {
+  display: flex;
+  justify-content: center;
+  gap: var(--sb-space-6);
+  margin-top: var(--sb-space-6);
+  padding-top: var(--sb-space-4);
+  border-top: 1px solid var(--sb-border-color);
+  flex-wrap: wrap;
 }
-
-.status-badge.ok { background: #d1fae5; color: #065f46; }
-.status-badge.warn { background: #fef3c7; color: #92400e; }
-.status-badge.offline { background: #fef2f2; color: #991b1b; }
-
-.muted-note {
-  font-size: 0.72rem;
-  color: #64748b;
-  margin-top: 16px;
-  line-height: 1.4;
+.trust-badge {
+  font-size: var(--sb-text-xs);
+  color: var(--sb-text-hint);
+  font-weight: var(--sb-weight-medium);
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sb-space-1);
 }
 
 /* Modal style */
@@ -1100,8 +953,74 @@ textarea:focus {
   z-index: 200;
 }
 
+.blurb-modal .modal-backdrop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(15, 23, 42, 0.4);
+  backdrop-filter: blur(4px);
+}
+
 .blurb-modal .modal-card {
+  position: relative;
+  background: var(--sb-bg-card);
+  border: 1px solid var(--sb-border-color);
+  border-radius: var(--sb-radius-xl);
   max-width: 500px;
+  width: 90%;
+  box-shadow: var(--sb-shadow-lg);
+  display: flex;
+  flex-direction: column;
+  z-index: 201;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--sb-space-4);
+  border-bottom: 1px solid var(--sb-border-color);
+}
+.modal-header h2 {
+  font-size: var(--sb-text-lg);
+  font-weight: var(--sb-weight-bold);
+  margin: 0;
+  color: var(--sb-text-heading);
+}
+.close-btn {
+  background: transparent;
+  border: none;
+  font-size: var(--sb-text-xl);
+  color: var(--sb-text-hint);
+  cursor: pointer;
+  line-height: 1;
+}
+.close-btn:hover {
+  color: var(--sb-color-brand);
+}
+
+.modal-body {
+  padding: var(--sb-space-4);
+  display: flex;
+  flex-direction: column;
+  gap: var(--sb-space-3);
+  max-height: 400px;
+  overflow-y: auto;
+}
+.hint-text {
+  font-size: var(--sb-text-xs);
+  color: var(--sb-text-hint);
+  margin: 0;
+}
+
+.modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--sb-space-2);
+  padding: var(--sb-space-4);
+  border-top: 1px solid var(--sb-border-color);
 }
 
 .fade-enter-active,
@@ -1114,25 +1033,30 @@ textarea:focus {
   opacity: 0;
 }
 
-/* Responsive collapse */
-@media (max-width: 1100px) {
-  .trust-strip {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
+/* Responsive styles */
 @media (max-width: 900px) {
   .dashboard-grid {
     grid-template-columns: 1fr;
+    gap: var(--sb-space-4);
   }
   .projects-list-grid {
     grid-template-columns: 1fr;
+    max-height: none;
   }
   .quick-actions-row {
     grid-template-columns: 1fr;
   }
-  .trust-strip {
-    grid-template-columns: 1fr;
+  .cta-row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .cta-row button {
+    width: 100%;
+  }
+  .console-trust-footer {
+    flex-direction: column;
+    align-items: center;
+    gap: var(--sb-space-2);
   }
 }
 </style>

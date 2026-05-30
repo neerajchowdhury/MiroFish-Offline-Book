@@ -8,6 +8,14 @@
     :loading-message="loadingMessage"
   >
     <div class="interview-container">
+      <!-- Drawer backdrop overlay -->
+      <div 
+        v-if="selectedEvidenceRef" 
+        class="drawer-backdrop animate-fade-in" 
+        @click="selectedEvidenceRef = ''"
+        aria-hidden="true"
+      ></div>
+
       <!-- 1. Left Sidebar: Persona Directory -->
       <aside class="persona-sidebar" aria-label="Simulated Readers Directory">
         <div class="search-box">
@@ -54,6 +62,14 @@
 
       <!-- Right Main Workspace Workspace -->
       <main class="interview-workspace" v-if="activePersona" aria-label="Interview Workspace">
+        <!-- Known Limitations Warning Banner -->
+        <div class="sandbox-limitations-banner" role="status">
+          <span class="banner-icon" aria-hidden="true">⚠️</span>
+          <div class="banner-content">
+            <strong>Synthetic Simulation Sandbox:</strong> Responses are generated reader reactions based on manuscript evidence maps. This is not a real-market predictor, does not scrape live platforms, and operates strictly under privacy-mode compliance.
+          </div>
+        </div>
+
         <!-- 2. Selected Persona Profile Card -->
         <article class="persona-profile-card">
           <header class="profile-header">
@@ -187,9 +203,23 @@
         </section>
       </main>
 
-      <!-- 4. Grounded Evidence Inspector Panel -->
-      <aside class="evidence-panel" aria-label="Grounded Evidence Inspector">
-        <h2>Evidence Inspector</h2>
+      <!-- 4. Grounded Evidence Inspector Drawer -->
+      <aside 
+        class="evidence-drawer" 
+        :class="{ open: !!selectedEvidenceRef }"
+        aria-label="Grounded Evidence Drawer"
+      >
+        <div class="drawer-header">
+          <h2>Evidence Inspector</h2>
+          <button 
+            type="button" 
+            class="close-drawer-btn" 
+            @click="selectedEvidenceRef = ''"
+            aria-label="Close evidence drawer"
+          >
+            &times;
+          </button>
+        </div>
         <p class="panel-desc">View manuscript sections, claims, or pacing maps cited by simulated readers in their responses.</p>
         
         <div v-if="selectedEvidenceDetail" class="evidence-detail-card animate-fade-in">
@@ -378,9 +408,9 @@ const quickQuestions = [
   'Why did you rate it this way?',
   'Where would you DNF?',
   'What would make you recommend it?',
-  'What would make you raise your rating?',
+  'What would increase your rating?',
   'What would your public review say?',
-  'Which reader would love this book?'
+  'Which reader would love this?'
 ]
 
 const canAsk = computed(() => Boolean(selectedPersonaId.value && questionText.value.trim()))
@@ -563,65 +593,143 @@ const selectedEvidenceDetail = computed(() => {
   if (!refId) return null
   
   const idLower = refId.toLowerCase()
+  const pack = evidencePack.value
   
-  // 1. Resolve from evidencePack
-  if (evidencePack.value) {
-    // Check chapters
-    if (evidencePack.value.chapter_map?.chapters) {
-      const chapter = evidencePack.value.chapter_map.chapters.find(
-        c => c.chapter_id.toLowerCase() === idLower || `chapter_${c.chapter_number}`.toLowerCase() === idLower
+  if (pack) {
+    // 1. Book DNA
+    if (pack.book_dna && (idLower === 'book_dna' || idLower.includes('dna') || idLower.includes('premise'))) {
+      const dna = pack.book_dna
+      return {
+        type: 'Book DNA',
+        title: 'Book DNA Profile',
+        summary: dna.premise || 'N/A',
+        details: [
+          `Genre: ${dna.genre || 'N/A'} (${dna.subgenre || 'N/A'})`,
+          `Tone: ${dna.tone || 'N/A'}`,
+          `Target Reader: ${dna.target_reader || 'N/A'}`,
+          `Narrative Engine: ${dna.narrative_engine || 'N/A'}`,
+          `Reading Difficulty: ${dna.reading_difficulty || 'N/A'}`
+        ]
+      }
+    }
+
+    // 2. Chapter Map
+    if (pack.chapter_map?.chapters) {
+      const chapter = pack.chapter_map.chapters.find(
+        c => c.chapter_id?.toLowerCase() === idLower || 
+             `chapter_${c.chapter_number}`.toLowerCase() === idLower ||
+             `chapter_${c.chapter_id}`.toLowerCase() === idLower ||
+             (c.title && c.title.toLowerCase().includes(idLower))
       )
       if (chapter) {
         return {
           type: 'Chapter Map',
-          title: `Chapter ${chapter.chapter_number}${chapter.title ? ': ' + chapter.title : ''}`,
-          summary: chapter.summary,
+          title: `Chapter ${chapter.chapter_number || chapter.chapter_id}${chapter.title ? ': ' + chapter.title : ''}`,
+          summary: chapter.summary || chapter.beat_summary || 'N/A',
           details: [
-            `Pacing: ${chapter.pacing || 'balanced'} (${chapter.pacing_note || 'N/A'})`,
-            `Likely Reader Friction: ${chapter.likely_reader_friction?.join(', ') || 'none'}`
+            `Pacing Estimate: ${chapter.pacing || chapter.pacing_estimate || 'balanced'}`,
+            `Stop Reading Risk: ${chapter.stop_reading_risk !== undefined ? Math.round(chapter.stop_reading_risk * 100) + '%' : 'N/A'}`,
+            `Likely Reader Friction: ${chapter.likely_reader_friction?.join(', ') || chapter.confusion_hotspots?.join(', ') || 'none'}`
+          ]
+        }
+      }
+    }
+
+    // 3. Character Map
+    if (pack.character_map?.characters) {
+      const char = pack.character_map.characters.find(
+        c => c.character_id?.toLowerCase() === idLower || 
+             (c.name && c.name.toLowerCase() === idLower) ||
+             (c.name && idLower.includes(c.name.toLowerCase()))
+      )
+      if (char) {
+        return {
+          type: 'Character Map',
+          title: `Character: ${char.name}`,
+          summary: char.transformation_arc || 'N/A',
+          details: [
+            `Role: ${char.role || 'N/A'}`,
+            `Goals: ${char.goals?.join(', ') || 'N/A'}`,
+            `Conflicts: ${char.conflicts?.join(', ') || 'N/A'}`,
+            `Attachment Potential: ${char.attachment_potential !== undefined ? Math.round(char.attachment_potential * 100) + '%' : 'N/A'}`
           ]
         }
       }
     }
     
-    // Check claims
-    if (evidencePack.value.claim_map?.claims) {
-      const claim = evidencePack.value.claim_map.claims.find(
-        c => c.claim_id.toLowerCase() === idLower
+    // 4. Claim Map
+    if (pack.claim_map?.claims) {
+      const claim = pack.claim_map.claims.find(
+        c => c.claim_id?.toLowerCase() === idLower || idLower.includes(c.claim_id?.toLowerCase())
       )
       if (claim) {
         return {
           type: 'Claim Map',
           title: `Claim ${claim.claim_id}`,
-          summary: claim.claim_text,
+          summary: claim.claim_text || 'N/A',
           details: [
-            `Support Quality: ${claim.support_quality || 'moderate'} (Strength: ${Math.round((claim.evidence_strength || 0.5) * 100)}%)`,
-            `Counterarguments: ${claim.counterarguments?.join(', ') || 'none'}`
+            `Support Quality: ${claim.support_quality || 'moderate'}`,
+            `Support Type: ${claim.support_type || 'N/A'}`,
+            `Contradiction Risk: ${claim.contradiction_risk || 'low'}`,
+            `Evidence Notes: ${claim.evidence_notes?.join(', ') || 'none'}`
           ]
         }
       }
     }
     
-    // Check risks
-    if (evidencePack.value.risk_map?.risks) {
-      const risk = evidencePack.value.risk_map.risks.find(
-        r => r.risk_id.toLowerCase() === idLower
+    // 5. Risk Map
+    if (pack.risk_map?.risks) {
+      const risk = pack.risk_map.risks.find(
+        r => r.risk_id?.toLowerCase() === idLower || idLower.includes(r.risk_id?.toLowerCase())
       )
       if (risk) {
         return {
           type: 'Risk Map',
           title: `Risk: ${formatRadarLabel(risk.risk_type)}`,
-          summary: risk.description,
+          summary: risk.description || risk.trigger_text || 'N/A',
           details: [
             `Severity: ${risk.severity || 'moderate'}`,
+            `Affected Segments: ${risk.affected_segments?.join(', ') || 'all'}`,
             `Editorial Mitigation: ${risk.mitigation_hint || 'N/A'}`
           ]
         }
       }
     }
+
+    // 6. Style Map
+    if (pack.style_map && (idLower === 'style_map' || idLower === 'style_prose' || idLower.includes('style'))) {
+      const style = pack.style_map
+      return {
+        type: 'Style Map',
+        title: 'Prose Style Analysis',
+        summary: `Clarity: ${style.clarity || 'N/A'} • Density: ${style.density || 'N/A'}`,
+        details: [
+          `Rhythm: ${style.rhythm || 'N/A'}`,
+          `Voice Consistency: ${style.voice_consistency || 'N/A'}`,
+          `Quoteability: ${style.quoteability || 'N/A'}`,
+          `Accessibility: ${style.accessibility || 'N/A'}`
+        ]
+      }
+    }
+
+    // 7. Market Surface
+    if (pack.market_surface && (idLower === 'market_surface' || idLower === 'genre_suitability' || idLower.includes('market'))) {
+      const market = pack.market_surface
+      return {
+        type: 'Market Surface',
+        title: 'Market Surface Profile',
+        summary: market.promise_gap || 'N/A',
+        details: [
+          `Target Segments: ${market.target_segments?.join(', ') || 'N/A'}`,
+          `Discoverability Hooks: ${market.discoverability_hooks?.join(', ') || 'N/A'}`,
+          `Comp Neighborhood: ${market.comp_title_neighborhood?.join(', ') || 'N/A'}`,
+          `Positioning Notes: ${market.positioning_notes?.join(', ') || 'N/A'}`
+        ]
+      }
+    }
   }
   
-  // 2. Fallbacks for demo mock data
+  // 8. Fallbacks for demo mock data
   if (idLower.includes('chapter_3')) {
     return {
       type: 'Chapter Map',
@@ -644,6 +752,14 @@ const selectedEvidenceDetail = computed(() => {
       title: 'Target Audience Profile',
       summary: 'Positioned as high-concept speculative sci-fi. Strong discoverability hooks but carries a promise gap for casual drama readers.',
       details: ['Target segments: Hard SciFi, Speculative fiction fans', 'Promise gap: High']
+    }
+  }
+  if (idLower.includes('risk_pacing') || idLower.includes('risk')) {
+    return {
+      type: 'Risk Map',
+      title: 'Risk: Pacing Drag',
+      summary: 'Pacing drag identified in early chapters, primarily driven by info-dumps and technical exposition.',
+      details: ['Severity: Moderate', 'Mitigation: Trim physical description sequences by 20%']
     }
   }
   
@@ -697,18 +813,20 @@ onMounted(() => {
 input:focus-visible,
 textarea:focus-visible,
 button:focus-visible,
-.directory-item-btn:focus-visible {
+.directory-item-btn:focus-visible,
+.close-drawer-btn:focus-visible {
   outline: 2px solid #FF4500 !important;
   outline-offset: 2px !important;
 }
 
 .interview-container {
   display: grid;
-  grid-template-columns: 280px 1fr 300px;
+  grid-template-columns: 280px 1fr;
   gap: 20px;
   height: calc(100vh - 190px);
   min-height: 580px;
   overflow: hidden;
+  position: relative; /* Container scope for sliding absolute drawer */
 }
 
 @media (max-width: 1100px) {
@@ -717,23 +835,17 @@ button:focus-visible,
     height: auto;
     overflow: visible;
   }
-  
-  .evidence-panel {
-    grid-column: span 2;
-    max-height: 300px;
-    overflow-y: auto;
-  }
 }
 
 @media (max-width: 800px) {
   .interview-container {
     grid-template-columns: 1fr;
+    height: auto;
+    overflow: visible;
   }
   .persona-sidebar {
     height: 320px;
-  }
-  .evidence-panel {
-    grid-column: span 1;
+    flex-shrink: 0;
   }
 }
 
@@ -856,6 +968,28 @@ button:focus-visible,
   font-size: 0.8rem;
 }
 
+/* Known Limitations Warning Banner */
+.sandbox-limitations-banner {
+  background: #fef3c7; /* Warm Amber */
+  border: 1px solid #fde68a;
+  border-radius: 8px;
+  padding: 10px 14px;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 0.78rem;
+  color: #78350f;
+  line-height: 1.4;
+  flex-shrink: 0;
+}
+
+.banner-icon {
+  font-size: 1rem;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
 /* 2. Workspace details */
 .interview-workspace {
   display: flex;
@@ -871,6 +1005,7 @@ button:focus-visible,
   border-radius: 8px;
   padding: 16px;
   margin-bottom: 16px;
+  flex-shrink: 0;
 }
 
 .profile-header {
@@ -1198,23 +1333,59 @@ button:focus-visible,
   font-size: 0.85rem;
 }
 
-/* 4. Left Sidebar Evidence Panel */
-.evidence-panel {
+/* 4. Sliding Evidence Inspector Drawer */
+.evidence-drawer {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 320px;
   background: #ffffff;
-  border: 1px solid #e2e8f0;
-  border-radius: 8px;
-  padding: 16px;
+  border-left: 1px solid #e2e8f0;
+  box-shadow: -4px 0 12px rgba(15, 23, 42, 0.08);
+  z-index: 100;
+  transform: translateX(100%);
+  transition: transform 0.3s ease-in-out;
   display: flex;
   flex-direction: column;
-  overflow: hidden;
-  height: 100%;
+  padding: 16px;
 }
 
-.evidence-panel h2 {
+.evidence-drawer.open {
+  transform: translateX(0);
+}
+
+.drawer-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.drawer-header h2 {
   font-size: 1.1rem;
   font-weight: 800;
   color: #0f172a;
-  margin-bottom: 6px;
+  margin: 0;
+}
+
+.close-drawer-btn {
+  background: transparent;
+  border: none;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #64748b;
+  cursor: pointer;
+  padding: 2px 8px;
+  border-radius: 4px;
+  line-height: 1;
+  transition: background 0.15s, color 0.15s;
+  outline: none;
+}
+
+.close-drawer-btn:hover {
+  background: #f1f5f9;
+  color: #0f172a;
 }
 
 .panel-desc {
@@ -1308,12 +1479,40 @@ button:focus-visible,
   line-height: 1.45;
 }
 
+/* Backdrop Overlay for Drawer */
+.drawer-backdrop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(15, 23, 42, 0.35);
+  z-index: 90;
+  backdrop-filter: blur(1px);
+}
+
+@media (max-width: 800px) {
+  .drawer-backdrop {
+    position: fixed;
+    z-index: 999;
+  }
+  .evidence-drawer {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    height: 100%;
+    z-index: 1000;
+  }
+}
+
 .animate-fade-in {
-  animation: fade-in 0.25s ease-out;
+  animation: fade-in 0.2s ease-out;
 }
 
 @keyframes fade-in {
-  from { opacity: 0; transform: translateY(4px); }
-  to { opacity: 1; transform: translateY(0); }
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 </style>

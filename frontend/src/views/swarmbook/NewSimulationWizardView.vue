@@ -46,123 +46,225 @@
           <h2>Step 01 / Book Editorial Basics</h2>
           <p class="step-hint">Set the editorial context to guide the agent ontology generation.</p>
 
-          <div class="form-grid">
-            <label class="field-group" :class="{ 'has-error': activeValidationFields.projectName }">
-              <span class="label-text">Project Reference Name <span class="req">*</span></span>
-              <input
-                v-model="form.projectName"
-                type="text"
-                placeholder="e.g. spring_thriller_draft"
-                aria-required="true"
-                @input="clearValidationError('projectName')"
-              />
-              <span class="microcopy">Internal project directory name. Use lowercase, numbers, or underscores.</span>
-            </label>
+          <div class="step1-layout">
+            <!-- Left Side: Form Fields -->
+            <div class="form-fields-col">
+              <div class="form-grid">
+                <label class="field-group">
+                  <span class="label-text">Content Type <span class="req">*</span></span>
+                  <select v-model="form.contentType">
+                    <option value="full_manuscript">Full manuscript</option>
+                    <option value="novel">Novel</option>
+                    <option value="novella">Novella</option>
+                    <option value="short_story">Short story</option>
+                    <option value="article_essay">Article / essay</option>
+                    <option value="newsletter">Newsletter</option>
+                    <option value="book_proposal">Book proposal</option>
+                    <option value="blurb_synopsis">Blurb / synopsis</option>
+                    <option value="chapter_sample">Chapter sample</option>
+                    <option value="research_pack">Research / evidence pack</option>
+                  </select>
+                  <span class="microcopy">Select the format of the draft content you are testing.</span>
+                </label>
 
-            <label class="field-group" :class="{ 'has-error': activeValidationFields.title }">
-              <span class="label-text">Book Title <span class="req">*</span></span>
-              <input
-                v-model="form.title"
-                type="text"
-                placeholder="e.g. The Quiet Passenger"
-                aria-required="true"
-                @input="clearValidationError('title')"
-              />
-              <span class="microcopy">Official title of the manuscript.</span>
-            </label>
+                <label class="field-group" :class="{ 'has-error': activeValidationFields.projectName }">
+                  <span class="label-text">Project Reference Name <span class="req">*</span></span>
+                  <input
+                    v-model="form.projectName"
+                    type="text"
+                    placeholder="e.g. spring_thriller_draft"
+                    aria-required="true"
+                    @input="clearValidationError('projectName')"
+                  />
+                  <span class="microcopy">Internal project directory name. Use lowercase, numbers, or underscores.</span>
+                </label>
 
-            <label class="field-group" :class="{ 'has-error': activeValidationFields.authorName }">
-              <span class="label-text">Author Name <span class="req">*</span></span>
-              <input
-                v-model="form.authorName"
-                type="text"
-                placeholder="e.g. Jane Doe"
-                aria-required="true"
-                @input="clearValidationError('authorName')"
-              />
-            </label>
+                <label class="field-group" :class="{ 'has-error': activeValidationFields.title }">
+                  <span class="label-text">Content Title <span class="req">*</span></span>
+                  <input
+                    v-model="form.title"
+                    type="text"
+                    placeholder="e.g. The Quiet Passenger"
+                    aria-required="true"
+                    @input="clearValidationError('title')"
+                  />
+                  <span class="microcopy">Official title of the manuscript draft.</span>
+                </label>
 
-            <label class="field-group">
-              <span class="label-text">Book Classification <span class="req">*</span></span>
-              <select v-model="form.bookType">
-                <option value="fiction">Fiction</option>
-                <option value="non-fiction">Non-Fiction</option>
-                <option value="mixed">Mixed Structure</option>
-              </select>
-              <span class="microcopy">Fiction evaluates narrative friction; Non-Fiction audits claims support.</span>
-            </label>
+                <label class="field-group" :class="{ 'has-error': activeValidationFields.authorName }">
+                  <span class="label-text">Author <span class="req">*</span></span>
+                  <input
+                    v-model="form.authorName"
+                    type="text"
+                    placeholder="e.g. Jane Doe"
+                    aria-required="true"
+                    @input="clearValidationError('authorName')"
+                  />
+                  <span class="microcopy">Author name or pen name.</span>
+                </label>
 
-            <label class="field-group" :class="{ 'has-error': activeValidationFields.genre }">
-              <span class="label-text">Genre / Category <span class="req">*</span></span>
-              <input
-                v-model="form.genre"
-                type="text"
-                placeholder="e.g. Speculative Thriller"
-                aria-required="true"
-                @input="clearValidationError('genre')"
-              />
-              <span class="microcopy">Aids in targeting appropriate platform reviewers.</span>
-            </label>
+                <label class="field-group">
+                  <span class="label-text">Book Classification <span class="req">*</span></span>
+                  <select v-model="form.bookType">
+                    <option value="fiction">Fiction</option>
+                    <option value="non-fiction">Non-Fiction</option>
+                    <option value="mixed">Mixed Structure</option>
+                  </select>
+                  <span class="microcopy">Fiction evaluates narrative friction; Non-Fiction audits claims support.</span>
+                </label>
 
-            <label class="field-group" :class="{ 'has-error': activeValidationFields.targetReader }">
-              <span class="label-text">Target Reader <span class="req">*</span></span>
-              <input
-                v-model="form.targetReader"
-                type="text"
-                placeholder="e.g. Fans of high-concept slow-burn suspense"
-                aria-required="true"
-                @input="clearValidationError('targetReader')"
-              />
-              <span class="microcopy">Shapes the primary cohort archetypes.</span>
-            </label>
+                <label class="field-group" :class="{ 'has-error': activeValidationFields.genre }">
+                  <span class="label-text">Genre / Category <span class="req">*</span></span>
+                  <input
+                    v-model="form.genre"
+                    type="text"
+                    placeholder="e.g. Speculative Thriller"
+                    aria-required="true"
+                    @input="clearValidationError('genre')"
+                  />
+                  <span class="microcopy">Aids in targeting appropriate platform reviewers.</span>
+                </label>
 
-            <label class="field-group">
-              <span class="label-text">Book Subtitle</span>
-              <input v-model="form.subtitle" type="text" placeholder="e.g. A Novel of Pacing and Suspense" />
-            </label>
+                <label class="field-group" :class="{ 'has-error': activeValidationFields.targetReader }">
+                  <span class="label-text">Target Reader <span class="req">*</span></span>
+                  <input
+                    v-model="form.targetReader"
+                    type="text"
+                    placeholder="e.g. Fans of high-concept slow-burn suspense"
+                    aria-required="true"
+                    @input="clearValidationError('targetReader')"
+                  />
+                  <span class="microcopy">Shapes the primary cohort archetypes.</span>
+                </label>
 
-            <label class="field-group">
-              <span class="label-text">Comp Titles</span>
-              <input v-model="form.compTitles" type="text" placeholder="e.g. Title A by Author X, Title B" />
-              <span class="microcopy">Comma-separated comparable works to calibrate reader expectations.</span>
-            </label>
+                <label class="field-group" :class="{ 'has-error': activeValidationFields.testGoal }">
+                  <span class="label-text">Test Goal <span class="req">*</span></span>
+                  <input
+                    v-model="form.testGoal"
+                    type="text"
+                    placeholder="e.g. Evaluate pacing in Chapter 2 and controversy risks"
+                    aria-required="true"
+                    @input="clearValidationError('testGoal')"
+                  />
+                  <span class="microcopy">Focuses simulated reader feedback on what you want tested.</span>
+                </label>
 
-            <label class="field-group">
-              <span class="label-text">Privacy Mode <span class="req">*</span></span>
-              <select v-model="form.privacyMode">
-                <option value="local_only">local_only (strictly offline execution)</option>
-                <option value="hybrid_safe">hybrid_safe (local run, cloud embeddings)</option>
-                <option value="cloud_quality">cloud_quality (advanced cloud reasoning)</option>
-              </select>
-            </label>
+                <label class="field-group">
+                  <span class="label-text">Privacy Mode <span class="req">*</span></span>
+                  <select v-model="form.privacyMode">
+                    <option value="local_only">local_only (strictly offline execution)</option>
+                    <option value="hybrid_safe">hybrid_safe (local run, cloud embeddings)</option>
+                    <option value="cloud_quality">cloud_quality (advanced cloud reasoning)</option>
+                  </select>
+                </label>
 
-            <label class="field-group">
-              <span class="label-text">Simulation Profile <span class="req">*</span></span>
-              <select v-model="form.localProfile" @change="onProfileChange">
-                <option v-for="profile in profileOptions" :key="profile.profile_name" :value="profile.profile_name">
-                  {{ profile.profile_name }}
-                </option>
-              </select>
-              <span class="microcopy">Determines reader swarm size and warning constraints.</span>
-            </label>
+                <label class="field-group">
+                  <span class="label-text">Simulation Profile <span class="req">*</span></span>
+                  <select v-model="form.localProfile" @change="onProfileChange">
+                    <option v-for="profile in profileOptions" :key="profile.profile_name" :value="profile.profile_name">
+                      {{ profile.profile_name }}
+                    </option>
+                  </select>
+                  <span class="microcopy">Determines reader swarm size and warning constraints.</span>
+                </label>
+              </div>
+
+              <label class="field-group textarea-group" :class="{ 'has-error': activeValidationFields.blurb }">
+                <span class="label-text">Marketing Description / Blurb <span class="req">*</span></span>
+                <textarea
+                  v-model="form.blurb"
+                  rows="4"
+                  placeholder="Provide the jacket blurb or summary..."
+                  aria-required="true"
+                  @input="clearValidationError('blurb')"
+                ></textarea>
+                <span class="microcopy">Initial synopsis used to establish reader hooks.</span>
+              </label>
+
+              <!-- Collapsible Optional Metadata Fields -->
+              <div class="optional-fields-container">
+                <button 
+                  type="button"
+                  class="collapse-trigger-btn" 
+                  @click="showOptionalBasics = !showOptionalBasics"
+                  :aria-expanded="showOptionalBasics"
+                  style="background: transparent; border: none; color: #ff4500; font-size: 0.82rem; font-weight: 600; cursor: pointer; padding: 4px 0; margin-top: 12px;"
+                >
+                  {{ showOptionalBasics ? '▼ Hide Optional Metadata' : '▶ Show Optional Metadata (Subtitle, Comps, Cover Brief)' }}
+                </button>
+
+                <div v-show="showOptionalBasics" class="optional-fields-grid" style="margin-top: 12px; display: flex; flex-direction: column; gap: 14px;">
+                  <label class="field-group">
+                    <span class="label-text">Book Subtitle</span>
+                    <input v-model="form.subtitle" type="text" placeholder="e.g. A Novel of Pacing and Suspense" />
+                  </label>
+
+                  <label class="field-group">
+                    <span class="label-text">Comp Titles</span>
+                    <input v-model="form.compTitles" type="text" placeholder="e.g. Title A by Author X, Title B" />
+                    <span class="microcopy">Comma-separated comparable works to calibrate reader expectations.</span>
+                  </label>
+
+                  <label class="field-group textarea-group" style="margin-top: 0;">
+                    <span class="label-text">Cover Package Brief</span>
+                    <textarea v-model="form.coverBrief" rows="3" placeholder="Describe mood, colors, typography ideas..."></textarea>
+                  </label>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right Side: Live Accuracy assessment checklist -->
+            <aside class="checklist-col">
+              <div class="sb-card accuracy-card" style="height: 100%; display: flex; flex-direction: column;">
+                <h3>Simulation Fidelity Rating</h3>
+                <p class="checklist-hint" style="font-size: 0.78rem; color: #64748b; margin: 0 0 16px 0;">Live evaluation of how setup options impact synthetic cohort prediction accuracy:</p>
+                
+                <ul class="accuracy-list-stack" style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 16px; flex: 1;">
+                  <li class="accuracy-item-row" style="display: flex; gap: 12px; align-items: flex-start;">
+                    <span class="status-indicator-badge" style="font-size: 1.2rem; line-height: 1;">{{ accuracyChecks.contentType.icon }}</span>
+                    <div>
+                      <strong style="font-size: 0.85rem; color: #0f172a; display: block;">Format Depth: {{ accuracyChecks.contentType.label }}</strong>
+                      <span style="font-size: 0.72rem; color: #64748b; line-height: 1.3; display: block; margin-top: 2px;">{{ accuracyChecks.contentType.desc }}</span>
+                    </div>
+                  </li>
+
+                  <li class="accuracy-item-row" style="display: flex; gap: 12px; align-items: flex-start;">
+                    <span class="status-indicator-badge" style="font-size: 1.2rem; line-height: 1;">{{ accuracyChecks.metaCompleteness.icon }}</span>
+                    <div>
+                      <strong style="font-size: 0.85rem; color: #0f172a; display: block;">Synopsis Detail: {{ accuracyChecks.metaCompleteness.label }}</strong>
+                      <span style="font-size: 0.72rem; color: #64748b; line-height: 1.3; display: block; margin-top: 2px;">{{ accuracyChecks.metaCompleteness.desc }}</span>
+                    </div>
+                  </li>
+
+                  <li class="accuracy-item-row" style="display: flex; gap: 12px; align-items: flex-start;">
+                    <span class="status-indicator-badge" style="font-size: 1.2rem; line-height: 1;">{{ accuracyChecks.profileAccuracy.icon }}</span>
+                    <div>
+                      <strong style="font-size: 0.85rem; color: #0f172a; display: block;">Cohort Resolution: {{ accuracyChecks.profileAccuracy.label }}</strong>
+                      <span style="font-size: 0.72rem; color: #64748b; line-height: 1.3; display: block; margin-top: 2px;">{{ accuracyChecks.profileAccuracy.desc }}</span>
+                    </div>
+                  </li>
+
+                  <li class="accuracy-item-row" style="display: flex; gap: 12px; align-items: flex-start;">
+                    <span class="status-indicator-badge" style="font-size: 1.2rem; line-height: 1;">{{ accuracyChecks.privacyAccuracy.icon }}</span>
+                    <div>
+                      <strong style="font-size: 0.85rem; color: #0f172a; display: block;">Cognitive Reasoning: {{ accuracyChecks.privacyAccuracy.label }}</strong>
+                      <span style="font-size: 0.72rem; color: #64748b; line-height: 1.3; display: block; margin-top: 2px;">{{ accuracyChecks.privacyAccuracy.desc }}</span>
+                    </div>
+                  </li>
+                </ul>
+
+                <div class="score-progress-box" style="margin-top: 24px; padding-top: var(--sb-space-4); border-top: 1px solid var(--sb-border-color);">
+                  <div class="score-label-row" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+                    <span style="font-size: 0.78rem; font-weight: 700; color: #475569; text-transform: uppercase; letter-spacing: 0.5px;">Fidelity Score</span>
+                    <strong :style="{ color: accuracyChecks.scoreColor }" style="font-size: 0.95rem; font-weight: 800;">{{ accuracyChecks.scoreLabel }} ({{ accuracyChecks.score }}%)</strong>
+                  </div>
+                  <div class="fidelity-bar-rail" style="height: 8px; background: #e2e8f0; border-radius: 4px; overflow: hidden; width: 100%;">
+                    <div class="fidelity-bar-fill" :style="{ width: accuracyChecks.score + '%', background: accuracyChecks.scoreColor }" style="height: 100%; transition: width 0.3s ease;"></div>
+                  </div>
+                </div>
+              </div>
+            </aside>
           </div>
-
-          <label class="field-group textarea-group" :class="{ 'has-error': activeValidationFields.blurb }">
-            <span class="label-text">Marketing Description / Blurb <span class="req">*</span></span>
-            <textarea
-              v-model="form.blurb"
-              rows="5"
-              placeholder="Provide the jacket blurb or summary..."
-              aria-required="true"
-              @input="clearValidationError('blurb')"
-            ></textarea>
-            <span class="microcopy">Initial synopsis used to establish reader hooks.</span>
-          </label>
-
-          <label class="field-group textarea-group">
-            <span class="label-text">Cover Package Brief</span>
-            <textarea v-model="form.coverBrief" rows="3" placeholder="Describe mood, colors, typography ideas..."></textarea>
-          </label>
         </section>
 
         <!-- STEP 2: UPLOAD MANUSCRIPT -->
@@ -494,7 +596,7 @@
           </div>
 
           <!-- System Warnings Banner Stack -->
-          <div v-if="customWarnings.length || selectedProfileWarnings.length" class="alert-banners-stack" style="margin-top: 20px;">
+          <div v-if="(customWarnings.length || selectedProfileWarnings.length) && isProfileOrPrivacyChanged" class="alert-banners-stack" style="margin-top: 20px;">
             <div 
               v-for="warning in [...selectedProfileWarnings, ...customWarnings]" 
               :key="warning.code + warning.message" 
@@ -515,8 +617,16 @@
             <h3>Stress Test Configuration</h3>
             <div class="summary-details">
               <div class="row">
-                <span class="lbl">Book Title:</span>
+                <span class="lbl">Content Title:</span>
                 <span class="val">{{ form.title }}</span>
+              </div>
+              <div class="row">
+                <span class="lbl">Content Type:</span>
+                <span class="val" style="text-transform: capitalize;">{{ form.contentType?.replace('_', ' ') }}</span>
+              </div>
+              <div class="row">
+                <span class="lbl">Test Goal:</span>
+                <span class="val">{{ form.testGoal }}</span>
               </div>
               <div class="row">
                 <span class="lbl">Author:</span>
@@ -570,11 +680,12 @@
 </template>
 
 <script setup>
-import { computed, onMounted, reactive, ref } from 'vue'
+import { computed, onMounted, reactive, ref, watch } from 'vue'
 import { useRouter, useRoute } from 'vue-router'
 import SwarmbookAppShell from '../../components/swarmbook/SwarmbookAppShell.vue'
 import { createBookSimProject, getBookSimHealth, createEvidencePack, runBookSimulation, parseManuscriptFile } from '../../api/bookSim'
 import { getSwarmbookSession, updateSwarmbookSession } from '../../store/swarmbookSession'
+import { MAX_FILE_BYTES, ALLOWED_EXTENSIONS, formatBytes as fmtBytes, estimateProcessingTime } from '../../config/uploadLimits'
 
 const props = defineProps({
   projectId: {
@@ -597,6 +708,7 @@ const fileInput = ref(null)
 
 const evidencePack = ref(session.value.evidencePack)
 const activeEvidenceTab = ref('dna')
+const showOptionalBasics = ref(false)
 
 const steps = [
   { num: 1, label: 'Basics' },
@@ -636,6 +748,171 @@ const excludeArchetypesList = computed(() => {
     }
   })
   return list
+})
+
+const isProfileOrPrivacyChanged = computed(() => {
+  const isDefaultProfile = form.localProfile === (health.value?.profiles?.default_profile || 'hybrid_safe_default')
+  const isDefaultPrivacy = form.privacyMode === 'hybrid_safe'
+  return !isDefaultProfile || !isDefaultPrivacy
+})
+
+const accuracyChecks = computed(() => {
+  const checks = {
+    contentType: { label: 'Good', desc: '', status: 'ok', icon: '✅' },
+    metaCompleteness: { label: 'Missing', desc: '', status: 'error', icon: '❌' },
+    profileAccuracy: { label: 'Standard', desc: '', status: 'ok', icon: '✅' },
+    privacyAccuracy: { label: 'Standard', desc: '', status: 'ok', icon: '✅' },
+    score: 0,
+    scoreLabel: 'Minimal',
+    scoreColor: 'var(--sb-color-offline)',
+  }
+
+  // 1. Content Type
+  const cType = form.contentType
+  if (['full_manuscript', 'novel', 'novella'].includes(cType)) {
+    checks.contentType = {
+      label: 'Maximum Depth',
+      desc: 'Full-length narrative structures allow complete cohort simulation.',
+      status: 'ok',
+      icon: '✅',
+      value: 25,
+    }
+  } else if (['chapter_sample', 'research_pack', 'book_proposal'].includes(cType)) {
+    checks.contentType = {
+      label: 'High Depth',
+      desc: 'Partial structure helps check pacing and key narrative themes.',
+      status: 'info',
+      icon: 'ℹ️',
+      value: 20,
+    }
+  } else if (['short_story', 'article_essay', 'newsletter'].includes(cType)) {
+    checks.contentType = {
+      label: 'Medium Depth',
+      desc: 'Shorter content has smaller platform reaction surface.',
+      status: 'warn',
+      icon: '⚠️',
+      value: 15,
+    }
+  } else { // blurb_synopsis
+    checks.contentType = {
+      label: 'Jacket Only',
+      desc: 'Jumps directly to hook feedback; no deeper pacing audits possible.',
+      status: 'warn',
+      icon: '⚠️',
+      value: 10,
+    }
+  }
+
+  // 2. Blurb Length
+  const bLength = (form.blurb || '').trim().length
+  if (bLength === 0) {
+    checks.metaCompleteness = {
+      label: 'Empty',
+      desc: 'Jacket description is required to establish core hook context.',
+      status: 'error',
+      icon: '❌',
+      value: 0,
+    }
+  } else if (bLength < 100) {
+    checks.metaCompleteness = {
+      label: 'Too Short',
+      desc: 'Description under 100 chars limits initial persona hook calibration.',
+      status: 'warn',
+      icon: '⚠️',
+      value: 10,
+    }
+  } else if (bLength < 300) {
+    checks.metaCompleteness = {
+      label: 'Acceptable',
+      desc: 'Sufficient context, but richer synopsis will improve reader alignments.',
+      status: 'info',
+      icon: 'ℹ️',
+      value: 20,
+    }
+  } else {
+    checks.metaCompleteness = {
+      label: 'Rich Synopsis',
+      desc: 'Detailed premise gives simulated cohorts strong setup signals.',
+      status: 'ok',
+      icon: '✅',
+      value: 25,
+    }
+  }
+
+  // 3. Profile
+  const prof = form.localProfile
+  if (prof === 'cloud_quality') {
+    checks.profileAccuracy = {
+      label: 'High (60 Cohorts)',
+      desc: 'Maximum statistical coverage for platforms and cohorts.',
+      status: 'ok',
+      icon: '✅',
+      value: 25,
+    }
+  } else if (prof === 'hybrid_safe_default') {
+    checks.profileAccuracy = {
+      label: 'Balanced (30 Cohorts)',
+      desc: 'Standard cohort set covers typical platform spreads.',
+      status: 'ok',
+      icon: '✅',
+      value: 20,
+    }
+  } else { // local_tiny
+    checks.profileAccuracy = {
+      label: 'Minimal (12 Cohorts)',
+      desc: 'Fast checkout, but reduced platform and feedback resolution.',
+      status: 'warn',
+      icon: '⚠️',
+      value: 10,
+    }
+  }
+
+  // 4. Privacy/Reasoning
+  const priv = form.privacyMode
+  if (priv === 'cloud_quality') {
+    checks.privacyAccuracy = {
+      label: 'Cloud Cognitive',
+      desc: 'Advanced reasoning models capture nuanced subtext and stylistic friction.',
+      status: 'ok',
+      icon: '✅',
+      value: 25,
+    }
+  } else if (priv === 'hybrid_safe') {
+    checks.privacyAccuracy = {
+      label: 'Hybrid Standard',
+      desc: 'Combines local LLM simulation with cloud-calibrated embeddings.',
+      status: 'info',
+      icon: 'ℹ️',
+      value: 20,
+    }
+  } else { // local_only
+    checks.privacyAccuracy = {
+      label: 'Local Only',
+      desc: 'Workstation-limited offline models. Reduced stylistic subtext resolution.',
+      status: 'warn',
+      icon: '⚠️',
+      value: 15,
+    }
+  }
+
+  // Compute overall score
+  checks.score = checks.contentType.value + checks.metaCompleteness.value + checks.profileAccuracy.value + checks.privacyAccuracy.value
+
+  if (checks.score >= 85) {
+    checks.scoreLabel = 'Production Grade'
+    checks.scoreColor = 'var(--sb-color-ready)'
+  } else if (checks.score >= 65) {
+    checks.scoreLabel = 'High Fidelity'
+    checks.scoreColor = 'var(--sb-color-info)'
+  } else if (checks.score >= 45) {
+    checks.scoreLabel = 'Medium Fidelity'
+    checks.scoreColor = 'var(--sb-color-mixed)'
+  } else {
+    checks.scoreLabel = 'Low Fidelity'
+    checks.scoreColor = 'var(--sb-color-offline)'
+  }
+
+  return checks
 })
 
 const estimatedTimeSec = computed(() => {
@@ -688,6 +965,8 @@ const form = reactive({
   blurb: session.value.metadata.blurb || '',
   compTitles: session.value.metadata.compTitles || '',
   coverBrief: session.value.metadata.coverBrief || '',
+  contentType: session.value.metadata.contentType || 'novel',
+  testGoal: session.value.metadata.testGoal || '',
   // Step 2 Ingest
   manuscriptText: session.value.manuscript.text || '',
   manuscriptFilename: session.value.manuscript.filename || '',
@@ -707,6 +986,7 @@ const activeValidationFields = reactive({
   authorName: false,
   genre: false,
   targetReader: false,
+  testGoal: false,
   blurb: false,
   manuscriptText: false,
 })
@@ -729,7 +1009,7 @@ const profileOptions = computed(() => {
 
 function canJumpTo(stepNum) {
   if (stepNum === 1) return true
-  if (stepNum === 2) return !!(form.projectName && form.title && form.authorName && form.genre && form.targetReader && form.blurb)
+  if (stepNum === 2) return !!(form.projectName && form.title && form.authorName && form.genre && form.targetReader && form.testGoal && form.blurb)
   if (stepNum === 3) return canJumpTo(2) && !!form.manuscriptText
   if (stepNum === 4) return canJumpTo(3) && !!evidencePack.value
   if (stepNum === 5) return canJumpTo(4) && form.platforms.length > 0
@@ -791,6 +1071,8 @@ function saveState() {
       blurb: form.blurb,
       compTitles: form.compTitles,
       coverBrief: form.coverBrief,
+      contentType: form.contentType,
+      testGoal: form.testGoal,
     },
     manuscript: {
       text: form.manuscriptText,
@@ -811,18 +1093,31 @@ function saveState() {
   })
 }
 
+// Watch block for dynamic real-time autosave
+watch(form, () => {
+  saveState()
+}, { deep: true })
+
 function validateStep1() {
   validationErrors.value = []
   let ok = true
 
-  const fields = ['projectName', 'title', 'authorName', 'genre', 'targetReader', 'blurb']
+  const fields = [
+    { key: 'projectName', label: 'Project reference name' },
+    { key: 'title', label: 'Content title' },
+    { key: 'authorName', label: 'Author name' },
+    { key: 'genre', label: 'Genre / Category' },
+    { key: 'targetReader', label: 'Target reader' },
+    { key: 'testGoal', label: 'Test goal' },
+    { key: 'blurb', label: 'Synopsis / Blurb description' },
+  ]
   for (const f of fields) {
-    if (!form[f] || !form[f].trim()) {
-      activeValidationFields[f] = true
-      validationErrors.value.push(`Missing required editorial field: ${f}`)
+    if (!form[f.key] || !form[f.key].trim()) {
+      activeValidationFields[f.key] = true
+      validationErrors.value.push(`Missing required editorial field: ${f.label}`)
       ok = false
     } else {
-      activeValidationFields[f] = false
+      activeValidationFields[f.key] = false
     }
   }
   return ok
@@ -899,12 +1194,12 @@ async function handleFileUpload(file) {
     return
   }
 
-  // Pre-upload file size limit (10 MB)
-  const maxBytes = 10 * 1024 * 1024
+  // Pre-upload file size limit — shared constant (40 MB)
+  const maxBytes = MAX_FILE_BYTES
   if (file.size > maxBytes) {
     const overBytes = file.size - maxBytes
     const overPercent = (overBytes / maxBytes) * 100
-    uploadError.value = `File too large: "${file.name}" (${formatBytes(file.size)}) exceeds the maximum allowed limit of ${formatBytes(maxBytes)} (Oversized by ${formatBytes(overBytes)} / ${overPercent.toFixed(1)}%).`
+    uploadError.value = `File too large: "${file.name}" (${fmtBytes(file.size)}) exceeds the ${fmtBytes(maxBytes)} limit. Oversized by ${fmtBytes(overBytes)} (${overPercent.toFixed(1)}%).`
     return
   }
 
@@ -991,6 +1286,8 @@ async function buildEvidencePackStep() {
         comp_titles: form.compTitles,
         cover_brief: form.coverBrief,
         local_profile: form.localProfile,
+        content_type: form.contentType,
+        test_goal: form.testGoal,
       },
     })
 
@@ -1009,6 +1306,8 @@ async function buildEvidencePackStep() {
         blurb: form.blurb,
         comp_titles: form.compTitles,
         cover_brief: form.coverBrief,
+        content_type: form.contentType,
+        test_goal: form.testGoal,
       },
     })
 
@@ -1790,5 +2089,109 @@ onMounted(() => {
   color: #92400e;
   line-height: 1.3;
   margin: 0;
+}
+
+/* Step 1 Launch Basics Custom Layout Styles */
+.step1-layout {
+  display: grid;
+  grid-template-columns: 2.2fr 1fr;
+  gap: var(--sb-space-6);
+  align-items: stretch;
+}
+
+.form-fields-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.checklist-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.accuracy-card {
+  border: 1px solid var(--sb-border-color);
+  border-radius: var(--sb-radius-xl);
+  background: var(--sb-bg-card);
+  padding: var(--sb-space-5);
+  box-shadow: var(--sb-shadow-sm);
+}
+
+.accuracy-card h3 {
+  font-size: var(--sb-text-md);
+  font-weight: var(--sb-weight-bold);
+  color: var(--sb-text-heading);
+  margin: 0 0 var(--sb-space-3) 0;
+}
+
+.accuracy-list-stack {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--sb-space-4);
+}
+
+.accuracy-item-row {
+  display: flex;
+  gap: var(--sb-space-3);
+  align-items: flex-start;
+}
+
+.status-indicator-badge {
+  font-size: var(--sb-text-xl);
+  line-height: 1;
+}
+
+.accuracy-item-row strong {
+  font-size: var(--sb-text-sm);
+  color: var(--sb-text-heading);
+  font-weight: var(--sb-weight-bold);
+}
+
+.accuracy-item-row span {
+  font-size: var(--sb-text-xs);
+  color: var(--sb-text-muted);
+  line-height: var(--sb-leading-relaxed);
+}
+
+.score-progress-box {
+  margin-top: auto;
+  padding-top: var(--sb-space-4);
+  border-top: 1px solid var(--sb-border-color);
+}
+
+.score-label-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--sb-space-2);
+}
+
+.fidelity-bar-rail {
+  height: 8px;
+  background: var(--sb-surface-secondary);
+  border-radius: var(--sb-radius-full);
+  overflow: hidden;
+}
+
+.fidelity-bar-fill {
+  height: 100%;
+  border-radius: var(--sb-radius-full);
+  transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.optional-fields-container {
+  margin-top: var(--sb-space-4);
+  border-top: 1px solid var(--sb-border-color);
+  padding-top: var(--sb-space-3);
+}
+
+@media (max-width: 900px) {
+  .step1-layout {
+    grid-template-columns: 1fr;
+    gap: var(--sb-space-5);
+  }
 }
 </style>

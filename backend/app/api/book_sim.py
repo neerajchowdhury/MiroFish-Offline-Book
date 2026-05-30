@@ -34,6 +34,25 @@ from ..utils.logger import get_logger
 logger = get_logger("mirofish.api.book_sim")
 ALLOWED_PRIVACY_MODES = {"local_only", "hybrid_safe", "cloud_quality"}
 MAX_MANUSCRIPT_CHARS_DEFAULT = 500_000
+
+# --------------------------------------------------------------------------- #
+# Upload limits – single source of truth for the book-sim parser endpoint.    #
+# Keep in sync with frontend/src/config/uploadLimits.js (MAX_FILE_BYTES).     #
+# 40 MB = 4× the original 10 MB limit.                                        #
+# --------------------------------------------------------------------------- #
+BOOK_SIM_MAX_FILE_BYTES = 40 * 1024 * 1024  # 40 MB
+
+# File-signature (magic-byte) prefixes for supported container formats.
+# These are the ONLY formats we allow — everything else is rejected even if
+# the extension matches, preventing extension-spoofing attacks.
+_FILE_SIGNATURES: dict[str, list[bytes]] = {
+    ".pdf": [b"%PDF-"],
+    ".docx": [b"PK\x03\x04", b"PK\x05\x06", b"PK\x07\x08"],  # ZIP container
+    ".txt": [],   # No magic bytes — text files accepted by extension only
+    ".md": [],
+    ".markdown": [],
+}
+
 F = TypeVar("F", bound=Callable[..., Any])
 
 
@@ -627,10 +646,39 @@ def create_project():
     return _success_response(project.to_dict(), status_code=201)
 
 
+# --------------------------------------------------------------------------- #
+# Limits info route — lets the frontend confirm current server-side limits     #
+# without hard-coding them a second time.                                      #
+# --------------------------------------------------------------------------- #
+@book_sim_bp.route("/limits", methods=["GET"])
+@_api_route
+def get_limits():
+    """Return current upload and processing limits."""
+    return _success_response({
+        "max_file_bytes": BOOK_SIM_MAX_FILE_BYTES,
+        "max_manuscript_chars": MAX_MANUSCRIPT_CHARS_DEFAULT,
+        "allowed_extensions": sorted(list(_FILE_SIGNATURES.keys())),
+    })
+
+
 @book_sim_bp.route("/parse-file", methods=["POST"])
 @_api_route
 def parse_file():
     """Extract text and metadata from an uploaded file (PDF, DOCX, TXT, MD)."""
+    # --- 0. local_only guard ---------------------------------------------------
+    # In local_only mode no content may leave the machine. parse-file is a
+    # local extraction only, so this is fine — we simply document the mode in
+    # the response. If a future code path routes to an external provider, it
+    # MUST re-check this guard.
+    privacy_mode = request.form.get("privacy_mode", "").strip().lower()
+    if privacy_mode and privacy_mode not in ALLOWED_PRIVACY_MODES:
+        raise ApiError(
+            f"Unknown privacy_mode: '{privacy_mode}'",
+            status_code=400,
+            error_code="validation_error",
+        )
+    # local_only is valid here: extraction is CPU-local. No external call is made.
+
     if 'file' not in request.files:
         raise ApiError("No file part in the request", status_code=400, error_code="validation_error")
     
@@ -638,35 +686,37 @@ def parse_file():
     if not file or not file.filename:
         raise ApiError("No file selected", status_code=400, error_code="validation_error")
 
-    filename = file.filename
+    # Security: never trust the original filename — derive the extension only
+    # for routing purposes; do not use the name to construct a filesystem path.
     from ..utils.file_parser import FileParser
     import os
-    import tempfile
     import uuid
 
-    # Get file suffix
-    ext = os.path.splitext(filename)[1].lower()
+    filename = file.filename  # kept for error messages only
+    ext = os.path.splitext(filename)[1].lower() if filename else ""
+
+    # --- 1. Extension allow-list -------------------------------------------
     if ext not in FileParser.SUPPORTED_EXTENSIONS:
         raise ApiError(
-            f"Unsupported file format: {ext}",
+            f"Unsupported file format: '{ext}'. Allowed: {', '.join(sorted(FileParser.SUPPORTED_EXTENSIONS))}",
             status_code=400,
             error_code="unsupported_file",
             details={
-                "filename": filename,
+                "extension": ext,
                 "supported": sorted(list(FileParser.SUPPORTED_EXTENSIONS))
             }
         )
 
-    # Absolute raw file size limit is 10 MB to prevent server crash
-    max_file_size = 10 * 1024 * 1024  # 10 MB
+    # --- 2. Size check (read raw bytes once; re-used for signature check) ---
     raw_data = file.read()
     file_size = len(raw_data)
-    
+    max_file_size = BOOK_SIM_MAX_FILE_BYTES  # 40 MB — single source of truth
+
     if file_size > max_file_size:
         oversized_bytes = file_size - max_file_size
         oversized_percent = (oversized_bytes / max_file_size) * 100
         raise ApiError(
-            f"File too large: {filename} exceeds the limit of {max_file_size} bytes.",
+            f"File too large: '{filename}' ({file_size:,} bytes) exceeds the {max_file_size // (1024*1024)} MB limit.",
             status_code=400,
             error_code="file_too_large",
             details={
@@ -677,6 +727,21 @@ def parse_file():
                 "oversized_percentage": round(oversized_percent, 2)
             }
         )
+
+    # --- 3. File-signature (magic-byte) validation -------------------------
+    # For formats that have known magic bytes, reject if the content does not
+    # match — this catches extension-spoofed uploads.
+    required_sigs = _FILE_SIGNATURES.get(ext, [])
+    if required_sigs:
+        sig_matched = any(raw_data.startswith(sig) for sig in required_sigs)
+        if not sig_matched:
+            raise ApiError(
+                f"File content does not match the expected format for '{ext}'. "
+                "The file may be corrupted or a renamed file of a different type.",
+                status_code=400,
+                error_code="invalid_file_signature",
+                details={"extension": ext}
+            )
 
     # Save to workspace temporary directory
     workspace_dir = os.path.abspath(os.path.dirname(os.path.dirname(os.path.dirname(__file__))))
@@ -728,13 +793,24 @@ def parse_file():
 
     word_count = len(text.split())
 
+    # Detect chapter/section headings (heuristic — lines starting with common
+    # chapter markers or Markdown H1/H2 headings).
+    import re
+    _chapter_pattern = re.compile(
+        r"^(?:chapter|ch\.?\s*\d|part\s+\d|section\s+\d|\#{1,2}\s+\S)",
+        re.IGNORECASE | re.MULTILINE,
+    )
+    section_count = len(_chapter_pattern.findall(text))
+
     return _success_response({
         "filename": filename,
         "size_bytes": file_size,
         "character_count": len(text),
         "word_count": word_count,
+        "section_count": section_count,
         "text": text,
-        "mime_type": file.mimetype or "text/plain"
+        "mime_type": file.mimetype or "text/plain",
+        "privacy_mode": privacy_mode or "not_specified",
     })
 
 

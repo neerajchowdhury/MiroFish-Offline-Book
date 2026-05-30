@@ -10,72 +10,133 @@
     <div class="evidence-container">
       <!-- Empty State if no evidence pack exists -->
       <section v-if="!evidencePack" class="empty-evidence-card">
-        <div class="empty-icon">📂</div>
+        <div class="empty-icon" aria-hidden="true">📂</div>
         <h2>No Editorial Evidence Pack Compiled</h2>
         <p>You must load your manuscript draft first to extract story maps, claim paths, and style indicators.</p>
         <div class="action-row-center">
-          <button class="primary-btn" @click="goToUpload">
+          <button class="sb-btn-primary" @click="goToUpload">
             Go to Manuscript Ingest
           </button>
         </div>
       </section>
 
-      <!-- Main Dashboard Split Pane -->
-      <div v-else class="evidence-split-layout">
-        <!-- Left Side: Compact Cards List -->
-        <div class="cards-column" role="region" aria-label="Evidence Maps List">
+      <!-- Main Dashboard Grid Layout -->
+      <div v-else class="evidence-dashboard-flow">
+        <!-- Review Progress Panel -->
+        <header class="review-status-strip sb-card">
+          <div class="progress-info">
+            <h3>Review Status</h3>
+            <p>
+              Reviewed: <strong>{{ reviewedCount }} of 7</strong> maps accepted.
+              Critical maps reviewed: <strong>{{ criticalReviewedCount }} of {{ criticalPacks.length }}</strong>.
+            </p>
+          </div>
+          <div class="progress-bar-container">
+            <div class="progress-bar-track">
+              <div 
+                class="progress-bar-fill" 
+                :style="{ width: (reviewedCount / 7 * 100) + '%' }"
+              ></div>
+            </div>
+          </div>
+        </header>
+
+        <!-- Unreviewed Critical Maps Blocking Warning Banner -->
+        <section 
+          v-if="isSimulationBlocked" 
+          class="unreviewed-warning-banner"
+          role="alert"
+        >
+          <span class="warning-icon" aria-hidden="true">⚠️</span>
+          <div class="warning-text">
+            <strong>Simulation Blocked:</strong> You have unreviewed critical evidence maps:
+            <span class="critical-pack-list">{{ unreviewedCriticalNames.join(', ') }}</span>.
+            Please open details and click <strong>Accept &amp; Lock Map</strong> to enable progression.
+          </div>
+        </section>
+
+        <!-- Cards Grid Area -->
+        <main class="evidence-grid" role="region" aria-label="Evidence Maps Catalog">
           <div
             v-for="map in maps"
             :key="map.id"
-            class="map-card"
-            :class="{ active: activeMapId === map.id, accepted: getStatus(map.id) === 'accepted' }"
-            @click="selectMap(map.id)"
-            @keydown.enter="selectMap(map.id)"
-            @keydown.space.prevent="selectMap(map.id)"
+            class="map-card-item sb-card"
+            :class="{ 
+              active: activeMapId === map.id && isDrawerOpen, 
+              accepted: getStatus(map.id) === 'accepted',
+              'needs-review': getStatus(map.id) === 'needs review',
+              'is-critical': isPackCritical(map.id)
+            }"
+            @click="openDetails(map.id)"
+            @keydown.enter="openDetails(map.id)"
+            @keydown.space.prevent="openDetails(map.id)"
             role="button"
             tabindex="0"
             :aria-label="`Review ${map.label} map`"
-            :aria-current="activeMapId === map.id ? 'true' : 'false'"
           >
-            <div class="card-header">
-              <span class="card-icon">{{ map.icon }}</span>
-              <div class="title-section">
-                <h3>{{ map.label }}</h3>
-                <span class="status-badge" :class="getStatus(map.id)">
-                  {{ getStatus(map.id) }}
-                </span>
+            <div class="card-top-header">
+              <div class="title-with-icon">
+                <span class="card-icon" aria-hidden="true">{{ map.icon }}</span>
+                <div class="label-box">
+                  <h3>{{ map.label }}</h3>
+                  <span class="critical-indicator" v-if="isPackCritical(map.id)">
+                    Critical Pack
+                  </span>
+                </div>
               </div>
+              <span class="sb-badge" :class="getStatusBadgeClass(map.id)">
+                {{ getStatusLabel(map.id) }}
+              </span>
             </div>
             
             <p class="card-summary">{{ getMapSummary(map.id) }}</p>
 
-            <div class="card-meta-row">
-              <span class="confidence-label">
-                🎯 Confidence: {{ Math.round(getConfidence(map.id) * 100) }}%
-              </span>
+            <div class="card-confidence-row">
+              <div class="confidence-stats">
+                <span class="confidence-val">
+                  Confidence: {{ Math.round(getConfidence(map.id) * 100) }}%
+                </span>
+                <span v-if="getConfidence(map.id) < 0.75" class="low-confidence-tag">
+                  ⚠️ Low
+                </span>
+              </div>
+              <div class="confidence-bar-track">
+                <div 
+                  class="confidence-bar-fill" 
+                  :class="{ 'low-confidence': getConfidence(map.id) < 0.75 }"
+                  :style="{ width: (getConfidence(map.id) * 100) + '%' }"
+                ></div>
+              </div>
+            </div>
+
+            <div class="card-refs-row">
               <span class="evidence-ref-count" v-if="getReferencesCount(map.id)">
-                📚 {{ getReferencesCount(map.id) }} refs
+                📚 {{ getReferencesCount(map.id) }} evidence refs
+              </span>
+              <span class="evidence-ref-count" v-else>
+                📂 0 refs
               </span>
             </div>
 
             <!-- Card Actions -->
-            <footer class="card-actions-ribbon" @click.stop>
+            <footer class="card-actions-row" @click.stop>
               <button 
-                class="card-action-btn view-details" 
-                @click="selectMap(map.id)" 
+                class="card-btn-ghost view-details" 
+                @click="openDetails(map.id)" 
                 aria-label="View detailed analysis parameters"
               >
                 View Details
               </button>
               <button 
-                class="card-action-btn regenerate" 
+                class="card-btn-ghost regenerate" 
+                :disabled="loadingMessage !== ''"
                 @click="regenerateMap(map.id)"
                 aria-label="Re-analyze manuscript section"
               >
                 🔄 Refresh
               </button>
               <button 
-                class="card-action-btn accept" 
+                class="card-btn-ghost accept" 
                 :disabled="getStatus(map.id) === 'accepted'"
                 @click="acceptMap(map.id)"
                 aria-label="Verify and lock map accuracy"
@@ -84,265 +145,541 @@
               </button>
             </footer>
           </div>
-        </div>
-
-        <!-- Right Side: Details and Editorial Intervention Panel -->
-        <main class="details-column" aria-live="polite">
-          <article class="details-panel" v-if="activeMap">
-            <header class="panel-header">
-              <span class="panel-icon">{{ activeMap.icon }}</span>
-              <div>
-                <h2>{{ activeMap.label }} Analysis Details</h2>
-                <span class="status-indicator-badge" :class="getStatus(activeMap.id)">
-                  Status: {{ getStatus(activeMap.id) }}
-                </span>
-              </div>
-            </header>
-
-            <p class="panel-desc">{{ activeMap.description }}</p>
-
-            <!-- Why this matters microcopy callout -->
-            <section class="importance-block">
-              <strong>💡 Why This Matters</strong>
-              <p>{{ activeMap.importance }}</p>
-            </section>
-
-            <!-- Structured Map Viewers -->
-            <section class="panel-data-body">
-              <!-- DNA Viewer -->
-              <div v-if="activeMap.id === 'dna'" class="structured-pane">
-                <div class="details-table">
-                  <div class="table-row">
-                    <span class="lbl">Book Title</span>
-                    <span class="val">{{ evidencePack.book_dna?.title || 'Untitled' }}</span>
-                  </div>
-                  <div class="table-row">
-                    <span class="lbl">Genre Category</span>
-                    <span class="val">{{ evidencePack.book_dna?.genre || 'N/A' }}</span>
-                  </div>
-                  <div class="table-row">
-                    <span class="lbl">Target Reader Profile</span>
-                    <span class="val">{{ evidencePack.book_dna?.target_reader || 'N/A' }}</span>
-                  </div>
-                </div>
-                <div class="premise-box">
-                  <h4>Extracted Narrative Premise</h4>
-                  <blockquote>{{ evidencePack.book_dna?.premise || 'No premise summary generated.' }}</blockquote>
-                </div>
-              </div>
-
-              <!-- Market Surface Viewer -->
-              <div v-if="activeMap.id === 'market'" class="structured-pane">
-                <div class="details-table">
-                  <div class="table-row">
-                    <span class="lbl">Audience Fit Fitment</span>
-                    <span class="val">{{ evidencePack.market_surface?.audience_fit || 'N/A' }}</span>
-                  </div>
-                  <div class="table-row">
-                    <span class="lbl">Promise Gap Friction</span>
-                    <span class="val">{{ evidencePack.market_surface?.promise_gap || 'None noted' }}</span>
-                  </div>
-                </div>
-                <div class="sub-list-block">
-                  <h4>Discoverability / Editorial Hooks</h4>
-                  <ul>
-                    <li v-for="hook in evidencePack.market_surface?.discoverability_hooks || []" :key="hook">
-                      {{ hook }}
-                    </li>
-                    <li v-if="!evidencePack.market_surface?.discoverability_hooks?.length" class="empty-list-note">
-                      No discoverability hooks extracted.
-                    </li>
-                  </ul>
-                </div>
-                <div class="sub-list-block">
-                  <h4>Packaging &amp; Format Expectations</h4>
-                  <ul>
-                    <li v-for="item in evidencePack.market_surface?.packaging_expectations || []" :key="item">
-                      {{ item }}
-                    </li>
-                    <li v-if="!evidencePack.market_surface?.packaging_expectations?.length" class="empty-list-note">
-                      No packaging expectations noted.
-                    </li>
-                  </ul>
-                </div>
-              </div>
-
-              <!-- Chapter Map Viewer -->
-              <div v-if="activeMap.id === 'chapters'" class="structured-pane">
-                <div class="timeline-list">
-                  <div v-for="ch in evidencePack.chapter_map?.chapters || []" :key="ch.chapter_id" class="timeline-item">
-                    <div class="timeline-num">Ch {{ ch.chapter_number }}</div>
-                    <div class="timeline-content">
-                      <h5>{{ ch.title || 'Untitled Chapter' }}</h5>
-                      <p>{{ ch.summary || 'No chapter summary generated.' }}</p>
-                    </div>
-                  </div>
-                  <div v-if="!evidencePack.chapter_map?.chapters?.length" class="empty-placeholder">
-                    No parsed chapters found in manuscript draft.
-                  </div>
-                </div>
-              </div>
-
-              <!-- Character Map Viewer -->
-              <div v-if="activeMap.id === 'characters'" class="structured-pane">
-                <div class="character-grid">
-                  <div v-for="char in evidencePack.character_map?.characters || []" :key="char.character_id" class="char-profile-card">
-                    <div class="char-hdr">
-                      <strong>{{ char.name }}</strong>
-                      <span class="role-badge" :class="char.role?.toLowerCase() || 'secondary'">
-                        {{ char.role || 'Secondary' }}
-                      </span>
-                    </div>
-                    <p class="char-notes" v-if="char.description">{{ char.description }}</p>
-                    <div class="char-friction" v-if="char.reader_friction?.length">
-                      <span class="friction-title">Predicted reader friction:</span>
-                      <p class="friction-list">{{ char.reader_friction.join(', ') }}</p>
-                    </div>
-                  </div>
-                  <div v-if="!evidencePack.character_map?.characters?.length" class="empty-placeholder">
-                    No characters identified in manuscript.
-                  </div>
-                </div>
-              </div>
-
-              <!-- Claim Map Viewer -->
-              <div v-if="activeMap.id === 'claims'" class="structured-pane">
-                <div class="claims-list">
-                  <div v-for="claim in evidencePack.claim_map?.claims || []" :key="claim.claim_id" class="claim-item-card">
-                    <p class="claim-text">"{{ claim.claim_text }}"</p>
-                    <div class="strength-row">
-                      <span class="strength-lbl">Evidence Support: {{ claim.evidence_strength || 'N/A' }}</span>
-                      <div class="meter-bar">
-                        <div class="meter-fill" :style="{ width: getStrengthWidth(claim.evidence_strength) }"></div>
-                      </div>
-                    </div>
-                    <span class="ref-badge" v-if="claim.evidence_reference">
-                      Ref: {{ claim.evidence_reference }}
-                    </span>
-                  </div>
-                  <div v-if="!evidencePack.claim_map?.claims?.length" class="empty-placeholder">
-                    No core claims detected. Claim maps populate predominantly for non-fiction classifications.
-                  </div>
-                </div>
-              </div>
-
-              <!-- Risk Map Viewer -->
-              <div v-if="activeMap.id === 'risks'" class="structured-pane">
-                <div class="risks-list">
-                  <div v-for="risk in evidencePack.risk_map?.risks || []" :key="risk.risk_id" class="risk-item-card">
-                    <div class="risk-hdr">
-                      <span class="risk-type-tag">{{ risk.risk_type }}</span>
-                      <span class="severity-badge" :class="risk.severity?.toLowerCase() || 'medium'">
-                        {{ risk.severity || 'Medium' }}
-                      </span>
-                    </div>
-                    <p class="risk-desc">{{ risk.description }}</p>
-                    <div class="mitigation-box" v-if="risk.mitigation_hint">
-                      <strong>💡 Recommended Mitigation:</strong>
-                      <p>{{ risk.mitigation_hint }}</p>
-                    </div>
-                  </div>
-                  <div v-if="!evidencePack.risk_map?.risks?.length" class="empty-placeholder">
-                    No narrative risks flagged. Manuscript structure looks consistent.
-                  </div>
-                </div>
-              </div>
-
-              <!-- Style Map Viewer -->
-              <div v-if="activeMap.id === 'style'" class="structured-pane">
-                <div class="metrics-dashboard">
-                  <div class="metric-gauge">
-                    <span class="gauge-lbl">Clarity</span>
-                    <strong class="gauge-val">{{ evidencePack.style_map?.clarity || 'N/A' }}</strong>
-                  </div>
-                  <div class="metric-gauge">
-                    <span class="gauge-lbl">Narrative Rhythm</span>
-                    <strong class="gauge-val">{{ evidencePack.style_map?.rhythm || 'N/A' }}</strong>
-                  </div>
-                  <div class="metric-gauge">
-                    <span class="gauge-lbl">Quoteability</span>
-                    <strong class="gauge-val">{{ evidencePack.style_map?.quoteability || 'N/A' }}</strong>
-                  </div>
-                </div>
-                <div class="sub-list-block" style="margin-top: 20px;">
-                  <h4>Stylistic Notes &amp; Observations</h4>
-                  <ul>
-                    <li v-for="note in evidencePack.style_map?.style_notes || []" :key="note">
-                      {{ note }}
-                    </li>
-                    <li v-if="!evidencePack.style_map?.style_notes?.length" class="empty-list-note">
-                      No style annotations generated.
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </section>
-
-            <!-- Editorial Intervention (Corrections & Annotations) -->
-            <section class="editorial-intervention-section">
-              <label class="intervention-label">
-                <span>Provide Editorial Corrections / Annotations (Optional)</span>
-                <textarea
-                  v-model="editorialCorrections[activeMap.id]"
-                  rows="3"
-                  placeholder="e.g. Note that Mara carries a letter, not a key. Fix chapter summary details..."
-                ></textarea>
-              </label>
-              
-              <div class="intervention-actions">
-                <button class="ghost-btn sm" @click="saveCorrections(activeMap.id)">
-                  Save Corrections
-                </button>
-                <div class="accept-reject-buttons">
-                  <button 
-                    class="ghost-btn sm needs-review-btn" 
-                    :disabled="getStatus(activeMap.id) === 'needs review'"
-                    @click="markNeedsReview(activeMap.id)"
-                  >
-                    Flag Needs Review ⚠️
-                  </button>
-                  <button 
-                    class="primary-btn sm lock-btn" 
-                    :disabled="getStatus(activeMap.id) === 'accepted'"
-                    @click="acceptMap(activeMap.id)"
-                  >
-                    Accept &amp; Lock Map ✓
-                  </button>
-                </div>
-              </div>
-            </section>
-          </article>
         </main>
       </div>
 
       <!-- Footer Global Actions -->
       <footer class="global-actions-bar" v-if="evidencePack">
-        <button class="ghost-btn" @click="goBackToUpload">
+        <button class="sb-btn-ghost" @click="goBackToUpload">
           ← Back To Ingest
         </button>
-        <button class="primary-btn" @click="continueToSimulation">
-          Continue To Simulation Swarm 🚀
-        </button>
+        <div class="proceed-wrapper">
+          <span class="proceed-hint-label" v-if="isSimulationBlocked">
+            Accept critical maps to enable simulation
+          </span>
+          <button 
+            class="sb-btn-primary" 
+            :disabled="isSimulationBlocked"
+            @click="continueToSimulation"
+          >
+            Continue To Simulation Swarm 🚀
+          </button>
+        </div>
       </footer>
+
+      <!-- Drawer Backdrop -->
+      <div 
+        v-if="isDrawerOpen" 
+        class="drawer-backdrop" 
+        @click="closeDrawer"
+        role="presentation"
+      ></div>
+
+      <!-- Sliding Detail Drawer -->
+      <div 
+        class="detail-drawer" 
+        :class="{ 'is-open': isDrawerOpen }"
+        role="dialog"
+        aria-modal="true"
+        :aria-label="activeMap ? `${activeMap.label} Details` : 'Map Details'"
+        tabindex="-1"
+        ref="drawerRef"
+      >
+        <div class="drawer-inner" v-if="activeMap">
+          <header class="drawer-header">
+            <div class="drawer-header-left">
+              <span class="drawer-icon" aria-hidden="true">{{ activeMap.icon }}</span>
+              <div>
+                <h2>{{ activeMap.label }} Details</h2>
+                <div class="drawer-badges">
+                  <span class="sb-badge" :class="getStatusBadgeClass(activeMap.id)">
+                    {{ getStatusLabel(activeMap.id) }}
+                  </span>
+                  <span class="confidence-badge" :class="{ 'low-confidence-text': getConfidence(activeMap.id) < 0.75 }">
+                    🎯 Confidence: {{ Math.round(getConfidence(activeMap.id) * 100) }}%
+                    <span v-if="getConfidence(activeMap.id) < 0.75"> (⚠️ Low)</span>
+                  </span>
+                </div>
+              </div>
+            </div>
+            <button 
+              class="close-btn" 
+              @click="closeDrawer" 
+              aria-label="Close details drawer"
+            >
+              ✕
+            </button>
+          </header>
+
+          <!-- Scrollable content -->
+          <div class="drawer-content">
+            <!-- Why This Matters -->
+            <section class="drawer-section importance-card">
+              <strong>💡 Why This Matters</strong>
+              <p>{{ activeMap.importance }}</p>
+            </section>
+
+            <!-- Structured Data Display -->
+            <section class="drawer-section structured-data-container">
+              <h3>Extracted Structured Data</h3>
+              
+              <!-- DNA Structured View -->
+              <div v-if="activeMap.id === 'dna'" class="structured-view">
+                <div class="structured-row">
+                  <span class="structured-label">Title</span>
+                  <span class="structured-value">{{ evidencePack.book_dna?.title || 'Untitled' }}</span>
+                </div>
+                <div class="structured-row">
+                  <span class="structured-label">Book Type</span>
+                  <span class="structured-value">{{ evidencePack.book_dna?.book_type || 'N/A' }}</span>
+                </div>
+                <div class="structured-row">
+                  <span class="structured-label">Genre</span>
+                  <span class="structured-value">{{ evidencePack.book_dna?.genre || 'N/A' }}</span>
+                </div>
+                <div class="structured-row" v-if="evidencePack.book_dna?.subgenre">
+                  <span class="structured-label">Subgenre</span>
+                  <span class="structured-value">{{ evidencePack.book_dna.subgenre }}</span>
+                </div>
+                <div class="structured-row" v-if="evidencePack.book_dna?.tone">
+                  <span class="structured-label">Tone</span>
+                  <span class="structured-value">{{ evidencePack.book_dna.tone }}</span>
+                </div>
+                <div class="structured-row" v-if="evidencePack.book_dna?.reading_difficulty">
+                  <span class="structured-label">Reading Difficulty</span>
+                  <span class="structured-value">{{ evidencePack.book_dna.reading_difficulty }}</span>
+                </div>
+                <div class="structured-row" v-if="evidencePack.book_dna?.target_reader">
+                  <span class="structured-label">Target Reader</span>
+                  <span class="structured-value">{{ evidencePack.book_dna.target_reader }}</span>
+                </div>
+                <div class="structured-row" v-if="evidencePack.book_dna?.narrative_engine">
+                  <span class="structured-label">Narrative Engine</span>
+                  <span class="structured-value">{{ evidencePack.book_dna.narrative_engine }}</span>
+                </div>
+                <div class="structured-row" v-if="evidencePack.book_dna?.emotional_promise">
+                  <span class="structured-label">Emotional Promise</span>
+                  <span class="structured-value">{{ evidencePack.book_dna.emotional_promise }}</span>
+                </div>
+                
+                <div class="drawer-sub-block" v-if="evidencePack.book_dna?.themes?.length">
+                  <h4>Extracted Themes</h4>
+                  <div class="tag-list">
+                    <span v-for="theme in evidencePack.book_dna.themes" :key="theme" class="theme-tag">
+                      #{{ theme }}
+                    </span>
+                  </div>
+                </div>
+                
+                <div class="drawer-sub-block" v-if="evidencePack.book_dna?.comparable_titles?.length">
+                  <h4>Comparable Titles</h4>
+                  <div class="tag-list">
+                    <span v-for="title in evidencePack.book_dna.comparable_titles" :key="title" class="comp-tag">
+                      📖 {{ title }}
+                    </span>
+                  </div>
+                </div>
+
+                <div class="drawer-sub-block premise-quote-block" v-if="evidencePack.book_dna?.premise">
+                  <h4>Core Narrative Premise</h4>
+                  <blockquote>"{{ evidencePack.book_dna.premise }}"</blockquote>
+                </div>
+              </div>
+
+              <!-- Market Surface Structured View -->
+              <div v-if="activeMap.id === 'market'" class="structured-view">
+                <div class="structured-row">
+                  <span class="structured-label">Audience Fit</span>
+                  <span class="structured-value">
+                    <span class="sb-badge" :class="getAudienceFitBadgeClass(evidencePack.market_surface?.audience_fit)">
+                      {{ evidencePack.market_surface?.audience_fit || 'Medium' }}
+                    </span>
+                  </span>
+                </div>
+                
+                <div class="drawer-sub-block" v-if="evidencePack.market_surface?.target_segments?.length">
+                  <h4>Target Reader Segments</h4>
+                  <ul>
+                    <li v-for="seg in evidencePack.market_surface.target_segments" :key="seg">
+                      {{ seg }}
+                    </li>
+                  </ul>
+                </div>
+                
+                <div class="drawer-sub-block" v-if="evidencePack.market_surface?.discoverability_hooks?.length">
+                  <h4>Discoverability Hooks</h4>
+                  <div class="tag-list">
+                    <span v-for="hook in evidencePack.market_surface.discoverability_hooks" :key="hook" class="hook-tag">
+                      🔑 {{ hook }}
+                    </span>
+                  </div>
+                </div>
+                
+                <div class="drawer-sub-block" v-if="evidencePack.market_surface?.packaging_expectations?.length">
+                  <h4>Packaging Expectations</h4>
+                  <ul>
+                    <li v-for="exp in evidencePack.market_surface.packaging_expectations" :key="exp">
+                      {{ exp }}
+                    </li>
+                  </ul>
+                </div>
+
+                <div class="drawer-sub-block warning-callout-block" v-if="evidencePack.market_surface?.promise_gap">
+                  <h4>Promise Gap / Friction Risk</h4>
+                  <p>{{ evidencePack.market_surface.promise_gap }}</p>
+                </div>
+              </div>
+
+              <!-- Chapter Map Structured View -->
+              <div v-if="activeMap.id === 'chapters'" class="structured-view">
+                <div class="structured-row">
+                  <span class="structured-label">Total Chapters</span>
+                  <span class="structured-value">{{ evidencePack.chapter_map?.total_chapters || evidencePack.chapter_map?.chapters?.length || 0 }}</span>
+                </div>
+                <div class="structured-row" v-if="evidencePack.chapter_map?.pacing_profile">
+                  <span class="structured-label">Pacing Profile</span>
+                  <span class="structured-value">{{ evidencePack.chapter_map.pacing_profile }}</span>
+                </div>
+
+                <div class="drawer-sub-block" v-if="evidencePack.chapter_map?.structural_notes?.length">
+                  <h4>Structural Pacing Notes</h4>
+                  <ul>
+                    <li v-for="note in evidencePack.chapter_map.structural_notes" :key="note">
+                      {{ note }}
+                    </li>
+                  </ul>
+                </div>
+
+                <div class="drawer-sub-block chapters-timeline-list">
+                  <h4>Chapters Summary &amp; Pacing Map</h4>
+                  <div class="timeline-accordion">
+                    <details 
+                      v-for="ch in evidencePack.chapter_map?.chapters || []" 
+                      :key="ch.chapter_id"
+                      class="timeline-ch-details"
+                    >
+                      <summary class="timeline-ch-summary">
+                        <span class="ch-num">Ch {{ ch.chapter_number }}</span>
+                        <strong class="ch-title">{{ ch.title || 'Untitled Chapter' }}</strong>
+                        <span class="ch-pacing-badge" :class="ch.pacing?.toLowerCase()">{{ ch.pacing || 'Normal' }}</span>
+                      </summary>
+                      <div class="ch-details-expanded">
+                        <p class="ch-desc">{{ ch.summary || 'No summary generated.' }}</p>
+                        
+                        <div class="ch-meta-grid">
+                          <div v-if="ch.purpose">
+                            <strong>🎯 Purpose:</strong>
+                            <p>{{ ch.purpose }}</p>
+                          </div>
+                          <div v-if="ch.pacing_note">
+                            <strong>⏳ Pacing Detail:</strong>
+                            <p>{{ ch.pacing_note }}</p>
+                          </div>
+                        </div>
+
+                        <div class="ch-list-sec" v-if="ch.key_beats?.length">
+                          <strong>🔑 Key Beats:</strong>
+                          <ul>
+                            <li v-for="beat in ch.key_beats" :key="beat">{{ beat }}</li>
+                          </ul>
+                        </div>
+
+                        <div class="ch-list-sec" v-if="ch.emotional_beats?.length">
+                          <strong>❤️ Emotional Beats:</strong>
+                          <ul>
+                            <li v-for="beat in ch.emotional_beats" :key="beat">{{ beat }}</li>
+                          </ul>
+                        </div>
+
+                        <div class="ch-list-sec" v-if="ch.turning_points?.length">
+                          <strong>🔄 Turning Points:</strong>
+                          <ul>
+                            <li v-for="tp in ch.turning_points" :key="tp">{{ tp }}</li>
+                          </ul>
+                        </div>
+
+                        <div class="ch-list-sec warning" v-if="ch.likely_reader_friction?.length">
+                          <strong>⚠️ Predicted Empathy Friction:</strong>
+                          <ul>
+                            <li v-for="fric in ch.likely_reader_friction" :key="fric">{{ fric }}</li>
+                          </ul>
+                        </div>
+                      </div>
+                    </details>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Character Map Structured View -->
+              <div v-if="activeMap.id === 'characters'" class="structured-view">
+                <div class="structured-row">
+                  <span class="structured-label">Cast Size</span>
+                  <span class="structured-value">{{ evidencePack.character_map?.cast_size || evidencePack.character_map?.characters?.length || 0 }}</span>
+                </div>
+                <div class="structured-row" v-if="evidencePack.character_map?.relationship_graph_summary">
+                  <span class="structured-label">Relationship Graph Summary</span>
+                  <span class="structured-value">{{ evidencePack.character_map.relationship_graph_summary }}</span>
+                </div>
+
+                <div class="drawer-sub-block character-details-list">
+                  <h4>Identified Dramatis Personae</h4>
+                  <div class="character-details-card-list">
+                    <div 
+                      v-for="char in evidencePack.character_map?.characters || []" 
+                      :key="char.character_id"
+                      class="character-details-card"
+                    >
+                      <div class="char-details-hdr">
+                        <h4>{{ char.name }}</h4>
+                        <span class="role-badge" :class="char.role?.toLowerCase() || 'secondary'">
+                          {{ char.role || 'Secondary' }}
+                        </span>
+                      </div>
+                      <p class="char-arc" v-if="char.arc_summary">
+                        <strong>Arc:</strong> {{ char.arc_summary }}
+                      </p>
+                      <div class="char-attributes">
+                        <div v-if="char.motivations?.length">
+                          <strong>Motivations:</strong> {{ char.motivations.join(', ') }}
+                        </div>
+                        <div v-if="char.goals?.length">
+                          <strong>Goals:</strong> {{ char.goals.join(', ') }}
+                        </div>
+                        <div v-if="char.conflicts?.length">
+                          <strong>Conflicts:</strong> {{ char.conflicts.join(', ') }}
+                        </div>
+                        <div v-if="char.relationships && Object.keys(char.relationships).length">
+                          <strong>Relationships:</strong>
+                          <span class="rel-tag" v-for="(rel, partner) in char.relationships" :key="partner">
+                            {{ partner }} ({{ rel }})
+                          </span>
+                        </div>
+                      </div>
+                      <div class="char-friction-warning" v-if="char.reader_friction?.length">
+                        <strong>empathy Friction Points:</strong>
+                        <ul>
+                          <li v-for="fric in char.reader_friction" :key="fric">{{ fric }}</li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div v-if="!evidencePack.character_map?.characters?.length" class="no-data-note">
+                      No characters identified. This map applies primarily to fiction layouts.
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Claim Map Structured View -->
+              <div v-if="activeMap.id === 'claims'" class="structured-view">
+                <div class="structured-row" v-if="evidencePack.claim_map?.thesis_summary">
+                  <span class="structured-label">Thesis Summary</span>
+                  <span class="structured-value">{{ evidencePack.claim_map.thesis_summary }}</span>
+                </div>
+                <div class="structured-row" v-if="evidencePack.claim_map?.argument_strength_summary">
+                  <span class="structured-label">Argument Strength Summary</span>
+                  <span class="structured-value">{{ evidencePack.claim_map.argument_strength_summary }}</span>
+                </div>
+
+                <div class="drawer-sub-block claim-details-list">
+                  <h4>Extracted Claims &amp; Evidence Support</h4>
+                  <div class="claim-details-card-list">
+                    <div 
+                      v-for="claim in evidencePack.claim_map?.claims || []" 
+                      :key="claim.claim_id"
+                      class="claim-details-card"
+                    >
+                      <p class="claim-quote">"{{ claim.claim_text }}"</p>
+                      <div class="claim-support-info">
+                        <div class="support-field">
+                          <span>Evidence Strength:</span>
+                          <strong :class="claim.evidence_strength >= 0.7 ? 'strong' : claim.evidence_strength >= 0.4 ? 'medium' : 'weak'">
+                            {{ Math.round((claim.evidence_strength || 0) * 100) }}%
+                          </strong>
+                        </div>
+                        <div class="support-field" v-if="claim.support_type">
+                          <span>Type:</span>
+                          <strong>{{ claim.support_type }}</strong>
+                        </div>
+                      </div>
+
+                      <div class="claim-details-sub" v-if="claim.evidence_items?.length">
+                        <strong>📚 Listed Citations:</strong>
+                        <ul>
+                          <li v-for="item in claim.evidence_items" :key="item">{{ item }}</li>
+                        </ul>
+                      </div>
+
+                      <div class="claim-details-sub" v-if="claim.factual_risk_flags?.length">
+                        <strong>🚩 Factual Risk Flags:</strong>
+                        <ul>
+                          <li v-for="flag in claim.factual_risk_flags" :key="flag">{{ flag }}</li>
+                        </ul>
+                      </div>
+
+                      <div class="claim-details-sub" v-if="claim.counterarguments?.length">
+                        <strong>💬 Counterarguments:</strong>
+                        <ul>
+                          <li v-for="ca in claim.counterarguments" :key="ca">{{ ca }}</li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div v-if="!evidencePack.claim_map?.claims?.length" class="no-data-note">
+                      No claims identified. This map applies primarily to nonfiction layouts.
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Risk Map Structured View -->
+              <div v-if="activeMap.id === 'risks'" class="structured-view">
+                <div class="structured-row" v-if="evidencePack.risk_map?.risk_summary">
+                  <span class="structured-label">General Risk Summary</span>
+                  <span class="structured-value">{{ evidencePack.risk_map.risk_summary }}</span>
+                </div>
+
+                <div class="drawer-sub-block risk-details-list">
+                  <h4>Active Risk Items Log</h4>
+                  <div class="risk-details-card-list">
+                    <div 
+                      v-for="risk in evidencePack.risk_map?.risks || []" 
+                      :key="risk.risk_id"
+                      class="risk-details-card"
+                    >
+                      <div class="risk-details-hdr">
+                        <span class="sb-badge sb-badge--error">{{ risk.risk_type }}</span>
+                        <span class="severity-badge" :class="risk.severity?.toLowerCase()">
+                          {{ risk.severity || 'Medium' }}
+                        </span>
+                      </div>
+                      <p class="risk-desc">{{ risk.description }}</p>
+                      <p class="risk-trigger" v-if="risk.trigger_text">
+                        <strong>Trigger Text:</strong> <code>{{ risk.trigger_text }}</code>
+                      </p>
+                      <div class="risk-mitigation" v-if="risk.mitigation_hint">
+                        <strong>💡 Suggested Revision Hint:</strong>
+                        <p>{{ risk.mitigation_hint }}</p>
+                      </div>
+                    </div>
+                    <div v-if="!evidencePack.risk_map?.risks?.length" class="no-data-note">
+                      No active editorial risks detected in manuscript draft.
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Style Map Structured View -->
+              <div v-if="activeMap.id === 'style'" class="structured-view">
+                <div class="structured-row">
+                  <span class="structured-label">Prose Density</span>
+                  <span class="structured-value">{{ evidencePack.style_map?.prose_density || 'N/A' }}</span>
+                </div>
+                <div class="structured-row">
+                  <span class="structured-label">Clarity</span>
+                  <span class="structured-value">{{ evidencePack.style_map?.clarity || 'N/A' }}</span>
+                </div>
+                <div class="structured-row">
+                  <span class="structured-label">Rhythm</span>
+                  <span class="structured-value">{{ evidencePack.style_map?.rhythm || 'N/A' }}</span>
+                </div>
+                <div class="structured-row">
+                  <span class="structured-label">Consistency</span>
+                  <span class="structured-value">{{ evidencePack.style_map?.voice_consistency || 'N/A' }}</span>
+                </div>
+                <div class="structured-row">
+                  <span class="structured-label">Quoteability</span>
+                  <span class="structured-value">{{ evidencePack.style_map?.quoteability || 'N/A' }}</span>
+                </div>
+                <div class="structured-row">
+                  <span class="structured-label">Accessibility</span>
+                  <span class="structured-value">{{ evidencePack.style_map?.accessibility || 'N/A' }}</span>
+                </div>
+
+                <div class="drawer-sub-block" v-if="evidencePack.style_map?.style_notes?.length">
+                  <h4>Stylistic Details &amp; Notes</h4>
+                  <ul>
+                    <li v-for="note in evidencePack.style_map.style_notes" :key="note">
+                      {{ note }}
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </section>
+
+            <!-- Source References Section -->
+            <section class="drawer-section source-refs-section" v-if="activeMapSourceRefs.length">
+              <h3>📚 Source Evidence References</h3>
+              <p class="section-hint">Raw block markers extracted from manuscript processing caches:</p>
+              <ul class="source-refs-list">
+                <li v-for="ref in activeMapSourceRefs" :key="ref">
+                  <code>{{ ref }}</code>
+                </li>
+              </ul>
+            </section>
+
+            <!-- Editorial Corrections Section -->
+            <section class="drawer-section corrections-section">
+              <h3>📝 Editorial Corrections &amp; Directives</h3>
+              <p class="section-hint">Provide instructions or details to guide the reader swarm during the simulation run.</p>
+              <textarea
+                v-model="editorialCorrections[activeMap.id]"
+                rows="3"
+                placeholder="e.g. Note that Mara's motivation changes here. Adjust style guidelines..."
+              ></textarea>
+              <div class="corrections-actions">
+                <button class="sb-btn-ghost sm" @click="saveCorrections(activeMap.id)">
+                  Save Corrections
+                </button>
+              </div>
+            </section>
+
+            <!-- Advanced View Toggle -->
+            <section class="drawer-section advanced-json-section">
+              <details class="json-details">
+                <summary class="json-summary">Advanced View (Raw Component JSON)</summary>
+                <div class="json-content">
+                  <pre><code class="raw-json-code">{{ JSON.stringify(getMapRawData(activeMap.id), null, 2) }}</code></pre>
+                </div>
+              </details>
+            </section>
+          </div>
+
+          <!-- Drawer Footer Actions -->
+          <footer class="drawer-footer">
+            <button 
+              class="sb-btn-ghost flag-needs-review" 
+              :disabled="getStatus(activeMap.id) === 'needs review'"
+              @click="markNeedsReview(activeMap.id)"
+            >
+              ⚠️ Flag Needs Review
+            </button>
+            <button 
+              class="sb-btn-primary accept-lock" 
+              :disabled="getStatus(activeMap.id) === 'accepted'"
+              @click="acceptMap(activeMap.id)"
+            >
+              ✓ Accept &amp; Lock Map
+            </button>
+          </footer>
+        </div>
+      </div>
     </div>
   </SwarmbookAppShell>
 </template>
 
 <script setup>
-import { computed, onMounted, reactive, ref } from 'vue'
-import { useRouter, useRoute } from 'vue-router'
+import { computed, onMounted, onBeforeUnmount, reactive, ref } from 'vue'
+import { useRouter } from 'vue-router'
 import SwarmbookAppShell from '../../components/swarmbook/SwarmbookAppShell.vue'
 import { getSwarmbookSession, updateSwarmbookSession } from '../../store/swarmbookSession'
 import { createEvidencePack } from '../../api/bookSim'
 
 const router = useRouter()
-const route = useRoute()
 const session = ref(getSwarmbookSession())
 
 const evidencePack = computed(() => session.value.evidencePack)
-const metadata = computed(() => session.value.metadata)
 
 const activeMapId = ref('dna')
+const isDrawerOpen = ref(false)
 const error = ref('')
 const loadingMessage = ref('')
 
@@ -379,16 +716,90 @@ const editorialCorrections = reactive({
   style: ''
 })
 
+// Review stats helpers
+const reviewedCount = computed(() => {
+  return Object.values(cardStates).filter(state => state.status === 'accepted').length
+})
+
+const criticalPacks = computed(() => {
+  const type = session.value.metadata?.bookType || 'fiction'
+  const list = ['dna', 'chapters']
+  if (type === 'fiction') {
+    list.push('characters')
+  } else if (type === 'nonfiction') {
+    list.push('claims')
+  }
+  return list
+})
+
+const criticalReviewedCount = computed(() => {
+  return criticalPacks.value.filter(id => getStatus(id) === 'accepted').length
+})
+
+const unreviewedCriticalPacks = computed(() => {
+  return criticalPacks.value.filter(id => getStatus(id) !== 'accepted')
+})
+
+const unreviewedCriticalNames = computed(() => {
+  return unreviewedCriticalPacks.value.map(id => maps.find(m => m.id === id)?.label)
+})
+
+const isSimulationBlocked = computed(() => {
+  return unreviewedCriticalPacks.value.length > 0
+})
+
+const activeMapSourceRefs = computed(() => {
+  if (!evidencePack.value || !activeMap.value) return []
+  const mapData = evidencePack.value[activeMap.value.field]
+  return mapData?.evidence_refs || []
+})
+
+function isPackCritical(mapId) {
+  return criticalPacks.value.includes(mapId)
+}
+
 function getStatus(mapId) {
   return cardStates[mapId]?.status || 'pending'
 }
 
+function getStatusLabel(mapId) {
+  const status = getStatus(mapId)
+  if (status === 'generated') return 'unreviewed'
+  return status
+}
+
+function getStatusBadgeClass(mapId) {
+  const status = getStatus(mapId)
+  if (status === 'accepted') return 'sb-badge--ok'
+  if (status === 'needs review') return 'sb-badge--warn'
+  if (status === 'regenerating') return 'sb-badge--warn'
+  return 'sb-badge--info' // unreviewed/generated
+}
+
+function getAudienceFitBadgeClass(fit) {
+  const fitStr = String(fit || '').toLowerCase()
+  if (fitStr.includes('high')) return 'sb-badge--ok'
+  if (fitStr.includes('low')) return 'sb-badge--error'
+  return 'sb-badge--warn'
+}
+
 function getConfidence(mapId) {
+  if (evidencePack.value) {
+    const mapField = maps.find(m => m.id === mapId)?.field
+    const backendConfidence = evidencePack.value[mapField]?.confidence
+    if (backendConfidence !== undefined && backendConfidence !== null) {
+      return backendConfidence
+    }
+  }
   return cardStates[mapId]?.confidence || 0.85
 }
 
 function getReferencesCount(mapId) {
   if (!evidencePack.value) return 0
+  const mapField = maps.find(m => m.id === mapId)?.field
+  const refs = evidencePack.value[mapField]?.evidence_refs
+  if (refs && Array.isArray(refs)) return refs.length
+  
   if (mapId === 'chapters') return evidencePack.value.chapter_map?.chapters?.length || 0
   if (mapId === 'characters') return evidencePack.value.character_map?.characters?.length || 0
   if (mapId === 'claims') return evidencePack.value.claim_map?.claims?.length || 0
@@ -400,36 +811,65 @@ function getMapSummary(mapId) {
   if (!evidencePack.value) return 'Pending extraction...'
   
   if (mapId === 'dna') {
-    return evidencePack.value.book_dna?.premise ? truncateText(evidencePack.value.book_dna.premise, 90) : 'DNA premise details.'
+    const dna = evidencePack.value.book_dna
+    return dna?.spoilers_safe_summary || dna?.premise 
+      ? truncateText(dna.spoilers_safe_summary || dna.premise, 110) 
+      : 'Extracted title, subgenres, tone and outline indicators.'
   }
   if (mapId === 'market') {
-    return evidencePack.value.market_surface?.audience_fit ? truncateText(evidencePack.value.market_surface.audience_fit, 90) : 'Market expectations.'
+    const mkt = evidencePack.value.market_surface
+    return mkt?.positioning_summary 
+      ? truncateText(mkt.positioning_summary, 110) 
+      : 'Packaging guidelines and discoverability hook notes.'
   }
   if (mapId === 'chapters') {
     const count = evidencePack.value.chapter_map?.chapters?.length || 0
-    return count > 0 ? `${count} chapters segmented and summarized.` : 'No chapters parsed.'
+    const pacing = evidencePack.value.chapter_map?.pacing_profile || 'normal'
+    return count > 0 
+      ? `${count} chapters segmented. Pacing style resolves to "${pacing}".` 
+      : 'No chapters parsed.'
   }
   if (mapId === 'characters') {
     const count = evidencePack.value.character_map?.characters?.length || 0
-    return count > 0 ? `${count} story character profiles resolved.` : 'No characters found.'
+    return count > 0 
+      ? `${count} story character profiles and relationship links mapped.` 
+      : 'No character records detected. Primarily maps for fiction.'
   }
   if (mapId === 'claims') {
     const count = evidencePack.value.claim_map?.claims?.length || 0
-    return count > 0 ? `${count} core argumentative assertions noted.` : 'No claims detected.'
+    return count > 0 
+      ? `${count} core claims with supporting assertions detected.` 
+      : 'No nonfiction claims identified. Primarily maps for nonfiction.'
   }
   if (mapId === 'risks') {
     const count = evidencePack.value.risk_map?.risks?.length || 0
-    return count > 0 ? `${count} potential editorial issues flagged.` : 'No risks detected.'
+    const summary = evidencePack.value.risk_map?.risk_summary
+    if (count > 0) {
+      return truncateText(`${count} issues flagged. ${summary || ''}`, 110)
+    }
+    return 'No pacing, ideological, or factual risks flagged.'
   }
   if (mapId === 'style') {
-    const clarity = evidencePack.value.style_map?.clarity || 'N/A'
-    return `Style Clarity: ${clarity}. rhythm and quoteability resolved.`
+    const st = evidencePack.value.style_map
+    if (!st) return 'Clarity and rhythm indexes.'
+    return `Density: ${st.prose_density || 'medium'}. Clarity: ${st.clarity || 'medium'}. Rhythm: ${st.rhythm || 'regular'}.`
   }
   return 'Ready'
 }
 
-function selectMap(mapId) {
+function getMapRawData(mapId) {
+  if (!evidencePack.value) return null
+  const mapField = maps.find(m => m.id === mapId)?.field
+  return evidencePack.value[mapField] || null
+}
+
+function openDetails(mapId) {
   activeMapId.value = mapId
+  isDrawerOpen.value = true
+}
+
+function closeDrawer() {
+  isDrawerOpen.value = false
 }
 
 function acceptMap(mapId) {
@@ -446,7 +886,7 @@ function saveCorrections(mapId) {
   if (editorialCorrections[mapId].trim()) {
     cardStates[mapId].status = 'needs review'
     saveStateToSession()
-    alert(`Editorial corrections saved for ${maps.find(m=>m.id===mapId).label}! This note will guide the simulated readers during simulation passes.`)
+    alert(`Editorial corrections saved for ${maps.find(m => m.id === mapId).label}! These custom notes will guide simulated reader reactions.`)
   }
 }
 
@@ -456,8 +896,9 @@ async function regenerateMap(mapId) {
     return
   }
   
-  loadingMessage.value = `Regenerating ${maps.find(m=>m.id===mapId).label} mapping details...`
+  loadingMessage.value = `Regenerating ${maps.find(m => m.id === mapId).label} mapping details...`
   error.value = ''
+  cardStates[mapId].status = 'regenerating'
   
   try {
     const response = await createEvidencePack({
@@ -482,18 +923,10 @@ async function regenerateMap(mapId) {
     cardStates[mapId].confidence = Math.min(0.99, +(cardStates[mapId].confidence + 0.04).toFixed(2))
   } catch (err) {
     error.value = err.response?.data?.error || `Regeneration failed: ${err.message}`
+    cardStates[mapId].status = 'generated'
   } finally {
     loadingMessage.value = ''
   }
-}
-
-function getStrengthWidth(strength) {
-  if (!strength) return '0%'
-  const str = String(strength).toLowerCase()
-  if (str.includes('high') || str.includes('strong')) return '90%'
-  if (str.includes('medium') || str.includes('moderate')) return '60%'
-  if (str.includes('low') || str.includes('weak')) return '30%'
-  return '50%'
 }
 
 function saveStateToSession() {
@@ -529,6 +962,13 @@ function continueToSimulation() {
   router.push({ name: 'SwarmbookSimulation', params: { projectId: session.value.projectId } })
 }
 
+// Drawer Escape Key Listener
+const handleKeydown = (e) => {
+  if (e.key === 'Escape' && isDrawerOpen.value) {
+    closeDrawer()
+  }
+}
+
 onMounted(() => {
   // Sync loaded states from session if they exist
   const storedStates = session.value.metadata?.evidence_states
@@ -539,6 +979,11 @@ onMounted(() => {
   if (storedCorrections) {
     Object.assign(editorialCorrections, storedCorrections)
   }
+  window.addEventListener('keydown', handleKeydown)
+})
+
+onBeforeUnmount(() => {
+  window.removeEventListener('keydown', handleKeydown)
 })
 </script>
 
@@ -546,36 +991,38 @@ onMounted(() => {
 .evidence-container {
   max-width: 1200px;
   margin: 0 auto;
+  padding: 0 var(--sb-space-4);
+  position: relative;
 }
 
 /* Empty State */
 .empty-evidence-card {
-  background: #ffffff;
-  border: 1px solid #e2e8f0;
-  border-radius: 12px;
-  padding: 48px;
+  background: var(--sb-bg-card);
+  border: 1px solid var(--sb-border-color);
+  border-radius: var(--sb-radius-xl);
+  padding: var(--sb-space-12);
   text-align: center;
   max-width: 500px;
-  margin: 40px auto;
-  box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+  margin: var(--sb-space-10) auto;
+  box-shadow: var(--sb-shadow-sm);
 }
 
 .empty-icon {
   font-size: 3rem;
-  margin-bottom: 16px;
+  margin-bottom: var(--sb-space-4);
 }
 
 .empty-evidence-card h2 {
-  font-size: 1.25rem;
-  margin: 0 0 8px 0;
-  color: #0f172a;
+  font-size: var(--sb-text-lg);
+  margin: 0 0 var(--sb-space-2) 0;
+  color: var(--sb-text-heading);
 }
 
 .empty-evidence-card p {
-  font-size: 0.88rem;
-  color: #64748b;
-  margin: 0 0 24px 0;
-  line-height: 1.5;
+  font-size: var(--sb-text-base);
+  color: var(--sb-text-muted);
+  margin: 0 0 var(--sb-space-6) 0;
+  line-height: var(--sb-leading-relaxed);
 }
 
 .action-row-center {
@@ -583,662 +1030,996 @@ onMounted(() => {
   justify-content: center;
 }
 
-/* Split Pane Layout */
-.evidence-split-layout {
-  display: grid;
-  grid-template-columns: 380px 1fr;
-  gap: 24px;
-  margin-bottom: 32px;
-}
-
-/* Cards Column */
-.cards-column {
+/* Dashboard Flow */
+.evidence-dashboard-flow {
   display: flex;
   flex-direction: column;
-  gap: 16px;
-  overflow-y: auto;
-  max-height: calc(100vh - 240px);
-  padding-right: 4px;
+  gap: var(--sb-space-6);
+  margin-bottom: var(--sb-space-8);
 }
 
-.map-card {
-  background: #ffffff;
-  border: 1px solid #e2e8f0;
-  border-radius: 10px;
-  padding: 16px;
+/* Review Status Strip */
+.review-status-strip {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sb-space-6);
+  padding: var(--sb-space-5) var(--sb-space-6);
+  background: var(--sb-bg-card);
+}
+
+.progress-info h3 {
+  font-size: var(--sb-text-base);
+  font-weight: var(--sb-weight-bold);
+  margin: 0 0 var(--sb-space-1) 0;
+  color: var(--sb-text-heading);
+}
+
+.progress-info p {
+  font-size: var(--sb-text-sm);
+  color: var(--sb-text-muted);
+  margin: 0;
+}
+
+.progress-bar-container {
+  flex: 1;
+  max-width: 400px;
+}
+
+.progress-bar-track {
+  height: 8px;
+  background: var(--sb-surface-secondary);
+  border-radius: var(--sb-radius-full);
+  overflow: hidden;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  background: var(--sb-color-ready);
+  border-radius: var(--sb-radius-full);
+  transition: width 0.3s ease;
+}
+
+/* Critical Warning Banner */
+.unreviewed-warning-banner {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--sb-space-4);
+  background: var(--sb-status-warn-bg);
+  border: 1px solid var(--sb-color-mixed);
+  border-radius: var(--sb-radius-lg);
+  padding: var(--sb-space-4) var(--sb-space-5);
+}
+
+.warning-icon {
+  font-size: 1.25rem;
+  line-height: 1.2;
+}
+
+.warning-text {
+  font-size: var(--sb-text-sm);
+  color: var(--sb-status-warn-text);
+  line-height: var(--sb-leading-normal);
+}
+
+.critical-pack-list {
+  font-weight: var(--sb-weight-bold);
+  text-decoration: underline;
+}
+
+/* Cards Grid */
+.evidence-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: var(--sb-space-5);
+}
+
+.map-card-item {
+  background: var(--sb-bg-card);
+  border: 1px solid var(--sb-border-color);
+  border-radius: var(--sb-radius-xl);
+  padding: var(--sb-space-5);
   cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  outline: none;
+  position: relative;
+  overflow: hidden;
+}
+
+.map-card-item:hover,
+.map-card-item:focus-visible {
+  border-color: var(--sb-color-brand);
+  box-shadow: var(--sb-shadow-md);
+  transform: translateY(-2px);
+}
+
+.map-card-item:focus-visible {
+  outline: var(--sb-focus-ring);
+  outline-offset: var(--sb-focus-offset);
+}
+
+.map-card-item.active {
+  border-color: var(--sb-color-brand);
+  background: #fffbf9;
+  box-shadow: 0 0 0 1px var(--sb-color-brand), var(--sb-shadow-md);
+}
+
+.map-card-item.accepted {
+  border-left: 5px solid var(--sb-color-ready);
+}
+
+.map-card-item.needs-review {
+  border-left: 5px solid var(--sb-color-mixed);
+}
+
+.map-card-item.is-critical:not(.accepted) {
+  border-right: 3px dashed var(--sb-color-mixed);
+}
+
+.card-top-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: var(--sb-space-2);
+  margin-bottom: var(--sb-space-3);
+}
+
+.title-with-icon {
+  display: flex;
+  gap: var(--sb-space-3);
+  align-items: center;
+}
+
+.card-icon {
+  font-size: 1.6rem;
+  line-height: 1;
+}
+
+.label-box {
+  display: flex;
+  flex-direction: column;
+}
+
+.label-box h3 {
+  font-size: var(--sb-text-md);
+  font-weight: var(--sb-weight-bold);
+  color: var(--sb-text-heading);
+  margin: 0;
+}
+
+.critical-indicator {
+  font-size: 0.65rem;
+  color: var(--sb-text-muted);
+  font-weight: var(--sb-weight-semibold);
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  margin-top: 1px;
+}
+
+.card-summary {
+  font-size: var(--sb-text-sm);
+  color: var(--sb-text-body);
+  line-height: var(--sb-leading-normal);
+  margin: 0 0 var(--sb-space-4) 0;
+  flex: 1;
+}
+
+/* Confidence Row inside Card */
+.card-confidence-row {
+  margin-bottom: var(--sb-space-3);
+}
+
+.confidence-stats {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: var(--sb-text-xs);
+  color: var(--sb-text-muted);
+  margin-bottom: var(--sb-space-1);
+}
+
+.confidence-val {
+  font-weight: var(--sb-weight-semibold);
+}
+
+.low-confidence-tag {
+  color: var(--sb-risk-high);
+  font-weight: var(--sb-weight-bold);
+  text-transform: uppercase;
+  font-size: 0.65rem;
+  background: var(--sb-risk-high-bg);
+  padding: 1px 4px;
+  border-radius: var(--sb-radius-xs);
+}
+
+.confidence-bar-track {
+  height: 5px;
+  background: var(--sb-surface-secondary);
+  border-radius: var(--sb-radius-full);
+  overflow: hidden;
+}
+
+.confidence-bar-fill {
+  height: 100%;
+  background: var(--sb-color-info);
+  border-radius: var(--sb-radius-full);
+}
+
+.confidence-bar-fill.low-confidence {
+  background: var(--sb-risk-high);
+}
+
+.card-refs-row {
+  font-size: var(--sb-text-xs);
+  color: var(--sb-text-hint);
+  margin-bottom: var(--sb-space-4);
+}
+
+/* Card Actions Footer Ribbon */
+.card-actions-row {
+  border-top: 1px solid var(--sb-border-color);
+  padding-top: var(--sb-space-3);
+  display: flex;
+  justify-content: space-between;
+  gap: var(--sb-space-2);
+}
+
+.card-btn-ghost {
+  background: transparent;
+  border: none;
+  font-family: var(--sb-font-sans);
+  font-size: var(--sb-text-xs);
+  font-weight: var(--sb-weight-bold);
+  cursor: pointer;
+  padding: var(--sb-space-1) var(--sb-space-2);
+  border-radius: var(--sb-radius-sm);
   transition: all 0.2s;
   outline: none;
 }
 
-.map-card:hover,
-.map-card:focus-visible {
-  border-color: #ff4500;
-  box-shadow: 0 4px 12px rgba(255, 69, 0, 0.05);
+.card-btn-ghost.view-details {
+  color: var(--sb-color-brand);
 }
 
-.map-card:focus-visible {
-  outline: 2px solid #ff4500;
+.card-btn-ghost.view-details:hover {
+  background: var(--sb-color-brand-light);
 }
 
-.map-card.active {
-  border-color: #ff4500;
-  background: #fffbf9;
-  box-shadow: 0 0 0 1px #ff4500;
+.card-btn-ghost.regenerate {
+  color: var(--sb-text-muted);
 }
 
-.map-card.accepted {
-  border-left: 4px solid #10b981;
+.card-btn-ghost.regenerate:hover:not(:disabled) {
+  background: var(--sb-surface-secondary);
 }
 
-.card-header {
-  display: flex;
-  gap: 12px;
-  align-items: flex-start;
-  margin-bottom: 8px;
+.card-btn-ghost.accept {
+  color: var(--sb-color-ready);
 }
 
-.card-icon {
-  font-size: 1.4rem;
-  line-height: 1;
+.card-btn-ghost.accept:hover:not(:disabled) {
+  background: var(--sb-risk-low-bg);
 }
 
-.title-section {
-  flex: 1;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 8px;
-}
-
-.title-section h3 {
-  font-size: 0.95rem;
-  font-weight: 700;
-  color: #0f172a;
-  margin: 0;
-}
-
-.status-badge {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.65rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  padding: 2px 6px;
-  border-radius: 4px;
-}
-
-.status-badge.pending { background: #f1f5f9; color: #64748b; }
-.status-badge.generated { background: #dbeafe; color: #1e40af; }
-.status-badge.accepted { background: #d1fae5; color: #065f46; }
-.status-badge.needs\ review { background: #fef3c7; color: #92400e; }
-
-.card-summary {
-  font-size: 0.8rem;
-  color: #475569;
-  line-height: 1.4;
-  margin: 0 0 12px 0;
-}
-
-.card-meta-row {
-  display: flex;
-  justify-content: space-between;
-  font-size: 0.72rem;
-  color: #64748b;
-  margin-bottom: 12px;
-}
-
-.confidence-label {
-  font-weight: 600;
-}
-
-.evidence-ref-count {
-  font-weight: 500;
-  background: #f1f5f9;
-  padding: 1px 6px;
-  border-radius: 4px;
-}
-
-/* Card Actions Ribbon */
-.card-actions-ribbon {
-  border-top: 1px solid #f1f5f9;
-  padding-top: 10px;
-  display: flex;
-  justify-content: space-between;
-  gap: 8px;
-}
-
-.card-action-btn {
-  background: transparent;
-  border: none;
-  font-size: 0.72rem;
-  font-weight: 700;
-  cursor: pointer;
-  padding: 4px 6px;
-  border-radius: 4px;
-}
-
-.card-action-btn.view-details {
-  color: #ff4500;
-}
-
-.card-action-btn.view-details:hover {
-  background: #fff5ef;
-}
-
-.card-action-btn.regenerate {
-  color: #475569;
-}
-
-.card-action-btn.regenerate:hover {
-  background: #f1f5f9;
-}
-
-.card-action-btn.accept {
-  color: #10b981;
-}
-
-.card-action-btn.accept:hover:not(:disabled) {
-  background: #e6fbf3;
-}
-
-.card-action-btn:disabled {
-  opacity: 0.4;
+.card-btn-ghost:disabled {
+  opacity: 0.35;
   cursor: not-allowed;
 }
 
-.card-action-btn:focus-visible {
+.card-btn-ghost:focus-visible {
   outline: 2px solid currentColor;
 }
 
-/* Details Column */
-.details-column {
-  min-height: 500px;
-  background: #ffffff;
-  border: 1px solid #e2e8f0;
-  border-radius: 12px;
-  padding: 32px;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+/* Drawer Backdrop Overlay */
+.drawer-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(15, 23, 42, 0.4);
+  backdrop-filter: blur(2px);
+  z-index: 999;
 }
 
-.panel-header {
-  display: flex;
-  gap: 16px;
-  align-items: center;
-  border-bottom: 1px solid #e2e8f0;
-  padding-bottom: 16px;
-  margin-bottom: 16px;
-}
-
-.panel-icon {
-  font-size: 2.2rem;
-}
-
-.panel-header h2 {
-  font-size: 1.3rem;
-  font-weight: 800;
-  color: #0f172a;
-  margin: 0 0 4px 0;
-}
-
-.status-indicator-badge {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.7rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  padding: 2px 8px;
-  border-radius: 4px;
-  display: inline-block;
-}
-
-.status-indicator-badge.pending { background: #f1f5f9; color: #64748b; }
-.status-indicator-badge.generated { background: #dbeafe; color: #1e40af; }
-.status-indicator-badge.accepted { background: #d1fae5; color: #065f46; }
-.status-indicator-badge.needs\ review { background: #fef3c7; color: #92400e; }
-
-.panel-desc {
-  font-size: 0.9rem;
-  color: #475569;
-  line-height: 1.5;
-  margin: 0 0 20px 0;
-}
-
-/* Importance Callout */
-.importance-block {
-  background: #faf5ff;
-  border: 1px solid #f3e8ff;
-  border-left: 4px solid #a855f7;
-  border-radius: 6px;
-  padding: 14px 16px;
-  margin-bottom: 24px;
-}
-
-.importance-block strong {
-  display: block;
-  font-size: 0.85rem;
-  color: #6b21a8;
-  margin-bottom: 4px;
-}
-
-.importance-block p {
-  font-size: 0.82rem;
-  color: #581c87;
-  margin: 0;
-  line-height: 1.4;
-}
-
-/* Panel Data Body */
-.panel-data-body {
-  min-height: 200px;
-}
-
-.details-table {
+/* Sliding Detail Drawer */
+.detail-drawer {
+  position: fixed;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 520px;
+  max-width: 90vw;
+  background: var(--sb-bg-card);
+  border-left: 1px solid var(--sb-border-color);
+  box-shadow: var(--sb-shadow-lg);
+  z-index: 1000;
   display: flex;
   flex-direction: column;
-  border: 1px solid #e2e8f0;
-  border-radius: 6px;
-  overflow: hidden;
-  margin-bottom: 20px;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transform: translateX(100%);
+  outline: none;
 }
 
-.table-row {
-  display: grid;
-  grid-template-columns: 200px 1fr;
-  border-bottom: 1px solid #e2e8f0;
-  font-size: 0.88rem;
+.detail-drawer.is-open {
+  transform: translateX(0);
 }
 
-.table-row:last-child {
+.drawer-inner {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.drawer-header {
+  padding: var(--sb-space-5) var(--sb-space-6);
+  border-bottom: 1px solid var(--sb-border-color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--sb-bg-card);
+}
+
+.drawer-header-left {
+  display: flex;
+  gap: var(--sb-space-4);
+  align-items: center;
+}
+
+.drawer-icon {
+  font-size: 2.2rem;
+  line-height: 1;
+}
+
+.drawer-header h2 {
+  font-size: var(--sb-text-lg);
+  font-weight: var(--sb-weight-extrabold);
+  color: var(--sb-text-heading);
+  margin: 0 0 var(--sb-space-1) 0;
+}
+
+.drawer-badges {
+  display: flex;
+  gap: var(--sb-space-3);
+  align-items: center;
+}
+
+.confidence-badge {
+  font-size: var(--sb-text-xs);
+  color: var(--sb-text-muted);
+  font-weight: var(--sb-weight-semibold);
+}
+
+.confidence-badge.low-confidence-text {
+  color: var(--sb-risk-high);
+  font-weight: var(--sb-weight-bold);
+}
+
+.close-btn {
+  background: transparent;
+  border: none;
+  font-size: var(--sb-text-lg);
+  font-weight: var(--sb-weight-bold);
+  color: var(--sb-text-hint);
+  cursor: pointer;
+  padding: var(--sb-space-2);
+  border-radius: var(--sb-radius-full);
+  transition: background 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+}
+
+.close-btn:hover {
+  background: var(--sb-surface-secondary);
+  color: var(--sb-text-main);
+}
+
+/* Drawer Content */
+.drawer-content {
+  flex: 1;
+  overflow-y: auto;
+  padding: var(--sb-space-6);
+  display: flex;
+  flex-direction: column;
+  gap: var(--sb-space-6);
+}
+
+.drawer-section {
+  border-bottom: 1px solid var(--sb-border-color);
+  padding-bottom: var(--sb-space-5);
+}
+
+.drawer-section:last-of-type {
   border-bottom: none;
 }
 
-.table-row .lbl {
-  background: #f8fafc;
-  color: #475569;
-  font-weight: 600;
-  padding: 12px 16px;
-  border-right: 1px solid #e2e8f0;
+.drawer-section h3 {
+  font-size: var(--sb-text-base);
+  font-weight: var(--sb-weight-bold);
+  color: var(--sb-text-heading);
+  margin: 0 0 var(--sb-space-4) 0;
 }
 
-.table-row .val {
-  padding: 12px 16px;
-  color: #0f172a;
-  font-weight: 700;
+.section-hint {
+  font-size: var(--sb-text-xs);
+  color: var(--sb-text-hint);
+  margin: 0 0 var(--sb-space-3) 0;
 }
 
-.premise-box h4,
-.sub-list-block h4 {
-  font-size: 0.88rem;
-  font-weight: 700;
-  color: #1e293b;
-  margin: 0 0 8px 0;
+/* Importance Card Callout */
+.importance-card {
+  background: #faf5ff;
+  border: 1px solid #f3e8ff;
+  border-left: 4px solid #a855f7;
+  border-radius: var(--sb-radius-md);
+  padding: var(--sb-space-4) var(--sb-space-5);
+  margin-bottom: 0;
 }
 
-.premise-box blockquote {
-  border-left: 3px solid #cbd5e1;
-  padding-left: 14px;
+.importance-card strong {
+  display: block;
+  font-size: var(--sb-text-sm);
+  color: #6b21a8;
+  margin-bottom: var(--sb-space-1);
+}
+
+.importance-card p {
+  font-size: var(--sb-text-sm);
+  color: #581c87;
   margin: 0;
-  font-style: italic;
-  color: #475569;
-  font-size: 0.9rem;
-  line-height: 1.5;
+  line-height: var(--sb-leading-relaxed);
 }
 
-.sub-list-block {
-  margin-bottom: 16px;
-}
-
-.sub-list-block ul {
-  list-style: square;
-  padding-left: 20px;
-  font-size: 0.88rem;
-  color: #475569;
+/* Structured View */
+.structured-view {
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: var(--sb-space-4);
 }
 
-.empty-list-note {
-  list-style: none !important;
-  color: #94a3b8;
-  font-style: italic;
-}
-
-/* Timeline */
-.timeline-list {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  position: relative;
-  padding-left: 20px;
-  border-left: 2px solid #e2e8f0;
-}
-
-.timeline-item {
-  position: relative;
-}
-
-.timeline-num {
-  position: absolute;
-  left: -32px;
-  top: 2px;
-  background: #ffffff;
-  border: 2px solid #ff4500;
-  border-radius: 12px;
-  padding: 2px 8px;
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.68rem;
-  font-weight: 700;
-  color: #ff4500;
-}
-
-.timeline-content h5 {
-  font-size: 0.9rem;
-  font-weight: 700;
-  color: #0f172a;
-  margin: 0 0 4px 0;
-}
-
-.timeline-content p {
-  font-size: 0.82rem;
-  color: #64748b;
-  margin: 0;
-  line-height: 1.4;
-}
-
-.empty-placeholder {
-  font-size: 0.88rem;
-  color: #94a3b8;
-  font-style: italic;
-  text-align: center;
-  padding: 32px;
-}
-
-/* Character Profiles */
-.character-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 16px;
-}
-
-.char-profile-card {
-  border: 1px solid #e2e8f0;
-  background: #f8fafc;
-  border-radius: 8px;
-  padding: 16px;
-}
-
-.char-hdr {
+.structured-row {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 8px;
+  border-bottom: 1px solid var(--sb-border-color);
+  padding-bottom: var(--sb-space-2);
+  gap: var(--sb-space-4);
 }
 
-.char-hdr strong {
-  font-size: 0.9rem;
-  color: #0f172a;
+.structured-row:last-child {
+  border-bottom: none;
 }
 
-.role-badge {
-  font-size: 0.68rem;
-  font-weight: 700;
+.structured-label {
+  font-size: var(--sb-text-sm);
+  color: var(--sb-text-muted);
+  font-weight: var(--sb-weight-semibold);
+}
+
+.structured-value {
+  font-size: var(--sb-text-sm);
+  color: var(--sb-text-main);
+  font-weight: var(--sb-weight-bold);
+  text-align: right;
+}
+
+.drawer-sub-block {
+  margin-top: var(--sb-space-4);
+}
+
+.drawer-sub-block h4 {
+  font-size: var(--sb-text-sm);
+  font-weight: var(--sb-weight-bold);
+  color: var(--sb-text-heading);
+  margin: 0 0 var(--sb-space-2) 0;
+}
+
+.drawer-sub-block ul {
+  list-style: square;
+  padding-left: var(--sb-space-5);
+  font-size: var(--sb-text-sm);
+  color: var(--sb-text-body);
+  display: flex;
+  flex-direction: column;
+  gap: var(--sb-space-2);
+}
+
+.tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sb-space-2);
+}
+
+.theme-tag {
+  font-family: var(--sb-font-mono);
+  background: var(--sb-surface-secondary);
+  color: var(--sb-text-muted);
+  font-size: var(--sb-text-xs);
+  padding: var(--sb-space-1) var(--sb-space-2);
+  border-radius: var(--sb-radius-sm);
+  font-weight: var(--sb-weight-semibold);
+}
+
+.comp-tag {
+  background: var(--sb-status-info-bg);
+  color: var(--sb-status-info-text);
+  font-size: var(--sb-text-xs);
+  padding: var(--sb-space-1) var(--sb-space-3);
+  border-radius: var(--sb-radius-full);
+  font-weight: var(--sb-weight-semibold);
+}
+
+.hook-tag {
+  background: #fdf2f8;
+  color: #9d174d;
+  font-size: var(--sb-text-xs);
+  padding: var(--sb-space-1) var(--sb-space-3);
+  border-radius: var(--sb-radius-full);
+  font-weight: var(--sb-weight-semibold);
+}
+
+.premise-quote-block blockquote {
+  margin: 0;
+  padding-left: var(--sb-space-4);
+  border-left: 3px solid var(--sb-border-hover);
+  font-style: italic;
+  font-size: var(--sb-text-sm);
+  color: var(--sb-text-body);
+  line-height: var(--sb-leading-relaxed);
+}
+
+.warning-callout-block {
+  background: var(--sb-status-warn-bg);
+  border: 1px solid var(--sb-color-mixed);
+  border-radius: var(--sb-radius-md);
+  padding: var(--sb-space-3) var(--sb-space-4);
+}
+
+.warning-callout-block h4 {
+  color: var(--sb-status-warn-text);
+  margin-bottom: var(--sb-space-1);
+}
+
+.warning-callout-block p {
+  font-size: var(--sb-text-sm);
+  color: var(--sb-status-warn-text);
+  margin: 0;
+  line-height: var(--sb-leading-normal);
+}
+
+.no-data-note {
+  font-size: var(--sb-text-sm);
+  color: var(--sb-text-hint);
+  font-style: italic;
+}
+
+/* Chapter Timeline details */
+.timeline-accordion {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sb-space-3);
+}
+
+.timeline-ch-details {
+  border: 1px solid var(--sb-border-color);
+  border-radius: var(--sb-radius-md);
+  overflow: hidden;
+  background: var(--sb-bg-card);
+}
+
+.timeline-ch-summary {
+  display: flex;
+  align-items: center;
+  gap: var(--sb-space-3);
+  padding: var(--sb-space-3) var(--sb-space-4);
+  cursor: pointer;
+  user-select: none;
+  font-size: var(--sb-text-sm);
+}
+
+.timeline-ch-summary:hover {
+  background: var(--sb-surface-secondary);
+}
+
+.timeline-ch-summary::-webkit-details-marker {
+  display: none;
+}
+
+.ch-num {
+  font-family: var(--sb-font-mono);
+  font-weight: var(--sb-weight-bold);
+  color: var(--sb-color-brand);
+}
+
+.ch-title {
+  flex: 1;
+  color: var(--sb-text-heading);
+}
+
+.ch-pacing-badge {
+  font-size: 0.65rem;
+  font-weight: var(--sb-weight-bold);
   text-transform: uppercase;
-  padding: 1px 6px;
-  border-radius: 4px;
+  padding: 1px 5px;
+  border-radius: var(--sb-radius-sm);
 }
 
-.role-badge.protagonist { background: #fae8ff; color: #86198f; }
-.role-badge.antagonist { background: #fee2e2; color: #991b1b; }
-.role-badge.secondary { background: #f1f5f9; color: #475569; }
+.ch-pacing-badge.fast { background: #fee2e2; color: #b91c1c; }
+.ch-pacing-badge.slow { background: #eff6ff; color: #1d4ed8; }
+.ch-pacing-badge.medium,
+.ch-pacing-badge.normal { background: var(--sb-status-ok-bg); color: var(--sb-status-ok-text); }
 
-.char-notes {
-  font-size: 0.8rem;
-  color: #64748b;
-  margin: 0 0 10px 0;
-  line-height: 1.4;
+.ch-details-expanded {
+  padding: var(--sb-space-4);
+  border-top: 1px solid var(--sb-border-color);
+  background: var(--sb-surface-primary);
+  display: flex;
+  flex-direction: column;
+  gap: var(--sb-space-3);
 }
 
-.char-friction {
-  border-top: 1px dashed #cbd5e1;
-  padding-top: 8px;
+.ch-desc {
+  font-size: var(--sb-text-sm);
+  color: var(--sb-text-body);
+  line-height: var(--sb-leading-relaxed);
+  margin: 0;
 }
 
-.friction-title {
-  font-size: 0.72rem;
-  font-weight: 700;
-  color: #b45309;
+.ch-meta-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--sb-space-4);
+  font-size: var(--sb-text-xs);
+  border-bottom: 1px dashed var(--sb-border-color);
+  padding-bottom: var(--sb-space-3);
+}
+
+.ch-meta-grid strong {
+  color: var(--sb-text-heading);
   display: block;
   margin-bottom: 2px;
 }
 
-.friction-list {
-  font-size: 0.78rem;
-  color: #d97706;
+.ch-meta-grid p {
   margin: 0;
-  line-height: 1.3;
+  color: var(--sb-text-muted);
 }
 
-/* Claims List */
-.claim-item-card {
-  border: 1px solid #e2e8f0;
-  border-radius: 8px;
-  padding: 16px;
-  margin-bottom: 12px;
-  background: #fafafa;
-}
-
-.claim-text {
-  font-size: 0.88rem;
-  font-weight: 600;
-  font-style: italic;
-  margin: 0 0 10px 0;
-  color: #1e293b;
-}
-
-.strength-row {
+.ch-list-sec {
+  font-size: var(--sb-text-xs);
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.ch-list-sec strong {
+  color: var(--sb-text-heading);
+}
+
+.ch-list-sec ul {
+  list-style: square;
+  margin: 0;
+  padding-left: var(--sb-space-4);
+  color: var(--sb-text-muted);
+}
+
+.ch-list-sec.warning strong {
+  color: var(--sb-status-error-text);
+}
+
+.ch-list-sec.warning ul {
+  color: var(--sb-status-error-text);
+}
+
+/* Character Details */
+.character-details-card-list,
+.claim-details-card-list,
+.risk-details-card-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sb-space-4);
+}
+
+.character-details-card,
+.claim-details-card,
+.risk-details-card {
+  border: 1px solid var(--sb-border-color);
+  background: var(--sb-surface-primary);
+  border-radius: var(--sb-radius-lg);
+  padding: var(--sb-space-4);
+  display: flex;
+  flex-direction: column;
+  gap: var(--sb-space-2);
+}
+
+.char-details-hdr,
+.risk-details-hdr {
+  display: flex;
   justify-content: space-between;
-  gap: 12px;
-  margin-bottom: 8px;
+  align-items: center;
+  gap: var(--sb-space-2);
 }
 
-.strength-lbl {
-  font-size: 0.75rem;
-  font-weight: 700;
-  color: #475569;
+.char-details-hdr h4 {
+  font-size: var(--sb-text-base);
+  font-weight: var(--sb-weight-bold);
+  color: var(--sb-text-heading);
+  margin: 0;
 }
 
-.meter-bar {
-  width: 100px;
-  height: 6px;
-  background: #e2e8f0;
-  border-radius: 3px;
+.char-arc {
+  font-size: var(--sb-text-sm);
+  color: var(--sb-text-body);
+  margin: 0;
+}
+
+.char-attributes {
+  font-size: var(--sb-text-xs);
+  color: var(--sb-text-muted);
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.char-attributes strong {
+  color: var(--sb-text-heading);
+}
+
+.rel-tag {
+  display: inline-block;
+  background: var(--sb-surface-secondary);
+  padding: 1px 4px;
+  border-radius: var(--sb-radius-xs);
+  margin-right: 4px;
+}
+
+.char-friction-warning {
+  margin-top: var(--sb-space-2);
+  border-top: 1px dashed var(--sb-border-color);
+  padding-top: var(--sb-space-2);
+  font-size: var(--sb-text-xs);
+  color: var(--sb-status-warn-text);
+}
+
+.char-friction-warning ul {
+  margin: 2px 0 0 0;
+  padding-left: var(--sb-space-4);
+}
+
+/* Claim Details Cards */
+.claim-quote {
+  font-size: var(--sb-text-sm);
+  font-weight: var(--sb-weight-semibold);
+  font-style: italic;
+  color: var(--sb-text-heading);
+  margin: 0;
+}
+
+.claim-support-info {
+  display: flex;
+  gap: var(--sb-space-6);
+  font-size: var(--sb-text-xs);
+  color: var(--sb-text-muted);
+  border-bottom: 1px dashed var(--sb-border-color);
+  padding-bottom: var(--sb-space-2);
+}
+
+.support-field strong.strong { color: var(--sb-color-ready); }
+.support-field strong.medium { color: var(--sb-color-mixed); }
+.support-field strong.weak { color: var(--sb-risk-high); }
+
+.claim-details-sub {
+  font-size: var(--sb-text-xs);
+  color: var(--sb-text-muted);
+}
+
+.claim-details-sub strong {
+  color: var(--sb-text-heading);
+  display: block;
+  margin-bottom: 2px;
+}
+
+.claim-details-sub ul {
+  margin: 0;
+  padding-left: var(--sb-space-4);
+}
+
+/* Risk details */
+.severity-badge {
+  font-size: 0.65rem;
+  font-weight: var(--sb-weight-bold);
+  text-transform: uppercase;
+  padding: 2px 6px;
+  border-radius: var(--sb-radius-sm);
+  color: #ffffff;
+}
+
+.severity-badge.high { background: var(--sb-risk-high); }
+.severity-badge.medium { background: var(--sb-risk-medium); }
+.severity-badge.low { background: var(--sb-color-ready); }
+
+.risk-desc {
+  font-size: var(--sb-text-sm);
+  color: var(--sb-text-body);
+  margin: 0;
+}
+
+.risk-trigger {
+  font-size: var(--sb-text-xs);
+  color: var(--sb-text-muted);
+  margin: 0;
+}
+
+.risk-mitigation {
+  background: var(--sb-bg-card);
+  border: 1px solid var(--sb-border-color);
+  border-radius: var(--sb-radius-md);
+  padding: var(--sb-space-3);
+  font-size: var(--sb-text-xs);
+  color: var(--sb-text-body);
+  margin-top: var(--sb-space-2);
+}
+
+.risk-mitigation strong {
+  color: var(--sb-status-error-text);
+  display: block;
+  margin-bottom: 2px;
+}
+
+.risk-mitigation p {
+  margin: 0;
+}
+
+/* Source references */
+.source-refs-list {
+  list-style: square;
+  padding-left: var(--sb-space-5);
+  font-size: var(--sb-text-xs);
+  color: var(--sb-text-muted);
+  display: flex;
+  flex-direction: column;
+  gap: var(--sb-space-2);
+}
+
+.source-refs-list code {
+  background: var(--sb-surface-secondary);
+  padding: 2px 6px;
+  border-radius: var(--sb-radius-sm);
+}
+
+/* Corrections Textarea */
+.corrections-section textarea {
+  min-height: 80px;
+}
+
+.corrections-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: var(--sb-space-3);
+}
+
+.corrections-actions button.sm {
+  min-height: 36px;
+  padding: var(--sb-space-1) var(--sb-space-4);
+  font-size: var(--sb-text-xs);
+}
+
+/* Advanced JSON details */
+.json-details {
+  border: 1px solid var(--sb-border-color);
+  border-radius: var(--sb-radius-md);
+  background: var(--sb-surface-primary);
   overflow: hidden;
 }
 
-.meter-fill {
-  height: 100%;
-  background: #7c3aed;
-  border-radius: 3px;
+.json-summary {
+  padding: var(--sb-space-3) var(--sb-space-4);
+  cursor: pointer;
+  font-size: var(--sb-text-xs);
+  font-weight: var(--sb-weight-semibold);
+  color: var(--sb-text-muted);
+  user-select: none;
 }
 
-.ref-badge {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.68rem;
-  background: #f1f5f9;
-  color: #475569;
-  padding: 2px 6px;
-  border-radius: 4px;
+.json-summary:hover {
+  background: var(--sb-surface-secondary);
 }
 
-/* Risks list */
-.risk-item-card {
-  border: 1px solid #fca5a5;
-  background: #fff5f5;
-  border-radius: 8px;
-  padding: 16px;
-  margin-bottom: 12px;
+.json-content {
+  padding: var(--sb-space-4);
+  border-top: 1px solid var(--sb-border-color);
+  background: var(--sb-surface-dark);
 }
 
-.risk-hdr {
+.raw-json-code {
+  font-family: var(--sb-font-mono);
+  font-size: var(--sb-text-xs);
+  color: #38bdf8; /* cyan */
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+
+/* Drawer Footer */
+.drawer-footer {
+  padding: var(--sb-space-4) var(--sb-space-6);
+  border-top: 1px solid var(--sb-border-color);
+  background: var(--sb-surface-primary);
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 8px;
+  justify-content: flex-end;
+  gap: var(--sb-space-3);
 }
 
-.risk-type-tag {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.7rem;
-  font-weight: 700;
-  background: #fee2e2;
-  color: #991b1b;
-  padding: 2px 6px;
-  border-radius: 4px;
+.drawer-footer button {
+  min-height: 40px;
+  font-size: var(--sb-text-xs);
 }
 
-.severity-badge {
-  font-size: 0.68rem;
-  font-weight: 700;
-  padding: 2px 6px;
-  border-radius: 4px;
-  text-transform: uppercase;
+.drawer-footer button.flag-needs-review {
+  border-color: var(--sb-color-mixed);
+  color: var(--sb-status-warn-text);
 }
 
-.severity-badge.high { background: #ef4444; color: #ffffff; }
-.severity-badge.medium { background: #f59e0b; color: #ffffff; }
-.severity-badge.low { background: #10b981; color: #ffffff; }
-
-.risk-desc {
-  font-size: 0.85rem;
-  color: #7f1d1d;
-  margin: 0 0 12px 0;
-  line-height: 1.4;
+.drawer-footer button.flag-needs-review:hover:not(:disabled) {
+  background: var(--sb-status-warn-bg);
 }
 
-.mitigation-box {
-  background: #ffffff;
-  border: 1px solid #fee2e2;
-  border-radius: 6px;
-  padding: 10px 12px;
+.drawer-footer button.accept-lock {
+  background: var(--sb-color-ready);
+  border-color: var(--sb-color-ready);
+  color: #ffffff;
 }
 
-.mitigation-box strong {
-  font-size: 0.78rem;
-  color: #991b1b;
-  display: block;
-  margin-bottom: 2px;
-}
-
-.mitigation-box p {
-  font-size: 0.78rem;
-  color: #7f1d1d;
-  margin: 0;
-  line-height: 1.4;
-}
-
-/* Style metrics */
-.metrics-dashboard {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 16px;
-}
-
-.metric-gauge {
-  background: #f8fafc;
-  border: 1px solid #e2e8f0;
-  border-radius: 8px;
-  padding: 16px;
-  text-align: center;
-}
-
-.gauge-lbl {
-  font-size: 0.75rem;
-  font-weight: 600;
-  color: #64748b;
-  display: block;
-  margin-bottom: 6px;
-}
-
-.gauge-val {
-  font-size: 1.3rem;
-  font-weight: 800;
-  color: #0f172a;
-}
-
-/* Editorial Interventions */
-.editorial-intervention-section {
-  border-top: 1px solid #e2e8f0;
-  margin-top: 32px;
-  padding-top: 24px;
-}
-
-.intervention-label span {
-  font-size: 0.82rem;
-  font-weight: 700;
-  color: #475569;
-  display: block;
-  margin-bottom: 6px;
-}
-
-.intervention-actions {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-top: 14px;
-  flex-wrap: wrap;
-  gap: 10px;
-}
-
-.accept-reject-buttons {
-  display: flex;
-  gap: 8px;
-}
-
-.ghost-btn.sm {
-  padding: 8px 12px;
-  font-size: 0.78rem;
-}
-
-.primary-btn.sm {
-  padding: 8px 12px;
-  font-size: 0.78rem;
-}
-
-.needs-review-btn {
-  border-color: #f59e0b;
-  color: #d97706;
-}
-
-.needs-review-btn:hover {
-  background: #fffbeb;
-}
-
-.lock-btn {
-  background: #10b981;
-  border-color: #10b981;
-}
-
-.lock-btn:hover {
+.drawer-footer button.accept-lock:hover:not(:disabled) {
   background: #059669;
-  border-color: #059669;
 }
 
 /* Global Footer Actions */
 .global-actions-bar {
   display: flex;
   justify-content: space-between;
-  border-top: 1px solid #e2e8f0;
-  padding-top: 24px;
+  align-items: center;
+  border-top: 1px solid var(--sb-border-color);
+  padding-top: var(--sb-space-6);
+  margin-top: var(--sb-space-6);
 }
 
-@media (max-width: 950px) {
-  .evidence-split-layout {
+.proceed-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: var(--sb-space-2);
+}
+
+.proceed-hint-label {
+  font-size: var(--sb-text-xs);
+  color: var(--sb-status-error-text);
+  font-weight: var(--sb-weight-semibold);
+}
+
+@media (max-width: 640px) {
+  .review-status-strip {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .progress-bar-container {
+    width: 100%;
+    max-width: none;
+  }
+  .evidence-grid {
     grid-template-columns: 1fr;
   }
-  .cards-column {
-    max-height: none;
+  .global-actions-bar {
+    flex-direction: column;
+    gap: var(--sb-space-4);
+    align-items: stretch;
+  }
+  .proceed-wrapper {
+    align-items: stretch;
   }
 }
 </style>
