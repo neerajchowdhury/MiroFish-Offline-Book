@@ -1,0 +1,80 @@
+{
+  "project_id": "proj_1d49ce5ae890",
+  "project": {
+    "project_id": "proj_1d49ce5ae890",
+    "name": "test_project_123",
+    "privacy_mode": "hybrid_safe",
+    "draft_id": null,
+    "version": null,
+    "title": "Automated Test Book",
+    "author_name": "Automated Tester",
+    "manuscript_input": {
+      "input_id": "input_c8fb74440233",
+      "project_id": "proj_1d49ce5ae890",
+      "title": "Automated Test Book",
+      "author_name": "Automated Tester",
+      "filename": "sample_fiction_excerpt.md",
+      "mime_type": "text/plain",
+      "text": "Chapter 1\n\nMara arrives at the town hall carrying a secret. The cold air bites through her thin jacket, but the letter burns hot in her pocket.\n\nChapter 2\n\nThe decision is delayed, and the town grows impatient. Voices echo off the stone walls of the chamber.\n\nChapter 3\n\nThe public cost becomes impossible to ignore. Mara steps forward.",
+      "language": "en",
+      "privacy_mode": "hybrid_safe",
+      "draft_id": null,
+      "version": null,
+      "chunk_size": 500,
+      "chunk_overlap": 50,
+      "metadata": {
+        "book_type": "fiction",
+        "genre": "Fiction",
+        "target_reader": "Fans of suspense",
+        "subtitle": "",
+        "blurb": "A short excerpt about Mara arriving with a secret. Detailed blurb description must be long enough to pass validation.",
+        "comp_titles": "",
+        "cover_brief": "",
+        "content_type": "novel",
+        "test_goal": "Test the ending pacing"
+      },
+      "evidence_refs": [],
+      "confidence": null,
+      "created_at": "2026-05-31T08:15:01.667709+00:00"
+    },
+    "source_files": [],
+    "metadata": {
+      "book_type": "fiction",
+      "genre": "Fiction",
+      "target_reader": "Fans of suspense",
+      "subtitle": "",
+      "blurb": "A short excerpt about Mara arriving with a secret. Detailed blurb description must be long enough to pass validation.",
+      "comp_titles": "",
+      "cover_brief": "",
+      "local_profile": "hybrid_safe_default",
+      "content_type": "novel",
+      "test_goal": "Test the ending pacing",
+      "local_profile_warnings": [
+        {
+          "code": "profile_warning",
+          "level": "info",
+          "message": "Default recommended profile for 16 GB RAM and 6 GB VRAM."
+        },
+        {
+          "code": "recommended_default",
+          "level": "info",
+          "message": "hybrid_safe_default is the recommended default for the configured hardware target."
+        }
+      ]
+    },
+    "evidence_refs": [],
+    "confidence": null,
+    "created_at": "2026-05-31T08:15:00.776661+00:00",
+    "updated_at": "2026-05-31T08:15:01.668724+00:00"
+  },
+  "latest_evidence_pack_id": "pack_29b8905fa99a",
+  "latest_simulation_id": null,
+  "latest_report_id": null,
+  "latest_comparison_id": null,
+  "evidence_pack_ids": [
+    "pack_29b8905fa99a"
+  ],
+  "simulation_ids": [],
+  "report_ids": [],
+  "comparison_ids": []
+}

@@ -1,5 +1,83 @@
 # Swarmbook Changelog (Reconstructed)
 
+## Phase 52 (QA Test Hardening & Test Fixes)
+### Files
+- `frontend/src/tests/wizardValidation.spec.js` — Fixed Step 1 validation failure assertion casing and filled all four required Step 1 fields in the success path test.
+- `frontend/e2e/swarmbook.spec.js` — Refactored Step 1, 3, 4, 5, 6 selectors, headings, and input values. Added wait assertion for `.selected-file-display` to ensure asynchronous file upload parsing is complete in Step 2.
+- `docs/SWARMBOOK_TEST_RESULTS.md` — Updated to declare that all unit, integration, and E2E tests are passing successfully.
+- `docs/SWARMBOOK_PHASE_STATUS.md` — Documented Phase 52.
+- `docs/SWARMBOOK_DECISIONS.md` — Logged Decision D-054.
+- `docs/SWARMBOOK_CHANGELOG.md` — this entry.
+### Behavior changed
+- **E2E Test Stability** — Remedied E2E timeouts by replacing outdated `.form-control` selectors with specific field element IDs (e.g. `#s1-title`, `#s1-project`). Added step-by-step progress check with file-parsing completion detection.
+- **Unit Test Casing & Validation alignment** — Aligned Vitest assertions with the lowercase label `'Content title'` of the redesigned wizard component and satisfied the 4-field Step 1 validation threshold in success scenarios.
+### Tests added/updated
+- Run Vitest unit tests: `✓ src/tests/wizardValidation.spec.js (3 tests)` passes.
+- Run Playwright E2E tests: `Swarmbook Studio E2E` `2 passed` passes.
+### Known gaps
+- None.
+
+## Phase 51 (Setup Wizard 6-Step Redesign + Export Controls)
+### Files
+- `frontend/src/views/swarmbook/NewSimulationWizardView.vue` — Complete rewrite from 5 steps to 6 clear steps.
+- `frontend/src/views/swarmbook/SwarmbookReportView.vue` — Exports tab: added Copy Executive Summary and Copy Revision Plan cards + handler wiring.
+- `frontend/src/utils/exportReport.js` — Added `copyExecutiveSummary()` and `copyRevisionPlan()` helpers.
+- `docs/REPORT_EXPORT_BACKEND_CONTRACT.md` — [NEW] Honest export system status, client-side architecture diagram, future server contract specification.
+- `docs/SWARMBOOK_PHASE_STATUS.md` — Phase 51 row added.
+- `docs/SWARMBOOK_CHANGELOG.md` — this entry.
+- `docs/SWARMBOOK_DECISIONS.md` — Decision D-052 recorded.
+### Behavior changed
+- **6-Step Wizard** — Replaced the 5-step wizard with 6 clearly separated steps, each with a specific question heading:
+  - **Step 1: Project Basics** — Content type, title, author, genre/category, project reference name. Next: "Save & Continue to Upload". Fidelity checker sidebar.
+  - **Step 2: Upload Content** — Upload dropzone with format strip (PDF/DOCX/TXT/MD), 40 MB limit, privacy mode note, detected word count + section count, paste collapse option. Next: "Analyze Content". "What happens next" helper explains extraction, not simulation.
+  - **Step 3: Content Intent** — Target reader, intended promise/blurb (with live char count + quality hint), test goal, optional comp titles + market positioning notes. Sidebar: Why This Matters + intent confidence strip. Next: "Build Evidence Packs".
+  - **Step 4: Evidence Review** — Evidence summary strip (Book DNA / Chapters / Characters / Risks / Style status), tabbed evidence viewer with ARIA tabpanel roles, Regenerate button, accept guidance. Next: "Accept & Configure Simulation".
+  - **Step 5: Simulation Setup** — Profile cards, reader count slider, platforms grid (aria-pressed), Development Editor Board toggle (new), collapsed Advanced Settings (cohorts, seed, privacy mode), estimated time strip. Next: "Review Run Plan".
+  - **Step 6: Review & Run** — 4-card run plan grid: Content summary, Simulation Config, What Will Be Generated, Time & Privacy. Run confirmation banner. Next: "Start Simulation 🚀".
+- **Single primary action per step** — Each step has exactly one `primary-btn` and one `ghost-btn` (Back).
+- **Autosave** — Deep watcher saves session on every form change.
+- **Inline validation** — Per-field `has-error` class, field-specific error messages, dismissable banner.
+- **"What happens next" helper** — Green helper strip at bottom of every step explains exactly what the next click will do.
+- **Advanced settings collapsed** — Privacy, seed, and cohorts are under a collapse in Step 5. Privacy mode also moved out of Step 1 to reduce front-loading.
+- **Development Editor Board toggle** — Step 5 exposes a clear checkbox toggle for the editor board with +15s time estimate disclosure.
+- **stepper jump navigation** — canJumpTo logic updated for 6-step flow; completed steps show ✓ checkmark.
+- **sectionCount** — Form now stores and displays `section_count` from the parse API response.
+- **Export tab** — Added 2 new export cards with clipboard feedback: "Copy Executive Summary" and "Copy Revision Plan".
+- **copyExecutiveSummary** — Copies executive verdict + confidence + key metrics as plain text.
+- **copyRevisionPlan** — Copies numbered ranked revision checklist as plain text.
+- **REPORT_EXPORT_BACKEND_CONTRACT.md** — Documents all 8 export operations as working client-side; documents future backend contract with error codes and privacy constraints.
+### Tests added/updated
+- Run frontend Vite production build (validating).
+### Known gaps
+- Editor Board toggle is UI-only; the simulation engine runs editor lenses regardless of the toggle. The toggle is scaffolded for future backend enforcement of `editor_board_enabled` parameter.
+
+## Phase 50 (Report Screen Redesign — Decision-First Command Center)
+
+### Files
+- `frontend/src/views/swarmbook/SwarmbookReportView.vue` — Full redesign: replaced monolithic 2,784-line endless-scroll layout with decision-first tabbed command center.
+### Behavior changed
+- **Sticky Report Bar** — Project title, content type, privacy mode badge, confidence chip, and export/navigation quick-actions now appear in a persistent sticky bar above the command center.
+- **Above-Fold Command Center** — 6 KPI metric cards (Publishing Readiness, Predicted Rating, DNF Risk, Controversy Risk, Viral/Quoteability, Top Revision Priority), Executive Verdict blockquote, and Top 3 Improvement Moves rendered above the fold.
+- **8-Tab Navigation** — Full tabbed layout with ARIA roles and keyboard arrow key navigation:
+  - **Overview**: Star rating histogram, segment table, viral platform chart, quoteability chart.
+  - **Development Editor Board**: 12 archetypal expert lenses (Structural Architect, Commercial Publishing Editor, Literary Voice Guardian, Evidence & Credibility Editor, Indian Cultural Context Editor, Reader Psychology Editor, Developmental Psychology Editor, Genre Positioning Editor, DNF Risk Editor, Virality & Quoteability Editor, Sensitivity & Safety Editor, Line-Level Compression Editor) — each derived live from scorecard data with score bar, top concern, why it matters, affected section, recommended fix, and expected effect.
+  - **Revision Plan**: Collapsible ranked items with priority pills, expand-to-detail feature, evidence refs.
+  - **Reader Reactions**: Platform-filtered simulated post feed (Goodreads, BookTok, Reddit, Bookstagram, X, Newsletter, Book Club) with platform-native card styling.
+  - **Risks**: DNF driver bars, chapter pressure timeline, controversy radar, hotspot list, backlash risks, confidence caveats.
+  - **Quoteability & Marketing**: Pull-quote cards, marketing hooks, discoverability pills, polarization scores.
+  - **Evidence**: Book DNA, chapter map, character map, style map, risk map — collapsible raw JSON advanced view.
+  - **Exports**: 6 export format cards (PDF, DOCX, Markdown, JSON, PNG, Copy MD) with privacy disclaimer.
+- **Accessibility** — Full ARIA tabpanel/tab/tablist roles, `aria-controls`, `aria-selected`, keyboard arrow navigation (`←›` keys, Home, End), `prefers-reduced-motion` transitions, and WCAG 2.2 AA focus rings.
+- **Responsive** — Mobile tab grid (2-column), stacked command center, single-column feeds and export cards.
+- **Export system unchanged** — All `exportReport.js` helpers (`generatePdf`, `generateDocx`, `generateMarkdown`, `generateJson`, `copyToClipboard`) and the `html2canvas` PNG path remain intact and functional.
+- **No MiroFish routes touched** — Only `SwarmbookReportView.vue` was modified. All MiroFish paths, router, store, and backend untouched.
+- **Demo mock preserved** — `loadDemoMock()` function and `MOCK_REPORT` / `MOCK_PLATFORM_POSTS` data embedded for offline validation.
+### Tests added/updated
+- Run frontend Vite production build: `✓ built in 23.94s`, 716 modules transformed, 0 compile errors.
+- Pre-existing `pendingUpload.js` dynamic import warning is unchanged from previous phases.
+### Known gaps
+- None introduced.
+
 ## Phase 49 (E2E Testing & Verification)
 ### Files
 - `backend/tests/test_book_sim_extra_edge_cases.py`

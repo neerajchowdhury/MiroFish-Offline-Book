@@ -1,0 +1,753 @@
+{
+  "report_id": "report_8a455c02f7f5",
+  "project_id": "proj_86c3332491c2",
+  "simulation_id": "sim_1d556fdc69a0",
+  "privacy_mode": "cloud_quality",
+  "draft_id": null,
+  "version": null,
+  "title": "Keys to the Quiet Gate",
+  "summary": "Predicted mean rating is 3.77 with DNF risk at 0.42. Best synthetic spread is on newsletter, booktok, while the main blocker is Section 1 may create drag or confusion.",
+  "audience_response": {
+    "personas_count": 60,
+    "posts_count": 60,
+    "mean_rating": 3.77,
+    "recommendation_mean": 1.0,
+    "top_platforms": [
+      "newsletter",
+      "booktok",
+      "goodreads"
+    ]
+  },
+  "scorecard": {
+    "rating_distribution": {
+      "predicted_mean_rating": 3.77,
+      "distribution": {
+        "1_star": 0.004,
+        "2_star": 0.004,
+        "3_star": 0.02,
+        "4_star": 0.951,
+        "5_star": 0.02
+      },
+      "confidence_band": {
+        "low": 1.0,
+        "mid": 1.0,
+        "high": 1.0,
+        "label": "moderate"
+      },
+      "component_scores": {
+        "comprehension": 0.0,
+        "emotional_payoff": 1.0,
+        "prose_quality": 0.65,
+        "pacing": 0.559,
+        "character_attachment": 0.753,
+        "packaging_fit": 0.59
+      },
+      "evidence_refs": [
+        "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+        "book_dna:heuristic",
+        "chunk_001",
+        "chapter:chunk_001",
+        "chapter:chunk_002",
+        "booktok_55c18417e1a7",
+        "x_ea273d7e1cf8",
+        "x_9d5d3b55ea78",
+        "x_dbb8a7ebfc2a",
+        "booktok_1cf16a4ab6da",
+        "booktok_ba235ab7aaf7",
+        "booktok_703c0f3cd866",
+        "x_74df67ad0857",
+        "booktok_06bc846a3111",
+        "booktok_41c3a1273a7f",
+        "booktok_bdf61963ac28",
+        "booktok_ae57bb96e9cd"
+      ],
+      "notes": [
+        "Deterministic rating estimate derived from private reactions and config weights.",
+        "This is descriptive forecasting, not scientific certainty."
+      ]
+    },
+    "dnf": {
+      "dnf_risk": 0.418,
+      "confidence_band": {
+        "low": 0.356,
+        "mid": 0.418,
+        "high": 0.48,
+        "label": "moderate"
+      },
+      "component_scores": {
+        "opening_drag": 0.573,
+        "confusion": 0.516,
+        "pacing_drag": 0.27,
+        "unmet_expectation": 0.43,
+        "voice_misalignment": 0.28,
+        "length_fatigue": 0.25
+      },
+      "chapter_points": [
+        {
+          "section_id": "chunk_001",
+          "chapter_number": 1,
+          "dnf_points": 0.35,
+          "reason": "chapter 1; pacing=fast; friction=limited_dialogue_relief"
+        },
+        {
+          "section_id": "chunk_002",
+          "chapter_number": 2,
+          "dnf_points": 0.35,
+          "reason": "chapter 2; pacing=fast; friction=limited_dialogue_relief"
+        },
+        {
+          "section_id": "chunk_003",
+          "chapter_number": 3,
+          "dnf_points": 0.25,
+          "reason": "chapter 3; pacing=fast; friction=limited_dialogue_relief"
+        },
+        {
+          "section_id": "chunk_004",
+          "chapter_number": 4,
+          "dnf_points": 0.25,
+          "reason": "chapter 4; pacing=fast; friction=limited_dialogue_relief"
+        },
+        {
+          "section_id": "chunk_005",
+          "chapter_number": 5,
+          "dnf_points": 0.25,
+          "reason": "chapter 5; pacing=fast; friction=limited_dialogue_relief"
+        },
+        {
+          "section_id": "chunk_006",
+          "chapter_number": 6,
+          "dnf_points": 0.25,
+          "reason": "chapter 6; pacing=fast; friction=limited_dialogue_relief"
+        },
+        {
+          "section_id": "chunk_007",
+          "chapter_number": 7,
+          "dnf_points": 0.25,
+          "reason": "chapter 7; pacing=fast; friction=limited_dialogue_relief"
+        },
+        {
+          "section_id": "chunk_008",
+          "chapter_number": 8,
+          "dnf_points": 0.25,
+          "reason": "chapter 8; pacing=fast; friction=limited_dialogue_relief"
+        },
+        {
+          "section_id": "chunk_009",
+          "chapter_number": 9,
+          "dnf_points": 0.25,
+          "reason": "chapter 9; pacing=fast; friction=limited_dialogue_relief"
+        }
+      ],
+      "evidence_refs": [
+        "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+        "book_dna:heuristic",
+        "chunk_001",
+        "risk_001",
+        "risk_002",
+        "risk_003",
+        "risk_004",
+        "risk_005",
+        "risk_006",
+        "risk_007",
+        "risk_008",
+        "risk_009",
+        "chapter:chunk_001",
+        "chapter:chunk_002",
+        "chapter:chunk_003",
+        "chapter:chunk_004",
+        "chapter:chunk_005",
+        "chapter:chunk_006",
+        "chapter:chunk_007",
+        "chapter:chunk_008",
+        "chapter:chunk_009"
+      ],
+      "notes": [
+        "Chapter points are descriptive hotspots, not predictive certainty.",
+        "Scores are deterministic and derived from the evidence pack plus private reactions."
+      ]
+    },
+    "controversy": {
+      "controversy_risk": 0.294,
+      "radar": {
+        "ideological_tension": 0.339,
+        "claim_hazard": 0.34,
+        "moral_disagreement": 0.2,
+        "tonal_disruption": 0.28,
+        "character_behavior_challenge": 0.3,
+        "packaging_mismatch": 0.29
+      },
+      "confidence_band": {
+        "low": 0.261,
+        "mid": 0.294,
+        "high": 0.327,
+        "label": "moderate"
+      },
+      "hotspots": [],
+      "evidence_refs": [
+        "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+        "book_dna:heuristic",
+        "chunk_001",
+        "risk_001",
+        "risk_002",
+        "risk_003",
+        "risk_004",
+        "risk_005",
+        "risk_006",
+        "risk_007",
+        "risk_008",
+        "risk_009",
+        "chapter:chunk_001",
+        "chapter:chunk_002",
+        "chapter:chunk_003",
+        "chapter:chunk_004",
+        "chapter:chunk_005",
+        "chapter:chunk_006",
+        "chapter:chunk_007",
+        "chapter:chunk_008",
+        "chapter:chunk_009"
+      ],
+      "notes": [
+        "Controversy is a descriptive radar, not a scientific certainty."
+      ]
+    },
+    "quoteability": {
+      "quoteability_score": 0.523,
+      "component_scores": {
+        "line_density": 0.47,
+        "image_making_language": 0.42,
+        "emotional_clarity": 0.658,
+        "repetition_resonance": 0.49,
+        "scene_peak_strength": 0.62,
+        "excerpt_friendly_structure": 0.54
+      },
+      "confidence_band": {
+        "low": 0.478,
+        "mid": 0.523,
+        "high": 0.568,
+        "label": "moderate"
+      },
+      "quote_candidates": [
+        {
+          "text": "Keys to the Quiet Gate I.",
+          "source": "book_dna"
+        },
+        {
+          "text": "Keys to the Quiet Gate I.",
+          "source": "chunk_001"
+        },
+        {
+          "text": "ed table under a lattice of phase-switched microcoils, a fragile state held for six seconds and then seven. Long enough.",
+          "source": "chunk_002"
+        },
+        {
+          "text": "ical venues. Guaranteed thought zones for senior leadership.",
+          "source": "chunk_003"
+        },
+        {
+          "text": "Keys to the Quiet Gate I.",
+          "source": "private_10b9d98df038"
+        },
+        {
+          "text": "Keys to the Quiet Gate I.",
+          "source": "private_be22c98a02fb"
+        }
+      ],
+      "evidence_refs": [
+        "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+        "book_dna:heuristic",
+        "chunk_001",
+        "style:global",
+        "chapter:chunk_001",
+        "chapter:chunk_002",
+        "booktok_55c18417e1a7",
+        "x_ea273d7e1cf8",
+        "x_9d5d3b55ea78",
+        "x_dbb8a7ebfc2a",
+        "booktok_1cf16a4ab6da",
+        "booktok_ba235ab7aaf7",
+        "booktok_703c0f3cd866",
+        "x_74df67ad0857",
+        "booktok_06bc846a3111",
+        "booktok_41c3a1273a7f",
+        "booktok_bdf61963ac28",
+        "booktok_ae57bb96e9cd"
+      ],
+      "notes": [
+        "Quoteability is a descriptive score and should not be treated as certainty."
+      ]
+    },
+    "polarization": {
+      "polarization_score": 0.285,
+      "component_scores": {
+        "taste_split": 0.488,
+        "ideology_split": 0.22,
+        "prose_split": 0.18,
+        "ending_split": 0.16,
+        "genre_expectation_split": 0.22
+      },
+      "confidence_band": {
+        "low": 0.222,
+        "mid": 0.285,
+        "high": 0.348,
+        "label": "moderate"
+      },
+      "split_signals": [],
+      "evidence_refs": [
+        "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+        "book_dna:heuristic",
+        "chunk_001",
+        "character_001",
+        "character_002",
+        "character_003",
+        "character_004",
+        "character_005",
+        "character_006",
+        "character_007",
+        "character_008",
+        "character_009",
+        "character_010",
+        "character_011",
+        "character_012",
+        "chapter:chunk_001",
+        "chapter:chunk_002",
+        "booktok_55c18417e1a7",
+        "x_ea273d7e1cf8",
+        "x_9d5d3b55ea78",
+        "x_dbb8a7ebfc2a",
+        "booktok_1cf16a4ab6da",
+        "booktok_ba235ab7aaf7",
+        "booktok_703c0f3cd866",
+        "x_74df67ad0857",
+        "booktok_06bc846a3111",
+        "booktok_41c3a1273a7f",
+        "booktok_bdf61963ac28",
+        "booktok_ae57bb96e9cd",
+        "platform_style:booktok",
+        "platform_style:x"
+      ],
+      "notes": [
+        "Polarization is a descriptive split signal, not a certainty statement."
+      ]
+    },
+    "viral": {
+      "platform_scores": {
+        "goodreads": 0.713,
+        "booktok": 0.762,
+        "reddit": 0.558,
+        "bookstagram": 0.607,
+        "x": 0.691,
+        "newsletter": 0.769,
+        "bookclub": 0.541
+      },
+      "top_platforms": [
+        "newsletter",
+        "booktok",
+        "goodreads"
+      ],
+      "confidence_band": {
+        "low": 0.612,
+        "mid": 0.663,
+        "high": 0.714,
+        "label": "moderate"
+      },
+      "component_scores": {
+        "emotional_spike": 0.901,
+        "trope_visibility": 0.67,
+        "novelty": 0.67,
+        "controversy": 0.483,
+        "quoteability": 0.67,
+        "concise_explainability": 0.55
+      },
+      "evidence_refs": [
+        "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+        "book_dna:heuristic",
+        "chunk_001",
+        "chapter:chunk_001",
+        "chapter:chunk_002",
+        "platform_style:reddit",
+        "platform_style:bookstagram",
+        "platform_style:goodreads",
+        "platform_style:booktok",
+        "platform_style:x",
+        "platform_style:newsletter"
+      ],
+      "notes": [
+        "Platform scores are synthetic and should not be read as market certainty."
+      ]
+    },
+    "revision_priority": {
+      "ranked_items": [
+        {
+          "item_id": "chunk_002",
+          "item_type": "chapter",
+          "priority_score": 0.349,
+          "reasons": [
+            "dnf_points=0.35",
+            "quoteability=0.523",
+            "rating=3.77",
+            "friction=limited_dialogue_relief"
+          ],
+          "evidence_refs": [
+            "chapter:chunk_002"
+          ]
+        },
+        {
+          "item_id": "chunk_001",
+          "item_type": "chapter",
+          "priority_score": 0.349,
+          "reasons": [
+            "dnf_points=0.35",
+            "quoteability=0.523",
+            "rating=3.77",
+            "friction=limited_dialogue_relief"
+          ],
+          "evidence_refs": [
+            "chapter:chunk_001"
+          ]
+        },
+        {
+          "item_id": "chunk_009",
+          "item_type": "chapter",
+          "priority_score": 0.304,
+          "reasons": [
+            "dnf_points=0.25",
+            "quoteability=0.523",
+            "rating=3.77",
+            "friction=limited_dialogue_relief"
+          ],
+          "evidence_refs": [
+            "chapter:chunk_009"
+          ]
+        },
+        {
+          "item_id": "chunk_008",
+          "item_type": "chapter",
+          "priority_score": 0.304,
+          "reasons": [
+            "dnf_points=0.25",
+            "quoteability=0.523",
+            "rating=3.77",
+            "friction=limited_dialogue_relief"
+          ],
+          "evidence_refs": [
+            "chapter:chunk_008"
+          ]
+        },
+        {
+          "item_id": "chunk_007",
+          "item_type": "chapter",
+          "priority_score": 0.304,
+          "reasons": [
+            "dnf_points=0.25",
+            "quoteability=0.523",
+            "rating=3.77",
+            "friction=limited_dialogue_relief"
+          ],
+          "evidence_refs": [
+            "chapter:chunk_007"
+          ]
+        },
+        {
+          "item_id": "chunk_006",
+          "item_type": "chapter",
+          "priority_score": 0.304,
+          "reasons": [
+            "dnf_points=0.25",
+            "quoteability=0.523",
+            "rating=3.77",
+            "friction=limited_dialogue_relief"
+          ],
+          "evidence_refs": [
+            "chapter:chunk_006"
+          ]
+        },
+        {
+          "item_id": "chunk_005",
+          "item_type": "chapter",
+          "priority_score": 0.304,
+          "reasons": [
+            "dnf_points=0.25",
+            "quoteability=0.523",
+            "rating=3.77",
+            "friction=limited_dialogue_relief"
+          ],
+          "evidence_refs": [
+            "chapter:chunk_005"
+          ]
+        },
+        {
+          "item_id": "chunk_004",
+          "item_type": "chapter",
+          "priority_score": 0.304,
+          "reasons": [
+            "dnf_points=0.25",
+            "quoteability=0.523",
+            "rating=3.77",
+            "friction=limited_dialogue_relief"
+          ],
+          "evidence_refs": [
+            "chapter:chunk_004"
+          ]
+        },
+        {
+          "item_id": "chunk_003",
+          "item_type": "chapter",
+          "priority_score": 0.304,
+          "reasons": [
+            "dnf_points=0.25",
+            "quoteability=0.523",
+            "rating=3.77",
+            "friction=limited_dialogue_relief"
+          ],
+          "evidence_refs": [
+            "chapter:chunk_003"
+          ]
+        },
+        {
+          "item_id": "e329927d4a873db3d0a7db92ea626d0e13c536ed437aca904b042cc08a389e16",
+          "item_type": "style",
+          "priority_score": 0.276,
+          "reasons": [
+            "quoteability=0.523",
+            "rating=3.77",
+            "clarity=high"
+          ],
+          "evidence_refs": [
+            "style:global"
+          ]
+        },
+        {
+          "item_id": "e1598ab6c27c51e61d428bf79a575a333c898e8d3fffe4c095aed9dab1682cc8",
+          "item_type": "market",
+          "priority_score": 0.203,
+          "reasons": [
+            "goodreads_viral=0.713",
+            "controversy=0.294"
+          ],
+          "evidence_refs": [
+            "book_dna:heuristic",
+            "chunk_001",
+            "style:global"
+          ]
+        }
+      ],
+      "confidence_band": {
+        "low": 0.277,
+        "mid": 0.349,
+        "high": 0.421,
+        "label": "moderate"
+      },
+      "evidence_refs": [
+        "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+        "book_dna:heuristic",
+        "chunk_001",
+        "chunk_002",
+        "chunk_003",
+        "chunk_004",
+        "chunk_005",
+        "chunk_006",
+        "chunk_007",
+        "chunk_008",
+        "chunk_009",
+        "risk_001",
+        "risk_002",
+        "risk_003",
+        "risk_004",
+        "risk_005",
+        "risk_006",
+        "risk_007",
+        "risk_008",
+        "risk_009"
+      ],
+      "notes": [
+        "Revision priority is a deterministic ranking, not a prescriptive editorial verdict."
+      ]
+    }
+  },
+  "segment_insights": [
+    {
+      "segment": "aesthetic_curators:bookstagram",
+      "rating_mean": 3.89,
+      "recommendation_mean": 1.0,
+      "signal": "positive",
+      "sample_personas": [
+        "Celeste C.",
+        "June W.",
+        "Esme J."
+      ],
+      "sentiments": [
+        "positive"
+      ]
+    },
+    {
+      "segment": "community_reviewers:goodreads",
+      "rating_mean": 4.11,
+      "recommendation_mean": 1.0,
+      "signal": "positive",
+      "sample_personas": [
+        "Quinn N.",
+        "Quinn D.",
+        "Parker D."
+      ],
+      "sentiments": [
+        "positive"
+      ]
+    },
+    {
+      "segment": "craft_conscious_readers:newsletter",
+      "rating_mean": 3.88,
+      "recommendation_mean": 1.0,
+      "signal": "positive",
+      "sample_personas": [
+        "Leah S."
+      ],
+      "sentiments": [
+        "positive"
+      ]
+    },
+    {
+      "segment": "hot_take_amplifiers:x",
+      "rating_mean": 3.998,
+      "recommendation_mean": 1.0,
+      "signal": "positive",
+      "sample_personas": [
+        "Micah R.",
+        "Kai N.",
+        "Blair T."
+      ],
+      "sentiments": [
+        "positive"
+      ]
+    },
+    {
+      "segment": "skeptical_forum_readers:reddit",
+      "rating_mean": 3.805,
+      "recommendation_mean": 1.0,
+      "signal": "positive",
+      "sample_personas": [
+        "Elliot P.",
+        "Shawn B.",
+        "Robin R."
+      ],
+      "sentiments": [
+        "positive"
+      ]
+    },
+    {
+      "segment": "viral_emotion_seekers:booktok",
+      "rating_mean": 4.185,
+      "recommendation_mean": 1.0,
+      "signal": "positive",
+      "sample_personas": [
+        "Harper C.",
+        "Skye P.",
+        "Lena G."
+      ],
+      "sentiments": [
+        "positive"
+      ]
+    }
+  ],
+  "top_risks": [
+    "Section 1 may create drag or confusion.",
+    "Section 2 may create drag or confusion.",
+    "Section 3 may create drag or confusion.",
+    "chunk_001 carries DNF pressure at 0.35.",
+    "chunk_002 carries DNF pressure at 0.35."
+  ],
+  "top_strengths": [
+    "Theme signal: grief.",
+    "Theme signal: memory.",
+    "Reader praise: internal_logic.",
+    "Reader praise: sharp_argument.",
+    "Reader praise: beautiful_package.",
+    "Reader praise: mood.",
+    "Reader praise: genre_tropes.",
+    "Reader praise: satisfying_arc.",
+    "Best synthetic platform fit: newsletter.",
+    "Best synthetic platform fit: booktok.",
+    "Quote candidate: Keys to the Quiet Gate I.."
+  ],
+  "revision_priorities": [
+    "chapter:chunk_002 (0.35)",
+    "chapter:chunk_001 (0.35)",
+    "chapter:chunk_009 (0.30)",
+    "chapter:chunk_008 (0.30)",
+    "chapter:chunk_007 (0.30)"
+  ],
+  "uncertainty_notes": [
+    "Deterministic rating estimate derived from private reactions and config weights.",
+    "This is descriptive forecasting, not scientific certainty.",
+    "Chapter points are descriptive hotspots, not predictive certainty.",
+    "Scores are deterministic and derived from the evidence pack plus private reactions.",
+    "Controversy is a descriptive radar, not a scientific certainty.",
+    "Quoteability is a descriptive score and should not be treated as certainty.",
+    "Polarization is a descriptive split signal, not a certainty statement.",
+    "Platform scores are synthetic and should not be read as market certainty.",
+    "Outputs are synthetic stress-test signals, not a guarantee of market behavior."
+  ],
+  "evidence_refs": [
+    "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+    "book_dna:heuristic",
+    "chunk_001",
+    "pack_2e1fba324151",
+    "chapter:chunk_001",
+    "chapter:chunk_002",
+    "booktok_55c18417e1a7",
+    "x_ea273d7e1cf8",
+    "x_9d5d3b55ea78",
+    "x_dbb8a7ebfc2a",
+    "booktok_1cf16a4ab6da",
+    "booktok_ba235ab7aaf7",
+    "booktok_703c0f3cd866",
+    "x_74df67ad0857",
+    "booktok_06bc846a3111",
+    "booktok_41c3a1273a7f",
+    "booktok_bdf61963ac28",
+    "booktok_ae57bb96e9cd",
+    "risk_001",
+    "risk_002",
+    "risk_003",
+    "risk_004",
+    "risk_005",
+    "risk_006",
+    "risk_007",
+    "risk_008",
+    "risk_009",
+    "chapter:chunk_003",
+    "chapter:chunk_004",
+    "chapter:chunk_005",
+    "chapter:chunk_006",
+    "chapter:chunk_007",
+    "chapter:chunk_008",
+    "chapter:chunk_009",
+    "style:global",
+    "character_001",
+    "character_002",
+    "character_003",
+    "character_004",
+    "character_005",
+    "character_006",
+    "character_007",
+    "character_008",
+    "character_009",
+    "character_010",
+    "character_011",
+    "character_012",
+    "platform_style:booktok",
+    "platform_style:x",
+    "platform_style:reddit",
+    "platform_style:bookstagram",
+    "platform_style:goodreads",
+    "platform_style:newsletter",
+    "chunk_002",
+    "chunk_003",
+    "chunk_004",
+    "chunk_005",
+    "chunk_006",
+    "chunk_007",
+    "chunk_008",
+    "chunk_009"
+  ],
+  "confidence": 0.74
+}

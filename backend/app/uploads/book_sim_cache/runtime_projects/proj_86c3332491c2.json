@@ -1,0 +1,54 @@
+{
+  "project_id": "proj_86c3332491c2",
+  "name": "Scifi test stiry",
+  "privacy_mode": "cloud_quality",
+  "draft_id": null,
+  "version": null,
+  "title": "Keys to the Quiet Gate",
+  "author_name": "Vanee Starfire",
+  "manuscript_input": null,
+  "source_files": [],
+  "metadata": {
+    "book_type": "fiction",
+    "genre": "sci-fi",
+    "target_reader": "sci-fi affectionado",
+    "subtitle": "",
+    "blurb": "In a school hallway that remembers more than people do, Professor Theo Langston traces his world-changing invention back to the quiet care of a forgotten custodian. When his “Quiet Gate” technology becomes coveted by powerful interests, Theo must choose between protecting his own origin story and using the invention to save a life. Keys to the Quiet Gate is a lyrical sci-fi tale about attention, dignity, hidden labor, and the small acts that keep fragile things standing.",
+    "comp_titles": "",
+    "cover_brief": "",
+    "local_profile": "cloud_quality",
+    "content_type": "short_story",
+    "test_goal": "do readers like the story that they will recommend it to others",
+    "local_profile_warnings": [
+      {
+        "code": "profile_warning",
+        "level": "info",
+        "message": "Heavier profile; may be slow or costly on 16 GB RAM and 6 GB VRAM."
+      },
+      {
+        "code": "profile_warning",
+        "level": "info",
+        "message": "Not recommended as default on low-resource personal hardware."
+      },
+      {
+        "code": "cloud_quality_heavy",
+        "level": "warning",
+        "message": "cloud_quality can be slower and more costly on 16 GB RAM / 6 GB VRAM systems."
+      },
+      {
+        "code": "high_persona_load",
+        "level": "warning",
+        "message": "Persona count above 30 may increase latency on the configured hardware target."
+      },
+      {
+        "code": "cloud_manuscript_privacy",
+        "level": "warning",
+        "message": "This profile allows full manuscript cloud upload. Review privacy policy before use."
+      }
+    ]
+  },
+  "evidence_refs": [],
+  "confidence": null,
+  "created_at": "2026-05-30T11:24:09.854786+00:00",
+  "updated_at": "2026-05-30T11:24:09.854786+00:00"
+}

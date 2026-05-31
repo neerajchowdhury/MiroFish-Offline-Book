@@ -1,0 +1,241 @@
+{
+  "pack_id": "pack_29b8905fa99a",
+  "project_id": "proj_1d49ce5ae890",
+  "draft_id": null,
+  "version": null,
+  "privacy_mode": "hybrid_safe",
+  "manuscript_input": {
+    "input_id": "input_c8fb74440233",
+    "project_id": "proj_1d49ce5ae890",
+    "title": "Automated Test Book",
+    "author_name": "Automated Tester",
+    "filename": "sample_fiction_excerpt.md",
+    "mime_type": "text/plain",
+    "text": "Chapter 1\n\nMara arrives at the town hall carrying a secret. The cold air bites through her thin jacket, but the letter burns hot in her pocket.\n\nChapter 2\n\nThe decision is delayed, and the town grows impatient. Voices echo off the stone walls of the chamber.\n\nChapter 3\n\nThe public cost becomes impossible to ignore. Mara steps forward.",
+    "language": "en",
+    "privacy_mode": "hybrid_safe",
+    "draft_id": null,
+    "version": null,
+    "chunk_size": 500,
+    "chunk_overlap": 50,
+    "metadata": {
+      "book_type": "fiction",
+      "genre": "Fiction",
+      "target_reader": "Fans of suspense",
+      "subtitle": "",
+      "blurb": "A short excerpt about Mara arriving with a secret. Detailed blurb description must be long enough to pass validation.",
+      "comp_titles": "",
+      "cover_brief": "",
+      "content_type": "novel",
+      "test_goal": "Test the ending pacing"
+    },
+    "evidence_refs": [],
+    "confidence": null,
+    "created_at": "2026-05-31T08:15:01.667709+00:00"
+  },
+  "book_dna": {
+    "title": "Automated Test Book",
+    "premise": "Mara arrives at the town hall carrying a secret. The cold air bites through her thin jacket, but the letter burns hot in her pocket.",
+    "genre": "mixed/unknown",
+    "book_type": "mixed_unknown",
+    "subgenre": null,
+    "tone": "Short sentences and quick paragraph turns suggest fast pacing.",
+    "emotional_promise": "",
+    "narrative_engine": "opening",
+    "reading_difficulty": "medium",
+    "target_reader": "broad readers",
+    "comparable_titles": [],
+    "themes": [
+      "identity"
+    ],
+    "spoilers_safe_summary": "Mara arrives at the town hall carrying a secret. The cold air bites through her thin jacket, but the letter burns hot in her pocket.",
+    "evidence_refs": [
+      "book_dna:heuristic",
+      "chapter_001"
+    ],
+    "confidence": 0.6
+  },
+  "chapter_map": {
+    "book_id": "proj_1d49ce5ae890",
+    "chapters": [
+      {
+        "chapter_id": "chapter_001",
+        "chapter_number": 1,
+        "title": "Chapter 1",
+        "summary": "Mara arrives at the town hall carrying a secret. The cold air bites through her thin jacket, but the letter burns hot in her pocket.",
+        "purpose": "opening",
+        "chapter_function": "opening",
+        "pacing": "fast",
+        "pacing_note": "Short sentences and quick paragraph turns suggest fast pacing.",
+        "key_beats": [
+          "Mara arrives at the town hall carrying a secret.",
+          "The cold air bites through her thin jacket, but the letter burns hot in her pocket."
+        ],
+        "emotional_beats": [],
+        "turning_points": [
+          "The cold air bites through her thin jacket, but the letter burns hot in her pocket."
+        ],
+        "open_questions": [],
+        "likely_reader_friction": [],
+        "spoiler_notes": [],
+        "evidence_refs": [
+          "chapter:chapter_001"
+        ],
+        "confidence": 0.58
+      },
+      {
+        "chapter_id": "chapter_002",
+        "chapter_number": 2,
+        "title": "Chapter 2",
+        "summary": "The decision is delayed, and the town grows impatient. Voices echo off the stone walls of the chamber.",
+        "purpose": "escalation",
+        "chapter_function": "escalation",
+        "pacing": "fast",
+        "pacing_note": "Short sentences and quick paragraph turns suggest fast pacing.",
+        "key_beats": [
+          "The decision is delayed, and the town grows impatient.",
+          "Voices echo off the stone walls of the chamber."
+        ],
+        "emotional_beats": [],
+        "turning_points": [
+          "Voices echo off the stone walls of the chamber."
+        ],
+        "open_questions": [],
+        "likely_reader_friction": [],
+        "spoiler_notes": [],
+        "evidence_refs": [
+          "chapter:chapter_002"
+        ],
+        "confidence": 0.58
+      },
+      {
+        "chapter_id": "chapter_003",
+        "chapter_number": 3,
+        "title": "Chapter 3",
+        "summary": "The public cost becomes impossible to ignore. Mara steps forward.",
+        "purpose": "conclusion",
+        "chapter_function": "conclusion",
+        "pacing": "fast",
+        "pacing_note": "Short sentences and quick paragraph turns suggest fast pacing.",
+        "key_beats": [
+          "The public cost becomes impossible to ignore.",
+          "Mara steps forward."
+        ],
+        "emotional_beats": [],
+        "turning_points": [
+          "Mara steps forward."
+        ],
+        "open_questions": [],
+        "likely_reader_friction": [],
+        "spoiler_notes": [],
+        "evidence_refs": [
+          "chapter:chapter_003"
+        ],
+        "confidence": 0.58
+      }
+    ],
+    "total_chapters": 3,
+    "pacing_profile": "fast-leaning",
+    "structural_notes": [
+      "Detected 3 chapter sections."
+    ],
+    "evidence_refs": [
+      "chapter_001",
+      "chapter_002",
+      "chapter_003"
+    ],
+    "confidence": 0.7
+  },
+  "character_map": {
+    "book_id": "proj_1d49ce5ae890",
+    "characters": [
+      {
+        "character_id": "character_001",
+        "name": "Mara",
+        "role": "supporting",
+        "motivations": [],
+        "goals": [],
+        "conflicts": [],
+        "contradictions": [],
+        "relationships": {},
+        "arc_summary": "Mara moves from 'Mara arrives at the town hall carrying a secret.' toward 'Mara steps forward.'.",
+        "attachment_potential": 0.44,
+        "reader_friction": [],
+        "evidence_refs": [
+          "chapter_001",
+          "chapter_003"
+        ],
+        "confidence": 0.62
+      }
+    ],
+    "cast_size": 1,
+    "relationship_graph_summary": "Detected 1 recurring named characters.",
+    "evidence_refs": [
+      "character_001"
+    ],
+    "confidence": 0.64
+  },
+  "claim_map": {
+    "book_id": "proj_1d49ce5ae890",
+    "claims": [],
+    "thesis_summary": null,
+    "argument_strength_summary": "No strong nonfiction claims detected.",
+    "evidence_refs": [],
+    "confidence": 0.42
+  },
+  "risk_map": {
+    "book_id": "proj_1d49ce5ae890",
+    "risks": [],
+    "risk_summary": "No major heuristic risks detected.",
+    "evidence_refs": [],
+    "confidence": 0.45
+  },
+  "style_map": {
+    "book_id": "proj_1d49ce5ae890",
+    "prose_density": "low",
+    "clarity": "high",
+    "rhythm": "staccato",
+    "voice_consistency": "steady",
+    "quoteability": "low",
+    "accessibility": "high",
+    "style_notes": [
+      "style appears steady and readable"
+    ],
+    "evidence_refs": [
+      "style:global"
+    ],
+    "confidence": 0.72
+  },
+  "market_surface": {
+    "book_id": "proj_1d49ce5ae890",
+    "target_segments": [
+      "curious early readers",
+      "hybrid-genre readers"
+    ],
+    "comp_titles": [],
+    "positioning_summary": "mixed/unknown with a mixed_unknown reading experience.",
+    "discoverability_hooks": [
+      "mixed/unknown",
+      "identity"
+    ],
+    "packaging_expectations": [
+      "set reader expectations carefully",
+      "signal mixed structure"
+    ],
+    "promise_gap": null,
+    "audience_fit": "medium_high",
+    "evidence_refs": [
+      "book_dna:heuristic",
+      "chapter_001",
+      "style:global"
+    ],
+    "confidence": 0.66
+  },
+  "evidence_refs": [
+    "29b8905fa99a19bfba95de2b3fb0d199e1855bc34fb9c7865f18e326e82db0e3",
+    "book_dna:heuristic",
+    "chapter_001"
+  ],
+  "confidence": 0.74,
+  "generated_at": "2026-05-31T08:15:11.069603+00:00"
+}

@@ -1,5 +1,19 @@
 # Swarmbook Decisions (Reconstructed)
 
+## D-054
+- Date: `2026-05-31`
+- Decision: Refactor Vitest unit tests in `wizardValidation.spec.js` and Playwright E2E tests in `swarmbook.spec.js` to align with the redesigned 6-step setup wizard markup, validation requirements, and asynchronous file parsing behavior.
+- Rationale: The redesigned wizard wizard Step 1 validation requires four fields (`projectName`, `title`, `authorName`, `genre`) instead of just two. Outdated selectors (`input[type="text"].form-control`) in the Playwright E2E test script failed to target the new markup. Additionally, Playwright was proceeding immediately to Step 3 after setting the file input in Step 2, triggering step validation errors before the asynchronous parse endpoint could return. Waiting for the `.selected-file-display` class locator to appear resolves the race condition.
+- Trade-off: None. The changes fix failing tests and verify the UI behavior accurately.
+- Files affected: `frontend/src/tests/wizardValidation.spec.js`, `frontend/e2e/swarmbook.spec.js`
+
+## D-053
+- Date: `2026-05-31`
+- Decision: Rewrite `NewSimulationWizardView.vue` from 5 to 6 clearly-separated steps; split Project Basics (Step 1) from Content Intent (Step 3); add export copy helpers for Executive Summary and Revision Plan.
+- Rationale: Authors were required to fill too many unrelated fields in a single step (Basics previously mixed identity, blurb, target reader, test goal, comp titles, and privacy). Splitting into Basics → Upload → Intent → Evidence → Setup → Review gives each step a focused question heading and single primary action. "What happens next" helpers eliminate the "simulation feels sudden" problem. Export copy utilities add quick paste-to-Notion/journal workflows without requiring a file download.
+- Trade-off: The Development Editor Board toggle is UI-only — the backend always runs editor board lenses regardless of the toggle value. The toggle is scaffolded for a future `editor_board_enabled` backend parameter.
+- Files affected: `frontend/src/views/swarmbook/NewSimulationWizardView.vue`, `frontend/src/views/swarmbook/SwarmbookReportView.vue`, `frontend/src/utils/exportReport.js`, `docs/REPORT_EXPORT_BACKEND_CONTRACT.md` [NEW]
+
 ## D-052
 - Date: `2026-05-29`
 - Decision: Add `test_book_sim_extra_edge_cases.py` unit tests testing DraftComparator self-comparison, extreme scoring boundaries, and privacy router filter constraint.

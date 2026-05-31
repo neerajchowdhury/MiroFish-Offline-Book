@@ -106,7 +106,7 @@ export function generateMarkdown(report, sessionContext) {
 }
 
 /**
- * 3. Copy to Clipboard
+ * 3. Copy to Clipboard (full Markdown report)
  */
 export async function copyToClipboard(report, sessionContext) {
   const content = buildMarkdownContent(report, sessionContext)
@@ -124,6 +124,82 @@ export async function copyToClipboard(report, sessionContext) {
     document.body.removeChild(textArea)
   }
 }
+
+/**
+ * 6. Copy Executive Summary to Clipboard
+ * Copies the executive verdict + confidence + top metrics as plain text.
+ */
+export async function copyExecutiveSummary(report) {
+  if (!report) throw new Error('No report available.')
+  const rating = report.scorecard?.rating_distribution?.predicted_mean_rating
+  const dnf = report.scorecard?.dnf?.dnf_risk
+  const conf = Math.round((report.confidence || 0) * 100)
+  const lines = [
+    `EXECUTIVE SUMMARY — ${report.title || report.project_id}`,
+    `Generated: ${getFormatDate()}`,
+    ``,
+    report.summary || 'No summary available.',
+    ``,
+    `Stage Confidence: ${conf}%`,
+    rating !== undefined ? `Predicted Mean Rating: ${Number(rating).toFixed(2)} ★` : '',
+    dnf !== undefined ? `DNF Risk: ${Math.round(Number(dnf) * 100)}%` : '',
+    ``,
+    `[Synthesized by Swarmbook Studio — synthetic simulation only, not market validation]`
+  ].filter(l => l !== undefined).join('\n')
+
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    await navigator.clipboard.writeText(lines)
+  } else {
+    const ta = document.createElement('textarea')
+    ta.value = lines
+    document.body.appendChild(ta)
+    ta.select()
+    document.execCommand('copy')
+    document.body.removeChild(ta)
+  }
+}
+
+/**
+ * 7. Copy Revision Plan to Clipboard
+ * Copies all ranked revision items as a numbered plain-text checklist.
+ */
+export async function copyRevisionPlan(report) {
+  if (!report) throw new Error('No report available.')
+  const items = report.scorecard?.revision_priority?.ranked_items || []
+  const lines = [
+    `REVISION PLAN — ${report.title || report.project_id}`,
+    `Generated: ${getFormatDate()}`,
+    ``
+  ]
+  if (items.length === 0) {
+    lines.push('No revision priorities were generated.')
+  } else {
+    items.forEach((item, idx) => {
+      lines.push(`${idx + 1}. [${item.item_type.toUpperCase()}] ${item.item_id} — Priority Score: ${Math.round(item.priority_score * 100)}%`)
+      if (item.reasons?.length) {
+        item.reasons.forEach(r => lines.push(`   • ${r}`))
+      }
+      if (item.evidence_refs?.length) {
+        lines.push(`   Evidence: ${item.evidence_refs.join(', ')}`)
+      }
+      lines.push('')
+    })
+  }
+  lines.push(`[Synthesized by Swarmbook Studio — synthetic simulation only, not market validation]`)
+
+  const text = lines.join('\n')
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    await navigator.clipboard.writeText(text)
+  } else {
+    const ta = document.createElement('textarea')
+    ta.value = text
+    document.body.appendChild(ta)
+    ta.select()
+    document.execCommand('copy')
+    document.body.removeChild(ta)
+  }
+}
+
 
 /**
  * 4. Generate DOCX Export (Structured)

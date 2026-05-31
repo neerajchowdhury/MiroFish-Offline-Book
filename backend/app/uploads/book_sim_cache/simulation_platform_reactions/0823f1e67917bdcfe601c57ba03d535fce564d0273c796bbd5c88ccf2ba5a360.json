@@ -1,0 +1,2672 @@
+{
+  "posts": [
+    {
+      "post_id": "reddit_72a8257597e3",
+      "simulation_id": "sim_1d556fdc69a0",
+      "persona_id": "reddit_skeptic_01_5745",
+      "platform": "reddit",
+      "round_number": 1,
+      "title": "[Discussion] Keys to the Quiet Gate works until handwaving",
+      "body": "My thesis: the book succeeds because of internal_logic, sharp_argument, but it asks you to forgive handwaving, plot_holes.",
+      "rating": 3.4,
+      "hashtags": [],
+      "shelf_tags": [],
+      "payload": {
+        "thread_title": "[Discussion] Keys to the Quiet Gate works until handwaving",
+        "top_comment": "My thesis: the book succeeds because of internal_logic, sharp_argument, but it asks you to forgive handwaving, plot_holes.",
+        "skeptical_comment": "I still don't buy the framing around handwaving.",
+        "debate_branch": [
+          "User A defends the fantasy expectations.",
+          "User B says the payoff earns the setup.",
+          "User C argues the momentum collapses in the middle."
+        ],
+        "logic_framing_objection": "The sharpest objection is whether handwaving is actually supported on the page.",
+        "evidence_refs": [
+          "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+          "book_dna:heuristic",
+          "chunk_001",
+          "chapter:chunk_001",
+          "chapter:chunk_002",
+          "platform_style:reddit"
+        ]
+      },
+      "engagement_prediction": 0.611,
+      "sentiment": "mixed",
+      "evidence_refs": [
+        "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+        "book_dna:heuristic",
+        "chunk_001",
+        "chapter:chunk_001",
+        "chapter:chunk_002",
+        "platform_style:reddit"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "post_id": "bookstagram_3bfb483f25b8",
+      "simulation_id": "sim_1d556fdc69a0",
+      "persona_id": "bookstagram_curator_02_3291",
+      "platform": "bookstagram",
+      "round_number": 1,
+      "title": null,
+      "body": "Keys to the Quiet Gate looks like Short sentences and quick paragraph turns suggest fast pacing. and reads like beautiful_package, mood.",
+      "rating": 3.7,
+      "hashtags": [
+        "fantasy",
+        "annotated_copy",
+        "reading_night"
+      ],
+      "shelf_tags": [],
+      "payload": {
+        "caption": "Keys to the Quiet Gate looks like Short sentences and quick paragraph turns suggest fast pacing. and reads like beautiful_package, mood.",
+        "carousel_idea": [
+          "cover shot with tabs",
+          "quote slide featuring grief",
+          "final slide with shelf verdict"
+        ],
+        "aesthetic_tags": [
+          "fantasy",
+          "annotated_copy",
+          "reading_night"
+        ],
+        "quote_card_candidates": [
+          "Keys to the Quiet Gate I."
+        ],
+        "save_share_reason": "save for vibes and share for the quote density",
+        "evidence_refs": [
+          "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+          "book_dna:heuristic",
+          "chunk_001",
+          "chapter:chunk_001",
+          "chapter:chunk_002",
+          "platform_style:bookstagram"
+        ]
+      },
+      "engagement_prediction": 0.689,
+      "sentiment": "mixed",
+      "evidence_refs": [
+        "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+        "book_dna:heuristic",
+        "chunk_001",
+        "chapter:chunk_001",
+        "chapter:chunk_002",
+        "platform_style:bookstagram"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "post_id": "goodreads_49f83b105d3c",
+      "simulation_id": "sim_1d556fdc69a0",
+      "persona_id": "goodreads_genre_loyalist_03_1292",
+      "platform": "goodreads",
+      "round_number": 1,
+      "title": "Keys to the Quiet Gate: strong Short sentences and quick paragraph turns suggest fast pacing. payoff",
+      "body": "I came for the fantasy promise and stayed for genre_tropes, satisfying_arc. My main friction was genre_betrayal, ambiguous_endings.",
+      "rating": 4.21,
+      "hashtags": [],
+      "shelf_tags": [
+        "fantasy",
+        "community_reviewers",
+        "swarmbook-simulated"
+      ],
+      "payload": {
+        "star_rating": 4,
+        "review_title": "Keys to the Quiet Gate: strong Short sentences and quick paragraph turns suggest fast pacing. payoff",
+        "review_body": "I came for the fantasy promise and stayed for genre_tropes, satisfying_arc. My main friction was genre_betrayal, ambiguous_endings.",
+        "shelf_tags": [
+          "fantasy",
+          "community_reviewers",
+          "swarmbook-simulated"
+        ],
+        "dnf_note": "Finished the book",
+        "quote_highlights": [
+          "Keys to the Quiet Gate I."
+        ],
+        "evidence_refs": [
+          "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+          "book_dna:heuristic",
+          "chunk_001",
+          "chapter:chunk_001",
+          "chapter:chunk_002",
+          "platform_style:goodreads"
+        ]
+      },
+      "engagement_prediction": 0.553,
+      "sentiment": "mixed",
+      "evidence_refs": [
+        "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+        "book_dna:heuristic",
+        "chunk_001",
+        "chapter:chunk_001",
+        "chapter:chunk_002",
+        "platform_style:goodreads"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "post_id": "booktok_ba235ab7aaf7",
+      "simulation_id": "sim_1d556fdc69a0",
+      "persona_id": "booktok_emotional_amplifier_04_5377",
+      "platform": "booktok",
+      "round_number": 1,
+      "title": "If Keys to the Quiet Gate broke me in 15 seconds, that's your warning.",
+      "body": "Stop scrolling if you want fantasy with Short sentences and quick paragraph turns suggest fast pacing.. Act one: Keys to the Quiet Gate I.. Act two: why I couldn't stop thinking about heartbreak, found_family.",
+      "rating": 4.09,
+      "hashtags": [
+        "heartbreak",
+        "found_family",
+        "catharsis"
+      ],
+      "shelf_tags": [],
+      "payload": {
+        "video_script": "Stop scrolling if you want fantasy with Short sentences and quick paragraph turns suggest fast pacing.. Act one: Keys to the Quiet Gate I.. Act two: why I couldn't stop thinking about heartbreak, found_family.",
+        "trope_tags": [
+          "heartbreak",
+          "found_family",
+          "catharsis"
+        ],
+        "hook_line": "If Keys to the Quiet Gate broke me in 15 seconds, that's your warning.",
+        "visual_motif": "Section 1, Section 2",
+        "viral_trigger": "high",
+        "cringe_mockery_risk": "medium_low",
+        "evidence_refs": [
+          "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+          "book_dna:heuristic",
+          "chunk_001",
+          "chapter:chunk_001",
+          "chapter:chunk_002",
+          "platform_style:booktok"
+        ]
+      },
+      "engagement_prediction": 0.815,
+      "sentiment": "mixed",
+      "evidence_refs": [
+        "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+        "book_dna:heuristic",
+        "chunk_001",
+        "chapter:chunk_001",
+        "chapter:chunk_002",
+        "platform_style:booktok"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "post_id": "booktok_ae57bb96e9cd",
+      "simulation_id": "sim_1d556fdc69a0",
+      "persona_id": "booktok_trope_hunter_05_1314",
+      "platform": "booktok",
+      "round_number": 1,
+      "title": "If Keys to the Quiet Gate broke me in 15 seconds, that's your warning.",
+      "body": "Stop scrolling if you want fantasy with Short sentences and quick paragraph turns suggest fast pacing.. Act one: Keys to the Quiet Gate I.. Act two: why I couldn't stop thinking about enemies_to_lovers, slow_burn.",
+      "rating": 4.25,
+      "hashtags": [
+        "enemies_to_lovers",
+        "slow_burn",
+        "forced_proximity"
+      ],
+      "shelf_tags": [],
+      "payload": {
+        "video_script": "Stop scrolling if you want fantasy with Short sentences and quick paragraph turns suggest fast pacing.. Act one: Keys to the Quiet Gate I.. Act two: why I couldn't stop thinking about enemies_to_lovers, slow_burn.",
+        "trope_tags": [
+          "enemies_to_lovers",
+          "slow_burn",
+          "forced_proximity"
+        ],
+        "hook_line": "If Keys to the Quiet Gate broke me in 15 seconds, that's your warning.",
+        "visual_motif": "Section 1, Section 2",
+        "viral_trigger": "medium",
+        "cringe_mockery_risk": "medium_low",
+        "evidence_refs": [
+          "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+          "book_dna:heuristic",
+          "chunk_001",
+          "chapter:chunk_001",
+          "chapter:chunk_002",
+          "platform_style:booktok"
+        ]
+      },
+      "engagement_prediction": 0.824,
+      "sentiment": "mixed",
+      "evidence_refs": [
+        "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+        "book_dna:heuristic",
+        "chunk_001",
+        "chapter:chunk_001",
+        "chapter:chunk_002",
+        "platform_style:booktok"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "post_id": "bookstagram_07d0aa51d6a5",
+      "simulation_id": "sim_1d556fdc69a0",
+      "persona_id": "bookstagram_curator_06_7415",
+      "platform": "bookstagram",
+      "round_number": 1,
+      "title": null,
+      "body": "Keys to the Quiet Gate looks like Short sentences and quick paragraph turns suggest fast pacing. and reads like beautiful_package, mood.",
+      "rating": 3.56,
+      "hashtags": [
+        "fantasy",
+        "annotated_copy",
+        "reading_night"
+      ],
+      "shelf_tags": [],
+      "payload": {
+        "caption": "Keys to the Quiet Gate looks like Short sentences and quick paragraph turns suggest fast pacing. and reads like beautiful_package, mood.",
+        "carousel_idea": [
+          "cover shot with tabs",
+          "quote slide featuring grief",
+          "final slide with shelf verdict"
+        ],
+        "aesthetic_tags": [
+          "fantasy",
+          "annotated_copy",
+          "reading_night"
+        ],
+        "quote_card_candidates": [
+          "Keys to the Quiet Gate I."
+        ],
+        "save_share_reason": "save for vibes and share for the quote density",
+        "evidence_refs": [
+          "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+          "book_dna:heuristic",
+          "chunk_001",
+          "chapter:chunk_001",
+          "chapter:chunk_002",
+          "platform_style:bookstagram"
+        ]
+      },
+      "engagement_prediction": 0.697,
+      "sentiment": "mixed",
+      "evidence_refs": [
+        "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+        "book_dna:heuristic",
+        "chunk_001",
+        "chapter:chunk_001",
+        "chapter:chunk_002",
+        "platform_style:bookstagram"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "post_id": "goodreads_e89e31042d32",
+      "simulation_id": "sim_1d556fdc69a0",
+      "persona_id": "goodreads_genre_loyalist_07_6109",
+      "platform": "goodreads",
+      "round_number": 1,
+      "title": "Keys to the Quiet Gate: strong Short sentences and quick paragraph turns suggest fast pacing. payoff",
+      "body": "I came for the fantasy promise and stayed for genre_tropes, satisfying_arc. My main friction was genre_betrayal, ambiguous_endings.",
+      "rating": 3.54,
+      "hashtags": [],
+      "shelf_tags": [
+        "fantasy",
+        "community_reviewers",
+        "swarmbook-simulated"
+      ],
+      "payload": {
+        "star_rating": 4,
+        "review_title": "Keys to the Quiet Gate: strong Short sentences and quick paragraph turns suggest fast pacing. payoff",
+        "review_body": "I came for the fantasy promise and stayed for genre_tropes, satisfying_arc. My main friction was genre_betrayal, ambiguous_endings.",
+        "shelf_tags": [
+          "fantasy",
+          "community_reviewers",
+          "swarmbook-simulated"
+        ],
+        "dnf_note": "Finished the book",
+        "quote_highlights": [
+          "Keys to the Quiet Gate I."
+        ],
+        "evidence_refs": [
+          "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+          "book_dna:heuristic",
+          "chunk_001",
+          "chapter:chunk_001",
+          "chapter:chunk_002",
+          "platform_style:goodreads"
+        ]
+      },
+      "engagement_prediction": 0.635,
+      "sentiment": "mixed",
+      "evidence_refs": [
+        "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+        "book_dna:heuristic",
+        "chunk_001",
+        "chapter:chunk_001",
+        "chapter:chunk_002",
+        "platform_style:goodreads"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "post_id": "x_17b6ed9c90ef",
+      "simulation_id": "sim_1d556fdc69a0",
+      "persona_id": "x_hot_take_reader_08_8970",
+      "platform": "x",
+      "round_number": 1,
+      "title": "Keys to the Quiet Gate is either a 5-star obsession or proof that slowness kills momentum.",
+      "body": "QT: the book absolutely delivers on provocation.",
+      "rating": 3.78,
+      "hashtags": [],
+      "shelf_tags": [],
+      "payload": {
+        "hot_take": "Keys to the Quiet Gate is either a 5-star obsession or proof that slowness kills momentum.",
+        "quote_tweet": "QT: the book absolutely delivers on provocation.",
+        "controversy_compression": "Compressed discourse: slowness vs payoff.",
+        "author_brand_reaction": "helps author brand if they lean into the strong opinion traffic",
+        "evidence_refs": [
+          "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+          "book_dna:heuristic",
+          "chunk_001",
+          "chapter:chunk_001",
+          "chapter:chunk_002",
+          "platform_style:x"
+        ]
+      },
+      "engagement_prediction": 0.784,
+      "sentiment": "mixed",
+      "evidence_refs": [
+        "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+        "book_dna:heuristic",
+        "chunk_001",
+        "chapter:chunk_001",
+        "chapter:chunk_002",
+        "platform_style:x"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "post_id": "newsletter_8c2b2d22d2bf",
+      "simulation_id": "sim_1d556fdc69a0",
+      "persona_id": "literary_reader_09_1879",
+      "platform": "newsletter",
+      "round_number": 1,
+      "title": "If your subscribers respond to fantasy with a strong thematic center, Keys to the Quiet Gate is worth a look for voice, ",
+      "body": "If your subscribers respond to fantasy with a strong thematic center, Keys to the Quiet Gate is worth a look for voice, subtext.",
+      "rating": 3.66,
+      "hashtags": [],
+      "shelf_tags": [],
+      "payload": {
+        "recommendation_blurb": "If your subscribers respond to fantasy with a strong thematic center, Keys to the Quiet Gate is worth a look for voice, subtext.",
+        "target_subscriber_type": "Goodreads genre loyalist, casual Kindle reader",
+        "referral_likelihood": "medium",
+        "evidence_refs": [
+          "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+          "book_dna:heuristic",
+          "chunk_001",
+          "chapter:chunk_001",
+          "chapter:chunk_002",
+          "platform_style:newsletter"
+        ]
+      },
+      "engagement_prediction": 0.604,
+      "sentiment": "mixed",
+      "evidence_refs": [
+        "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+        "book_dna:heuristic",
+        "chunk_001",
+        "chapter:chunk_001",
+        "chapter:chunk_002",
+        "platform_style:newsletter"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "post_id": "reddit_bb7f4f573dca",
+      "simulation_id": "sim_1d556fdc69a0",
+      "persona_id": "reddit_skeptic_10_4147",
+      "platform": "reddit",
+      "round_number": 1,
+      "title": "[Discussion] Keys to the Quiet Gate works until handwaving",
+      "body": "My thesis: the book succeeds because of internal_logic, sharp_argument, but it asks you to forgive handwaving, plot_holes.",
+      "rating": 3.46,
+      "hashtags": [],
+      "shelf_tags": [],
+      "payload": {
+        "thread_title": "[Discussion] Keys to the Quiet Gate works until handwaving",
+        "top_comment": "My thesis: the book succeeds because of internal_logic, sharp_argument, but it asks you to forgive handwaving, plot_holes.",
+        "skeptical_comment": "I still don't buy the framing around handwaving.",
+        "debate_branch": [
+          "User A defends the fantasy expectations.",
+          "User B says the payoff earns the setup.",
+          "User C argues the momentum collapses in the middle."
+        ],
+        "logic_framing_objection": "The sharpest objection is whether handwaving is actually supported on the page.",
+        "evidence_refs": [
+          "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+          "book_dna:heuristic",
+          "chunk_001",
+          "chapter:chunk_001",
+          "chapter:chunk_002",
+          "platform_style:reddit"
+        ]
+      },
+      "engagement_prediction": 0.561,
+      "sentiment": "mixed",
+      "evidence_refs": [
+        "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+        "book_dna:heuristic",
+        "chunk_001",
+        "chapter:chunk_001",
+        "chapter:chunk_002",
+        "platform_style:reddit"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "post_id": "x_d66805adce43",
+      "simulation_id": "sim_1d556fdc69a0",
+      "persona_id": "x_hot_take_reader_11_6386",
+      "platform": "x",
+      "round_number": 1,
+      "title": "Keys to the Quiet Gate is either a 5-star obsession or proof that slowness kills momentum.",
+      "body": "QT: the book absolutely delivers on provocation.",
+      "rating": 3.63,
+      "hashtags": [],
+      "shelf_tags": [],
+      "payload": {
+        "hot_take": "Keys to the Quiet Gate is either a 5-star obsession or proof that slowness kills momentum.",
+        "quote_tweet": "QT: the book absolutely delivers on provocation.",
+        "controversy_compression": "Compressed discourse: slowness vs payoff.",
+        "author_brand_reaction": "helps author brand if they lean into the strong opinion traffic",
+        "evidence_refs": [
+          "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+          "book_dna:heuristic",
+          "chunk_001",
+          "chapter:chunk_001",
+          "chapter:chunk_002",
+          "platform_style:x"
+        ]
+      },
+      "engagement_prediction": 0.753,
+      "sentiment": "mixed",
+      "evidence_refs": [
+        "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+        "book_dna:heuristic",
+        "chunk_001",
+        "chapter:chunk_001",
+        "chapter:chunk_002",
+        "platform_style:x"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "post_id": "x_f46399383fa0",
+      "simulation_id": "sim_1d556fdc69a0",
+      "persona_id": "x_hot_take_reader_12_9791",
+      "platform": "x",
+      "round_number": 1,
+      "title": "Keys to the Quiet Gate is either a 5-star obsession or proof that slowness kills momentum.",
+      "body": "QT: the book absolutely delivers on provocation.",
+      "rating": 3.74,
+      "hashtags": [],
+      "shelf_tags": [],
+      "payload": {
+        "hot_take": "Keys to the Quiet Gate is either a 5-star obsession or proof that slowness kills momentum.",
+        "quote_tweet": "QT: the book absolutely delivers on provocation.",
+        "controversy_compression": "Compressed discourse: slowness vs payoff.",
+        "author_brand_reaction": "helps author brand if they lean into the strong opinion traffic",
+        "evidence_refs": [
+          "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+          "book_dna:heuristic",
+          "chunk_001",
+          "chapter:chunk_001",
+          "chapter:chunk_002",
+          "platform_style:x"
+        ]
+      },
+      "engagement_prediction": 0.806,
+      "sentiment": "mixed",
+      "evidence_refs": [
+        "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+        "book_dna:heuristic",
+        "chunk_001",
+        "chapter:chunk_001",
+        "chapter:chunk_002",
+        "platform_style:x"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "post_id": "reddit_f8b1c1241e4a",
+      "simulation_id": "sim_1d556fdc69a0",
+      "persona_id": "reddit_genre_purist_13_1122",
+      "platform": "reddit",
+      "round_number": 1,
+      "title": "[Discussion] Keys to the Quiet Gate works until genre_blending",
+      "body": "My thesis: the book succeeds because of genre_authenticity, canonical_rules, but it asks you to forgive genre_blending, rule_breaking.",
+      "rating": 3.32,
+      "hashtags": [],
+      "shelf_tags": [],
+      "payload": {
+        "thread_title": "[Discussion] Keys to the Quiet Gate works until genre_blending",
+        "top_comment": "My thesis: the book succeeds because of genre_authenticity, canonical_rules, but it asks you to forgive genre_blending, rule_breaking.",
+        "skeptical_comment": "I still don't buy the framing around genre_blending.",
+        "debate_branch": [
+          "User A defends the fantasy expectations.",
+          "User B says the payoff earns the setup.",
+          "User C argues the momentum collapses in the middle."
+        ],
+        "logic_framing_objection": "The sharpest objection is whether genre_blending is actually supported on the page.",
+        "evidence_refs": [
+          "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+          "book_dna:heuristic",
+          "chunk_001",
+          "chapter:chunk_001",
+          "chapter:chunk_002",
+          "platform_style:reddit"
+        ]
+      },
+      "engagement_prediction": 0.539,
+      "sentiment": "mixed",
+      "evidence_refs": [
+        "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+        "book_dna:heuristic",
+        "chunk_001",
+        "chapter:chunk_001",
+        "chapter:chunk_002",
+        "platform_style:reddit"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "post_id": "x_dbb8a7ebfc2a",
+      "simulation_id": "sim_1d556fdc69a0",
+      "persona_id": "x_hot_take_reader_14_5177",
+      "platform": "x",
+      "round_number": 1,
+      "title": "Keys to the Quiet Gate is either a 5-star obsession or proof that slowness kills momentum.",
+      "body": "QT: the book absolutely delivers on provocation.",
+      "rating": 4.0,
+      "hashtags": [],
+      "shelf_tags": [],
+      "payload": {
+        "hot_take": "Keys to the Quiet Gate is either a 5-star obsession or proof that slowness kills momentum.",
+        "quote_tweet": "QT: the book absolutely delivers on provocation.",
+        "controversy_compression": "Compressed discourse: slowness vs payoff.",
+        "author_brand_reaction": "helps author brand if they lean into the strong opinion traffic",
+        "evidence_refs": [
+          "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+          "book_dna:heuristic",
+          "chunk_001",
+          "chapter:chunk_001",
+          "chapter:chunk_002",
+          "platform_style:x"
+        ]
+      },
+      "engagement_prediction": 0.839,
+      "sentiment": "mixed",
+      "evidence_refs": [
+        "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+        "book_dna:heuristic",
+        "chunk_001",
+        "chapter:chunk_001",
+        "chapter:chunk_002",
+        "platform_style:x"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "post_id": "booktok_43049f625d4a",
+      "simulation_id": "sim_1d556fdc69a0",
+      "persona_id": "booktok_trope_hunter_15_3337",
+      "platform": "booktok",
+      "round_number": 1,
+      "title": "If Keys to the Quiet Gate broke me in 15 seconds, that's your warning.",
+      "body": "Stop scrolling if you want fantasy with Short sentences and quick paragraph turns suggest fast pacing.. Act one: Keys to the Quiet Gate I.. Act two: why I couldn't stop thinking about enemies_to_lovers, slow_burn.",
+      "rating": 3.86,
+      "hashtags": [
+        "enemies_to_lovers",
+        "slow_burn",
+        "forced_proximity"
+      ],
+      "shelf_tags": [],
+      "payload": {
+        "video_script": "Stop scrolling if you want fantasy with Short sentences and quick paragraph turns suggest fast pacing.. Act one: Keys to the Quiet Gate I.. Act two: why I couldn't stop thinking about enemies_to_lovers, slow_burn.",
+        "trope_tags": [
+          "enemies_to_lovers",
+          "slow_burn",
+          "forced_proximity"
+        ],
+        "hook_line": "If Keys to the Quiet Gate broke me in 15 seconds, that's your warning.",
+        "visual_motif": "Section 1, Section 2",
+        "viral_trigger": "medium",
+        "cringe_mockery_risk": "medium_low",
+        "evidence_refs": [
+          "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+          "book_dna:heuristic",
+          "chunk_001",
+          "chapter:chunk_001",
+          "chapter:chunk_002",
+          "platform_style:booktok"
+        ]
+      },
+      "engagement_prediction": 0.75,
+      "sentiment": "mixed",
+      "evidence_refs": [
+        "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+        "book_dna:heuristic",
+        "chunk_001",
+        "chapter:chunk_001",
+        "chapter:chunk_002",
+        "platform_style:booktok"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "post_id": "booktok_d67c959a46ff",
+      "simulation_id": "sim_1d556fdc69a0",
+      "persona_id": "booktok_trope_hunter_16_5729",
+      "platform": "booktok",
+      "round_number": 1,
+      "title": "If Keys to the Quiet Gate broke me in 15 seconds, that's your warning.",
+      "body": "Stop scrolling if you want fantasy with Short sentences and quick paragraph turns suggest fast pacing.. Act one: Keys to the Quiet Gate I.. Act two: why I couldn't stop thinking about enemies_to_lovers, slow_burn.",
+      "rating": 3.85,
+      "hashtags": [
+        "enemies_to_lovers",
+        "slow_burn",
+        "forced_proximity"
+      ],
+      "shelf_tags": [],
+      "payload": {
+        "video_script": "Stop scrolling if you want fantasy with Short sentences and quick paragraph turns suggest fast pacing.. Act one: Keys to the Quiet Gate I.. Act two: why I couldn't stop thinking about enemies_to_lovers, slow_burn.",
+        "trope_tags": [
+          "enemies_to_lovers",
+          "slow_burn",
+          "forced_proximity"
+        ],
+        "hook_line": "If Keys to the Quiet Gate broke me in 15 seconds, that's your warning.",
+        "visual_motif": "Section 1, Section 2",
+        "viral_trigger": "medium",
+        "cringe_mockery_risk": "high",
+        "evidence_refs": [
+          "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+          "book_dna:heuristic",
+          "chunk_001",
+          "chapter:chunk_001",
+          "chapter:chunk_002",
+          "platform_style:booktok"
+        ]
+      },
+      "engagement_prediction": 0.729,
+      "sentiment": "mixed",
+      "evidence_refs": [
+        "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+        "book_dna:heuristic",
+        "chunk_001",
+        "chapter:chunk_001",
+        "chapter:chunk_002",
+        "platform_style:booktok"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "post_id": "goodreads_b9fa359749ad",
+      "simulation_id": "sim_1d556fdc69a0",
+      "persona_id": "goodreads_harsh_reviewer_17_5726",
+      "platform": "goodreads",
+      "round_number": 1,
+      "title": "Keys to the Quiet Gate: strong Short sentences and quick paragraph turns suggest fast pacing. payoff",
+      "body": "I came for the fantasy promise and stayed for strong_opening, clean_prose. My main friction was slow_start, weak_characterization.",
+      "rating": 4.02,
+      "hashtags": [],
+      "shelf_tags": [
+        "fantasy",
+        "community_reviewers",
+        "swarmbook-simulated"
+      ],
+      "payload": {
+        "star_rating": 4,
+        "review_title": "Keys to the Quiet Gate: strong Short sentences and quick paragraph turns suggest fast pacing. payoff",
+        "review_body": "I came for the fantasy promise and stayed for strong_opening, clean_prose. My main friction was slow_start, weak_characterization.",
+        "shelf_tags": [
+          "fantasy",
+          "community_reviewers",
+          "swarmbook-simulated"
+        ],
+        "dnf_note": "Considered DNF",
+        "quote_highlights": [
+          "Keys to the Quiet Gate I."
+        ],
+        "evidence_refs": [
+          "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+          "book_dna:heuristic",
+          "chunk_001",
+          "chapter:chunk_001",
+          "chapter:chunk_002",
+          "platform_style:goodreads"
+        ]
+      },
+      "engagement_prediction": 0.534,
+      "sentiment": "mixed",
+      "evidence_refs": [
+        "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+        "book_dna:heuristic",
+        "chunk_001",
+        "chapter:chunk_001",
+        "chapter:chunk_002",
+        "platform_style:goodreads"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "post_id": "x_9d5d3b55ea78",
+      "simulation_id": "sim_1d556fdc69a0",
+      "persona_id": "x_hot_take_reader_18_4885",
+      "platform": "x",
+      "round_number": 1,
+      "title": "Keys to the Quiet Gate is either a 5-star obsession or proof that slowness kills momentum.",
+      "body": "QT: the book absolutely delivers on provocation.",
+      "rating": 3.81,
+      "hashtags": [],
+      "shelf_tags": [],
+      "payload": {
+        "hot_take": "Keys to the Quiet Gate is either a 5-star obsession or proof that slowness kills momentum.",
+        "quote_tweet": "QT: the book absolutely delivers on provocation.",
+        "controversy_compression": "Compressed discourse: slowness vs payoff.",
+        "author_brand_reaction": "helps author brand if they lean into the strong opinion traffic",
+        "evidence_refs": [
+          "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+          "book_dna:heuristic",
+          "chunk_001",
+          "chapter:chunk_001",
+          "chapter:chunk_002",
+          "platform_style:x"
+        ]
+      },
+      "engagement_prediction": 0.831,
+      "sentiment": "mixed",
+      "evidence_refs": [
+        "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+        "book_dna:heuristic",
+        "chunk_001",
+        "chapter:chunk_001",
+        "chapter:chunk_002",
+        "platform_style:x"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "post_id": "x_c47818c31474",
+      "simulation_id": "sim_1d556fdc69a0",
+      "persona_id": "x_hot_take_reader_19_6767",
+      "platform": "x",
+      "round_number": 1,
+      "title": "Keys to the Quiet Gate is either a 5-star obsession or proof that slowness kills momentum.",
+      "body": "QT: the book absolutely delivers on provocation.",
+      "rating": 3.9,
+      "hashtags": [],
+      "shelf_tags": [],
+      "payload": {
+        "hot_take": "Keys to the Quiet Gate is either a 5-star obsession or proof that slowness kills momentum.",
+        "quote_tweet": "QT: the book absolutely delivers on provocation.",
+        "controversy_compression": "Compressed discourse: slowness vs payoff.",
+        "author_brand_reaction": "helps author brand if they lean into the strong opinion traffic",
+        "evidence_refs": [
+          "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+          "book_dna:heuristic",
+          "chunk_001",
+          "chapter:chunk_001",
+          "chapter:chunk_002",
+          "platform_style:x"
+        ]
+      },
+      "engagement_prediction": 0.728,
+      "sentiment": "mixed",
+      "evidence_refs": [
+        "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+        "book_dna:heuristic",
+        "chunk_001",
+        "chapter:chunk_001",
+        "chapter:chunk_002",
+        "platform_style:x"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "post_id": "bookstagram_13150823325c",
+      "simulation_id": "sim_1d556fdc69a0",
+      "persona_id": "bookstagram_curator_20_4768",
+      "platform": "bookstagram",
+      "round_number": 1,
+      "title": null,
+      "body": "Keys to the Quiet Gate looks like Short sentences and quick paragraph turns suggest fast pacing. and reads like beautiful_package, mood.",
+      "rating": 3.79,
+      "hashtags": [
+        "fantasy",
+        "annotated_copy",
+        "reading_night"
+      ],
+      "shelf_tags": [],
+      "payload": {
+        "caption": "Keys to the Quiet Gate looks like Short sentences and quick paragraph turns suggest fast pacing. and reads like beautiful_package, mood.",
+        "carousel_idea": [
+          "cover shot with tabs",
+          "quote slide featuring grief",
+          "final slide with shelf verdict"
+        ],
+        "aesthetic_tags": [
+          "fantasy",
+          "annotated_copy",
+          "reading_night"
+        ],
+        "quote_card_candidates": [
+          "Keys to the Quiet Gate I."
+        ],
+        "save_share_reason": "save for vibes and share for the quote density",
+        "evidence_refs": [
+          "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+          "book_dna:heuristic",
+          "chunk_001",
+          "chapter:chunk_001",
+          "chapter:chunk_002",
+          "platform_style:bookstagram"
+        ]
+      },
+      "engagement_prediction": 0.758,
+      "sentiment": "mixed",
+      "evidence_refs": [
+        "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+        "book_dna:heuristic",
+        "chunk_001",
+        "chapter:chunk_001",
+        "chapter:chunk_002",
+        "platform_style:bookstagram"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "post_id": "booktok_bdf61963ac28",
+      "simulation_id": "sim_1d556fdc69a0",
+      "persona_id": "booktok_emotional_amplifier_21_4731",
+      "platform": "booktok",
+      "round_number": 1,
+      "title": "If Keys to the Quiet Gate broke me in 15 seconds, that's your warning.",
+      "body": "Stop scrolling if you want fantasy with Short sentences and quick paragraph turns suggest fast pacing.. Act one: Keys to the Quiet Gate I.. Act two: why I couldn't stop thinking about heartbreak, found_family.",
+      "rating": 3.58,
+      "hashtags": [
+        "heartbreak",
+        "found_family",
+        "catharsis"
+      ],
+      "shelf_tags": [],
+      "payload": {
+        "video_script": "Stop scrolling if you want fantasy with Short sentences and quick paragraph turns suggest fast pacing.. Act one: Keys to the Quiet Gate I.. Act two: why I couldn't stop thinking about heartbreak, found_family.",
+        "trope_tags": [
+          "heartbreak",
+          "found_family",
+          "catharsis"
+        ],
+        "hook_line": "If Keys to the Quiet Gate broke me in 15 seconds, that's your warning.",
+        "visual_motif": "Section 1, Section 2",
+        "viral_trigger": "high",
+        "cringe_mockery_risk": "high",
+        "evidence_refs": [
+          "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+          "book_dna:heuristic",
+          "chunk_001",
+          "chapter:chunk_001",
+          "chapter:chunk_002",
+          "platform_style:booktok"
+        ]
+      },
+      "engagement_prediction": 0.874,
+      "sentiment": "mixed",
+      "evidence_refs": [
+        "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+        "book_dna:heuristic",
+        "chunk_001",
+        "chapter:chunk_001",
+        "chapter:chunk_002",
+        "platform_style:booktok"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "post_id": "reddit_294a4df18ced",
+      "simulation_id": "sim_1d556fdc69a0",
+      "persona_id": "reddit_skeptic_22_2629",
+      "platform": "reddit",
+      "round_number": 1,
+      "title": "[Discussion] Keys to the Quiet Gate works until handwaving",
+      "body": "My thesis: the book succeeds because of internal_logic, sharp_argument, but it asks you to forgive handwaving, plot_holes.",
+      "rating": 3.24,
+      "hashtags": [],
+      "shelf_tags": [],
+      "payload": {
+        "thread_title": "[Discussion] Keys to the Quiet Gate works until handwaving",
+        "top_comment": "My thesis: the book succeeds because of internal_logic, sharp_argument, but it asks you to forgive handwaving, plot_holes.",
+        "skeptical_comment": "I still don't buy the framing around handwaving.",
+        "debate_branch": [
+          "User A defends the fantasy expectations.",
+          "User B says the payoff earns the setup.",
+          "User C argues the momentum collapses in the middle."
+        ],
+        "logic_framing_objection": "The sharpest objection is whether handwaving is actually supported on the page.",
+        "evidence_refs": [
+          "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+          "book_dna:heuristic",
+          "chunk_001",
+          "chapter:chunk_001",
+          "chapter:chunk_002",
+          "platform_style:reddit"
+        ]
+      },
+      "engagement_prediction": 0.577,
+      "sentiment": "mixed",
+      "evidence_refs": [
+        "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+        "book_dna:heuristic",
+        "chunk_001",
+        "chapter:chunk_001",
+        "chapter:chunk_002",
+        "platform_style:reddit"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "post_id": "x_8e229f7185f3",
+      "simulation_id": "sim_1d556fdc69a0",
+      "persona_id": "x_hot_take_reader_23_9705",
+      "platform": "x",
+      "round_number": 1,
+      "title": "Keys to the Quiet Gate is either a 5-star obsession or proof that slowness kills momentum.",
+      "body": "QT: the book absolutely delivers on provocation.",
+      "rating": 3.93,
+      "hashtags": [],
+      "shelf_tags": [],
+      "payload": {
+        "hot_take": "Keys to the Quiet Gate is either a 5-star obsession or proof that slowness kills momentum.",
+        "quote_tweet": "QT: the book absolutely delivers on provocation.",
+        "controversy_compression": "Compressed discourse: slowness vs payoff.",
+        "author_brand_reaction": "helps author brand if they lean into the strong opinion traffic",
+        "evidence_refs": [
+          "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+          "book_dna:heuristic",
+          "chunk_001",
+          "chapter:chunk_001",
+          "chapter:chunk_002",
+          "platform_style:x"
+        ]
+      },
+      "engagement_prediction": 0.788,
+      "sentiment": "mixed",
+      "evidence_refs": [
+        "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+        "book_dna:heuristic",
+        "chunk_001",
+        "chapter:chunk_001",
+        "chapter:chunk_002",
+        "platform_style:x"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "post_id": "reddit_b06b2dcda175",
+      "simulation_id": "sim_1d556fdc69a0",
+      "persona_id": "reddit_genre_purist_24_9213",
+      "platform": "reddit",
+      "round_number": 1,
+      "title": "[Discussion] Keys to the Quiet Gate works until genre_blending",
+      "body": "My thesis: the book succeeds because of genre_authenticity, canonical_rules, but it asks you to forgive genre_blending, rule_breaking.",
+      "rating": 4.03,
+      "hashtags": [],
+      "shelf_tags": [],
+      "payload": {
+        "thread_title": "[Discussion] Keys to the Quiet Gate works until genre_blending",
+        "top_comment": "My thesis: the book succeeds because of genre_authenticity, canonical_rules, but it asks you to forgive genre_blending, rule_breaking.",
+        "skeptical_comment": "I still don't buy the framing around genre_blending.",
+        "debate_branch": [
+          "User A defends the fantasy expectations.",
+          "User B says the payoff earns the setup.",
+          "User C argues the momentum collapses in the middle."
+        ],
+        "logic_framing_objection": "The sharpest objection is whether genre_blending is actually supported on the page.",
+        "evidence_refs": [
+          "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+          "book_dna:heuristic",
+          "chunk_001",
+          "chapter:chunk_001",
+          "chapter:chunk_002",
+          "platform_style:reddit"
+        ]
+      },
+      "engagement_prediction": 0.597,
+      "sentiment": "mixed",
+      "evidence_refs": [
+        "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+        "book_dna:heuristic",
+        "chunk_001",
+        "chapter:chunk_001",
+        "chapter:chunk_002",
+        "platform_style:reddit"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "post_id": "booktok_41c3a1273a7f",
+      "simulation_id": "sim_1d556fdc69a0",
+      "persona_id": "booktok_trope_hunter_25_2887",
+      "platform": "booktok",
+      "round_number": 1,
+      "title": "If Keys to the Quiet Gate broke me in 15 seconds, that's your warning.",
+      "body": "Stop scrolling if you want fantasy with Short sentences and quick paragraph turns suggest fast pacing.. Act one: Keys to the Quiet Gate I.. Act two: why I couldn't stop thinking about enemies_to_lovers, slow_burn.",
+      "rating": 4.24,
+      "hashtags": [
+        "enemies_to_lovers",
+        "slow_burn",
+        "forced_proximity"
+      ],
+      "shelf_tags": [],
+      "payload": {
+        "video_script": "Stop scrolling if you want fantasy with Short sentences and quick paragraph turns suggest fast pacing.. Act one: Keys to the Quiet Gate I.. Act two: why I couldn't stop thinking about enemies_to_lovers, slow_burn.",
+        "trope_tags": [
+          "enemies_to_lovers",
+          "slow_burn",
+          "forced_proximity"
+        ],
+        "hook_line": "If Keys to the Quiet Gate broke me in 15 seconds, that's your warning.",
+        "visual_motif": "Section 1, Section 2",
+        "viral_trigger": "medium",
+        "cringe_mockery_risk": "high",
+        "evidence_refs": [
+          "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+          "book_dna:heuristic",
+          "chunk_001",
+          "chapter:chunk_001",
+          "chapter:chunk_002",
+          "platform_style:booktok"
+        ]
+      },
+      "engagement_prediction": 0.807,
+      "sentiment": "mixed",
+      "evidence_refs": [
+        "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+        "book_dna:heuristic",
+        "chunk_001",
+        "chapter:chunk_001",
+        "chapter:chunk_002",
+        "platform_style:booktok"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "post_id": "x_06fbe0ed59ee",
+      "simulation_id": "sim_1d556fdc69a0",
+      "persona_id": "x_hot_take_reader_26_2575",
+      "platform": "x",
+      "round_number": 1,
+      "title": "Keys to the Quiet Gate is either a 5-star obsession or proof that slowness kills momentum.",
+      "body": "QT: the book absolutely delivers on provocation.",
+      "rating": 3.58,
+      "hashtags": [],
+      "shelf_tags": [],
+      "payload": {
+        "hot_take": "Keys to the Quiet Gate is either a 5-star obsession or proof that slowness kills momentum.",
+        "quote_tweet": "QT: the book absolutely delivers on provocation.",
+        "controversy_compression": "Compressed discourse: slowness vs payoff.",
+        "author_brand_reaction": "helps author brand if they lean into the strong opinion traffic",
+        "evidence_refs": [
+          "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+          "book_dna:heuristic",
+          "chunk_001",
+          "chapter:chunk_001",
+          "chapter:chunk_002",
+          "platform_style:x"
+        ]
+      },
+      "engagement_prediction": 0.712,
+      "sentiment": "mixed",
+      "evidence_refs": [
+        "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+        "book_dna:heuristic",
+        "chunk_001",
+        "chapter:chunk_001",
+        "chapter:chunk_002",
+        "platform_style:x"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "post_id": "reddit_b02797ba18d5",
+      "simulation_id": "sim_1d556fdc69a0",
+      "persona_id": "reddit_skeptic_27_1937",
+      "platform": "reddit",
+      "round_number": 1,
+      "title": "[Discussion] Keys to the Quiet Gate works until handwaving",
+      "body": "My thesis: the book succeeds because of internal_logic, sharp_argument, but it asks you to forgive handwaving, plot_holes.",
+      "rating": 3.43,
+      "hashtags": [],
+      "shelf_tags": [],
+      "payload": {
+        "thread_title": "[Discussion] Keys to the Quiet Gate works until handwaving",
+        "top_comment": "My thesis: the book succeeds because of internal_logic, sharp_argument, but it asks you to forgive handwaving, plot_holes.",
+        "skeptical_comment": "I still don't buy the framing around handwaving.",
+        "debate_branch": [
+          "User A defends the fantasy expectations.",
+          "User B says the payoff earns the setup.",
+          "User C argues the momentum collapses in the middle."
+        ],
+        "logic_framing_objection": "The sharpest objection is whether handwaving is actually supported on the page.",
+        "evidence_refs": [
+          "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+          "book_dna:heuristic",
+          "chunk_001",
+          "chapter:chunk_001",
+          "chapter:chunk_002",
+          "platform_style:reddit"
+        ]
+      },
+      "engagement_prediction": 0.59,
+      "sentiment": "mixed",
+      "evidence_refs": [
+        "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+        "book_dna:heuristic",
+        "chunk_001",
+        "chapter:chunk_001",
+        "chapter:chunk_002",
+        "platform_style:reddit"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "post_id": "goodreads_e450dea90b8d",
+      "simulation_id": "sim_1d556fdc69a0",
+      "persona_id": "goodreads_genre_loyalist_28_5833",
+      "platform": "goodreads",
+      "round_number": 1,
+      "title": "Keys to the Quiet Gate: strong Short sentences and quick paragraph turns suggest fast pacing. payoff",
+      "body": "I came for the fantasy promise and stayed for genre_tropes, satisfying_arc. My main friction was genre_betrayal, ambiguous_endings.",
+      "rating": 4.19,
+      "hashtags": [],
+      "shelf_tags": [
+        "fantasy",
+        "community_reviewers",
+        "swarmbook-simulated"
+      ],
+      "payload": {
+        "star_rating": 4,
+        "review_title": "Keys to the Quiet Gate: strong Short sentences and quick paragraph turns suggest fast pacing. payoff",
+        "review_body": "I came for the fantasy promise and stayed for genre_tropes, satisfying_arc. My main friction was genre_betrayal, ambiguous_endings.",
+        "shelf_tags": [
+          "fantasy",
+          "community_reviewers",
+          "swarmbook-simulated"
+        ],
+        "dnf_note": "Finished the book",
+        "quote_highlights": [
+          "Keys to the Quiet Gate I."
+        ],
+        "evidence_refs": [
+          "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+          "book_dna:heuristic",
+          "chunk_001",
+          "chapter:chunk_001",
+          "chapter:chunk_002",
+          "platform_style:goodreads"
+        ]
+      },
+      "engagement_prediction": 0.649,
+      "sentiment": "mixed",
+      "evidence_refs": [
+        "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+        "book_dna:heuristic",
+        "chunk_001",
+        "chapter:chunk_001",
+        "chapter:chunk_002",
+        "platform_style:goodreads"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "post_id": "bookstagram_ecd8eab6f387",
+      "simulation_id": "sim_1d556fdc69a0",
+      "persona_id": "bookstagram_curator_29_4637",
+      "platform": "bookstagram",
+      "round_number": 1,
+      "title": null,
+      "body": "Keys to the Quiet Gate looks like Short sentences and quick paragraph turns suggest fast pacing. and reads like beautiful_package, mood.",
+      "rating": 3.59,
+      "hashtags": [
+        "fantasy",
+        "annotated_copy",
+        "reading_night"
+      ],
+      "shelf_tags": [],
+      "payload": {
+        "caption": "Keys to the Quiet Gate looks like Short sentences and quick paragraph turns suggest fast pacing. and reads like beautiful_package, mood.",
+        "carousel_idea": [
+          "cover shot with tabs",
+          "quote slide featuring grief",
+          "final slide with shelf verdict"
+        ],
+        "aesthetic_tags": [
+          "fantasy",
+          "annotated_copy",
+          "reading_night"
+        ],
+        "quote_card_candidates": [
+          "Keys to the Quiet Gate I."
+        ],
+        "save_share_reason": "save for vibes and share for the quote density",
+        "evidence_refs": [
+          "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+          "book_dna:heuristic",
+          "chunk_001",
+          "chapter:chunk_001",
+          "chapter:chunk_002",
+          "platform_style:bookstagram"
+        ]
+      },
+      "engagement_prediction": 0.684,
+      "sentiment": "mixed",
+      "evidence_refs": [
+        "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+        "book_dna:heuristic",
+        "chunk_001",
+        "chapter:chunk_001",
+        "chapter:chunk_002",
+        "platform_style:bookstagram"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "post_id": "x_d024f28d7760",
+      "simulation_id": "sim_1d556fdc69a0",
+      "persona_id": "x_hot_take_reader_30_4259",
+      "platform": "x",
+      "round_number": 1,
+      "title": "Keys to the Quiet Gate is either a 5-star obsession or proof that slowness kills momentum.",
+      "body": "QT: the book absolutely delivers on provocation.",
+      "rating": 3.42,
+      "hashtags": [],
+      "shelf_tags": [],
+      "payload": {
+        "hot_take": "Keys to the Quiet Gate is either a 5-star obsession or proof that slowness kills momentum.",
+        "quote_tweet": "QT: the book absolutely delivers on provocation.",
+        "controversy_compression": "Compressed discourse: slowness vs payoff.",
+        "author_brand_reaction": "helps author brand if they lean into the strong opinion traffic",
+        "evidence_refs": [
+          "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+          "book_dna:heuristic",
+          "chunk_001",
+          "chapter:chunk_001",
+          "chapter:chunk_002",
+          "platform_style:x"
+        ]
+      },
+      "engagement_prediction": 0.74,
+      "sentiment": "mixed",
+      "evidence_refs": [
+        "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+        "book_dna:heuristic",
+        "chunk_001",
+        "chapter:chunk_001",
+        "chapter:chunk_002",
+        "platform_style:x"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "post_id": "x_0137c0de3309",
+      "simulation_id": "sim_1d556fdc69a0",
+      "persona_id": "x_hot_take_reader_31_6264",
+      "platform": "x",
+      "round_number": 1,
+      "title": "Keys to the Quiet Gate is either a 5-star obsession or proof that slowness kills momentum.",
+      "body": "QT: the book absolutely delivers on provocation.",
+      "rating": 3.84,
+      "hashtags": [],
+      "shelf_tags": [],
+      "payload": {
+        "hot_take": "Keys to the Quiet Gate is either a 5-star obsession or proof that slowness kills momentum.",
+        "quote_tweet": "QT: the book absolutely delivers on provocation.",
+        "controversy_compression": "Compressed discourse: slowness vs payoff.",
+        "author_brand_reaction": "helps author brand if they lean into the strong opinion traffic",
+        "evidence_refs": [
+          "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+          "book_dna:heuristic",
+          "chunk_001",
+          "chapter:chunk_001",
+          "chapter:chunk_002",
+          "platform_style:x"
+        ]
+      },
+      "engagement_prediction": 0.794,
+      "sentiment": "mixed",
+      "evidence_refs": [
+        "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+        "book_dna:heuristic",
+        "chunk_001",
+        "chapter:chunk_001",
+        "chapter:chunk_002",
+        "platform_style:x"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "post_id": "reddit_a3576dee00fa",
+      "simulation_id": "sim_1d556fdc69a0",
+      "persona_id": "reddit_skeptic_32_1119",
+      "platform": "reddit",
+      "round_number": 1,
+      "title": "[Discussion] Keys to the Quiet Gate works until handwaving",
+      "body": "My thesis: the book succeeds because of internal_logic, sharp_argument, but it asks you to forgive handwaving, plot_holes.",
+      "rating": 3.82,
+      "hashtags": [],
+      "shelf_tags": [],
+      "payload": {
+        "thread_title": "[Discussion] Keys to the Quiet Gate works until handwaving",
+        "top_comment": "My thesis: the book succeeds because of internal_logic, sharp_argument, but it asks you to forgive handwaving, plot_holes.",
+        "skeptical_comment": "I still don't buy the framing around handwaving.",
+        "debate_branch": [
+          "User A defends the fantasy expectations.",
+          "User B says the payoff earns the setup.",
+          "User C argues the momentum collapses in the middle."
+        ],
+        "logic_framing_objection": "The sharpest objection is whether handwaving is actually supported on the page.",
+        "evidence_refs": [
+          "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+          "book_dna:heuristic",
+          "chunk_001",
+          "chapter:chunk_001",
+          "chapter:chunk_002",
+          "platform_style:reddit"
+        ]
+      },
+      "engagement_prediction": 0.545,
+      "sentiment": "mixed",
+      "evidence_refs": [
+        "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+        "book_dna:heuristic",
+        "chunk_001",
+        "chapter:chunk_001",
+        "chapter:chunk_002",
+        "platform_style:reddit"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "post_id": "booktok_823ec6c70c1e",
+      "simulation_id": "sim_1d556fdc69a0",
+      "persona_id": "booktok_emotional_amplifier_33_5282",
+      "platform": "booktok",
+      "round_number": 1,
+      "title": "If Keys to the Quiet Gate broke me in 15 seconds, that's your warning.",
+      "body": "Stop scrolling if you want fantasy with Short sentences and quick paragraph turns suggest fast pacing.. Act one: Keys to the Quiet Gate I.. Act two: why I couldn't stop thinking about heartbreak, found_family.",
+      "rating": 3.87,
+      "hashtags": [
+        "heartbreak",
+        "found_family",
+        "catharsis"
+      ],
+      "shelf_tags": [],
+      "payload": {
+        "video_script": "Stop scrolling if you want fantasy with Short sentences and quick paragraph turns suggest fast pacing.. Act one: Keys to the Quiet Gate I.. Act two: why I couldn't stop thinking about heartbreak, found_family.",
+        "trope_tags": [
+          "heartbreak",
+          "found_family",
+          "catharsis"
+        ],
+        "hook_line": "If Keys to the Quiet Gate broke me in 15 seconds, that's your warning.",
+        "visual_motif": "Section 1, Section 2",
+        "viral_trigger": "high",
+        "cringe_mockery_risk": "high",
+        "evidence_refs": [
+          "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+          "book_dna:heuristic",
+          "chunk_001",
+          "chapter:chunk_001",
+          "chapter:chunk_002",
+          "platform_style:booktok"
+        ]
+      },
+      "engagement_prediction": 0.799,
+      "sentiment": "mixed",
+      "evidence_refs": [
+        "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+        "book_dna:heuristic",
+        "chunk_001",
+        "chapter:chunk_001",
+        "chapter:chunk_002",
+        "platform_style:booktok"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "post_id": "reddit_64c63c7edf3b",
+      "simulation_id": "sim_1d556fdc69a0",
+      "persona_id": "reddit_skeptic_34_5385",
+      "platform": "reddit",
+      "round_number": 1,
+      "title": "[Discussion] Keys to the Quiet Gate works until handwaving",
+      "body": "My thesis: the book succeeds because of internal_logic, sharp_argument, but it asks you to forgive handwaving, plot_holes.",
+      "rating": 3.69,
+      "hashtags": [],
+      "shelf_tags": [],
+      "payload": {
+        "thread_title": "[Discussion] Keys to the Quiet Gate works until handwaving",
+        "top_comment": "My thesis: the book succeeds because of internal_logic, sharp_argument, but it asks you to forgive handwaving, plot_holes.",
+        "skeptical_comment": "I still don't buy the framing around handwaving.",
+        "debate_branch": [
+          "User A defends the fantasy expectations.",
+          "User B says the payoff earns the setup.",
+          "User C argues the momentum collapses in the middle."
+        ],
+        "logic_framing_objection": "The sharpest objection is whether handwaving is actually supported on the page.",
+        "evidence_refs": [
+          "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+          "book_dna:heuristic",
+          "chunk_001",
+          "chapter:chunk_001",
+          "chapter:chunk_002",
+          "platform_style:reddit"
+        ]
+      },
+      "engagement_prediction": 0.56,
+      "sentiment": "mixed",
+      "evidence_refs": [
+        "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+        "book_dna:heuristic",
+        "chunk_001",
+        "chapter:chunk_001",
+        "chapter:chunk_002",
+        "platform_style:reddit"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "post_id": "x_74df67ad0857",
+      "simulation_id": "sim_1d556fdc69a0",
+      "persona_id": "x_hot_take_reader_35_9002",
+      "platform": "x",
+      "round_number": 1,
+      "title": "Keys to the Quiet Gate is either a 5-star obsession or proof that slowness kills momentum.",
+      "body": "QT: the book absolutely delivers on provocation.",
+      "rating": 4.02,
+      "hashtags": [],
+      "shelf_tags": [],
+      "payload": {
+        "hot_take": "Keys to the Quiet Gate is either a 5-star obsession or proof that slowness kills momentum.",
+        "quote_tweet": "QT: the book absolutely delivers on provocation.",
+        "controversy_compression": "Compressed discourse: slowness vs payoff.",
+        "author_brand_reaction": "helps author brand if they lean into the strong opinion traffic",
+        "evidence_refs": [
+          "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+          "book_dna:heuristic",
+          "chunk_001",
+          "chapter:chunk_001",
+          "chapter:chunk_002",
+          "platform_style:x"
+        ]
+      },
+      "engagement_prediction": 0.814,
+      "sentiment": "mixed",
+      "evidence_refs": [
+        "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+        "book_dna:heuristic",
+        "chunk_001",
+        "chapter:chunk_001",
+        "chapter:chunk_002",
+        "platform_style:x"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "post_id": "x_1f00bae9d400",
+      "simulation_id": "sim_1d556fdc69a0",
+      "persona_id": "x_hot_take_reader_36_3549",
+      "platform": "x",
+      "round_number": 1,
+      "title": "Keys to the Quiet Gate is either a 5-star obsession or proof that slowness kills momentum.",
+      "body": "QT: the book absolutely delivers on provocation.",
+      "rating": 4.03,
+      "hashtags": [],
+      "shelf_tags": [],
+      "payload": {
+        "hot_take": "Keys to the Quiet Gate is either a 5-star obsession or proof that slowness kills momentum.",
+        "quote_tweet": "QT: the book absolutely delivers on provocation.",
+        "controversy_compression": "Compressed discourse: slowness vs payoff.",
+        "author_brand_reaction": "helps author brand if they lean into the strong opinion traffic",
+        "evidence_refs": [
+          "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+          "book_dna:heuristic",
+          "chunk_001",
+          "chapter:chunk_001",
+          "chapter:chunk_002",
+          "platform_style:x"
+        ]
+      },
+      "engagement_prediction": 0.762,
+      "sentiment": "mixed",
+      "evidence_refs": [
+        "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+        "book_dna:heuristic",
+        "chunk_001",
+        "chapter:chunk_001",
+        "chapter:chunk_002",
+        "platform_style:x"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "post_id": "bookstagram_8d7ae072a3ec",
+      "simulation_id": "sim_1d556fdc69a0",
+      "persona_id": "bookstagram_curator_37_4537",
+      "platform": "bookstagram",
+      "round_number": 1,
+      "title": null,
+      "body": "Keys to the Quiet Gate looks like Short sentences and quick paragraph turns suggest fast pacing. and reads like beautiful_package, mood.",
+      "rating": 3.58,
+      "hashtags": [
+        "fantasy",
+        "annotated_copy",
+        "reading_night"
+      ],
+      "shelf_tags": [],
+      "payload": {
+        "caption": "Keys to the Quiet Gate looks like Short sentences and quick paragraph turns suggest fast pacing. and reads like beautiful_package, mood.",
+        "carousel_idea": [
+          "cover shot with tabs",
+          "quote slide featuring grief",
+          "final slide with shelf verdict"
+        ],
+        "aesthetic_tags": [
+          "fantasy",
+          "annotated_copy",
+          "reading_night"
+        ],
+        "quote_card_candidates": [
+          "Keys to the Quiet Gate I."
+        ],
+        "save_share_reason": "save for vibes and share for the quote density",
+        "evidence_refs": [
+          "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+          "book_dna:heuristic",
+          "chunk_001",
+          "chapter:chunk_001",
+          "chapter:chunk_002",
+          "platform_style:bookstagram"
+        ]
+      },
+      "engagement_prediction": 0.739,
+      "sentiment": "mixed",
+      "evidence_refs": [
+        "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+        "book_dna:heuristic",
+        "chunk_001",
+        "chapter:chunk_001",
+        "chapter:chunk_002",
+        "platform_style:bookstagram"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "post_id": "goodreads_42210a82350f",
+      "simulation_id": "sim_1d556fdc69a0",
+      "persona_id": "goodreads_harsh_reviewer_38_2647",
+      "platform": "goodreads",
+      "round_number": 1,
+      "title": "Keys to the Quiet Gate: strong Short sentences and quick paragraph turns suggest fast pacing. payoff",
+      "body": "I came for the fantasy promise and stayed for strong_opening, clean_prose. My main friction was slow_start, weak_characterization.",
+      "rating": 3.47,
+      "hashtags": [],
+      "shelf_tags": [
+        "fantasy",
+        "community_reviewers",
+        "swarmbook-simulated"
+      ],
+      "payload": {
+        "star_rating": 3,
+        "review_title": "Keys to the Quiet Gate: strong Short sentences and quick paragraph turns suggest fast pacing. payoff",
+        "review_body": "I came for the fantasy promise and stayed for strong_opening, clean_prose. My main friction was slow_start, weak_characterization.",
+        "shelf_tags": [
+          "fantasy",
+          "community_reviewers",
+          "swarmbook-simulated"
+        ],
+        "dnf_note": "Finished the book",
+        "quote_highlights": [
+          "Keys to the Quiet Gate I."
+        ],
+        "evidence_refs": [
+          "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+          "book_dna:heuristic",
+          "chunk_001",
+          "chapter:chunk_001",
+          "chapter:chunk_002",
+          "platform_style:goodreads"
+        ]
+      },
+      "engagement_prediction": 0.438,
+      "sentiment": "mixed",
+      "evidence_refs": [
+        "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+        "book_dna:heuristic",
+        "chunk_001",
+        "chapter:chunk_001",
+        "chapter:chunk_002",
+        "platform_style:goodreads"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "post_id": "x_546fc91f1c6c",
+      "simulation_id": "sim_1d556fdc69a0",
+      "persona_id": "x_hot_take_reader_39_4709",
+      "platform": "x",
+      "round_number": 1,
+      "title": "Keys to the Quiet Gate is either a 5-star obsession or proof that slowness kills momentum.",
+      "body": "QT: the book absolutely delivers on provocation.",
+      "rating": 3.5,
+      "hashtags": [],
+      "shelf_tags": [],
+      "payload": {
+        "hot_take": "Keys to the Quiet Gate is either a 5-star obsession or proof that slowness kills momentum.",
+        "quote_tweet": "QT: the book absolutely delivers on provocation.",
+        "controversy_compression": "Compressed discourse: slowness vs payoff.",
+        "author_brand_reaction": "helps author brand if they lean into the strong opinion traffic",
+        "evidence_refs": [
+          "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+          "book_dna:heuristic",
+          "chunk_001",
+          "chapter:chunk_001",
+          "chapter:chunk_002",
+          "platform_style:x"
+        ]
+      },
+      "engagement_prediction": 0.717,
+      "sentiment": "mixed",
+      "evidence_refs": [
+        "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+        "book_dna:heuristic",
+        "chunk_001",
+        "chapter:chunk_001",
+        "chapter:chunk_002",
+        "platform_style:x"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "post_id": "booktok_a989a115faad",
+      "simulation_id": "sim_1d556fdc69a0",
+      "persona_id": "booktok_trope_hunter_40_5342",
+      "platform": "booktok",
+      "round_number": 1,
+      "title": "If Keys to the Quiet Gate broke me in 15 seconds, that's your warning.",
+      "body": "Stop scrolling if you want fantasy with Short sentences and quick paragraph turns suggest fast pacing.. Act one: Keys to the Quiet Gate I.. Act two: why I couldn't stop thinking about enemies_to_lovers, slow_burn.",
+      "rating": 3.8,
+      "hashtags": [
+        "enemies_to_lovers",
+        "slow_burn",
+        "forced_proximity"
+      ],
+      "shelf_tags": [],
+      "payload": {
+        "video_script": "Stop scrolling if you want fantasy with Short sentences and quick paragraph turns suggest fast pacing.. Act one: Keys to the Quiet Gate I.. Act two: why I couldn't stop thinking about enemies_to_lovers, slow_burn.",
+        "trope_tags": [
+          "enemies_to_lovers",
+          "slow_burn",
+          "forced_proximity"
+        ],
+        "hook_line": "If Keys to the Quiet Gate broke me in 15 seconds, that's your warning.",
+        "visual_motif": "Section 1, Section 2",
+        "viral_trigger": "medium",
+        "cringe_mockery_risk": "high",
+        "evidence_refs": [
+          "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+          "book_dna:heuristic",
+          "chunk_001",
+          "chapter:chunk_001",
+          "chapter:chunk_002",
+          "platform_style:booktok"
+        ]
+      },
+      "engagement_prediction": 0.727,
+      "sentiment": "mixed",
+      "evidence_refs": [
+        "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+        "book_dna:heuristic",
+        "chunk_001",
+        "chapter:chunk_001",
+        "chapter:chunk_002",
+        "platform_style:booktok"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "post_id": "bookstagram_d7930c6acd9c",
+      "simulation_id": "sim_1d556fdc69a0",
+      "persona_id": "bookstagram_curator_41_2998",
+      "platform": "bookstagram",
+      "round_number": 1,
+      "title": null,
+      "body": "Keys to the Quiet Gate looks like Short sentences and quick paragraph turns suggest fast pacing. and reads like beautiful_package, mood.",
+      "rating": 3.4,
+      "hashtags": [
+        "fantasy",
+        "annotated_copy",
+        "reading_night"
+      ],
+      "shelf_tags": [],
+      "payload": {
+        "caption": "Keys to the Quiet Gate looks like Short sentences and quick paragraph turns suggest fast pacing. and reads like beautiful_package, mood.",
+        "carousel_idea": [
+          "cover shot with tabs",
+          "quote slide featuring grief",
+          "final slide with shelf verdict"
+        ],
+        "aesthetic_tags": [
+          "fantasy",
+          "annotated_copy",
+          "reading_night"
+        ],
+        "quote_card_candidates": [
+          "Keys to the Quiet Gate I."
+        ],
+        "save_share_reason": "save for vibes and share for the quote density",
+        "evidence_refs": [
+          "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+          "book_dna:heuristic",
+          "chunk_001",
+          "chapter:chunk_001",
+          "chapter:chunk_002",
+          "platform_style:bookstagram"
+        ]
+      },
+      "engagement_prediction": 0.664,
+      "sentiment": "mixed",
+      "evidence_refs": [
+        "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+        "book_dna:heuristic",
+        "chunk_001",
+        "chapter:chunk_001",
+        "chapter:chunk_002",
+        "platform_style:bookstagram"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "post_id": "bookstagram_4cd774388ad7",
+      "simulation_id": "sim_1d556fdc69a0",
+      "persona_id": "bookstagram_curator_42_4611",
+      "platform": "bookstagram",
+      "round_number": 1,
+      "title": null,
+      "body": "Keys to the Quiet Gate looks like Short sentences and quick paragraph turns suggest fast pacing. and reads like beautiful_package, mood.",
+      "rating": 3.8,
+      "hashtags": [
+        "fantasy",
+        "annotated_copy",
+        "reading_night"
+      ],
+      "shelf_tags": [],
+      "payload": {
+        "caption": "Keys to the Quiet Gate looks like Short sentences and quick paragraph turns suggest fast pacing. and reads like beautiful_package, mood.",
+        "carousel_idea": [
+          "cover shot with tabs",
+          "quote slide featuring grief",
+          "final slide with shelf verdict"
+        ],
+        "aesthetic_tags": [
+          "fantasy",
+          "annotated_copy",
+          "reading_night"
+        ],
+        "quote_card_candidates": [
+          "Keys to the Quiet Gate I."
+        ],
+        "save_share_reason": "save for vibes and share for the quote density",
+        "evidence_refs": [
+          "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+          "book_dna:heuristic",
+          "chunk_001",
+          "chapter:chunk_001",
+          "chapter:chunk_002",
+          "platform_style:bookstagram"
+        ]
+      },
+      "engagement_prediction": 0.708,
+      "sentiment": "mixed",
+      "evidence_refs": [
+        "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+        "book_dna:heuristic",
+        "chunk_001",
+        "chapter:chunk_001",
+        "chapter:chunk_002",
+        "platform_style:bookstagram"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "post_id": "bookstagram_8e79924dde54",
+      "simulation_id": "sim_1d556fdc69a0",
+      "persona_id": "bookstagram_curator_43_8312",
+      "platform": "bookstagram",
+      "round_number": 1,
+      "title": null,
+      "body": "Keys to the Quiet Gate looks like Short sentences and quick paragraph turns suggest fast pacing. and reads like beautiful_package, mood.",
+      "rating": 4.08,
+      "hashtags": [
+        "fantasy",
+        "annotated_copy",
+        "reading_night"
+      ],
+      "shelf_tags": [],
+      "payload": {
+        "caption": "Keys to the Quiet Gate looks like Short sentences and quick paragraph turns suggest fast pacing. and reads like beautiful_package, mood.",
+        "carousel_idea": [
+          "cover shot with tabs",
+          "quote slide featuring grief",
+          "final slide with shelf verdict"
+        ],
+        "aesthetic_tags": [
+          "fantasy",
+          "annotated_copy",
+          "reading_night"
+        ],
+        "quote_card_candidates": [
+          "Keys to the Quiet Gate I."
+        ],
+        "save_share_reason": "save for vibes and share for the quote density",
+        "evidence_refs": [
+          "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+          "book_dna:heuristic",
+          "chunk_001",
+          "chapter:chunk_001",
+          "chapter:chunk_002",
+          "platform_style:bookstagram"
+        ]
+      },
+      "engagement_prediction": 0.731,
+      "sentiment": "mixed",
+      "evidence_refs": [
+        "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+        "book_dna:heuristic",
+        "chunk_001",
+        "chapter:chunk_001",
+        "chapter:chunk_002",
+        "platform_style:bookstagram"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "post_id": "goodreads_4ca6d5a26a46",
+      "simulation_id": "sim_1d556fdc69a0",
+      "persona_id": "goodreads_genre_loyalist_44_9261",
+      "platform": "goodreads",
+      "round_number": 1,
+      "title": "Keys to the Quiet Gate: strong Short sentences and quick paragraph turns suggest fast pacing. payoff",
+      "body": "I came for the fantasy promise and stayed for genre_tropes, satisfying_arc. My main friction was genre_betrayal, ambiguous_endings.",
+      "rating": 4.2,
+      "hashtags": [],
+      "shelf_tags": [
+        "fantasy",
+        "community_reviewers",
+        "swarmbook-simulated"
+      ],
+      "payload": {
+        "star_rating": 4,
+        "review_title": "Keys to the Quiet Gate: strong Short sentences and quick paragraph turns suggest fast pacing. payoff",
+        "review_body": "I came for the fantasy promise and stayed for genre_tropes, satisfying_arc. My main friction was genre_betrayal, ambiguous_endings.",
+        "shelf_tags": [
+          "fantasy",
+          "community_reviewers",
+          "swarmbook-simulated"
+        ],
+        "dnf_note": "Finished the book",
+        "quote_highlights": [
+          "Keys to the Quiet Gate I."
+        ],
+        "evidence_refs": [
+          "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+          "book_dna:heuristic",
+          "chunk_001",
+          "chapter:chunk_001",
+          "chapter:chunk_002",
+          "platform_style:goodreads"
+        ]
+      },
+      "engagement_prediction": 0.627,
+      "sentiment": "mixed",
+      "evidence_refs": [
+        "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+        "book_dna:heuristic",
+        "chunk_001",
+        "chapter:chunk_001",
+        "chapter:chunk_002",
+        "platform_style:goodreads"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "post_id": "goodreads_a24fb345fad4",
+      "simulation_id": "sim_1d556fdc69a0",
+      "persona_id": "goodreads_genre_loyalist_45_4315",
+      "platform": "goodreads",
+      "round_number": 1,
+      "title": "Keys to the Quiet Gate: strong Short sentences and quick paragraph turns suggest fast pacing. payoff",
+      "body": "I came for the fantasy promise and stayed for genre_tropes, satisfying_arc. My main friction was genre_betrayal, ambiguous_endings.",
+      "rating": 3.76,
+      "hashtags": [],
+      "shelf_tags": [
+        "fantasy",
+        "community_reviewers",
+        "swarmbook-simulated"
+      ],
+      "payload": {
+        "star_rating": 4,
+        "review_title": "Keys to the Quiet Gate: strong Short sentences and quick paragraph turns suggest fast pacing. payoff",
+        "review_body": "I came for the fantasy promise and stayed for genre_tropes, satisfying_arc. My main friction was genre_betrayal, ambiguous_endings.",
+        "shelf_tags": [
+          "fantasy",
+          "community_reviewers",
+          "swarmbook-simulated"
+        ],
+        "dnf_note": "Finished the book",
+        "quote_highlights": [
+          "Keys to the Quiet Gate I."
+        ],
+        "evidence_refs": [
+          "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+          "book_dna:heuristic",
+          "chunk_001",
+          "chapter:chunk_001",
+          "chapter:chunk_002",
+          "platform_style:goodreads"
+        ]
+      },
+      "engagement_prediction": 0.585,
+      "sentiment": "mixed",
+      "evidence_refs": [
+        "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+        "book_dna:heuristic",
+        "chunk_001",
+        "chapter:chunk_001",
+        "chapter:chunk_002",
+        "platform_style:goodreads"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "post_id": "booktok_55c18417e1a7",
+      "simulation_id": "sim_1d556fdc69a0",
+      "persona_id": "booktok_trope_hunter_46_9481",
+      "platform": "booktok",
+      "round_number": 1,
+      "title": "If Keys to the Quiet Gate broke me in 15 seconds, that's your warning.",
+      "body": "Stop scrolling if you want fantasy with Short sentences and quick paragraph turns suggest fast pacing.. Act one: Keys to the Quiet Gate I.. Act two: why I couldn't stop thinking about enemies_to_lovers, slow_burn.",
+      "rating": 3.85,
+      "hashtags": [
+        "enemies_to_lovers",
+        "slow_burn",
+        "forced_proximity"
+      ],
+      "shelf_tags": [],
+      "payload": {
+        "video_script": "Stop scrolling if you want fantasy with Short sentences and quick paragraph turns suggest fast pacing.. Act one: Keys to the Quiet Gate I.. Act two: why I couldn't stop thinking about enemies_to_lovers, slow_burn.",
+        "trope_tags": [
+          "enemies_to_lovers",
+          "slow_burn",
+          "forced_proximity"
+        ],
+        "hook_line": "If Keys to the Quiet Gate broke me in 15 seconds, that's your warning.",
+        "visual_motif": "Section 1, Section 2",
+        "viral_trigger": "medium",
+        "cringe_mockery_risk": "medium_low",
+        "evidence_refs": [
+          "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+          "book_dna:heuristic",
+          "chunk_001",
+          "chapter:chunk_001",
+          "chapter:chunk_002",
+          "platform_style:booktok"
+        ]
+      },
+      "engagement_prediction": 0.814,
+      "sentiment": "mixed",
+      "evidence_refs": [
+        "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+        "book_dna:heuristic",
+        "chunk_001",
+        "chapter:chunk_001",
+        "chapter:chunk_002",
+        "platform_style:booktok"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "post_id": "booktok_703c0f3cd866",
+      "simulation_id": "sim_1d556fdc69a0",
+      "persona_id": "booktok_emotional_amplifier_47_5386",
+      "platform": "booktok",
+      "round_number": 1,
+      "title": "If Keys to the Quiet Gate broke me in 15 seconds, that's your warning.",
+      "body": "Stop scrolling if you want fantasy with Short sentences and quick paragraph turns suggest fast pacing.. Act one: Keys to the Quiet Gate I.. Act two: why I couldn't stop thinking about heartbreak, found_family.",
+      "rating": 4.18,
+      "hashtags": [
+        "heartbreak",
+        "found_family",
+        "catharsis"
+      ],
+      "shelf_tags": [],
+      "payload": {
+        "video_script": "Stop scrolling if you want fantasy with Short sentences and quick paragraph turns suggest fast pacing.. Act one: Keys to the Quiet Gate I.. Act two: why I couldn't stop thinking about heartbreak, found_family.",
+        "trope_tags": [
+          "heartbreak",
+          "found_family",
+          "catharsis"
+        ],
+        "hook_line": "If Keys to the Quiet Gate broke me in 15 seconds, that's your warning.",
+        "visual_motif": "Section 1, Section 2",
+        "viral_trigger": "high",
+        "cringe_mockery_risk": "high",
+        "evidence_refs": [
+          "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+          "book_dna:heuristic",
+          "chunk_001",
+          "chapter:chunk_001",
+          "chapter:chunk_002",
+          "platform_style:booktok"
+        ]
+      },
+      "engagement_prediction": 0.876,
+      "sentiment": "mixed",
+      "evidence_refs": [
+        "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+        "book_dna:heuristic",
+        "chunk_001",
+        "chapter:chunk_001",
+        "chapter:chunk_002",
+        "platform_style:booktok"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "post_id": "x_ea273d7e1cf8",
+      "simulation_id": "sim_1d556fdc69a0",
+      "persona_id": "x_hot_take_reader_48_7887",
+      "platform": "x",
+      "round_number": 1,
+      "title": "Keys to the Quiet Gate is either a 5-star obsession or proof that slowness kills momentum.",
+      "body": "QT: the book absolutely delivers on provocation.",
+      "rating": 3.94,
+      "hashtags": [],
+      "shelf_tags": [],
+      "payload": {
+        "hot_take": "Keys to the Quiet Gate is either a 5-star obsession or proof that slowness kills momentum.",
+        "quote_tweet": "QT: the book absolutely delivers on provocation.",
+        "controversy_compression": "Compressed discourse: slowness vs payoff.",
+        "author_brand_reaction": "helps author brand if they lean into the strong opinion traffic",
+        "evidence_refs": [
+          "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+          "book_dna:heuristic",
+          "chunk_001",
+          "chapter:chunk_001",
+          "chapter:chunk_002",
+          "platform_style:x"
+        ]
+      },
+      "engagement_prediction": 0.808,
+      "sentiment": "mixed",
+      "evidence_refs": [
+        "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+        "book_dna:heuristic",
+        "chunk_001",
+        "chapter:chunk_001",
+        "chapter:chunk_002",
+        "platform_style:x"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "post_id": "reddit_55fcf778b186",
+      "simulation_id": "sim_1d556fdc69a0",
+      "persona_id": "reddit_skeptic_49_1285",
+      "platform": "reddit",
+      "round_number": 1,
+      "title": "[Discussion] Keys to the Quiet Gate works until handwaving",
+      "body": "My thesis: the book succeeds because of internal_logic, sharp_argument, but it asks you to forgive handwaving, plot_holes.",
+      "rating": 3.67,
+      "hashtags": [],
+      "shelf_tags": [],
+      "payload": {
+        "thread_title": "[Discussion] Keys to the Quiet Gate works until handwaving",
+        "top_comment": "My thesis: the book succeeds because of internal_logic, sharp_argument, but it asks you to forgive handwaving, plot_holes.",
+        "skeptical_comment": "I still don't buy the framing around handwaving.",
+        "debate_branch": [
+          "User A defends the fantasy expectations.",
+          "User B says the payoff earns the setup.",
+          "User C argues the momentum collapses in the middle."
+        ],
+        "logic_framing_objection": "The sharpest objection is whether handwaving is actually supported on the page.",
+        "evidence_refs": [
+          "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+          "book_dna:heuristic",
+          "chunk_001",
+          "chapter:chunk_001",
+          "chapter:chunk_002",
+          "platform_style:reddit"
+        ]
+      },
+      "engagement_prediction": 0.579,
+      "sentiment": "mixed",
+      "evidence_refs": [
+        "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+        "book_dna:heuristic",
+        "chunk_001",
+        "chapter:chunk_001",
+        "chapter:chunk_002",
+        "platform_style:reddit"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "post_id": "reddit_7c2c9f23a3dd",
+      "simulation_id": "sim_1d556fdc69a0",
+      "persona_id": "reddit_genre_purist_50_3671",
+      "platform": "reddit",
+      "round_number": 1,
+      "title": "[Discussion] Keys to the Quiet Gate works until genre_blending",
+      "body": "My thesis: the book succeeds because of genre_authenticity, canonical_rules, but it asks you to forgive genre_blending, rule_breaking.",
+      "rating": 3.7,
+      "hashtags": [],
+      "shelf_tags": [],
+      "payload": {
+        "thread_title": "[Discussion] Keys to the Quiet Gate works until genre_blending",
+        "top_comment": "My thesis: the book succeeds because of genre_authenticity, canonical_rules, but it asks you to forgive genre_blending, rule_breaking.",
+        "skeptical_comment": "I still don't buy the framing around genre_blending.",
+        "debate_branch": [
+          "User A defends the fantasy expectations.",
+          "User B says the payoff earns the setup.",
+          "User C argues the momentum collapses in the middle."
+        ],
+        "logic_framing_objection": "The sharpest objection is whether genre_blending is actually supported on the page.",
+        "evidence_refs": [
+          "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+          "book_dna:heuristic",
+          "chunk_001",
+          "chapter:chunk_001",
+          "chapter:chunk_002",
+          "platform_style:reddit"
+        ]
+      },
+      "engagement_prediction": 0.543,
+      "sentiment": "mixed",
+      "evidence_refs": [
+        "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+        "book_dna:heuristic",
+        "chunk_001",
+        "chapter:chunk_001",
+        "chapter:chunk_002",
+        "platform_style:reddit"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "post_id": "bookstagram_bd295f06d7e1",
+      "simulation_id": "sim_1d556fdc69a0",
+      "persona_id": "bookstagram_curator_51_3092",
+      "platform": "bookstagram",
+      "round_number": 1,
+      "title": null,
+      "body": "Keys to the Quiet Gate looks like Short sentences and quick paragraph turns suggest fast pacing. and reads like beautiful_package, mood.",
+      "rating": 3.77,
+      "hashtags": [
+        "fantasy",
+        "annotated_copy",
+        "reading_night"
+      ],
+      "shelf_tags": [],
+      "payload": {
+        "caption": "Keys to the Quiet Gate looks like Short sentences and quick paragraph turns suggest fast pacing. and reads like beautiful_package, mood.",
+        "carousel_idea": [
+          "cover shot with tabs",
+          "quote slide featuring grief",
+          "final slide with shelf verdict"
+        ],
+        "aesthetic_tags": [
+          "fantasy",
+          "annotated_copy",
+          "reading_night"
+        ],
+        "quote_card_candidates": [
+          "Keys to the Quiet Gate I."
+        ],
+        "save_share_reason": "save for vibes and share for the quote density",
+        "evidence_refs": [
+          "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+          "book_dna:heuristic",
+          "chunk_001",
+          "chapter:chunk_001",
+          "chapter:chunk_002",
+          "platform_style:bookstagram"
+        ]
+      },
+      "engagement_prediction": 0.761,
+      "sentiment": "mixed",
+      "evidence_refs": [
+        "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+        "book_dna:heuristic",
+        "chunk_001",
+        "chapter:chunk_001",
+        "chapter:chunk_002",
+        "platform_style:bookstagram"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "post_id": "booktok_06bc846a3111",
+      "simulation_id": "sim_1d556fdc69a0",
+      "persona_id": "booktok_trope_hunter_52_7085",
+      "platform": "booktok",
+      "round_number": 1,
+      "title": "If Keys to the Quiet Gate broke me in 15 seconds, that's your warning.",
+      "body": "Stop scrolling if you want fantasy with Short sentences and quick paragraph turns suggest fast pacing.. Act one: Keys to the Quiet Gate I.. Act two: why I couldn't stop thinking about enemies_to_lovers, slow_burn.",
+      "rating": 4.4,
+      "hashtags": [
+        "enemies_to_lovers",
+        "slow_burn",
+        "forced_proximity"
+      ],
+      "shelf_tags": [],
+      "payload": {
+        "video_script": "Stop scrolling if you want fantasy with Short sentences and quick paragraph turns suggest fast pacing.. Act one: Keys to the Quiet Gate I.. Act two: why I couldn't stop thinking about enemies_to_lovers, slow_burn.",
+        "trope_tags": [
+          "enemies_to_lovers",
+          "slow_burn",
+          "forced_proximity"
+        ],
+        "hook_line": "If Keys to the Quiet Gate broke me in 15 seconds, that's your warning.",
+        "visual_motif": "Section 1, Section 2",
+        "viral_trigger": "medium",
+        "cringe_mockery_risk": "medium_low",
+        "evidence_refs": [
+          "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+          "book_dna:heuristic",
+          "chunk_001",
+          "chapter:chunk_001",
+          "chapter:chunk_002",
+          "platform_style:booktok"
+        ]
+      },
+      "engagement_prediction": 0.824,
+      "sentiment": "mixed",
+      "evidence_refs": [
+        "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+        "book_dna:heuristic",
+        "chunk_001",
+        "chapter:chunk_001",
+        "chapter:chunk_002",
+        "platform_style:booktok"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "post_id": "x_8b856c5ef465",
+      "simulation_id": "sim_1d556fdc69a0",
+      "persona_id": "x_hot_take_reader_53_7046",
+      "platform": "x",
+      "round_number": 1,
+      "title": "Keys to the Quiet Gate is either a 5-star obsession or proof that slowness kills momentum.",
+      "body": "QT: the book absolutely delivers on provocation.",
+      "rating": 3.71,
+      "hashtags": [],
+      "shelf_tags": [],
+      "payload": {
+        "hot_take": "Keys to the Quiet Gate is either a 5-star obsession or proof that slowness kills momentum.",
+        "quote_tweet": "QT: the book absolutely delivers on provocation.",
+        "controversy_compression": "Compressed discourse: slowness vs payoff.",
+        "author_brand_reaction": "helps author brand if they lean into the strong opinion traffic",
+        "evidence_refs": [
+          "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+          "book_dna:heuristic",
+          "chunk_001",
+          "chapter:chunk_001",
+          "chapter:chunk_002",
+          "platform_style:x"
+        ]
+      },
+      "engagement_prediction": 0.793,
+      "sentiment": "mixed",
+      "evidence_refs": [
+        "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+        "book_dna:heuristic",
+        "chunk_001",
+        "chapter:chunk_001",
+        "chapter:chunk_002",
+        "platform_style:x"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "post_id": "booktok_1cf16a4ab6da",
+      "simulation_id": "sim_1d556fdc69a0",
+      "persona_id": "booktok_emotional_amplifier_54_8035",
+      "platform": "booktok",
+      "round_number": 1,
+      "title": "If Keys to the Quiet Gate broke me in 15 seconds, that's your warning.",
+      "body": "Stop scrolling if you want fantasy with Short sentences and quick paragraph turns suggest fast pacing.. Act one: Keys to the Quiet Gate I.. Act two: why I couldn't stop thinking about heartbreak, found_family.",
+      "rating": 4.23,
+      "hashtags": [
+        "heartbreak",
+        "found_family",
+        "catharsis"
+      ],
+      "shelf_tags": [],
+      "payload": {
+        "video_script": "Stop scrolling if you want fantasy with Short sentences and quick paragraph turns suggest fast pacing.. Act one: Keys to the Quiet Gate I.. Act two: why I couldn't stop thinking about heartbreak, found_family.",
+        "trope_tags": [
+          "heartbreak",
+          "found_family",
+          "catharsis"
+        ],
+        "hook_line": "If Keys to the Quiet Gate broke me in 15 seconds, that's your warning.",
+        "visual_motif": "Section 1, Section 2",
+        "viral_trigger": "high",
+        "cringe_mockery_risk": "medium_low",
+        "evidence_refs": [
+          "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+          "book_dna:heuristic",
+          "chunk_001",
+          "chapter:chunk_001",
+          "chapter:chunk_002",
+          "platform_style:booktok"
+        ]
+      },
+      "engagement_prediction": 0.898,
+      "sentiment": "mixed",
+      "evidence_refs": [
+        "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+        "book_dna:heuristic",
+        "chunk_001",
+        "chapter:chunk_001",
+        "chapter:chunk_002",
+        "platform_style:booktok"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "post_id": "booktok_73562a15eb40",
+      "simulation_id": "sim_1d556fdc69a0",
+      "persona_id": "booktok_emotional_amplifier_55_1963",
+      "platform": "booktok",
+      "round_number": 1,
+      "title": "If Keys to the Quiet Gate broke me in 15 seconds, that's your warning.",
+      "body": "Stop scrolling if you want fantasy with Short sentences and quick paragraph turns suggest fast pacing.. Act one: Keys to the Quiet Gate I.. Act two: why I couldn't stop thinking about heartbreak, found_family.",
+      "rating": 3.81,
+      "hashtags": [
+        "heartbreak",
+        "found_family",
+        "catharsis"
+      ],
+      "shelf_tags": [],
+      "payload": {
+        "video_script": "Stop scrolling if you want fantasy with Short sentences and quick paragraph turns suggest fast pacing.. Act one: Keys to the Quiet Gate I.. Act two: why I couldn't stop thinking about heartbreak, found_family.",
+        "trope_tags": [
+          "heartbreak",
+          "found_family",
+          "catharsis"
+        ],
+        "hook_line": "If Keys to the Quiet Gate broke me in 15 seconds, that's your warning.",
+        "visual_motif": "Section 1, Section 2",
+        "viral_trigger": "high",
+        "cringe_mockery_risk": "medium_low",
+        "evidence_refs": [
+          "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+          "book_dna:heuristic",
+          "chunk_001",
+          "chapter:chunk_001",
+          "chapter:chunk_002",
+          "platform_style:booktok"
+        ]
+      },
+      "engagement_prediction": 0.796,
+      "sentiment": "mixed",
+      "evidence_refs": [
+        "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+        "book_dna:heuristic",
+        "chunk_001",
+        "chapter:chunk_001",
+        "chapter:chunk_002",
+        "platform_style:booktok"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "post_id": "booktok_b93768075030",
+      "simulation_id": "sim_1d556fdc69a0",
+      "persona_id": "booktok_emotional_amplifier_56_4123",
+      "platform": "booktok",
+      "round_number": 1,
+      "title": "If Keys to the Quiet Gate broke me in 15 seconds, that's your warning.",
+      "body": "Stop scrolling if you want fantasy with Short sentences and quick paragraph turns suggest fast pacing.. Act one: Keys to the Quiet Gate I.. Act two: why I couldn't stop thinking about heartbreak, found_family.",
+      "rating": 3.72,
+      "hashtags": [
+        "heartbreak",
+        "found_family",
+        "catharsis"
+      ],
+      "shelf_tags": [],
+      "payload": {
+        "video_script": "Stop scrolling if you want fantasy with Short sentences and quick paragraph turns suggest fast pacing.. Act one: Keys to the Quiet Gate I.. Act two: why I couldn't stop thinking about heartbreak, found_family.",
+        "trope_tags": [
+          "heartbreak",
+          "found_family",
+          "catharsis"
+        ],
+        "hook_line": "If Keys to the Quiet Gate broke me in 15 seconds, that's your warning.",
+        "visual_motif": "Section 1, Section 2",
+        "viral_trigger": "high",
+        "cringe_mockery_risk": "medium_low",
+        "evidence_refs": [
+          "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+          "book_dna:heuristic",
+          "chunk_001",
+          "chapter:chunk_001",
+          "chapter:chunk_002",
+          "platform_style:booktok"
+        ]
+      },
+      "engagement_prediction": 0.767,
+      "sentiment": "mixed",
+      "evidence_refs": [
+        "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+        "book_dna:heuristic",
+        "chunk_001",
+        "chapter:chunk_001",
+        "chapter:chunk_002",
+        "platform_style:booktok"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "post_id": "bookstagram_80a7b5ad4757",
+      "simulation_id": "sim_1d556fdc69a0",
+      "persona_id": "bookstagram_curator_57_5781",
+      "platform": "bookstagram",
+      "round_number": 1,
+      "title": null,
+      "body": "Keys to the Quiet Gate looks like Short sentences and quick paragraph turns suggest fast pacing. and reads like beautiful_package, mood.",
+      "rating": 3.55,
+      "hashtags": [
+        "fantasy",
+        "annotated_copy",
+        "reading_night"
+      ],
+      "shelf_tags": [],
+      "payload": {
+        "caption": "Keys to the Quiet Gate looks like Short sentences and quick paragraph turns suggest fast pacing. and reads like beautiful_package, mood.",
+        "carousel_idea": [
+          "cover shot with tabs",
+          "quote slide featuring grief",
+          "final slide with shelf verdict"
+        ],
+        "aesthetic_tags": [
+          "fantasy",
+          "annotated_copy",
+          "reading_night"
+        ],
+        "quote_card_candidates": [
+          "Keys to the Quiet Gate I."
+        ],
+        "save_share_reason": "save for vibes and share for the quote density",
+        "evidence_refs": [
+          "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+          "book_dna:heuristic",
+          "chunk_001",
+          "chapter:chunk_001",
+          "chapter:chunk_002",
+          "platform_style:bookstagram"
+        ]
+      },
+      "engagement_prediction": 0.763,
+      "sentiment": "mixed",
+      "evidence_refs": [
+        "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+        "book_dna:heuristic",
+        "chunk_001",
+        "chapter:chunk_001",
+        "chapter:chunk_002",
+        "platform_style:bookstagram"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "post_id": "booktok_922a8e49f6dd",
+      "simulation_id": "sim_1d556fdc69a0",
+      "persona_id": "booktok_trope_hunter_58_7341",
+      "platform": "booktok",
+      "round_number": 1,
+      "title": "If Keys to the Quiet Gate broke me in 15 seconds, that's your warning.",
+      "body": "Stop scrolling if you want fantasy with Short sentences and quick paragraph turns suggest fast pacing.. Act one: Keys to the Quiet Gate I.. Act two: why I couldn't stop thinking about enemies_to_lovers, slow_burn.",
+      "rating": 3.8,
+      "hashtags": [
+        "enemies_to_lovers",
+        "slow_burn",
+        "forced_proximity"
+      ],
+      "shelf_tags": [],
+      "payload": {
+        "video_script": "Stop scrolling if you want fantasy with Short sentences and quick paragraph turns suggest fast pacing.. Act one: Keys to the Quiet Gate I.. Act two: why I couldn't stop thinking about enemies_to_lovers, slow_burn.",
+        "trope_tags": [
+          "enemies_to_lovers",
+          "slow_burn",
+          "forced_proximity"
+        ],
+        "hook_line": "If Keys to the Quiet Gate broke me in 15 seconds, that's your warning.",
+        "visual_motif": "Section 1, Section 2",
+        "viral_trigger": "medium",
+        "cringe_mockery_risk": "medium_low",
+        "evidence_refs": [
+          "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+          "book_dna:heuristic",
+          "chunk_001",
+          "chapter:chunk_001",
+          "chapter:chunk_002",
+          "platform_style:booktok"
+        ]
+      },
+      "engagement_prediction": 0.772,
+      "sentiment": "mixed",
+      "evidence_refs": [
+        "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+        "book_dna:heuristic",
+        "chunk_001",
+        "chapter:chunk_001",
+        "chapter:chunk_002",
+        "platform_style:booktok"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "post_id": "reddit_7a47ab3c302c",
+      "simulation_id": "sim_1d556fdc69a0",
+      "persona_id": "reddit_genre_purist_59_6876",
+      "platform": "reddit",
+      "round_number": 1,
+      "title": "[Discussion] Keys to the Quiet Gate works until genre_blending",
+      "body": "My thesis: the book succeeds because of genre_authenticity, canonical_rules, but it asks you to forgive genre_blending, rule_breaking.",
+      "rating": 3.71,
+      "hashtags": [],
+      "shelf_tags": [],
+      "payload": {
+        "thread_title": "[Discussion] Keys to the Quiet Gate works until genre_blending",
+        "top_comment": "My thesis: the book succeeds because of genre_authenticity, canonical_rules, but it asks you to forgive genre_blending, rule_breaking.",
+        "skeptical_comment": "I still don't buy the framing around genre_blending.",
+        "debate_branch": [
+          "User A defends the fantasy expectations.",
+          "User B says the payoff earns the setup.",
+          "User C argues the momentum collapses in the middle."
+        ],
+        "logic_framing_objection": "The sharpest objection is whether genre_blending is actually supported on the page.",
+        "evidence_refs": [
+          "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+          "book_dna:heuristic",
+          "chunk_001",
+          "chapter:chunk_001",
+          "chapter:chunk_002",
+          "platform_style:reddit"
+        ]
+      },
+      "engagement_prediction": 0.525,
+      "sentiment": "mixed",
+      "evidence_refs": [
+        "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+        "book_dna:heuristic",
+        "chunk_001",
+        "chapter:chunk_001",
+        "chapter:chunk_002",
+        "platform_style:reddit"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "post_id": "booktok_3e32b69546a7",
+      "simulation_id": "sim_1d556fdc69a0",
+      "persona_id": "booktok_trope_hunter_60_1979",
+      "platform": "booktok",
+      "round_number": 1,
+      "title": "If Keys to the Quiet Gate broke me in 15 seconds, that's your warning.",
+      "body": "Stop scrolling if you want fantasy with Short sentences and quick paragraph turns suggest fast pacing.. Act one: Keys to the Quiet Gate I.. Act two: why I couldn't stop thinking about enemies_to_lovers, slow_burn.",
+      "rating": 4.1,
+      "hashtags": [
+        "enemies_to_lovers",
+        "slow_burn",
+        "forced_proximity"
+      ],
+      "shelf_tags": [],
+      "payload": {
+        "video_script": "Stop scrolling if you want fantasy with Short sentences and quick paragraph turns suggest fast pacing.. Act one: Keys to the Quiet Gate I.. Act two: why I couldn't stop thinking about enemies_to_lovers, slow_burn.",
+        "trope_tags": [
+          "enemies_to_lovers",
+          "slow_burn",
+          "forced_proximity"
+        ],
+        "hook_line": "If Keys to the Quiet Gate broke me in 15 seconds, that's your warning.",
+        "visual_motif": "Section 1, Section 2",
+        "viral_trigger": "medium",
+        "cringe_mockery_risk": "medium_low",
+        "evidence_refs": [
+          "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+          "book_dna:heuristic",
+          "chunk_001",
+          "chapter:chunk_001",
+          "chapter:chunk_002",
+          "platform_style:booktok"
+        ]
+      },
+      "engagement_prediction": 0.737,
+      "sentiment": "mixed",
+      "evidence_refs": [
+        "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+        "book_dna:heuristic",
+        "chunk_001",
+        "chapter:chunk_001",
+        "chapter:chunk_002",
+        "platform_style:booktok"
+      ],
+      "confidence": 0.74
+    }
+  ]
+}

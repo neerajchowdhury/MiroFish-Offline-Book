@@ -1,0 +1,4382 @@
+{
+  "cross_reactions": [
+    {
+      "reaction_id": "cross_fffc3db510e1",
+      "simulation_id": "sim_1d556fdc69a0",
+      "source_post_id": "booktok_1cf16a4ab6da",
+      "target_post_id": "booktok_41c3a1273a7f",
+      "persona_id": "reddit_skeptic_01_5745",
+      "platform": "reddit",
+      "reacted_post_ids": [
+        "booktok_1cf16a4ab6da",
+        "booktok_703c0f3cd866",
+        "x_74df67ad0857",
+        "booktok_ba235ab7aaf7",
+        "x_dbb8a7ebfc2a",
+        "booktok_06bc846a3111",
+        "booktok_41c3a1273a7f"
+      ],
+      "stance_shift": "more_positive",
+      "agree_probability": 0.846,
+      "disagree_probability": 0.154,
+      "reply_likelihood": 0.585,
+      "rating_shift": 0.117,
+      "recommendation_shift": 0.21,
+      "sentiment": "positive",
+      "evidence_refs": [
+        "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+        "book_dna:heuristic",
+        "chunk_001",
+        "chapter:chunk_001",
+        "chapter:chunk_002",
+        "platform_style:booktok",
+        "platform_style:x"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "cross_06dab316c20f",
+      "simulation_id": "sim_1d556fdc69a0",
+      "source_post_id": "booktok_1cf16a4ab6da",
+      "target_post_id": "booktok_ba235ab7aaf7",
+      "persona_id": "bookstagram_curator_02_3291",
+      "platform": "bookstagram",
+      "reacted_post_ids": [
+        "booktok_1cf16a4ab6da",
+        "x_9d5d3b55ea78",
+        "booktok_55c18417e1a7",
+        "booktok_ba235ab7aaf7"
+      ],
+      "stance_shift": "more_positive",
+      "agree_probability": 0.906,
+      "disagree_probability": 0.094,
+      "reply_likelihood": 0.461,
+      "rating_shift": 0.1,
+      "recommendation_shift": 0.21,
+      "sentiment": "positive",
+      "evidence_refs": [
+        "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+        "book_dna:heuristic",
+        "chunk_001",
+        "chapter:chunk_001",
+        "chapter:chunk_002",
+        "platform_style:booktok",
+        "platform_style:x"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "cross_8d6dab570289",
+      "simulation_id": "sim_1d556fdc69a0",
+      "source_post_id": "booktok_ae57bb96e9cd",
+      "target_post_id": "x_9d5d3b55ea78",
+      "persona_id": "goodreads_genre_loyalist_03_1292",
+      "platform": "goodreads",
+      "reacted_post_ids": [
+        "booktok_ae57bb96e9cd",
+        "booktok_55c18417e1a7",
+        "x_9d5d3b55ea78"
+      ],
+      "stance_shift": "more_positive",
+      "agree_probability": 0.801,
+      "disagree_probability": 0.199,
+      "reply_likelihood": 0.463,
+      "rating_shift": 0.097,
+      "recommendation_shift": 0.206,
+      "sentiment": "positive",
+      "evidence_refs": [
+        "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+        "book_dna:heuristic",
+        "chunk_001",
+        "chapter:chunk_001",
+        "chapter:chunk_002",
+        "platform_style:booktok",
+        "platform_style:x"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "cross_f3fc7d9a0add",
+      "simulation_id": "sim_1d556fdc69a0",
+      "source_post_id": "booktok_55c18417e1a7",
+      "target_post_id": "booktok_41c3a1273a7f",
+      "persona_id": "booktok_emotional_amplifier_04_5377",
+      "platform": "booktok",
+      "reacted_post_ids": [
+        "booktok_55c18417e1a7",
+        "booktok_ae57bb96e9cd",
+        "booktok_bdf61963ac28",
+        "booktok_41c3a1273a7f"
+      ],
+      "stance_shift": "more_positive",
+      "agree_probability": 0.902,
+      "disagree_probability": 0.098,
+      "reply_likelihood": 0.602,
+      "rating_shift": 0.098,
+      "recommendation_shift": 0.207,
+      "sentiment": "positive",
+      "evidence_refs": [
+        "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+        "book_dna:heuristic",
+        "chunk_001",
+        "chapter:chunk_001",
+        "chapter:chunk_002",
+        "platform_style:booktok"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "cross_5395a0fef729",
+      "simulation_id": "sim_1d556fdc69a0",
+      "source_post_id": "booktok_06bc846a3111",
+      "target_post_id": "booktok_703c0f3cd866",
+      "persona_id": "booktok_trope_hunter_05_1314",
+      "platform": "booktok",
+      "reacted_post_ids": [
+        "booktok_06bc846a3111",
+        "booktok_41c3a1273a7f",
+        "booktok_1cf16a4ab6da",
+        "x_9d5d3b55ea78",
+        "booktok_703c0f3cd866"
+      ],
+      "stance_shift": "more_positive",
+      "agree_probability": 0.967,
+      "disagree_probability": 0.033,
+      "reply_likelihood": 0.621,
+      "rating_shift": 0.117,
+      "recommendation_shift": 0.212,
+      "sentiment": "positive",
+      "evidence_refs": [
+        "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+        "book_dna:heuristic",
+        "chunk_001",
+        "chapter:chunk_001",
+        "chapter:chunk_002",
+        "platform_style:booktok",
+        "platform_style:x"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "cross_3e9df5ee7497",
+      "simulation_id": "sim_1d556fdc69a0",
+      "source_post_id": "booktok_703c0f3cd866",
+      "target_post_id": "booktok_55c18417e1a7",
+      "persona_id": "bookstagram_curator_06_7415",
+      "platform": "bookstagram",
+      "reacted_post_ids": [
+        "booktok_703c0f3cd866",
+        "x_74df67ad0857",
+        "x_9d5d3b55ea78",
+        "x_dbb8a7ebfc2a",
+        "booktok_55c18417e1a7"
+      ],
+      "stance_shift": "more_positive",
+      "agree_probability": 0.9,
+      "disagree_probability": 0.1,
+      "reply_likelihood": 0.4,
+      "rating_shift": 0.097,
+      "recommendation_shift": 0.209,
+      "sentiment": "positive",
+      "evidence_refs": [
+        "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+        "book_dna:heuristic",
+        "chunk_001",
+        "chapter:chunk_001",
+        "chapter:chunk_002",
+        "platform_style:booktok",
+        "platform_style:x"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "cross_0f71de1e6bfe",
+      "simulation_id": "sim_1d556fdc69a0",
+      "source_post_id": "x_dbb8a7ebfc2a",
+      "target_post_id": "booktok_703c0f3cd866",
+      "persona_id": "goodreads_genre_loyalist_07_6109",
+      "platform": "goodreads",
+      "reacted_post_ids": [
+        "x_dbb8a7ebfc2a",
+        "x_9d5d3b55ea78",
+        "booktok_703c0f3cd866"
+      ],
+      "stance_shift": "more_positive",
+      "agree_probability": 0.815,
+      "disagree_probability": 0.185,
+      "reply_likelihood": 0.517,
+      "rating_shift": 0.1,
+      "recommendation_shift": 0.212,
+      "sentiment": "positive",
+      "evidence_refs": [
+        "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+        "book_dna:heuristic",
+        "chunk_001",
+        "chapter:chunk_001",
+        "chapter:chunk_002",
+        "platform_style:x",
+        "platform_style:booktok"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "cross_df5895fca19f",
+      "simulation_id": "sim_1d556fdc69a0",
+      "source_post_id": "booktok_55c18417e1a7",
+      "target_post_id": "booktok_703c0f3cd866",
+      "persona_id": "x_hot_take_reader_08_8970",
+      "platform": "x",
+      "reacted_post_ids": [
+        "booktok_55c18417e1a7",
+        "booktok_ba235ab7aaf7",
+        "x_dbb8a7ebfc2a",
+        "booktok_1cf16a4ab6da",
+        "booktok_41c3a1273a7f",
+        "booktok_703c0f3cd866"
+      ],
+      "stance_shift": "more_positive",
+      "agree_probability": 0.96,
+      "disagree_probability": 0.04,
+      "reply_likelihood": 0.734,
+      "rating_shift": 0.11,
+      "recommendation_shift": 0.21,
+      "sentiment": "positive",
+      "evidence_refs": [
+        "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+        "book_dna:heuristic",
+        "chunk_001",
+        "chapter:chunk_001",
+        "chapter:chunk_002",
+        "platform_style:booktok",
+        "platform_style:x"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "cross_0e51a3203076",
+      "simulation_id": "sim_1d556fdc69a0",
+      "source_post_id": "booktok_703c0f3cd866",
+      "target_post_id": "x_dbb8a7ebfc2a",
+      "persona_id": "literary_reader_09_1879",
+      "platform": "newsletter",
+      "reacted_post_ids": [
+        "booktok_703c0f3cd866",
+        "x_9d5d3b55ea78",
+        "booktok_06bc846a3111",
+        "x_dbb8a7ebfc2a"
+      ],
+      "stance_shift": "more_positive",
+      "agree_probability": 0.808,
+      "disagree_probability": 0.192,
+      "reply_likelihood": 0.429,
+      "rating_shift": 0.11,
+      "recommendation_shift": 0.211,
+      "sentiment": "positive",
+      "evidence_refs": [
+        "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+        "book_dna:heuristic",
+        "chunk_001",
+        "chapter:chunk_001",
+        "chapter:chunk_002",
+        "platform_style:booktok",
+        "platform_style:x"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "cross_76d9c2b2eea4",
+      "simulation_id": "sim_1d556fdc69a0",
+      "source_post_id": "x_9d5d3b55ea78",
+      "target_post_id": "booktok_1cf16a4ab6da",
+      "persona_id": "reddit_skeptic_10_4147",
+      "platform": "reddit",
+      "reacted_post_ids": [
+        "x_9d5d3b55ea78",
+        "booktok_703c0f3cd866",
+        "booktok_1cf16a4ab6da"
+      ],
+      "stance_shift": "more_positive",
+      "agree_probability": 0.786,
+      "disagree_probability": 0.214,
+      "reply_likelihood": 0.536,
+      "rating_shift": 0.107,
+      "recommendation_shift": 0.217,
+      "sentiment": "positive",
+      "evidence_refs": [
+        "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+        "book_dna:heuristic",
+        "chunk_001",
+        "chapter:chunk_001",
+        "chapter:chunk_002",
+        "platform_style:x",
+        "platform_style:booktok"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "cross_95e85a6af9e8",
+      "simulation_id": "sim_1d556fdc69a0",
+      "source_post_id": "x_9d5d3b55ea78",
+      "target_post_id": "booktok_1cf16a4ab6da",
+      "persona_id": "x_hot_take_reader_11_6386",
+      "platform": "x",
+      "reacted_post_ids": [
+        "x_9d5d3b55ea78",
+        "booktok_ae57bb96e9cd",
+        "booktok_703c0f3cd866",
+        "x_74df67ad0857",
+        "booktok_1cf16a4ab6da"
+      ],
+      "stance_shift": "more_positive",
+      "agree_probability": 0.96,
+      "disagree_probability": 0.04,
+      "reply_likelihood": 0.735,
+      "rating_shift": 0.11,
+      "recommendation_shift": 0.212,
+      "sentiment": "positive",
+      "evidence_refs": [
+        "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+        "book_dna:heuristic",
+        "chunk_001",
+        "chapter:chunk_001",
+        "chapter:chunk_002",
+        "platform_style:x",
+        "platform_style:booktok"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "cross_72cac59809e5",
+      "simulation_id": "sim_1d556fdc69a0",
+      "source_post_id": "x_9d5d3b55ea78",
+      "target_post_id": "booktok_703c0f3cd866",
+      "persona_id": "x_hot_take_reader_12_9791",
+      "platform": "x",
+      "reacted_post_ids": [
+        "x_9d5d3b55ea78",
+        "booktok_ba235ab7aaf7",
+        "booktok_703c0f3cd866"
+      ],
+      "stance_shift": "more_positive",
+      "agree_probability": 0.918,
+      "disagree_probability": 0.082,
+      "reply_likelihood": 0.749,
+      "rating_shift": 0.103,
+      "recommendation_shift": 0.21,
+      "sentiment": "positive",
+      "evidence_refs": [
+        "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+        "book_dna:heuristic",
+        "chunk_001",
+        "chapter:chunk_001",
+        "chapter:chunk_002",
+        "platform_style:x",
+        "platform_style:booktok"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "cross_77c296576f8e",
+      "simulation_id": "sim_1d556fdc69a0",
+      "source_post_id": "booktok_ba235ab7aaf7",
+      "target_post_id": "booktok_1cf16a4ab6da",
+      "persona_id": "reddit_genre_purist_13_1122",
+      "platform": "reddit",
+      "reacted_post_ids": [
+        "booktok_ba235ab7aaf7",
+        "booktok_06bc846a3111",
+        "x_9d5d3b55ea78",
+        "booktok_bdf61963ac28",
+        "x_74df67ad0857",
+        "booktok_1cf16a4ab6da"
+      ],
+      "stance_shift": "more_positive",
+      "agree_probability": 0.788,
+      "disagree_probability": 0.212,
+      "reply_likelihood": 0.573,
+      "rating_shift": 0.102,
+      "recommendation_shift": 0.211,
+      "sentiment": "positive",
+      "evidence_refs": [
+        "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+        "book_dna:heuristic",
+        "chunk_001",
+        "chapter:chunk_001",
+        "chapter:chunk_002",
+        "platform_style:booktok",
+        "platform_style:x"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "cross_e257f793c23d",
+      "simulation_id": "sim_1d556fdc69a0",
+      "source_post_id": "booktok_bdf61963ac28",
+      "target_post_id": "x_ea273d7e1cf8",
+      "persona_id": "x_hot_take_reader_14_5177",
+      "platform": "x",
+      "reacted_post_ids": [
+        "booktok_bdf61963ac28",
+        "booktok_41c3a1273a7f",
+        "booktok_1cf16a4ab6da",
+        "x_9d5d3b55ea78",
+        "booktok_ba235ab7aaf7",
+        "booktok_55c18417e1a7",
+        "x_ea273d7e1cf8"
+      ],
+      "stance_shift": "more_positive",
+      "agree_probability": 0.931,
+      "disagree_probability": 0.069,
+      "reply_likelihood": 0.692,
+      "rating_shift": 0.096,
+      "recommendation_shift": 0.209,
+      "sentiment": "positive",
+      "evidence_refs": [
+        "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+        "book_dna:heuristic",
+        "chunk_001",
+        "chapter:chunk_001",
+        "chapter:chunk_002",
+        "platform_style:booktok",
+        "platform_style:x"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "cross_3028da228e1c",
+      "simulation_id": "sim_1d556fdc69a0",
+      "source_post_id": "booktok_bdf61963ac28",
+      "target_post_id": "booktok_ba235ab7aaf7",
+      "persona_id": "booktok_trope_hunter_15_3337",
+      "platform": "booktok",
+      "reacted_post_ids": [
+        "booktok_bdf61963ac28",
+        "booktok_1cf16a4ab6da",
+        "x_9d5d3b55ea78",
+        "booktok_06bc846a3111",
+        "booktok_ba235ab7aaf7"
+      ],
+      "stance_shift": "more_positive",
+      "agree_probability": 0.946,
+      "disagree_probability": 0.054,
+      "reply_likelihood": 0.624,
+      "rating_shift": 0.102,
+      "recommendation_shift": 0.212,
+      "sentiment": "positive",
+      "evidence_refs": [
+        "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+        "book_dna:heuristic",
+        "chunk_001",
+        "chapter:chunk_001",
+        "chapter:chunk_002",
+        "platform_style:booktok",
+        "platform_style:x"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "cross_c0ae92da474c",
+      "simulation_id": "sim_1d556fdc69a0",
+      "source_post_id": "booktok_ba235ab7aaf7",
+      "target_post_id": "x_9d5d3b55ea78",
+      "persona_id": "booktok_trope_hunter_16_5729",
+      "platform": "booktok",
+      "reacted_post_ids": [
+        "booktok_ba235ab7aaf7",
+        "booktok_1cf16a4ab6da",
+        "booktok_55c18417e1a7",
+        "booktok_bdf61963ac28",
+        "booktok_41c3a1273a7f",
+        "booktok_ae57bb96e9cd",
+        "x_9d5d3b55ea78"
+      ],
+      "stance_shift": "more_positive",
+      "agree_probability": 0.905,
+      "disagree_probability": 0.095,
+      "reply_likelihood": 0.635,
+      "rating_shift": 0.101,
+      "recommendation_shift": 0.209,
+      "sentiment": "positive",
+      "evidence_refs": [
+        "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+        "book_dna:heuristic",
+        "chunk_001",
+        "chapter:chunk_001",
+        "chapter:chunk_002",
+        "platform_style:booktok",
+        "platform_style:x"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "cross_46f689394228",
+      "simulation_id": "sim_1d556fdc69a0",
+      "source_post_id": "x_9d5d3b55ea78",
+      "target_post_id": "booktok_41c3a1273a7f",
+      "persona_id": "goodreads_harsh_reviewer_17_5726",
+      "platform": "goodreads",
+      "reacted_post_ids": [
+        "x_9d5d3b55ea78",
+        "booktok_1cf16a4ab6da",
+        "booktok_ba235ab7aaf7",
+        "booktok_41c3a1273a7f"
+      ],
+      "stance_shift": "more_positive",
+      "agree_probability": 0.74,
+      "disagree_probability": 0.26,
+      "reply_likelihood": 0.428,
+      "rating_shift": 0.109,
+      "recommendation_shift": 0.209,
+      "sentiment": "positive",
+      "evidence_refs": [
+        "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+        "book_dna:heuristic",
+        "chunk_001",
+        "chapter:chunk_001",
+        "chapter:chunk_002",
+        "platform_style:x",
+        "platform_style:booktok"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "cross_3031ae89d143",
+      "simulation_id": "sim_1d556fdc69a0",
+      "source_post_id": "booktok_1cf16a4ab6da",
+      "target_post_id": "booktok_703c0f3cd866",
+      "persona_id": "x_hot_take_reader_18_4885",
+      "platform": "x",
+      "reacted_post_ids": [
+        "booktok_1cf16a4ab6da",
+        "booktok_55c18417e1a7",
+        "x_74df67ad0857",
+        "x_ea273d7e1cf8",
+        "x_dbb8a7ebfc2a",
+        "booktok_703c0f3cd866"
+      ],
+      "stance_shift": "more_positive",
+      "agree_probability": 0.943,
+      "disagree_probability": 0.057,
+      "reply_likelihood": 0.777,
+      "rating_shift": 0.104,
+      "recommendation_shift": 0.21,
+      "sentiment": "positive",
+      "evidence_refs": [
+        "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+        "book_dna:heuristic",
+        "chunk_001",
+        "chapter:chunk_001",
+        "chapter:chunk_002",
+        "platform_style:booktok",
+        "platform_style:x"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "cross_60ec4085773c",
+      "simulation_id": "sim_1d556fdc69a0",
+      "source_post_id": "booktok_55c18417e1a7",
+      "target_post_id": "x_74df67ad0857",
+      "persona_id": "x_hot_take_reader_19_6767",
+      "platform": "x",
+      "reacted_post_ids": [
+        "booktok_55c18417e1a7",
+        "x_9d5d3b55ea78",
+        "booktok_ba235ab7aaf7",
+        "x_74df67ad0857"
+      ],
+      "stance_shift": "more_positive",
+      "agree_probability": 0.918,
+      "disagree_probability": 0.082,
+      "reply_likelihood": 0.72,
+      "rating_shift": 0.094,
+      "recommendation_shift": 0.205,
+      "sentiment": "positive",
+      "evidence_refs": [
+        "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+        "book_dna:heuristic",
+        "chunk_001",
+        "chapter:chunk_001",
+        "chapter:chunk_002",
+        "platform_style:booktok",
+        "platform_style:x"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "cross_b5c75fdcf0ae",
+      "simulation_id": "sim_1d556fdc69a0",
+      "source_post_id": "x_ea273d7e1cf8",
+      "target_post_id": "booktok_ae57bb96e9cd",
+      "persona_id": "bookstagram_curator_20_4768",
+      "platform": "bookstagram",
+      "reacted_post_ids": [
+        "x_ea273d7e1cf8",
+        "booktok_bdf61963ac28",
+        "booktok_ae57bb96e9cd"
+      ],
+      "stance_shift": "more_positive",
+      "agree_probability": 0.885,
+      "disagree_probability": 0.115,
+      "reply_likelihood": 0.441,
+      "rating_shift": 0.092,
+      "recommendation_shift": 0.209,
+      "sentiment": "positive",
+      "evidence_refs": [
+        "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+        "book_dna:heuristic",
+        "chunk_001",
+        "chapter:chunk_001",
+        "chapter:chunk_002",
+        "platform_style:x",
+        "platform_style:booktok"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "cross_9305116e7fa5",
+      "simulation_id": "sim_1d556fdc69a0",
+      "source_post_id": "booktok_ba235ab7aaf7",
+      "target_post_id": "booktok_1cf16a4ab6da",
+      "persona_id": "booktok_emotional_amplifier_21_4731",
+      "platform": "booktok",
+      "reacted_post_ids": [
+        "booktok_ba235ab7aaf7",
+        "x_ea273d7e1cf8",
+        "booktok_703c0f3cd866",
+        "x_74df67ad0857",
+        "booktok_ae57bb96e9cd",
+        "booktok_1cf16a4ab6da"
+      ],
+      "stance_shift": "more_positive",
+      "agree_probability": 0.962,
+      "disagree_probability": 0.038,
+      "reply_likelihood": 0.658,
+      "rating_shift": 0.112,
+      "recommendation_shift": 0.21,
+      "sentiment": "positive",
+      "evidence_refs": [
+        "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+        "book_dna:heuristic",
+        "chunk_001",
+        "chapter:chunk_001",
+        "chapter:chunk_002",
+        "platform_style:booktok",
+        "platform_style:x"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "cross_16d3f3408901",
+      "simulation_id": "sim_1d556fdc69a0",
+      "source_post_id": "x_9d5d3b55ea78",
+      "target_post_id": "booktok_55c18417e1a7",
+      "persona_id": "reddit_skeptic_22_2629",
+      "platform": "reddit",
+      "reacted_post_ids": [
+        "x_9d5d3b55ea78",
+        "booktok_703c0f3cd866",
+        "booktok_ba235ab7aaf7",
+        "booktok_ae57bb96e9cd",
+        "x_dbb8a7ebfc2a",
+        "booktok_41c3a1273a7f",
+        "booktok_55c18417e1a7"
+      ],
+      "stance_shift": "more_positive",
+      "agree_probability": 0.803,
+      "disagree_probability": 0.197,
+      "reply_likelihood": 0.506,
+      "rating_shift": 0.106,
+      "recommendation_shift": 0.207,
+      "sentiment": "positive",
+      "evidence_refs": [
+        "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+        "book_dna:heuristic",
+        "chunk_001",
+        "chapter:chunk_001",
+        "chapter:chunk_002",
+        "platform_style:x",
+        "platform_style:booktok"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "cross_c9bc87eeae61",
+      "simulation_id": "sim_1d556fdc69a0",
+      "source_post_id": "booktok_55c18417e1a7",
+      "target_post_id": "x_dbb8a7ebfc2a",
+      "persona_id": "x_hot_take_reader_23_9705",
+      "platform": "x",
+      "reacted_post_ids": [
+        "booktok_55c18417e1a7",
+        "x_74df67ad0857",
+        "booktok_06bc846a3111",
+        "x_ea273d7e1cf8",
+        "booktok_1cf16a4ab6da",
+        "x_9d5d3b55ea78",
+        "x_dbb8a7ebfc2a"
+      ],
+      "stance_shift": "more_positive",
+      "agree_probability": 0.954,
+      "disagree_probability": 0.046,
+      "reply_likelihood": 0.689,
+      "rating_shift": 0.104,
+      "recommendation_shift": 0.208,
+      "sentiment": "positive",
+      "evidence_refs": [
+        "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+        "book_dna:heuristic",
+        "chunk_001",
+        "chapter:chunk_001",
+        "chapter:chunk_002",
+        "platform_style:booktok",
+        "platform_style:x"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "cross_b8e53283a0be",
+      "simulation_id": "sim_1d556fdc69a0",
+      "source_post_id": "booktok_ba235ab7aaf7",
+      "target_post_id": "booktok_bdf61963ac28",
+      "persona_id": "reddit_genre_purist_24_9213",
+      "platform": "reddit",
+      "reacted_post_ids": [
+        "booktok_ba235ab7aaf7",
+        "booktok_06bc846a3111",
+        "booktok_bdf61963ac28"
+      ],
+      "stance_shift": "more_positive",
+      "agree_probability": 0.794,
+      "disagree_probability": 0.206,
+      "reply_likelihood": 0.569,
+      "rating_shift": 0.102,
+      "recommendation_shift": 0.209,
+      "sentiment": "positive",
+      "evidence_refs": [
+        "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+        "book_dna:heuristic",
+        "chunk_001",
+        "chapter:chunk_001",
+        "chapter:chunk_002",
+        "platform_style:booktok"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "cross_936f4285bf94",
+      "simulation_id": "sim_1d556fdc69a0",
+      "source_post_id": "booktok_703c0f3cd866",
+      "target_post_id": "x_dbb8a7ebfc2a",
+      "persona_id": "booktok_trope_hunter_25_2887",
+      "platform": "booktok",
+      "reacted_post_ids": [
+        "booktok_703c0f3cd866",
+        "booktok_1cf16a4ab6da",
+        "x_ea273d7e1cf8",
+        "booktok_bdf61963ac28",
+        "booktok_06bc846a3111",
+        "x_dbb8a7ebfc2a"
+      ],
+      "stance_shift": "more_positive",
+      "agree_probability": 0.938,
+      "disagree_probability": 0.062,
+      "reply_likelihood": 0.649,
+      "rating_shift": 0.105,
+      "recommendation_shift": 0.213,
+      "sentiment": "positive",
+      "evidence_refs": [
+        "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+        "book_dna:heuristic",
+        "chunk_001",
+        "chapter:chunk_001",
+        "chapter:chunk_002",
+        "platform_style:booktok",
+        "platform_style:x"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "cross_db6f39511261",
+      "simulation_id": "sim_1d556fdc69a0",
+      "source_post_id": "x_74df67ad0857",
+      "target_post_id": "booktok_ba235ab7aaf7",
+      "persona_id": "x_hot_take_reader_26_2575",
+      "platform": "x",
+      "reacted_post_ids": [
+        "x_74df67ad0857",
+        "x_9d5d3b55ea78",
+        "booktok_1cf16a4ab6da",
+        "booktok_bdf61963ac28",
+        "booktok_06bc846a3111",
+        "booktok_ba235ab7aaf7"
+      ],
+      "stance_shift": "more_positive",
+      "agree_probability": 0.9,
+      "disagree_probability": 0.1,
+      "reply_likelihood": 0.703,
+      "rating_shift": 0.102,
+      "recommendation_shift": 0.211,
+      "sentiment": "positive",
+      "evidence_refs": [
+        "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+        "book_dna:heuristic",
+        "chunk_001",
+        "chapter:chunk_001",
+        "chapter:chunk_002",
+        "platform_style:x",
+        "platform_style:booktok"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "cross_de5629b6915f",
+      "simulation_id": "sim_1d556fdc69a0",
+      "source_post_id": "booktok_bdf61963ac28",
+      "target_post_id": "booktok_703c0f3cd866",
+      "persona_id": "reddit_skeptic_27_1937",
+      "platform": "reddit",
+      "reacted_post_ids": [
+        "booktok_bdf61963ac28",
+        "booktok_55c18417e1a7",
+        "booktok_ae57bb96e9cd",
+        "booktok_703c0f3cd866"
+      ],
+      "stance_shift": "more_positive",
+      "agree_probability": 0.779,
+      "disagree_probability": 0.221,
+      "reply_likelihood": 0.543,
+      "rating_shift": 0.097,
+      "recommendation_shift": 0.212,
+      "sentiment": "positive",
+      "evidence_refs": [
+        "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+        "book_dna:heuristic",
+        "chunk_001",
+        "chapter:chunk_001",
+        "chapter:chunk_002",
+        "platform_style:booktok"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "cross_ecf7594e83de",
+      "simulation_id": "sim_1d556fdc69a0",
+      "source_post_id": "booktok_06bc846a3111",
+      "target_post_id": "booktok_bdf61963ac28",
+      "persona_id": "goodreads_genre_loyalist_28_5833",
+      "platform": "goodreads",
+      "reacted_post_ids": [
+        "booktok_06bc846a3111",
+        "x_dbb8a7ebfc2a",
+        "booktok_1cf16a4ab6da",
+        "booktok_55c18417e1a7",
+        "booktok_ba235ab7aaf7",
+        "booktok_41c3a1273a7f",
+        "booktok_bdf61963ac28"
+      ],
+      "stance_shift": "more_positive",
+      "agree_probability": 0.827,
+      "disagree_probability": 0.173,
+      "reply_likelihood": 0.472,
+      "rating_shift": 0.106,
+      "recommendation_shift": 0.21,
+      "sentiment": "positive",
+      "evidence_refs": [
+        "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+        "book_dna:heuristic",
+        "chunk_001",
+        "chapter:chunk_001",
+        "chapter:chunk_002",
+        "platform_style:booktok",
+        "platform_style:x"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "cross_2632d63699f0",
+      "simulation_id": "sim_1d556fdc69a0",
+      "source_post_id": "x_74df67ad0857",
+      "target_post_id": "booktok_ae57bb96e9cd",
+      "persona_id": "bookstagram_curator_29_4637",
+      "platform": "bookstagram",
+      "reacted_post_ids": [
+        "x_74df67ad0857",
+        "x_dbb8a7ebfc2a",
+        "booktok_41c3a1273a7f",
+        "booktok_ae57bb96e9cd"
+      ],
+      "stance_shift": "more_positive",
+      "agree_probability": 0.893,
+      "disagree_probability": 0.107,
+      "reply_likelihood": 0.414,
+      "rating_shift": 0.113,
+      "recommendation_shift": 0.205,
+      "sentiment": "positive",
+      "evidence_refs": [
+        "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+        "book_dna:heuristic",
+        "chunk_001",
+        "chapter:chunk_001",
+        "chapter:chunk_002",
+        "platform_style:x",
+        "platform_style:booktok"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "cross_dc08d6e60bcb",
+      "simulation_id": "sim_1d556fdc69a0",
+      "source_post_id": "booktok_06bc846a3111",
+      "target_post_id": "x_dbb8a7ebfc2a",
+      "persona_id": "x_hot_take_reader_30_4259",
+      "platform": "x",
+      "reacted_post_ids": [
+        "booktok_06bc846a3111",
+        "x_ea273d7e1cf8",
+        "x_74df67ad0857",
+        "x_9d5d3b55ea78",
+        "x_dbb8a7ebfc2a"
+      ],
+      "stance_shift": "more_positive",
+      "agree_probability": 0.946,
+      "disagree_probability": 0.054,
+      "reply_likelihood": 0.771,
+      "rating_shift": 0.103,
+      "recommendation_shift": 0.206,
+      "sentiment": "positive",
+      "evidence_refs": [
+        "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+        "book_dna:heuristic",
+        "chunk_001",
+        "chapter:chunk_001",
+        "chapter:chunk_002",
+        "platform_style:booktok",
+        "platform_style:x"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "cross_2489cd128db3",
+      "simulation_id": "sim_1d556fdc69a0",
+      "source_post_id": "booktok_1cf16a4ab6da",
+      "target_post_id": "x_ea273d7e1cf8",
+      "persona_id": "x_hot_take_reader_31_6264",
+      "platform": "x",
+      "reacted_post_ids": [
+        "booktok_1cf16a4ab6da",
+        "booktok_703c0f3cd866",
+        "x_74df67ad0857",
+        "booktok_ae57bb96e9cd",
+        "booktok_bdf61963ac28",
+        "x_ea273d7e1cf8"
+      ],
+      "stance_shift": "more_positive",
+      "agree_probability": 0.908,
+      "disagree_probability": 0.092,
+      "reply_likelihood": 0.755,
+      "rating_shift": 0.103,
+      "recommendation_shift": 0.212,
+      "sentiment": "positive",
+      "evidence_refs": [
+        "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+        "book_dna:heuristic",
+        "chunk_001",
+        "chapter:chunk_001",
+        "chapter:chunk_002",
+        "platform_style:booktok",
+        "platform_style:x"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "cross_49d33bd6603c",
+      "simulation_id": "sim_1d556fdc69a0",
+      "source_post_id": "booktok_703c0f3cd866",
+      "target_post_id": "x_dbb8a7ebfc2a",
+      "persona_id": "reddit_skeptic_32_1119",
+      "platform": "reddit",
+      "reacted_post_ids": [
+        "booktok_703c0f3cd866",
+        "booktok_41c3a1273a7f",
+        "booktok_1cf16a4ab6da",
+        "x_dbb8a7ebfc2a"
+      ],
+      "stance_shift": "more_positive",
+      "agree_probability": 0.854,
+      "disagree_probability": 0.146,
+      "reply_likelihood": 0.525,
+      "rating_shift": 0.116,
+      "recommendation_shift": 0.214,
+      "sentiment": "positive",
+      "evidence_refs": [
+        "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+        "book_dna:heuristic",
+        "chunk_001",
+        "chapter:chunk_001",
+        "chapter:chunk_002",
+        "platform_style:booktok",
+        "platform_style:x"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "cross_937ea43406b3",
+      "simulation_id": "sim_1d556fdc69a0",
+      "source_post_id": "booktok_41c3a1273a7f",
+      "target_post_id": "x_ea273d7e1cf8",
+      "persona_id": "booktok_emotional_amplifier_33_5282",
+      "platform": "booktok",
+      "reacted_post_ids": [
+        "booktok_41c3a1273a7f",
+        "booktok_1cf16a4ab6da",
+        "booktok_bdf61963ac28",
+        "booktok_ba235ab7aaf7",
+        "booktok_ae57bb96e9cd",
+        "x_dbb8a7ebfc2a",
+        "x_ea273d7e1cf8"
+      ],
+      "stance_shift": "more_positive",
+      "agree_probability": 0.949,
+      "disagree_probability": 0.051,
+      "reply_likelihood": 0.635,
+      "rating_shift": 0.105,
+      "recommendation_shift": 0.209,
+      "sentiment": "positive",
+      "evidence_refs": [
+        "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+        "book_dna:heuristic",
+        "chunk_001",
+        "chapter:chunk_001",
+        "chapter:chunk_002",
+        "platform_style:booktok",
+        "platform_style:x"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "cross_c21086beec97",
+      "simulation_id": "sim_1d556fdc69a0",
+      "source_post_id": "booktok_1cf16a4ab6da",
+      "target_post_id": "x_ea273d7e1cf8",
+      "persona_id": "reddit_skeptic_34_5385",
+      "platform": "reddit",
+      "reacted_post_ids": [
+        "booktok_1cf16a4ab6da",
+        "x_74df67ad0857",
+        "booktok_ba235ab7aaf7",
+        "booktok_41c3a1273a7f",
+        "x_ea273d7e1cf8"
+      ],
+      "stance_shift": "more_positive",
+      "agree_probability": 0.809,
+      "disagree_probability": 0.191,
+      "reply_likelihood": 0.504,
+      "rating_shift": 0.11,
+      "recommendation_shift": 0.207,
+      "sentiment": "positive",
+      "evidence_refs": [
+        "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+        "book_dna:heuristic",
+        "chunk_001",
+        "chapter:chunk_001",
+        "chapter:chunk_002",
+        "platform_style:booktok",
+        "platform_style:x"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "cross_02a1b69ae012",
+      "simulation_id": "sim_1d556fdc69a0",
+      "source_post_id": "booktok_1cf16a4ab6da",
+      "target_post_id": "booktok_06bc846a3111",
+      "persona_id": "x_hot_take_reader_35_9002",
+      "platform": "x",
+      "reacted_post_ids": [
+        "booktok_1cf16a4ab6da",
+        "x_ea273d7e1cf8",
+        "x_dbb8a7ebfc2a",
+        "booktok_41c3a1273a7f",
+        "booktok_ae57bb96e9cd",
+        "booktok_703c0f3cd866",
+        "booktok_06bc846a3111"
+      ],
+      "stance_shift": "more_positive",
+      "agree_probability": 0.918,
+      "disagree_probability": 0.082,
+      "reply_likelihood": 0.722,
+      "rating_shift": 0.118,
+      "recommendation_shift": 0.21,
+      "sentiment": "positive",
+      "evidence_refs": [
+        "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+        "book_dna:heuristic",
+        "chunk_001",
+        "chapter:chunk_001",
+        "chapter:chunk_002",
+        "platform_style:booktok",
+        "platform_style:x"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "cross_576ebc3ee6dd",
+      "simulation_id": "sim_1d556fdc69a0",
+      "source_post_id": "booktok_ba235ab7aaf7",
+      "target_post_id": "booktok_ae57bb96e9cd",
+      "persona_id": "x_hot_take_reader_36_3549",
+      "platform": "x",
+      "reacted_post_ids": [
+        "booktok_ba235ab7aaf7",
+        "booktok_bdf61963ac28",
+        "booktok_ae57bb96e9cd"
+      ],
+      "stance_shift": "more_positive",
+      "agree_probability": 0.91,
+      "disagree_probability": 0.09,
+      "reply_likelihood": 0.758,
+      "rating_shift": 0.097,
+      "recommendation_shift": 0.209,
+      "sentiment": "positive",
+      "evidence_refs": [
+        "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+        "book_dna:heuristic",
+        "chunk_001",
+        "chapter:chunk_001",
+        "chapter:chunk_002",
+        "platform_style:booktok"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "cross_c51416818e56",
+      "simulation_id": "sim_1d556fdc69a0",
+      "source_post_id": "booktok_41c3a1273a7f",
+      "target_post_id": "booktok_bdf61963ac28",
+      "persona_id": "bookstagram_curator_37_4537",
+      "platform": "bookstagram",
+      "reacted_post_ids": [
+        "booktok_41c3a1273a7f",
+        "x_74df67ad0857",
+        "booktok_ba235ab7aaf7",
+        "booktok_ae57bb96e9cd",
+        "booktok_06bc846a3111",
+        "booktok_55c18417e1a7",
+        "booktok_bdf61963ac28"
+      ],
+      "stance_shift": "more_positive",
+      "agree_probability": 0.9,
+      "disagree_probability": 0.1,
+      "reply_likelihood": 0.458,
+      "rating_shift": 0.106,
+      "recommendation_shift": 0.206,
+      "sentiment": "positive",
+      "evidence_refs": [
+        "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+        "book_dna:heuristic",
+        "chunk_001",
+        "chapter:chunk_001",
+        "chapter:chunk_002",
+        "platform_style:booktok",
+        "platform_style:x"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "cross_72d039a3aeaf",
+      "simulation_id": "sim_1d556fdc69a0",
+      "source_post_id": "x_74df67ad0857",
+      "target_post_id": "x_ea273d7e1cf8",
+      "persona_id": "goodreads_harsh_reviewer_38_2647",
+      "platform": "goodreads",
+      "reacted_post_ids": [
+        "x_74df67ad0857",
+        "x_9d5d3b55ea78",
+        "booktok_bdf61963ac28",
+        "booktok_1cf16a4ab6da",
+        "x_ea273d7e1cf8"
+      ],
+      "stance_shift": "more_positive",
+      "agree_probability": 0.744,
+      "disagree_probability": 0.256,
+      "reply_likelihood": 0.407,
+      "rating_shift": 0.092,
+      "recommendation_shift": 0.211,
+      "sentiment": "positive",
+      "evidence_refs": [
+        "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+        "book_dna:heuristic",
+        "chunk_001",
+        "chapter:chunk_001",
+        "chapter:chunk_002",
+        "platform_style:x",
+        "platform_style:booktok"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "cross_6367ebd085a6",
+      "simulation_id": "sim_1d556fdc69a0",
+      "source_post_id": "booktok_bdf61963ac28",
+      "target_post_id": "booktok_1cf16a4ab6da",
+      "persona_id": "x_hot_take_reader_39_4709",
+      "platform": "x",
+      "reacted_post_ids": [
+        "booktok_bdf61963ac28",
+        "x_74df67ad0857",
+        "x_9d5d3b55ea78",
+        "booktok_55c18417e1a7",
+        "booktok_ba235ab7aaf7",
+        "booktok_06bc846a3111",
+        "booktok_1cf16a4ab6da"
+      ],
+      "stance_shift": "more_positive",
+      "agree_probability": 0.916,
+      "disagree_probability": 0.084,
+      "reply_likelihood": 0.739,
+      "rating_shift": 0.1,
+      "recommendation_shift": 0.21,
+      "sentiment": "positive",
+      "evidence_refs": [
+        "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+        "book_dna:heuristic",
+        "chunk_001",
+        "chapter:chunk_001",
+        "chapter:chunk_002",
+        "platform_style:booktok",
+        "platform_style:x"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "cross_f73c5e5ba59c",
+      "simulation_id": "sim_1d556fdc69a0",
+      "source_post_id": "booktok_ae57bb96e9cd",
+      "target_post_id": "booktok_06bc846a3111",
+      "persona_id": "booktok_trope_hunter_40_5342",
+      "platform": "booktok",
+      "reacted_post_ids": [
+        "booktok_ae57bb96e9cd",
+        "booktok_bdf61963ac28",
+        "booktok_41c3a1273a7f",
+        "booktok_ba235ab7aaf7",
+        "x_dbb8a7ebfc2a",
+        "booktok_06bc846a3111"
+      ],
+      "stance_shift": "more_positive",
+      "agree_probability": 0.959,
+      "disagree_probability": 0.041,
+      "reply_likelihood": 0.655,
+      "rating_shift": 0.109,
+      "recommendation_shift": 0.208,
+      "sentiment": "positive",
+      "evidence_refs": [
+        "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+        "book_dna:heuristic",
+        "chunk_001",
+        "chapter:chunk_001",
+        "chapter:chunk_002",
+        "platform_style:booktok",
+        "platform_style:x"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "cross_d6a1bf95d62c",
+      "simulation_id": "sim_1d556fdc69a0",
+      "source_post_id": "booktok_703c0f3cd866",
+      "target_post_id": "booktok_ae57bb96e9cd",
+      "persona_id": "bookstagram_curator_41_2998",
+      "platform": "bookstagram",
+      "reacted_post_ids": [
+        "booktok_703c0f3cd866",
+        "booktok_55c18417e1a7",
+        "booktok_bdf61963ac28",
+        "booktok_ae57bb96e9cd"
+      ],
+      "stance_shift": "more_positive",
+      "agree_probability": 0.847,
+      "disagree_probability": 0.153,
+      "reply_likelihood": 0.449,
+      "rating_shift": 0.097,
+      "recommendation_shift": 0.212,
+      "sentiment": "positive",
+      "evidence_refs": [
+        "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+        "book_dna:heuristic",
+        "chunk_001",
+        "chapter:chunk_001",
+        "chapter:chunk_002",
+        "platform_style:booktok"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "cross_15905062ea0f",
+      "simulation_id": "sim_1d556fdc69a0",
+      "source_post_id": "x_74df67ad0857",
+      "target_post_id": "booktok_ba235ab7aaf7",
+      "persona_id": "bookstagram_curator_42_4611",
+      "platform": "bookstagram",
+      "reacted_post_ids": [
+        "x_74df67ad0857",
+        "booktok_06bc846a3111",
+        "booktok_703c0f3cd866",
+        "booktok_55c18417e1a7",
+        "booktok_ba235ab7aaf7"
+      ],
+      "stance_shift": "more_positive",
+      "agree_probability": 0.897,
+      "disagree_probability": 0.103,
+      "reply_likelihood": 0.448,
+      "rating_shift": 0.111,
+      "recommendation_shift": 0.207,
+      "sentiment": "positive",
+      "evidence_refs": [
+        "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+        "book_dna:heuristic",
+        "chunk_001",
+        "chapter:chunk_001",
+        "chapter:chunk_002",
+        "platform_style:x",
+        "platform_style:booktok"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "cross_1d714af89d26",
+      "simulation_id": "sim_1d556fdc69a0",
+      "source_post_id": "booktok_703c0f3cd866",
+      "target_post_id": "x_74df67ad0857",
+      "persona_id": "bookstagram_curator_43_8312",
+      "platform": "bookstagram",
+      "reacted_post_ids": [
+        "booktok_703c0f3cd866",
+        "booktok_55c18417e1a7",
+        "x_ea273d7e1cf8",
+        "booktok_41c3a1273a7f",
+        "booktok_1cf16a4ab6da",
+        "x_74df67ad0857"
+      ],
+      "stance_shift": "more_positive",
+      "agree_probability": 0.901,
+      "disagree_probability": 0.099,
+      "reply_likelihood": 0.425,
+      "rating_shift": 0.108,
+      "recommendation_shift": 0.209,
+      "sentiment": "positive",
+      "evidence_refs": [
+        "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+        "book_dna:heuristic",
+        "chunk_001",
+        "chapter:chunk_001",
+        "chapter:chunk_002",
+        "platform_style:booktok",
+        "platform_style:x"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "cross_621ae90ae362",
+      "simulation_id": "sim_1d556fdc69a0",
+      "source_post_id": "booktok_703c0f3cd866",
+      "target_post_id": "booktok_bdf61963ac28",
+      "persona_id": "goodreads_genre_loyalist_44_9261",
+      "platform": "goodreads",
+      "reacted_post_ids": [
+        "booktok_703c0f3cd866",
+        "booktok_41c3a1273a7f",
+        "booktok_06bc846a3111",
+        "x_ea273d7e1cf8",
+        "x_9d5d3b55ea78",
+        "booktok_ba235ab7aaf7",
+        "booktok_bdf61963ac28"
+      ],
+      "stance_shift": "more_positive",
+      "agree_probability": 0.82,
+      "disagree_probability": 0.18,
+      "reply_likelihood": 0.478,
+      "rating_shift": 0.103,
+      "recommendation_shift": 0.208,
+      "sentiment": "positive",
+      "evidence_refs": [
+        "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+        "book_dna:heuristic",
+        "chunk_001",
+        "chapter:chunk_001",
+        "chapter:chunk_002",
+        "platform_style:booktok",
+        "platform_style:x"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "cross_eff54d628218",
+      "simulation_id": "sim_1d556fdc69a0",
+      "source_post_id": "booktok_ba235ab7aaf7",
+      "target_post_id": "x_74df67ad0857",
+      "persona_id": "goodreads_genre_loyalist_45_4315",
+      "platform": "goodreads",
+      "reacted_post_ids": [
+        "booktok_ba235ab7aaf7",
+        "x_9d5d3b55ea78",
+        "x_74df67ad0857"
+      ],
+      "stance_shift": "more_positive",
+      "agree_probability": 0.82,
+      "disagree_probability": 0.18,
+      "reply_likelihood": 0.464,
+      "rating_shift": 0.097,
+      "recommendation_shift": 0.205,
+      "sentiment": "positive",
+      "evidence_refs": [
+        "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+        "book_dna:heuristic",
+        "chunk_001",
+        "chapter:chunk_001",
+        "chapter:chunk_002",
+        "platform_style:booktok",
+        "platform_style:x"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "cross_559ac3decf07",
+      "simulation_id": "sim_1d556fdc69a0",
+      "source_post_id": "booktok_41c3a1273a7f",
+      "target_post_id": "booktok_ae57bb96e9cd",
+      "persona_id": "booktok_trope_hunter_46_9481",
+      "platform": "booktok",
+      "reacted_post_ids": [
+        "booktok_41c3a1273a7f",
+        "x_ea273d7e1cf8",
+        "booktok_06bc846a3111",
+        "booktok_ba235ab7aaf7",
+        "booktok_703c0f3cd866",
+        "x_9d5d3b55ea78",
+        "booktok_ae57bb96e9cd"
+      ],
+      "stance_shift": "more_positive",
+      "agree_probability": 0.923,
+      "disagree_probability": 0.077,
+      "reply_likelihood": 0.604,
+      "rating_shift": 0.113,
+      "recommendation_shift": 0.207,
+      "sentiment": "positive",
+      "evidence_refs": [
+        "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+        "book_dna:heuristic",
+        "chunk_001",
+        "chapter:chunk_001",
+        "chapter:chunk_002",
+        "platform_style:booktok",
+        "platform_style:x"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "cross_1b385369da63",
+      "simulation_id": "sim_1d556fdc69a0",
+      "source_post_id": "booktok_41c3a1273a7f",
+      "target_post_id": "x_ea273d7e1cf8",
+      "persona_id": "booktok_emotional_amplifier_47_5386",
+      "platform": "booktok",
+      "reacted_post_ids": [
+        "booktok_41c3a1273a7f",
+        "x_74df67ad0857",
+        "booktok_bdf61963ac28",
+        "booktok_1cf16a4ab6da",
+        "x_9d5d3b55ea78",
+        "x_ea273d7e1cf8"
+      ],
+      "stance_shift": "more_positive",
+      "agree_probability": 0.915,
+      "disagree_probability": 0.085,
+      "reply_likelihood": 0.671,
+      "rating_shift": 0.097,
+      "recommendation_shift": 0.21,
+      "sentiment": "positive",
+      "evidence_refs": [
+        "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+        "book_dna:heuristic",
+        "chunk_001",
+        "chapter:chunk_001",
+        "chapter:chunk_002",
+        "platform_style:booktok",
+        "platform_style:x"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "cross_2677e0b30aae",
+      "simulation_id": "sim_1d556fdc69a0",
+      "source_post_id": "x_dbb8a7ebfc2a",
+      "target_post_id": "x_74df67ad0857",
+      "persona_id": "x_hot_take_reader_48_7887",
+      "platform": "x",
+      "reacted_post_ids": [
+        "x_dbb8a7ebfc2a",
+        "booktok_703c0f3cd866",
+        "booktok_06bc846a3111",
+        "booktok_41c3a1273a7f",
+        "x_74df67ad0857"
+      ],
+      "stance_shift": "more_positive",
+      "agree_probability": 0.934,
+      "disagree_probability": 0.066,
+      "reply_likelihood": 0.707,
+      "rating_shift": 0.117,
+      "recommendation_shift": 0.208,
+      "sentiment": "positive",
+      "evidence_refs": [
+        "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+        "book_dna:heuristic",
+        "chunk_001",
+        "chapter:chunk_001",
+        "chapter:chunk_002",
+        "platform_style:x",
+        "platform_style:booktok"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "cross_905159601b1d",
+      "simulation_id": "sim_1d556fdc69a0",
+      "source_post_id": "x_9d5d3b55ea78",
+      "target_post_id": "x_dbb8a7ebfc2a",
+      "persona_id": "reddit_skeptic_49_1285",
+      "platform": "reddit",
+      "reacted_post_ids": [
+        "x_9d5d3b55ea78",
+        "booktok_41c3a1273a7f",
+        "booktok_ae57bb96e9cd",
+        "x_dbb8a7ebfc2a"
+      ],
+      "stance_shift": "more_positive",
+      "agree_probability": 0.796,
+      "disagree_probability": 0.204,
+      "reply_likelihood": 0.529,
+      "rating_shift": 0.108,
+      "recommendation_shift": 0.206,
+      "sentiment": "positive",
+      "evidence_refs": [
+        "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+        "book_dna:heuristic",
+        "chunk_001",
+        "chapter:chunk_001",
+        "chapter:chunk_002",
+        "platform_style:x",
+        "platform_style:booktok"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "cross_02116d8e8dfb",
+      "simulation_id": "sim_1d556fdc69a0",
+      "source_post_id": "booktok_06bc846a3111",
+      "target_post_id": "x_74df67ad0857",
+      "persona_id": "reddit_genre_purist_50_3671",
+      "platform": "reddit",
+      "reacted_post_ids": [
+        "booktok_06bc846a3111",
+        "x_ea273d7e1cf8",
+        "booktok_ba235ab7aaf7",
+        "booktok_41c3a1273a7f",
+        "x_74df67ad0857"
+      ],
+      "stance_shift": "more_positive",
+      "agree_probability": 0.848,
+      "disagree_probability": 0.152,
+      "reply_likelihood": 0.599,
+      "rating_shift": 0.114,
+      "recommendation_shift": 0.203,
+      "sentiment": "positive",
+      "evidence_refs": [
+        "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+        "book_dna:heuristic",
+        "chunk_001",
+        "chapter:chunk_001",
+        "chapter:chunk_002",
+        "platform_style:booktok",
+        "platform_style:x"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "cross_57f20150be66",
+      "simulation_id": "sim_1d556fdc69a0",
+      "source_post_id": "x_ea273d7e1cf8",
+      "target_post_id": "booktok_55c18417e1a7",
+      "persona_id": "bookstagram_curator_51_3092",
+      "platform": "bookstagram",
+      "reacted_post_ids": [
+        "x_ea273d7e1cf8",
+        "x_dbb8a7ebfc2a",
+        "booktok_ae57bb96e9cd",
+        "booktok_ba235ab7aaf7",
+        "booktok_06bc846a3111",
+        "booktok_55c18417e1a7"
+      ],
+      "stance_shift": "more_positive",
+      "agree_probability": 0.895,
+      "disagree_probability": 0.105,
+      "reply_likelihood": 0.428,
+      "rating_shift": 0.109,
+      "recommendation_shift": 0.205,
+      "sentiment": "positive",
+      "evidence_refs": [
+        "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+        "book_dna:heuristic",
+        "chunk_001",
+        "chapter:chunk_001",
+        "chapter:chunk_002",
+        "platform_style:x",
+        "platform_style:booktok"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "cross_dcc5f97131a3",
+      "simulation_id": "sim_1d556fdc69a0",
+      "source_post_id": "booktok_703c0f3cd866",
+      "target_post_id": "x_dbb8a7ebfc2a",
+      "persona_id": "booktok_trope_hunter_52_7085",
+      "platform": "booktok",
+      "reacted_post_ids": [
+        "booktok_703c0f3cd866",
+        "booktok_ba235ab7aaf7",
+        "x_dbb8a7ebfc2a"
+      ],
+      "stance_shift": "more_positive",
+      "agree_probability": 0.959,
+      "disagree_probability": 0.041,
+      "reply_likelihood": 0.593,
+      "rating_shift": 0.109,
+      "recommendation_shift": 0.211,
+      "sentiment": "positive",
+      "evidence_refs": [
+        "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+        "book_dna:heuristic",
+        "chunk_001",
+        "chapter:chunk_001",
+        "chapter:chunk_002",
+        "platform_style:booktok",
+        "platform_style:x"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "cross_616bec242a8a",
+      "simulation_id": "sim_1d556fdc69a0",
+      "source_post_id": "x_9d5d3b55ea78",
+      "target_post_id": "booktok_703c0f3cd866",
+      "persona_id": "x_hot_take_reader_53_7046",
+      "platform": "x",
+      "reacted_post_ids": [
+        "x_9d5d3b55ea78",
+        "booktok_1cf16a4ab6da",
+        "booktok_703c0f3cd866"
+      ],
+      "stance_shift": "more_positive",
+      "agree_probability": 0.949,
+      "disagree_probability": 0.051,
+      "reply_likelihood": 0.75,
+      "rating_shift": 0.107,
+      "recommendation_shift": 0.217,
+      "sentiment": "positive",
+      "evidence_refs": [
+        "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+        "book_dna:heuristic",
+        "chunk_001",
+        "chapter:chunk_001",
+        "chapter:chunk_002",
+        "platform_style:x",
+        "platform_style:booktok"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "cross_c458d581e53e",
+      "simulation_id": "sim_1d556fdc69a0",
+      "source_post_id": "x_74df67ad0857",
+      "target_post_id": "booktok_ae57bb96e9cd",
+      "persona_id": "booktok_emotional_amplifier_54_8035",
+      "platform": "booktok",
+      "reacted_post_ids": [
+        "x_74df67ad0857",
+        "x_ea273d7e1cf8",
+        "x_dbb8a7ebfc2a",
+        "x_9d5d3b55ea78",
+        "booktok_55c18417e1a7",
+        "booktok_703c0f3cd866",
+        "booktok_ae57bb96e9cd"
+      ],
+      "stance_shift": "more_positive",
+      "agree_probability": 0.937,
+      "disagree_probability": 0.063,
+      "reply_likelihood": 0.584,
+      "rating_shift": 0.101,
+      "recommendation_shift": 0.207,
+      "sentiment": "positive",
+      "evidence_refs": [
+        "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+        "book_dna:heuristic",
+        "chunk_001",
+        "chapter:chunk_001",
+        "chapter:chunk_002",
+        "platform_style:x",
+        "platform_style:booktok"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "cross_25f4d6c4976f",
+      "simulation_id": "sim_1d556fdc69a0",
+      "source_post_id": "booktok_41c3a1273a7f",
+      "target_post_id": "booktok_703c0f3cd866",
+      "persona_id": "booktok_emotional_amplifier_55_1963",
+      "platform": "booktok",
+      "reacted_post_ids": [
+        "booktok_41c3a1273a7f",
+        "booktok_bdf61963ac28",
+        "booktok_55c18417e1a7",
+        "x_ea273d7e1cf8",
+        "booktok_703c0f3cd866"
+      ],
+      "stance_shift": "more_positive",
+      "agree_probability": 0.938,
+      "disagree_probability": 0.062,
+      "reply_likelihood": 0.624,
+      "rating_shift": 0.096,
+      "recommendation_shift": 0.209,
+      "sentiment": "positive",
+      "evidence_refs": [
+        "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+        "book_dna:heuristic",
+        "chunk_001",
+        "chapter:chunk_001",
+        "chapter:chunk_002",
+        "platform_style:booktok",
+        "platform_style:x"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "cross_82e59881d1cd",
+      "simulation_id": "sim_1d556fdc69a0",
+      "source_post_id": "booktok_ae57bb96e9cd",
+      "target_post_id": "booktok_ba235ab7aaf7",
+      "persona_id": "booktok_emotional_amplifier_56_4123",
+      "platform": "booktok",
+      "reacted_post_ids": [
+        "booktok_ae57bb96e9cd",
+        "booktok_41c3a1273a7f",
+        "booktok_ba235ab7aaf7"
+      ],
+      "stance_shift": "more_positive",
+      "agree_probability": 0.961,
+      "disagree_probability": 0.039,
+      "reply_likelihood": 0.634,
+      "rating_shift": 0.119,
+      "recommendation_shift": 0.204,
+      "sentiment": "positive",
+      "evidence_refs": [
+        "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+        "book_dna:heuristic",
+        "chunk_001",
+        "chapter:chunk_001",
+        "chapter:chunk_002",
+        "platform_style:booktok"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "cross_e09422ab8748",
+      "simulation_id": "sim_1d556fdc69a0",
+      "source_post_id": "booktok_ae57bb96e9cd",
+      "target_post_id": "booktok_41c3a1273a7f",
+      "persona_id": "bookstagram_curator_57_5781",
+      "platform": "bookstagram",
+      "reacted_post_ids": [
+        "booktok_ae57bb96e9cd",
+        "booktok_bdf61963ac28",
+        "booktok_41c3a1273a7f"
+      ],
+      "stance_shift": "more_positive",
+      "agree_probability": 0.903,
+      "disagree_probability": 0.097,
+      "reply_likelihood": 0.398,
+      "rating_shift": 0.102,
+      "recommendation_shift": 0.209,
+      "sentiment": "positive",
+      "evidence_refs": [
+        "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+        "book_dna:heuristic",
+        "chunk_001",
+        "chapter:chunk_001",
+        "chapter:chunk_002",
+        "platform_style:booktok"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "cross_a61699a41b22",
+      "simulation_id": "sim_1d556fdc69a0",
+      "source_post_id": "booktok_703c0f3cd866",
+      "target_post_id": "booktok_ba235ab7aaf7",
+      "persona_id": "booktok_trope_hunter_58_7341",
+      "platform": "booktok",
+      "reacted_post_ids": [
+        "booktok_703c0f3cd866",
+        "x_ea273d7e1cf8",
+        "booktok_55c18417e1a7",
+        "booktok_ba235ab7aaf7"
+      ],
+      "stance_shift": "more_positive",
+      "agree_probability": 0.915,
+      "disagree_probability": 0.085,
+      "reply_likelihood": 0.605,
+      "rating_shift": 0.101,
+      "recommendation_shift": 0.207,
+      "sentiment": "positive",
+      "evidence_refs": [
+        "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+        "book_dna:heuristic",
+        "chunk_001",
+        "chapter:chunk_001",
+        "chapter:chunk_002",
+        "platform_style:booktok",
+        "platform_style:x"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "cross_b435c79ecea0",
+      "simulation_id": "sim_1d556fdc69a0",
+      "source_post_id": "booktok_55c18417e1a7",
+      "target_post_id": "booktok_703c0f3cd866",
+      "persona_id": "reddit_genre_purist_59_6876",
+      "platform": "reddit",
+      "reacted_post_ids": [
+        "booktok_55c18417e1a7",
+        "x_74df67ad0857",
+        "booktok_1cf16a4ab6da",
+        "x_9d5d3b55ea78",
+        "booktok_ba235ab7aaf7",
+        "booktok_703c0f3cd866"
+      ],
+      "stance_shift": "more_positive",
+      "agree_probability": 0.798,
+      "disagree_probability": 0.202,
+      "reply_likelihood": 0.57,
+      "rating_shift": 0.103,
+      "recommendation_shift": 0.21,
+      "sentiment": "positive",
+      "evidence_refs": [
+        "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+        "book_dna:heuristic",
+        "chunk_001",
+        "chapter:chunk_001",
+        "chapter:chunk_002",
+        "platform_style:booktok",
+        "platform_style:x"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "cross_afdbeae3e012",
+      "simulation_id": "sim_1d556fdc69a0",
+      "source_post_id": "booktok_ae57bb96e9cd",
+      "target_post_id": "x_9d5d3b55ea78",
+      "persona_id": "booktok_trope_hunter_60_1979",
+      "platform": "booktok",
+      "reacted_post_ids": [
+        "booktok_ae57bb96e9cd",
+        "booktok_1cf16a4ab6da",
+        "booktok_703c0f3cd866",
+        "booktok_bdf61963ac28",
+        "booktok_55c18417e1a7",
+        "x_dbb8a7ebfc2a",
+        "x_9d5d3b55ea78"
+      ],
+      "stance_shift": "more_positive",
+      "agree_probability": 0.919,
+      "disagree_probability": 0.081,
+      "reply_likelihood": 0.619,
+      "rating_shift": 0.099,
+      "recommendation_shift": 0.213,
+      "sentiment": "positive",
+      "evidence_refs": [
+        "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+        "book_dna:heuristic",
+        "chunk_001",
+        "chapter:chunk_001",
+        "chapter:chunk_002",
+        "platform_style:booktok",
+        "platform_style:x"
+      ],
+      "confidence": 0.74
+    }
+  ],
+  "updated_private_reactions": [
+    {
+      "reaction_id": "private_10b9d98df038",
+      "simulation_id": "sim_1d556fdc69a0",
+      "persona_id": "reddit_skeptic_01_5745",
+      "chapter_id": null,
+      "rating": 3.62,
+      "dnf_probability": 0.502,
+      "sentiment": "positive",
+      "attachment_score": 0.786,
+      "confusion_score": 0.544,
+      "recommendation_probability": 1.0,
+      "praise": [
+        "internal_logic",
+        "sharp_argument",
+        "grief"
+      ],
+      "friction": [
+        "handwaving",
+        "plot_holes",
+        "pacing_drag"
+      ],
+      "notable_quotes": [
+        "Keys to the Quiet Gate I."
+      ],
+      "evidence_refs": [
+        "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+        "book_dna:heuristic",
+        "chunk_001",
+        "chapter:chunk_001",
+        "chapter:chunk_002",
+        "booktok_55c18417e1a7",
+        "x_ea273d7e1cf8",
+        "x_9d5d3b55ea78",
+        "x_dbb8a7ebfc2a",
+        "booktok_1cf16a4ab6da",
+        "booktok_ba235ab7aaf7",
+        "booktok_703c0f3cd866",
+        "x_74df67ad0857",
+        "booktok_06bc846a3111",
+        "booktok_41c3a1273a7f"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "private_be22c98a02fb",
+      "simulation_id": "sim_1d556fdc69a0",
+      "persona_id": "bookstagram_curator_02_3291",
+      "chapter_id": null,
+      "rating": 3.91,
+      "dnf_probability": 0.432,
+      "sentiment": "positive",
+      "attachment_score": 0.787,
+      "confusion_score": 0.494,
+      "recommendation_probability": 1.0,
+      "praise": [
+        "beautiful_package",
+        "mood",
+        "grief"
+      ],
+      "friction": [
+        "plain_packaging",
+        "visual_flatness",
+        "pacing_drag"
+      ],
+      "notable_quotes": [
+        "Keys to the Quiet Gate I."
+      ],
+      "evidence_refs": [
+        "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+        "book_dna:heuristic",
+        "chunk_001",
+        "chapter:chunk_001",
+        "chapter:chunk_002",
+        "booktok_1cf16a4ab6da",
+        "x_ea273d7e1cf8",
+        "booktok_06bc846a3111",
+        "x_dbb8a7ebfc2a",
+        "x_9d5d3b55ea78",
+        "booktok_55c18417e1a7",
+        "booktok_ba235ab7aaf7"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "private_103e29fe8865",
+      "simulation_id": "sim_1d556fdc69a0",
+      "persona_id": "goodreads_genre_loyalist_03_1292",
+      "chapter_id": null,
+      "rating": 4.4,
+      "dnf_probability": 0.487,
+      "sentiment": "positive",
+      "attachment_score": 0.728,
+      "confusion_score": 0.497,
+      "recommendation_probability": 1.0,
+      "praise": [
+        "genre_tropes",
+        "satisfying_arc",
+        "grief"
+      ],
+      "friction": [
+        "genre_betrayal",
+        "ambiguous_endings",
+        "pacing_drag"
+      ],
+      "notable_quotes": [
+        "Keys to the Quiet Gate I."
+      ],
+      "evidence_refs": [
+        "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+        "book_dna:heuristic",
+        "chunk_001",
+        "chapter:chunk_001",
+        "chapter:chunk_002",
+        "x_74df67ad0857",
+        "x_ea273d7e1cf8",
+        "x_9d5d3b55ea78",
+        "booktok_bdf61963ac28",
+        "booktok_1cf16a4ab6da",
+        "x_dbb8a7ebfc2a",
+        "booktok_ae57bb96e9cd",
+        "booktok_55c18417e1a7"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "private_977936d70b67",
+      "simulation_id": "sim_1d556fdc69a0",
+      "persona_id": "booktok_emotional_amplifier_04_5377",
+      "chapter_id": null,
+      "rating": 4.27,
+      "dnf_probability": 0.46,
+      "sentiment": "positive",
+      "attachment_score": 0.694,
+      "confusion_score": 0.473,
+      "recommendation_probability": 1.0,
+      "praise": [
+        "heartbreak",
+        "found_family",
+        "grief"
+      ],
+      "friction": [
+        "detachment",
+        "exposition",
+        "pacing_drag"
+      ],
+      "notable_quotes": [
+        "Keys to the Quiet Gate I."
+      ],
+      "evidence_refs": [
+        "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+        "book_dna:heuristic",
+        "chunk_001",
+        "chapter:chunk_001",
+        "chapter:chunk_002",
+        "booktok_55c18417e1a7",
+        "booktok_bdf61963ac28",
+        "x_9d5d3b55ea78",
+        "booktok_ae57bb96e9cd",
+        "booktok_41c3a1273a7f"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "private_4240ae641d0b",
+      "simulation_id": "sim_1d556fdc69a0",
+      "persona_id": "booktok_trope_hunter_05_1314",
+      "chapter_id": null,
+      "rating": 4.47,
+      "dnf_probability": 0.414,
+      "sentiment": "positive",
+      "attachment_score": 0.809,
+      "confusion_score": 0.528,
+      "recommendation_probability": 1.0,
+      "praise": [
+        "enemies_to_lovers",
+        "slow_burn",
+        "grief"
+      ],
+      "friction": [
+        "trope_mismatch",
+        "no_payoff",
+        "pacing_drag"
+      ],
+      "notable_quotes": [
+        "Keys to the Quiet Gate I."
+      ],
+      "evidence_refs": [
+        "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+        "book_dna:heuristic",
+        "chunk_001",
+        "chapter:chunk_001",
+        "chapter:chunk_002",
+        "booktok_ba235ab7aaf7",
+        "x_ea273d7e1cf8",
+        "booktok_1cf16a4ab6da",
+        "booktok_55c18417e1a7",
+        "booktok_06bc846a3111",
+        "booktok_41c3a1273a7f",
+        "x_9d5d3b55ea78",
+        "booktok_703c0f3cd866"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "private_63d52b72bc26",
+      "simulation_id": "sim_1d556fdc69a0",
+      "persona_id": "bookstagram_curator_06_7415",
+      "chapter_id": null,
+      "rating": 3.76,
+      "dnf_probability": 0.462,
+      "sentiment": "positive",
+      "attachment_score": 0.694,
+      "confusion_score": 0.547,
+      "recommendation_probability": 1.0,
+      "praise": [
+        "beautiful_package",
+        "mood",
+        "grief"
+      ],
+      "friction": [
+        "plain_packaging",
+        "visual_flatness",
+        "pacing_drag"
+      ],
+      "notable_quotes": [
+        "Keys to the Quiet Gate I."
+      ],
+      "evidence_refs": [
+        "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+        "book_dna:heuristic",
+        "chunk_001",
+        "chapter:chunk_001",
+        "chapter:chunk_002",
+        "booktok_bdf61963ac28",
+        "booktok_703c0f3cd866",
+        "booktok_ae57bb96e9cd",
+        "x_9d5d3b55ea78",
+        "booktok_1cf16a4ab6da",
+        "x_74df67ad0857",
+        "x_dbb8a7ebfc2a",
+        "booktok_55c18417e1a7"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "private_703c042fd620",
+      "simulation_id": "sim_1d556fdc69a0",
+      "persona_id": "goodreads_genre_loyalist_07_6109",
+      "chapter_id": null,
+      "rating": 3.74,
+      "dnf_probability": 0.491,
+      "sentiment": "positive",
+      "attachment_score": 0.735,
+      "confusion_score": 0.556,
+      "recommendation_probability": 1.0,
+      "praise": [
+        "genre_tropes",
+        "satisfying_arc",
+        "grief"
+      ],
+      "friction": [
+        "genre_betrayal",
+        "ambiguous_endings",
+        "pacing_drag"
+      ],
+      "notable_quotes": [
+        "Keys to the Quiet Gate I."
+      ],
+      "evidence_refs": [
+        "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+        "book_dna:heuristic",
+        "chunk_001",
+        "chapter:chunk_001",
+        "chapter:chunk_002",
+        "x_74df67ad0857",
+        "booktok_55c18417e1a7",
+        "booktok_ae57bb96e9cd",
+        "x_dbb8a7ebfc2a",
+        "x_9d5d3b55ea78",
+        "booktok_703c0f3cd866"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "private_ccf7314b662e",
+      "simulation_id": "sim_1d556fdc69a0",
+      "persona_id": "x_hot_take_reader_08_8970",
+      "chapter_id": null,
+      "rating": 4.01,
+      "dnf_probability": 0.493,
+      "sentiment": "positive",
+      "attachment_score": 0.817,
+      "confusion_score": 0.51,
+      "recommendation_probability": 1.0,
+      "praise": [
+        "provocation",
+        "controversy",
+        "grief"
+      ],
+      "friction": [
+        "slowness",
+        "nuance_without_payoff",
+        "pacing_drag"
+      ],
+      "notable_quotes": [
+        "Keys to the Quiet Gate I."
+      ],
+      "evidence_refs": [
+        "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+        "book_dna:heuristic",
+        "chunk_001",
+        "chapter:chunk_001",
+        "chapter:chunk_002",
+        "booktok_ba235ab7aaf7",
+        "booktok_1cf16a4ab6da",
+        "booktok_41c3a1273a7f",
+        "booktok_55c18417e1a7",
+        "x_dbb8a7ebfc2a",
+        "booktok_703c0f3cd866"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "private_f5b249ede18f",
+      "simulation_id": "sim_1d556fdc69a0",
+      "persona_id": "literary_reader_09_1879",
+      "chapter_id": null,
+      "rating": 3.88,
+      "dnf_probability": 0.477,
+      "sentiment": "positive",
+      "attachment_score": 0.82,
+      "confusion_score": 0.54,
+      "recommendation_probability": 1.0,
+      "praise": [
+        "voice",
+        "subtext",
+        "grief"
+      ],
+      "friction": [
+        "flat_prose",
+        "obviousness",
+        "pacing_drag"
+      ],
+      "notable_quotes": [
+        "Keys to the Quiet Gate I."
+      ],
+      "evidence_refs": [
+        "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+        "book_dna:heuristic",
+        "chunk_001",
+        "chapter:chunk_001",
+        "chapter:chunk_002",
+        "booktok_703c0f3cd866",
+        "booktok_ba235ab7aaf7",
+        "x_ea273d7e1cf8",
+        "x_9d5d3b55ea78",
+        "booktok_06bc846a3111",
+        "x_dbb8a7ebfc2a"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "private_95e8e0ddae95",
+      "simulation_id": "sim_1d556fdc69a0",
+      "persona_id": "reddit_skeptic_10_4147",
+      "chapter_id": null,
+      "rating": 3.68,
+      "dnf_probability": 0.449,
+      "sentiment": "positive",
+      "attachment_score": 0.696,
+      "confusion_score": 0.476,
+      "recommendation_probability": 1.0,
+      "praise": [
+        "internal_logic",
+        "sharp_argument",
+        "grief"
+      ],
+      "friction": [
+        "handwaving",
+        "plot_holes",
+        "pacing_drag"
+      ],
+      "notable_quotes": [
+        "Keys to the Quiet Gate I."
+      ],
+      "evidence_refs": [
+        "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+        "book_dna:heuristic",
+        "chunk_001",
+        "chapter:chunk_001",
+        "chapter:chunk_002",
+        "booktok_703c0f3cd866",
+        "booktok_1cf16a4ab6da",
+        "x_dbb8a7ebfc2a",
+        "x_9d5d3b55ea78"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "private_8aae7ae92196",
+      "simulation_id": "sim_1d556fdc69a0",
+      "persona_id": "x_hot_take_reader_11_6386",
+      "chapter_id": null,
+      "rating": 3.84,
+      "dnf_probability": 0.499,
+      "sentiment": "positive",
+      "attachment_score": 0.754,
+      "confusion_score": 0.514,
+      "recommendation_probability": 1.0,
+      "praise": [
+        "provocation",
+        "controversy",
+        "grief"
+      ],
+      "friction": [
+        "slowness",
+        "nuance_without_payoff",
+        "pacing_drag"
+      ],
+      "notable_quotes": [
+        "Keys to the Quiet Gate I."
+      ],
+      "evidence_refs": [
+        "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+        "book_dna:heuristic",
+        "chunk_001",
+        "chapter:chunk_001",
+        "chapter:chunk_002",
+        "booktok_1cf16a4ab6da",
+        "booktok_ba235ab7aaf7",
+        "booktok_06bc846a3111",
+        "x_9d5d3b55ea78",
+        "booktok_bdf61963ac28",
+        "booktok_703c0f3cd866",
+        "booktok_ae57bb96e9cd",
+        "x_74df67ad0857"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "private_e5babc080ca9",
+      "simulation_id": "sim_1d556fdc69a0",
+      "persona_id": "x_hot_take_reader_12_9791",
+      "chapter_id": null,
+      "rating": 3.95,
+      "dnf_probability": 0.466,
+      "sentiment": "positive",
+      "attachment_score": 0.773,
+      "confusion_score": 0.558,
+      "recommendation_probability": 1.0,
+      "praise": [
+        "provocation",
+        "controversy",
+        "grief"
+      ],
+      "friction": [
+        "slowness",
+        "nuance_without_payoff",
+        "pacing_drag"
+      ],
+      "notable_quotes": [
+        "Keys to the Quiet Gate I."
+      ],
+      "evidence_refs": [
+        "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+        "book_dna:heuristic",
+        "chunk_001",
+        "chapter:chunk_001",
+        "chapter:chunk_002",
+        "booktok_06bc846a3111",
+        "booktok_ba235ab7aaf7",
+        "booktok_1cf16a4ab6da",
+        "x_dbb8a7ebfc2a",
+        "booktok_bdf61963ac28",
+        "x_9d5d3b55ea78",
+        "booktok_703c0f3cd866"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "private_a710ee63809f",
+      "simulation_id": "sim_1d556fdc69a0",
+      "persona_id": "reddit_genre_purist_13_1122",
+      "chapter_id": null,
+      "rating": 3.52,
+      "dnf_probability": 0.535,
+      "sentiment": "positive",
+      "attachment_score": 0.73,
+      "confusion_score": 0.539,
+      "recommendation_probability": 1.0,
+      "praise": [
+        "genre_authenticity",
+        "canonical_rules",
+        "grief"
+      ],
+      "friction": [
+        "genre_blending",
+        "rule_breaking",
+        "pacing_drag"
+      ],
+      "notable_quotes": [
+        "Keys to the Quiet Gate I."
+      ],
+      "evidence_refs": [
+        "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+        "book_dna:heuristic",
+        "chunk_001",
+        "chapter:chunk_001",
+        "chapter:chunk_002",
+        "booktok_41c3a1273a7f",
+        "booktok_55c18417e1a7",
+        "booktok_bdf61963ac28",
+        "booktok_1cf16a4ab6da",
+        "x_dbb8a7ebfc2a",
+        "booktok_ba235ab7aaf7",
+        "booktok_06bc846a3111",
+        "x_9d5d3b55ea78",
+        "x_74df67ad0857"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "private_de3b8761adff",
+      "simulation_id": "sim_1d556fdc69a0",
+      "persona_id": "x_hot_take_reader_14_5177",
+      "chapter_id": null,
+      "rating": 4.2,
+      "dnf_probability": 0.434,
+      "sentiment": "positive",
+      "attachment_score": 0.719,
+      "confusion_score": 0.454,
+      "recommendation_probability": 1.0,
+      "praise": [
+        "provocation",
+        "controversy",
+        "grief"
+      ],
+      "friction": [
+        "slowness",
+        "nuance_without_payoff",
+        "pacing_drag"
+      ],
+      "notable_quotes": [
+        "Keys to the Quiet Gate I."
+      ],
+      "evidence_refs": [
+        "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+        "book_dna:heuristic",
+        "chunk_001",
+        "chapter:chunk_001",
+        "chapter:chunk_002",
+        "x_74df67ad0857",
+        "booktok_41c3a1273a7f",
+        "booktok_ba235ab7aaf7",
+        "booktok_55c18417e1a7",
+        "x_ea273d7e1cf8",
+        "booktok_bdf61963ac28",
+        "booktok_1cf16a4ab6da",
+        "x_9d5d3b55ea78"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "private_2b4e4f01a881",
+      "simulation_id": "sim_1d556fdc69a0",
+      "persona_id": "booktok_trope_hunter_15_3337",
+      "chapter_id": null,
+      "rating": 4.06,
+      "dnf_probability": 0.377,
+      "sentiment": "positive",
+      "attachment_score": 0.698,
+      "confusion_score": 0.491,
+      "recommendation_probability": 1.0,
+      "praise": [
+        "enemies_to_lovers",
+        "slow_burn",
+        "grief"
+      ],
+      "friction": [
+        "trope_mismatch",
+        "no_payoff",
+        "pacing_drag"
+      ],
+      "notable_quotes": [
+        "Keys to the Quiet Gate I."
+      ],
+      "evidence_refs": [
+        "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+        "book_dna:heuristic",
+        "chunk_001",
+        "chapter:chunk_001",
+        "chapter:chunk_002",
+        "booktok_06bc846a3111",
+        "x_9d5d3b55ea78",
+        "x_ea273d7e1cf8",
+        "booktok_bdf61963ac28",
+        "booktok_1cf16a4ab6da",
+        "booktok_ba235ab7aaf7"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "private_2246409aa80f",
+      "simulation_id": "sim_1d556fdc69a0",
+      "persona_id": "booktok_trope_hunter_16_5729",
+      "chapter_id": null,
+      "rating": 4.05,
+      "dnf_probability": 0.46,
+      "sentiment": "positive",
+      "attachment_score": 0.778,
+      "confusion_score": 0.567,
+      "recommendation_probability": 1.0,
+      "praise": [
+        "enemies_to_lovers",
+        "slow_burn",
+        "grief"
+      ],
+      "friction": [
+        "trope_mismatch",
+        "no_payoff",
+        "pacing_drag"
+      ],
+      "notable_quotes": [
+        "Keys to the Quiet Gate I."
+      ],
+      "evidence_refs": [
+        "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+        "book_dna:heuristic",
+        "chunk_001",
+        "chapter:chunk_001",
+        "chapter:chunk_002",
+        "x_74df67ad0857",
+        "booktok_bdf61963ac28",
+        "booktok_06bc846a3111",
+        "booktok_ba235ab7aaf7",
+        "booktok_1cf16a4ab6da",
+        "x_ea273d7e1cf8",
+        "booktok_55c18417e1a7",
+        "booktok_41c3a1273a7f",
+        "booktok_ae57bb96e9cd",
+        "x_9d5d3b55ea78"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "private_7dfdeb8f79eb",
+      "simulation_id": "sim_1d556fdc69a0",
+      "persona_id": "goodreads_harsh_reviewer_17_5726",
+      "chapter_id": null,
+      "rating": 4.21,
+      "dnf_probability": 0.534,
+      "sentiment": "positive",
+      "attachment_score": 0.802,
+      "confusion_score": 0.55,
+      "recommendation_probability": 1.0,
+      "praise": [
+        "strong_opening",
+        "clean_prose",
+        "grief"
+      ],
+      "friction": [
+        "slow_start",
+        "weak_characterization",
+        "pacing_drag"
+      ],
+      "notable_quotes": [
+        "Keys to the Quiet Gate I."
+      ],
+      "evidence_refs": [
+        "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+        "book_dna:heuristic",
+        "chunk_001",
+        "chapter:chunk_001",
+        "chapter:chunk_002",
+        "booktok_bdf61963ac28",
+        "x_9d5d3b55ea78",
+        "x_ea273d7e1cf8",
+        "booktok_1cf16a4ab6da",
+        "booktok_ba235ab7aaf7",
+        "booktok_41c3a1273a7f"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "private_c421a52668f7",
+      "simulation_id": "sim_1d556fdc69a0",
+      "persona_id": "x_hot_take_reader_18_4885",
+      "chapter_id": null,
+      "rating": 4.02,
+      "dnf_probability": 0.508,
+      "sentiment": "positive",
+      "attachment_score": 0.785,
+      "confusion_score": 0.567,
+      "recommendation_probability": 1.0,
+      "praise": [
+        "provocation",
+        "controversy",
+        "grief"
+      ],
+      "friction": [
+        "slowness",
+        "nuance_without_payoff",
+        "pacing_drag"
+      ],
+      "notable_quotes": [
+        "Keys to the Quiet Gate I."
+      ],
+      "evidence_refs": [
+        "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+        "book_dna:heuristic",
+        "chunk_001",
+        "chapter:chunk_001",
+        "chapter:chunk_002",
+        "booktok_ba235ab7aaf7",
+        "x_dbb8a7ebfc2a",
+        "booktok_703c0f3cd866",
+        "booktok_ae57bb96e9cd",
+        "booktok_bdf61963ac28",
+        "booktok_41c3a1273a7f",
+        "x_74df67ad0857",
+        "booktok_1cf16a4ab6da",
+        "booktok_55c18417e1a7",
+        "x_ea273d7e1cf8"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "private_db82334b1da8",
+      "simulation_id": "sim_1d556fdc69a0",
+      "persona_id": "x_hot_take_reader_19_6767",
+      "chapter_id": null,
+      "rating": 4.1,
+      "dnf_probability": 0.422,
+      "sentiment": "positive",
+      "attachment_score": 0.779,
+      "confusion_score": 0.456,
+      "recommendation_probability": 1.0,
+      "praise": [
+        "provocation",
+        "controversy",
+        "grief"
+      ],
+      "friction": [
+        "slowness",
+        "nuance_without_payoff",
+        "pacing_drag"
+      ],
+      "notable_quotes": [
+        "Keys to the Quiet Gate I."
+      ],
+      "evidence_refs": [
+        "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+        "book_dna:heuristic",
+        "chunk_001",
+        "chapter:chunk_001",
+        "chapter:chunk_002",
+        "booktok_41c3a1273a7f",
+        "booktok_06bc846a3111",
+        "x_74df67ad0857",
+        "x_ea273d7e1cf8",
+        "booktok_55c18417e1a7",
+        "x_9d5d3b55ea78",
+        "booktok_ba235ab7aaf7"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "private_152caff59f5d",
+      "simulation_id": "sim_1d556fdc69a0",
+      "persona_id": "bookstagram_curator_20_4768",
+      "chapter_id": null,
+      "rating": 3.98,
+      "dnf_probability": 0.493,
+      "sentiment": "positive",
+      "attachment_score": 0.744,
+      "confusion_score": 0.539,
+      "recommendation_probability": 1.0,
+      "praise": [
+        "beautiful_package",
+        "mood",
+        "grief"
+      ],
+      "friction": [
+        "plain_packaging",
+        "visual_flatness",
+        "pacing_drag"
+      ],
+      "notable_quotes": [
+        "Keys to the Quiet Gate I."
+      ],
+      "evidence_refs": [
+        "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+        "book_dna:heuristic",
+        "chunk_001",
+        "chapter:chunk_001",
+        "chapter:chunk_002",
+        "x_dbb8a7ebfc2a",
+        "booktok_41c3a1273a7f",
+        "x_9d5d3b55ea78",
+        "booktok_ae57bb96e9cd",
+        "x_ea273d7e1cf8",
+        "booktok_bdf61963ac28",
+        "booktok_55c18417e1a7"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "private_9c2d050c5916",
+      "simulation_id": "sim_1d556fdc69a0",
+      "persona_id": "booktok_emotional_amplifier_21_4731",
+      "chapter_id": null,
+      "rating": 3.81,
+      "dnf_probability": 0.445,
+      "sentiment": "positive",
+      "attachment_score": 0.682,
+      "confusion_score": 0.513,
+      "recommendation_probability": 1.0,
+      "praise": [
+        "heartbreak",
+        "found_family",
+        "grief"
+      ],
+      "friction": [
+        "detachment",
+        "exposition",
+        "pacing_drag"
+      ],
+      "notable_quotes": [
+        "Keys to the Quiet Gate I."
+      ],
+      "evidence_refs": [
+        "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+        "book_dna:heuristic",
+        "chunk_001",
+        "chapter:chunk_001",
+        "chapter:chunk_002",
+        "x_dbb8a7ebfc2a",
+        "booktok_ba235ab7aaf7",
+        "x_74df67ad0857",
+        "booktok_06bc846a3111",
+        "booktok_ae57bb96e9cd",
+        "x_ea273d7e1cf8",
+        "booktok_703c0f3cd866",
+        "booktok_1cf16a4ab6da"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "private_8840fca885f5",
+      "simulation_id": "sim_1d556fdc69a0",
+      "persona_id": "reddit_skeptic_22_2629",
+      "chapter_id": null,
+      "rating": 3.46,
+      "dnf_probability": 0.489,
+      "sentiment": "positive",
+      "attachment_score": 0.698,
+      "confusion_score": 0.509,
+      "recommendation_probability": 1.0,
+      "praise": [
+        "internal_logic",
+        "sharp_argument",
+        "grief"
+      ],
+      "friction": [
+        "handwaving",
+        "plot_holes",
+        "pacing_drag"
+      ],
+      "notable_quotes": [
+        "Keys to the Quiet Gate I."
+      ],
+      "evidence_refs": [
+        "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+        "book_dna:heuristic",
+        "chunk_001",
+        "chapter:chunk_001",
+        "chapter:chunk_002",
+        "booktok_bdf61963ac28",
+        "x_9d5d3b55ea78",
+        "booktok_703c0f3cd866",
+        "booktok_06bc846a3111",
+        "booktok_1cf16a4ab6da",
+        "booktok_ae57bb96e9cd",
+        "booktok_41c3a1273a7f",
+        "booktok_ba235ab7aaf7",
+        "x_dbb8a7ebfc2a",
+        "booktok_55c18417e1a7"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "private_4cceb370e834",
+      "simulation_id": "sim_1d556fdc69a0",
+      "persona_id": "x_hot_take_reader_23_9705",
+      "chapter_id": null,
+      "rating": 4.14,
+      "dnf_probability": 0.468,
+      "sentiment": "positive",
+      "attachment_score": 0.734,
+      "confusion_score": 0.542,
+      "recommendation_probability": 1.0,
+      "praise": [
+        "provocation",
+        "controversy",
+        "grief"
+      ],
+      "friction": [
+        "slowness",
+        "nuance_without_payoff",
+        "pacing_drag"
+      ],
+      "notable_quotes": [
+        "Keys to the Quiet Gate I."
+      ],
+      "evidence_refs": [
+        "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+        "book_dna:heuristic",
+        "chunk_001",
+        "chapter:chunk_001",
+        "chapter:chunk_002",
+        "booktok_06bc846a3111",
+        "x_ea273d7e1cf8",
+        "x_9d5d3b55ea78",
+        "booktok_703c0f3cd866",
+        "booktok_ba235ab7aaf7",
+        "booktok_55c18417e1a7",
+        "x_74df67ad0857",
+        "booktok_1cf16a4ab6da",
+        "x_dbb8a7ebfc2a"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "private_d9a5fc6e4c13",
+      "simulation_id": "sim_1d556fdc69a0",
+      "persona_id": "reddit_genre_purist_24_9213",
+      "chapter_id": null,
+      "rating": 4.23,
+      "dnf_probability": 0.566,
+      "sentiment": "positive",
+      "attachment_score": 0.763,
+      "confusion_score": 0.57,
+      "recommendation_probability": 1.0,
+      "praise": [
+        "genre_authenticity",
+        "canonical_rules",
+        "grief"
+      ],
+      "friction": [
+        "genre_blending",
+        "rule_breaking",
+        "pacing_drag"
+      ],
+      "notable_quotes": [
+        "Keys to the Quiet Gate I."
+      ],
+      "evidence_refs": [
+        "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+        "book_dna:heuristic",
+        "chunk_001",
+        "chapter:chunk_001",
+        "chapter:chunk_002",
+        "x_ea273d7e1cf8",
+        "booktok_bdf61963ac28",
+        "booktok_ba235ab7aaf7",
+        "x_74df67ad0857",
+        "booktok_ae57bb96e9cd",
+        "booktok_06bc846a3111"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "private_50b641b70541",
+      "simulation_id": "sim_1d556fdc69a0",
+      "persona_id": "booktok_trope_hunter_25_2887",
+      "chapter_id": null,
+      "rating": 4.46,
+      "dnf_probability": 0.368,
+      "sentiment": "positive",
+      "attachment_score": 0.688,
+      "confusion_score": 0.474,
+      "recommendation_probability": 1.0,
+      "praise": [
+        "enemies_to_lovers",
+        "slow_burn",
+        "grief"
+      ],
+      "friction": [
+        "trope_mismatch",
+        "no_payoff",
+        "pacing_drag"
+      ],
+      "notable_quotes": [
+        "Keys to the Quiet Gate I."
+      ],
+      "evidence_refs": [
+        "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+        "book_dna:heuristic",
+        "chunk_001",
+        "chapter:chunk_001",
+        "chapter:chunk_002",
+        "x_74df67ad0857",
+        "booktok_703c0f3cd866",
+        "x_9d5d3b55ea78",
+        "booktok_ae57bb96e9cd",
+        "booktok_1cf16a4ab6da",
+        "x_ea273d7e1cf8",
+        "booktok_bdf61963ac28",
+        "booktok_06bc846a3111",
+        "x_dbb8a7ebfc2a"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "private_d5dc701f3080",
+      "simulation_id": "sim_1d556fdc69a0",
+      "persona_id": "x_hot_take_reader_26_2575",
+      "chapter_id": null,
+      "rating": 3.78,
+      "dnf_probability": 0.468,
+      "sentiment": "positive",
+      "attachment_score": 0.693,
+      "confusion_score": 0.492,
+      "recommendation_probability": 1.0,
+      "praise": [
+        "provocation",
+        "controversy",
+        "grief"
+      ],
+      "friction": [
+        "slowness",
+        "nuance_without_payoff",
+        "pacing_drag"
+      ],
+      "notable_quotes": [
+        "Keys to the Quiet Gate I."
+      ],
+      "evidence_refs": [
+        "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+        "book_dna:heuristic",
+        "chunk_001",
+        "chapter:chunk_001",
+        "chapter:chunk_002",
+        "booktok_ba235ab7aaf7",
+        "x_74df67ad0857",
+        "x_dbb8a7ebfc2a",
+        "x_9d5d3b55ea78",
+        "booktok_41c3a1273a7f",
+        "booktok_1cf16a4ab6da",
+        "booktok_bdf61963ac28",
+        "booktok_06bc846a3111"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "private_8e20def7545d",
+      "simulation_id": "sim_1d556fdc69a0",
+      "persona_id": "reddit_skeptic_27_1937",
+      "chapter_id": null,
+      "rating": 3.64,
+      "dnf_probability": 0.434,
+      "sentiment": "positive",
+      "attachment_score": 0.749,
+      "confusion_score": 0.481,
+      "recommendation_probability": 1.0,
+      "praise": [
+        "internal_logic",
+        "sharp_argument",
+        "grief"
+      ],
+      "friction": [
+        "handwaving",
+        "plot_holes",
+        "pacing_drag"
+      ],
+      "notable_quotes": [
+        "Keys to the Quiet Gate I."
+      ],
+      "evidence_refs": [
+        "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+        "book_dna:heuristic",
+        "chunk_001",
+        "chapter:chunk_001",
+        "chapter:chunk_002",
+        "x_9d5d3b55ea78",
+        "booktok_06bc846a3111",
+        "booktok_41c3a1273a7f",
+        "x_74df67ad0857",
+        "booktok_55c18417e1a7",
+        "booktok_ae57bb96e9cd",
+        "booktok_1cf16a4ab6da",
+        "booktok_bdf61963ac28",
+        "booktok_703c0f3cd866"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "private_f198ba843f0b",
+      "simulation_id": "sim_1d556fdc69a0",
+      "persona_id": "goodreads_genre_loyalist_28_5833",
+      "chapter_id": null,
+      "rating": 4.4,
+      "dnf_probability": 0.437,
+      "sentiment": "positive",
+      "attachment_score": 0.729,
+      "confusion_score": 0.494,
+      "recommendation_probability": 1.0,
+      "praise": [
+        "genre_tropes",
+        "satisfying_arc",
+        "grief"
+      ],
+      "friction": [
+        "genre_betrayal",
+        "ambiguous_endings",
+        "pacing_drag"
+      ],
+      "notable_quotes": [
+        "Keys to the Quiet Gate I."
+      ],
+      "evidence_refs": [
+        "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+        "book_dna:heuristic",
+        "chunk_001",
+        "chapter:chunk_001",
+        "chapter:chunk_002",
+        "booktok_55c18417e1a7",
+        "booktok_06bc846a3111",
+        "booktok_ae57bb96e9cd",
+        "booktok_ba235ab7aaf7",
+        "x_9d5d3b55ea78",
+        "booktok_41c3a1273a7f",
+        "booktok_bdf61963ac28",
+        "x_dbb8a7ebfc2a",
+        "booktok_1cf16a4ab6da"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "private_8182bbc1c7bd",
+      "simulation_id": "sim_1d556fdc69a0",
+      "persona_id": "bookstagram_curator_29_4637",
+      "chapter_id": null,
+      "rating": 3.81,
+      "dnf_probability": 0.449,
+      "sentiment": "positive",
+      "attachment_score": 0.731,
+      "confusion_score": 0.512,
+      "recommendation_probability": 1.0,
+      "praise": [
+        "beautiful_package",
+        "mood",
+        "grief"
+      ],
+      "friction": [
+        "plain_packaging",
+        "visual_flatness",
+        "pacing_drag"
+      ],
+      "notable_quotes": [
+        "Keys to the Quiet Gate I."
+      ],
+      "evidence_refs": [
+        "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+        "book_dna:heuristic",
+        "chunk_001",
+        "chapter:chunk_001",
+        "chapter:chunk_002",
+        "booktok_ae57bb96e9cd",
+        "booktok_06bc846a3111",
+        "x_9d5d3b55ea78",
+        "booktok_ba235ab7aaf7",
+        "x_74df67ad0857",
+        "x_dbb8a7ebfc2a",
+        "booktok_41c3a1273a7f"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "private_0132ef6b165c",
+      "simulation_id": "sim_1d556fdc69a0",
+      "persona_id": "x_hot_take_reader_30_4259",
+      "chapter_id": null,
+      "rating": 3.61,
+      "dnf_probability": 0.459,
+      "sentiment": "positive",
+      "attachment_score": 0.71,
+      "confusion_score": 0.539,
+      "recommendation_probability": 1.0,
+      "praise": [
+        "provocation",
+        "controversy",
+        "grief"
+      ],
+      "friction": [
+        "slowness",
+        "nuance_without_payoff",
+        "pacing_drag"
+      ],
+      "notable_quotes": [
+        "Keys to the Quiet Gate I."
+      ],
+      "evidence_refs": [
+        "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+        "book_dna:heuristic",
+        "chunk_001",
+        "chapter:chunk_001",
+        "chapter:chunk_002",
+        "booktok_bdf61963ac28",
+        "booktok_41c3a1273a7f",
+        "x_9d5d3b55ea78",
+        "x_dbb8a7ebfc2a",
+        "booktok_06bc846a3111",
+        "x_ea273d7e1cf8",
+        "x_74df67ad0857"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "private_d76a819eff51",
+      "simulation_id": "sim_1d556fdc69a0",
+      "persona_id": "x_hot_take_reader_31_6264",
+      "chapter_id": null,
+      "rating": 4.05,
+      "dnf_probability": 0.438,
+      "sentiment": "positive",
+      "attachment_score": 0.754,
+      "confusion_score": 0.474,
+      "recommendation_probability": 1.0,
+      "praise": [
+        "provocation",
+        "controversy",
+        "grief"
+      ],
+      "friction": [
+        "slowness",
+        "nuance_without_payoff",
+        "pacing_drag"
+      ],
+      "notable_quotes": [
+        "Keys to the Quiet Gate I."
+      ],
+      "evidence_refs": [
+        "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+        "book_dna:heuristic",
+        "chunk_001",
+        "chapter:chunk_001",
+        "chapter:chunk_002",
+        "x_9d5d3b55ea78",
+        "booktok_41c3a1273a7f",
+        "booktok_1cf16a4ab6da",
+        "booktok_703c0f3cd866",
+        "x_74df67ad0857",
+        "booktok_ae57bb96e9cd",
+        "booktok_bdf61963ac28",
+        "x_ea273d7e1cf8"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "private_cf75f4d56ec4",
+      "simulation_id": "sim_1d556fdc69a0",
+      "persona_id": "reddit_skeptic_32_1119",
+      "chapter_id": null,
+      "rating": 4.05,
+      "dnf_probability": 0.5,
+      "sentiment": "positive",
+      "attachment_score": 0.784,
+      "confusion_score": 0.524,
+      "recommendation_probability": 1.0,
+      "praise": [
+        "internal_logic",
+        "sharp_argument",
+        "grief"
+      ],
+      "friction": [
+        "handwaving",
+        "plot_holes",
+        "pacing_drag"
+      ],
+      "notable_quotes": [
+        "Keys to the Quiet Gate I."
+      ],
+      "evidence_refs": [
+        "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+        "book_dna:heuristic",
+        "chunk_001",
+        "chapter:chunk_001",
+        "chapter:chunk_002",
+        "x_74df67ad0857",
+        "x_9d5d3b55ea78",
+        "booktok_06bc846a3111",
+        "booktok_703c0f3cd866",
+        "booktok_41c3a1273a7f",
+        "booktok_1cf16a4ab6da",
+        "x_dbb8a7ebfc2a"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "private_db66116d137f",
+      "simulation_id": "sim_1d556fdc69a0",
+      "persona_id": "booktok_emotional_amplifier_33_5282",
+      "chapter_id": null,
+      "rating": 4.08,
+      "dnf_probability": 0.47,
+      "sentiment": "positive",
+      "attachment_score": 0.753,
+      "confusion_score": 0.475,
+      "recommendation_probability": 1.0,
+      "praise": [
+        "heartbreak",
+        "found_family",
+        "grief"
+      ],
+      "friction": [
+        "detachment",
+        "exposition",
+        "pacing_drag"
+      ],
+      "notable_quotes": [
+        "Keys to the Quiet Gate I."
+      ],
+      "evidence_refs": [
+        "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+        "book_dna:heuristic",
+        "chunk_001",
+        "chapter:chunk_001",
+        "chapter:chunk_002",
+        "x_dbb8a7ebfc2a",
+        "x_74df67ad0857",
+        "booktok_bdf61963ac28",
+        "booktok_ae57bb96e9cd",
+        "booktok_41c3a1273a7f",
+        "booktok_1cf16a4ab6da",
+        "booktok_ba235ab7aaf7",
+        "x_ea273d7e1cf8"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "private_c6827dde4115",
+      "simulation_id": "sim_1d556fdc69a0",
+      "persona_id": "reddit_skeptic_34_5385",
+      "chapter_id": null,
+      "rating": 3.91,
+      "dnf_probability": 0.507,
+      "sentiment": "positive",
+      "attachment_score": 0.708,
+      "confusion_score": 0.529,
+      "recommendation_probability": 1.0,
+      "praise": [
+        "internal_logic",
+        "sharp_argument",
+        "grief"
+      ],
+      "friction": [
+        "handwaving",
+        "plot_holes",
+        "pacing_drag"
+      ],
+      "notable_quotes": [
+        "Keys to the Quiet Gate I."
+      ],
+      "evidence_refs": [
+        "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+        "book_dna:heuristic",
+        "chunk_001",
+        "chapter:chunk_001",
+        "chapter:chunk_002",
+        "booktok_06bc846a3111",
+        "x_ea273d7e1cf8",
+        "booktok_ba235ab7aaf7",
+        "x_dbb8a7ebfc2a",
+        "booktok_41c3a1273a7f",
+        "booktok_1cf16a4ab6da",
+        "x_74df67ad0857"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "private_658e728a39da",
+      "simulation_id": "sim_1d556fdc69a0",
+      "persona_id": "x_hot_take_reader_35_9002",
+      "chapter_id": null,
+      "rating": 4.24,
+      "dnf_probability": 0.49,
+      "sentiment": "positive",
+      "attachment_score": 0.733,
+      "confusion_score": 0.552,
+      "recommendation_probability": 1.0,
+      "praise": [
+        "provocation",
+        "controversy",
+        "grief"
+      ],
+      "friction": [
+        "slowness",
+        "nuance_without_payoff",
+        "pacing_drag"
+      ],
+      "notable_quotes": [
+        "Keys to the Quiet Gate I."
+      ],
+      "evidence_refs": [
+        "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+        "book_dna:heuristic",
+        "chunk_001",
+        "chapter:chunk_001",
+        "chapter:chunk_002",
+        "booktok_bdf61963ac28",
+        "x_9d5d3b55ea78",
+        "booktok_ba235ab7aaf7",
+        "booktok_06bc846a3111",
+        "booktok_ae57bb96e9cd",
+        "x_dbb8a7ebfc2a",
+        "booktok_1cf16a4ab6da",
+        "x_ea273d7e1cf8",
+        "booktok_41c3a1273a7f",
+        "booktok_703c0f3cd866"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "private_1df27a0b02b0",
+      "simulation_id": "sim_1d556fdc69a0",
+      "persona_id": "x_hot_take_reader_36_3549",
+      "chapter_id": null,
+      "rating": 4.24,
+      "dnf_probability": 0.407,
+      "sentiment": "positive",
+      "attachment_score": 0.825,
+      "confusion_score": 0.455,
+      "recommendation_probability": 1.0,
+      "praise": [
+        "provocation",
+        "controversy",
+        "grief"
+      ],
+      "friction": [
+        "slowness",
+        "nuance_without_payoff",
+        "pacing_drag"
+      ],
+      "notable_quotes": [
+        "Keys to the Quiet Gate I."
+      ],
+      "evidence_refs": [
+        "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+        "book_dna:heuristic",
+        "chunk_001",
+        "chapter:chunk_001",
+        "chapter:chunk_002",
+        "booktok_ba235ab7aaf7",
+        "booktok_55c18417e1a7",
+        "booktok_41c3a1273a7f",
+        "booktok_1cf16a4ab6da",
+        "x_9d5d3b55ea78",
+        "booktok_ae57bb96e9cd",
+        "x_74df67ad0857",
+        "booktok_bdf61963ac28"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "private_441e57acd9ed",
+      "simulation_id": "sim_1d556fdc69a0",
+      "persona_id": "bookstagram_curator_37_4537",
+      "chapter_id": null,
+      "rating": 3.79,
+      "dnf_probability": 0.476,
+      "sentiment": "positive",
+      "attachment_score": 0.784,
+      "confusion_score": 0.531,
+      "recommendation_probability": 1.0,
+      "praise": [
+        "beautiful_package",
+        "mood",
+        "grief"
+      ],
+      "friction": [
+        "plain_packaging",
+        "visual_flatness",
+        "pacing_drag"
+      ],
+      "notable_quotes": [
+        "Keys to the Quiet Gate I."
+      ],
+      "evidence_refs": [
+        "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+        "book_dna:heuristic",
+        "chunk_001",
+        "chapter:chunk_001",
+        "chapter:chunk_002",
+        "booktok_55c18417e1a7",
+        "x_9d5d3b55ea78",
+        "x_dbb8a7ebfc2a",
+        "booktok_1cf16a4ab6da",
+        "booktok_703c0f3cd866",
+        "booktok_41c3a1273a7f",
+        "x_74df67ad0857",
+        "booktok_ba235ab7aaf7",
+        "booktok_ae57bb96e9cd",
+        "booktok_06bc846a3111",
+        "booktok_bdf61963ac28"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "private_f767be711b7e",
+      "simulation_id": "sim_1d556fdc69a0",
+      "persona_id": "goodreads_harsh_reviewer_38_2647",
+      "chapter_id": null,
+      "rating": 3.65,
+      "dnf_probability": 0.467,
+      "sentiment": "positive",
+      "attachment_score": 0.741,
+      "confusion_score": 0.457,
+      "recommendation_probability": 1.0,
+      "praise": [
+        "strong_opening",
+        "clean_prose",
+        "grief"
+      ],
+      "friction": [
+        "slow_start",
+        "weak_characterization",
+        "pacing_drag"
+      ],
+      "notable_quotes": [
+        "Keys to the Quiet Gate I."
+      ],
+      "evidence_refs": [
+        "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+        "book_dna:heuristic",
+        "chunk_001",
+        "chapter:chunk_001",
+        "chapter:chunk_002",
+        "booktok_41c3a1273a7f",
+        "x_9d5d3b55ea78",
+        "x_dbb8a7ebfc2a",
+        "booktok_ba235ab7aaf7",
+        "booktok_bdf61963ac28",
+        "x_74df67ad0857",
+        "booktok_1cf16a4ab6da",
+        "x_ea273d7e1cf8"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "private_eb293be96e14",
+      "simulation_id": "sim_1d556fdc69a0",
+      "persona_id": "x_hot_take_reader_39_4709",
+      "chapter_id": null,
+      "rating": 3.7,
+      "dnf_probability": 0.461,
+      "sentiment": "positive",
+      "attachment_score": 0.832,
+      "confusion_score": 0.53,
+      "recommendation_probability": 1.0,
+      "praise": [
+        "provocation",
+        "controversy",
+        "grief"
+      ],
+      "friction": [
+        "slowness",
+        "nuance_without_payoff",
+        "pacing_drag"
+      ],
+      "notable_quotes": [
+        "Keys to the Quiet Gate I."
+      ],
+      "evidence_refs": [
+        "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+        "book_dna:heuristic",
+        "chunk_001",
+        "chapter:chunk_001",
+        "chapter:chunk_002",
+        "booktok_bdf61963ac28",
+        "booktok_55c18417e1a7",
+        "x_74df67ad0857",
+        "x_ea273d7e1cf8",
+        "booktok_1cf16a4ab6da",
+        "booktok_703c0f3cd866",
+        "x_dbb8a7ebfc2a",
+        "x_9d5d3b55ea78",
+        "booktok_ba235ab7aaf7",
+        "booktok_06bc846a3111"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "private_eae801d1b448",
+      "simulation_id": "sim_1d556fdc69a0",
+      "persona_id": "booktok_trope_hunter_40_5342",
+      "chapter_id": null,
+      "rating": 4.01,
+      "dnf_probability": 0.398,
+      "sentiment": "positive",
+      "attachment_score": 0.788,
+      "confusion_score": 0.465,
+      "recommendation_probability": 1.0,
+      "praise": [
+        "enemies_to_lovers",
+        "slow_burn",
+        "grief"
+      ],
+      "friction": [
+        "trope_mismatch",
+        "no_payoff",
+        "pacing_drag"
+      ],
+      "notable_quotes": [
+        "Keys to the Quiet Gate I."
+      ],
+      "evidence_refs": [
+        "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+        "book_dna:heuristic",
+        "chunk_001",
+        "chapter:chunk_001",
+        "chapter:chunk_002",
+        "x_dbb8a7ebfc2a",
+        "booktok_41c3a1273a7f",
+        "x_9d5d3b55ea78",
+        "booktok_ba235ab7aaf7",
+        "booktok_ae57bb96e9cd",
+        "booktok_bdf61963ac28",
+        "booktok_06bc846a3111"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "private_af4cd58f41d9",
+      "simulation_id": "sim_1d556fdc69a0",
+      "persona_id": "bookstagram_curator_41_2998",
+      "chapter_id": null,
+      "rating": 3.6,
+      "dnf_probability": 0.474,
+      "sentiment": "positive",
+      "attachment_score": 0.782,
+      "confusion_score": 0.545,
+      "recommendation_probability": 1.0,
+      "praise": [
+        "beautiful_package",
+        "mood",
+        "grief"
+      ],
+      "friction": [
+        "plain_packaging",
+        "visual_flatness",
+        "pacing_drag"
+      ],
+      "notable_quotes": [
+        "Keys to the Quiet Gate I."
+      ],
+      "evidence_refs": [
+        "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+        "book_dna:heuristic",
+        "chunk_001",
+        "chapter:chunk_001",
+        "chapter:chunk_002",
+        "x_9d5d3b55ea78",
+        "booktok_bdf61963ac28",
+        "x_ea273d7e1cf8",
+        "booktok_06bc846a3111",
+        "booktok_1cf16a4ab6da",
+        "booktok_55c18417e1a7",
+        "x_74df67ad0857",
+        "booktok_703c0f3cd866",
+        "booktok_ae57bb96e9cd"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "private_6b436889be9c",
+      "simulation_id": "sim_1d556fdc69a0",
+      "persona_id": "bookstagram_curator_42_4611",
+      "chapter_id": null,
+      "rating": 4.0,
+      "dnf_probability": 0.45,
+      "sentiment": "positive",
+      "attachment_score": 0.686,
+      "confusion_score": 0.491,
+      "recommendation_probability": 1.0,
+      "praise": [
+        "beautiful_package",
+        "mood",
+        "grief"
+      ],
+      "friction": [
+        "plain_packaging",
+        "visual_flatness",
+        "pacing_drag"
+      ],
+      "notable_quotes": [
+        "Keys to the Quiet Gate I."
+      ],
+      "evidence_refs": [
+        "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+        "book_dna:heuristic",
+        "chunk_001",
+        "chapter:chunk_001",
+        "chapter:chunk_002",
+        "x_9d5d3b55ea78",
+        "x_74df67ad0857",
+        "x_dbb8a7ebfc2a",
+        "booktok_ba235ab7aaf7",
+        "booktok_ae57bb96e9cd",
+        "booktok_bdf61963ac28",
+        "booktok_55c18417e1a7",
+        "booktok_06bc846a3111",
+        "booktok_703c0f3cd866"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "private_e98365c9a295",
+      "simulation_id": "sim_1d556fdc69a0",
+      "persona_id": "bookstagram_curator_43_8312",
+      "chapter_id": null,
+      "rating": 4.3,
+      "dnf_probability": 0.516,
+      "sentiment": "positive",
+      "attachment_score": 0.742,
+      "confusion_score": 0.544,
+      "recommendation_probability": 1.0,
+      "praise": [
+        "beautiful_package",
+        "mood",
+        "grief"
+      ],
+      "friction": [
+        "plain_packaging",
+        "visual_flatness",
+        "pacing_drag"
+      ],
+      "notable_quotes": [
+        "Keys to the Quiet Gate I."
+      ],
+      "evidence_refs": [
+        "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+        "book_dna:heuristic",
+        "chunk_001",
+        "chapter:chunk_001",
+        "chapter:chunk_002",
+        "x_9d5d3b55ea78",
+        "booktok_703c0f3cd866",
+        "booktok_1cf16a4ab6da",
+        "x_dbb8a7ebfc2a",
+        "booktok_55c18417e1a7",
+        "x_ea273d7e1cf8",
+        "booktok_41c3a1273a7f",
+        "x_74df67ad0857"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "private_aeca01d376cf",
+      "simulation_id": "sim_1d556fdc69a0",
+      "persona_id": "goodreads_genre_loyalist_44_9261",
+      "chapter_id": null,
+      "rating": 4.41,
+      "dnf_probability": 0.496,
+      "sentiment": "positive",
+      "attachment_score": 0.683,
+      "confusion_score": 0.538,
+      "recommendation_probability": 1.0,
+      "praise": [
+        "genre_tropes",
+        "satisfying_arc",
+        "grief"
+      ],
+      "friction": [
+        "genre_betrayal",
+        "ambiguous_endings",
+        "pacing_drag"
+      ],
+      "notable_quotes": [
+        "Keys to the Quiet Gate I."
+      ],
+      "evidence_refs": [
+        "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+        "book_dna:heuristic",
+        "chunk_001",
+        "chapter:chunk_001",
+        "chapter:chunk_002",
+        "x_74df67ad0857",
+        "booktok_ae57bb96e9cd",
+        "booktok_ba235ab7aaf7",
+        "booktok_41c3a1273a7f",
+        "x_9d5d3b55ea78",
+        "x_ea273d7e1cf8",
+        "booktok_703c0f3cd866",
+        "booktok_06bc846a3111",
+        "booktok_bdf61963ac28"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "private_f8d96e877784",
+      "simulation_id": "sim_1d556fdc69a0",
+      "persona_id": "goodreads_genre_loyalist_45_4315",
+      "chapter_id": null,
+      "rating": 3.96,
+      "dnf_probability": 0.495,
+      "sentiment": "positive",
+      "attachment_score": 0.701,
+      "confusion_score": 0.512,
+      "recommendation_probability": 1.0,
+      "praise": [
+        "genre_tropes",
+        "satisfying_arc",
+        "grief"
+      ],
+      "friction": [
+        "genre_betrayal",
+        "ambiguous_endings",
+        "pacing_drag"
+      ],
+      "notable_quotes": [
+        "Keys to the Quiet Gate I."
+      ],
+      "evidence_refs": [
+        "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+        "book_dna:heuristic",
+        "chunk_001",
+        "chapter:chunk_001",
+        "chapter:chunk_002",
+        "booktok_ae57bb96e9cd",
+        "x_ea273d7e1cf8",
+        "booktok_bdf61963ac28",
+        "booktok_06bc846a3111",
+        "x_74df67ad0857",
+        "x_9d5d3b55ea78",
+        "x_dbb8a7ebfc2a",
+        "booktok_ba235ab7aaf7"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "private_d461d426ca87",
+      "simulation_id": "sim_1d556fdc69a0",
+      "persona_id": "booktok_trope_hunter_46_9481",
+      "chapter_id": null,
+      "rating": 4.06,
+      "dnf_probability": 0.474,
+      "sentiment": "positive",
+      "attachment_score": 0.742,
+      "confusion_score": 0.563,
+      "recommendation_probability": 1.0,
+      "praise": [
+        "enemies_to_lovers",
+        "slow_burn",
+        "grief"
+      ],
+      "friction": [
+        "trope_mismatch",
+        "no_payoff",
+        "pacing_drag"
+      ],
+      "notable_quotes": [
+        "Keys to the Quiet Gate I."
+      ],
+      "evidence_refs": [
+        "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+        "book_dna:heuristic",
+        "chunk_001",
+        "chapter:chunk_001",
+        "chapter:chunk_002",
+        "booktok_1cf16a4ab6da",
+        "x_74df67ad0857",
+        "booktok_bdf61963ac28",
+        "x_9d5d3b55ea78",
+        "booktok_06bc846a3111",
+        "booktok_41c3a1273a7f",
+        "x_ea273d7e1cf8",
+        "booktok_ba235ab7aaf7",
+        "booktok_703c0f3cd866",
+        "booktok_ae57bb96e9cd"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "private_2334e2ad69ea",
+      "simulation_id": "sim_1d556fdc69a0",
+      "persona_id": "booktok_emotional_amplifier_47_5386",
+      "chapter_id": null,
+      "rating": 4.37,
+      "dnf_probability": 0.458,
+      "sentiment": "positive",
+      "attachment_score": 0.724,
+      "confusion_score": 0.482,
+      "recommendation_probability": 1.0,
+      "praise": [
+        "heartbreak",
+        "found_family",
+        "grief"
+      ],
+      "friction": [
+        "detachment",
+        "exposition",
+        "pacing_drag"
+      ],
+      "notable_quotes": [
+        "Keys to the Quiet Gate I."
+      ],
+      "evidence_refs": [
+        "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+        "book_dna:heuristic",
+        "chunk_001",
+        "chapter:chunk_001",
+        "chapter:chunk_002",
+        "booktok_ba235ab7aaf7",
+        "x_dbb8a7ebfc2a",
+        "booktok_bdf61963ac28",
+        "booktok_41c3a1273a7f",
+        "x_74df67ad0857",
+        "booktok_1cf16a4ab6da",
+        "x_9d5d3b55ea78",
+        "x_ea273d7e1cf8"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "private_185cc55509be",
+      "simulation_id": "sim_1d556fdc69a0",
+      "persona_id": "x_hot_take_reader_48_7887",
+      "chapter_id": null,
+      "rating": 4.17,
+      "dnf_probability": 0.484,
+      "sentiment": "positive",
+      "attachment_score": 0.704,
+      "confusion_score": 0.513,
+      "recommendation_probability": 1.0,
+      "praise": [
+        "provocation",
+        "controversy",
+        "grief"
+      ],
+      "friction": [
+        "slowness",
+        "nuance_without_payoff",
+        "pacing_drag"
+      ],
+      "notable_quotes": [
+        "Keys to the Quiet Gate I."
+      ],
+      "evidence_refs": [
+        "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+        "book_dna:heuristic",
+        "chunk_001",
+        "chapter:chunk_001",
+        "chapter:chunk_002",
+        "booktok_06bc846a3111",
+        "x_9d5d3b55ea78",
+        "booktok_ba235ab7aaf7",
+        "x_74df67ad0857",
+        "booktok_703c0f3cd866",
+        "x_dbb8a7ebfc2a",
+        "booktok_41c3a1273a7f"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "private_afc3c74e6d1f",
+      "simulation_id": "sim_1d556fdc69a0",
+      "persona_id": "reddit_skeptic_49_1285",
+      "chapter_id": null,
+      "rating": 3.9,
+      "dnf_probability": 0.441,
+      "sentiment": "positive",
+      "attachment_score": 0.763,
+      "confusion_score": 0.464,
+      "recommendation_probability": 1.0,
+      "praise": [
+        "internal_logic",
+        "sharp_argument",
+        "grief"
+      ],
+      "friction": [
+        "handwaving",
+        "plot_holes",
+        "pacing_drag"
+      ],
+      "notable_quotes": [
+        "Keys to the Quiet Gate I."
+      ],
+      "evidence_refs": [
+        "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+        "book_dna:heuristic",
+        "chunk_001",
+        "chapter:chunk_001",
+        "chapter:chunk_002",
+        "x_dbb8a7ebfc2a",
+        "booktok_06bc846a3111",
+        "booktok_ba235ab7aaf7",
+        "booktok_41c3a1273a7f",
+        "x_9d5d3b55ea78",
+        "booktok_ae57bb96e9cd"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "private_8276af8cee75",
+      "simulation_id": "sim_1d556fdc69a0",
+      "persona_id": "reddit_genre_purist_50_3671",
+      "chapter_id": null,
+      "rating": 3.92,
+      "dnf_probability": 0.579,
+      "sentiment": "positive",
+      "attachment_score": 0.835,
+      "confusion_score": 0.563,
+      "recommendation_probability": 1.0,
+      "praise": [
+        "genre_authenticity",
+        "canonical_rules",
+        "grief"
+      ],
+      "friction": [
+        "genre_blending",
+        "rule_breaking",
+        "pacing_drag"
+      ],
+      "notable_quotes": [
+        "Keys to the Quiet Gate I."
+      ],
+      "evidence_refs": [
+        "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+        "book_dna:heuristic",
+        "chunk_001",
+        "chapter:chunk_001",
+        "chapter:chunk_002",
+        "booktok_ae57bb96e9cd",
+        "x_ea273d7e1cf8",
+        "booktok_06bc846a3111",
+        "x_dbb8a7ebfc2a",
+        "booktok_41c3a1273a7f",
+        "x_9d5d3b55ea78",
+        "booktok_55c18417e1a7",
+        "booktok_ba235ab7aaf7",
+        "x_74df67ad0857"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "private_477d8e7847ca",
+      "simulation_id": "sim_1d556fdc69a0",
+      "persona_id": "bookstagram_curator_51_3092",
+      "chapter_id": null,
+      "rating": 3.99,
+      "dnf_probability": 0.46,
+      "sentiment": "positive",
+      "attachment_score": 0.783,
+      "confusion_score": 0.547,
+      "recommendation_probability": 1.0,
+      "praise": [
+        "beautiful_package",
+        "mood",
+        "grief"
+      ],
+      "friction": [
+        "plain_packaging",
+        "visual_flatness",
+        "pacing_drag"
+      ],
+      "notable_quotes": [
+        "Keys to the Quiet Gate I."
+      ],
+      "evidence_refs": [
+        "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+        "book_dna:heuristic",
+        "chunk_001",
+        "chapter:chunk_001",
+        "chapter:chunk_002",
+        "x_dbb8a7ebfc2a",
+        "x_ea273d7e1cf8",
+        "booktok_ae57bb96e9cd",
+        "booktok_ba235ab7aaf7",
+        "booktok_06bc846a3111",
+        "booktok_55c18417e1a7"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "private_28e8ce20ebb9",
+      "simulation_id": "sim_1d556fdc69a0",
+      "persona_id": "booktok_trope_hunter_52_7085",
+      "chapter_id": null,
+      "rating": 4.61,
+      "dnf_probability": 0.447,
+      "sentiment": "positive",
+      "attachment_score": 0.818,
+      "confusion_score": 0.551,
+      "recommendation_probability": 1.0,
+      "praise": [
+        "enemies_to_lovers",
+        "slow_burn",
+        "grief"
+      ],
+      "friction": [
+        "trope_mismatch",
+        "no_payoff",
+        "pacing_drag"
+      ],
+      "notable_quotes": [
+        "Keys to the Quiet Gate I."
+      ],
+      "evidence_refs": [
+        "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+        "book_dna:heuristic",
+        "chunk_001",
+        "chapter:chunk_001",
+        "chapter:chunk_002",
+        "booktok_ae57bb96e9cd",
+        "booktok_1cf16a4ab6da",
+        "x_ea273d7e1cf8",
+        "booktok_ba235ab7aaf7",
+        "x_dbb8a7ebfc2a",
+        "booktok_bdf61963ac28",
+        "booktok_55c18417e1a7",
+        "booktok_703c0f3cd866"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "private_588e16871f35",
+      "simulation_id": "sim_1d556fdc69a0",
+      "persona_id": "x_hot_take_reader_53_7046",
+      "chapter_id": null,
+      "rating": 3.92,
+      "dnf_probability": 0.474,
+      "sentiment": "positive",
+      "attachment_score": 0.822,
+      "confusion_score": 0.522,
+      "recommendation_probability": 1.0,
+      "praise": [
+        "provocation",
+        "controversy",
+        "grief"
+      ],
+      "friction": [
+        "slowness",
+        "nuance_without_payoff",
+        "pacing_drag"
+      ],
+      "notable_quotes": [
+        "Keys to the Quiet Gate I."
+      ],
+      "evidence_refs": [
+        "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+        "book_dna:heuristic",
+        "chunk_001",
+        "chapter:chunk_001",
+        "chapter:chunk_002",
+        "booktok_06bc846a3111",
+        "x_74df67ad0857",
+        "booktok_1cf16a4ab6da",
+        "booktok_ba235ab7aaf7",
+        "booktok_41c3a1273a7f",
+        "x_9d5d3b55ea78",
+        "booktok_bdf61963ac28",
+        "booktok_703c0f3cd866"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "private_a97e5cf381e2",
+      "simulation_id": "sim_1d556fdc69a0",
+      "persona_id": "booktok_emotional_amplifier_54_8035",
+      "chapter_id": null,
+      "rating": 4.44,
+      "dnf_probability": 0.513,
+      "sentiment": "positive",
+      "attachment_score": 0.785,
+      "confusion_score": 0.543,
+      "recommendation_probability": 1.0,
+      "praise": [
+        "heartbreak",
+        "found_family",
+        "grief"
+      ],
+      "friction": [
+        "detachment",
+        "exposition",
+        "pacing_drag"
+      ],
+      "notable_quotes": [
+        "Keys to the Quiet Gate I."
+      ],
+      "evidence_refs": [
+        "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+        "book_dna:heuristic",
+        "chunk_001",
+        "chapter:chunk_001",
+        "chapter:chunk_002",
+        "x_ea273d7e1cf8",
+        "x_74df67ad0857",
+        "booktok_41c3a1273a7f",
+        "booktok_06bc846a3111",
+        "booktok_703c0f3cd866",
+        "booktok_55c18417e1a7",
+        "x_dbb8a7ebfc2a",
+        "x_9d5d3b55ea78",
+        "booktok_ae57bb96e9cd"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "private_b660fce2c932",
+      "simulation_id": "sim_1d556fdc69a0",
+      "persona_id": "booktok_emotional_amplifier_55_1963",
+      "chapter_id": null,
+      "rating": 4.02,
+      "dnf_probability": 0.45,
+      "sentiment": "positive",
+      "attachment_score": 0.823,
+      "confusion_score": 0.522,
+      "recommendation_probability": 1.0,
+      "praise": [
+        "heartbreak",
+        "found_family",
+        "grief"
+      ],
+      "friction": [
+        "detachment",
+        "exposition",
+        "pacing_drag"
+      ],
+      "notable_quotes": [
+        "Keys to the Quiet Gate I."
+      ],
+      "evidence_refs": [
+        "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+        "book_dna:heuristic",
+        "chunk_001",
+        "chapter:chunk_001",
+        "chapter:chunk_002",
+        "booktok_703c0f3cd866",
+        "booktok_06bc846a3111",
+        "x_ea273d7e1cf8",
+        "booktok_ba235ab7aaf7",
+        "x_9d5d3b55ea78",
+        "booktok_1cf16a4ab6da",
+        "x_dbb8a7ebfc2a",
+        "booktok_41c3a1273a7f",
+        "booktok_bdf61963ac28",
+        "booktok_55c18417e1a7"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "private_4dc9064c2f0e",
+      "simulation_id": "sim_1d556fdc69a0",
+      "persona_id": "booktok_emotional_amplifier_56_4123",
+      "chapter_id": null,
+      "rating": 3.94,
+      "dnf_probability": 0.474,
+      "sentiment": "positive",
+      "attachment_score": 0.685,
+      "confusion_score": 0.484,
+      "recommendation_probability": 1.0,
+      "praise": [
+        "heartbreak",
+        "found_family",
+        "grief"
+      ],
+      "friction": [
+        "detachment",
+        "exposition",
+        "pacing_drag"
+      ],
+      "notable_quotes": [
+        "Keys to the Quiet Gate I."
+      ],
+      "evidence_refs": [
+        "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+        "book_dna:heuristic",
+        "chunk_001",
+        "chapter:chunk_001",
+        "chapter:chunk_002",
+        "booktok_55c18417e1a7",
+        "x_ea273d7e1cf8",
+        "booktok_ae57bb96e9cd",
+        "booktok_41c3a1273a7f",
+        "booktok_ba235ab7aaf7"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "private_6cf32fdc65cf",
+      "simulation_id": "sim_1d556fdc69a0",
+      "persona_id": "bookstagram_curator_57_5781",
+      "chapter_id": null,
+      "rating": 3.76,
+      "dnf_probability": 0.466,
+      "sentiment": "positive",
+      "attachment_score": 0.698,
+      "confusion_score": 0.555,
+      "recommendation_probability": 1.0,
+      "praise": [
+        "beautiful_package",
+        "mood",
+        "grief"
+      ],
+      "friction": [
+        "plain_packaging",
+        "visual_flatness",
+        "pacing_drag"
+      ],
+      "notable_quotes": [
+        "Keys to the Quiet Gate I."
+      ],
+      "evidence_refs": [
+        "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+        "book_dna:heuristic",
+        "chunk_001",
+        "chapter:chunk_001",
+        "chapter:chunk_002",
+        "booktok_703c0f3cd866",
+        "x_ea273d7e1cf8",
+        "booktok_55c18417e1a7",
+        "booktok_06bc846a3111",
+        "booktok_1cf16a4ab6da",
+        "x_9d5d3b55ea78",
+        "booktok_ba235ab7aaf7",
+        "booktok_ae57bb96e9cd",
+        "booktok_bdf61963ac28",
+        "booktok_41c3a1273a7f"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "private_e7545de28970",
+      "simulation_id": "sim_1d556fdc69a0",
+      "persona_id": "booktok_trope_hunter_58_7341",
+      "chapter_id": null,
+      "rating": 4.0,
+      "dnf_probability": 0.395,
+      "sentiment": "positive",
+      "attachment_score": 0.769,
+      "confusion_score": 0.479,
+      "recommendation_probability": 1.0,
+      "praise": [
+        "enemies_to_lovers",
+        "slow_burn",
+        "grief"
+      ],
+      "friction": [
+        "trope_mismatch",
+        "no_payoff",
+        "pacing_drag"
+      ],
+      "notable_quotes": [
+        "Keys to the Quiet Gate I."
+      ],
+      "evidence_refs": [
+        "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+        "book_dna:heuristic",
+        "chunk_001",
+        "chapter:chunk_001",
+        "chapter:chunk_002",
+        "booktok_ba235ab7aaf7",
+        "booktok_41c3a1273a7f",
+        "x_ea273d7e1cf8",
+        "x_9d5d3b55ea78",
+        "x_74df67ad0857",
+        "booktok_703c0f3cd866",
+        "booktok_55c18417e1a7"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "private_cdbd9075ade6",
+      "simulation_id": "sim_1d556fdc69a0",
+      "persona_id": "reddit_genre_purist_59_6876",
+      "chapter_id": null,
+      "rating": 3.93,
+      "dnf_probability": 0.563,
+      "sentiment": "positive",
+      "attachment_score": 0.79,
+      "confusion_score": 0.524,
+      "recommendation_probability": 1.0,
+      "praise": [
+        "genre_authenticity",
+        "canonical_rules",
+        "grief"
+      ],
+      "friction": [
+        "genre_blending",
+        "rule_breaking",
+        "pacing_drag"
+      ],
+      "notable_quotes": [
+        "Keys to the Quiet Gate I."
+      ],
+      "evidence_refs": [
+        "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+        "book_dna:heuristic",
+        "chunk_001",
+        "chapter:chunk_001",
+        "chapter:chunk_002",
+        "booktok_41c3a1273a7f",
+        "booktok_ba235ab7aaf7",
+        "x_dbb8a7ebfc2a",
+        "x_74df67ad0857",
+        "booktok_06bc846a3111",
+        "booktok_1cf16a4ab6da",
+        "booktok_55c18417e1a7",
+        "x_9d5d3b55ea78",
+        "booktok_703c0f3cd866"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "reaction_id": "private_4e1310b574cb",
+      "simulation_id": "sim_1d556fdc69a0",
+      "persona_id": "booktok_trope_hunter_60_1979",
+      "chapter_id": null,
+      "rating": 4.31,
+      "dnf_probability": 0.401,
+      "sentiment": "positive",
+      "attachment_score": 0.72,
+      "confusion_score": 0.485,
+      "recommendation_probability": 1.0,
+      "praise": [
+        "enemies_to_lovers",
+        "slow_burn",
+        "grief"
+      ],
+      "friction": [
+        "trope_mismatch",
+        "no_payoff",
+        "pacing_drag"
+      ],
+      "notable_quotes": [
+        "Keys to the Quiet Gate I."
+      ],
+      "evidence_refs": [
+        "2e1fba324151b11e0e9a52a289e6b01b49f811b59bca8b950bcf788ca943510b",
+        "book_dna:heuristic",
+        "chunk_001",
+        "chapter:chunk_001",
+        "chapter:chunk_002",
+        "booktok_ba235ab7aaf7",
+        "booktok_41c3a1273a7f",
+        "x_74df67ad0857",
+        "booktok_1cf16a4ab6da",
+        "x_ea273d7e1cf8",
+        "x_dbb8a7ebfc2a",
+        "booktok_ae57bb96e9cd",
+        "booktok_703c0f3cd866",
+        "booktok_bdf61963ac28",
+        "booktok_55c18417e1a7",
+        "x_9d5d3b55ea78"
+      ],
+      "confidence": 0.74
+    }
+  ]
+}
